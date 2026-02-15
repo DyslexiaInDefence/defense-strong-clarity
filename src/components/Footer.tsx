@@ -1,9 +1,30 @@
 import { Mail, Phone, MapPin } from "lucide-react";
+import ContactForm from "@/components/ContactForm";
 
 const Footer = () => {
   return (
     <footer id="contact" className="border-t border-border bg-card py-14" role="contentinfo" aria-label="Footer">
       <div className="container mx-auto px-4">
+        {/* Contact Form Section */}
+        <div className="mb-12">
+          <h2 className="mb-2 text-2xl font-bold text-foreground">Get in Touch</h2>
+          <p className="mb-8 text-muted-foreground">
+            Have a question or want to learn more? We'd love to hear from you.
+          </p>
+          <div className="mx-auto max-w-2xl">
+            <ContactForm />
+          </div>
+        </div>
+
+        {/* Ribbon divider */}
+        <div
+          className="my-8 h-1 rounded-full"
+          style={{
+            background: "linear-gradient(90deg, hsl(var(--ribbon-yellow)), hsl(var(--ribbon-blue)), hsl(var(--ribbon-red)), hsl(var(--ribbon-green)))",
+          }}
+          aria-hidden="true"
+        />
+
         <div className="grid gap-10 md:grid-cols-3">
           {/* Brand & mission */}
           <div>
@@ -19,17 +40,17 @@ const Footer = () => {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-primary" aria-hidden="true" />
-                <a href="mailto:info@dyslexiaindefence.org" className="hover:text-primary transition-colors">
-                  info@dyslexiaindefence.org
+                <a href="mailto:dyslexia-in-defence@mod.gov.uk" className="hover:text-primary transition-colors">
+                  dyslexia-in-defence@mod.gov.uk
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-primary" aria-hidden="true" />
-                <span>+44 (0)20 0000 0000</span>
+                <span>+44 (0)20 7218 9000</span>
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-primary" aria-hidden="true" />
-                <span>United Kingdom</span>
+                <span>Ministry of Defence, London, United Kingdom</span>
               </li>
             </ul>
           </div>
@@ -45,16 +66,8 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Ribbon divider */}
-        <div
-          className="my-8 h-1 rounded-full"
-          style={{
-            background: "linear-gradient(90deg, hsl(var(--ribbon-yellow)), hsl(var(--ribbon-blue)), hsl(var(--ribbon-red)), hsl(var(--ribbon-green)))",
-          }}
-          aria-hidden="true"
-        />
-
-        <div className="flex flex-col items-center gap-4 text-center text-sm text-muted-foreground md:flex-row md:justify-between">
+        {/* Bottom bar */}
+        <div className="mt-10 flex flex-col items-center gap-4 text-center text-sm text-muted-foreground md:flex-row md:justify-between">
           <p>© {new Date().getFullYear()} Dyslexia in Defence. All rights reserved.</p>
           <p className="font-medium">
             Committed to inclusion, diversity, and the power of different thinking.
