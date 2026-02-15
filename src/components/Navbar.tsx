@@ -1,15 +1,18 @@
 import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { Moon, Sun, Type, Zap, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAccessibility } from "@/contexts/AccessibilityContext";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Resources", href: "#resources" },
-  { label: "Support", href: "#support" },
-  { label: "Join", href: "#join" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Why It Matters", to: "/why-it-matters" },
+  { label: "Community", to: "/community" },
+  { label: "Resources", to: "/resources" },
+  { label: "Support", to: "/support" },
+  { label: "Partner", to: "/partner" },
+  { label: "Governance", to: "/governance" },
 ];
 
 const Navbar = () => {
@@ -23,26 +26,27 @@ const Navbar = () => {
       aria-label="Main navigation"
     >
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
-        {/* Logo */}
-        <a href="#home" className="text-xl font-bold text-primary" aria-label="Dyslexia in Defence - Home">
+        <Link to="/" className="text-xl font-bold text-primary" aria-label="Dyslexia in Defence - Home">
           Dyslexia in Defence
-        </a>
+        </Link>
 
         {/* Desktop nav */}
-        <div className="hidden items-center gap-6 lg:flex">
+        <div className="hidden items-center gap-5 xl:flex">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm px-1"
+            <NavLink
+              key={link.to}
+              to={link.to}
+              className={({ isActive }) =>
+                `text-sm font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm px-1 ${isActive ? "text-primary" : "text-foreground/80"}`
+              }
             >
               {link.label}
-            </a>
+            </NavLink>
           ))}
         </div>
 
         {/* Accessibility toggles + CTA */}
-        <div className="hidden items-center gap-2 lg:flex">
+        <div className="hidden items-center gap-2 xl:flex">
           <button
             onClick={toggleDarkMode}
             className="rounded-lg p-2 text-foreground/70 transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -68,16 +72,16 @@ const Navbar = () => {
             <Zap className="h-5 w-5" />
           </button>
 
-          <a href="#join">
+          <Link to="/join">
             <Button className="ml-2 rounded-full font-semibold" size="lg">
               Get Involved
             </Button>
-          </a>
+          </Link>
         </div>
 
         {/* Mobile hamburger */}
         <button
-          className="rounded-lg p-2 text-foreground lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="rounded-lg p-2 text-foreground xl:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
@@ -87,18 +91,20 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-t border-border bg-background px-4 py-4 lg:hidden" role="menu">
-          <div className="flex flex-col gap-3">
+        <div className="border-t border-border bg-background px-4 py-4 xl:hidden" role="menu">
+          <div className="flex flex-col gap-2">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="rounded-lg px-3 py-2 text-base font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-primary"
+              <NavLink
+                key={link.to}
+                to={link.to}
+                className={({ isActive }) =>
+                  `rounded-lg px-3 py-2 text-base font-medium transition-colors hover:bg-secondary hover:text-primary ${isActive ? "bg-secondary text-primary" : "text-foreground/80"}`
+                }
                 onClick={() => setMobileOpen(false)}
                 role="menuitem"
               >
                 {link.label}
-              </a>
+              </NavLink>
             ))}
           </div>
           <div className="mt-4 flex items-center gap-2 border-t border-border pt-4">
@@ -112,9 +118,9 @@ const Navbar = () => {
               <Zap className="h-5 w-5" />
             </button>
           </div>
-          <a href="#join" className="mt-4 block" onClick={() => setMobileOpen(false)}>
+          <Link to="/join" className="mt-4 block" onClick={() => setMobileOpen(false)}>
             <Button className="w-full rounded-full font-semibold" size="lg">Get Involved</Button>
-          </a>
+          </Link>
         </div>
       )}
     </nav>
