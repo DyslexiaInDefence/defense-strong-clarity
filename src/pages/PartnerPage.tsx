@@ -1,7 +1,22 @@
 import { Link } from "react-router-dom";
-import { Handshake, Server, Wrench, BookOpen, Calendar, Shield, Users, Heart, TrendingUp } from "lucide-react";
+import { Handshake, Eye, Lightbulb, Users, MessageSquare, FileText, Shield, Heart, TrendingUp, Server, Wrench, BookOpen, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+
+const partnershipIncludes = [
+  { icon: Eye, text: "Strategic visibility across the network" },
+  { icon: Lightbulb, text: "Thought leadership opportunities" },
+  { icon: Users, text: "Participation in roundtables or webinars" },
+  { icon: MessageSquare, text: "Feature placement in communications" },
+  { icon: FileText, text: "Co-creation of practical resources" },
+];
+
+const partnerBenefits = [
+  { icon: Shield, text: "Association with a professionally governed initiative" },
+  { icon: Users, text: "Engagement with a strengths-based inclusion network" },
+  { icon: Heart, text: "Demonstrated commitment to cognitive diversity" },
+  { icon: TrendingUp, text: "Support of sustainable, non-profit community infrastructure" },
+];
 
 const sponsorshipSupports = [
   { icon: Server, text: "Secure hosting and infrastructure" },
@@ -11,29 +26,31 @@ const sponsorshipSupports = [
   { icon: Shield, text: "Governance development and assurance" },
 ];
 
-const partnerValue = [
-  { icon: Heart, text: "Association with inclusion and cognitive diversity" },
-  { icon: Users, text: "Engagement with the defence and security community" },
-  { icon: TrendingUp, text: "Support of defence workforce capability" },
-];
-
 const PartnerPage = () => {
   return (
     <div className="py-16">
       <div className="container mx-auto px-4">
         <div className="mb-12 max-w-3xl">
-          <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">Partner With Us</h1>
+          <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">Partner with Dyslexia in Defence</h1>
           <p className="text-lg text-muted-foreground">
-            Dyslexia in Defence is a non-profit initiative supporting cognitive diversity across the defence and security ecosystem. We welcome partnerships with organisations that share our commitment to inclusion and capability.
+            Supporting inclusive capability across the defence and security ecosystem.
           </p>
         </div>
 
+        {/* Why partner */}
+        <section className="mb-12" aria-label="Why partner with us">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">Why Partner With Us</h2>
+          <p className="mb-6 max-w-3xl text-muted-foreground leading-relaxed">
+            Partnership with Dyslexia in Defence is a strategic collaboration contributing to workforce resilience and inclusive leadership across the defence and security sector. By working together, we advance the recognition and support of cognitive diversity as a capability advantage.
+          </p>
+        </section>
+
         <div className="grid gap-10 lg:grid-cols-2">
-          {/* What sponsorship supports */}
-          <section aria-label="What sponsorship supports">
-            <h2 className="mb-6 text-2xl font-bold text-foreground">What Sponsorship Supports</h2>
+          {/* What partnership includes */}
+          <section aria-label="What partnership includes">
+            <h2 className="mb-6 text-2xl font-bold text-foreground">What Partnership Includes</h2>
             <div className="space-y-4">
-              {sponsorshipSupports.map((item) => (
+              {partnershipIncludes.map((item) => (
                 <Card key={item.text}>
                   <CardContent className="flex items-center gap-3 p-5">
                     <item.icon className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
@@ -44,11 +61,11 @@ const PartnerPage = () => {
             </div>
           </section>
 
-          {/* Value to partners */}
-          <section aria-label="Value to partners">
-            <h2 className="mb-6 text-2xl font-bold text-foreground">Value to Partners</h2>
+          {/* Benefits to partners */}
+          <section aria-label="Benefits to partners">
+            <h2 className="mb-6 text-2xl font-bold text-foreground">Benefits to Partners</h2>
             <div className="space-y-4">
-              {partnerValue.map((item) => (
+              {partnerBenefits.map((item) => (
                 <Card key={item.text}>
                   <CardContent className="flex items-center gap-3 p-5">
                     <item.icon className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
@@ -57,15 +74,32 @@ const PartnerPage = () => {
                 </Card>
               ))}
             </div>
-            <div className="mt-8">
-              <Link to="/contact">
-                <Button size="lg" className="rounded-full px-8 font-semibold">
-                  <Handshake className="mr-2 h-5 w-5" />
-                  Enquire About Partnership
-                </Button>
-              </Link>
-            </div>
           </section>
+        </div>
+
+        {/* What sponsorship supports */}
+        <section className="mt-12" aria-label="What sponsorship supports">
+          <h2 className="mb-6 text-2xl font-bold text-foreground">What Sponsorship Supports</h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {sponsorshipSupports.map((item) => (
+              <Card key={item.text}>
+                <CardContent className="flex items-center gap-3 p-5">
+                  <item.icon className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                  <span className="text-foreground">{item.text}</span>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA */}
+        <div className="mt-12">
+          <Link to="/contact">
+            <Button size="lg" className="rounded-full px-8 font-semibold">
+              <Handshake className="mr-2 h-5 w-5" />
+              Enquire About Partnership
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

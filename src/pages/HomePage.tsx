@@ -37,25 +37,28 @@ const impactStages = [
     objectives: [
       "Community governance framework in place",
       "Initial resource library published",
-      "Founding member engagement",
+      "Founding member engagement established",
+      "Core partnerships identified",
     ],
   },
   {
     stage: "Consolidation",
     icon: TrendingUp,
     objectives: [
-      "Structured event programme",
-      "Expanded partnership base",
-      "Measurable resource usage and engagement",
+      "Structured event programme delivered",
+      "Expanded partnership and collaboration base",
+      "Measurable resource usage and community engagement",
+      "Demonstrated value to partner organisations",
     ],
   },
   {
     stage: "Ecosystem Influence",
     icon: Globe,
     objectives: [
-      "Cross-sector recognition",
-      "Contributing partner organisations",
-      "Informing policy and practice",
+      "Cross-sector recognition and credibility",
+      "Contributing partner organisations across defence",
+      "Informing policy and practice through evidence",
+      "Sustainable operational model established",
     ],
   },
 ];
@@ -116,25 +119,33 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Positioning block */}
-      <section className="border-t border-border bg-card py-16" aria-label="Positioning">
-        <div className="container mx-auto grid gap-10 px-4 md:grid-cols-2">
-          <div>
-            <h2 className="mb-4 text-2xl font-bold text-foreground">We are</h2>
-            <ul className="space-y-2 text-muted-foreground">
-              <li className="flex items-start gap-2"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />Volunteer led</li>
-              <li className="flex items-start gap-2"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />Independently governed</li>
-              <li className="flex items-start gap-2"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />Strength based</li>
-              <li className="flex items-start gap-2"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />Professionally moderated</li>
-            </ul>
+      {/* Mission positioning */}
+      <section className="border-t border-border bg-card py-16" aria-label="Mission positioning">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="mb-6 text-2xl font-bold text-foreground">Our Mission</h2>
+            <p className="mb-10 text-lg leading-relaxed text-muted-foreground">
+              We strengthen inclusive capability by supporting individuals with dyslexia and related neurodivergent profiles across service, transition and industry environments.
+            </p>
           </div>
-          <div>
-            <h2 className="mb-4 text-2xl font-bold text-foreground">We are not</h2>
-            <ul className="space-y-2 text-muted-foreground">
-              <li className="flex items-start gap-2"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-destructive" aria-hidden="true" />A crisis service</li>
-              <li className="flex items-start gap-2"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-destructive" aria-hidden="true" />A political campaign</li>
-              <li className="flex items-start gap-2"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-destructive" aria-hidden="true" />An official MOD body</li>
-            </ul>
+          <div className="mx-auto grid max-w-4xl gap-10 md:grid-cols-2">
+            <div>
+              <h3 className="mb-4 text-xl font-bold text-foreground">We are</h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li className="flex items-start gap-2"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />Volunteer led</li>
+                <li className="flex items-start gap-2"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />Independently governed</li>
+                <li className="flex items-start gap-2"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />Strength based</li>
+                <li className="flex items-start gap-2"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />Professionally moderated</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="mb-4 text-xl font-bold text-foreground">We are not</h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li className="flex items-start gap-2"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-destructive" aria-hidden="true" />A crisis service</li>
+                <li className="flex items-start gap-2"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-destructive" aria-hidden="true" />A political campaign</li>
+                <li className="flex items-start gap-2"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-destructive" aria-hidden="true" />An official MOD body</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -162,9 +173,9 @@ const HomePage = () => {
       {/* Impact narrative */}
       <section className="border-t border-border bg-card py-16" aria-label="Impact narrative">
         <div className="container mx-auto px-4">
-          <h2 className="mb-2 text-center text-2xl font-bold text-foreground">Impact Narrative</h2>
+          <h2 className="mb-2 text-center text-2xl font-bold text-foreground">Impact Framework</h2>
           <p className="mx-auto mb-10 max-w-xl text-center text-muted-foreground">
-            A measured, phased approach to building lasting value across the defence and security ecosystem.
+            A structured, phased approach to building sustainable value across the defence and security ecosystem.
           </p>
           <div className="grid gap-6 md:grid-cols-3">
             {impactStages.map((stage, i) => (

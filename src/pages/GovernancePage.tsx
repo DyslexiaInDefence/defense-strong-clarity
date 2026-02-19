@@ -5,7 +5,7 @@ const sections = [
   {
     icon: Scale,
     title: "Operating Model",
-    content: "Dyslexia in Defence operates as an independent, volunteer-led, non-profit initiative. It exists to provide peer support and structured signposting for dyslexic individuals connected to the defence and security sector. The initiative is not constituted as a formal charity or company at this stage but operates under defined governance principles.",
+    content: "Dyslexia in Defence operates as an independent, volunteer-led, non-profit initiative governed by defined principles. It provides peer support and structured signposting for individuals with dyslexia connected to the defence and security sector. While not constituted as a formal charity or company at this stage, the initiative maintains clear governance standards appropriate to its scope and activities.",
   },
   {
     icon: Shield,
@@ -30,7 +30,7 @@ const sections = [
   {
     icon: Banknote,
     title: "Funding Transparency",
-    content: "The initiative is currently self-funded by the founder. Any future sponsorship or funding will be disclosed transparently. Funding sources will not influence the independence, content, or direction of the initiative.",
+    content: "The initiative is currently self-funded by the founder. Any future sponsorship, partnership, or funding arrangements will be disclosed transparently. Funding sources will not influence the independence, content, or strategic direction of the initiative. Partnership arrangements are structured to support operational sustainability while preserving editorial and governance independence.",
   },
 ];
 
