@@ -10,11 +10,11 @@ const strengths = [
 ];
 
 const ecosystem = [
-  { label: "Pre-service", description: "Candidates exploring careers in defence and security." },
+  { label: "Pre-service", description: "Candidates exploring defence and security careers." },
   { label: "Serving", description: "Active personnel across military and civilian roles." },
-  { label: "Veterans", description: "Those transitioning to civilian life or employment." },
+  { label: "Veterans", description: "Those transitioning to civilian life." },
   { label: "Industry", description: "Defence and security contractors and partners." },
-  { label: "Families", description: "Dependants and family members navigating support." },
+  { label: "Families", description: "Dependants navigating support." },
 ];
 
 const WhyItMattersPage = () => {
@@ -24,13 +24,13 @@ const WhyItMattersPage = () => {
         <div className="mb-12 max-w-3xl">
           <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">Why It Matters</h1>
           <p className="text-lg text-muted-foreground">
-            Modern defence and security environments rely on diverse cognitive strengths. Recognising and leveraging neurodivergent capability is a strategic advantage.
+            Cognitive diversity strengthens defence and security capability. Dyslexic thinking brings unique strengths to complex environments.
           </p>
         </div>
 
         {/* Strengths */}
         <section className="mb-16" aria-label="Dyslexic strengths">
-          <h2 className="mb-6 text-2xl font-bold text-foreground">Strengths Associated with Dyslexia</h2>
+          <h2 className="mb-6 text-2xl font-bold text-foreground">Dyslexic Strengths</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {strengths.map((s) => (
               <Card key={s.label}>
@@ -43,12 +43,9 @@ const WhyItMattersPage = () => {
           </div>
         </section>
 
-        {/* Ecosystem gap */}
-        <section aria-label="Ecosystem">
-          <h2 className="mb-4 text-2xl font-bold text-foreground">The Ecosystem Gap</h2>
-          <p className="mb-6 max-w-3xl text-muted-foreground">
-            Support for dyslexic individuals spans multiple stages of engagement with the defence and security sector. This initiative provides an independent, professionally moderated space for peer connection and structured signposting, complementary to existing institutional structures.
-          </p>
+        {/* Who we support */}
+        <section aria-label="Who we support">
+          <h2 className="mb-6 text-2xl font-bold text-foreground">Who We Support</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {ecosystem.map((e) => (
               <Card key={e.label}>

@@ -1,30 +1,30 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, ChevronRight, Shield, Users, Handshake, HeartHandshake, Target, TrendingUp, Globe } from "lucide-react";
+import { ArrowRight, ChevronRight, Target, Users, Handshake, HeartHandshake, Shield, TrendingUp, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const previewCards = [
   {
     title: "Why It Matters",
-    description: "How cognitive diversity strengthens defence and security capability.",
+    description: "Cognitive diversity as a strategic advantage.",
     href: "/why-it-matters",
     icon: Target,
   },
   {
     title: "Community",
-    description: "A moderated peer network built on trust, boundaries, and mutual respect.",
+    description: "Peer support built on trust and shared experience.",
     href: "/community",
     icon: Users,
   },
   {
     title: "Partner With Us",
-    description: "Support an independent initiative advancing inclusion in defence.",
+    description: "Collaborate to advance inclusive capability.",
     href: "/partner",
     icon: Handshake,
   },
   {
     title: "Support Directory",
-    description: "Structured signposting to trusted services and organisations.",
+    description: "Trusted services and organisations.",
     href: "/support",
     icon: HeartHandshake,
   },
@@ -35,30 +35,27 @@ const impactStages = [
     stage: "Establishment",
     icon: Shield,
     objectives: [
-      "Community governance framework in place",
-      "Initial resource library published",
-      "Founding member engagement established",
-      "Core partnerships identified",
+      "Governance framework in place",
+      "Resource library published",
+      "Founding member engagement",
     ],
   },
   {
     stage: "Consolidation",
     icon: TrendingUp,
     objectives: [
-      "Structured event programme delivered",
-      "Expanded partnership and collaboration base",
-      "Measurable resource usage and community engagement",
-      "Demonstrated value to partner organisations",
+      "Event programme delivered",
+      "Partnership base expanded",
+      "Measurable community engagement",
     ],
   },
   {
     stage: "Ecosystem Influence",
     icon: Globe,
     objectives: [
-      "Cross-sector recognition and credibility",
-      "Contributing partner organisations across defence",
-      "Informing policy and practice through evidence",
-      "Sustainable operational model established",
+      "Cross-sector recognition",
+      "Contributing partner organisations",
+      "Sustainable operational model",
     ],
   },
 ];
@@ -119,33 +116,22 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Mission positioning */}
-      <section className="border-t border-border bg-card py-16" aria-label="Mission positioning">
+      {/* Mission */}
+      <section className="border-t border-border bg-card py-16" aria-label="Mission">
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-6 text-2xl font-bold text-foreground">Our Mission</h2>
-            <p className="mb-10 text-lg leading-relaxed text-muted-foreground">
-              We strengthen inclusive capability by supporting individuals with dyslexia and related neurodivergent profiles across service, transition and industry environments.
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="mb-4 text-2xl font-bold text-foreground">What We Do</h2>
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              We connect dyslexic individuals across service, transition, and industry environments — providing peer support, curated resources, and signposting to trusted services.
             </p>
           </div>
-          <div className="mx-auto grid max-w-4xl gap-10 md:grid-cols-2">
-            <div>
-              <h3 className="mb-4 text-xl font-bold text-foreground">We are</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li className="flex items-start gap-2"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />Volunteer led</li>
-                <li className="flex items-start gap-2"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />Independently governed</li>
-                <li className="flex items-start gap-2"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />Strength based</li>
-                <li className="flex items-start gap-2"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />Professionally moderated</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="mb-4 text-xl font-bold text-foreground">We are not</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li className="flex items-start gap-2"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-destructive" aria-hidden="true" />A crisis service</li>
-                <li className="flex items-start gap-2"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-destructive" aria-hidden="true" />A political campaign</li>
-                <li className="flex items-start gap-2"><span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-destructive" aria-hidden="true" />An official MOD body</li>
-              </ul>
-            </div>
+          <div className="mx-auto mt-10 grid max-w-2xl gap-4 sm:grid-cols-2">
+            {["Volunteer led", "Independently governed", "Strengths based", "Professionally moderated"].map((item) => (
+              <div key={item} className="flex items-center gap-3 rounded-lg border border-border bg-background p-4">
+                <span className="h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                <span className="text-foreground">{item}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -170,13 +156,10 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Impact narrative */}
-      <section className="border-t border-border bg-card py-16" aria-label="Impact narrative">
+      {/* Impact framework */}
+      <section className="border-t border-border bg-card py-16" aria-label="Impact framework">
         <div className="container mx-auto px-4">
-          <h2 className="mb-2 text-center text-2xl font-bold text-foreground">Impact Framework</h2>
-          <p className="mx-auto mb-10 max-w-xl text-center text-muted-foreground">
-            A structured, phased approach to building sustainable value across the defence and security ecosystem.
-          </p>
+          <h2 className="mb-10 text-center text-2xl font-bold text-foreground">Impact Framework</h2>
           <div className="grid gap-6 md:grid-cols-3">
             {impactStages.map((stage, i) => (
               <Card key={stage.stage} className="relative overflow-hidden">

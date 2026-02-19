@@ -10,7 +10,7 @@ const JoinPage = () => {
         <div className="mb-12 max-w-3xl">
           <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">Join the Network</h1>
           <p className="text-lg text-muted-foreground">
-            Register your interest to become part of the Dyslexia in Defence peer community. Membership is open to anyone with a connection to the defence and security sector.
+            Open to anyone connected to the defence and security sector.
           </p>
         </div>
 
@@ -23,7 +23,7 @@ const JoinPage = () => {
               <Handshake className="mb-3 h-8 w-8 text-primary" aria-hidden="true" />
               <h2 className="mb-2 text-lg font-bold text-foreground">Partner Enquiries</h2>
               <p className="mb-4 text-sm text-muted-foreground">
-                If you represent an organisation interested in supporting or partnering with Dyslexia in Defence, we welcome your enquiry.
+                Organisations interested in partnership are welcome.
               </p>
               <Link to="/partner">
                 <Button variant="outline" className="w-full">Learn About Partnership</Button>
