@@ -5,32 +5,32 @@ const sections = [
   {
     icon: Scale,
     title: "Operating Model",
-    content: "Dyslexia in Defence operates as an independent, volunteer-led, non-profit initiative governed by defined principles. It provides peer support and structured signposting for individuals with dyslexia connected to the defence and security sector. While not constituted as a formal charity or company at this stage, the initiative maintains clear governance standards appropriate to its scope and activities.",
+    content: "Independent, volunteer-led, non-profit initiative with defined governance principles appropriate to scope and activities.",
   },
   {
     icon: Shield,
     title: "Independence",
-    content: "This initiative is entirely independent. It is not affiliated with, endorsed by, or funded by the Ministry of Defence, any military branch, or any employer. All activities are conducted in a personal, voluntary capacity.",
+    content: "Entirely independent. Not affiliated with, endorsed by, or funded by the Ministry of Defence, any military branch, or any employer.",
   },
   {
     icon: Eye,
     title: "Scope",
-    content: "The initiative provides peer connection, curated resources, and signposting to established services. It does not provide clinical advice, crisis intervention, legal guidance, or formal advocacy. It does not engage in political campaigning or institutional critique.",
+    content: "Peer connection, curated resources, and signposting to established services.",
   },
   {
     icon: Users,
-    title: "Moderation and Safeguarding",
-    content: "All community spaces are professionally moderated. A defined code of conduct sets expectations for participant behaviour. Safeguarding considerations are integrated into community management practices. Content that breaches community boundaries is removed promptly.",
+    title: "Moderation",
+    content: "All community spaces are professionally moderated with a defined code of conduct and integrated safeguarding practices.",
   },
   {
     icon: Lock,
-    title: "Data and Privacy Principles",
-    content: "Personal data is handled in line with UK data protection principles. Data collection is minimised to what is necessary for community operation. No personal data is shared with third parties without explicit consent. Full details are set out in our Privacy Statement.",
+    title: "Data Principles",
+    content: "Personal data handled in line with UK data protection principles. Collection minimised. No sharing without explicit consent.",
   },
   {
     icon: Banknote,
     title: "Funding Transparency",
-    content: "The initiative is currently self-funded by the founder. Any future sponsorship, partnership, or funding arrangements will be disclosed transparently. Funding sources will not influence the independence, content, or strategic direction of the initiative. Partnership arrangements are structured to support operational sustainability while preserving editorial and governance independence.",
+    content: "Currently self-funded. Any future partnerships will be disclosed transparently and will not influence independence or content.",
   },
 ];
 
@@ -41,19 +41,19 @@ const GovernancePage = () => {
         <div className="mb-12 max-w-3xl">
           <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">Governance</h1>
           <p className="text-lg text-muted-foreground">
-            Transparency and accountability are core to how Dyslexia in Defence operates. The following principles define our governance framework.
+            Transparency and accountability are core to how we operate.
           </p>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           {sections.map((section) => (
             <Card key={section.title}>
               <CardContent className="p-6">
-                <div className="flex items-center gap-3 mb-3">
+                <div className="flex items-center gap-3 mb-2">
                   <section.icon className="h-5 w-5 text-primary" aria-hidden="true" />
                   <h2 className="text-xl font-bold text-foreground">{section.title}</h2>
                 </div>
-                <p className="text-muted-foreground leading-relaxed">{section.content}</p>
+                <p className="text-muted-foreground">{section.content}</p>
               </CardContent>
             </Card>
           ))}

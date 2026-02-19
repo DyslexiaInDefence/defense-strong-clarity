@@ -29,7 +29,7 @@ const ContactPage = () => {
         <div className="mb-12 max-w-3xl">
           <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">Contact</h1>
           <p className="text-lg text-muted-foreground">
-            We welcome enquiries from individuals, organisations, and potential partners. Please use the form below and we will respond within 5 working days.
+            Get in touch. We'll respond within 5 working days.
           </p>
         </div>
 
@@ -43,7 +43,7 @@ const ContactPage = () => {
               <Mail className="mb-3 h-7 w-7 text-primary" aria-hidden="true" />
               <h2 className="mb-2 text-lg font-bold text-foreground">Newsletter</h2>
               <p className="mb-4 text-sm text-muted-foreground">
-                Receive occasional updates on resources, events, and community developments.
+                Occasional updates on resources, events, and community news.
               </p>
               {nlSubmitted ? (
                 <div className="flex items-center gap-2 text-sm text-primary" role="status" aria-live="polite">
@@ -69,14 +69,6 @@ const ContactPage = () => {
                   </form>
                 </Form>
               )}
-            </div>
-
-            {/* Data statement */}
-            <div className="rounded-xl border border-border bg-secondary/50 p-6">
-              <h3 className="mb-2 text-sm font-bold text-foreground">Data Statement</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                Information submitted via this form is used solely to respond to your enquiry. Data is handled in line with UK data protection principles and is not shared with third parties. See our Privacy Statement for full details.
-              </p>
             </div>
           </div>
         </div>
