@@ -24,7 +24,7 @@ const WhyItMattersPage = () => {
         <div className="mb-12 max-w-3xl">
           <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">Why It Matters</h1>
           <p className="text-lg text-muted-foreground">
-            Modern defence and security environments require diverse cognitive approaches. Recognising and leveraging neurodivergent strengths is a capability advantage.
+            Modern defence and security environments rely on diverse cognitive strengths. Recognising and leveraging neurodivergent capability is a strategic advantage.
           </p>
         </div>
 
@@ -47,7 +47,7 @@ const WhyItMattersPage = () => {
         <section aria-label="Ecosystem">
           <h2 className="mb-4 text-2xl font-bold text-foreground">The Ecosystem Gap</h2>
           <p className="mb-6 max-w-3xl text-muted-foreground">
-            Support for dyslexic individuals spans multiple stages of engagement with the defence and security sector. This initiative provides an independent space for peer connection and signposting, complementary to existing institutional structures.
+            Support for dyslexic individuals spans multiple stages of engagement with the defence and security sector. This initiative provides an independent, professionally moderated space for peer connection and structured signposting, complementary to existing institutional structures.
           </p>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {ecosystem.map((e) => (
