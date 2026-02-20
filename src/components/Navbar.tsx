@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Moon, Sun, Type, Zap, Menu, X, BookOpen } from "lucide-react";
+import { Moon, Sun, Type, Zap, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAccessibility } from "@/contexts/AccessibilityContext";
 
@@ -73,11 +73,12 @@ const Navbar = () => {
           </button>
           <button
             onClick={toggleDyslexicFont}
-            className={`rounded-lg p-2 transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${dyslexicFont ? "bg-secondary text-primary" : "text-foreground/70"}`}
+            className={`rounded-lg px-2 py-1 transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring font-bold text-sm ${dyslexicFont ? "bg-secondary text-primary" : "text-foreground/70"}`}
             aria-label={dyslexicFont ? "Use default font" : "Use OpenDyslexic font"}
-            title="Dyslexic font"
+            title="Dyslexic friendly font"
+            style={dyslexicFont ? { fontFamily: "'Open Dyslexic', sans-serif" } : undefined}
           >
-            <BookOpen className="h-5 w-5" />
+            Aa
           </button>
 
           <Link to="/join">
@@ -125,8 +126,8 @@ const Navbar = () => {
             <button onClick={toggleReduceMotion} className={`rounded-lg p-2 hover:bg-secondary ${reduceMotion ? "bg-secondary text-primary" : "text-foreground/70"}`} aria-label="Reduce motion">
               <Zap className="h-5 w-5" />
             </button>
-            <button onClick={toggleDyslexicFont} className={`rounded-lg p-2 hover:bg-secondary ${dyslexicFont ? "bg-secondary text-primary" : "text-foreground/70"}`} aria-label="Dyslexic font">
-              <BookOpen className="h-5 w-5" />
+            <button onClick={toggleDyslexicFont} className={`rounded-lg px-2 py-1 hover:bg-secondary font-bold text-sm ${dyslexicFont ? "bg-secondary text-primary" : "text-foreground/70"}`} aria-label="Dyslexic font" style={dyslexicFont ? { fontFamily: "'Open Dyslexic', sans-serif" } : undefined}>
+              Aa
             </button>
           </div>
           <Link to="/join" className="mt-4 block" onClick={() => setMobileOpen(false)}>
