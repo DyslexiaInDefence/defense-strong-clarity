@@ -4,9 +4,11 @@ interface AccessibilityState {
   darkMode: boolean;
   largeText: boolean;
   reduceMotion: boolean;
+  dyslexicFont: boolean;
   toggleDarkMode: () => void;
   toggleLargeText: () => void;
   toggleReduceMotion: () => void;
+  toggleDyslexicFont: () => void;
 }
 
 const AccessibilityContext = createContext<AccessibilityState | undefined>(undefined);
@@ -21,6 +23,7 @@ export const AccessibilityProvider: React.FC<{ children: React.ReactNode }> = ({
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem("did-dark") === "true");
   const [largeText, setLargeText] = useState(() => localStorage.getItem("did-large") === "true");
   const [reduceMotion, setReduceMotion] = useState(() => localStorage.getItem("did-motion") === "true");
+  const [dyslexicFont, setDyslexicFont] = useState(() => localStorage.getItem("did-dyslexic") === "true");
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);
@@ -37,15 +40,22 @@ export const AccessibilityProvider: React.FC<{ children: React.ReactNode }> = ({
     localStorage.setItem("did-motion", String(reduceMotion));
   }, [reduceMotion]);
 
+  useEffect(() => {
+    document.documentElement.classList.toggle("dyslexic-font", dyslexicFont);
+    localStorage.setItem("did-dyslexic", String(dyslexicFont));
+  }, [dyslexicFont]);
+
   return (
     <AccessibilityContext.Provider
       value={{
         darkMode,
         largeText,
         reduceMotion,
+        dyslexicFont,
         toggleDarkMode: () => setDarkMode((p) => !p),
         toggleLargeText: () => setLargeText((p) => !p),
         toggleReduceMotion: () => setReduceMotion((p) => !p),
+        toggleDyslexicFont: () => setDyslexicFont((p) => !p),
       }}
     >
       {children}
