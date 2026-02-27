@@ -17,6 +17,7 @@ import JoinPage from "@/pages/JoinPage";
 import ContactPage from "@/pages/ContactPage";
 import PrivacyPage from "@/pages/PrivacyPage";
 import AccessibilityPage from "@/pages/AccessibilityPage";
+import EcosystemPage from "@/pages/EcosystemPage";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ const App = () => (
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/accessibility" element={<AccessibilityPage />} />
+              <Route path="/ecosystem" element={<EcosystemPage />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
