@@ -38,12 +38,21 @@ const PlaceholderPage = () => {
           structured signposting across the defence and security ecosystem.
         </p>
 
-        <a
+      <a
           href="mailto:contact@dyslexiaindefence.com"
           className="inline-block text-primary hover:text-primary/80 underline underline-offset-4 font-medium transition-colors"
         >
           contact@dyslexiaindefence.com
         </a>
+
+        <div className="pt-4">
+          <a
+            href="/governance"
+            className="text-sm text-muted-foreground hover:text-primary underline underline-offset-4 transition-colors"
+          >
+            Governance & Policies
+          </a>
+        </div>
       </div>
 
       {/* Accessibility toggles */}
