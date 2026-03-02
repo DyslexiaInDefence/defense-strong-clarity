@@ -28,7 +28,7 @@ const PlaceholderPage = () => {
       {/* Content */}
       <div className="max-w-2xl w-full text-center space-y-8">
         <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
-          Dyslexia in Defence
+          Coming soon... Dyslexia in Defence
         </h1>
 
         <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
