@@ -1,5 +1,6 @@
 import { Brain, Eye, Lightbulb, Puzzle, Compass, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import spikyProfileImg from "@/assets/spiky-profile.jpg";
 
 const strengths = [
   { icon: Puzzle, label: "Systems thinking" },
@@ -27,6 +28,57 @@ const WhyItMattersPage = () => {
             Cognitive diversity strengthens defence and security capability. Dyslexic thinking brings unique strengths to complex environments.
           </p>
         </div>
+
+        {/* Spiky Profile */}
+        <section className="mb-16" aria-label="The Dyslexic Spiky Profile">
+          <h2 className="mb-6 text-2xl font-bold text-foreground">The Dyslexic "Spiky Profile"</h2>
+
+          <div className="mb-8 rounded-lg border border-border bg-card p-4 max-w-2xl">
+            <img
+              src={spikyProfileImg}
+              alt="Graph comparing neurodiverse and neurotypical cognitive profiles across areas like Analytical, Perceptual, Processing, Mathematics, Motor, Relationships, Sensory, Verbal, Visual, and Working Memory. The neurodiverse line shows dramatic highs and lows while the neurotypical line remains relatively flat."
+              className="w-full h-auto rounded"
+            />
+          </div>
+
+          <div className="max-w-3xl space-y-5 text-foreground leading-relaxed">
+            <p>
+              Dyslexic individuals often show very uneven cognitive performance across different areas. Some areas may be significantly weaker than average, while others can be significantly stronger. This is the spiky profile.
+            </p>
+
+            <p>
+              For many years, people with dyslexia have been assessed, judged, and filtered based primarily on the lowest points of that profile. Recruitment processes, exams, training systems, and workplace assessments frequently focus on areas where dyslexic individuals may struggle — such as processing speed, written accuracy, or certain forms of working memory.
+            </p>
+
+            <p>
+              What is often overlooked is the top half of the spiky profile. Dyslexic individuals frequently demonstrate strong capabilities in analytical thinking, problem solving, spatial reasoning, pattern recognition, creativity, and strategic thinking.
+            </p>
+
+            <p>
+              The result is that organisations can unintentionally screen out or undervalue people who may possess exceptional strengths.
+            </p>
+
+            <p>
+              The goal is not to ignore the lower points. Those areas simply require practical support — and in many cases that support is straightforward: clear written instructions, assistive technology, flexible communication formats, or adjusted workflows.
+            </p>
+
+            <p>
+              These small adjustments allow the strengths at the top of the profile to be fully realised.
+            </p>
+
+            <p>
+              When organisations recognise both sides of the spiky profile — supporting the weaker areas while enabling the stronger ones — they unlock individuals who can contribute enormous value.
+            </p>
+
+            <p className="font-semibold text-primary">
+              This is the core idea behind Dyslexia in Defence.
+            </p>
+
+            <p>
+              The network exists to help defence and security organisations stop focusing solely on the bottom of the spiky profile and instead create environments where dyslexic individuals can succeed, contribute, and thrive.
+            </p>
+          </div>
+        </section>
 
         {/* Strengths */}
         <section className="mb-16" aria-label="Dyslexic strengths">
