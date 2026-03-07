@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { Moon, Sun, Type, Zap, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAccessibility } from "@/contexts/AccessibilityContext";
+import didLogo from "@/assets/did-logo.png";
 
 const navLinks = [
   { label: "Home", to: "/" },
