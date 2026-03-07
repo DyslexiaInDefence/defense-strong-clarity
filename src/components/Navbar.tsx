@@ -27,8 +27,9 @@ const Navbar = () => {
       aria-label="Main navigation"
     >
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
-        <Link to="/" className="text-xl font-bold text-primary" aria-label="Dyslexia in Defence - Home">
-          Dyslexia in Defence
+        <Link to="/" className="flex items-center gap-2" aria-label="Dyslexia in Defence - Home">
+          <img src={didLogo} alt="" className="h-8 w-auto" aria-hidden="true" />
+          <span className="text-lg font-bold text-foreground hidden sm:inline">Dyslexia in Defence</span>
         </Link>
 
         {/* Desktop nav */}
