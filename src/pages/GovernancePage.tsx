@@ -1,5 +1,6 @@
 import { Shield, Scale, Eye, Lock, Banknote, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import didLogo from "@/assets/did-logo.png";
 
 const sections = [
   {
