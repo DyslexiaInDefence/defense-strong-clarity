@@ -3,7 +3,6 @@ import { ArrowRight, ChevronRight, Target, Users, Handshake, HeartHandshake, Shi
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import didLogo from "@/assets/did-logo.png";
-import { Card, CardContent } from "@/components/ui/card";
 
 const previewCards = [
   {
