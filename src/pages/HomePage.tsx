@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ChevronRight, Target, Users, Handshake, HeartHandshake, Shield, TrendingUp, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import didLogo from "@/assets/did-logo.png";
 
 const previewCards = [
   {
@@ -83,6 +84,7 @@ const HomePage = () => {
           aria-hidden="true"
         />
         <div className="container mx-auto px-4 text-center">
+          <img src={didLogo} alt="Dyslexia in Defence logo" className="mx-auto mb-6 h-16 w-auto md:h-20" />
           <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
             Dyslexia in Defence
           </h1>

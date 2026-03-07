@@ -1,5 +1,6 @@
 import { Shield, Scale, Eye, Lock, Banknote, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import didLogo from "@/assets/did-logo.png";
 
 const sections = [
   {
@@ -39,7 +40,10 @@ const GovernancePage = () => {
     <div className="py-16">
       <div className="container mx-auto px-4">
         <div className="mb-12 max-w-3xl">
-          <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">Governance</h1>
+          <div className="flex items-center gap-3 mb-4">
+            <img src={didLogo} alt="" className="h-10 w-auto" aria-hidden="true" />
+            <h1 className="text-3xl font-bold text-foreground md:text-4xl">Governance</h1>
+          </div>
           <p className="text-lg text-muted-foreground">
             Transparency and accountability are core to how we operate.
           </p>
