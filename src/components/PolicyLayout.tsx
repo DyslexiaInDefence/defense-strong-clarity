@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronLeft, Menu, X } from "lucide-react";
+import didLogo from "@/assets/did-logo.png";
 
 interface Section {
   id: string;
