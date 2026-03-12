@@ -20,6 +20,7 @@ import SafeguardingPage from "@/pages/governance/SafeguardingPage";
 import PrivacyNoticePage from "@/pages/governance/PrivacyNoticePage";
 import SponsorshipPage from "@/pages/governance/SponsorshipPage";
 import TransparencyPage from "@/pages/governance/TransparencyPage";
+import AchievePage from "@/pages/AchievePage";
 import NotFound from "@/pages/NotFound";
 
 const App = () => (
@@ -39,6 +40,7 @@ const App = () => (
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/accessibility" element={<AccessibilityPage />} />
           <Route path="/ecosystem" element={<EcosystemPage />} />
+          <Route path="/achieve" element={<AchievePage />} />
           <Route path="/governance" element={<GovernanceOverviewPage />} />
           <Route path="/governance/founder" element={<FounderPurposePage />} />
           <Route path="/governance/code-of-conduct" element={<CodeOfConductPage />} />
