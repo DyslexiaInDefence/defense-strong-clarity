@@ -144,26 +144,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Preview cards */}
-      <section className="py-16" aria-label="Explore">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-10 text-center text-2xl font-bold text-foreground">Explore</h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {previewCards.map((card) =>
-            <Link key={card.href} to={card.href} className="group">
-                <Card className="h-full transition-shadow hover:shadow-md">
-                  <CardContent className="flex flex-col items-start gap-3 p-6">
-                    <card.icon className="h-8 w-8 text-primary" aria-hidden="true" />
-                    <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">{card.title}</h3>
-                    <p className="text-sm text-muted-foreground">{card.description}</p>
-                  </CardContent>
-                </Card>
-              </Link>
-            )}
-          </div>
-        </div>
-      </section>
-
       {/* Impact framework */}
       <section className="border-t border-border bg-card py-16" aria-label="Impact framework">
         <div className="container mx-auto px-4">
