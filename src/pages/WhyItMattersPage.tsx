@@ -33,25 +33,39 @@ const WhyItMattersPage = () => {
         <section className="mb-16" aria-label="The Dyslexic Spiky Profile">
           <h2 className="mb-6 text-2xl font-bold text-foreground">The Dyslexic "Spiky Profile"</h2>
 
-          <div className="mb-8 rounded-lg border border-border bg-card p-4 max-w-2xl">
+          <div className="max-w-3xl space-y-5 text-foreground leading-relaxed">
+            <p>
+              Dyslexic individuals often show very uneven cognitive performance across different areas. Some areas may be significantly weaker than average, while others can be significantly stronger. This is known as the <strong className="text-primary">"spiky profile"</strong>.
+            </p>
+          </div>
+
+          {/* Image */}
+          <div className="my-10 rounded-lg border border-border bg-card p-4 max-w-2xl mx-auto">
             <img
               src={spikyProfileImg}
-              alt="Graph comparing neurodiverse and neurotypical cognitive profiles across areas like Analytical, Perceptual, Processing, Mathematics, Motor, Relationships, Sensory, Verbal, Visual, and Working Memory. The neurodiverse line shows dramatic highs and lows while the neurotypical line remains relatively flat."
+              alt="Graph illustrating the spiky cognitive profile of neurodiverse individuals compared to a neurotypical baseline, showing dramatic peaks and troughs across different cognitive abilities."
               className="w-full h-auto rounded"
             />
+            <p className="mt-3 text-center text-xs text-muted-foreground">
+              Source:{" "}
+              <a
+                href="https://geniuswithin.org/what-is-neurodiversity/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-primary transition-colors"
+              >
+                Genius Within – What is Neurodiversity
+              </a>
+            </p>
           </div>
 
           <div className="max-w-3xl space-y-5 text-foreground leading-relaxed">
             <p>
-              Dyslexic individuals often show very uneven cognitive performance across different areas. Some areas may be significantly weaker than average, while others can be significantly stronger. This is the spiky profile.
+              For many years, people with dyslexia have been assessed, judged, and filtered based primarily on the <strong>lowest points</strong> of that profile. Recruitment processes, exams, training systems, and workplace assessments frequently focus on areas where dyslexic individuals may struggle — such as processing speed, written accuracy, or certain forms of working memory.
             </p>
 
             <p>
-              For many years, people with dyslexia have been assessed, judged, and filtered based primarily on the lowest points of that profile. Recruitment processes, exams, training systems, and workplace assessments frequently focus on areas where dyslexic individuals may struggle — such as processing speed, written accuracy, or certain forms of working memory.
-            </p>
-
-            <p>
-              What is often overlooked is the top half of the spiky profile. Dyslexic individuals frequently demonstrate strong capabilities in analytical thinking, problem solving, spatial reasoning, pattern recognition, creativity, and strategic thinking.
+              What is often overlooked is the <strong>top half</strong> of the spiky profile. Dyslexic individuals frequently demonstrate strong capabilities in analytical thinking, problem solving, spatial reasoning, pattern recognition, creativity, and strategic thinking.
             </p>
 
             <p>
