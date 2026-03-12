@@ -106,6 +106,12 @@ const HomePage = () => {
                 <ChevronRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
+            <Link to="/achieve">
+              <Button variant="outline" size="lg" className="rounded-full px-8 text-base font-semibold">
+                What We Want to Achieve
+                <ChevronRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </div>
 
           {/* Ribbon wave */}

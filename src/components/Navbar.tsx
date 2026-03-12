@@ -7,12 +7,8 @@ import didLogo from "@/assets/did-logo.png";
 
 const navLinks = [
   { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
   { label: "Why It Matters", to: "/why-it-matters" },
-  { label: "Community", to: "/community" },
-  { label: "Resources", to: "/resources" },
-  { label: "Support", to: "/support" },
-  { label: "Partner", to: "/partner" },
+  { label: "What We Want to Achieve", to: "/achieve" },
   { label: "Governance", to: "/governance" },
 ];
 
