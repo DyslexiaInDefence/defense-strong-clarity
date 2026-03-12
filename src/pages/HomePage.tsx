@@ -5,61 +5,61 @@ import { Card, CardContent } from "@/components/ui/card";
 import didLogo from "@/assets/did-logo.png";
 
 const previewCards = [
-  {
-    title: "Why It Matters",
-    description: "Cognitive diversity as a strategic advantage.",
-    href: "/why-it-matters",
-    icon: Target,
-  },
-  {
-    title: "Community",
-    description: "Peer support built on trust and shared experience.",
-    href: "/community",
-    icon: Users,
-  },
-  {
-    title: "Partner With Us",
-    description: "Collaborate to advance inclusive capability.",
-    href: "/partner",
-    icon: Handshake,
-  },
-  {
-    title: "Support Directory",
-    description: "Trusted services and organisations.",
-    href: "/support",
-    icon: HeartHandshake,
-  },
-];
+{
+  title: "Why It Matters",
+  description: "Cognitive diversity as a strategic advantage.",
+  href: "/why-it-matters",
+  icon: Target
+},
+{
+  title: "Community",
+  description: "Peer support built on trust and shared experience.",
+  href: "/community",
+  icon: Users
+},
+{
+  title: "Partner With Us",
+  description: "Collaborate to advance inclusive capability.",
+  href: "/partner",
+  icon: Handshake
+},
+{
+  title: "Support Directory",
+  description: "Trusted services and organisations.",
+  href: "/support",
+  icon: HeartHandshake
+}];
+
 
 const impactStages = [
-  {
-    stage: "Establishment",
-    icon: Shield,
-    objectives: [
-      "Governance framework in place",
-      "Resource library published",
-      "Founding member engagement",
-    ],
-  },
-  {
-    stage: "Consolidation",
-    icon: TrendingUp,
-    objectives: [
-      "Event programme delivered",
-      "Partnership base expanded",
-      "Measurable community engagement",
-    ],
-  },
-  {
-    stage: "Ecosystem Influence",
-    icon: Globe,
-    objectives: [
-      "Cross-sector recognition",
-      "Contributing partner organisations",
-      "Sustainable operational model",
-    ],
-  },
-];
+{
+  stage: "Establishment",
+  icon: Shield,
+  objectives: [
+  "Governance framework in place",
+  "Resource library published",
+  "Founding member engagement"]
+
+},
+{
+  stage: "Consolidation",
+  icon: TrendingUp,
+  objectives: [
+  "Event programme delivered",
+  "Partnership base expanded",
+  "Measurable community engagement"]
+
+},
+{
+  stage: "Ecosystem Influence",
+  icon: Globe,
+  objectives: [
+  "Cross-sector recognition",
+  "Contributing partner organisations",
+  "Sustainable operational model"]
+
+}];
+
 
 const HomePage = () => {
   return (
@@ -70,23 +70,25 @@ const HomePage = () => {
           className="absolute top-0 left-0 right-0 h-1.5"
           style={{
             background:
-              "linear-gradient(90deg, hsl(var(--ribbon-yellow)), hsl(var(--ribbon-blue)), hsl(var(--ribbon-red)), hsl(var(--ribbon-green)), hsl(var(--ribbon-yellow)))",
-            backgroundSize: "300% 100%",
+            "linear-gradient(90deg, hsl(var(--ribbon-yellow)), hsl(var(--ribbon-blue)), hsl(var(--ribbon-red)), hsl(var(--ribbon-green)), hsl(var(--ribbon-yellow)))",
+            backgroundSize: "300% 100%"
           }}
-          aria-hidden="true"
-        />
+          aria-hidden="true" />
+        
         <div
           className="absolute inset-0 -z-10 opacity-30"
           style={{
             background:
-              "radial-gradient(ellipse at 30% 20%, hsl(var(--ribbon-blue) / 0.15) 0%, transparent 60%), radial-gradient(ellipse at 70% 80%, hsl(var(--ribbon-green) / 0.1) 0%, transparent 50%)",
+            "radial-gradient(ellipse at 30% 20%, hsl(var(--ribbon-blue) / 0.15) 0%, transparent 60%), radial-gradient(ellipse at 70% 80%, hsl(var(--ribbon-green) / 0.1) 0%, transparent 50%)"
           }}
-          aria-hidden="true"
-        />
+          aria-hidden="true" />
+        
         <div className="container mx-auto px-4 text-center">
           <img src={didLogo} alt="Dyslexia in Defence logo" className="mx-auto mb-6 h-16 w-auto md:h-20" />
           <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
-            Dyslexia in Defence
+            Coming soon... Dyslexia in Defence
+          
+          
           </h1>
           <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
             Independent peer support and structured signposting across the defence and security ecosystem.
@@ -128,12 +130,10 @@ const HomePage = () => {
             </p>
           </div>
           <div className="mx-auto mt-10 grid max-w-2xl gap-4 sm:grid-cols-2">
-            {["Volunteer led", "Independently governed", "Strengths based", "Professionally moderated"].map((item) => (
-              <div key={item} className="flex items-center gap-3 rounded-lg border border-border bg-background p-4">
+            {["Volunteer led", "Independently governed", "Strengths based", "Professionally moderated"].map((item) => <div key={item} className="flex items-center gap-3 rounded-lg border border-border bg-background p-4">
                 <span className="h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
                 <span className="text-foreground">{item}</span>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -143,8 +143,8 @@ const HomePage = () => {
         <div className="container mx-auto px-4">
           <h2 className="mb-10 text-center text-2xl font-bold text-foreground">Explore</h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {previewCards.map((card) => (
-              <Link key={card.href} to={card.href} className="group">
+            {previewCards.map((card) =>
+            <Link key={card.href} to={card.href} className="group">
                 <Card className="h-full transition-shadow hover:shadow-md">
                   <CardContent className="flex flex-col items-start gap-3 p-6">
                     <card.icon className="h-8 w-8 text-primary" aria-hidden="true" />
@@ -153,7 +153,7 @@ const HomePage = () => {
                   </CardContent>
                 </Card>
               </Link>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -163,30 +163,30 @@ const HomePage = () => {
         <div className="container mx-auto px-4">
           <h2 className="mb-10 text-center text-2xl font-bold text-foreground">Impact Framework</h2>
           <div className="grid gap-6 md:grid-cols-3">
-            {impactStages.map((stage, i) => (
-              <Card key={stage.stage} className="relative overflow-hidden">
+            {impactStages.map((stage, i) =>
+            <Card key={stage.stage} className="relative overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-1" style={{
-                  background: `hsl(var(--ribbon-${["yellow", "blue", "green"][i]}))`,
-                }} aria-hidden="true" />
+                background: `hsl(var(--ribbon-${["yellow", "blue", "green"][i]}))`
+              }} aria-hidden="true" />
                 <CardContent className="p-6 pt-8">
                   <stage.icon className="mb-3 h-7 w-7 text-primary" aria-hidden="true" />
                   <h3 className="mb-3 text-lg font-semibold text-foreground">{stage.stage}</h3>
                   <ul className="space-y-2 text-sm text-muted-foreground">
-                    {stage.objectives.map((obj) => (
-                      <li key={obj} className="flex items-start gap-2">
+                    {stage.objectives.map((obj) =>
+                  <li key={obj} className="flex items-start gap-2">
                         <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
                         {obj}
                       </li>
-                    ))}
+                  )}
                   </ul>
                 </CardContent>
               </Card>
-            ))}
+            )}
           </div>
         </div>
       </section>
-    </>
-  );
+    </>);
+
 };
 
 export default HomePage;
