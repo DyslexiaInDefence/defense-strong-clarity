@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import JoinForm from "@/components/JoinForm";
 import JoinForm from "@/components/JoinForm";
 
 const JoinPage = () => {
