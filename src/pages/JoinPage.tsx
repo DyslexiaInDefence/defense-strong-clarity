@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-import { Handshake } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import JoinForm from "@/components/JoinForm";
 
