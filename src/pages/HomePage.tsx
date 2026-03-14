@@ -84,7 +84,7 @@ const HomePage = () => {
           aria-hidden="true" />
         
         <div className="container mx-auto px-4 text-center">
-          <img src={didIcon} alt="Dyslexia in Defence logo" className="mx-auto mb-6 h-28 w-auto md:h-36" />
+          <img src={didIcon} alt="Dyslexia in Defence shield logo" className="mx-auto mb-8 h-40 w-auto sm:h-48 md:h-56 lg:h-64 drop-shadow-lg" />
           <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
             Coming soon... Dyslexia in Defence
           
