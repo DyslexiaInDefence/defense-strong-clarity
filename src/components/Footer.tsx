@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import didLogo from "@/assets/did-logo.png";
+import didLogoFull from "@/assets/did-logo-full.png";
 
 const Footer = () => {
   return (
@@ -18,8 +18,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="mb-3 flex items-center gap-2">
-              <img src={didLogo} alt="" className="h-8 w-auto" aria-hidden="true" />
-              <h3 className="text-lg font-bold text-foreground">Dyslexia in Defence</h3>
+              <img src={didLogoFull} alt="Dyslexia in Defence" className="h-10 w-auto" />
             </div>
             <p className="text-sm leading-relaxed text-muted-foreground">
               An independent, volunteer-led initiative providing peer support and structured signposting across the defence and security ecosystem.
@@ -30,9 +29,8 @@ const Footer = () => {
           <div>
             <h3 className="mb-3 text-lg font-bold text-foreground">Quick Links</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">About &amp; Founder</Link></li>
               <li><Link to="/governance" className="text-muted-foreground hover:text-primary transition-colors">Governance</Link></li>
-              <li><Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link></li>
+              <li><Link to="/join" className="text-muted-foreground hover:text-primary transition-colors">Join the Network</Link></li>
               <li><Link to="/privacy" className="text-muted-foreground hover:text-primary transition-colors">Privacy Statement</Link></li>
               <li><Link to="/accessibility" className="text-muted-foreground hover:text-primary transition-colors">Accessibility Statement</Link></li>
             </ul>

@@ -1,6 +1,3 @@
-import { Link } from "react-router-dom";
-import { Handshake } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import JoinForm from "@/components/JoinForm";
 
 const JoinPage = () => {
@@ -14,22 +11,8 @@ const JoinPage = () => {
           </p>
         </div>
 
-        <div className="grid gap-10 lg:grid-cols-3">
-          <div className="lg:col-span-2">
-            <JoinForm />
-          </div>
-          <div>
-            <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
-              <Handshake className="mb-3 h-8 w-8 text-primary" aria-hidden="true" />
-              <h2 className="mb-2 text-lg font-bold text-foreground">Partner Enquiries</h2>
-              <p className="mb-4 text-sm text-muted-foreground">
-                Organisations interested in partnership are welcome.
-              </p>
-              <Link to="/partner">
-                <Button variant="outline" className="w-full">Learn About Partnership</Button>
-              </Link>
-            </div>
-          </div>
+        <div className="max-w-2xl">
+          <JoinForm />
         </div>
       </div>
     </div>

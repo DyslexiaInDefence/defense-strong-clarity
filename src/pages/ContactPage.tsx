@@ -1,5 +1,5 @@
 import { useState } from "react";
-import didLogo from "@/assets/did-logo.png";
+import didIcon from "@/assets/did-icon.png";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -29,7 +29,7 @@ const ContactPage = () => {
       <div className="container mx-auto px-4">
         <div className="mb-12 max-w-3xl">
           <div className="flex items-center gap-3 mb-4">
-            <img src={didLogo} alt="" className="h-10 w-auto" aria-hidden="true" />
+            <img src={didIcon} alt="" className="h-10 w-auto" aria-hidden="true" />
             <h1 className="text-3xl font-bold text-foreground md:text-4xl">Contact</h1>
           </div>
           <p className="text-lg text-muted-foreground">

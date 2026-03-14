@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronLeft, Menu, X } from "lucide-react";
-import didLogo from "@/assets/did-logo.png";
+import didIcon from "@/assets/did-icon.png";
 
 interface Section {
   id: string;
@@ -90,7 +90,7 @@ const PolicyLayout = ({ title, summary, lastUpdated, sections, children }: Polic
             to="/"
             className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
-            <img src={didLogo} alt="" className="h-6 w-auto" aria-hidden="true" />
+            <img src={didIcon} alt="" className="h-6 w-auto" aria-hidden="true" />
             <ChevronLeft className="h-4 w-4" />
             Dyslexia in Defence
           </Link>
