@@ -25,8 +25,8 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
         <Link to="/" className="flex items-center gap-2" aria-label="Dyslexia in Defence - Home">
-          <img src={didLogo} alt="" className="h-8 w-auto" aria-hidden="true" />
-          <span className="text-lg font-bold text-foreground hidden sm:inline">Dyslexia in Defence</span>
+          <img src={didIcon} alt="" className="h-8 w-auto sm:hidden" aria-hidden="true" />
+          <img src={didLogoFull} alt="Dyslexia in Defence" className="hidden sm:block h-8 w-auto" />
         </Link>
 
         {/* Desktop nav */}
