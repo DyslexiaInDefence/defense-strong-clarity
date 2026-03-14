@@ -18,8 +18,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="mb-3 flex items-center gap-2">
-              <img src={didLogo} alt="" className="h-8 w-auto" aria-hidden="true" />
-              <h3 className="text-lg font-bold text-foreground">Dyslexia in Defence</h3>
+              <img src={didLogoFull} alt="Dyslexia in Defence" className="h-10 w-auto" />
             </div>
             <p className="text-sm leading-relaxed text-muted-foreground">
               An independent, volunteer-led initiative providing peer support and structured signposting across the defence and security ecosystem.
