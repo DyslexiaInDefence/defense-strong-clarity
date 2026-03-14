@@ -1,5 +1,5 @@
 import { useState } from "react";
-import didLogo from "@/assets/did-logo.png";
+import didIcon from "@/assets/did-icon.png";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";

@@ -12,10 +12,8 @@ const JoinPage = () => {
           </p>
         </div>
 
-        <div className="grid gap-10 lg:grid-cols-3">
-          <div className="lg:col-span-2">
-            <JoinForm />
-          </div>
+        <div className="max-w-2xl">
+          <JoinForm />
         </div>
       </div>
     </div>

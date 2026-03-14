@@ -60,10 +60,10 @@ const PartnerPage = () => {
         </div>
 
         <div className="mt-12">
-          <Link to="/contact">
+          <Link to="/join">
             <Button size="lg" className="rounded-full px-8 font-semibold">
               <Handshake className="mr-2 h-5 w-5" />
-              Enquire About Partnership
+              Get Involved
             </Button>
           </Link>
         </div>
