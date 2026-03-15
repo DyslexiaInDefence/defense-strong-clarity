@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronLeft, Menu, X } from "lucide-react";
-import didIcon from "@/assets/did-icon.png";
+
 
 interface Section {
   id: string;
