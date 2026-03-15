@@ -73,10 +73,16 @@ const WhyItMattersPage = () => {
 
             <p>
               The result is that organisations can unintentionally screen out or undervalue people who may possess exceptional strengths. This is shown with the quote below by Albert Einstein:
-
-
-           
             </p>
+
+            <blockquote className="my-6 border-l-4 border-primary bg-muted/50 py-6 px-8 rounded-r-lg max-w-2xl">
+              <p className="text-lg italic text-foreground leading-relaxed">
+                "Everybody is a genius. But if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid."
+              </p>
+              <footer className="mt-3 text-sm font-semibold text-muted-foreground">
+                — Albert Einstein
+              </footer>
+            </blockquote>
 
             <p>
               The goal is not to ignore the lower points. Those areas simply require practical support — and in many cases that support is straightforward: clear written instructions, assistive technology, flexible communication formats, or adjusted workflows.
