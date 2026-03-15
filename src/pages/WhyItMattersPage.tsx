@@ -72,7 +72,7 @@ const WhyItMattersPage = () => {
             </p>
 
             <p>
-              The result is that organisations can unintentionally screen out or undervalue people who may possess exceptional strengths. This is shown with the quote below by Albert Einstein:
+              The result is that organisations can unintentionally screen out or undervalue people who may possess exceptional strengths. This is shown with the quote below:
             </p>
 
             <blockquote className="my-6 border-l-4 border-primary bg-muted/50 py-6 px-8 rounded-r-lg max-w-2xl">
