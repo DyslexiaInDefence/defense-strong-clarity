@@ -35,7 +35,7 @@ const WhyItMattersPage = () => {
 
           <div className="max-w-3xl space-y-5 text-foreground leading-relaxed">
             <p>
-              Up to 20% of the UK MOD are Dyslexic. This is a whole Squadron in a Regiment, 135 people on the Queen Elizabeth class ship (<a href="https://www.royalnavy.mod.uk/equipment/ships/queen-elizabeth-class" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">https://www.royalnavy.mod.uk/equipment/ships/queen-elizabeth-class</a>) and 2500 people in Defence Equipment & Support (<a href="https://des.mod.uk/who-we-are/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">https://des.mod.uk/who-we-are/</a>).
+              Up to 20% of the UK MOD are Dyslexic. This is a whole Squadron in a Regiment, <a href="https://www.royalnavy.mod.uk/equipment/ships/queen-elizabeth-class" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">135 people on the Queen Elizabeth class ship</a> and <a href="https://des.mod.uk/who-we-are/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">2500 people in Defence Equipment &amp; Support</a>.
             </p>
             <p>
               All these people will have 'spikey profiles' shown below .
