@@ -84,7 +84,7 @@ const HomePage = () => {
           aria-hidden="true" />
         
         <div className="container mx-auto px-4 text-center">
-          <img src={didIcon} alt="Dyslexia in Defence shield logo" className="mx-auto mb-8 h-40 w-auto sm:h-48 md:h-56 lg:h-64 drop-shadow-lg" />
+          <img alt="Dyslexia in Defence shield logo" className="mx-auto mb-8 h-40 w-auto sm:h-48 md:h-56 lg:h-64 drop-shadow-lg object-fill" src="/lovable-uploads/476a8a56-e0ae-41c0-af5e-a635274387f9.png" />
           <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
             Coming soon... Dyslexia in Defence
           
@@ -145,7 +145,7 @@ const HomePage = () => {
       </section>
 
       {/* Impact framework */}
-      <section className="border-t border-border bg-card py-16" aria-label="Impact framework">
+      <section className="border-t border-border py-16 bg-inherit" aria-label="Impact framework">
         <div className="container mx-auto px-4">
           <h2 className="mb-10 text-center text-2xl font-bold text-foreground">Impact Framework</h2>
           <div className="grid gap-6 md:grid-cols-3">
