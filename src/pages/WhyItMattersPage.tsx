@@ -35,7 +35,10 @@ const WhyItMattersPage = () => {
 
           <div className="max-w-3xl space-y-5 text-foreground leading-relaxed">
             <p>
-              Dyslexic individuals often show very uneven cognitive performance across different areas. Some areas may be significantly weaker than average, while others can be significantly stronger. This is known as the <strong className="text-primary">"spiky profile"</strong>.
+              Up to 20% of the UK MOD are Dyslexic. This is a whole Squadron in a Regiment, 135 people on the Queen Elizabeth class ship (<a href="https://www.royalnavy.mod.uk/equipment/ships/queen-elizabeth-class" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">https://www.royalnavy.mod.uk/equipment/ships/queen-elizabeth-class</a>) and 2500 people in Defence Equipment & Support (<a href="https://des.mod.uk/who-we-are/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">https://des.mod.uk/who-we-are/</a>).
+            </p>
+            <p>
+              All these people will have 'spikey profiles' shown below .
             </p>
           </div>
 
