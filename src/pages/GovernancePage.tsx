@@ -1,6 +1,6 @@
 import { Shield, Scale, Eye, Lock, Banknote, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import didIcon from "@/assets/did-icon.png";
+
 
 const sections = [
   {
@@ -41,7 +41,7 @@ const GovernancePage = () => {
       <div className="container mx-auto px-4">
         <div className="mb-12 max-w-3xl">
           <div className="flex items-center gap-3 mb-4">
-            <img src={didIcon} alt="" className="h-10 w-auto" aria-hidden="true" />
+            
             <h1 className="text-3xl font-bold text-foreground md:text-4xl">Governance</h1>
           </div>
           <p className="text-lg text-muted-foreground">

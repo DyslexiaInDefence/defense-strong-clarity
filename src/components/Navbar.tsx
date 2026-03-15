@@ -4,7 +4,7 @@ import { Moon, Sun, Type, Zap, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAccessibility } from "@/contexts/AccessibilityContext";
 import didLogoFull from "@/assets/did-logo-full.png";
-import didIcon from "@/assets/did-icon.png";
+
 
 const navLinks = [
 { label: "Home", to: "/" },
@@ -25,8 +25,7 @@ const Navbar = () => {
       
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
         <Link to="/" className="flex items-center gap-2" aria-label="Dyslexia in Defence - Home">
-          <img src={didIcon} alt="" className="h-8 w-auto sm:hidden" aria-hidden="true" />
-          <img alt="Dyslexia in Defence" className="hidden sm:block h-8 w-auto" src="/lovable-uploads/7587c4e2-f331-4595-97c3-f3455bc6fc98.png" />
+          <img alt="Dyslexia in Defence" className="h-8 w-auto" src="/lovable-uploads/7587c4e2-f331-4595-97c3-f3455bc6fc98.png" />
         </Link>
 
         {/* Desktop nav */}
