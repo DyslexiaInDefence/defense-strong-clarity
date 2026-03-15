@@ -72,7 +72,10 @@ const WhyItMattersPage = () => {
             </p>
 
             <p>
-              The result is that organisations can unintentionally screen out or undervalue people who may possess exceptional strengths.
+              The result is that organisations can unintentionally screen out or undervalue people who may possess exceptional strengths. This is shown with the quote below by Albert Einstein:
+
+
+           
             </p>
 
             <p>
@@ -101,14 +104,12 @@ const WhyItMattersPage = () => {
         <section className="mb-16" aria-label="Dyslexic strengths">
           <h2 className="mb-6 text-2xl font-bold text-foreground">Dyslexic Strengths</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {strengths.map((s) =>
-            <Card key={s.label}>
+            {strengths.map((s) => <Card key={s.label}>
                 <CardContent className="flex items-center gap-3 p-5">
                   <s.icon className="h-6 w-6 shrink-0 text-primary" aria-hidden="true" />
                   <span className="font-medium text-foreground">{s.label}</span>
                 </CardContent>
-              </Card>
-            )}
+              </Card>)}
           </div>
         </section>
 
@@ -116,8 +117,7 @@ const WhyItMattersPage = () => {
         <section aria-label="Who we support">
           <h2 className="mb-6 text-2xl font-bold text-foreground">Who We Support</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {ecosystem.map((e) =>
-            <Card key={e.label}>
+            {ecosystem.map((e) => <Card key={e.label}>
                 <CardContent className="p-5">
                   <div className="flex items-center gap-2 mb-2">
                     <Users className="h-5 w-5 text-primary" aria-hidden="true" />
