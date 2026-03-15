@@ -3,20 +3,20 @@ import { Card, CardContent } from "@/components/ui/card";
 import spikyProfileImg from "@/assets/spiky-profile.jpg";
 
 const strengths = [
-  { icon: Puzzle, label: "Systems thinking" },
-  { icon: Eye, label: "Pattern recognition" },
-  { icon: Brain, label: "Strategic problem solving" },
-  { icon: Compass, label: "Spatial reasoning" },
-  { icon: Lightbulb, label: "Innovative thinking under pressure" },
-];
+{ icon: Puzzle, label: "Systems thinking" },
+{ icon: Eye, label: "Pattern recognition" },
+{ icon: Brain, label: "Strategic problem solving" },
+{ icon: Compass, label: "Spatial reasoning" },
+{ icon: Lightbulb, label: "Innovative thinking under pressure" }];
+
 
 const ecosystem = [
-  { label: "Pre-service", description: "Candidates exploring defence and security careers." },
-  { label: "Serving", description: "Active personnel across military and civilian roles." },
-  { label: "Veterans", description: "Those transitioning to civilian life." },
-  { label: "Industry", description: "Defence and security contractors and partners." },
-  { label: "Families", description: "Dependants navigating support." },
-];
+{ label: "Pre-service", description: "Candidates exploring defence and security careers." },
+{ label: "Serving", description: "Active personnel across military and civilian roles." },
+{ label: "Veterans", description: "Those transitioning to civilian life." },
+{ label: "Industry", description: "Defence and security contractors and partners." },
+{ label: "Families", description: "Dependants navigating support." }];
+
 
 const WhyItMattersPage = () => {
   return (
@@ -25,7 +25,7 @@ const WhyItMattersPage = () => {
         <div className="mb-12 max-w-3xl">
           <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">Why It Matters</h1>
           <p className="text-lg text-muted-foreground">
-            Cognitive diversity strengthens defence and security capability. Dyslexic thinking brings unique strengths to complex environments.
+            ​
           </p>
         </div>
 
@@ -44,16 +44,16 @@ const WhyItMattersPage = () => {
             <img
               src={spikyProfileImg}
               alt="Graph illustrating the spiky cognitive profile of neurodiverse individuals compared to a neurotypical baseline, showing dramatic peaks and troughs across different cognitive abilities."
-              className="w-full h-auto rounded"
-            />
+              className="w-full h-auto rounded" />
+            
             <p className="mt-3 text-center text-xs text-muted-foreground">
               Source:{" "}
               <a
                 href="https://geniuswithin.org/what-is-neurodiversity/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-primary transition-colors"
-              >
+                className="underline hover:text-primary transition-colors">
+                
                 Genius Within – What is Neurodiversity
               </a>
             </p>
@@ -98,14 +98,14 @@ const WhyItMattersPage = () => {
         <section className="mb-16" aria-label="Dyslexic strengths">
           <h2 className="mb-6 text-2xl font-bold text-foreground">Dyslexic Strengths</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {strengths.map((s) => (
-              <Card key={s.label}>
+            {strengths.map((s) =>
+            <Card key={s.label}>
                 <CardContent className="flex items-center gap-3 p-5">
                   <s.icon className="h-6 w-6 shrink-0 text-primary" aria-hidden="true" />
                   <span className="font-medium text-foreground">{s.label}</span>
                 </CardContent>
               </Card>
-            ))}
+            )}
           </div>
         </section>
 
@@ -113,8 +113,8 @@ const WhyItMattersPage = () => {
         <section aria-label="Who we support">
           <h2 className="mb-6 text-2xl font-bold text-foreground">Who We Support</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {ecosystem.map((e) => (
-              <Card key={e.label}>
+            {ecosystem.map((e) =>
+            <Card key={e.label}>
                 <CardContent className="p-5">
                   <div className="flex items-center gap-2 mb-2">
                     <Users className="h-5 w-5 text-primary" aria-hidden="true" />
@@ -123,12 +123,12 @@ const WhyItMattersPage = () => {
                   <p className="text-sm text-muted-foreground">{e.description}</p>
                 </CardContent>
               </Card>
-            ))}
+            )}
           </div>
         </section>
       </div>
-    </div>
-  );
+    </div>);
+
 };
 
 export default WhyItMattersPage;
