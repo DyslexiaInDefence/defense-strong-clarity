@@ -1,8 +1,32 @@
+/**
+ * JoinForm Component
+ * 
+ * SUBMISSION LOGIC:
+ * This form submits data to a Google Apps Script web app endpoint,
+ * which writes each submission as a new row in a Google Sheet.
+ * 
+ * HOW IT WORKS:
+ * 1. User fills in the form and clicks "Register Interest"
+ * 2. Client-side validation runs (zod schema)
+ * 3. Data is POSTed as JSON to the Google Apps Script URL
+ * 4. The Apps Script parses the JSON and appends a row to the Google Sheet
+ * 
+ * HOW TO CHANGE THE DESTINATION GOOGLE SHEET:
+ * 1. Update the GOOGLE_SCRIPT_URL constant below with your new Apps Script deployment URL
+ * 2. Or create a new Apps Script project attached to a different Google Sheet
+ *    and deploy it as a web app (see docs/google-sheets-setup.md)
+ * 
+ * SECURITY:
+ * - No API keys are exposed client-side; the Apps Script URL is a public web app endpoint
+ * - Server-side validation is performed in the Apps Script
+ * - The Apps Script only accepts POST requests with the expected fields
+ */
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -21,6 +45,13 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+
+/**
+ * Google Apps Script web app URL.
+ * Replace this with your own deployment URL.
+ * See docs/google-sheets-setup.md for instructions.
+ */
+const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL || "";
 
 const joinSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -53,6 +84,8 @@ const interestOptions = [
 
 const JoinForm = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const form = useForm<JoinFormData>({
     resolver: zodResolver(joinSchema),
@@ -65,9 +98,58 @@ const JoinForm = () => {
     },
   });
 
-  const onSubmit = (data: JoinFormData) => {
-    console.info("Join form submitted:", { name: data.name, email: data.email, connection: data.connection });
-    setSubmitted(true);
+  const onSubmit = async (data: JoinFormData) => {
+    // Prevent duplicate submissions
+    if (submitting) return;
+
+    setSubmitting(true);
+    setSubmitError(null);
+
+    // Build the payload matching the Google Sheet columns
+    const payload = {
+      timestamp: new Date().toISOString(),
+      fullName: data.name,
+      email: data.email,
+      connectionToDefence: data.connection,
+      peerNetworking: data.interests?.includes("Peer networking") ?? false,
+      resourcesAndGuidance: data.interests?.includes("Resources and guidance") ?? false,
+      eventsAndWorkshops: data.interests?.includes("Events and workshops") ?? false,
+      volunteering: data.interests?.includes("Volunteering") ?? false,
+      researchParticipation: data.interests?.includes("Research participation") ?? false,
+      communityGuidelinesAgreed: data.consent === true,
+    };
+
+    try {
+      if (!GOOGLE_SCRIPT_URL) {
+        throw new Error("Form endpoint not configured. Please set VITE_GOOGLE_SCRIPT_URL.");
+      }
+
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Submission failed. Please try again.");
+      }
+
+      console.info("Join form submitted successfully:", {
+        name: data.name,
+        email: data.email,
+        connection: data.connection,
+      });
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again later."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -88,6 +170,13 @@ const JoinForm = () => {
       <p className="mb-6 text-sm text-muted-foreground">
         Register your interest to join the Dyslexia in Defence peer network.
       </p>
+
+      {submitError && (
+        <div className="mb-4 flex items-center gap-2 rounded-lg border border-destructive/50 bg-destructive/10 p-3 text-sm text-destructive" role="alert">
+          <AlertCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
+          <span>{submitError}</span>
+        </div>
+      )}
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5" noValidate aria-label="Join the network form">
@@ -203,8 +292,15 @@ const JoinForm = () => {
             )}
           />
 
-          <Button type="submit" size="lg" className="w-full sm:w-auto">
-            Register Interest
+          <Button type="submit" size="lg" className="w-full sm:w-auto" disabled={submitting}>
+            {submitting ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
+                Submitting…
+              </>
+            ) : (
+              "Register Interest"
+            )}
           </Button>
         </form>
       </Form>
