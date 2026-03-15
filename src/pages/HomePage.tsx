@@ -84,7 +84,7 @@ const HomePage = () => {
           aria-hidden="true" />
         
         <div className="container mx-auto px-4 text-center">
-          <img alt="Dyslexia in Defence shield logo" className="mx-auto mb-8 h-40 w-auto sm:h-48 md:h-56 lg:h-64 drop-shadow-lg object-fill" src="/lovable-uploads/476a8a56-e0ae-41c0-af5e-a635274387f9.png" />
+          <img alt="Dyslexia in Defence shield logo" className="mx-auto mb-8 h-40 w-auto sm:h-48 md:h-56 lg:h-64 drop-shadow-lg object-fill" src="/lovable-uploads/4eee789e-61aa-4a04-8ec1-96380d579791.png" />
           <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
             Coming soon... Dyslexia in Defence
           
