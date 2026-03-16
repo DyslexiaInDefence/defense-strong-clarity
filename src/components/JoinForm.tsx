@@ -51,7 +51,7 @@ import {
  * Replace this with your own deployment URL.
  * See docs/google-sheets-setup.md for instructions.
  */
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzFVax-4QjmXHrMVHH1ZWd2JFadnrdPw71m3ensWov7HB8UuMUAhA-zs7a5RodJ8d9b/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxwfEUTaRFqYl3-XWAFZs9qDCB-rpC6hvwKcNxny9Fm_TFghKQVd1gy3EBFKNwZ1lwiow/exec";
 
 const joinSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
