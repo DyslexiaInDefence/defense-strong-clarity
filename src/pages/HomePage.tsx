@@ -1,34 +1,7 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, ChevronRight, Target, Users, Handshake, HeartHandshake, Shield, TrendingUp, Globe } from "lucide-react";
+import { ArrowRight, ChevronRight, Shield, TrendingUp, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-
-
-const previewCards = [
-{
-  title: "Why It Matters",
-  description: "Cognitive diversity as a strategic advantage.",
-  href: "/why-it-matters",
-  icon: Target
-},
-{
-  title: "Community",
-  description: "Peer support built on trust and shared experience.",
-  href: "/community",
-  icon: Users
-},
-{
-  title: "Partner With Us",
-  description: "Collaborate to advance inclusive capability.",
-  href: "/partner",
-  icon: Handshake
-},
-{
-  title: "Support Directory",
-  description: "Trusted services and organisations.",
-  href: "/support",
-  icon: HeartHandshake
-}];
 
 
 const impactStages = [
