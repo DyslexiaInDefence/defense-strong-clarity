@@ -1,18 +1,18 @@
 import vennDiagram from "@/assets/venn-diagram.png";
 
 const aims = [
-  "Empower individuals with dyslexia to recognise and use their strengths",
-  "Increase awareness and understanding of dyslexia across defence environments",
-  "Create connections between industry, charities, and veteran support organisations",
-  "Improve opportunities for individuals during service, transition, and civilian careers",
-];
+"Empower individuals with dyslexia to recognise and use their strengths",
+"Increase awareness and understanding of dyslexia across defence environments",
+"Create connections between industry, charities, and veteran support organisations",
+"Improve opportunities for individuals during service, transition, and civilian careers"];
+
 
 const successItems = [
-  "Greater awareness of dyslexia across the defence sector",
-  "Stronger collaboration between industry and neurodiversity specialists",
-  "Practical support networks for individuals with dyslexia",
-  "Clearer pathways for people leaving the military into meaningful careers",
-];
+"Greater awareness of dyslexia across the defence sector",
+"Stronger collaboration between industry and neurodiversity specialists",
+"Practical support networks for individuals with dyslexia",
+"Clearer pathways for people leaving the military into meaningful careers"];
+
 
 const AchievePage = () => {
   return (
@@ -38,10 +38,10 @@ const AchievePage = () => {
             <img
               src={vennDiagram}
               alt="Venn diagram showing Dyslexia in Defence at the intersection of Defence Industry, Dyslexia and Neurodiversity Charities, and Veteran Support Organisations"
-              className="mx-auto w-full max-w-2xl rounded-lg"
-            />
+              className="mx-auto w-full max-w-2xl rounded-lg" />
+            
             <p className="mt-6 text-center text-sm leading-relaxed text-muted-foreground italic">
-              Dyslexia in Defence connects defence industry partners, neurodiversity expertise, and veteran support organisations to empower individuals with dyslexia to thrive.
+              Dyslexia in Defence connects defence industry partners, neurodiversity expertise, and veteran support organisations (or those pre service) to empower individuals with dyslexia to thrive.
             </p>
           </div>
         </div>
@@ -53,12 +53,12 @@ const AchievePage = () => {
           <div className="mx-auto max-w-2xl">
             <h2 className="mb-8 text-center text-2xl font-bold text-foreground">Our Aim</h2>
             <ul className="space-y-4">
-              {aims.map((item) => (
-                <li key={item} className="flex items-start gap-3 rounded-lg border border-border bg-card p-4">
+              {aims.map((item) =>
+              <li key={item} className="flex items-start gap-3 rounded-lg border border-border bg-card p-4">
                   <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
                   <span className="text-foreground">{item}</span>
                 </li>
-              ))}
+              )}
             </ul>
           </div>
         </div>
@@ -70,18 +70,18 @@ const AchievePage = () => {
           <div className="mx-auto max-w-2xl">
             <h2 className="mb-8 text-center text-2xl font-bold text-foreground">What Success Looks Like</h2>
             <ul className="space-y-4">
-              {successItems.map((item) => (
-                <li key={item} className="flex items-start gap-3 rounded-lg border border-border bg-background p-4">
+              {successItems.map((item) =>
+              <li key={item} className="flex items-start gap-3 rounded-lg border border-border bg-background p-4">
                   <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
                   <span className="text-foreground">{item}</span>
                 </li>
-              ))}
+              )}
             </ul>
           </div>
         </div>
       </section>
-    </>
-  );
+    </>);
+
 };
 
 export default AchievePage;
