@@ -10,6 +10,7 @@ const navLinks = [
 { label: "Home", to: "/" },
 { label: "Why It Matters", to: "/why-it-matters" },
 { label: "What We Want to Achieve", to: "/achieve" },
+{ label: "Insights", to: "/insights" },
 { label: "Governance", to: "/governance" }];
 
 

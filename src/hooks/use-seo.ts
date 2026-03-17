@@ -42,6 +42,12 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.9,
     indexable: true,
   },
+  "/insights": {
+    title: "Insights on Dyslexia in Defence | Neurodiversity in the UK Military",
+    description: "Videos, podcasts, research and lived experience exploring dyslexia support in the MOD, neurodiversity in the military and the wider UK defence community.",
+    priority: 0.8,
+    indexable: true,
+  },
 };
 
 const setMeta = (name: string, content: string, attr = "name") => {
