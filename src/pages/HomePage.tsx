@@ -64,7 +64,7 @@ const HomePage = () => {
           
           </h1>
           <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-            Independent peer support and structured signposting across the defence and security ecosystem.
+            Empowering dyslexic talent across Defence, before and after service.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link to="/join">
