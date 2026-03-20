@@ -48,6 +48,12 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.8,
     indexable: true,
   },
+  "/partner": {
+    title: "Partner With Dyslexia in Defence | Social Value & Defence Industry Collaboration",
+    description: "Partner with Dyslexia in Defence to support neurodiverse talent, deliver measurable social value, and unlock workforce capability across the UK defence sector.",
+    priority: 0.8,
+    indexable: true,
+  },
 };
 
 const setMeta = (name: string, content: string, attr = "name") => {
