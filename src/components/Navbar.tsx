@@ -11,6 +11,7 @@ const navLinks = [
 { label: "Why It Matters", to: "/why-it-matters" },
 { label: "What We Want to Achieve", to: "/achieve" },
 { label: "Insights", to: "/insights" },
+{ label: "Partner", to: "/partner" },
 { label: "Governance", to: "/governance" }];
 
 
