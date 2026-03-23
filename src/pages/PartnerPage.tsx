@@ -48,48 +48,105 @@ const PartnerPage = () => {
         </section>
 
         {/* ───── 2. WHY THIS MATTERS ───── */}
-        <section className="mb-16">
-          <h2 className="mb-5 text-2xl font-bold text-foreground">Why This Matters</h2>
-          <p className="mb-4 text-muted-foreground leading-relaxed">
-            According to the{" "}
+        <section className="mb-16 space-y-6">
+          <h2 className="text-2xl font-bold text-foreground">Why This Matters</h2>
+
+          <p className="text-foreground leading-relaxed">
+            Across the defence community, there are thousands of people quietly doing their jobs, often without recognising the strengths they bring — or being supported to use them fully.
+          </p>
+
+          <p className="text-foreground leading-relaxed">
+            Some are serving. Some are veterans. Some are in civil service or industry.
+          </p>
+
+          <p className="text-foreground leading-relaxed">
+            Many will have experienced the same thing:
+          </p>
+
+          <ul className="space-y-3 pl-1">
+            <li className="flex items-start gap-3">
+              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+              <span className="text-foreground leading-relaxed">Being labelled as struggling</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+              <span className="text-foreground leading-relaxed">Working harder than everyone else to keep up</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+              <span className="text-foreground leading-relaxed">Never quite being recognised for how they think differently</span>
+            </li>
+          </ul>
+
+          <p className="text-foreground leading-relaxed">
+            And yet, that difference is often where their real strength lies.
+          </p>
+
+          <div className="my-2" />
+
+          <p className="text-foreground leading-relaxed">
+            Research from{" "}
             <a
               href="https://www.madebydyslexia.org/assets/downloads/Return_on_Dyslexic_Thinking.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="font-semibold text-primary underline underline-offset-2 hover:text-primary/80"
             >
-              Made By Dyslexia 'Return on Dyslexic Thinking' report
-            </a>:
+              Made By Dyslexia (Return on Dyslexic Thinking)
+            </a>{" "}
+            suggests that dyslexic thinking may contribute up to <strong>$4.5&nbsp;trillion</strong> globally, with a significant proportion still untapped. In the UK alone, this may represent up to <strong>£98.2&nbsp;billion</strong> in value, with up to <strong>£68.8&nbsp;billion</strong> not yet realised.
           </p>
 
-          <ul className="mb-6 space-y-3">
-            {[
-              "Dyslexic thinking may contribute up to **$4.5 trillion** globally",
-              "Up to **$3.2 trillion** remains untapped",
-              "In the UK, this represents up to **£98.2 billion** in value, with up to **£68.8 billion** untapped",
-              "Around **1 in 5** people may be dyslexic, although many remain unsupported",
-              "Only ~**30%** are effectively empowered in the workplace",
-              "Each dyslexic individual may contribute up to ~**$20,000** additional value per year",
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <TrendingUp className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-                <span
-                  className="text-foreground leading-relaxed"
-                  dangerouslySetInnerHTML={{
-                    __html: item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'),
-                  }}
-                />
-              </li>
-            ))}
+          <p className="text-foreground leading-relaxed">
+            Around 1 in 5 people may be dyslexic, but only a small proportion are properly supported or enabled at work.
+          </p>
+
+          <p className="text-foreground leading-relaxed font-medium">
+            In defence, that matters.
+          </p>
+
+          <div className="my-2" />
+
+          <p className="text-foreground leading-relaxed">
+            Each year, approximately <strong>15,000–20,000</strong> people leave the UK Armed Forces. Among them are individuals with valuable skills in:
+          </p>
+
+          <ul className="space-y-3 pl-1">
+            <li className="flex items-start gap-3">
+              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+              <span className="text-foreground leading-relaxed">Problem solving</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+              <span className="text-foreground leading-relaxed">Big-picture thinking</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+              <span className="text-foreground leading-relaxed">Leadership</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+              <span className="text-foreground leading-relaxed">Adaptability under pressure</span>
+            </li>
           </ul>
 
-          <Card className="border-primary/20 bg-primary/5">
-            <CardContent className="p-5">
-              <p className="text-foreground leading-relaxed font-medium">
-                In a defence context, this represents a significant, often unrecognised capability within the workforce.
-              </p>
-            </CardContent>
-          </Card>
+          <p className="text-foreground leading-relaxed">
+            Based on current estimates, this could represent hundreds of millions of pounds of potential capability transitioning out of defence every year.
+          </p>
+
+          <p className="text-muted-foreground leading-relaxed">
+            Not because it disappears — but because it is not always recognised or used effectively.
+          </p>
+
+          <div className="my-2" />
+
+          <p className="text-foreground leading-relaxed font-medium">
+            This is not just about inclusion.
+          </p>
+
+          <p className="text-foreground leading-relaxed">
+            It is about people whose strengths are already there, and the opportunity to recognise, support, and make better use of them — for individuals, for organisations, and for the wider defence community.
+          </p>
         </section>
 
         {/* ───── 3. DEFENCE CONTEXT ───── */}
