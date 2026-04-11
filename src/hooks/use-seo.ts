@@ -54,6 +54,36 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.8,
     indexable: true,
   },
+  "/insights/can-you-join-army-with-dyslexia-uk": {
+    title: "Can You Join the Army With Dyslexia UK? | Dyslexia in Defence",
+    description: "Yes, you can join the British Army with dyslexia. Find out how recruitment works, what adjustments are available, and what to expect.",
+    priority: 0.8,
+    indexable: true,
+  },
+  "/insights/can-you-join-raf-with-dyslexia-uk": {
+    title: "Can You Join the RAF With Dyslexia UK? | Dyslexia in Defence",
+    description: "Yes, dyslexia does not disqualify you from the RAF. Learn about recruitment adjustments, support in service, and common misconceptions.",
+    priority: 0.8,
+    indexable: true,
+  },
+  "/insights/can-you-join-navy-with-dyslexia-uk": {
+    title: "Can You Join the Royal Navy With Dyslexia UK? | Dyslexia in Defence",
+    description: "Yes, the Royal Navy accepts dyslexic applicants. Discover how dyslexia is assessed, what support exists, and how to apply.",
+    priority: 0.8,
+    indexable: true,
+  },
+  "/insights/is-dyslexia-a-barrier-in-the-military-uk": {
+    title: "Is Dyslexia a Barrier in the UK Military? | Dyslexia in Defence",
+    description: "Dyslexia is not a barrier to serving in the UK Armed Forces. Learn how all three services support dyslexic personnel.",
+    priority: 0.8,
+    indexable: true,
+  },
+  "/insights/neurodiversity-in-the-mod-uk": {
+    title: "Neurodiversity in the MOD UK | Dyslexia in Defence",
+    description: "The MOD supports neurodiversity across military and civil service roles. Learn about available adjustments and workplace support.",
+    priority: 0.8,
+    indexable: true,
+  },
 };
 
 const setMeta = (name: string, content: string, attr = "name") => {
