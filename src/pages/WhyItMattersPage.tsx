@@ -64,7 +64,22 @@ const WhyItMattersPage = () => {
             </p>
           </div>
 
-          <div className="max-w-3xl space-y-5 text-foreground leading-relaxed">
+          {/* Insights CTA */}
+          <section className="my-10 rounded-xl border border-primary/20 bg-primary/5 p-8 md:p-10 text-center">
+            <h2 className="mb-3 text-2xl font-bold text-foreground md:text-3xl">
+              This Isn't Theory. It's Real Experience.
+            </h2>
+            <p className="mx-auto mb-6 max-w-xl text-lg text-muted-foreground">
+              Go beyond the data and hear from people experiencing dyslexia across the defence community.
+            </p>
+            <Link to="/insights">
+              <Button size="lg" className="rounded-full px-8 text-base font-semibold">
+                Explore Insights
+                <ChevronRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </section>
+
             <p>
               For many years, people with dyslexia have been assessed, judged, and filtered based primarily on the <strong>lowest points</strong> of that profile. Recruitment processes, exams, training systems, and workplace assessments frequently focus on areas where dyslexic individuals may struggle — such as processing speed, written accuracy, or certain forms of working memory.
             </p>
