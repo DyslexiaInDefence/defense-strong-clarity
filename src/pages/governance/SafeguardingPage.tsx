@@ -130,7 +130,7 @@ const SafeguardingPage = () => (
     </section>
 
     <section id="non-clinical">
-      <h2 className="text-2xl font-bold text-foreground mb-4">Non-Clinical Disclaimer</h2>
+      <h2 className="text-2xl font-bold text-foreground mb-4">Non Clinical Disclaimer</h2>
       <Callout variant="important">
         <strong>Nothing provided through Dyslexia in Defence constitutes clinical, medical, psychological, legal, or therapeutic advice.</strong>
       </Callout>

@@ -77,9 +77,9 @@ const PrivacyNoticePage = () => (
     </section>
 
     <section id="third-parties">
-      <h2 className="text-2xl font-bold text-foreground mb-4">Third-Party Services</h2>
+      <h2 className="text-2xl font-bold text-foreground mb-4">Third Party Services</h2>
       <p className="text-muted-foreground mb-3">
-        The initiative uses a limited number of third-party services to operate the website and community. These may include:
+        The initiative uses a limited number of third party services to operate the website and community. These may include:
       </p>
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
         <li>Website hosting providers</li>
@@ -131,7 +131,7 @@ const PrivacyNoticePage = () => (
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
         <li>Use of encrypted connections (HTTPS) for all website traffic</li>
         <li>Access to personal data restricted to the founder</li>
-        <li>Use of reputable, security-conscious third-party service providers</li>
+        <li>Use of reputable, security conscious third party service providers</li>
         <li>Regular review of data handling practices</li>
       </ul>
       <p className="text-muted-foreground mt-3">

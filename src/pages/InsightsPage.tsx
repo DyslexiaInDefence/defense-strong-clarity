@@ -114,7 +114,7 @@ const InsightsPage = () => {
                     <strong className="text-foreground">How it connects:</strong> The Defence Dyslexia Network focuses on individuals currently serving in the MOD.
                   </p>
                   <p>
-                    <strong className="text-foreground">Dyslexia in Defence</strong> provides broader, wrap-around support across the entire defence ecosystem — including veterans, families, civil servants, and industry. The two are <strong>complementary, not competing</strong>.
+                    <strong className="text-foreground">Dyslexia in Defence</strong> provides broader, wraparound support across the entire defence ecosystem — including veterans, families, civil servants, and industry. The two are <strong>complementary, not competing</strong>.
                   </p>
                 </div>
               </div>
