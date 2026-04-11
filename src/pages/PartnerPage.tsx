@@ -74,7 +74,7 @@ const PartnerPage = () => {
           </ul>
 
           <p className="text-foreground leading-relaxed">
-            Of those transitioning each year, an estimated <strong>1,500–2,000</strong> may be dyslexic. Many will have developed these capabilities precisely because of how they think — yet without appropriate recognition or support, their potential often remains underutilised.
+            Of those transitioning each year, an estimated <strong>1,500–2,000</strong> may be dyslexic. Many will have developed these capabilities precisely because of how they think — yet without <strong>appropriate recognition</strong> or <strong>support</strong>, their potential often remains underutilised.
           </p>
 
           <p className="text-foreground leading-relaxed">
