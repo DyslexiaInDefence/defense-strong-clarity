@@ -1,7 +1,78 @@
 import { Link } from "react-router-dom";
-import { FileText, ExternalLink, PlayCircle, BookOpen, Lightbulb } from "lucide-react";
+import { FileText, ExternalLink, PlayCircle, BookOpen, Lightbulb, ChevronRight, HelpCircle } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useEffect } from "react";
+
+const faqCategories = [
+  {
+    title: "Joining the Armed Forces",
+    items: [
+      {
+        question: "Can you join the Army with dyslexia (UK)?",
+        answer: "Yes, dyslexia does not automatically disqualify you from joining the British Army. Each candidate is assessed individually, and reasonable adjustments may be available during recruitment.",
+        link: "/insights/can-you-join-army-with-dyslexia-uk",
+      },
+      {
+        question: "Can you join the RAF with dyslexia (UK)?",
+        answer: "Dyslexia does not prevent you from applying to the Royal Air Force. The RAF assesses applicants on a case-by-case basis and offers support throughout the recruitment process.",
+        link: "/insights/can-you-join-raf-with-dyslexia-uk",
+      },
+      {
+        question: "Can you join the Royal Navy with dyslexia (UK)?",
+        answer: "Yes, the Royal Navy accepts applicants with dyslexia. Support and adjustments are available during recruitment and throughout your career.",
+        link: "/insights/can-you-join-navy-with-dyslexia-uk",
+      },
+    ],
+  },
+  {
+    title: "Understanding Barriers and Support",
+    items: [
+      {
+        question: "Is dyslexia a barrier in the military (UK)?",
+        answer: "Dyslexia is not an automatic barrier to military service. All three services have processes to support neurodiverse personnel, though awareness and consistency vary.",
+        link: "/insights/is-dyslexia-a-barrier-in-the-military-uk",
+      },
+      {
+        question: "Neurodiversity in the MOD (UK)",
+        answer: "The Ministry of Defence actively supports neurodiversity across military and civil service roles, with workplace adjustments and growing awareness programmes.",
+        link: "/insights/neurodiversity-in-the-mod-uk",
+      },
+    ],
+  },
+];
+
+// Build FAQ schema
+const faqSchemaItems = faqCategories.flatMap((cat) =>
+  cat.items.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  }))
+);
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqSchemaItems,
+};
 
 const InsightsPage = () => {
+  // Inject FAQ structured data
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "faq-schema";
+    script.textContent = JSON.stringify(faqSchema);
+    document.head.appendChild(script);
+    return () => {
+      const el = document.getElementById("faq-schema");
+      if (el) el.remove();
+    };
+  }, []);
+
   return (
     <main className="bg-background">
       {/* Hero — Featured Insight */}
@@ -10,8 +81,11 @@ const InsightsPage = () => {
           <h1 className="mb-6 text-3xl font-extrabold leading-tight text-foreground md:text-4xl lg:text-5xl">
             Insights on Dyslexia in Defence
           </h1>
-          <p className="mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+          <p className="mb-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
             Real voices, research, and perspectives on <strong>neurodiversity in the UK military</strong> and wider defence community.
+          </p>
+          <p className="mb-10 max-w-2xl text-base leading-relaxed text-muted-foreground">
+            Common questions about dyslexia and joining the UK Armed Forces — answered clearly.
           </p>
 
           <div className="mx-auto max-w-2xl overflow-hidden rounded-2xl border border-border bg-background shadow-lg">
@@ -38,8 +112,44 @@ const InsightsPage = () => {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-16 md:py-20" aria-label="Frequently asked questions">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-3xl">
+            <div className="mb-8 flex items-center gap-3">
+              <HelpCircle className="h-7 w-7 text-primary" aria-hidden="true" />
+              <h2 className="text-2xl font-bold text-foreground md:text-3xl">Frequently Asked Questions</h2>
+            </div>
+
+            {faqCategories.map((category) => (
+              <div key={category.title} className="mb-8">
+                <h3 className="mb-4 text-lg font-semibold text-foreground">{category.title}</h3>
+                <Accordion type="multiple" className="rounded-xl border border-border bg-card">
+                  {category.items.map((item, i) => (
+                    <AccordionItem key={i} value={`${category.title}-${i}`} className="border-border px-5">
+                      <AccordionTrigger className="text-left text-base font-medium text-foreground hover:no-underline">
+                        {item.question}
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <p className="mb-3 text-sm leading-relaxed text-muted-foreground">{item.answer}</p>
+                        <Link
+                          to={item.link}
+                          className="inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+                        >
+                          Read more <ChevronRight className="h-4 w-4" />
+                        </Link>
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Key Takeaways */}
-      <section className="py-16 md:py-20">
+      <section className="bg-card py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl">
             <div className="mb-8 flex items-center gap-3">
@@ -69,7 +179,7 @@ const InsightsPage = () => {
       </section>
 
       {/* Podcast Insights */}
-      <section className="bg-card py-16 md:py-20">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl">
             <div className="mb-8 flex items-center gap-3">
@@ -81,28 +191,21 @@ const InsightsPage = () => {
             </p>
 
             <div className="space-y-10">
-              {/* Podcast 1 */}
               <PodcastCard
                 embedUrl="https://open.spotify.com/embed/episode/3yGuLAcPYJqLcT05wSOlgU?utm_source=generator&theme=0"
                 title="Leadership and Dyslexia in Defence"
                 description="A candid discussion on how dyslexia intersects with leadership and decision making across the defence environment. The strongest insight into why neurodiversity matters at every level."
               />
-
-              {/* Podcast 2 */}
               <PodcastCard
                 embedUrl="https://open.spotify.com/embed/episode/16a7rVgNCb3jTdfoRhDmrj?utm_source=generator&theme=0"
                 title="Neurodiversity and Leadership in the Army"
                 description="Exploring how neurodiverse thinking contributes to effective leadership within the British Army, and why awareness at command level is critical."
               />
-
-              {/* Podcast 3 */}
               <PodcastCard
                 embedUrl="https://open.spotify.com/embed/episode/2zNd3YpRNMt14rNU3kCqpR?utm_source=generator&theme=0"
                 title="Lived Experience Inside the MOD"
                 description="First hand accounts of navigating dyslexia within the Ministry of Defence — the challenges, the turning points, and the support that made a difference."
               />
-
-              {/* Podcast 4 — DDN */}
               <div className="space-y-4">
                 <PodcastCard
                   embedUrl="https://open.spotify.com/embed/episode/5F9sfDROyK9jkV1uK5i9Ot?utm_source=generator&theme=0"
@@ -124,7 +227,7 @@ const InsightsPage = () => {
       </section>
 
       {/* Research and Publications */}
-      <section className="py-16 md:py-20">
+      <section className="bg-card py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl">
             <div className="mb-8 flex items-center gap-3">
@@ -152,7 +255,7 @@ const InsightsPage = () => {
       </section>
 
       {/* Why This Matters */}
-      <section className="bg-card py-16 md:py-20">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl">
             <h2 className="mb-6 text-2xl font-bold text-foreground md:text-3xl">Why This Matters</h2>
