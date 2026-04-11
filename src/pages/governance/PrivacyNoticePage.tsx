@@ -88,7 +88,7 @@ const PrivacyNoticePage = () => (
         <li>Community platform providers</li>
       </ul>
       <p className="text-muted-foreground mt-3">
-        Third-party services are selected with regard to their data protection practices. Data is not shared with third parties for marketing purposes.
+        Third party services are selected with regard to their data protection practices. Data is not shared with third parties for marketing purposes.
       </p>
     </section>
 

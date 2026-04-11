@@ -70,7 +70,7 @@ const connections = [
   "Reservist",
   "Defence Industry",
   "Family Member",
-  "Pre-joining Candidate",
+  "Pre joining Candidate",
   "Other",
 ];
 
