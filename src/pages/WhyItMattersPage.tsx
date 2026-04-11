@@ -1,5 +1,7 @@
-import { Brain, Eye, Lightbulb, Puzzle, Compass, Users } from "lucide-react";
+import { Brain, Eye, Lightbulb, Puzzle, Compass, Users, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import spikyProfileImg from "@/assets/spiky-profile.jpg";
 
 const strengths = [
@@ -22,6 +24,22 @@ const WhyItMattersPage = () => {
   return (
     <div className="py-16">
       <div className="container mx-auto px-4">
+        {/* Attention-grabbing Insights banner */}
+        <section className="mb-16 rounded-xl border border-primary/20 bg-primary/5 p-8 md:p-10 text-center">
+          <h2 className="mb-3 text-2xl font-bold text-foreground md:text-3xl">
+            This Isn't Theory. It's Real Experience.
+          </h2>
+          <p className="mx-auto mb-6 max-w-xl text-lg text-muted-foreground">
+            Go beyond the data and hear from people experiencing dyslexia across the defence community.
+          </p>
+          <Link to="/insights">
+            <Button size="lg" className="rounded-full px-8 text-base font-semibold">
+              Explore Insights
+              <ChevronRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
+        </section>
+
         <div className="mb-12 max-w-3xl">
           <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">Why It Matters</h1>
           <p className="text-lg text-muted-foreground">
