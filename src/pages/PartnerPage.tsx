@@ -51,7 +51,7 @@ const PartnerPage = () => {
         <section className="mb-16 space-y-6">
           <h2 className="text-2xl font-bold text-foreground">Why This Matters</h2>
 
-          <p className="text-foreground leading-relaxed">
+          <p className="text-foreground leading-relaxed font-bold">
             Each year, approximately <strong>15,000–20,000</strong> personnel leave the UK Armed Forces and transition into civilian roles. For organisations operating in defence and beyond, this represents a significant and recurring talent pipeline.
           </p>
 
