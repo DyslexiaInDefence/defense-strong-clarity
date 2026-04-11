@@ -37,7 +37,7 @@ const SafeguardingPage = () => (
     <section id="peer-support">
       <h2 className="text-2xl font-bold text-foreground mb-4">Peer Support Only</h2>
       <p className="text-muted-foreground mb-3">
-        The support provided through this initiative is peer-based. This means:
+        The support provided through this initiative is peer based. This means:
       </p>
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
         <li>Support comes from shared experience, not professional qualification</li>

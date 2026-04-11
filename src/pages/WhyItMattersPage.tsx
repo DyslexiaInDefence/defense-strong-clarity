@@ -11,7 +11,7 @@ const strengths = [
 
 
 const ecosystem = [
-{ label: "Pre-service", description: "Candidates exploring defence and security careers." },
+{ label: "Pre service", description: "Candidates exploring defence and security careers." },
 { label: "Serving", description: "Active personnel across military and civilian roles." },
 { label: "Veterans", description: "Those transitioning to civilian life." },
 { label: "Industry", description: "Defence and security contractors and partners." },

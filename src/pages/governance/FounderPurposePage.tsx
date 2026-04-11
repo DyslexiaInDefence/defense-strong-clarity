@@ -93,7 +93,7 @@ const FounderPurposePage = () => (
     <section id="funding">
       <h2 className="text-2xl font-bold text-foreground mb-4">Funding Position</h2>
       <p className="text-muted-foreground mb-3">
-        Dyslexia in Defence is currently self-funded by the founder. The initiative operates on a non-profit basis.
+        Dyslexia in Defence is currently self funded by the founder. The initiative operates on a non profit basis.
       </p>
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
         <li>No revenue is generated for personal gain</li>

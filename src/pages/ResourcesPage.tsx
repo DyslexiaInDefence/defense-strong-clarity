@@ -22,7 +22,7 @@ const resources: Resource[] = [
   { title: "Transition Support Resources", summary: "Guidance for personnel transitioning between roles or to civilian employment.", category: "Transition support", audiences: ["Veterans", "Serving"], icon: ArrowRightLeft },
   { title: "Research Summary: Cognitive Diversity in Defence", summary: "Key findings from published research on neurodiversity and operational effectiveness.", category: "Research summaries", audiences: ["All"], icon: BookOpen },
   { title: "Family and Carers Resource Pack", summary: "Information and signposting for families supporting dyslexic individuals in the defence community.", category: "Workplace adjustments", audiences: ["Families"], icon: Users },
-  { title: "Pre-Joining Candidate Guide", summary: "Advice for prospective candidates navigating recruitment processes with dyslexia.", category: "Transition support", audiences: ["Pre-joining"], icon: ArrowRightLeft },
+  { title: "Pre Joining Candidate Guide", summary: "Advice for prospective candidates navigating recruitment processes with dyslexia.", category: "Transition support", audiences: ["Pre-joining"], icon: ArrowRightLeft },
   { title: "Assistive Technology for Veterans", summary: "Tools and platforms available to support veterans in education and employment.", category: "Assistive technology", audiences: ["Veterans"], icon: Monitor },
 ];
 

@@ -1,26 +1,26 @@
 import PolicyLayout, { Callout } from "@/components/PolicyLayout";
 
 const sections = [
-  { id: "founder-led", title: "Founder-Led Initiative" },
+  { id: "founder-led", title: "Founder Led Initiative" },
   { id: "independence", title: "Independence" },
-  { id: "non-profit", title: "Non-Profit Intent" },
+  { id: "non-profit", title: "Non Profit Intent" },
   { id: "governance-model", title: "Current Governance Model" },
   { id: "evolution", title: "Governance Evolution" },
-  { id: "decision-making", title: "Decision-Making Authority" },
+  { id: "decision-making", title: "Decision Making Authority" },
   { id: "related-policies", title: "Related Policies" },
 ];
 
 const GovernanceOverviewPage = () => (
   <PolicyLayout
     title="Governance Overview"
-    summary="Dyslexia in Defence is a founder-led, independent, volunteer-driven initiative. This page outlines how the initiative is governed, how decisions are made, and the principles that guide its operation."
+    summary="Dyslexia in Defence is a founder led, independent, volunteer driven initiative. This page outlines how the initiative is governed, how decisions are made, and the principles that guide its operation."
     lastUpdated="1 March 2026"
     sections={sections}
   >
     <section id="founder-led">
-      <h2 className="text-2xl font-bold text-foreground mb-4">Founder-Led Initiative</h2>
+      <h2 className="text-2xl font-bold text-foreground mb-4">Founder Led Initiative</h2>
       <p className="text-muted-foreground mb-3">
-        Dyslexia in Defence was established and is led by its founder in a personal capacity. It is not a registered charity, company, or formal organisation. It operates as a personal, voluntary initiative with a clear public-interest purpose.
+        Dyslexia in Defence was established and is led by its founder in a personal capacity. It is not a registered charity, company, or formal organisation. It operates as a personal, voluntary initiative with a clear public interest purpose.
       </p>
       <p className="text-muted-foreground">
         The founder bears personal responsibility for the direction, content, and conduct of the initiative. As the network matures, governance structures will be reviewed and adapted proportionately.
@@ -44,12 +44,12 @@ const GovernanceOverviewPage = () => (
     </section>
 
     <section id="non-profit">
-      <h2 className="text-2xl font-bold text-foreground mb-4">Non-Profit Intent</h2>
+      <h2 className="text-2xl font-bold text-foreground mb-4">Non Profit Intent</h2>
       <p className="text-muted-foreground mb-3">
-        Dyslexia in Defence operates on a non-profit basis. The initiative does not generate revenue for personal gain. Any financial support received is directed entirely toward sustaining and improving the network's services.
+        Dyslexia in Defence operates on a non profit basis. The initiative does not generate revenue for personal gain. Any financial support received is directed entirely toward sustaining and improving the network's services.
       </p>
       <p className="text-muted-foreground">
-        At this stage, the initiative is self-funded by the founder. Should external funding or sponsorship be accepted in the future, this will be disclosed transparently in line with the Sponsorship Principles.
+        At this stage, the initiative is self funded by the founder. Should external funding or sponsorship be accepted in the future, this will be disclosed transparently in line with the Sponsorship Principles.
       </p>
     </section>
 
@@ -59,7 +59,7 @@ const GovernanceOverviewPage = () => (
         The current governance model reflects the early stage of the initiative. It is intentionally simple and proportionate:
       </p>
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-        <li><strong>Founder oversight</strong> — The founder is the sole decision-maker for strategic direction, policy, and content</li>
+        <li><strong>Founder oversight</strong> — The founder is the sole decision maker for strategic direction, policy, and content</li>
         <li><strong>Defined policies</strong> — A suite of published policies governs conduct, privacy, safeguarding, and sponsorship</li>
         <li><strong>Community moderation</strong> — All community spaces are moderated with clear behavioural expectations</li>
         <li><strong>Transparency</strong> — Governance decisions and policies are published openly on this website</li>
@@ -87,7 +87,7 @@ const GovernanceOverviewPage = () => (
     </section>
 
     <section id="decision-making">
-      <h2 className="text-2xl font-bold text-foreground mb-4">Decision-Making Authority</h2>
+      <h2 className="text-2xl font-bold text-foreground mb-4">Decision Making Authority</h2>
       <p className="text-muted-foreground mb-3">
         At this stage, all decisions regarding the initiative's direction, policies, partnerships, and content rest with the founder. This includes:
       </p>
