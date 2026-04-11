@@ -22,6 +22,11 @@ import SponsorshipPage from "@/pages/governance/SponsorshipPage";
 import TransparencyPage from "@/pages/governance/TransparencyPage";
 import AchievePage from "@/pages/AchievePage";
 import InsightsPage from "@/pages/InsightsPage";
+import ArmyDyslexiaPage from "@/pages/insights/ArmyDyslexiaPage";
+import RAFDyslexiaPage from "@/pages/insights/RAFDyslexiaPage";
+import NavyDyslexiaPage from "@/pages/insights/NavyDyslexiaPage";
+import DyslexiaBarrierMilitaryPage from "@/pages/insights/DyslexiaBarrierMilitaryPage";
+import NeurodiversityMODPage from "@/pages/insights/NeurodiversityMODPage";
 import NotFound from "@/pages/NotFound";
 
 const App = () => (
@@ -43,6 +48,11 @@ const App = () => (
           <Route path="/ecosystem" element={<EcosystemPage />} />
           <Route path="/achieve" element={<AchievePage />} />
           <Route path="/insights" element={<InsightsPage />} />
+          <Route path="/insights/can-you-join-army-with-dyslexia-uk" element={<ArmyDyslexiaPage />} />
+          <Route path="/insights/can-you-join-raf-with-dyslexia-uk" element={<RAFDyslexiaPage />} />
+          <Route path="/insights/can-you-join-navy-with-dyslexia-uk" element={<NavyDyslexiaPage />} />
+          <Route path="/insights/is-dyslexia-a-barrier-in-the-military-uk" element={<DyslexiaBarrierMilitaryPage />} />
+          <Route path="/insights/neurodiversity-in-the-mod-uk" element={<NeurodiversityMODPage />} />
           <Route path="/governance" element={<GovernanceOverviewPage />} />
           <Route path="/governance/founder" element={<FounderPurposePage />} />
           <Route path="/governance/code-of-conduct" element={<CodeOfConductPage />} />
