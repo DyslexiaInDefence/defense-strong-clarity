@@ -53,7 +53,7 @@ const PartnerPage = () => {
 
 
           <p className="text-foreground leading-relaxed">
-            Each year, approximately <strong>15,000–20,000</strong> people leave the UK Armed Forces. Among them are individuals with valuable skills in:
+            Each year, approximately <strong>15,000–20,000</strong> leave the UK Armed Forces and transition into civilian life. Among them are individuals with valuable skills in:
           </p>
 
           <ul className="space-y-3 pl-1">
@@ -76,11 +76,11 @@ const PartnerPage = () => {
           </ul>
 
           <p className="text-foreground leading-relaxed">
-            Based on current estimates, this could represent hundreds of millions of pounds of potential capability transitioning out of defence every year.
+            If you are an organisation wanting to harness the amazing skills ex military personnel bring to an organisation then making sure that that 1,500 to 2,000 of those leaving every year could be an individual with an untapped resource purely because they haven't been given the support or opportunity to showcase those skills listed above.
           </p>
 
           <p className="text-muted-foreground leading-relaxed">
-            Not because it disappears — but because it is not always recognised or used effectively.
+            {"\n"}
           </p>
 
           <div className="my-2" />
@@ -96,14 +96,14 @@ const PartnerPage = () => {
 
         {/* ───── 3. DEFENCE CONTEXT ───── */}
         <section className="mb-16">
-          <h2 className="mb-5 text-2xl font-bold text-foreground">The Defence Context</h2>
+          <h2 className="mb-5 text-2xl font-bold text-foreground">{"\n"}</h2>
 
           <div className="space-y-4 text-foreground leading-relaxed">
             <p>
-              The UK Armed Forces and wider defence ecosystem include <strong>hundreds of thousands</strong> of personnel and civil servants. If 1&nbsp;in&nbsp;5 individuals may be dyslexic, this represents a <strong>substantial portion of the workforce</strong>.
+              {"\n"}
             </p>
             <p>
-              Each year, thousands of personnel leave the UK Armed Forces and <strong>transition into civilian life</strong>.
+              {"\n"}
             </p>
             <p>
               Without structured support, awareness, and transition pathways, this represents a <strong>loss of highly capable individuals</strong> whose strengths are often underutilised.
@@ -250,26 +250,26 @@ const PartnerPage = () => {
 
         {/* ───── 7. SOCIAL VALUE ALIGNMENT ───── */}
         <section className="mb-16">
-          <h2 className="mb-5 text-2xl font-bold text-foreground">Social Value Alignment</h2>
+          <h2 className="mb-5 text-2xl font-bold text-foreground">{"\n"}</h2>
           <div className="grid gap-6 md:grid-cols-3">
             <div>
-              <h3 className="mb-3 text-lg font-bold text-foreground">Supports</h3>
+              <h3 className="mb-3 text-lg font-bold text-foreground">{"\n"}</h3>
               <ul className="space-y-2 text-foreground">
-                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary" />Equal opportunity</li>
-                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary" />Workforce wellbeing</li>
-                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary" />Skills development</li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary" />{"\n"}</li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary" />{"\n"}</li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary" />{"\n"}</li>
               </ul>
             </div>
             <div>
-              <h3 className="mb-3 text-lg font-bold text-foreground">Aligns With</h3>
+              <h3 className="mb-3 text-lg font-bold text-foreground">{"\n"}</h3>
               <p className="text-foreground leading-relaxed">
-                <strong>UK Government Social Value Model</strong> (PPN&nbsp;06/20)
+                <strong></strong>{"\n"}
               </p>
             </div>
             <div>
-              <h3 className="mb-3 text-lg font-bold text-foreground">Provides</h3>
+              <h3 className="mb-3 text-lg font-bold text-foreground">{"\n"}</h3>
               <p className="text-foreground leading-relaxed">
-                Evidence for <strong>MOD and defence procurement bids</strong>
+                {"\n"}
               </p>
             </div>
           </div>
