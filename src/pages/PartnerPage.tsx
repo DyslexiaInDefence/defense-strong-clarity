@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Handshake, TrendingUp, Shield, Users, BookOpen, Award, CheckCircle, ArrowRight, ExternalLink } from "lucide-react";
+import { Handshake, Shield, Users, BookOpen, Award, CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
