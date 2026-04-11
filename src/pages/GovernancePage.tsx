@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Shield, Scale, Eye, Lock, Banknote, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -35,7 +37,32 @@ const sections = [
   },
 ];
 
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Dyslexia in Defence",
+  url: "https://dyslexiaindefence.com",
+  description: "An independent, volunteer-led initiative supporting dyslexic individuals across the UK defence community.",
+  founder: {
+    "@type": "Person",
+    name: "Symon Smith",
+    jobTitle: "Founder",
+  },
+};
+
 const GovernancePage = () => {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "org-schema";
+    script.textContent = JSON.stringify(orgSchema);
+    document.head.appendChild(script);
+    return () => {
+      const el = document.getElementById("org-schema");
+      if (el) el.remove();
+    };
+  }, []);
+
   return (
     <div className="py-16">
       <div className="container mx-auto px-4">
@@ -61,6 +88,12 @@ const GovernancePage = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        <div className="mt-10 flex flex-wrap gap-4 text-sm">
+          <Link to="/governance/founder" className="text-primary font-medium hover:underline">Founder & Purpose</Link>
+          <Link to="/governance/sponsorship" className="text-primary font-medium hover:underline">Sponsorship Principles</Link>
+          <Link to="/governance/transparency" className="text-primary font-medium hover:underline">Transparency Commitment</Link>
         </div>
       </div>
     </div>

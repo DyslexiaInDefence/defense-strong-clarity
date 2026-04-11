@@ -84,6 +84,24 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.8,
     indexable: true,
   },
+  "/governance/founder": {
+    title: "Founder & Purpose | Dyslexia in Defence Governance",
+    description: "Mission, scope, and independence of Dyslexia in Defence. Founded by Symon Smith to support dyslexic talent across the UK defence community.",
+    priority: 0.6,
+    indexable: true,
+  },
+  "/governance/sponsorship": {
+    title: "Sponsorship Principles | Dyslexia in Defence Governance",
+    description: "How Dyslexia in Defence governs sponsorship to protect independence, editorial integrity, and community trust.",
+    priority: 0.6,
+    indexable: true,
+  },
+  "/governance/transparency": {
+    title: "Transparency Commitment | Dyslexia in Defence Governance",
+    description: "Financial transparency, ethical principles, and public accountability commitments from Dyslexia in Defence.",
+    priority: 0.6,
+    indexable: true,
+  },
 };
 
 const setMeta = (name: string, content: string, attr = "name") => {
