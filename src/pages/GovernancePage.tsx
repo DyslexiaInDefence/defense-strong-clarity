@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Shield, Scale, Eye, Lock, Banknote, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -61,6 +63,12 @@ const GovernancePage = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        <div className="mt-10 flex flex-wrap gap-4 text-sm">
+          <Link to="/governance/founder" className="text-primary font-medium hover:underline">Founder & Purpose</Link>
+          <Link to="/governance/sponsorship" className="text-primary font-medium hover:underline">Sponsorship Principles</Link>
+          <Link to="/governance/transparency" className="text-primary font-medium hover:underline">Transparency Commitment</Link>
         </div>
       </div>
     </div>
