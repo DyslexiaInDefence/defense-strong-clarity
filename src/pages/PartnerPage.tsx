@@ -29,7 +29,7 @@ const PartnerPage = () => {
                 >
                   Made By Dyslexia
                 </a>{" "}
-                suggests dyslexic thinking may contribute up to <strong>$4.5&nbsp;trillion</strong> to the global economy — with significant untapped potential remaining.
+                suggests dyslexic thinking may contribute up to <strong>£98.2&nbsp;billion</strong> in value within the UK with significant untapped potential remaining.
               </p>
             </CardContent>
           </Card>
@@ -51,61 +51,6 @@ const PartnerPage = () => {
         <section className="mb-16 space-y-6">
           <h2 className="text-2xl font-bold text-foreground">Why This Matters</h2>
 
-          <p className="text-foreground leading-relaxed">
-            Across the defence community, there are thousands of people quietly doing their jobs, often without recognising the strengths they bring — or being supported to use them fully.
-          </p>
-
-          <p className="text-foreground leading-relaxed">
-            Some are serving. Some are veterans. Some are in civil service or industry.
-          </p>
-
-          <p className="text-foreground leading-relaxed">
-            Many will have experienced the same thing:
-          </p>
-
-          <ul className="space-y-3 pl-1">
-            <li className="flex items-start gap-3">
-              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-              <span className="text-foreground leading-relaxed">Being labelled as struggling</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-              <span className="text-foreground leading-relaxed">Working harder than everyone else to keep up</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-              <span className="text-foreground leading-relaxed">Never quite being recognised for how they think differently</span>
-            </li>
-          </ul>
-
-          <p className="text-foreground leading-relaxed">
-            And yet, that difference is often where their real strength lies.
-          </p>
-
-          <div className="my-2" />
-
-          <p className="text-foreground leading-relaxed">
-            Research from{" "}
-            <a
-              href="https://www.madebydyslexia.org/assets/downloads/Return_on_Dyslexic_Thinking.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-primary underline underline-offset-2 hover:text-primary/80"
-            >
-              Made By Dyslexia (Return on Dyslexic Thinking)
-            </a>{" "}
-            suggests that dyslexic thinking may contribute up to <strong>$4.5&nbsp;trillion</strong> globally, with a significant proportion still untapped. In the UK alone, this may represent up to <strong>£98.2&nbsp;billion</strong> in value, with up to <strong>£68.8&nbsp;billion</strong> not yet realised.
-          </p>
-
-          <p className="text-foreground leading-relaxed">
-            Around 1 in 5 people may be dyslexic, but only a small proportion are properly supported or enabled at work.
-          </p>
-
-          <p className="text-foreground leading-relaxed font-medium">
-            In defence, that matters.
-          </p>
-
-          <div className="my-2" />
 
           <p className="text-foreground leading-relaxed">
             Each year, approximately <strong>15,000–20,000</strong> people leave the UK Armed Forces. Among them are individuals with valuable skills in:
