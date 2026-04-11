@@ -127,14 +127,6 @@ const PartnerPage = () => {
               </li>
             ))}
           </ul>
-
-          <Card className="border-destructive/20 bg-destructive/5">
-            <CardContent className="p-5">
-              <p className="text-foreground leading-relaxed font-semibold">
-                This is not just a workforce issue — it is a capability and performance gap.
-              </p>
-            </CardContent>
-          </Card>
         </section>
 
         {/* ───── 4. WHY PARTNER WITH US ───── */}
