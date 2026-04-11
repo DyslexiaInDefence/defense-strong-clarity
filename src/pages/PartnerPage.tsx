@@ -55,7 +55,26 @@ const PartnerPage = () => {
           <p className="text-foreground leading-relaxed">
             Each year, approximately <strong>15,000–20,000</strong> leave the UK Armed Forces and transition into civilian life. Among them are individuals with valuable skills in:
           </p>
-...
+
+          <ul className="space-y-3 pl-1">
+            <li className="flex items-start gap-3">
+              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+              <span className="text-foreground leading-relaxed">Problem solving</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+              <span className="text-foreground leading-relaxed">Big-picture thinking</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+              <span className="text-foreground leading-relaxed">Leadership</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+              <span className="text-foreground leading-relaxed">Adaptability under pressure</span>
+            </li>
+          </ul>
+
           <p className="text-foreground leading-relaxed">
             If you are an organisation wanting to harness the amazing skills ex military personnel bring to an organisation then making sure that that 1,500 to 2,000 of those leaving every year could be an individual with an untapped resource purely because they haven't been given the support or opportunity to showcase those skills listed above.
           </p>
@@ -63,7 +82,19 @@ const PartnerPage = () => {
           <p className="text-muted-foreground leading-relaxed">
             {"\n"}
           </p>
-...
+
+          <div className="my-2" />
+
+          <p className="text-foreground leading-relaxed font-medium">
+            This is not just about inclusion.
+          </p>
+
+          <p className="text-foreground leading-relaxed">
+            It is about people whose strengths are already there, and the opportunity to recognise, support, and make better use of them — for individuals, for organisations, and for the wider defence community.
+          </p>
+        </section>
+
+        {/* ───── 3. DEFENCE CONTEXT ───── */}
         <section className="mb-16">
           <h2 className="mb-5 text-2xl font-bold text-foreground">{"\n"}</h2>
 
