@@ -33,7 +33,7 @@ const FounderPurposePage = () => (
       </p>
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
         <li><strong>Peer connection</strong> — Creating spaces for dyslexic individuals in the defence ecosystem to connect with each other</li>
-        <li><strong>Curated resources</strong> — Collating and sharing relevant, high-quality resources from established sources</li>
+        <li><strong>Curated resources</strong> — Collating and sharing relevant, high quality resources from established sources</li>
         <li><strong>Signposting</strong> — Directing individuals to appropriate professional services, workplace adjustments, and support organisations</li>
         <li><strong>Awareness</strong> — Promoting understanding of dyslexia as a cognitive difference and strategic asset within the defence and security sector</li>
       </ul>
