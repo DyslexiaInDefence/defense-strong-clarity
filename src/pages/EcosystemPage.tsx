@@ -194,7 +194,7 @@ const EcosystemPage = () => {
 
           {/* Caption */}
           <p className="mt-6 text-center text-base italic text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            "Complementing existing structures by providing independent, defence-aware peer support and structured signposting."
+            "Complementing existing structures by providing independent, defence aware peer support and structured signposting."
           </p>
         </div>
       </div>

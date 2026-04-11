@@ -5,7 +5,7 @@ const sections = [
   { id: "data-collected", title: "Data We Collect" },
   { id: "legal-basis", title: "Legal Basis" },
   { id: "retention", title: "Data Retention" },
-  { id: "third-parties", title: "Third-Party Services" },
+  { id: "third-parties", title: "Third Party Services" },
   { id: "rights", title: "Your Rights" },
   { id: "contact-data", title: "Data Requests" },
   { id: "security", title: "Security" },
@@ -77,9 +77,9 @@ const PrivacyNoticePage = () => (
     </section>
 
     <section id="third-parties">
-      <h2 className="text-2xl font-bold text-foreground mb-4">Third-Party Services</h2>
+      <h2 className="text-2xl font-bold text-foreground mb-4">Third Party Services</h2>
       <p className="text-muted-foreground mb-3">
-        The initiative uses a limited number of third-party services to operate the website and community. These may include:
+        The initiative uses a limited number of third party services to operate the website and community. These may include:
       </p>
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
         <li>Website hosting providers</li>
@@ -88,7 +88,7 @@ const PrivacyNoticePage = () => (
         <li>Community platform providers</li>
       </ul>
       <p className="text-muted-foreground mt-3">
-        Third-party services are selected with regard to their data protection practices. Data is not shared with third parties for marketing purposes.
+        Third party services are selected with regard to their data protection practices. Data is not shared with third parties for marketing purposes.
       </p>
     </section>
 
@@ -131,7 +131,7 @@ const PrivacyNoticePage = () => (
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
         <li>Use of encrypted connections (HTTPS) for all website traffic</li>
         <li>Access to personal data restricted to the founder</li>
-        <li>Use of reputable, security-conscious third-party service providers</li>
+        <li>Use of reputable, security conscious third party service providers</li>
         <li>Regular review of data handling practices</li>
       </ul>
       <p className="text-muted-foreground mt-3">

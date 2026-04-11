@@ -85,7 +85,7 @@ const InsightsPage = () => {
               <PodcastCard
                 embedUrl="https://open.spotify.com/embed/episode/3yGuLAcPYJqLcT05wSOlgU?utm_source=generator&theme=0"
                 title="Leadership and Dyslexia in Defence"
-                description="A candid discussion on how dyslexia intersects with leadership and decision-making across the defence environment. The strongest insight into why neurodiversity matters at every level."
+                description="A candid discussion on how dyslexia intersects with leadership and decision making across the defence environment. The strongest insight into why neurodiversity matters at every level."
               />
 
               {/* Podcast 2 */}
@@ -99,7 +99,7 @@ const InsightsPage = () => {
               <PodcastCard
                 embedUrl="https://open.spotify.com/embed/episode/2zNd3YpRNMt14rNU3kCqpR?utm_source=generator&theme=0"
                 title="Lived Experience Inside the MOD"
-                description="First-hand accounts of navigating dyslexia within the Ministry of Defence — the challenges, the turning points, and the support that made a difference."
+                description="First hand accounts of navigating dyslexia within the Ministry of Defence — the challenges, the turning points, and the support that made a difference."
               />
 
               {/* Podcast 4 — DDN */}
@@ -114,7 +114,7 @@ const InsightsPage = () => {
                     <strong className="text-foreground">How it connects:</strong> The Defence Dyslexia Network focuses on individuals currently serving in the MOD.
                   </p>
                   <p>
-                    <strong className="text-foreground">Dyslexia in Defence</strong> provides broader, wrap-around support across the entire defence ecosystem — including veterans, families, civil servants, and industry. The two are <strong>complementary, not competing</strong>.
+                    <strong className="text-foreground">Dyslexia in Defence</strong> provides broader, wraparound support across the entire defence ecosystem — including veterans, families, civil servants, and industry. The two are <strong>complementary, not competing</strong>.
                   </p>
                 </div>
               </div>
@@ -144,7 +144,7 @@ const InsightsPage = () => {
               <PublicationCard
                 href="/documents/rsi-journal-winter-23.pdf"
                 title="Royal Signals Institute Journal — Winter 2023"
-                description="Professional and regimental-level discussion of dyslexia within the Royal Corps of Signals. Reinforces that neurodiversity is being recognised in operational and technical environments."
+                description="Professional and regimental level discussion of dyslexia within the Royal Corps of Signals. Reinforces that neurodiversity is being recognised in operational and technical environments."
               />
             </div>
           </div>

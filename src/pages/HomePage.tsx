@@ -27,7 +27,7 @@ const impactStages = [
   stage: "Ecosystem Influence",
   icon: Globe,
   objectives: [
-  "Cross-sector recognition",
+  "Cross sector recognition",
   "Contributing partner organisations",
   "Sustainable operational model"]
 

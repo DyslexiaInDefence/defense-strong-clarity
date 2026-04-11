@@ -8,7 +8,7 @@ const sections = [
   { id: "escalation", title: "Escalation" },
   { id: "confidentiality", title: "Confidentiality Boundaries" },
   { id: "age-policy", title: "Age Policy" },
-  { id: "non-clinical", title: "Non-Clinical Disclaimer" },
+  { id: "non-clinical", title: "Non Clinical Disclaimer" },
 ];
 
 const SafeguardingPage = () => (
@@ -37,7 +37,7 @@ const SafeguardingPage = () => (
     <section id="peer-support">
       <h2 className="text-2xl font-bold text-foreground mb-4">Peer Support Only</h2>
       <p className="text-muted-foreground mb-3">
-        The support provided through this initiative is peer-based. This means:
+        The support provided through this initiative is peer based. This means:
       </p>
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
         <li>Support comes from shared experience, not professional qualification</li>
@@ -130,7 +130,7 @@ const SafeguardingPage = () => (
     </section>
 
     <section id="non-clinical">
-      <h2 className="text-2xl font-bold text-foreground mb-4">Non-Clinical Disclaimer</h2>
+      <h2 className="text-2xl font-bold text-foreground mb-4">Non Clinical Disclaimer</h2>
       <Callout variant="important">
         <strong>Nothing provided through Dyslexia in Defence constitutes clinical, medical, psychological, legal, or therapeutic advice.</strong>
       </Callout>

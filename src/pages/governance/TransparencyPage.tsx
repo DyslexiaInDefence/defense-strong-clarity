@@ -18,7 +18,7 @@ const TransparencyPage = () => (
     <section id="financial">
       <h2 className="text-2xl font-bold text-foreground mb-4">Financial Transparency</h2>
       <p className="text-muted-foreground mb-3">
-        The initiative is currently self-funded by the founder. There is no external revenue, sponsorship, or grant funding at this time.
+        The initiative is currently self funded by the founder. There is no external revenue, sponsorship, or grant funding at this time.
       </p>
       <p className="text-muted-foreground mb-3">
         Should this change, the initiative commits to:
@@ -38,7 +38,7 @@ const TransparencyPage = () => (
     <section id="governance-evolution">
       <h2 className="text-2xl font-bold text-foreground mb-4">Governance Evolution</h2>
       <p className="text-muted-foreground mb-3">
-        The founder recognises that governance must evolve as the initiative grows. The current founder-led model is appropriate for the initiative's present scale, but this will be reviewed regularly.
+        The founder recognises that governance must evolve as the initiative grows. The current founder led model is appropriate for the initiative's present scale, but this will be reviewed regularly.
       </p>
       <p className="text-muted-foreground mb-3">
         Commitments regarding governance evolution:
