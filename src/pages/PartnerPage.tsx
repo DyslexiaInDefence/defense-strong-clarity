@@ -79,9 +79,6 @@ const PartnerPage = () => {
             If you are an organisation wanting to harness the amazing skills ex military personnel bring to an organisation then making sure that that 1,500 to 2,000 of those leaving every year could be an individual with an untapped resource purely because they haven't been given the support or opportunity to showcase those skills listed above.
           </p>
 
-          <p className="text-muted-foreground leading-relaxed">
-            {"\n"}
-          </p>
 
           <div className="my-2" />
 
@@ -96,15 +93,7 @@ const PartnerPage = () => {
 
         {/* ───── 3. DEFENCE CONTEXT ───── */}
         <section className="mb-16">
-          <h2 className="mb-5 text-2xl font-bold text-foreground">{"\n"}</h2>
-
           <div className="space-y-4 text-foreground leading-relaxed">
-            <p>
-              {"\n"}
-            </p>
-            <p>
-              {"\n"}
-            </p>
             <p>
               Without structured support, awareness, and transition pathways, this represents a <strong>loss of highly capable individuals</strong> whose strengths are often underutilised.
             </p>
@@ -248,32 +237,6 @@ const PartnerPage = () => {
           </div>
         </section>
 
-        {/* ───── 7. SOCIAL VALUE ALIGNMENT ───── */}
-        <section className="mb-16">
-          <h2 className="mb-5 text-2xl font-bold text-foreground">{"\n"}</h2>
-          <div className="grid gap-6 md:grid-cols-3">
-            <div>
-              <h3 className="mb-3 text-lg font-bold text-foreground">{"\n"}</h3>
-              <ul className="space-y-2 text-foreground">
-                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary" />{"\n"}</li>
-                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary" />{"\n"}</li>
-                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary" />{"\n"}</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="mb-3 text-lg font-bold text-foreground">{"\n"}</h3>
-              <p className="text-foreground leading-relaxed">
-                <strong></strong>{"\n"}
-              </p>
-            </div>
-            <div>
-              <h3 className="mb-3 text-lg font-bold text-foreground">{"\n"}</h3>
-              <p className="text-foreground leading-relaxed">
-                {"\n"}
-              </p>
-            </div>
-          </div>
-        </section>
 
         {/* ───── 8. THE BIGGER PICTURE ───── */}
         <section className="mb-16">
