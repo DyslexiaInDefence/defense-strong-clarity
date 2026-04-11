@@ -43,8 +43,8 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     indexable: true,
   },
   "/insights": {
-    title: "Insights on Dyslexia in Defence | Neurodiversity in the UK Military",
-    description: "Videos, podcasts, research and lived experience exploring dyslexia support in the MOD, neurodiversity in the military and the wider UK defence community.",
+    title: "Dyslexia & Armed Forces FAQ UK | Dyslexia in Defence",
+    description: "Common questions about dyslexia and joining the UK Armed Forces. Can you join the Army, RAF or Navy with dyslexia? Get clear answers.",
     priority: 0.8,
     indexable: true,
   },

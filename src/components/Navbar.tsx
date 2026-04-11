@@ -9,8 +9,8 @@ import didLogoFull from "@/assets/did-logo-full.png";
 const navLinks = [
 { label: "Home", to: "/" },
 { label: "Why It Matters", to: "/why-it-matters" },
+{ label: "FAQ", to: "/insights" },
 { label: "What We Want to Achieve", to: "/achieve" },
-{ label: "Insights", to: "/insights" },
 { label: "Partner", to: "/partner" },
 { label: "Governance", to: "/governance" }];
 
