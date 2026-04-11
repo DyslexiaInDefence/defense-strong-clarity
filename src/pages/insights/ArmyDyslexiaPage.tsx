@@ -75,6 +75,11 @@ const ArmyDyslexiaPage = () => (
       </section>
 
       <div className="flex flex-wrap gap-4">
+        <Link to="/insights">
+          <Button variant="outline" className="gap-2">
+            ← Browse all FAQ
+          </Button>
+        </Link>
         <Link to="/join">
           <Button className="gap-2">
             Join the Network <ChevronRight className="h-4 w-4" />
