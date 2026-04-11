@@ -37,7 +37,32 @@ const sections = [
   },
 ];
 
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Dyslexia in Defence",
+  url: "https://dyslexiaindefence.com",
+  description: "An independent, volunteer-led initiative supporting dyslexic individuals across the UK defence community.",
+  founder: {
+    "@type": "Person",
+    name: "Symon Smith",
+    jobTitle: "Founder",
+  },
+};
+
 const GovernancePage = () => {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "org-schema";
+    script.textContent = JSON.stringify(orgSchema);
+    document.head.appendChild(script);
+    return () => {
+      const el = document.getElementById("org-schema");
+      if (el) el.remove();
+    };
+  }, []);
+
   return (
     <div className="py-16">
       <div className="container mx-auto px-4">
