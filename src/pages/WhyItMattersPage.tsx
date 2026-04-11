@@ -1,5 +1,7 @@
-import { Brain, Eye, Lightbulb, Puzzle, Compass, Users } from "lucide-react";
+import { Brain, Eye, Lightbulb, Puzzle, Compass, Users, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import spikyProfileImg from "@/assets/spiky-profile.jpg";
 
 const strengths = [
