@@ -51,44 +51,60 @@ const PartnerPage = () => {
         <section className="mb-16 space-y-6">
           <h2 className="text-2xl font-bold text-foreground">Why This Matters</h2>
 
+          <p className="text-foreground leading-relaxed">
+            Each year, approximately <strong>15,000–20,000</strong> personnel leave the UK Armed Forces and transition into civilian roles. For organisations operating in defence and beyond, this represents a significant and recurring talent pipeline.
+          </p>
 
           <p className="text-foreground leading-relaxed">
-            Each year, approximately <strong>15,000–20,000</strong> leave the UK Armed Forces and transition into civilian life. Among them are individuals with valuable skills in:
+            These individuals bring capabilities shaped by demanding operational environments — strengths that are directly transferable to complex organisational settings:
           </p>
 
           <ul className="space-y-3 pl-1">
-            <li className="flex items-start gap-3">
-              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-              <span className="text-foreground leading-relaxed">Problem solving</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-              <span className="text-foreground leading-relaxed">Big-picture thinking</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-              <span className="text-foreground leading-relaxed">Leadership</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-              <span className="text-foreground leading-relaxed">Adaptability under pressure</span>
-            </li>
+            {[
+              "Problem solving in high-stakes environments",
+              "Big-picture thinking and strategic awareness",
+              "Leadership across diverse and dynamic teams",
+              "Adaptability under sustained pressure",
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                <span className="text-foreground leading-relaxed">{item}</span>
+              </li>
+            ))}
           </ul>
 
           <p className="text-foreground leading-relaxed">
-            If you are an organisation wanting to harness the amazing skills ex military personnel bring to an organisation then making sure that that 1,500 to 2,000 of those leaving every year could be an individual with an untapped resource purely because they haven't been given the support or opportunity to showcase those skills listed above.
-          </p>
-
-
-          <div className="my-2" />
-
-          <p className="text-foreground leading-relaxed font-medium">
-            This is not just about inclusion.
+            Of those transitioning each year, an estimated <strong>1,500–2,000</strong> may be dyslexic. Many will have developed these capabilities precisely because of how they think — yet without appropriate recognition or support, their potential often remains underutilised.
           </p>
 
           <p className="text-foreground leading-relaxed">
-            It is about people whose strengths are already there, and the opportunity to recognise, support, and make better use of them — for individuals, for organisations, and for the wider defence community.
+            For organisations, this presents an opportunity to access high-calibre talent by ensuring recruitment, onboarding, and workplace practices are designed to recognise neurodiverse strengths — not inadvertently screen them out.
           </p>
+
+          <p className="text-foreground leading-relaxed">
+            The cost of inaction is measurable:
+          </p>
+
+          <ul className="space-y-3 pl-1">
+            {[
+              "Untapped human capability",
+              "Lost innovation potential",
+              "Missed economic value",
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 shrink-0 text-destructive" aria-hidden="true" />
+                <span className="text-foreground font-medium">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <Card className="border-primary/20 bg-primary/5">
+            <CardContent className="p-5">
+              <p className="text-foreground leading-relaxed font-semibold">
+                This is not simply a workforce or inclusion issue — it is a capability and performance consideration for organisations operating in complex environments.
+              </p>
+            </CardContent>
+          </Card>
         </section>
 
         {/* ───── 3. DEFENCE CONTEXT ───── */}
