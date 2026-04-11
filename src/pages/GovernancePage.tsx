@@ -6,7 +6,7 @@ const sections = [
   {
     icon: Scale,
     title: "Operating Model",
-    content: "Independent, volunteer-led, non-profit initiative with defined governance principles appropriate to scope and activities.",
+    content: "Independent, volunteer led, non profit initiative with defined governance principles appropriate to scope and activities.",
   },
   {
     icon: Shield,
@@ -31,7 +31,7 @@ const sections = [
   {
     icon: Banknote,
     title: "Funding Transparency",
-    content: "Currently self-funded. Any future partnerships will be disclosed transparently and will not influence independence or content.",
+    content: "Currently self funded. Any future partnerships will be disclosed transparently and will not influence independence or content.",
   },
 ];
 

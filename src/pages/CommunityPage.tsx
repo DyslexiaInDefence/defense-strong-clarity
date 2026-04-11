@@ -46,7 +46,7 @@ const CommunityPage = () => {
               <ul className="space-y-3 text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <Users className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-                  Strengths-based and capability-focused
+                  Strengths based and capability focused
                 </li>
                 <li className="flex items-start gap-2">
                   <Shield className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />

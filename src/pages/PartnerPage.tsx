@@ -62,7 +62,7 @@ const PartnerPage = () => {
           <ul className="space-y-3 pl-1">
             {[
               "Problem solving in high-stakes environments",
-              "Big-picture thinking and strategic awareness",
+              "Big picture thinking and strategic awareness",
               "Leadership across diverse and dynamic teams",
               "Adaptability under sustained pressure",
             ].map((item) => (
@@ -137,7 +137,7 @@ const PartnerPage = () => {
               "Demonstrate tangible social value contribution",
               "Align with MOD Social Value Model (PPN 06/20)",
               "Support workforce capability and inclusion",
-              "Contribute to a defence-wide initiative",
+              "Contribute to an initiative that spans across defence",
             ].map((item) => (
               <li key={item} className="flex items-start gap-3">
                 <Shield className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
@@ -253,7 +253,7 @@ const PartnerPage = () => {
             {[
               "Supporting individuals before, during, and after service",
               "Complementary to existing initiatives (e.g. Defence Dyslexia Network)",
-              "A wrap-around support ecosystem for the defence community",
+              "A wraparound support ecosystem for the defence community",
             ].map((item) => (
               <li key={item} className="flex items-start gap-3">
                 <Users className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />

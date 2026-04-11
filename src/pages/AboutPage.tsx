@@ -8,7 +8,7 @@ const AboutPage = () => {
         <div className="mb-12 max-w-3xl">
           <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">About</h1>
           <p className="text-lg text-muted-foreground">
-            Dyslexia in Defence is an independent, volunteer-led peer support network for dyslexic individuals across the defence and security ecosystem.
+            Dyslexia in Defence is an independent, volunteer led peer support network for dyslexic individuals across the defence and security ecosystem.
           </p>
         </div>
 

@@ -21,7 +21,7 @@ const Footer = () => {
               <img src={didLogoFull} alt="Dyslexia in Defence" className="h-10 w-auto" />
             </div>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              An independent, volunteer-led initiative providing peer support and structured signposting across the defence and security ecosystem.
+              An independent, volunteer led initiative providing peer support and structured signposting across the defence and security ecosystem.
             </p>
           </div>
 
@@ -42,7 +42,7 @@ const Footer = () => {
           <div>
             <h3 className="mb-3 text-lg font-bold text-foreground">Independence</h3>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Dyslexia in Defence is an independent, volunteer-led initiative. It is not affiliated with or endorsed by the Ministry of Defence or any employer.
+              Dyslexia in Defence is an independent, volunteer led initiative. It is not affiliated with or endorsed by the Ministry of Defence or any employer.
             </p>
           </div>
         </div>
