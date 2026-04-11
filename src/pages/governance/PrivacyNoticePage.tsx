@@ -5,7 +5,7 @@ const sections = [
   { id: "data-collected", title: "Data We Collect" },
   { id: "legal-basis", title: "Legal Basis" },
   { id: "retention", title: "Data Retention" },
-  { id: "third-parties", title: "Third-Party Services" },
+  { id: "third-parties", title: "Third Party Services" },
   { id: "rights", title: "Your Rights" },
   { id: "contact-data", title: "Data Requests" },
   { id: "security", title: "Security" },

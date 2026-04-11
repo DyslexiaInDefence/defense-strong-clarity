@@ -8,7 +8,7 @@ const sections = [
   { id: "escalation", title: "Escalation" },
   { id: "confidentiality", title: "Confidentiality Boundaries" },
   { id: "age-policy", title: "Age Policy" },
-  { id: "non-clinical", title: "Non-Clinical Disclaimer" },
+  { id: "non-clinical", title: "Non Clinical Disclaimer" },
 ];
 
 const SafeguardingPage = () => (
