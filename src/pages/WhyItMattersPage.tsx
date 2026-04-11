@@ -80,6 +80,7 @@ const WhyItMattersPage = () => {
             </Link>
           </section>
 
+          <div className="max-w-3xl space-y-5 text-foreground leading-relaxed">
             <p>
               For many years, people with dyslexia have been assessed, judged, and filtered based primarily on the <strong>lowest points</strong> of that profile. Recruitment processes, exams, training systems, and workplace assessments frequently focus on areas where dyslexic individuals may struggle — such as processing speed, written accuracy, or certain forms of working memory.
             </p>
