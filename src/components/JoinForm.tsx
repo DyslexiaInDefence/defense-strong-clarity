@@ -80,6 +80,7 @@ const interestOptions = [
   "Events and workshops",
   "Volunteering",
   "Research participation",
+  "Partnering with the network",
 ];
 
 const JoinForm = () => {
