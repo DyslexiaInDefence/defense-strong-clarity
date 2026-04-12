@@ -107,27 +107,6 @@ const PartnerPage = () => {
           </Card>
         </section>
 
-        {/* ───── 3. DEFENCE CONTEXT ───── */}
-        <section className="mb-16">
-          <div className="space-y-4 text-foreground leading-relaxed">
-            <p>
-              Without structured support, awareness, and transition pathways, this represents a <strong>loss of highly capable individuals</strong> whose strengths are often underutilised.
-            </p>
-          </div>
-
-          <ul className="mt-6 mb-6 space-y-3">
-            {[
-              "Untapped human capability",
-              "Lost innovation potential",
-              "Missed economic value",
-            ].map((item) => (
-              <li key={item} className="flex items-center gap-3">
-                <CheckCircle className="h-5 w-5 shrink-0 text-destructive" aria-hidden="true" />
-                <span className="text-foreground font-medium">{item}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
 
         {/* ───── 4. WHY PARTNER WITH US ───── */}
         <section className="mb-16">
