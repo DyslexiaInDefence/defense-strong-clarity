@@ -19,7 +19,7 @@ const faqCategories = [
       },
       {
         question: "Can you join the Royal Navy with dyslexia (UK)?",
-        answer: "Yes. Dyslexia does not prevent you from joining the Royal Navy. Dyslexic personnel serve at every rank across the Naval Service. The MOD's BDA Bronze recognition means the Navy is actively committed to an inclusive, supportive environment.",
+        answer: "Absolutely. Dyslexia does not prevent you from joining the Royal Navy. Dyslexic personnel serve at every rank across the Naval Service. The MOD's BDA Bronze recognition means the Navy is actively committed to an inclusive, supportive environment.",
         link: "/insights/can-you-join-navy-with-dyslexia-uk",
       },
     ],

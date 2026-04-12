@@ -13,7 +13,21 @@ const ArmyDyslexiaPage = () => (
         Yes. Dyslexia is not a barrier to joining the British Army. Many serving soldiers and officers have dyslexia and build successful, fulfilling careers across every branch and rank. The Ministry of Defence has signed the British Dyslexia Association Dyslexia Friendly Workplace Pledge and achieved BDA Bronze recognition, which means support is structured, accessible, and actively improving.
       </p>
 
-      <section className="mb-10">
+      <div className="mb-8 rounded-xl border-l-4 border-primary bg-primary/5 p-5">
+        <p className="text-base font-semibold text-foreground">
+          Don't trust us — hear from a serving soldier with dyslexia{" "}
+          <a
+            href="https://open.spotify.com/episode/2zNd3YpRNMt14rNU3kCqpR"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary underline hover:text-primary/80"
+          >
+            here
+          </a>
+          .
+        </p>
+      </div>
+
         <h2 className="text-2xl font-bold text-foreground mb-4">Can You Join?</h2>
         <div className="space-y-4 text-foreground leading-relaxed">
           <p>
