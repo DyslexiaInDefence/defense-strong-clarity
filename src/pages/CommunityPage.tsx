@@ -59,7 +59,7 @@ const CommunityPage = () => {
             rel="noopener noreferrer"
           >
             <Button size="lg" className="rounded-full font-semibold text-base px-8 gap-2">
-              Join the Conversation on Discord <ExternalLink className="h-4 w-4" />
+              Join the Conversation <ExternalLink className="h-4 w-4" />
             </Button>
           </a>
         </div>
