@@ -92,9 +92,9 @@ const HomePage = () => {
               </Button>
             </Link>
             <Link to="/community">
-              <Button variant="outline" size="lg" className="rounded-full px-8 text-base font-semibold">
-                Join the Community
-                <ChevronRight className="ml-2 h-5 w-5" />
+              <Button size="lg" className="rounded-full px-8 text-base font-semibold shadow-lg">
+                Ask the Community
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
           </div>
