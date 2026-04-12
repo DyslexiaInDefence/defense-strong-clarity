@@ -66,35 +66,39 @@ const HomePage = () => {
           <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
             Empowering dyslexic talent across Defence, before and after service.
           </p>
+          {/* Primary CTAs */}
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link to="/join">
-              <Button size="lg" className="rounded-full px-8 text-base font-semibold shadow-lg">
+              <Button size="lg" className="rounded-full px-10 text-base font-bold shadow-lg">
                 Join the Network
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
+            <Link to="/community">
+              <Button variant="outline" size="lg" className="rounded-full border-2 border-primary px-10 text-base font-bold text-primary shadow-md hover:bg-primary hover:text-primary-foreground">
+                Ask the Community
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
+          {/* Secondary links */}
+          <div className="flex flex-wrap items-center justify-center gap-3 mt-4">
             <Link to="/why-it-matters">
-              <Button variant="outline" size="lg" className="rounded-full px-8 text-base font-semibold">
+              <Button variant="ghost" size="sm" className="rounded-full text-sm text-muted-foreground hover:text-foreground">
                 Why It Matters
-                <ChevronRight className="ml-2 h-5 w-5" />
+                <ChevronRight className="ml-1 h-4 w-4" />
               </Button>
             </Link>
             <Link to="/achieve">
-              <Button variant="outline" size="lg" className="rounded-full px-8 text-base font-semibold">
+              <Button variant="ghost" size="sm" className="rounded-full text-sm text-muted-foreground hover:text-foreground">
                 What We Want to Achieve
-                <ChevronRight className="ml-2 h-5 w-5" />
+                <ChevronRight className="ml-1 h-4 w-4" />
               </Button>
             </Link>
             <Link to="/partner">
-              <Button variant="outline" size="lg" className="rounded-full px-8 text-base font-semibold">
+              <Button variant="ghost" size="sm" className="rounded-full text-sm text-muted-foreground hover:text-foreground">
                 Partner With Us
-                <ChevronRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-            <Link to="/community">
-              <Button size="lg" className="rounded-full px-8 text-base font-semibold shadow-lg">
-                Ask the Community
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ChevronRight className="ml-1 h-4 w-4" />
               </Button>
             </Link>
           </div>
