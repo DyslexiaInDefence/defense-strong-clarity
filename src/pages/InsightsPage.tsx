@@ -9,32 +9,32 @@ const faqCategories = [
     items: [
       {
         question: "Can you join the Army with dyslexia (UK)?",
-        answer: "Yes, dyslexia does not automatically disqualify you from joining the British Army. Each candidate is assessed individually, and reasonable adjustments may be available during recruitment.",
+        answer: "Yes. Dyslexia is not a barrier to joining the British Army. Many serving soldiers and officers have dyslexia and build successful careers. The MOD has signed the BDA Dyslexia Friendly Workplace Pledge and achieved Bronze recognition, meaning support is structured and accessible from day one.",
         link: "/insights/can-you-join-army-with-dyslexia-uk",
       },
       {
         question: "Can you join the RAF with dyslexia (UK)?",
-        answer: "Dyslexia does not prevent you from applying to the Royal Air Force. The RAF assesses applicants on a case-by-case basis and offers support throughout the recruitment process.",
+        answer: "Absolutely. The RAF welcomes dyslexic applicants across all branches, including engineering, logistics, and aircrew roles. With the MOD's commitment to the BDA Dyslexia Friendly Workplace Pledge, reasonable adjustments and inclusive support are available throughout your career.",
         link: "/insights/can-you-join-raf-with-dyslexia-uk",
       },
       {
         question: "Can you join the Royal Navy with dyslexia (UK)?",
-        answer: "Yes, the Royal Navy accepts applicants with dyslexia. Support and adjustments are available during recruitment and throughout your career.",
+        answer: "Yes. Dyslexia does not prevent you from joining the Royal Navy. Dyslexic personnel serve at every rank across the Naval Service. The MOD's BDA Bronze recognition means the Navy is actively committed to an inclusive, supportive environment.",
         link: "/insights/can-you-join-navy-with-dyslexia-uk",
       },
     ],
   },
   {
-    title: "Understanding Barriers and Support",
+    title: "Understanding Support and Opportunity",
     items: [
       {
         question: "Is dyslexia a barrier in the military (UK)?",
-        answer: "Dyslexia is not an automatic barrier to military service. All three services have processes to support neurodiverse personnel, though awareness and consistency vary.",
+        answer: "No. Dyslexia is not a barrier to a successful military career. All three services accept dyslexic candidates and provide structured support. The MOD has signed the BDA Dyslexia Friendly Workplace Pledge, reinforcing its commitment to enabling every individual to perform at their best.",
         link: "/insights/is-dyslexia-a-barrier-in-the-military-uk",
       },
       {
         question: "Neurodiversity in the MOD (UK)",
-        answer: "The Ministry of Defence actively supports neurodiversity across military and civil service roles, with workplace adjustments and growing awareness programmes.",
+        answer: "The Ministry of Defence recognises neurodiversity as a workforce strength and has achieved BDA Bronze recognition. Support includes workplace adjustments, assistive technology, and growing neurodiversity networks across military and civil service roles.",
         link: "/insights/neurodiversity-in-the-mod-uk",
       },
     ],

@@ -10,7 +10,7 @@ const NeurodiversityMODPage = () => (
       </h1>
 
       <p className="text-lg text-foreground leading-relaxed mb-8">
-        The Ministry of Defence recognises neurodiversity as a workforce strength. Dyslexia, ADHD, autism, and other neurodiverse conditions are present across the Armed Forces and Civil Service, and the MOD has policies and networks in place to support neurodiverse personnel.
+        The Ministry of Defence recognises neurodiversity as a workforce strength. Dyslexia, ADHD, autism, and other neurodiverse conditions are present across the Armed Forces and Civil Service. The MOD has signed the British Dyslexia Association Dyslexia Friendly Workplace Pledge and achieved BDA Bronze recognition, demonstrating a formal commitment to inclusive, supportive environments where neurodiverse personnel can thrive.
       </p>
 
       <section className="mb-10">
@@ -20,19 +20,19 @@ const NeurodiversityMODPage = () => (
             Neurodiversity refers to natural variation in how people think, learn, and process information. In Defence, this includes personnel with dyslexia, dyspraxia, ADHD, autism, and dyscalculia. These are not deficits. They are differences in cognitive processing that come with distinct strengths.
           </p>
           <p>
-            In a sector that relies on strategic thinking, pattern recognition, and rapid problem solving, neurodiverse minds are not just welcome. They are operationally valuable.
+            In a sector that relies on strategic thinking, pattern recognition, and rapid problem solving, neurodiverse minds are not just welcome — they are operationally valuable.
           </p>
         </div>
       </section>
 
       <section className="mb-10">
-        <h2 className="text-2xl font-bold text-foreground mb-4">How Neurodiversity Is Assessed and Supported</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-4">MOD Commitment to Neurodiversity</h2>
         <div className="space-y-4 text-foreground leading-relaxed">
           <p>
-            The MOD supports neurodiverse personnel through workplace needs assessments, assistive technology provision, and reasonable adjustments under the Equality Act 2010. These apply to military personnel and civil servants alike.
+            The MOD has signed the British Dyslexia Association Dyslexia Friendly Workplace Pledge and achieved BDA Bronze recognition. In practice, this means a commitment to creating inclusive environments, improving awareness and understanding, providing reasonable adjustments where appropriate, and enabling individuals to perform at their best.
           </p>
           <p>
-            Personnel can request a workplace assessment through their line management or occupational health team. This typically results in recommendations for software, equipment, or working arrangements that enable full performance.
+            This is not just policy. It means support for neurodiverse personnel is structured, recognised, and actively improving across both military and civil service roles.
           </p>
         </div>
       </section>
@@ -41,10 +41,10 @@ const NeurodiversityMODPage = () => (
         <h2 className="text-2xl font-bold text-foreground mb-4">Support and Adjustments Available</h2>
         <div className="space-y-4 text-foreground leading-relaxed">
           <p>
-            Available support includes text to speech and speech to text software, screen readers, coloured overlays, noise cancelling headphones, flexible working patterns, and additional time for exams and assessments.
+            Available support includes text to speech and speech to text software, screen readers, coloured overlays, noise cancelling headphones, flexible working patterns, and additional time for exams and assessments. Personnel can request a workplace needs assessment through their line management or occupational health team.
           </p>
           <p>
-            The MOD also has internal neurodiversity staff networks that provide peer support, share best practice, and advocate for policy improvements. These networks span military and civilian personnel.
+            The MOD also has internal neurodiversity staff networks that provide peer support, share best practice, and advocate for continued improvement. These networks span military and civilian personnel.
           </p>
         </div>
       </section>
@@ -54,7 +54,7 @@ const NeurodiversityMODPage = () => (
         <div className="space-y-4 text-foreground leading-relaxed">
           <p>
             <strong>Misconception:</strong> The MOD does not take neurodiversity seriously.<br />
-            <strong>Reality:</strong> The MOD has dedicated diversity and inclusion teams and neurodiversity is explicitly included in its workforce strategies.
+            <strong>Reality:</strong> The MOD has achieved BDA Bronze recognition and has dedicated diversity and inclusion teams. Neurodiversity is explicitly included in its workforce strategies.
           </p>
           <p>
             <strong>Misconception:</strong> Neurodiverse personnel cannot reach senior positions.<br />
@@ -67,10 +67,28 @@ const NeurodiversityMODPage = () => (
         </div>
       </section>
 
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-foreground mb-4">Real-World Evidence</h2>
+        <div className="space-y-4 text-foreground leading-relaxed">
+          <p>
+            Neurodiverse personnel are already succeeding at every level across Defence. For a first-hand perspective, listen to this{" "}
+            <a
+              href="https://open.spotify.com/episode/2zNd3YpRNMt14rNU3kCqpR"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-primary underline hover:text-primary/80"
+            >
+              podcast episode featuring lived experience inside the MOD
+            </a>
+            . It provides honest, real-world proof that neurodiversity and a successful Defence career go hand in hand.
+          </p>
+        </div>
+      </section>
+
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-foreground mb-4">Summary</h2>
         <p className="text-foreground leading-relaxed">
-          Neurodiversity is part of the UK Defence workforce. The MOD provides formal support, reasonable adjustments, and growing recognition that cognitive diversity is a strategic asset. If you are neurodiverse and working in or considering Defence, support exists and is accessible.
+          Neurodiversity is part of the UK Defence workforce, and the MOD is formally committed to supporting it. Through the BDA Dyslexia Friendly Workplace Pledge and Bronze recognition, the MOD provides structured support, reasonable adjustments, and growing recognition that cognitive diversity is a strategic asset. If you are neurodiverse and working in or considering Defence, support exists, it is accessible, and it is improving.
         </p>
       </section>
 
