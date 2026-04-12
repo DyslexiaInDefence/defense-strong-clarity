@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import JoinForm from "@/components/JoinForm";
 
 const JoinPage = () => {
@@ -13,6 +14,16 @@ const JoinPage = () => {
 
         <div className="max-w-2xl">
           <JoinForm />
+        </div>
+
+        <div className="mt-8 max-w-2xl">
+          <p className="text-sm text-muted-foreground">
+            Looking for ongoing support and conversation? Join our{" "}
+            <Link to="/community" className="font-medium text-primary underline-offset-4 hover:underline">
+              community on Discord
+            </Link>{" "}
+            to connect with others who understand.
+          </p>
         </div>
       </div>
     </div>
