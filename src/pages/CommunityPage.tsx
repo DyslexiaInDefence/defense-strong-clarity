@@ -47,6 +47,23 @@ const CommunityPage = () => {
           </p>
         </div>
 
+        {/* Discord CTA - Prominent */}
+        <div className="mb-12 max-w-3xl rounded-2xl border-2 border-primary/20 bg-primary/5 p-8 text-center">
+          <h2 className="mb-3 text-2xl font-bold text-foreground">Join the Conversation</h2>
+          <p className="mb-6 text-lg text-muted-foreground">
+            Ask questions, share your experience, and connect with others who understand. The community is open and waiting for you.
+          </p>
+          <a
+            href="https://discord.gg/6U68yM8nT"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button size="lg" className="rounded-full font-semibold text-base px-8 gap-2">
+              Join the Conversation on Discord <ExternalLink className="h-4 w-4" />
+            </Button>
+          </a>
+        </div>
+
         {/* What the community is for */}
         <div className="mb-12">
           <h2 className="mb-6 text-2xl font-bold text-foreground">What the Community Is For</h2>
@@ -147,24 +164,6 @@ const CommunityPage = () => {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="max-w-3xl">
-          <div className="rounded-2xl border-2 border-primary/20 bg-primary/5 p-8 text-center">
-            <h2 className="mb-3 text-2xl font-bold text-foreground">Join the Conversation</h2>
-            <p className="mb-6 text-lg text-muted-foreground">
-              Ask questions, share your experience, and connect with others who understand. The community is open and waiting for you.
-            </p>
-            <a
-              href="https://discord.gg/6U68yM8nT"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button size="lg" className="rounded-full font-semibold text-base px-8 gap-2">
-                Join Our Discord <ExternalLink className="h-4 w-4" />
-              </Button>
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   );
