@@ -10,17 +10,17 @@ const ArmyDyslexiaPage = () => (
       </h1>
 
       <p className="text-lg text-foreground leading-relaxed mb-8">
-        Yes, you can join the British Army with dyslexia. Dyslexia is not an automatic bar to entry. Each candidate is assessed individually, and reasonable adjustments may be available during the recruitment process.
+        Yes. Dyslexia is not a barrier to joining the British Army. Many serving soldiers and officers have dyslexia and build successful, fulfilling careers across every branch and rank. The Ministry of Defence has signed the British Dyslexia Association Dyslexia Friendly Workplace Pledge and achieved BDA Bronze recognition, which means support is structured, accessible, and actively improving.
       </p>
 
       <section className="mb-10">
         <h2 className="text-2xl font-bold text-foreground mb-4">Can You Join?</h2>
         <div className="space-y-4 text-foreground leading-relaxed">
           <p>
-            The British Army does not exclude candidates on the basis of dyslexia alone. Thousands of serving personnel are dyslexic. What matters is whether you can meet the requirements of your chosen role, with or without adjustments.
+            The British Army welcomes dyslexic applicants. Thousands of serving personnel have dyslexia and contribute across infantry, engineering, intelligence, logistics, medical, and officer roles. Your suitability is assessed on your ability to meet the demands of your chosen role — dyslexia does not count against you.
           </p>
           <p>
-            Some roles involve more reading and writing than others. If dyslexia significantly affects your ability to perform specific tasks safely, this may be considered. But for the majority of Army roles, dyslexia is not a barrier.
+            The recruitment process is standard for all candidates. If you have dyslexia, reasonable adjustments are available to ensure the process is fair and inclusive.
           </p>
         </div>
       </section>
@@ -29,22 +29,22 @@ const ArmyDyslexiaPage = () => (
         <h2 className="text-2xl font-bold text-foreground mb-4">How Dyslexia Is Assessed in Recruitment</h2>
         <div className="space-y-4 text-foreground leading-relaxed">
           <p>
-            During the application process, you will complete aptitude tests at an Assessment Centre. If you have a formal diagnosis of dyslexia, you should declare it early. This allows the Army to consider reasonable adjustments such as extra time on written tests.
+            During recruitment, you will complete aptitude tests at an Assessment Centre. These tests are standard for every applicant. If you have a formal diagnosis of dyslexia, declare it early so the team can arrange reasonable adjustments such as additional time on written elements.
           </p>
           <p>
-            A formal diagnostic report from an educational psychologist is usually required. Without this, adjustments may not be offered. If you suspect you are dyslexic but have no diagnosis, it is worth seeking one before applying.
+            A formal diagnostic report from an educational psychologist is recommended. Having this ready before you apply ensures you receive the support you are entitled to from the start.
           </p>
         </div>
       </section>
 
       <section className="mb-10">
-        <h2 className="text-2xl font-bold text-foreground mb-4">Support and Adjustments Available</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-4">MOD Commitment to Dyslexia Support</h2>
         <div className="space-y-4 text-foreground leading-relaxed">
           <p>
-            Once in service, dyslexic personnel can access a range of support. This includes assistive technology such as text to speech software, coloured overlays, and additional time for written assessments and courses.
+            The MOD has signed the British Dyslexia Association Dyslexia Friendly Workplace Pledge and achieved BDA Bronze recognition. In practice, this means the Army is committed to creating inclusive environments, improving awareness and understanding of dyslexia, providing reasonable adjustments, and enabling individuals to perform at their best.
           </p>
           <p>
-            The MOD has a duty under the Equality Act 2010 to make reasonable adjustments for serving personnel with dyslexia. Unit welfare teams and education centres can help arrange these.
+            Once in service, dyslexic personnel can access assistive technology, workplace needs assessments, additional time for written assessments and courses, and specialist learning support. Unit education centres and welfare teams are there to help you access the right support quickly.
           </p>
         </div>
       </section>
@@ -62,7 +62,25 @@ const ArmyDyslexiaPage = () => (
           </p>
           <p>
             <strong>Misconception:</strong> Declaring dyslexia will count against you.<br />
-            <strong>Reality:</strong> Declaring allows you to access support. Not declaring may mean missing out on adjustments you are entitled to.
+            <strong>Reality:</strong> Declaring gives you access to support. It does not count against you in the selection process.
+          </p>
+        </div>
+      </section>
+
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-foreground mb-4">Real-World Evidence</h2>
+        <div className="space-y-4 text-foreground leading-relaxed">
+          <p>
+            Dyslexic personnel are already succeeding across the Armed Forces. For a first-hand perspective on what it is like to navigate dyslexia within the MOD, listen to this{" "}
+            <a
+              href="https://open.spotify.com/episode/2zNd3YpRNMt14rNU3kCqpR"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-primary underline hover:text-primary/80"
+            >
+              podcast episode featuring lived experience inside Defence
+            </a>
+            . It is direct, honest proof that dyslexia and a successful military career go hand in hand.
           </p>
         </div>
       </section>
@@ -70,7 +88,7 @@ const ArmyDyslexiaPage = () => (
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-foreground mb-4">Summary</h2>
         <p className="text-foreground leading-relaxed">
-          Dyslexia does not prevent you from joining the British Army. Declare your diagnosis early, request adjustments, and focus on what you bring to the role. The Armed Forces benefit from cognitive diversity, and dyslexic thinking is part of that strength.
+          Dyslexia is not a barrier to joining the British Army. The MOD is actively committed to inclusive, supportive environments through the BDA Dyslexia Friendly Workplace Pledge. Declare your diagnosis, access the adjustments available, and focus on what you bring to the role. The Army values diverse thinkers — and dyslexic personnel are already proving that every day.
         </p>
       </section>
 

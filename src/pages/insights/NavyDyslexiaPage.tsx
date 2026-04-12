@@ -10,17 +10,17 @@ const NavyDyslexiaPage = () => (
       </h1>
 
       <p className="text-lg text-foreground leading-relaxed mb-8">
-        Yes, you can join the Royal Navy with dyslexia. It is not a disqualifying condition. The Navy assesses each applicant on their individual ability, and adjustments can be made during recruitment and throughout your career.
+        Yes. Dyslexia does not prevent you from joining the Royal Navy. Many serving sailors, Royal Marines, and officers have dyslexia and build successful careers across the Naval Service. The MOD has signed the British Dyslexia Association Dyslexia Friendly Workplace Pledge and achieved BDA Bronze recognition, so inclusive support is in place and actively improving.
       </p>
 
       <section className="mb-10">
         <h2 className="text-2xl font-bold text-foreground mb-4">Can You Join?</h2>
         <div className="space-y-4 text-foreground leading-relaxed">
           <p>
-            The Royal Navy does not reject candidates because of dyslexia. Many serving sailors and Royal Marines are dyslexic. The focus is on whether you can perform the core duties of your chosen branch, with reasonable adjustments where needed.
+            The Royal Navy welcomes dyslexic applicants. Dyslexic personnel serve at every rank and across all branches — warfare, engineering, logistics, medical, and the Royal Marines. Your suitability is assessed on your ability to perform the role, not on a dyslexia diagnosis.
           </p>
           <p>
-            Roles across warfare, engineering, logistics, and medical branches are open to dyslexic applicants. Some roles with intensive written requirements may require additional assessment, but very few are closed entirely.
+            The recruitment standards are the same for everyone. Where dyslexia is declared, reasonable adjustments are made to ensure the process is fair and inclusive.
           </p>
         </div>
       </section>
@@ -29,22 +29,22 @@ const NavyDyslexiaPage = () => (
         <h2 className="text-2xl font-bold text-foreground mb-4">How Dyslexia Is Assessed in Recruitment</h2>
         <div className="space-y-4 text-foreground leading-relaxed">
           <p>
-            The Royal Navy recruitment process includes a psychometric test (the Recruiting Test). If you have dyslexia, you should declare it when you apply. Providing a formal diagnostic assessment allows the recruitment team to arrange adjustments such as additional time.
+            The recruitment process includes a psychometric test (the Recruiting Test), which is standard for all applicants. If you have dyslexia, declare it when you apply and provide a formal diagnostic assessment. This allows the recruitment team to arrange adjustments such as additional time.
           </p>
           <p>
-            Without a formal diagnosis, adjustments cannot be guaranteed. If you believe you may be dyslexic, consider getting assessed before starting your application.
+            Having your diagnosis ready before applying ensures you receive the support you are entitled to from the start.
           </p>
         </div>
       </section>
 
       <section className="mb-10">
-        <h2 className="text-2xl font-bold text-foreground mb-4">Support and Adjustments Available</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-4">MOD Commitment to Dyslexia Support</h2>
         <div className="space-y-4 text-foreground leading-relaxed">
           <p>
-            In service, the Royal Navy provides access to assistive technology, workplace needs assessments, and learning support. Additional time for written exams and training assessments is routinely available for personnel with a confirmed diagnosis.
+            The MOD has signed the British Dyslexia Association Dyslexia Friendly Workplace Pledge and achieved BDA Bronze recognition. This means the Royal Navy is committed to creating inclusive environments, improving awareness and understanding of dyslexia, providing reasonable adjustments, and enabling individuals to perform at their best.
           </p>
           <p>
-            The Equality Act 2010 requires the MOD to provide reasonable adjustments. Naval education centres and divisional officers can help you access the right support.
+            In service, you can access assistive technology, workplace needs assessments, additional time for written exams and training assessments, and specialist learning support. Naval education centres and divisional officers are there to help you access the right support.
           </p>
         </div>
       </section>
@@ -67,10 +67,28 @@ const NavyDyslexiaPage = () => (
         </div>
       </section>
 
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-foreground mb-4">Real-World Evidence</h2>
+        <div className="space-y-4 text-foreground leading-relaxed">
+          <p>
+            Dyslexic personnel are already succeeding across Defence. For a first-hand perspective on navigating dyslexia within the MOD, listen to this{" "}
+            <a
+              href="https://open.spotify.com/episode/2zNd3YpRNMt14rNU3kCqpR"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-primary underline hover:text-primary/80"
+            >
+              podcast episode featuring lived experience inside Defence
+            </a>
+            . It is honest, real-world proof that dyslexia and a successful military career go hand in hand.
+          </p>
+        </div>
+      </section>
+
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-foreground mb-4">Summary</h2>
         <p className="text-foreground leading-relaxed">
-          Dyslexia is not a barrier to joining the Royal Navy. Declare early, provide your diagnostic evidence, and take advantage of the adjustments available. The Navy needs diverse thinkers, and dyslexic personnel are already a valued part of the fleet.
+          Dyslexia is not a barrier to joining the Royal Navy. The MOD's BDA Dyslexia Friendly Workplace Pledge means inclusive support is real, structured, and accessible. Declare your diagnosis, take advantage of the adjustments available, and focus on what you bring to the fleet. Dyslexic personnel are already a valued part of the Naval Service.
         </p>
       </section>
 

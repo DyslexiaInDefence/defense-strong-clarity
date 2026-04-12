@@ -10,17 +10,17 @@ const DyslexiaBarrierMilitaryPage = () => (
       </h1>
 
       <p className="text-lg text-foreground leading-relaxed mb-8">
-        No. Dyslexia is not a barrier to serving in the UK Armed Forces. All three services accept dyslexic candidates, and reasonable adjustments are available throughout recruitment, training, and active service.
+        No. Dyslexia is not a barrier to serving in the UK Armed Forces. All three services — the British Army, Royal Navy, and Royal Air Force — welcome dyslexic candidates. The Ministry of Defence has signed the British Dyslexia Association Dyslexia Friendly Workplace Pledge and achieved BDA Bronze recognition, meaning structured, inclusive support is available from recruitment through to senior career stages.
       </p>
 
       <section className="mb-10">
         <h2 className="text-2xl font-bold text-foreground mb-4">Can You Serve With Dyslexia?</h2>
         <div className="space-y-4 text-foreground leading-relaxed">
           <p>
-            The British Army, Royal Navy, and Royal Air Force all accept applicants with dyslexia. There is no blanket exclusion. Dyslexic personnel serve across all ranks, branches, and trades, from infantry to intelligence, engineering to medical.
+            Dyslexic personnel serve across all ranks, branches, and trades — from infantry to intelligence, engineering to medical. Many successful serving personnel, including senior officers, have dyslexia. The MOD recognises that cognitive diversity strengthens operational capability.
           </p>
           <p>
-            The MOD recognises that cognitive diversity strengthens operational capability. Dyslexic thinkers often bring strengths in problem solving, spatial awareness, and creative thinking that are directly relevant to military roles.
+            Dyslexic thinkers often bring strengths in problem solving, spatial awareness, and creative thinking that are directly relevant to military roles. These are valued, not overlooked.
           </p>
         </div>
       </section>
@@ -29,22 +29,22 @@ const DyslexiaBarrierMilitaryPage = () => (
         <h2 className="text-2xl font-bold text-foreground mb-4">How Dyslexia Is Assessed in Recruitment</h2>
         <div className="space-y-4 text-foreground leading-relaxed">
           <p>
-            Each service has its own recruitment tests. If you declare dyslexia and provide a formal diagnostic assessment, adjustments such as additional time on written tests can be arranged. The key is to declare early and provide evidence.
+            Each service has its own recruitment tests, which are standard for all candidates. If you declare dyslexia and provide a formal diagnostic assessment, adjustments such as additional time on written tests can be arranged. The key is to declare early and provide evidence.
           </p>
           <p>
-            Without a diagnosis, you may not receive the adjustments you need. If you think you may be dyslexic, getting assessed before applying is the best approach.
+            Entry standards are the same for everyone. Adjustments ensure a level playing field — they do not lower the bar or change what is expected of you.
           </p>
         </div>
       </section>
 
       <section className="mb-10">
-        <h2 className="text-2xl font-bold text-foreground mb-4">Support and Adjustments Available</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-4">MOD Commitment to Dyslexia Support</h2>
         <div className="space-y-4 text-foreground leading-relaxed">
           <p>
-            Across all three services, dyslexic personnel can access assistive technology, workplace needs assessments, extra time on courses and exams, and specialist learning support. These are provided under the Equality Act 2010.
+            The MOD has signed the British Dyslexia Association Dyslexia Friendly Workplace Pledge and achieved BDA Bronze recognition. In practice, this means a commitment to inclusive environments, improved awareness and understanding of dyslexia, reasonable adjustments where appropriate, and enabling individuals to perform at their best.
           </p>
           <p>
-            Support is available from initial training through to senior career courses. Many units have dedicated education staff who can arrange adjustments quickly.
+            Across all three services, dyslexic personnel can access assistive technology, workplace needs assessments, extra time on courses and exams, and specialist learning support. These are provided under the Equality Act 2010, and support is available from initial training through to senior career courses.
           </p>
         </div>
       </section>
@@ -58,11 +58,29 @@ const DyslexiaBarrierMilitaryPage = () => (
           </p>
           <p>
             <strong>Misconception:</strong> The military does not understand neurodiversity.<br />
-            <strong>Reality:</strong> The MOD has established neurodiversity networks and policies to support personnel with conditions including dyslexia.
+            <strong>Reality:</strong> The MOD has established neurodiversity networks, achieved BDA Bronze recognition, and continues to develop inclusive policies.
           </p>
           <p>
             <strong>Misconception:</strong> Declaring dyslexia will harm your application.<br />
-            <strong>Reality:</strong> Declaring gives you access to support. It does not count against you in the selection process.
+            <strong>Reality:</strong> Declaring gives you access to the support you are entitled to. It does not count against you in the selection process.
+          </p>
+        </div>
+      </section>
+
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-foreground mb-4">Real-World Evidence</h2>
+        <div className="space-y-4 text-foreground leading-relaxed">
+          <p>
+            Dyslexic personnel are already building successful careers across Defence. For a first-hand account, listen to this{" "}
+            <a
+              href="https://open.spotify.com/episode/2zNd3YpRNMt14rNU3kCqpR"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-primary underline hover:text-primary/80"
+            >
+              podcast episode featuring lived experience inside the MOD
+            </a>
+            . It is direct, honest proof that dyslexia and a successful military career go hand in hand.
           </p>
         </div>
       </section>
@@ -70,7 +88,7 @@ const DyslexiaBarrierMilitaryPage = () => (
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-foreground mb-4">Summary</h2>
         <p className="text-foreground leading-relaxed">
-          Dyslexia is not a barrier to a military career in the UK. All three services welcome dyslexic candidates, provide adjustments, and benefit from the cognitive strengths that dyslexic thinkers bring. Declare, access support, and focus on what you do best.
+          Dyslexia is not a barrier to a military career in the UK. The MOD's commitment through the BDA Dyslexia Friendly Workplace Pledge means inclusive support is structured and accessible. All three services welcome dyslexic candidates, provide adjustments, and benefit from the cognitive strengths that dyslexic thinkers bring. Declare, access support, and focus on what you do best.
         </p>
       </section>
 
