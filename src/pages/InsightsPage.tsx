@@ -9,7 +9,7 @@ const faqCategories = [
     items: [
       {
         question: "Can you join the Army with dyslexia (UK)?",
-        answer: "Yes. Dyslexia is not a barrier to joining the British Army. Many serving soldiers and officers have dyslexia and build successful careers. The MOD has signed the BDA Dyslexia Friendly Workplace Pledge and achieved Bronze recognition, meaning support is structured and accessible from day one.",
+        answer: "Absolutely. Dyslexia is not a barrier to joining the British Army. Many serving soldiers and officers have dyslexia and build successful careers. The MOD has signed the BDA Dyslexia Friendly Workplace Pledge and achieved Bronze recognition, meaning support is structured and accessible from day one.",
         link: "/insights/can-you-join-army-with-dyslexia-uk",
       },
       {
@@ -19,7 +19,7 @@ const faqCategories = [
       },
       {
         question: "Can you join the Royal Navy with dyslexia (UK)?",
-        answer: "Yes. Dyslexia does not prevent you from joining the Royal Navy. Dyslexic personnel serve at every rank across the Naval Service. The MOD's BDA Bronze recognition means the Navy is actively committed to an inclusive, supportive environment.",
+        answer: "Absolutely. Dyslexia does not prevent you from joining the Royal Navy. Dyslexic personnel serve at every rank across the Naval Service. The MOD's BDA Bronze recognition means the Navy is actively committed to an inclusive, supportive environment.",
         link: "/insights/can-you-join-navy-with-dyslexia-uk",
       },
     ],
