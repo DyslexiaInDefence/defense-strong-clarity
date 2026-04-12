@@ -9,7 +9,7 @@ const faqCategories = [
     items: [
       {
         question: "Can you join the Army with dyslexia (UK)?",
-        answer: "Yes. Dyslexia is not a barrier to joining the British Army. Many serving soldiers and officers have dyslexia and build successful careers. The MOD has signed the BDA Dyslexia Friendly Workplace Pledge and achieved Bronze recognition, meaning support is structured and accessible from day one.",
+        answer: "Absolutely. Dyslexia is not a barrier to joining the British Army. Many serving soldiers and officers have dyslexia and build successful careers. The MOD has signed the BDA Dyslexia Friendly Workplace Pledge and achieved Bronze recognition, meaning support is structured and accessible from day one.",
         link: "/insights/can-you-join-army-with-dyslexia-uk",
       },
       {
