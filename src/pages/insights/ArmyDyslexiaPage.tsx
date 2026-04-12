@@ -28,6 +28,7 @@ const ArmyDyslexiaPage = () => (
         </p>
       </div>
 
+      <section className="mb-10">
         <h2 className="text-2xl font-bold text-foreground mb-4">Can You Join?</h2>
         <div className="space-y-4 text-foreground leading-relaxed">
           <p>
