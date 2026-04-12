@@ -290,6 +290,10 @@ const InsightsPage = () => {
                 Join the Network
               </Link>
             </div>
+            <p className="mt-4 text-sm text-muted-foreground">
+              If you have questions, you can also ask others in our{" "}
+              <Link to="/community" className="font-medium text-primary underline-offset-4 hover:underline">community</Link>.
+            </p>
           </div>
         </div>
       </section>
