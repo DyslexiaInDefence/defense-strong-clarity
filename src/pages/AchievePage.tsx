@@ -1,4 +1,4 @@
-import vennDiagram from "@/assets/venn-diagram.png";
+import vennDiagram from "@/assets/venn-diagram.webp";
 
 const aims = [
 "Empower individuals with dyslexia to recognise and use their strengths",
