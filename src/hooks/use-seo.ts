@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const BASE_URL = "https://dyslexiaindefence.com";
-const OG_IMAGE = "https://dyslexiaindefence.com/og-image.png";
+const OG_IMAGE = "https://dyslexiaindefence.com/og-image.webp";
 
 interface PageSEO {
   title: string;
