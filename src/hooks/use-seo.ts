@@ -84,6 +84,12 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.8,
     indexable: true,
   },
+  "/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk": {
+    title: "JSP 822 vs Equality Act 2010: What Changes for Dyslexia When You Leave the Military",
+    description: "Understand the difference between JSP 822 and the Equality Act 2010. Learn what changes for dyslexia support when leaving the UK Armed Forces for civilian work.",
+    priority: 0.8,
+    indexable: true,
+  },
   "/governance/founder": {
     title: "Founder & Purpose | Dyslexia in Defence Governance",
     description: "Mission, scope, and independence of Dyslexia in Defence. Founded by Symon Smith to support dyslexic talent across the UK defence community.",
