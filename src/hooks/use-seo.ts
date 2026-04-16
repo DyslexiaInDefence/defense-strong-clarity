@@ -90,6 +90,12 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.8,
     indexable: true,
   },
+  "/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk": {
+    title: "Do I Need to Declare Dyslexia When Joining the Military? | UK",
+    description: "No. You don’t need to declare dyslexia to join the UK military, and you’re not screened for it. Here’s what JSP 822 says — and what it means in practice.",
+    priority: 0.8,
+    indexable: true,
+  },
   "/governance/founder": {
     title: "Founder & Purpose | Dyslexia in Defence Governance",
     description: "Mission, scope, and independence of Dyslexia in Defence. Founded by Symon Smith to support dyslexic talent across the UK defence community.",
