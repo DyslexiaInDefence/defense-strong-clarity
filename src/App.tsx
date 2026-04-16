@@ -32,6 +32,7 @@ import DeclareDyslexiaMilitaryPage from "@/pages/insights/DeclareDyslexiaMilitar
 import ServingWithDyslexiaArmyPage from "@/pages/insights/ServingWithDyslexiaArmyPage";
 import SupportForDyslexiaMilitaryPage from "@/pages/insights/SupportForDyslexiaMilitaryPage";
 import DyslexiaIdentifiedDuringServicePage from "@/pages/insights/DyslexiaIdentifiedDuringServicePage";
+import RoyalSignalsDyslexiaPage from "@/pages/insights/RoyalSignalsDyslexiaPage";
 import NotFound from "@/pages/NotFound";
 
 const App = () => (
@@ -63,6 +64,7 @@ const App = () => (
           <Route path="/insights/serving-with-dyslexia-in-the-army-uk" element={<ServingWithDyslexiaArmyPage />} />
           <Route path="/insights/what-support-is-available-for-dyslexia-in-the-military-uk" element={<SupportForDyslexiaMilitaryPage />} />
           <Route path="/insights/what-happens-if-dyslexia-is-identified-during-service-uk" element={<DyslexiaIdentifiedDuringServicePage />} />
+          <Route path="/insights/why-royal-signals-is-a-strong-fit-for-dyslexic-individuals-uk" element={<RoyalSignalsDyslexiaPage />} />
           <Route path="/governance" element={<GovernanceOverviewPage />} />
           <Route path="/governance/founder" element={<FounderPurposePage />} />
           <Route path="/governance/code-of-conduct" element={<CodeOfConductPage />} />

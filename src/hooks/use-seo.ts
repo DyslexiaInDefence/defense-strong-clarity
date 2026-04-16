@@ -114,6 +114,12 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.8,
     indexable: true,
   },
+  "/insights/why-royal-signals-is-a-strong-fit-for-dyslexic-individuals-uk": {
+    title: "Why the Royal Signals Is a Strong Fit for Dyslexic Individuals | UK",
+    description: "The Royal Signals rewards problem-solving, analytical thinking and adaptability — the strengths dyslexic minds bring. Here’s why it’s a strong fit.",
+    priority: 0.7,
+    indexable: true,
+  },
   "/governance/founder": {
     title: "Founder & Purpose | Dyslexia in Defence Governance",
     description: "Mission, scope, and independence of Dyslexia in Defence. Founded by Symon Smith to support dyslexic talent across the UK defence community.",
