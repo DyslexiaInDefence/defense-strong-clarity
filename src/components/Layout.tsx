@@ -6,7 +6,7 @@ import NextSteps from "@/components/NextSteps";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import useSEO from "@/hooks/use-seo";
 
-// Pages where the "What to do next" block would be redundant
+// Pages where the global "What to do next" block would be redundant
 const NEXT_STEPS_SKIP = new Set<string>(["/", "/join", "/community"]);
 
 const Layout = () => {
@@ -18,7 +18,10 @@ const Layout = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  const showNextSteps = !NEXT_STEPS_SKIP.has(pathname);
+  // Insights articles render their own (PRIMARY) NextSteps block via InsightLayout.
+  const isInsightArticle =
+    pathname.startsWith("/insights/") && pathname !== "/insights";
+  const showNextSteps = !NEXT_STEPS_SKIP.has(pathname) && !isInsightArticle;
   const showBreadcrumbs = pathname !== "/";
 
   return (
