@@ -58,16 +58,17 @@ const HomePage = () => {
         
         <div className="container mx-auto px-4 text-center">
           <img alt="Dyslexia in Defence shield logo" className="mx-auto mb-8 h-40 w-auto sm:h-48 md:h-56 lg:h-64 drop-shadow-lg object-fill" src="/lovable-uploads/4eee789e-61aa-4a04-8ec1-96380d579791.webp" />
-          <h1 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
+          <h1 className="mb-4 text-4xl font-extrabold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
             Dyslexia in Defence
-          
-          
           </h1>
+          <p className="mx-auto mb-3 max-w-2xl text-sm font-semibold uppercase tracking-wider text-primary">
+            For serving personnel, veterans, civil service, and industry
+          </p>
           <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
             Empowering dyslexic talent across Defence, before and after service.
           </p>
           {/* Primary CTAs */}
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
             <Link to="/join">
               <Button size="lg" className="rounded-full px-10 text-base font-bold shadow-lg">
                 Join the Network
@@ -77,6 +78,12 @@ const HomePage = () => {
             <Link to="/community">
               <Button variant="outline" size="lg" className="rounded-full border-2 border-primary px-10 text-base font-bold text-primary shadow-md hover:bg-primary hover:text-primary-foreground">
                 Ask the Community
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <Link to="/insights">
+              <Button variant="outline" size="lg" className="rounded-full border-2 border-primary px-10 text-base font-bold text-primary shadow-md hover:bg-primary hover:text-primary-foreground">
+                Explore Insights
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
