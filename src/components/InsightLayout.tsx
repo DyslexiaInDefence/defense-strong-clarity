@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import AudienceRouter, { type AudienceIntent } from "@/components/AudienceRouter";
+import BackToPathway from "@/components/BackToPathway";
+import { trackEvent } from "@/lib/analytics";
 import type { ReactNode } from "react";
 
 interface InsightLayoutProps {
