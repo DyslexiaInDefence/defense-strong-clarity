@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 import AudienceRouter, { type AudienceIntent } from "@/components/AudienceRouter";
 import type { ReactNode } from "react";
 
@@ -9,7 +8,7 @@ interface InsightLayoutProps {
   title: string;
   /** Optional eyebrow above the title (e.g. "Lived experience"). */
   eyebrow?: string;
-  /** The page intent — drives router highlight + primary CTA. */
+  /** The page intent — drives router highlight + dominant line in the next-steps block. */
   intent: AudienceIntent;
   /** Page body. */
   children: ReactNode;
@@ -21,39 +20,41 @@ interface InsightLayoutProps {
  * Renders:
  *  - Audience Router (top, with `intent` highlighted)
  *  - H1 + page body
- *  - Standard "Still unsure what to do next?" block (PRIMARY conversion point)
- *  - Single dominant CTA per intent + one secondary CTA
+ *  - The exact "Still unsure what to do next?" block — the ONLY bottom conversion section.
  *
- * Pages should NOT render their own NextSteps block or extra CTAs.
+ * Pages MUST NOT render their own NextSteps block or extra CTAs.
+ * CTA priority is expressed by visually emphasising the relevant line inside the block,
+ * not by adding a separate dominant button row.
  */
-const PRIMARY_CTA: Record<
-  AudienceIntent,
-  { label: string; to: string; secondaryLabel: string; secondaryTo: string }
-> = {
-  joining: {
-    label: "Ask the Community",
-    to: "/community",
-    secondaryLabel: "Explore Insights",
-    secondaryTo: "/insights",
-  },
-  serving: {
-    label: "Join the Network",
-    to: "/join",
-    secondaryLabel: "Ask the Community",
-    secondaryTo: "/community",
-  },
-  veteran: {
-    // Brief: veteran pages get Join + Community as joint primary.
-    // We pick Join as the dominant button visually and keep Community equally weighted in the next-steps block.
-    label: "Join the Network",
-    to: "/join",
-    secondaryLabel: "Ask the Community",
-    secondaryTo: "/community",
-  },
+
+// Which line inside the next-steps block is the dominant CTA per intent.
+// joining → Ask the Community
+// serving → Join the Network
+// veteran → Join the Network (Ask the Community remains a strong secondary)
+const DOMINANT_LINE: Record<AudienceIntent, "community" | "join" | "insights"> = {
+  joining: "community",
+  serving: "join",
+  veteran: "join",
 };
 
 const InsightLayout = ({ title, eyebrow, intent, children }: InsightLayoutProps) => {
-  const cta = PRIMARY_CTA[intent];
+  const dominant = DOMINANT_LINE[intent];
+
+  const lineClass = (key: "community" | "join" | "insights") =>
+    cn(
+      "rounded-lg p-3 leading-relaxed text-foreground transition-colors",
+      dominant === key
+        ? "bg-primary/10 ring-1 ring-primary/30"
+        : "bg-transparent",
+    );
+
+  const linkClass = (key: "community" | "join" | "insights") =>
+    cn(
+      "underline-offset-4 hover:underline",
+      dominant === key
+        ? "font-bold text-primary"
+        : "font-semibold text-primary",
+    );
 
   return (
     <div className="py-12 md:py-16">
@@ -86,53 +87,30 @@ const InsightLayout = ({ title, eyebrow, intent, children }: InsightLayoutProps)
           <p className="text-foreground leading-relaxed mb-5">
             The quickest way to get clarity is to speak to people who’ve been through it.
           </p>
-          <ul className="space-y-3 text-foreground leading-relaxed">
-            <li>
+          <ul className="space-y-2">
+            <li className={lineClass("community")}>
               →{" "}
-              <Link
-                to="/community"
-                className="font-semibold text-primary underline-offset-4 hover:underline"
-              >
+              <Link to="/community" className={linkClass("community")}>
                 Ask the Community
               </Link>{" "}
               – get real answers from serving and former personnel
             </li>
-            <li>
+            <li className={lineClass("join")}>
               →{" "}
-              <Link
-                to="/join"
-                className="font-semibold text-primary underline-offset-4 hover:underline"
-              >
+              <Link to="/join" className={linkClass("join")}>
                 Join the Network
               </Link>{" "}
               – connect with others and access support
             </li>
-            <li>
+            <li className={lineClass("insights")}>
               →{" "}
-              <Link
-                to="/insights"
-                className="font-semibold text-primary underline-offset-4 hover:underline"
-              >
+              <Link to="/insights" className={linkClass("insights")}>
                 Explore Insights
               </Link>{" "}
               – understand what to expect next
             </li>
           </ul>
         </section>
-
-        {/* Single dominant CTA driven by intent + one secondary */}
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link to={cta.to}>
-            <Button className="gap-2">
-              {cta.label} <ChevronRight className="h-4 w-4" />
-            </Button>
-          </Link>
-          <Link to={cta.secondaryTo}>
-            <Button variant="outline" className="gap-2">
-              {cta.secondaryLabel}
-            </Button>
-          </Link>
-        </div>
       </div>
     </div>
   );

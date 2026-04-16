@@ -25,9 +25,9 @@ const DEFAULTS: Record<AudienceIntent, { message: string; ctaLabel: string; to: 
   },
   veteran: {
     message:
-      "If you’re leaving service or already a veteran, the most useful next step is to talk to people who’ve made the transition.",
-    ctaLabel: "Ask the Community",
-    to: "/community",
+      "If you’re leaving service or already a veteran, the most useful next step is to connect with others who’ve made the transition.",
+    ctaLabel: "Join the Network",
+    to: "/join",
   },
 };
 
