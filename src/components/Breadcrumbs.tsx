@@ -32,6 +32,10 @@ const LABELS: Record<string, string> = {
     "Declaring Dyslexia",
   "serving-with-dyslexia-in-the-army-uk":
     "Serving with Dyslexia",
+  "what-support-is-available-for-dyslexia-in-the-military-uk":
+    "Support Available",
+  "what-happens-if-dyslexia-is-identified-during-service-uk":
+    "Identified in Service",
 };
 
 const formatSegment = (seg: string) =>

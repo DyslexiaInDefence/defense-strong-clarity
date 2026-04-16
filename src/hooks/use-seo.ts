@@ -73,8 +73,8 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     indexable: true,
   },
   "/insights/is-dyslexia-a-barrier-in-the-military-uk": {
-    title: "Is Dyslexia a Barrier in the UK Military? | Dyslexia in Defence",
-    description: "Dyslexia is not a barrier to serving in the UK Armed Forces. Learn how all three services support dyslexic personnel.",
+    title: "Is Dyslexia a Barrier to a Military Career? | UK",
+    description: "No. Dyslexia is not a barrier to a UK military career. Around 1 in 10 personnel are dyslexic and serve at every rank — here’s the policy and the reality.",
     priority: 0.8,
     indexable: true,
   },
@@ -100,6 +100,18 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     title: "Serving With Dyslexia in the Army | Lived Experience UK",
     description: "A serving British Army officer’s honest account of dyslexia in uniform — support, coping mechanisms, and why dyslexic strengths matter in Defence.",
     priority: 0.7,
+    indexable: true,
+  },
+  "/insights/what-support-is-available-for-dyslexia-in-the-military-uk": {
+    title: "What Support Is Available for Dyslexia in the Military? | UK",
+    description: "Dyslexia support in the UK military: Defence Dyslexia Network, 240+ ambassadors, AECs, workplace adjustments, peer forums and assistive technology.",
+    priority: 0.8,
+    indexable: true,
+  },
+  "/insights/what-happens-if-dyslexia-is-identified-during-service-uk": {
+    title: "What Happens if Dyslexia Is Identified During Service? | UK",
+    description: "If dyslexia is identified during military service, your career isn’t at risk. Here’s what JSP 822 says and what support and adjustments you can access.",
+    priority: 0.8,
     indexable: true,
   },
   "/governance/founder": {
