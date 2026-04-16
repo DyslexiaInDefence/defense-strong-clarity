@@ -1,116 +1,103 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
+import LivedExperienceBlock from "@/components/LivedExperienceBlock";
+import { livedExperienceSnippets } from "@/data/livedExperience";
+
+const snippet = livedExperienceSnippets.find((s) => s.id === "not-a-barrier")!;
 
 const DyslexiaBarrierMilitaryPage = () => (
   <div className="py-16">
     <div className="container mx-auto px-4 max-w-3xl">
       <h1 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
-        Is Dyslexia a Barrier in the UK Military?
+        Is dyslexia a barrier to a military career?
       </h1>
 
+      <p className="text-lg text-foreground leading-relaxed mb-4">
+        No. Dyslexia is not a barrier to a military career in the UK. All three services — Army, Royal Navy and RAF — accept dyslexic candidates and dyslexic personnel serve at every rank.
+      </p>
       <p className="text-lg text-foreground leading-relaxed mb-8">
-        No. Dyslexia is not a barrier to serving in the UK Armed Forces. All three services — the British Army, Royal Navy, and Royal Air Force — welcome dyslexic candidates. The Ministry of Defence has signed the British Dyslexia Association Dyslexia Friendly Workplace Pledge and achieved BDA Bronze recognition, meaning structured, inclusive support is available from recruitment through to senior career stages.
+        You will need to meet the same selection, training and performance standards as everyone else. Your dyslexia doesn’t disqualify you — your ability to do the role is what counts.
       </p>
 
       <section className="mb-10">
-        <h2 className="text-2xl font-bold text-foreground mb-4">Can You Serve With Dyslexia?</h2>
-        <div className="space-y-4 text-foreground leading-relaxed">
-          <p>
-            Dyslexic personnel serve across all ranks, branches, and trades — from infantry to intelligence, engineering to medical. Many successful serving personnel, including senior officers, have dyslexia. The MOD recognises that cognitive diversity strengthens operational capability.
-          </p>
-          <p>
-            Dyslexic thinkers often bring strengths in problem solving, spatial awareness, and creative thinking that are directly relevant to military roles. These are valued, not overlooked.
-          </p>
-        </div>
-      </section>
-
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold text-foreground mb-4">How Dyslexia Is Assessed in Recruitment</h2>
-        <div className="space-y-4 text-foreground leading-relaxed">
-          <p>
-            Each service has its own recruitment tests, which are standard for all candidates. If you declare dyslexia and provide a formal diagnostic assessment, adjustments such as additional time on written tests can be arranged. The key is to declare early and provide evidence.
-          </p>
-          <p>
-            Entry standards are the same for everyone. Adjustments ensure a level playing field — they do not lower the bar or change what is expected of you.
-          </p>
-        </div>
-      </section>
-
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold text-foreground mb-4">MOD Commitment to Dyslexia Support</h2>
-        <div className="space-y-4 text-foreground leading-relaxed">
-          <p>
-            The MOD has signed the British Dyslexia Association Dyslexia Friendly Workplace Pledge and achieved BDA Bronze recognition. In practice, this means a commitment to inclusive environments, improved awareness and understanding of dyslexia, reasonable adjustments where appropriate, and enabling individuals to perform at their best.
-          </p>
-          <p>
-            Across all three services, dyslexic personnel can access assistive technology, workplace needs assessments, extra time on courses and exams, and specialist learning support. These are provided under the Equality Act 2010, and support is available from initial training through to senior career courses.
-          </p>
-        </div>
-      </section>
-
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold text-foreground mb-4">Common Misconceptions</h2>
-        <div className="space-y-4 text-foreground leading-relaxed">
-          <p>
-            <strong>Misconception:</strong> Dyslexia limits your career progression.<br />
-            <strong>Reality:</strong> Dyslexic personnel reach senior ranks across all services. Adjustments are available at every career stage.
-          </p>
-          <p>
-            <strong>Misconception:</strong> The military does not understand neurodiversity.<br />
-            <strong>Reality:</strong> The MOD has established neurodiversity networks, achieved BDA Bronze recognition, and continues to develop inclusive policies.
-          </p>
-          <p>
-            <strong>Misconception:</strong> Declaring dyslexia will harm your application.<br />
-            <strong>Reality:</strong> Declaring gives you access to the support you are entitled to. It does not count against you in the selection process.
-          </p>
-        </div>
-      </section>
-
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold text-foreground mb-4">Real-World Evidence</h2>
-        <div className="space-y-4 text-foreground leading-relaxed">
-          <p>
-            Dyslexic personnel are already building successful careers across Defence. For a first-hand account, listen to this{" "}
-            <a
-              href="https://open.spotify.com/episode/2zNd3YpRNMt14rNU3kCqpR"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-primary underline hover:text-primary/80"
-            >
-              podcast episode featuring lived experience inside the MOD
-            </a>
-            . It is direct, honest proof that dyslexia and a successful military career go hand in hand.
-          </p>
-        </div>
-      </section>
-
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold text-foreground mb-4">Summary</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-4">What policy says vs what reality looks like</h2>
+        <p className="text-foreground leading-relaxed mb-4">
+          The military’s policy on Specific Learning Differences (JSP 822, Vol 7) is clear: dyslexia is not a barrier to joining or serving. You don’t need to declare it during recruitment, and you’re not screened for it.
+        </p>
         <p className="text-foreground leading-relaxed">
-          Dyslexia is not a barrier to a military career in the UK. The MOD's commitment through the BDA Dyslexia Friendly Workplace Pledge means inclusive support is structured and accessible. All three services welcome dyslexic candidates, provide adjustments, and benefit from the cognitive strengths that dyslexic thinkers bring. Declare, access support, and focus on what you do best.
+          In reality, around 1 in 10 personnel are dyslexic — roughly 18,000 people currently serving. Senior leaders, long-serving soldiers, instructors and specialists across the Armed Forces are dyslexic. It’s common, not exceptional.
         </p>
       </section>
 
+      <LivedExperienceBlock snippet={snippet} variant="inline" className="mb-10" />
+
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-foreground mb-4">Where the real challenges sit</h2>
+        <p className="text-foreground leading-relaxed mb-4">
+          The barrier isn’t dyslexia itself. It’s how some tasks are assessed — long written documents, customs-style briefs, timed handwritten essays — that don’t play to dyslexic strengths.
+        </p>
+        <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
+          <li>Selection tests are standard for everyone — adjustments are available with a diagnosis.</li>
+          <li>Training and courses can be demanding on written work — support exists, but you have to ask.</li>
+          <li>Career progression isn’t blocked — dyslexic personnel reach every rank, including senior officer.</li>
+        </ul>
+      </section>
+
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-foreground mb-4">Reassurance</h2>
+        <p className="text-foreground leading-relaxed">
+          If you’re thinking about a military career and you’re dyslexic — you’re not unusual, and you’re not at a disadvantage by default. Read more about the{" "}
+          <Link to="/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk" className="font-medium text-primary underline-offset-4 hover:underline">
+            disclosure rules
+          </Link>{" "}
+          and the{" "}
+          <Link to="/insights/what-support-is-available-for-dyslexia-in-the-military-uk" className="font-medium text-primary underline-offset-4 hover:underline">
+            support available in service
+          </Link>
+          .
+        </p>
+      </section>
+
+      <section className="mb-12 rounded-2xl border border-border bg-card p-6 md:p-8">
+        <h2 className="text-2xl font-bold text-foreground mb-3">Still unsure what to do next?</h2>
+        <p className="text-foreground leading-relaxed mb-5">
+          The quickest way to get clarity is to speak to people who’ve been through it.
+        </p>
+        <ul className="space-y-3 text-foreground leading-relaxed">
+          <li>
+            →{" "}
+            <Link to="/community" className="font-semibold text-primary underline-offset-4 hover:underline">
+              Ask the Community
+            </Link>{" "}
+            – get real answers from serving and former personnel
+          </li>
+          <li>
+            →{" "}
+            <Link to="/join" className="font-semibold text-primary underline-offset-4 hover:underline">
+              Join the Network
+            </Link>{" "}
+            – connect with others and access support
+          </li>
+          <li>
+            →{" "}
+            <Link to="/insights" className="font-semibold text-primary underline-offset-4 hover:underline">
+              Explore Insights
+            </Link>{" "}
+            – understand what to expect next
+          </li>
+        </ul>
+      </section>
+
       <div className="flex flex-wrap gap-4">
+        <Link to="/community">
+          <Button className="gap-2">
+            Ask the Community <ChevronRight className="h-4 w-4" />
+          </Button>
+        </Link>
         <Link to="/insights">
           <Button variant="outline" className="gap-2">
-            ← Browse all FAQ
-          </Button>
-        </Link>
-        <Link to="/join">
-          <Button className="gap-2">
-            Join the Network <ChevronRight className="h-4 w-4" />
-          </Button>
-        </Link>
-        <Link to="/why-it-matters">
-          <Button variant="outline" className="gap-2">
-            Why dyslexia matters in Defence <ChevronRight className="h-4 w-4" />
-          </Button>
-        </Link>
-        <Link to="/insights/neurodiversity-in-the-mod-uk">
-          <Button variant="outline" className="gap-2">
-            Neurodiversity in the MOD <ChevronRight className="h-4 w-4" />
+            Explore Insights
           </Button>
         </Link>
       </div>
