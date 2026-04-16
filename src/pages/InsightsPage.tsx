@@ -1,57 +1,124 @@
-import { Link } from "react-router-dom";
-import { FileText, ExternalLink, PlayCircle, BookOpen, Lightbulb, ChevronRight, HelpCircle } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { FileText, ExternalLink, PlayCircle, BookOpen, Lightbulb, ChevronRight, HelpCircle, UserPlus, Shield, LogOut } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useEffect } from "react";
+import { cn } from "@/lib/utils";
+import type { AudienceIntent } from "@/components/AudienceRouter";
 
-const faqCategories = [
+type IntentCategory = {
+  id: AudienceIntent;
+  title: string;
+  blurb: string;
+  icon: typeof UserPlus;
+  items: Array<{ question: string; answer: string; link: string }>;
+};
+
+const intentCategories: IntentCategory[] = [
   {
-    title: "Joining the Armed Forces",
+    id: "joining",
+    title: "Thinking of joining",
+    blurb: "Eligibility, recruitment and what to expect before you sign up.",
+    icon: UserPlus,
     items: [
       {
         question: "Can you join the Army with dyslexia (UK)?",
-        answer: "Absolutely. Dyslexia is not a barrier to joining the British Army. Many serving soldiers and officers have dyslexia and build successful careers. The MOD has signed the BDA Dyslexia Friendly Workplace Pledge and achieved Bronze recognition, meaning support is structured and accessible from day one.",
+        answer: "Yes. Dyslexia is not a barrier to joining the British Army. You aren't screened for it during recruitment, and dyslexic personnel serve at every rank.",
         link: "/insights/can-you-join-army-with-dyslexia-uk",
       },
       {
         question: "Can you join the RAF with dyslexia (UK)?",
-        answer: "Absolutely. The RAF welcomes dyslexic applicants across all branches, including engineering, logistics, and aircrew roles. With the MOD's commitment to the BDA Dyslexia Friendly Workplace Pledge, reasonable adjustments and inclusive support are available throughout your career.",
+        answer: "Yes. The RAF welcomes dyslexic applicants across all branches, including engineering, logistics and aircrew. Reasonable adjustments are available throughout your career.",
         link: "/insights/can-you-join-raf-with-dyslexia-uk",
       },
       {
         question: "Can you join the Royal Navy with dyslexia (UK)?",
-        answer: "Absolutely. Dyslexia does not prevent you from joining the Royal Navy. Dyslexic personnel serve at every rank across the Naval Service. The MOD's BDA Bronze recognition means the Navy is actively committed to an inclusive, supportive environment.",
+        answer: "Yes. Dyslexia does not prevent you from joining the Royal Navy. Dyslexic sailors, Royal Marines and officers serve at every rank.",
         link: "/insights/can-you-join-navy-with-dyslexia-uk",
+      },
+      {
+        question: "Do I need to declare dyslexia when joining the military (UK)?",
+        answer: "You're not legally required to declare. But declaring early unlocks reasonable adjustments during selection and training — and is almost always the better choice.",
+        link: "/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk",
+      },
+      {
+        question: "Why the Royal Signals is a strong fit for dyslexic individuals",
+        answer: "Royal Signals roles reward problem-solving, pattern recognition and adaptability — strengths often associated with dyslexic thinking.",
+        link: "/insights/why-royal-signals-is-a-strong-fit-for-dyslexic-individuals-uk",
       },
     ],
   },
   {
-    title: "Understanding Support and Opportunity",
+    id: "serving",
+    title: "Currently serving",
+    blurb: "Support, adjustments, policy and what happens day-to-day in service.",
+    icon: Shield,
     items: [
       {
+        question: "What support is available for dyslexia in the military (UK)?",
+        answer: "Defence Dyslexia Network (2,000+ members), 240+ ambassadors, Army Education Centre access, internal forums, and workplace adjustments — across all three services.",
+        link: "/insights/what-support-is-available-for-dyslexia-in-the-military-uk",
+      },
+      {
+        question: "What happens if dyslexia is identified during service?",
+        answer: "You can self-refer through your AEC or service equivalent. Assessment leads to adjustments — extra time on courses, assistive tech and study support. It does not end careers.",
+        link: "/insights/what-happens-if-dyslexia-is-identified-during-service-uk",
+      },
+      {
         question: "Is dyslexia a barrier in the military (UK)?",
-        answer: "No. Dyslexia is not a barrier to a successful military career. All three services accept dyslexic candidates and provide structured support. The MOD has signed the BDA Dyslexia Friendly Workplace Pledge, reinforcing its commitment to enabling every individual to perform at their best.",
+        answer: "No. Dyslexic personnel serve at every rank in every service. The real barriers are awareness and inconsistent support — not dyslexia itself.",
+        link: "/insights/is-dyslexia-a-barrier-in-the-military-uk",
+      },
+      {
+        question: "Serving with dyslexia in the Army — a real journey",
+        answer: "A condensed featured story covering coping mechanisms, support gaps and success despite challenges across a full Army career.",
+        link: "/insights/serving-with-dyslexia-in-the-army-uk",
+      },
+      {
+        question: "JSP 822 vs the Equality Act — what's the difference?",
+        answer: "JSP 822 is the MOD's training policy for specific learning differences. The Equality Act 2010 sits above it as the legal duty. Both apply.",
+        link: "/insights/jsp-822-vs-equality-act-military-dyslexia-uk",
+      },
+      {
+        question: "Neurodiversity in the MOD (UK)",
+        answer: "The MOD recognises neurodiversity as a workforce strength — BDA Bronze recognition, growing networks across military and civil service roles.",
+        link: "/insights/neurodiversity-in-the-mod-uk",
+      },
+    ],
+  },
+  {
+    id: "veteran",
+    title: "Leaving service / veteran",
+    blurb: "Transition, recognition of in-service assessments and what comes next.",
+    icon: LogOut,
+    items: [
+      {
+        question: "Serving with dyslexia in the Army — full journey",
+        answer: "Includes the transition phase: how in-service assessments translate into civilian-recognised diagnoses and what to ask for before you leave.",
+        link: "/insights/serving-with-dyslexia-in-the-army-uk",
+      },
+      {
+        question: "Is dyslexia a barrier in the military (UK)?",
+        answer: "Useful context if you're reflecting on your career or supporting someone still in. The barriers are systemic, not personal.",
         link: "/insights/is-dyslexia-a-barrier-in-the-military-uk",
       },
       {
         question: "Neurodiversity in the MOD (UK)",
-        answer: "The Ministry of Defence recognises neurodiversity as a workforce strength and has achieved BDA Bronze recognition. Support includes workplace adjustments, assistive technology, and growing neurodiversity networks across military and civil service roles.",
+        answer: "Background on the wider system you served in — and how it's changing for those still serving and transitioning out.",
         link: "/insights/neurodiversity-in-the-mod-uk",
       },
     ],
   },
 ];
 
-// Build FAQ schema
-const faqSchemaItems = faqCategories.flatMap((cat) =>
-  cat.items.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  }))
-);
+const faqSchemaItems = intentCategories
+  .filter((c) => c.id !== "veteran")
+  .flatMap((cat) =>
+    cat.items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  );
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -60,7 +127,8 @@ const faqSchema = {
 };
 
 const InsightsPage = () => {
-  // Inject FAQ structured data
+  const { hash } = useLocation();
+
   useEffect(() => {
     const script = document.createElement("script");
     script.type = "application/ld+json";
@@ -73,77 +141,112 @@ const InsightsPage = () => {
     };
   }, []);
 
+  // Scroll to the matching intent section when arriving via #hash
+  useEffect(() => {
+    if (!hash) return;
+    const id = hash.replace("#", "");
+    const t = window.setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 80);
+    return () => window.clearTimeout(t);
+  }, [hash]);
+
+  const activeIntent = (hash.replace("#", "") || null) as AudienceIntent | null;
+
   return (
     <main className="bg-background">
-      {/* Hero — Featured Insight */}
+      {/* Hero */}
       <section className="bg-card py-16 md:py-24">
         <div className="container mx-auto px-4">
           <h1 className="mb-6 text-3xl font-extrabold leading-tight text-foreground md:text-4xl lg:text-5xl">
             Insights on Dyslexia in Defence
           </h1>
           <p className="mb-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Real voices, research, and perspectives on <strong>neurodiversity in the UK military</strong> and wider defence community.
+            Real voices, research and perspectives on <strong>neurodiversity in the UK military</strong> and wider defence community.
           </p>
           <p className="mb-10 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            Common questions about dyslexia and joining the UK Armed Forces — answered clearly.
+            Pick the pathway that fits where you are right now.
           </p>
 
-          <div className="mx-auto max-w-2xl overflow-hidden rounded-2xl border border-border bg-background shadow-lg">
-            <div className="relative w-full" style={{ paddingBottom: "177.78%" }}>
-              <iframe
-                className="absolute inset-0 h-full w-full"
-                src="https://www.youtube.com/embed/DFLERi3uE7A"
-                title="MOD support for dyslexia and neurodiversity"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                loading="lazy"
-              />
-            </div>
-          </div>
-
-          <div className="mx-auto mt-8 max-w-2xl space-y-3 text-base leading-relaxed text-muted-foreground">
-            <p>
-              This clip highlights that the <strong>Ministry of Defence is supportive</strong> of individuals with dyslexia and neurodiversity.
-            </p>
-            <p>
-              Awareness and support are growing across the defence community — from serving personnel to civil servants and industry partners.
-            </p>
-          </div>
+          {/* Pathway picker — links jump to the matching intent section below */}
+          <nav aria-label="Pick your pathway" className="grid gap-3 sm:grid-cols-3 max-w-3xl">
+            {intentCategories.map(({ id, title, icon: Icon }) => {
+              const isActive = activeIntent === id;
+              return (
+                <a
+                  key={id}
+                  href={`#${id}`}
+                  aria-current={isActive ? "page" : undefined}
+                  className={cn(
+                    "flex items-center gap-3 rounded-xl border p-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                    isActive
+                      ? "border-primary bg-primary/10"
+                      : "border-border bg-background hover:border-primary",
+                  )}
+                >
+                  <Icon className={cn("h-5 w-5 shrink-0", isActive ? "text-primary" : "text-muted-foreground")} aria-hidden="true" />
+                  <span className={cn("text-sm font-semibold", isActive ? "text-primary" : "text-foreground")}>
+                    {title}
+                  </span>
+                </a>
+              );
+            })}
+          </nav>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-16 md:py-20" aria-label="Frequently asked questions">
+      {/* Intent-categorized FAQ sections */}
+      <section className="py-16 md:py-20" aria-label="Frequently asked questions by pathway">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl">
             <div className="mb-8 flex items-center gap-3">
               <HelpCircle className="h-7 w-7 text-primary" aria-hidden="true" />
-              <h2 className="text-2xl font-bold text-foreground md:text-3xl">Frequently Asked Questions</h2>
+              <h2 className="text-2xl font-bold text-foreground md:text-3xl">Frequently asked questions</h2>
             </div>
 
-            {faqCategories.map((category) => (
-              <div key={category.title} className="mb-8">
-                <h3 className="mb-4 text-lg font-semibold text-foreground">{category.title}</h3>
-                <Accordion type="multiple" className="rounded-xl border border-border bg-card">
-                  {category.items.map((item, i) => (
-                    <AccordionItem key={i} value={`${category.title}-${i}`} className="border-border px-5">
-                      <AccordionTrigger className="text-left text-base font-medium text-foreground hover:no-underline">
-                        {item.question}
-                      </AccordionTrigger>
-                      <AccordionContent>
-                        <p className="mb-3 text-sm leading-relaxed text-muted-foreground">{item.answer}</p>
-                        <Link
-                          to={item.link}
-                          className="inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
-                        >
-                          Read more <ChevronRight className="h-4 w-4" />
-                        </Link>
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
-            ))}
+            {intentCategories.map((category) => {
+              const isActive = activeIntent === category.id;
+              const Icon = category.icon;
+              return (
+                <section
+                  key={category.id}
+                  id={category.id}
+                  aria-labelledby={`${category.id}-heading`}
+                  className={cn(
+                    "mb-10 scroll-mt-24 rounded-2xl border p-5 md:p-6 transition-colors",
+                    isActive ? "border-primary bg-primary/5" : "border-border bg-card",
+                  )}
+                >
+                  <div className="mb-2 flex items-center gap-3">
+                    <Icon className="h-6 w-6 text-primary" aria-hidden="true" />
+                    <h3 id={`${category.id}-heading`} className="text-xl font-bold text-foreground">
+                      {category.title}
+                    </h3>
+                  </div>
+                  <p className="mb-5 text-sm text-muted-foreground">{category.blurb}</p>
+
+                  <Accordion type="multiple" className="rounded-xl border border-border bg-background">
+                    {category.items.map((item, i) => (
+                      <AccordionItem key={i} value={`${category.id}-${i}`} className="border-border px-5">
+                        <AccordionTrigger className="text-left text-base font-medium text-foreground hover:no-underline">
+                          {item.question}
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <p className="mb-3 text-sm leading-relaxed text-muted-foreground">{item.answer}</p>
+                          <Link
+                            to={item.link}
+                            className="inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+                          >
+                            Read more <ChevronRight className="h-4 w-4" />
+                          </Link>
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </section>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -154,12 +257,12 @@ const InsightsPage = () => {
           <div className="mx-auto max-w-3xl">
             <div className="mb-8 flex items-center gap-3">
               <Lightbulb className="h-7 w-7 text-primary" aria-hidden="true" />
-              <h2 className="text-2xl font-bold text-foreground md:text-3xl">Key Takeaways</h2>
+              <h2 className="text-2xl font-bold text-foreground md:text-3xl">Key takeaways</h2>
             </div>
             <ul className="space-y-4 text-base leading-relaxed text-foreground">
               <li className="flex items-start gap-3">
                 <span className="mt-1 block h-2.5 w-2.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-                <span><strong>Dyslexia is present</strong> across the entire defence community — military, civil service, and industry.</span>
+                <span><strong>Dyslexia is present</strong> across the entire defence community — military, civil service and industry.</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-1 block h-2.5 w-2.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
@@ -184,7 +287,7 @@ const InsightsPage = () => {
           <div className="mx-auto max-w-3xl">
             <div className="mb-8 flex items-center gap-3">
               <PlayCircle className="h-7 w-7 text-primary" aria-hidden="true" />
-              <h2 className="text-2xl font-bold text-foreground md:text-3xl">Real Experiences and Perspectives</h2>
+              <h2 className="text-2xl font-bold text-foreground md:text-3xl">Real experiences and perspectives</h2>
             </div>
             <p className="mb-10 text-base leading-relaxed text-muted-foreground">
               Podcast conversations featuring serving and former defence personnel sharing insights on <strong>dyslexia support in the MOD</strong> and beyond.
@@ -194,17 +297,17 @@ const InsightsPage = () => {
               <PodcastCard
                 embedUrl="https://open.spotify.com/embed/episode/3yGuLAcPYJqLcT05wSOlgU?utm_source=generator&theme=0"
                 title="Leadership and Dyslexia in Defence"
-                description="A candid discussion on how dyslexia intersects with leadership and decision making across the defence environment. The strongest insight into why neurodiversity matters at every level."
+                description="A candid discussion on how dyslexia intersects with leadership and decision making across the defence environment."
               />
               <PodcastCard
                 embedUrl="https://open.spotify.com/embed/episode/16a7rVgNCb3jTdfoRhDmrj?utm_source=generator&theme=0"
                 title="Neurodiversity and Leadership in the Army"
-                description="Exploring how neurodiverse thinking contributes to effective leadership within the British Army, and why awareness at command level is critical."
+                description="Exploring how neurodiverse thinking contributes to effective leadership within the British Army."
               />
               <PodcastCard
                 embedUrl="https://open.spotify.com/embed/episode/2zNd3YpRNMt14rNU3kCqpR?utm_source=generator&theme=0"
-                title="Lived Experience Inside the MOD"
-                description="First hand accounts of navigating dyslexia within the Ministry of Defence — the challenges, the turning points, and the support that made a difference."
+                title="Lived experience inside the MOD"
+                description="First hand accounts of navigating dyslexia within the Ministry of Defence — challenges, turning points and the support that made a difference."
               />
               <div className="space-y-4">
                 <PodcastCard
@@ -217,7 +320,7 @@ const InsightsPage = () => {
                     <strong className="text-foreground">How it connects:</strong> The Defence Dyslexia Network focuses on individuals currently serving in the MOD.
                   </p>
                   <p>
-                    <strong className="text-foreground">Dyslexia in Defence</strong> provides broader, wraparound support across the entire defence ecosystem — including veterans, families, civil servants, and industry. The two are <strong>complementary, not competing</strong>.
+                    <strong className="text-foreground">Dyslexia in Defence</strong> provides broader, wraparound support across the entire defence ecosystem — including veterans, families, civil servants and industry. The two are <strong>complementary, not competing</strong>.
                   </p>
                 </div>
               </div>
@@ -232,7 +335,7 @@ const InsightsPage = () => {
           <div className="mx-auto max-w-3xl">
             <div className="mb-8 flex items-center gap-3">
               <BookOpen className="h-7 w-7 text-primary" aria-hidden="true" />
-              <h2 className="text-2xl font-bold text-foreground md:text-3xl">Research and Formal Insight</h2>
+              <h2 className="text-2xl font-bold text-foreground md:text-3xl">Research and formal insight</h2>
             </div>
             <p className="mb-10 text-base leading-relaxed text-muted-foreground">
               Published articles and journal entries reflecting growing recognition of <strong>neurodiversity in the military</strong> and defence sector.
@@ -242,58 +345,14 @@ const InsightsPage = () => {
               <PublicationCard
                 href="/documents/dyslexia-article.pdf"
                 title="British Dyslexia Association Feature"
-                description="Formal recognition of dyslexia within a military context, published in the BDA magazine. Highlights increasing awareness and structured support across defence."
+                description="Formal recognition of dyslexia within a military context, published in the BDA magazine."
               />
               <PublicationCard
                 href="/documents/rsi-journal-winter-23.pdf"
                 title="Royal Signals Institute Journal — Winter 2023"
-                description="Professional and regimental level discussion of dyslexia within the Royal Corps of Signals. Reinforces that neurodiversity is being recognised in operational and technical environments."
+                description="Professional and regimental level discussion of dyslexia within the Royal Corps of Signals."
               />
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why This Matters */}
-      <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl">
-            <h2 className="mb-6 text-2xl font-bold text-foreground md:text-3xl">Why This Matters</h2>
-            <p className="mb-6 text-base leading-relaxed text-muted-foreground">
-              These insights demonstrate a clear and growing reality:
-            </p>
-            <ul className="mb-8 space-y-3 text-base leading-relaxed text-foreground">
-              <li className="flex items-start gap-3">
-                <span className="mt-1 block h-2.5 w-2.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-                <span><strong>Dyslexia is already present</strong> across every part of the defence community.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 block h-2.5 w-2.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-                <span><strong>Support exists but remains fragmented</strong> — consistency and visibility are key gaps.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-1 block h-2.5 w-2.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-                <span><strong>Peer support and shared understanding</strong> are critical to lasting change.</span>
-              </li>
-            </ul>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                to="/why-it-matters"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-              >
-                Learn Why It Matters
-              </Link>
-              <Link
-                to="/join"
-                className="inline-flex items-center gap-2 rounded-full border border-primary px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
-              >
-                Join the Network
-              </Link>
-            </div>
-            <p className="mt-4 text-sm text-muted-foreground">
-              If you have questions, you can also ask others in our{" "}
-              <Link to="/community" className="font-medium text-primary underline-offset-4 hover:underline">community</Link>.
-            </p>
           </div>
         </div>
       </section>
@@ -351,7 +410,7 @@ const PublicationCard = ({
     </div>
     <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
     <span className="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-primary">
-      View Document <ExternalLink className="h-4 w-4" />
+      View document <ExternalLink className="h-4 w-4" />
     </span>
   </a>
 );
