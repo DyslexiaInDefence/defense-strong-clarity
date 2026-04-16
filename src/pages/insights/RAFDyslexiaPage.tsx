@@ -1,121 +1,70 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { ChevronRight } from "lucide-react";
+import InsightLayout from "@/components/InsightLayout";
+import MidContentNudge from "@/components/MidContentNudge";
+import LivedExperienceBlock from "@/components/LivedExperienceBlock";
+import { livedExperienceSnippets } from "@/data/livedExperience";
+
+const snippet = livedExperienceSnippets.find((s) => s.id === "strengths-match")!;
 
 const RAFDyslexiaPage = () => (
-  <div className="py-16">
-    <div className="container mx-auto px-4 max-w-3xl">
-      <h1 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
-        Can You Join the RAF With Dyslexia in the UK?
-      </h1>
+  <InsightLayout
+    title="Can you join the RAF with dyslexia in the UK?"
+    intent="joining"
+  >
+    <p className="text-lg text-foreground leading-relaxed mb-4">
+      Yes. Dyslexia does not prevent you from joining the Royal Air Force. Dyslexic personnel serve across engineering, logistics, intelligence, cyber and aircrew roles.
+    </p>
+    <p className="text-lg text-foreground leading-relaxed mb-8">
+      You will need to meet the same standards as every applicant. Where you declare a diagnosis, reasonable adjustments — extra time, assistive technology, study support — are available throughout your career.
+    </p>
 
-      <p className="text-lg text-foreground leading-relaxed mb-8">
-        Yes. Dyslexia does not prevent you from joining the Royal Air Force. Many serving RAF personnel have dyslexia and thrive across engineering, logistics, intelligence, and aircrew roles. The MOD has signed the British Dyslexia Association Dyslexia Friendly Workplace Pledge and achieved BDA Bronze recognition, meaning inclusive support is embedded and actively improving.
+    <section className="mb-10">
+      <h2 className="text-2xl font-bold text-foreground mb-4">What RAF recruitment looks like</h2>
+      <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
+        <li>The Airman/Airwoman Selection Test (AST) is standard for all candidates.</li>
+        <li>Declare dyslexia early and provide a diagnostic report so adjustments can be arranged.</li>
+        <li>Adjustments commonly include extra time on written elements.</li>
+        <li>Disclosure isn’t a requirement — read{" "}
+          <Link to="/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk" className="font-medium text-primary underline-offset-4 hover:underline">
+            do I need to declare dyslexia
+          </Link>
+          {" "}for the rules.
+        </li>
+      </ul>
+    </section>
+
+    <MidContentNudge intent="joining" />
+
+    <section className="mb-10">
+      <h2 className="text-2xl font-bold text-foreground mb-4">Why dyslexic minds suit RAF roles</h2>
+      <p className="text-foreground leading-relaxed">
+        Many RAF roles reward problem-solving, spatial reasoning and analytical thinking — strengths dyslexic personnel often bring naturally.
       </p>
+    </section>
 
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold text-foreground mb-4">Can You Join?</h2>
-        <div className="space-y-4 text-foreground leading-relaxed">
-          <p>
-            The RAF welcomes dyslexic applicants. Your suitability is based on your ability to meet the demands of your chosen role, not on a dyslexia diagnosis. Dyslexic personnel serve successfully across every branch of the RAF.
-          </p>
-          <p>
-            The recruitment process is the same for all candidates. Where dyslexia is declared, reasonable adjustments are made to ensure the process is fair and supportive.
-          </p>
-        </div>
-      </section>
+    <LivedExperienceBlock snippet={snippet} variant="inline" className="mb-10" />
 
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold text-foreground mb-4">How Dyslexia Is Assessed in Recruitment</h2>
-        <div className="space-y-4 text-foreground leading-relaxed">
-          <p>
-            RAF recruitment includes aptitude testing at the Airman/Airwoman Selection Test (AST). These are standard assessments for all applicants. If you have dyslexia, inform the recruitment team early and provide a formal diagnostic report so adjustments can be arranged.
-          </p>
-          <p>
-            Adjustments may include extra time on written elements. Having your diagnosis ready before applying ensures you get the support you are entitled to from the start.
-          </p>
-        </div>
-      </section>
+    <section className="mb-10">
+      <h2 className="text-2xl font-bold text-foreground mb-4">Common misconceptions</h2>
+      <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
+        <li><strong>Dyslexia stops you flying.</strong> No — aircrew suitability is assessed individually on functional ability.</li>
+        <li><strong>You’ll struggle with technical training.</strong> No — many dyslexic personnel excel in technical and engineering trades.</li>
+        <li><strong>The RAF doesn’t understand dyslexia.</strong> Support is real and improving — see{" "}
+          <Link to="/insights/neurodiversity-in-the-mod-uk" className="font-medium text-primary underline-offset-4 hover:underline">
+            neurodiversity in the MOD
+          </Link>
+          .
+        </li>
+      </ul>
+    </section>
 
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold text-foreground mb-4">MOD Commitment to Dyslexia Support</h2>
-        <div className="space-y-4 text-foreground leading-relaxed">
-          <p>
-            The MOD has signed the British Dyslexia Association Dyslexia Friendly Workplace Pledge and achieved BDA Bronze recognition. This means the RAF is committed to creating inclusive environments, improving awareness of dyslexia, providing reasonable adjustments, and enabling individuals to thrive.
-          </p>
-          <p>
-            Once serving, you can access assistive technology, workplace assessments, additional time for training courses and examinations, and specialist learning support. Education teams are available at most stations to help arrange what you need.
-          </p>
-        </div>
-      </section>
-
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold text-foreground mb-4">Common Misconceptions</h2>
-        <div className="space-y-4 text-foreground leading-relaxed">
-          <p>
-            <strong>Misconception:</strong> Dyslexia prevents you from becoming a pilot.<br />
-            <strong>Reality:</strong> Dyslexia does not automatically exclude you from aircrew roles. Each case is assessed individually based on functional ability.
-          </p>
-          <p>
-            <strong>Misconception:</strong> You will struggle with technical training.<br />
-            <strong>Reality:</strong> Many dyslexic personnel excel in technical and engineering roles where practical problem solving and spatial reasoning are valued.
-          </p>
-          <p>
-            <strong>Misconception:</strong> The RAF does not understand dyslexia.<br />
-            <strong>Reality:</strong> The RAF actively supports neurodiversity. The MOD's BDA Bronze recognition demonstrates a formal, ongoing commitment to inclusive practice.
-          </p>
-        </div>
-      </section>
-
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold text-foreground mb-4">Real-World Evidence</h2>
-        <div className="space-y-4 text-foreground leading-relaxed">
-          <p>
-            Dyslexic personnel are already building successful careers across Defence. For a first-hand account of navigating dyslexia within the MOD, listen to this{" "}
-            <a
-              href="https://open.spotify.com/episode/2zNd3YpRNMt14rNU3kCqpR"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-primary underline hover:text-primary/80"
-            >
-              podcast episode featuring lived experience inside Defence
-            </a>
-            . It is real-world proof that dyslexia and a successful military career go hand in hand.
-          </p>
-        </div>
-      </section>
-
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold text-foreground mb-4">Summary</h2>
-        <p className="text-foreground leading-relaxed">
-          Dyslexia is not a barrier to joining the RAF. The MOD's commitment through the BDA Dyslexia Friendly Workplace Pledge means inclusive support is real and accessible. Declare your diagnosis, access adjustments, and focus on your strengths. The RAF values cognitive diversity — and dyslexic thinkers are already part of the force.
-        </p>
-      </section>
-
-      <div className="flex flex-wrap gap-4">
-        <Link to="/insights">
-          <Button variant="outline" className="gap-2">
-            ← Browse all FAQ
-          </Button>
-        </Link>
-        <Link to="/join">
-          <Button className="gap-2">
-            Join the Network <ChevronRight className="h-4 w-4" />
-          </Button>
-        </Link>
-        <Link to="/why-it-matters">
-          <Button variant="outline" className="gap-2">
-            Why dyslexia matters in Defence <ChevronRight className="h-4 w-4" />
-          </Button>
-        </Link>
-        <Link to="/insights/can-you-join-army-with-dyslexia-uk">
-          <Button variant="outline" className="gap-2">
-            Can you join the Army with dyslexia? <ChevronRight className="h-4 w-4" />
-          </Button>
-        </Link>
-      </div>
-    </div>
-  </div>
+    <section className="mb-2">
+      <h2 className="text-2xl font-bold text-foreground mb-4">Reassurance</h2>
+      <p className="text-foreground leading-relaxed">
+        Dyslexia and a successful RAF career go hand in hand. Declare, take the support you’re entitled to, and focus on your strengths.
+      </p>
+    </section>
+  </InsightLayout>
 );
 
 export default RAFDyslexiaPage;
