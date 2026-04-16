@@ -28,6 +28,8 @@ const LABELS: Record<string, string> = {
   "neurodiversity-in-the-mod-uk": "Neurodiversity in the MOD",
   "jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk":
     "JSP 822 vs Equality Act",
+  "do-i-need-to-declare-dyslexia-when-joining-the-military-uk":
+    "Declaring Dyslexia",
 };
 
 const formatSegment = (seg: string) =>
