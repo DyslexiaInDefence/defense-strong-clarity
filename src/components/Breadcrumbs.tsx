@@ -30,6 +30,8 @@ const LABELS: Record<string, string> = {
     "JSP 822 vs Equality Act",
   "do-i-need-to-declare-dyslexia-when-joining-the-military-uk":
     "Declaring Dyslexia",
+  "serving-with-dyslexia-in-the-army-uk":
+    "Serving with Dyslexia",
 };
 
 const formatSegment = (seg: string) =>
