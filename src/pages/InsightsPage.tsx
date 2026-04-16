@@ -3,6 +3,7 @@ import { FileText, ExternalLink, PlayCircle, BookOpen, Lightbulb, ChevronRight, 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 import type { AudienceIntent } from "@/components/AudienceRouter";
 
 type IntentCategory = {
