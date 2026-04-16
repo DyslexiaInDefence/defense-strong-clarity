@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { UserPlus, Shield, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 
 export type AudienceIntent = "joining" | "serving" | "veteran";
 
@@ -42,6 +43,14 @@ const AudienceRouter = ({ active, className }: AudienceRouterProps) => (
             <Link
               to={to}
               aria-current={isActive ? "page" : undefined}
+              onClick={() =>
+                trackEvent("audience_router_click", {
+                  intent,
+                  active_intent: active ?? null,
+                  is_active: isActive,
+                  target: to,
+                })
+              }
               className={cn(
                 "group flex h-full items-center gap-3 rounded-xl border p-3 transition-colors",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",

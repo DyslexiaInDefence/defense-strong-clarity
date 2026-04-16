@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import type { AudienceIntent } from "@/components/AudienceRouter";
+import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 interface MidContentNudgeProps {
@@ -50,6 +51,13 @@ const MidContentNudge = ({ intent, message, className }: MidContentNudgeProps) =
       </div>
       <Link
         to={config.to}
+        onClick={() =>
+          trackEvent("mid_content_nudge_click", {
+            intent,
+            cta_label: config.ctaLabel,
+            target: config.to,
+          })
+        }
         className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
       >
         {config.ctaLabel}

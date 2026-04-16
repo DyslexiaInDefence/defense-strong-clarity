@@ -3,6 +3,7 @@ import { FileText, ExternalLink, PlayCircle, BookOpen, Lightbulb, ChevronRight, 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 import type { AudienceIntent } from "@/components/AudienceRouter";
 
 type IntentCategory = {
@@ -178,6 +179,15 @@ const InsightsPage = () => {
                   key={id}
                   href={`#${id}`}
                   aria-current={isActive ? "page" : undefined}
+                  onClick={() =>
+                    trackEvent("audience_router_click", {
+                      intent: id,
+                      active_intent: activeIntent ?? null,
+                      is_active: isActive,
+                      target: `/insights#${id}`,
+                      source: "insights_hub_picker",
+                    })
+                  }
                   className={cn(
                     "flex items-center gap-3 rounded-xl border p-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                     isActive

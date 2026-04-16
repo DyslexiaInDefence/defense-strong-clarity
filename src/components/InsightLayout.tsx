@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import AudienceRouter, { type AudienceIntent } from "@/components/AudienceRouter";
+import BackToPathway from "@/components/BackToPathway";
+import { trackEvent } from "@/lib/analytics";
 import type { ReactNode } from "react";
 
 interface InsightLayoutProps {
@@ -73,10 +75,15 @@ const InsightLayout = ({ title, eyebrow, intent, children }: InsightLayoutProps)
 
         {children}
 
+        {/* Subtle pathway return — low emphasis, just above the bottom block. */}
+        <div className="mt-10">
+          <BackToPathway intent={intent} />
+        </div>
+
         {/* PRIMARY conversion point — exact wording per brief. Do not add extra CTAs. */}
         <section
           aria-labelledby="next-steps-heading"
-          className="mt-12 rounded-2xl border border-border bg-card p-6 md:p-8"
+          className="mt-4 rounded-2xl border border-border bg-card p-6 md:p-8"
         >
           <h2
             id="next-steps-heading"
@@ -90,21 +97,54 @@ const InsightLayout = ({ title, eyebrow, intent, children }: InsightLayoutProps)
           <ul className="space-y-2">
             <li className={lineClass("community")}>
               →{" "}
-              <Link to="/community" className={linkClass("community")}>
+              <Link
+                to="/community"
+                className={linkClass("community")}
+                onClick={() =>
+                  trackEvent("next_steps_click", {
+                    intent,
+                    cta: "ask_the_community",
+                    is_dominant: dominant === "community",
+                    target: "/community",
+                  })
+                }
+              >
                 Ask the Community
               </Link>{" "}
               – get real answers from serving and former personnel
             </li>
             <li className={lineClass("join")}>
               →{" "}
-              <Link to="/join" className={linkClass("join")}>
+              <Link
+                to="/join"
+                className={linkClass("join")}
+                onClick={() =>
+                  trackEvent("next_steps_click", {
+                    intent,
+                    cta: "join_the_network",
+                    is_dominant: dominant === "join",
+                    target: "/join",
+                  })
+                }
+              >
                 Join the Network
               </Link>{" "}
               – connect with others and access support
             </li>
             <li className={lineClass("insights")}>
               →{" "}
-              <Link to="/insights" className={linkClass("insights")}>
+              <Link
+                to="/insights"
+                className={linkClass("insights")}
+                onClick={() =>
+                  trackEvent("next_steps_click", {
+                    intent,
+                    cta: "explore_insights",
+                    is_dominant: dominant === "insights",
+                    target: "/insights",
+                  })
+                }
+              >
                 Explore Insights
               </Link>{" "}
               – understand what to expect next
