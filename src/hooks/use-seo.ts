@@ -96,6 +96,12 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.8,
     indexable: true,
   },
+  "/insights/serving-with-dyslexia-in-the-army-uk": {
+    title: "Serving With Dyslexia in the Army | Lived Experience UK",
+    description: "A serving British Army officer’s honest account of dyslexia in uniform — support, coping mechanisms, and why dyslexic strengths matter in Defence.",
+    priority: 0.7,
+    indexable: true,
+  },
   "/governance/founder": {
     title: "Founder & Purpose | Dyslexia in Defence Governance",
     description: "Mission, scope, and independence of Dyslexia in Defence. Founded by Symon Smith to support dyslexic talent across the UK defence community.",
