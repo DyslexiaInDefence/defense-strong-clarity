@@ -30,6 +30,8 @@ import NeurodiversityMODPage from "@/pages/insights/NeurodiversityMODPage";
 import JSP822vsEqualityActPage from "@/pages/insights/JSP822vsEqualityActPage";
 import DeclareDyslexiaMilitaryPage from "@/pages/insights/DeclareDyslexiaMilitaryPage";
 import ServingWithDyslexiaArmyPage from "@/pages/insights/ServingWithDyslexiaArmyPage";
+import SupportForDyslexiaMilitaryPage from "@/pages/insights/SupportForDyslexiaMilitaryPage";
+import DyslexiaIdentifiedDuringServicePage from "@/pages/insights/DyslexiaIdentifiedDuringServicePage";
 import NotFound from "@/pages/NotFound";
 
 const App = () => (
@@ -59,6 +61,8 @@ const App = () => (
           <Route path="/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk" element={<JSP822vsEqualityActPage />} />
           <Route path="/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk" element={<DeclareDyslexiaMilitaryPage />} />
           <Route path="/insights/serving-with-dyslexia-in-the-army-uk" element={<ServingWithDyslexiaArmyPage />} />
+          <Route path="/insights/what-support-is-available-for-dyslexia-in-the-military-uk" element={<SupportForDyslexiaMilitaryPage />} />
+          <Route path="/insights/what-happens-if-dyslexia-is-identified-during-service-uk" element={<DyslexiaIdentifiedDuringServicePage />} />
           <Route path="/governance" element={<GovernanceOverviewPage />} />
           <Route path="/governance/founder" element={<FounderPurposePage />} />
           <Route path="/governance/code-of-conduct" element={<CodeOfConductPage />} />
