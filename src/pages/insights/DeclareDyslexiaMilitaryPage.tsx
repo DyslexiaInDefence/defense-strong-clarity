@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import InsightLayout from "@/components/InsightLayout";
 import MidContentNudge from "@/components/MidContentNudge";
 import LivedExperienceBlock from "@/components/LivedExperienceBlock";
+import PodcastInsight from "@/components/PodcastInsight";
 import { livedExperienceSnippets } from "@/data/livedExperience";
 
 const snippet = livedExperienceSnippets.find((s) => s.id === "tick-the-box")!;
@@ -39,6 +40,11 @@ const DeclareDyslexiaMilitaryPage = () => (
         Direct policy wording: <em>“There is no requirement for SP with SpLD to inform their line manager, trainer, or commander, if their condition does not affect their training or work.”</em> (JSP 822, Vol 7, Para 2.4.2)
       </p>
     </section>
+
+    <PodcastInsight
+      title="Hear from someone serving in the military with dyslexia"
+      className="mb-10"
+    />
 
     <MidContentNudge intent="joining" />
 
