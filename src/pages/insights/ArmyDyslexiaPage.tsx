@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import InsightLayout from "@/components/InsightLayout";
 import MidContentNudge from "@/components/MidContentNudge";
 import LivedExperienceBlock from "@/components/LivedExperienceBlock";
+import PodcastInsight from "@/components/PodcastInsight";
 import { livedExperienceSnippets } from "@/data/livedExperience";
 
 const snippet = livedExperienceSnippets.find((s) => s.id === "army-attracts-dyslexics")!;
@@ -32,6 +33,11 @@ const ArmyDyslexiaPage = () => (
         </li>
       </ul>
     </section>
+
+    <PodcastInsight
+      title="Hear from a serving soldier with dyslexia"
+      className="mb-10"
+    />
 
     <MidContentNudge intent="joining" />
 
