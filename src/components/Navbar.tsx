@@ -10,7 +10,6 @@ const navLinks = [
 { label: "Home", to: "/" },
 { label: "Why It Matters", to: "/why-it-matters" },
 { label: "FAQ", to: "/insights" },
-{ label: "Military vs Civilian", to: "/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk" },
 { label: "Ask the Community", to: "/community" },
 { label: "What We Want to Achieve", to: "/achieve" },
 { label: "Partner", to: "/partner" },
