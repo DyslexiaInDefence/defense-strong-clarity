@@ -149,6 +149,39 @@ const removeMeta = (name: string, attr = "name") => {
   if (el) el.remove();
 };
 
+const ARTICLE_SCHEMA_ID = "page-article-schema";
+
+const setArticleSchema = (url: string, page: PageSEO) => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: page.title,
+    description: page.description,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    image: OG_IMAGE,
+    inLanguage: "en-GB",
+    author: { "@type": "Organization", name: "Dyslexia in Defence", url: BASE_URL },
+    publisher: {
+      "@type": "Organization",
+      name: "Dyslexia in Defence",
+      url: BASE_URL,
+      logo: { "@type": "ImageObject", url: OG_IMAGE },
+    },
+  };
+  let script = document.getElementById(ARTICLE_SCHEMA_ID) as HTMLScriptElement | null;
+  if (!script) {
+    script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = ARTICLE_SCHEMA_ID;
+    document.head.appendChild(script);
+  }
+  script.textContent = JSON.stringify(schema);
+};
+
+const removeArticleSchema = () => {
+  document.getElementById(ARTICLE_SCHEMA_ID)?.remove();
+};
+
 const useSEO = () => {
   const { pathname } = useLocation();
 
@@ -183,6 +216,13 @@ const useSEO = () => {
       setMeta("twitter:title", pageData.title);
       setMeta("twitter:description", pageData.description);
       setMeta("twitter:image", OG_IMAGE);
+
+      // Article schema for individual Insights articles only (hub uses FAQPage)
+      if (pathname.startsWith("/insights/") && pathname !== "/insights") {
+        setArticleSchema(url, pageData);
+      } else {
+        removeArticleSchema();
+      }
     } else {
       // Non-public page — add noindex
       document.title = "Dyslexia in Defence";
@@ -198,6 +238,7 @@ const useSEO = () => {
       removeMeta("twitter:title");
       removeMeta("twitter:description");
       removeMeta("twitter:image");
+      removeArticleSchema();
     }
   }, [pathname]);
 };
