@@ -13,7 +13,7 @@ interface PageSEO {
 
 const PUBLIC_PAGES: Record<string, PageSEO> = {
   "/": {
-    title: "Dyslexia in Defence | Supporting Neurodiversity in the UK Defence Community",
+    title: "Dyslexia in Defence | Neurodiversity in UK Defence",
     description: "A community supporting dyslexia and neurodiversity across the UK Defence community including military, civil service and defence industry.",
     priority: 1.0,
     indexable: true,
@@ -49,25 +49,25 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     indexable: true,
   },
   "/partner": {
-    title: "Partner With Dyslexia in Defence | Social Value & Defence Industry Collaboration",
+    title: "Partner With Dyslexia in Defence | Defence Industry",
     description: "Partner with Dyslexia in Defence to support neurodiverse talent, deliver measurable social value, and unlock workforce capability across the UK defence sector.",
     priority: 0.8,
     indexable: true,
   },
   "/insights/can-you-join-army-with-dyslexia-uk": {
-    title: "Can You Join the Army With Dyslexia UK? | Dyslexia in Defence",
+    title: "Can You Join the Army With Dyslexia in the UK?",
     description: "Yes, you can join the British Army with dyslexia. Find out how recruitment works, what adjustments are available, and what to expect.",
     priority: 0.8,
     indexable: true,
   },
   "/insights/can-you-join-raf-with-dyslexia-uk": {
-    title: "Can You Join the RAF With Dyslexia UK? | Dyslexia in Defence",
+    title: "Can You Join the RAF With Dyslexia in the UK?",
     description: "Yes, dyslexia does not disqualify you from the RAF. Learn about recruitment adjustments, support in service, and common misconceptions.",
     priority: 0.8,
     indexable: true,
   },
   "/insights/can-you-join-navy-with-dyslexia-uk": {
-    title: "Can You Join the Royal Navy With Dyslexia UK? | Dyslexia in Defence",
+    title: "Can You Join the Royal Navy With Dyslexia in the UK?",
     description: "Yes, the Royal Navy accepts dyslexic applicants. Discover how dyslexia is assessed, what support exists, and how to apply.",
     priority: 0.8,
     indexable: true,
@@ -85,13 +85,13 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     indexable: true,
   },
   "/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk": {
-    title: "JSP 822 vs Equality Act 2010: What Changes for Dyslexia When You Leave the Military",
+    title: "JSP 822 vs Equality Act: Dyslexia After Service | UK",
     description: "Understand the difference between JSP 822 and the Equality Act 2010. Learn what changes for dyslexia support when leaving the UK Armed Forces for civilian work.",
     priority: 0.8,
     indexable: true,
   },
   "/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk": {
-    title: "Do I Need to Declare Dyslexia When Joining the Military? | UK",
+    title: "Do I Need to Declare Dyslexia Joining the Military? UK",
     description: "No. You don’t need to declare dyslexia to join the UK military, and you’re not screened for it. Here’s what JSP 822 says — and what it means in practice.",
     priority: 0.8,
     indexable: true,
