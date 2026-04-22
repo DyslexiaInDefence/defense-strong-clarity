@@ -36,8 +36,6 @@ const LABELS: Record<string, string> = {
     "Support Available",
   "what-happens-if-dyslexia-is-identified-during-service-uk":
     "Identified in Service",
-  "why-royal-signals-is-a-strong-fit-for-dyslexic-individuals-uk":
-    "Royal Signals & Dyslexia",
 };
 
 const formatSegment = (seg: string) =>

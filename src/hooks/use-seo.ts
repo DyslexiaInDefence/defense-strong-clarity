@@ -98,7 +98,7 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
   },
   "/insights/serving-with-dyslexia-in-the-army-uk": {
     title: "Serving With Dyslexia in the Army | Lived Experience UK",
-    description: "A serving British Army officer’s honest account of dyslexia in uniform — support, coping mechanisms, and why dyslexic strengths matter in Defence.",
+    description: "A former British Army officer’s honest account of dyslexia in uniform — support, coping mechanisms, and why dyslexic strengths matter in Defence.",
     priority: 0.7,
     indexable: true,
   },
@@ -112,12 +112,6 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     title: "What Happens if Dyslexia Is Identified During Service? | UK",
     description: "If dyslexia is identified during military service, your career isn’t at risk. Here’s what JSP 822 says and what support and adjustments you can access.",
     priority: 0.8,
-    indexable: true,
-  },
-  "/insights/why-royal-signals-is-a-strong-fit-for-dyslexic-individuals-uk": {
-    title: "Why the Royal Signals Is a Strong Fit for Dyslexic Individuals | UK",
-    description: "The Royal Signals rewards problem-solving, analytical thinking and adaptability — the strengths dyslexic minds bring. Here’s why it’s a strong fit.",
-    priority: 0.7,
     indexable: true,
   },
   "/governance/founder": {

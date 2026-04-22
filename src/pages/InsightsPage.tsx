@@ -41,11 +41,6 @@ const intentCategories: IntentCategory[] = [
         answer: "You're not legally required to declare. But declaring early unlocks reasonable adjustments during selection and training — and is almost always the better choice.",
         link: "/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk",
       },
-      {
-        question: "Why the Royal Signals is a strong fit for dyslexic individuals",
-        answer: "Royal Signals roles reward problem-solving, pattern recognition and adaptability — strengths often associated with dyslexic thinking.",
-        link: "/insights/why-royal-signals-is-a-strong-fit-for-dyslexic-individuals-uk",
-      },
     ],
   },
   {
@@ -77,7 +72,7 @@ const intentCategories: IntentCategory[] = [
       {
         question: "JSP 822 vs the Equality Act — what's the difference?",
         answer: "JSP 822 is the MOD's training policy for specific learning differences. The Equality Act 2010 sits above it as the legal duty. Both apply.",
-        link: "/insights/jsp-822-vs-equality-act-military-dyslexia-uk",
+        link: "/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk",
       },
       {
         question: "Neurodiversity in the MOD (UK)",
@@ -106,6 +101,11 @@ const intentCategories: IntentCategory[] = [
         question: "Neurodiversity in the MOD (UK)",
         answer: "Background on the wider system you served in — and how it's changing for those still serving and transitioning out.",
         link: "/insights/neurodiversity-in-the-mod-uk",
+      },
+      {
+        question: "JSP 822 vs the Equality Act — what changes when you leave?",
+        answer: "Leaving the military shifts your dyslexia rights from JSP 822 (policy-based, internal) to the Equality Act 2010 (legally enforceable in civilian employment). Know the difference before you transition.",
+        link: "/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk",
       },
     ],
   },
