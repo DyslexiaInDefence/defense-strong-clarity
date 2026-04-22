@@ -3,6 +3,7 @@ import InsightLayout from "@/components/InsightLayout";
 import MidContentNudge from "@/components/MidContentNudge";
 import LivedExperienceBlock from "@/components/LivedExperienceBlock";
 import { livedExperienceSnippets } from "@/data/livedExperience";
+import AllenCitation from "@/components/AllenCitation";
 
 const snippet = livedExperienceSnippets.find((s) => s.id === "tick-the-box")!;
 
@@ -40,6 +41,9 @@ const DyslexiaIdentifiedDuringServicePage = () => (
       <h2 className="text-2xl font-bold text-foreground mb-4">What this means in practice</h2>
       <p className="text-foreground leading-relaxed mb-4">
         Most personnel identified mid-career describe the same pattern. There’s a moment of hesitation about whether to say anything. Many don’t — they crack on, tick the box and rely on coping mechanisms.
+      </p>
+      <p className="text-foreground leading-relaxed mb-4">
+        Research on neurodiverse UK veterans describes the same instinct to mask traits to fit expectations — which often quietly reduces access to the support people are entitled to <AllenCitation />.
       </p>
       <p className="text-foreground leading-relaxed mb-4">
         Those who do speak up tend to find the help is real, but patchy. Course support can be strong; unit support depends heavily on the line manager. Peer support is often the most useful first step.

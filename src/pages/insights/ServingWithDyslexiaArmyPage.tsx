@@ -2,6 +2,7 @@ import InsightLayout from "@/components/InsightLayout";
 import MidContentNudge from "@/components/MidContentNudge";
 import LivedExperienceBlock from "@/components/LivedExperienceBlock";
 import { livedExperienceSnippets } from "@/data/livedExperience";
+import AllenCitation from "@/components/AllenCitation";
 import { Link } from "react-router-dom";
 
 const featuredQuotes = livedExperienceSnippets.filter((s) =>
@@ -93,6 +94,9 @@ const ServingWithDyslexiaArmyPage = () => (
         <li><strong>Dyslexic strengths are operational strengths.</strong> Leadership, problem-solving, communication.</li>
         <li><strong>Culture matters.</strong> Many personnel still ‘tick the box’ rather than ask for help.</li>
       </ul>
+      <p className="text-foreground leading-relaxed mt-4">
+        That last point isn’t unique to the Army. Research on neurodiverse UK veterans describes the same habit of masking traits to fit in — which often reduces access to the support people are entitled to <AllenCitation />.
+      </p>
     </section>
   </InsightLayout>
 );

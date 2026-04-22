@@ -3,6 +3,7 @@ import InsightLayout from "@/components/InsightLayout";
 import MidContentNudge from "@/components/MidContentNudge";
 import LivedExperienceBlock from "@/components/LivedExperienceBlock";
 import { livedExperienceSnippets } from "@/data/livedExperience";
+import AllenCitation from "@/components/AllenCitation";
 import {
   Table,
   TableHeader,
@@ -141,6 +142,9 @@ const JSP822vsEqualityActPage = () => (
       <h2 className="text-2xl font-bold text-foreground mb-4">Reassurance</h2>
       <p className="text-foreground leading-relaxed">
         The transition isn’t about becoming more capable. It’s about moving into a system where you’re legally entitled to the support you need to perform at your best.
+      </p>
+      <p className="text-foreground leading-relaxed mt-4">
+        Many veterans also find that civilian hiring doesn’t reflect how military experience is assessed — a gap echoed in research on neurodiverse UK veterans, where recruitment processes are often built around neurotypical expectations <AllenCitation />.
       </p>
     </section>
   </InsightLayout>
