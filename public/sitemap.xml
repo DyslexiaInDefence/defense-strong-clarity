@@ -2,107 +2,102 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dyslexiaindefence.com/</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-04-22</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://dyslexiaindefence.com/insights</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://dyslexiaindefence.com/why-it-matters</loc>
-    <lastmod>2026-03-16</lastmod>
-    <priority>0.8</priority>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://dyslexiaindefence.com/achieve</loc>
-    <lastmod>2026-03-16</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dyslexiaindefence.com/governance</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-04-22</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://dyslexiaindefence.com/join</loc>
-    <lastmod>2026-03-16</lastmod>
-    <priority>0.9</priority>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://dyslexiaindefence.com/partner</loc>
-    <lastmod>2026-03-20</lastmod>
-    <priority>0.8</priority>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dyslexiaindefence.com/governance</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://dyslexiaindefence.com/insights/can-you-join-army-with-dyslexia-uk</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-04-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dyslexiaindefence.com/insights/can-you-join-raf-with-dyslexia-uk</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-04-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dyslexiaindefence.com/insights/can-you-join-navy-with-dyslexia-uk</loc>
-    <lastmod>2026-04-11</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dyslexiaindefence.com/insights/is-dyslexia-a-barrier-in-the-military-uk</loc>
-    <lastmod>2026-04-11</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dyslexiaindefence.com/insights/neurodiversity-in-the-mod-uk</loc>
-    <lastmod>2026-04-11</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dyslexiaindefence.com/insights</loc>
-    <lastmod>2026-04-11</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dyslexiaindefence.com/governance/founder</loc>
-    <lastmod>2026-04-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dyslexiaindefence.com/governance/sponsorship</loc>
-    <lastmod>2026-04-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dyslexiaindefence.com/governance/transparency</loc>
-    <lastmod>2026-04-11</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://dyslexiaindefence.com/community</loc>
-    <lastmod>2026-04-12</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dyslexiaindefence.com/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dyslexiaindefence.com/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dyslexiaindefence.com/insights/serving-with-dyslexia-in-the-army-uk</loc>
-    <lastmod>2026-04-16</lastmod>
-    <priority>0.7</priority>
+    <loc>https://dyslexiaindefence.com/insights/is-dyslexia-a-barrier-in-the-military-uk</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dyslexiaindefence.com/insights/neurodiversity-in-the-mod-uk</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dyslexiaindefence.com/insights/what-support-is-available-for-dyslexia-in-the-military-uk</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dyslexiaindefence.com/insights/what-happens-if-dyslexia-is-identified-during-service-uk</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-22</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dyslexiaindefence.com/insights/serving-with-dyslexia-in-the-army-uk</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dyslexiaindefence.com/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dyslexiaindefence.com/governance/founder</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dyslexiaindefence.com/governance/sponsorship</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dyslexiaindefence.com/governance/transparency</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.6</priority>
   </url>
 </urlset>

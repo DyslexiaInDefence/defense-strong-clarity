@@ -1,17 +1,43 @@
+# Dyslexia in Defence — robots.txt
+
 User-agent: *
 Allow: /
+Disallow: /community
+Disallow: /contact
+Disallow: /privacy
+Disallow: /accessibility
+Disallow: /about
+Disallow: /resources
+Disallow: /support
+Disallow: /ecosystem
+Disallow: /governance/code-of-conduct
+Disallow: /governance/safeguarding
+Disallow: /governance/privacy
 
+# AI / LLM crawlers — explicitly allowed for primary content
 User-agent: GPTBot
 Allow: /
+Disallow: /community
+Disallow: /privacy
+Disallow: /accessibility
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /community
+Disallow: /privacy
+Disallow: /accessibility
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /community
+Disallow: /privacy
+Disallow: /accessibility
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /community
+Disallow: /privacy
+Disallow: /accessibility
 
 User-agent: Googlebot
 Allow: /
