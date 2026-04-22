@@ -4,7 +4,7 @@ import MidContentNudge from "@/components/MidContentNudge";
 import LivedExperienceBlock from "@/components/LivedExperienceBlock";
 import { livedExperienceSnippets } from "@/data/livedExperience";
 
-const snippet = livedExperienceSnippets.find((s) => s.id === "strengths-match")!;
+const snippet = livedExperienceSnippets.find((s) => s.id === "not-a-barrier")!;
 
 const RAFDyslexiaPage = () => (
   <InsightLayout
