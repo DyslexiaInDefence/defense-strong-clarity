@@ -3,6 +3,7 @@ import InsightLayout from "@/components/InsightLayout";
 import MidContentNudge from "@/components/MidContentNudge";
 import LivedExperienceBlock from "@/components/LivedExperienceBlock";
 import { livedExperienceSnippets } from "@/data/livedExperience";
+import AllenCitation from "@/components/AllenCitation";
 
 const snippet = livedExperienceSnippets.find((s) => s.id === "judge-fish-tree")!;
 
@@ -25,6 +26,9 @@ const NeurodiversityMODPage = () => (
       </p>
       <p className="text-foreground leading-relaxed">
         These are differences, not deficits. In a sector that relies on strategic thinking, pattern recognition and rapid problem-solving, neurodiverse minds are operationally valuable.
+      </p>
+      <p className="text-foreground leading-relaxed mt-4">
+        Research on neurodiverse UK military veterans highlights the same point — the combined identity of being a veteran and neurodiverse can be a real strength when workplaces are set up to recognise it <AllenCitation />.
       </p>
     </section>
 

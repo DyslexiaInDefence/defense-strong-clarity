@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import spikyProfileImg from "@/assets/spiky-profile.webp";
+import AllenCitation from "@/components/AllenCitation";
 
 const strengths = [
 { icon: Puzzle, label: "Systems thinking" },
@@ -91,6 +92,10 @@ const WhyItMattersPage = () => {
 
             <p>
               The result is that organisations can unintentionally screen out or undervalue people who may possess exceptional strengths. This is shown with the quote below:
+            </p>
+
+            <p>
+              Research on neurodiverse UK military veterans points to the same pattern — recruitment and workplace systems are often designed around neurotypical expectations, which can quietly disadvantage people who think differently <AllenCitation />.
             </p>
 
             <blockquote className="my-6 border-l-4 border-primary bg-muted/50 py-6 px-8 rounded-r-lg max-w-2xl">
