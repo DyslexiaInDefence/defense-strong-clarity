@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import InsightLayout from "@/components/InsightLayout";
 import MidContentNudge from "@/components/MidContentNudge";
 import LivedExperienceBlock from "@/components/LivedExperienceBlock";
+import DecisionConfidenceBlock from "@/components/DecisionConfidenceBlock";
+import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
 import { livedExperienceSnippets } from "@/data/livedExperience";
 import AllenCitation from "@/components/AllenCitation";
 
@@ -11,13 +13,32 @@ const DyslexiaIdentifiedDuringServicePage = () => (
   <InsightLayout
     title="What happens if dyslexia is identified during service?"
     intent="serving"
+    progressReassurance="You’re in the right place if you’re currently serving and dyslexia has just come into the picture."
+    preCtaLine="You don’t need to disclose anything today — start by talking to someone who’s already been through it."
   >
     <p className="text-lg text-foreground leading-relaxed mb-4">
       If dyslexia is identified while you’re serving, nothing automatically changes about your career. You don’t have to declare it unless it affects your training or work, and you can’t be discharged for being dyslexic.
     </p>
+    <p className="text-base text-foreground leading-relaxed mb-4">
+      Nothing automatically changes about your role, posting or career path.
+    </p>
     <p className="text-lg text-foreground leading-relaxed mb-8">
       What does change is access. Once it’s known, you can ask for assessment, adjustments and peer support through your chain of command, the Defence Dyslexia Network or your local Army Education Centre.
     </p>
+
+    <DecisionConfidenceBlock
+      heading="What actually happens if dyslexia comes up mid-career?"
+      intent="serving"
+      bullets={[
+        "Nothing automatic — you can’t be discharged or downgraded simply because you’re dyslexic.",
+        "It depends on whether it affects your training or duties — at that point, you do need to inform your chain of command.",
+        "In reality, identification opens access to assessment, adjustments and peer support — it doesn’t close doors.",
+      ]}
+      links={[
+        { label: "Join the Network", to: "/join" },
+        { label: "What support is available?", to: "/insights/what-support-is-available-for-dyslexia-in-the-military-uk" },
+      ]}
+    />
 
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">What the policy says — and the process</h2>
@@ -32,6 +53,15 @@ const DyslexiaIdentifiedDuringServicePage = () => (
         <li>Identification is not grounds for discharge or career limitation.</li>
       </ul>
     </section>
+
+    <IfThisSoundsLikeYou
+      concerns={[
+        "You’re weighing up whether to formally raise it or just keep cracking on as you have been.",
+        "You’re worried your line manager will treat you differently if they know.",
+        "You’re unsure whether identification will sit on your record and follow you to the next posting.",
+      ]}
+      reassurance="The people who’ve been through this describe a quieter reality than they expected — most kept their role and gained more support, not less."
+    />
 
     <MidContentNudge intent="serving" />
 

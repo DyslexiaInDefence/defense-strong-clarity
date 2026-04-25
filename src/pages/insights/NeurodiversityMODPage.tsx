@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import InsightLayout from "@/components/InsightLayout";
 import MidContentNudge from "@/components/MidContentNudge";
 import LivedExperienceBlock from "@/components/LivedExperienceBlock";
+import DecisionConfidenceBlock from "@/components/DecisionConfidenceBlock";
+import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
 import { livedExperienceSnippets } from "@/data/livedExperience";
 import AllenCitation from "@/components/AllenCitation";
 
@@ -11,13 +13,32 @@ const NeurodiversityMODPage = () => (
   <InsightLayout
     title="Neurodiversity in the MOD: what you need to know"
     intent="serving"
+    progressReassurance="You’re in the right place if you’re neurodiverse and working in or alongside Defence."
+    preCtaLine="You don’t need to have it all figured out — start with the path that feels easiest."
   >
     <p className="text-lg text-foreground leading-relaxed mb-4">
       The Ministry of Defence recognises neurodiversity as a workforce strength. Dyslexia, ADHD, autism and other neurodiverse conditions are present across the Armed Forces and Civil Service.
     </p>
+    <p className="text-base text-foreground leading-relaxed mb-4">
+      Being neurodiverse does not limit your career inside Defence.
+    </p>
     <p className="text-lg text-foreground leading-relaxed mb-8">
       The MOD has signed the British Dyslexia Association Dyslexia Friendly Workplace Pledge and achieved BDA Bronze recognition. Support is structured, accessible, and improving.
     </p>
+
+    <DecisionConfidenceBlock
+      heading="Where does neurodiversity actually sit in the MOD?"
+      intent="serving"
+      bullets={[
+        "Yes — neurodiversity is formally recognised, with BDA Bronze recognition and active D&I and staff networks.",
+        "It depends on which part of Defence you’re in — Armed Forces, Civil Service, contractors and industry partners are all covered, but routes differ.",
+        "In reality, support is real and improving — but most people get the most value from peer networks alongside the formal channels.",
+      ]}
+      links={[
+        { label: "Join the Network", to: "/join" },
+        { label: "What support is available?", to: "/insights/what-support-is-available-for-dyslexia-in-the-military-uk" },
+      ]}
+    />
 
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">What neurodiversity means in Defence</h2>
@@ -31,6 +52,15 @@ const NeurodiversityMODPage = () => (
         Research on neurodiverse UK military veterans highlights the same point — the combined identity of being a veteran and neurodiverse can be a real strength when workplaces are set up to recognise it <AllenCitation />.
       </p>
     </section>
+
+    <IfThisSoundsLikeYou
+      concerns={[
+        "You’re unsure whether neurodiversity support in the MOD applies to you as a contractor or civil servant.",
+        "You’ve seen the policy but never seen anyone visibly use the support.",
+        "You’re worried that asking about adjustments will quietly mark you out from peers.",
+      ]}
+      reassurance="None of these things shut the door — most people who now use neurodiversity support started by quietly asking one question."
+    />
 
     <MidContentNudge intent="serving" />
 
