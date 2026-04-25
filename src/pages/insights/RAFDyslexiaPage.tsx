@@ -3,6 +3,8 @@ import InsightLayout from "@/components/InsightLayout";
 import MidContentNudge from "@/components/MidContentNudge";
 import LivedExperienceBlock from "@/components/LivedExperienceBlock";
 import PodcastInsight from "@/components/PodcastInsight";
+import DecisionConfidenceBlock from "@/components/DecisionConfidenceBlock";
+import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
 import { livedExperienceSnippets } from "@/data/livedExperience";
 
 const snippet = livedExperienceSnippets.find((s) => s.id === "not-a-barrier")!;
@@ -11,13 +13,32 @@ const RAFDyslexiaPage = () => (
   <InsightLayout
     title="Can you join the RAF with dyslexia in the UK?"
     intent="joining"
+    progressReassurance="You’re in the right place if you’re thinking about joining the RAF with dyslexia."
+    preCtaLine="You don’t need to decide everything now — start with the step that feels easiest."
   >
     <p className="text-lg text-foreground leading-relaxed mb-4">
       Yes. Dyslexia does not prevent you from joining the Royal Air Force. Dyslexic personnel serve across engineering, logistics, intelligence, cyber and aircrew roles.
     </p>
+    <p className="text-base text-foreground leading-relaxed mb-4">
+      Having dyslexia does not stop you joining the RAF — including in technical and aircrew roles.
+    </p>
     <p className="text-lg text-foreground leading-relaxed mb-8">
       You will need to meet the same standards as every applicant. Where you declare a diagnosis, reasonable adjustments — extra time, assistive technology, study support — are available throughout your career.
     </p>
+
+    <DecisionConfidenceBlock
+      heading="Can I actually join the RAF with dyslexia?"
+      intent="joining"
+      bullets={[
+        "Yes — dyslexic personnel serve across engineering, logistics, intelligence, cyber and aircrew roles.",
+        "It depends on the Airman/Airwoman Selection Test (AST), fitness and role-specific aptitude — assessed individually, not by diagnosis.",
+        "Declare a diagnosis with a report and you can request adjustments such as extra time on written elements.",
+      ]}
+      links={[
+        { label: "Ask the Community", to: "/community" },
+        { label: "Do I need to declare dyslexia?", to: "/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk" },
+      ]}
+    />
 
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">What RAF recruitment looks like</h2>
@@ -37,6 +58,15 @@ const RAFDyslexiaPage = () => (
     <PodcastInsight
       title="Hear from someone serving in the military with dyslexia"
       className="mb-10"
+    />
+
+    <IfThisSoundsLikeYou
+      concerns={[
+        "You’re worried the AST will go against you because of how you read under time pressure.",
+        "You’ve been told dyslexia stops you flying — and you can’t tell if that’s true.",
+        "You’re nervous that declaring dyslexia will quietly limit which trades you’re offered.",
+      ]}
+      reassurance="These worries are common, and none of them — on their own — stop people joining or getting the role they want."
     />
 
     <MidContentNudge intent="joining" />
