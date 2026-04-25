@@ -14,19 +14,19 @@ interface MidContentNudgeProps {
 const DEFAULTS: Record<AudienceIntent, { message: string; ctaLabel: string; to: string }> = {
   joining: {
     message:
-      "If you’re thinking of joining, the fastest way to get clarity is to speak to people who’ve already gone through it.",
+      "Not sure if dyslexia will affect you? Ask people who’ve already been through it.",
     ctaLabel: "Ask the Community",
     to: "/community",
   },
   serving: {
     message:
-      "If you’re currently serving, the quickest way to get the right support is to connect with others who’ve already navigated it.",
+      "You don’t have to figure this out alone. Connect with others who’ve already navigated it in service.",
     ctaLabel: "Join the Network",
     to: "/join",
   },
   veteran: {
     message:
-      "If you’re leaving service or already a veteran, the most useful next step is to connect with others who’ve made the transition.",
+      "You don’t have to work this out on your own. Connect with others who’ve already made the transition.",
     ctaLabel: "Join the Network",
     to: "/join",
   },
