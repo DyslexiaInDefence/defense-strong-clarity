@@ -1,6 +1,8 @@
 import InsightLayout from "@/components/InsightLayout";
 import MidContentNudge from "@/components/MidContentNudge";
 import LivedExperienceBlock from "@/components/LivedExperienceBlock";
+import DecisionConfidenceBlock from "@/components/DecisionConfidenceBlock";
+import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
 import { livedExperienceSnippets } from "@/data/livedExperience";
 import AllenCitation from "@/components/AllenCitation";
 import { Link } from "react-router-dom";
@@ -14,10 +16,29 @@ const ServingWithDyslexiaArmyPage = () => (
     title="Serving with dyslexia in the Army"
     eyebrow="Lived experience"
     intent="serving"
+    progressReassurance="You’re in the right place if you’re currently serving and want to know what dyslexia in uniform actually feels like."
+    preCtaLine="You don’t need to figure this out alone — start by hearing from someone who already has."
   >
     <p className="text-lg text-foreground leading-relaxed mb-8">
       A first-hand account from a former British Army officer on what it’s actually like to be dyslexic in uniform — the support that disappears, the coping mechanisms that carry you, and the strengths the Army quietly relies on.
     </p>
+    <p className="text-base text-foreground leading-relaxed mb-8 -mt-6">
+      Being dyslexic in the Army does not mean carrying it on your own.
+    </p>
+
+    <DecisionConfidenceBlock
+      heading="What does serving with dyslexia in the Army actually look like?"
+      intent="serving"
+      bullets={[
+        "Yes — dyslexic personnel succeed across the Army at every rank, in every cap badge.",
+        "It depends heavily on the course, the unit and the line manager — support is real but inconsistent in practice.",
+        "In reality, peer connections and the Defence Dyslexia Network are often the most useful first step, before formal routes.",
+      ]}
+      links={[
+        { label: "Join the Network", to: "/join" },
+        { label: "What support is available?", to: "/insights/what-support-is-available-for-dyslexia-in-the-military-uk" },
+      ]}
+    />
 
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">Who</h2>
@@ -38,6 +59,15 @@ const ServingWithDyslexiaArmyPage = () => (
         Recognising that most dyslexic personnel weren’t as fortunate, he founded the Defence Dyslexia Network in 2022. Within two years it grew to over 2,000 members across every rank and service.
       </p>
     </section>
+
+    <IfThisSoundsLikeYou
+      concerns={[
+        "You’re writing briefs at short notice and quietly burning out keeping up.",
+        "You ‘ticked the box’ on diagnosis and have never used the support you’re entitled to.",
+        "You feel like you’re working five times harder than peers and don’t want to admit it.",
+      ]}
+      reassurance="You’re not the only one — these are the most common patterns described by other dyslexic personnel still serving today."
+    />
 
     <MidContentNudge intent="serving" />
 

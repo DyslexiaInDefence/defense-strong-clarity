@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import InsightLayout from "@/components/InsightLayout";
 import MidContentNudge from "@/components/MidContentNudge";
 import LivedExperienceBlock from "@/components/LivedExperienceBlock";
+import DecisionConfidenceBlock from "@/components/DecisionConfidenceBlock";
+import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
 import { livedExperienceSnippets } from "@/data/livedExperience";
 import AllenCitation from "@/components/AllenCitation";
 import {
@@ -19,13 +21,32 @@ const JSP822vsEqualityActPage = () => (
   <InsightLayout
     title="JSP 822 vs Equality Act 2010: what changes for dyslexia when you leave the military"
     intent="veteran"
+    progressReassurance="You’re in the right place if you’re leaving the military and need clarity on how your dyslexia rights change."
+    preCtaLine="You don’t need to map every step today — start by talking to people who’ve already made the move."
   >
     <p className="text-lg text-foreground leading-relaxed mb-4">
       When you leave the Armed Forces for civilian work, your dyslexia support shifts from <strong>policy-based</strong> (JSP 822) to <strong>legally enforceable rights</strong> under the Equality Act 2010.
     </p>
+    <p className="text-base text-foreground leading-relaxed mb-4">
+      Leaving service does not mean losing your support — your rights actually become stronger.
+    </p>
     <p className="text-lg text-foreground leading-relaxed mb-8">
       That single change is bigger than most people realise. It changes what you’re entitled to, how support is delivered, and who is responsible for making it happen.
     </p>
+
+    <DecisionConfidenceBlock
+      heading="Will I lose my dyslexia support when I leave?"
+      intent="veteran"
+      bullets={[
+        "No — your protection moves from internal policy to legally enforceable rights under the Equality Act 2010.",
+        "It depends on dyslexia having a substantial, long-term impact on day-to-day activity (the legal definition of disability under s.6).",
+        "In reality, the responsibility shifts onto the employer to provide reasonable adjustments — not just onto you.",
+      ]}
+      links={[
+        { label: "Join the Network", to: "/join" },
+        { label: "What support is available in service?", to: "/insights/what-support-is-available-for-dyslexia-in-the-military-uk" },
+      ]}
+    />
 
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">How the military approaches dyslexia (JSP 822)</h2>
@@ -59,6 +80,15 @@ const JSP822vsEqualityActPage = () => (
         .
       </p>
     </section>
+
+    <IfThisSoundsLikeYou
+      concerns={[
+        "You’re worried civilian employers won’t take military experience seriously alongside a dyslexia disclosure.",
+        "You’re unsure whether to mention dyslexia in interviews or hold it back until you’re in role.",
+        "You don’t know what ‘reasonable adjustments’ should actually look like in a non-military workplace.",
+      ]}
+      reassurance="These are the most common worries from veterans in transition — none of them, on their own, stop you landing the role."
+    />
 
     <MidContentNudge intent="veteran" />
 
