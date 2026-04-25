@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import InsightLayout from "@/components/InsightLayout";
 import MidContentNudge from "@/components/MidContentNudge";
 import LivedExperienceBlock from "@/components/LivedExperienceBlock";
+import DecisionConfidenceBlock from "@/components/DecisionConfidenceBlock";
+import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
 import { livedExperienceSnippets } from "@/data/livedExperience";
 
 const snippet = livedExperienceSnippets.find((s) => s.id === "coping-mechanisms")!;
@@ -10,13 +12,32 @@ const SupportForDyslexiaMilitaryPage = () => (
   <InsightLayout
     title="What support is available for dyslexia in the military?"
     intent="serving"
+    progressReassurance="You’re in the right place if you’re currently serving and trying to work out what support you can actually access."
+    preCtaLine="You don’t need every answer first — start by talking to one person who’s already used the support."
   >
     <p className="text-lg text-foreground leading-relaxed mb-4">
       Dyslexia support in the UK military is structured and growing. You can access dyslexia assessments, workplace adjustments, peer networks, ambassadors and dedicated forums — across every service and rank.
     </p>
+    <p className="text-base text-foreground leading-relaxed mb-4">
+      Asking for support does not put a mark against your career.
+    </p>
     <p className="text-lg text-foreground leading-relaxed mb-8">
       Most support sits inside the Defence Dyslexia Network and through your local Army Education Centre (AEC) or service equivalent. You don’t need a diagnosis to start asking for help.
     </p>
+
+    <DecisionConfidenceBlock
+      heading="What can I actually get — and how?"
+      intent="serving"
+      bullets={[
+        "Yes — assessments, assistive tech, extra time on courses and peer support are all accessible to serving personnel.",
+        "It depends partly on your unit and line manager — formal routes (AEC, Defence Dyslexia Network) are the most reliable.",
+        "In reality, the strongest support usually comes from peers who’ve already navigated the same courses and exams.",
+      ]}
+      links={[
+        { label: "Join the Network", to: "/join" },
+        { label: "What happens if dyslexia is identified during service?", to: "/insights/what-happens-if-dyslexia-is-identified-during-service-uk" },
+      ]}
+    />
 
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">The main support mechanisms</h2>
@@ -29,6 +50,15 @@ const SupportForDyslexiaMilitaryPage = () => (
         <li><strong>Monthly virtual events and in-person sessions</strong> — open to anyone serving in Defence.</li>
       </ul>
     </section>
+
+    <IfThisSoundsLikeYou
+      concerns={[
+        "You’ve been told support exists but no one’s ever shown you how to ask for it.",
+        "You’re unsure if asking for adjustments on a course will affect how you’re reported on.",
+        "You don’t have a formal diagnosis and assume that closes most doors.",
+      ]}
+      reassurance="None of those things stop you starting — most of the people now using support began with a single conversation, not a diagnosis."
+    />
 
     <MidContentNudge intent="serving" />
 

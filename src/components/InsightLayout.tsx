@@ -12,6 +12,10 @@ interface InsightLayoutProps {
   eyebrow?: string;
   /** The page intent — drives router highlight + dominant line in the next-steps block. */
   intent: AudienceIntent;
+  /** Optional one-line reassurance shown directly under the H1. */
+  progressReassurance?: string;
+  /** Optional one-line transition shown immediately above the bottom CTA block. */
+  preCtaLine?: string;
   /** Page body. */
   children: ReactNode;
 }
@@ -39,7 +43,14 @@ const DOMINANT_LINE: Record<AudienceIntent, "community" | "join" | "insights"> =
   veteran: "join",
 };
 
-const InsightLayout = ({ title, eyebrow, intent, children }: InsightLayoutProps) => {
+const InsightLayout = ({
+  title,
+  eyebrow,
+  intent,
+  progressReassurance,
+  preCtaLine,
+  children,
+}: InsightLayoutProps) => {
   const dominant = DOMINANT_LINE[intent];
 
   const lineClass = (key: "community" | "join" | "insights") =>
@@ -73,6 +84,12 @@ const InsightLayout = ({ title, eyebrow, intent, children }: InsightLayoutProps)
           {title}
         </h1>
 
+        {progressReassurance && (
+          <p className="mb-8 -mt-2 text-base font-medium text-muted-foreground md:text-lg">
+            {progressReassurance}
+          </p>
+        )}
+
         {children}
 
         {/* Subtle pathway return — low emphasis, just above the bottom block. */}
@@ -80,10 +97,16 @@ const InsightLayout = ({ title, eyebrow, intent, children }: InsightLayoutProps)
           <BackToPathway intent={intent} />
         </div>
 
+        {preCtaLine && (
+          <p className="mt-6 text-center text-sm font-medium text-muted-foreground md:text-base">
+            {preCtaLine}
+          </p>
+        )}
+
         {/* PRIMARY conversion point — exact wording per brief. Do not add extra CTAs. */}
         <section
           aria-labelledby="next-steps-heading"
-          className="mt-4 rounded-2xl border border-border bg-card p-6 md:p-8"
+          className="mt-3 rounded-2xl border border-border bg-card p-6 md:p-8"
         >
           <h2
             id="next-steps-heading"
