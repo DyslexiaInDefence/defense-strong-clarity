@@ -67,7 +67,7 @@ const SupportForDyslexiaMilitaryPage = () => (
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">What this looks like in practice</h2>
       <p className="text-foreground leading-relaxed mb-4">
-        The honest picture: support exists, but it’s inconsistent and you usually have to ask for it. The strongest, most reliable support comes from peers — other dyslexic personnel who’ve been through the same courses and exams.
+        The honest picture: support is available, but it’s not always handed to you — what you experience can depend on your role, unit and how local leaders apply it. The Defence Dyslexia Network is one of the most reliable ways in, and peer support from others who’ve been through the same courses is often the most useful first step.
       </p>
       <p className="text-foreground leading-relaxed">
         For more on what to expect see{" "}
