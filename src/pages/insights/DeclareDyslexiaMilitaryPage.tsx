@@ -83,6 +83,9 @@ const DeclareDyslexiaMilitaryPage = () => (
       <p className="text-foreground leading-relaxed mb-4">
         Around <strong>1 in 10 personnel are dyslexic</strong> — roughly 18,000 people serving today. Senior leaders openly discuss their dyslexia. Soldiers with 30+ years of service describe how dyslexia shaped their careers. Dyslexia in Defence is normal, not exceptional.
       </p>
+      <p className="text-foreground leading-relaxed">
+        The MOD has signed the British Dyslexia Association’s Dyslexia Friendly Workplace Pledge, and dyslexic personnel serve at every rank across all three services.
+      </p>
     </section>
 
     <LivedExperienceBlock snippet={snippet} variant="inline" className="mb-10" />
