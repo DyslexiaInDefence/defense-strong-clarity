@@ -23,7 +23,7 @@ const DyslexiaIdentifiedDuringServicePage = () => (
       Nothing automatically changes about your role, posting or career path.
     </p>
     <p className="text-lg text-foreground leading-relaxed mb-8">
-      What does change is access. Once it’s known, you can ask for assessment, adjustments and peer support through your chain of command, the Defence Dyslexia Network or your local Army Education Centre.
+      What does change is access. Once it’s known, you can ask for assessment, adjustments and peer support through your chain of command, the Defence Dyslexia Network, or your service’s education or learning support provision.
     </p>
 
     <DecisionConfidenceBlock
@@ -48,7 +48,7 @@ const DyslexiaIdentifiedDuringServicePage = () => (
       <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
         <li>You are <strong>not required</strong> to inform your line manager, trainer or commander if it doesn’t affect your training or work.</li>
         <li>If it does affect your duties, it’s your responsibility to tell your chain of command.</li>
-        <li>You can request a dyslexia assessment through your local Army Education Centre (or service equivalent).</li>
+        <li>You can request a dyslexia assessment through your chain of command and your service’s education or learning support provision (for example Army Education Centres in the Army).</li>
         <li>Reasonable adjustments — extra time, assistive technology, workplace needs assessments — can be put in place.</li>
         <li>Identification is not grounds for discharge or career limitation.</li>
       </ul>
