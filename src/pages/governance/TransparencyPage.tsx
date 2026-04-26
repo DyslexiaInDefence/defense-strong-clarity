@@ -93,7 +93,7 @@ const TransparencyPage = () => (
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
         <li>A published and enforced Code of Conduct</li>
         <li>Clear safeguarding policies and crisis signposting</li>
-        <li>Active moderation of all community spaces</li>
+        <li>Clear community expectations, with action taken on anything flagged</li>
         <li>Operational security awareness appropriate to the defence and security context</li>
         <li>A clear and accessible process for reporting concerns</li>
         <li>Commitment to acting on concerns promptly and fairly</li>

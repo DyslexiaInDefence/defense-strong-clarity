@@ -22,8 +22,8 @@ const sections = [
   },
   {
     icon: Users,
-    title: "Moderation",
-    content: "All community spaces are professionally moderated with a defined code of conduct and integrated safeguarding practices.",
+    title: "Community Expectations",
+    content: "A peer support community built on respect, with a defined code of conduct and integrated safeguarding practices. Members are expected to engage responsibly and flag anything that needs attention.",
   },
   {
     icon: Lock,

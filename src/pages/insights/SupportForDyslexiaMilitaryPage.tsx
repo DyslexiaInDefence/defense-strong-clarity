@@ -22,7 +22,7 @@ const SupportForDyslexiaMilitaryPage = () => (
       Asking for support does not put a mark against your career.
     </p>
     <p className="text-lg text-foreground leading-relaxed mb-8">
-      Most support sits inside the Defence Dyslexia Network and through your local Army Education Centre (AEC) or service equivalent. You don’t need a diagnosis to start asking for help.
+      Most support sits inside the Defence Dyslexia Network and through your chain of command and your service’s education or learning support teams (for example Army Education Centres in the Army). You don’t need a diagnosis to start asking for help.
     </p>
 
     <DecisionConfidenceBlock
@@ -30,7 +30,7 @@ const SupportForDyslexiaMilitaryPage = () => (
       intent="serving"
       bullets={[
         "Yes — assessments, assistive tech, extra time on courses and peer support are all accessible to serving personnel.",
-        "It depends partly on your unit and line manager — formal routes (AEC, Defence Dyslexia Network) are the most reliable.",
+        "It depends partly on your unit and line manager — formal routes (your service’s education or learning support provision and the Defence Dyslexia Network) are the most reliable.",
         "In reality, the strongest support usually comes from peers who’ve already navigated the same courses and exams.",
       ]}
       links={[
@@ -44,7 +44,7 @@ const SupportForDyslexiaMilitaryPage = () => (
       <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
         <li><strong>Defence Dyslexia Network</strong> — over 2,000 serving members across every rank, plus 240+ ambassadors covering Army, Royal Navy and RAF.</li>
         <li><strong>Ambassadors</strong> — peer-trained personnel who advise on careers, military courses and academic study.</li>
-        <li><strong>Army Education Centres (AEC)</strong> — practical access point for assessment, study skills and assistive technology, with or without a diagnosis.</li>
+        <li><strong>Service education and learning support teams</strong> — practical access point for assessment, study skills and assistive technology, with or without a diagnosis (for example Army Education Centres in the Army).</li>
         <li><strong>Active internal forum</strong> — a dyslexia-focused space inside Defence with daily posts on tips, tools and peer support.</li>
         <li><strong>Workplace adjustments</strong> — extra time on courses, assistive software, workplace needs assessments where appropriate.</li>
         <li><strong>Monthly virtual events and in-person sessions</strong> — open to anyone serving in Defence.</li>

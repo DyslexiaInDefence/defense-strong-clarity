@@ -9,11 +9,11 @@ const CommunityPage = () => {
     document.title = "Community & Support | Dyslexia in Defence";
     const meta = document.querySelector('meta[name="description"]');
     if (meta) {
-      meta.setAttribute("content", "Join the Dyslexia in Defence community on Discord. A safe, moderated space for sharing lived experience, asking questions, and connecting with others across the UK military, civil service, and industry.");
+      meta.setAttribute("content", "Join the Dyslexia in Defence community on Discord. A peer support space built on respect for sharing lived experience, asking questions, and connecting with others across the UK military, civil service, and industry.");
     } else {
       const tag = document.createElement("meta");
       tag.name = "description";
-      tag.content = "Join the Dyslexia in Defence community on Discord. A safe, moderated space for sharing lived experience, asking questions, and connecting with others across the UK military, civil service, and industry.";
+      tag.content = "Join the Dyslexia in Defence community on Discord. A peer support space built on respect for sharing lived experience, asking questions, and connecting with others across the UK military, civil service, and industry.";
       document.head.appendChild(tag);
     }
 
@@ -133,13 +133,13 @@ const CommunityPage = () => {
           <div className="rounded-xl border border-border bg-card p-6">
             <div className="flex items-center gap-3 mb-4">
               <Shield className="h-6 w-6 text-primary" aria-hidden="true" />
-              <h2 className="text-xl font-bold text-foreground">A Safe and Respectful Space</h2>
+              <h2 className="text-xl font-bold text-foreground">A Respectful Peer Space</h2>
             </div>
             <p className="mb-3 text-muted-foreground">
-              This community is moderated and structured to ensure everyone feels safe and respected. We take this seriously.
+              This is a peer support community built on respect. We rely on members to engage responsibly and flag anything that needs attention. We don’t monitor every interaction, but we act on anything that’s flagged.
             </p>
             <p className="text-muted-foreground">
-              To make sure this remains a safe and constructive space, we have clear community guidelines in place.{" "}
+              To set expectations for how members engage, we have clear community guidelines in place.{" "}
               <Link to="/governance/code-of-conduct" className="font-medium text-primary underline-offset-4 hover:underline">
                 Read our Code of Conduct
               </Link>.
@@ -159,7 +159,7 @@ const CommunityPage = () => {
               The community is also open to organisations that want to engage constructively. This includes sharing insight days, promoting support initiatives, and connecting with people who benefit from inclusive opportunities.
             </p>
             <p className="text-muted-foreground">
-              All engagement is moderated to ensure it remains supportive, relevant, and beneficial to the community — never exploitative.
+              Members are expected to keep engagement supportive, relevant, and beneficial to the community — never exploitative. We act on anything that’s flagged.
             </p>
           </div>
         </div>
