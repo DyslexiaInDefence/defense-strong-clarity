@@ -47,6 +47,9 @@ const DyslexiaBarrierMilitaryPage = () => (
       <p className="text-foreground leading-relaxed">
         In reality, around 1 in 10 personnel are dyslexic — roughly 18,000 people serving today. Senior leaders, long-serving soldiers, instructors and specialists across the Armed Forces are dyslexic. It’s common, not exceptional.
       </p>
+      <p className="text-foreground leading-relaxed mt-4">
+        The MOD has signed the British Dyslexia Association’s Dyslexia Friendly Workplace Pledge, and the Defence Dyslexia Network connects dyslexic personnel across every rank and service.
+      </p>
     </section>
 
     <IfThisSoundsLikeYou

@@ -76,6 +76,9 @@ const RAFDyslexiaPage = () => (
       <p className="text-foreground leading-relaxed">
         Many RAF roles reward problem-solving, spatial reasoning and analytical thinking — strengths dyslexic personnel often bring naturally.
       </p>
+      <p className="text-foreground leading-relaxed mt-4">
+        The MOD has signed the British Dyslexia Association’s Dyslexia Friendly Workplace Pledge, and dyslexic personnel serve at every rank across all three services.
+      </p>
     </section>
 
     <LivedExperienceBlock snippet={snippet} variant="inline" className="mb-10" />
@@ -92,6 +95,9 @@ const RAFDyslexiaPage = () => (
           .
         </li>
       </ul>
+      <p className="text-foreground leading-relaxed mt-4">
+        How support is applied can vary by station and role, but the Defence Dyslexia Network is one of the most effective ways to connect with others and find what’s available.
+      </p>
     </section>
 
     <section className="mb-2">

@@ -14,19 +14,19 @@ interface MidContentNudgeProps {
 const DEFAULTS: Record<AudienceIntent, { message: string; ctaLabel: string; to: string }> = {
   joining: {
     message:
-      "Not sure if dyslexia will affect you? Ask people who’ve already been through it.",
+      "Not sure how this will affect you? Speak to people who’ve already gone through it — no commitment, just real answers.",
     ctaLabel: "Ask the Community",
     to: "/community",
   },
   serving: {
     message:
-      "You don’t have to figure this out alone. Connect with others who’ve already navigated it in service.",
+      "Support exists, but it’s not always obvious. Connect with others — including the Defence Dyslexia Network — who can help you navigate it.",
     ctaLabel: "Join the Network",
     to: "/join",
   },
   veteran: {
     message:
-      "You don’t have to work this out on your own. Connect with others who’ve already made the transition.",
+      "Support is out there, but it’s rarely handed to you. Connect with others who’ve already made the transition and know where to look.",
     ctaLabel: "Join the Network",
     to: "/join",
   },

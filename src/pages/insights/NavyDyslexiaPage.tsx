@@ -95,12 +95,15 @@ const NavyDyslexiaPage = () => (
         </Link>
         .
       </p>
+      <p className="text-foreground leading-relaxed mt-4">
+        How easily you access support can vary depending on your ship, unit or role — but the routes exist, and the Defence Dyslexia Network is one of the most reliable ways in.
+      </p>
     </section>
 
     <section className="mb-2">
       <h2 className="text-2xl font-bold text-foreground mb-4">Reassurance</h2>
       <p className="text-foreground leading-relaxed">
-        Dyslexic personnel are already a valued part of the Naval Service. Declare, use the adjustments available, and focus on what you bring to the fleet.
+        Dyslexic personnel are already a valued part of the Naval Service and serve at every rank. The MOD has signed the British Dyslexia Association’s Dyslexia Friendly Workplace Pledge — declare, use the adjustments available, and focus on what you bring to the fleet.
       </p>
     </section>
   </InsightLayout>

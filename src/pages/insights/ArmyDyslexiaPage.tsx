@@ -76,6 +76,9 @@ const ArmyDyslexiaPage = () => (
       <p className="text-foreground leading-relaxed mb-4">
         Around 1 in 10 personnel are dyslexic — and the Army has historically attracted people who didn’t enjoy a desk-bound education.
       </p>
+      <p className="text-foreground leading-relaxed">
+        The MOD has signed the British Dyslexia Association’s Dyslexia Friendly Workplace Pledge, and dyslexic personnel serve at every rank across all three services.
+      </p>
     </section>
 
     <LivedExperienceBlock snippet={snippet} variant="inline" className="mb-10" />
@@ -84,6 +87,9 @@ const ArmyDyslexiaPage = () => (
       <h2 className="text-2xl font-bold text-foreground mb-4">Support once you’re in</h2>
       <p className="text-foreground leading-relaxed mb-4">
         Once serving, you can access assessments through your local Army Education Centre, peer support through the Defence Dyslexia Network, and reasonable adjustments on courses.
+      </p>
+      <p className="text-foreground leading-relaxed mb-4">
+        Experiences can vary between units and roles, but the support is there if you know where to look — and the Defence Dyslexia Network is one of the most effective ways to find it.
       </p>
       <p className="text-foreground leading-relaxed">
         For the full picture see{" "}

@@ -166,6 +166,9 @@ const JSP822vsEqualityActPage = () => (
         <li>You have the right to ask for adjustments.</li>
         <li>Employers are expected to act.</li>
       </ul>
+      <p className="text-foreground leading-relaxed mt-4">
+        How smoothly that shift lands varies by employer and sector — but you don’t have to navigate it alone. Veterans’ peer networks, including connections through the Defence Dyslexia Network, can help you work out what to ask for and when.
+      </p>
     </section>
 
     <section className="mb-2">
