@@ -132,7 +132,7 @@ const HomePage = () => {
             </p>
           </div>
           <div className="mx-auto mt-10 grid max-w-2xl gap-4 sm:grid-cols-2">
-            {["Volunteer led", "Independently governed", "Strengths based", "Professionally moderated"].map((item) => <div key={item} className="flex items-center gap-3 rounded-lg border border-border bg-background p-4">
+            {["Volunteer led", "Independently governed", "Strengths based", "Built on mutual respect"].map((item) => <div key={item} className="flex items-center gap-3 rounded-lg border border-border bg-background p-4">
                 <span className="h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
                 <span className="text-foreground">{item}</span>
               </div>)}

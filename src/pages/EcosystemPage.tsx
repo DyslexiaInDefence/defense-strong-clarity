@@ -181,7 +181,7 @@ const EcosystemPage = () => {
                 <text x="453" y="430">Bridge: service & industry</text>
 
                 <circle cx="445" cy="444" r="2.5" className="fill-primary" />
-                <text x="453" y="448">Professionally moderated</text>
+                <text x="453" y="448">Built on mutual respect</text>
 
                 <circle cx="445" cy="462" r="2.5" className="fill-primary" />
                 <text x="453" y="466">Complementary, not duplicative</text>

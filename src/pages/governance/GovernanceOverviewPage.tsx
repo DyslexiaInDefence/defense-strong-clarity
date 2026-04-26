@@ -61,7 +61,7 @@ const GovernanceOverviewPage = () => (
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
         <li><strong>Founder oversight</strong> — The founder is the sole decision maker for strategic direction, policy, and content</li>
         <li><strong>Defined policies</strong> — A suite of published policies governs conduct, privacy, safeguarding, and sponsorship</li>
-        <li><strong>Community moderation</strong> — All community spaces are moderated with clear behavioural expectations</li>
+        <li><strong>Community expectations</strong> — Community spaces operate on clear behavioural expectations, with action taken on anything flagged</li>
         <li><strong>Transparency</strong> — Governance decisions and policies are published openly on this website</li>
         <li><strong>Accountability</strong> — The founder is personally accountable for the initiative's conduct</li>
       </ul>
