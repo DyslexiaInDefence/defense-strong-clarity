@@ -76,7 +76,7 @@ const DyslexiaIdentifiedDuringServicePage = () => (
         Research on neurodiverse UK veterans describes the same instinct to mask traits to fit expectations — which often quietly reduces access to the support people are entitled to <AllenCitation />.
       </p>
       <p className="text-foreground leading-relaxed mb-4">
-        Those who do speak up tend to find the help is real, but patchy. Course support can be strong; unit support depends heavily on the line manager. Peer support is often the most useful first step.
+        Those who do speak up tend to find the help is real, even if not always consistent. Course support can be strong; unit support depends heavily on the line manager. The Defence Dyslexia Network and peer connections are often the most useful first step.
       </p>
       <p className="text-foreground leading-relaxed">
         For the wider question of disclosure see{" "}
