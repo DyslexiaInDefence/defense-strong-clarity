@@ -51,12 +51,12 @@ const intentCategories: IntentCategory[] = [
     items: [
       {
         question: "What support is available for dyslexia in the military (UK)?",
-        answer: "Defence Dyslexia Network (2,000+ members), 240+ ambassadors, Army Education Centre access, internal forums, and workplace adjustments — across all three services.",
+        answer: "Defence Dyslexia Network (2,000+ members), 240+ ambassadors, service education and learning support provision, internal forums, and workplace adjustments — across all three services.",
         link: "/insights/what-support-is-available-for-dyslexia-in-the-military-uk",
       },
       {
         question: "What happens if dyslexia is identified during service?",
-        answer: "You can self-refer through your AEC or service equivalent. Assessment leads to adjustments — extra time on courses, assistive tech and study support. It does not end careers.",
+        answer: "You can self-refer through your chain of command and your service’s education or learning support provision. Assessment leads to adjustments — extra time on courses, assistive tech and study support. It does not end careers.",
         link: "/insights/what-happens-if-dyslexia-is-identified-during-service-uk",
       },
       {
