@@ -76,6 +76,9 @@ const NeurodiversityMODPage = () => (
         <li>Internal neurodiversity staff networks for peer support — military and civilian.</li>
       </ul>
       <p className="text-foreground leading-relaxed mt-4">
+        The Defence Dyslexia Network is one of the most effective ways to connect with others and access support across the services. How easily formal adjustments are applied can vary by unit and line manager — the routes exist, but it often helps to have peers who’ve already used them.
+      </p>
+      <p className="text-foreground leading-relaxed mt-4">
         For more on the practical picture see{" "}
         <Link to="/insights/what-support-is-available-for-dyslexia-in-the-military-uk" className="font-medium text-primary underline-offset-4 hover:underline">
           what support is available for dyslexia in the military
