@@ -88,6 +88,9 @@ const ServingWithDyslexiaArmyPage = () => (
         </Link>
         .
       </p>
+      <p className="text-foreground leading-relaxed mt-4">
+        Experiences vary, but support is there if you know where to look — the Defence Dyslexia Network is one of the most effective routes to it.
+      </p>
     </section>
 
     <section className="mb-10">
