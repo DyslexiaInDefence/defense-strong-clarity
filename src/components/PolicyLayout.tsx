@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronLeft, Menu, X } from "lucide-react";
+import ReadAloud from "@/components/ReadAloud";
 
 
 interface Section {
@@ -167,6 +168,7 @@ const PolicyLayout = ({ title, summary, lastUpdated, sections, children }: Polic
               <p className="text-lg text-muted-foreground leading-relaxed border-l-4 border-primary pl-4">
                 {summary}
               </p>
+              <ReadAloud />
             </header>
 
             <div className="prose-policy space-y-10">{children}</div>

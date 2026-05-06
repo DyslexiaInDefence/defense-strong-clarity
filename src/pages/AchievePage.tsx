@@ -1,4 +1,5 @@
 import vennDiagram from "@/assets/venn-diagram.webp";
+import ReadAloud from "@/components/ReadAloud";
 
 const aims = [
 "Empower individuals with dyslexia to recognise and use their strengths",
@@ -27,6 +28,9 @@ const AchievePage = () => {
             <p className="text-lg leading-relaxed text-muted-foreground md:text-xl">
               Dyslexia in Defence exists to empower people with dyslexia to thrive across the defence ecosystem by connecting the defence industry, neurodiversity expertise, and veteran support organisations.
             </p>
+            <div className="mt-6 flex justify-center">
+              <ReadAloud />
+            </div>
           </div>
         </div>
       </section>

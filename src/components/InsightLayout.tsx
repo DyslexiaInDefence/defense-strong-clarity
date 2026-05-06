@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import AudienceRouter, { type AudienceIntent } from "@/components/AudienceRouter";
 import BackToPathway from "@/components/BackToPathway";
+import ReadAloud from "@/components/ReadAloud";
 import { trackEvent } from "@/lib/analytics";
 import type { ReactNode } from "react";
 
@@ -72,7 +73,9 @@ const InsightLayout = ({
   return (
     <div className="py-12 md:py-16">
       <div className="container mx-auto px-4 max-w-3xl">
-        <AudienceRouter active={intent} className="mb-8" />
+        <div data-no-read>
+          <AudienceRouter active={intent} className="mb-8" />
+        </div>
 
         {eyebrow && (
           <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-primary">
@@ -90,10 +93,12 @@ const InsightLayout = ({
           </p>
         )}
 
+        <ReadAloud />
+
         {children}
 
         {/* Subtle pathway return — low emphasis, just above the bottom block. */}
-        <div className="mt-10">
+        <div className="mt-10" data-no-read>
           <BackToPathway intent={intent} />
         </div>
 
@@ -106,6 +111,7 @@ const InsightLayout = ({
         {/* PRIMARY conversion point — exact wording per brief. Do not add extra CTAs. */}
         <section
           aria-labelledby="next-steps-heading"
+          data-no-read
           className="mt-3 rounded-2xl border border-border bg-card p-6 md:p-8"
         >
           <h2

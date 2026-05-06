@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Handshake, Shield, Users, BookOpen, Award, CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import ReadAloud from "@/components/ReadAloud";
 
 const PartnerPage = () => {
   return (
@@ -45,6 +46,7 @@ const PartnerPage = () => {
               Download Overview (Coming Soon)
             </Button>
           </div>
+          <ReadAloud />
         </section>
 
         {/* ───── 2. WHY THIS MATTERS ───── */}
