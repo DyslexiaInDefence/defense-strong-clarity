@@ -215,39 +215,57 @@ const ReadAloud = ({
     }
   }, [supported, status]);
 
-  if (!supported) return null;
+  if (!supported) {
+    return (
+      <div
+        data-no-read
+        className={cn(
+          "my-4 flex w-full items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-sm text-muted-foreground",
+          className,
+        )}
+        role="note"
+      >
+        <Volume2 className="h-4 w-4" aria-hidden="true" />
+        <span>Read aloud is not available in this browser</span>
+      </div>
+    );
+  }
 
   return (
     <div
       ref={containerRef}
       data-no-read
       className={cn(
-        "my-6 inline-flex flex-wrap items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1.5 text-sm shadow-sm",
+        "my-4 flex w-full flex-wrap items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-sm shadow-sm sm:w-auto sm:inline-flex",
         className,
       )}
       role="region"
       aria-label="Read page aloud controls"
     >
-      <Volume2 className="h-4 w-4 text-primary" aria-hidden="true" />
-      <span className="font-medium text-foreground">{label}</span>
-      <div className="ml-1 flex items-center gap-1">
+      <div className="flex min-w-0 flex-1 items-center gap-2">
+        <Volume2 className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+        <span className="truncate font-medium text-foreground">{label}</span>
+      </div>
+      <div className="flex items-center gap-1.5">
         {status !== "playing" ? (
           <button
             type="button"
             onClick={play}
             aria-label={status === "paused" ? "Resume reading" : "Start reading"}
-            className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            className="inline-flex h-11 min-w-[44px] items-center justify-center gap-1.5 rounded-md bg-primary px-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
-            <Play className="h-4 w-4" />
+            <Play className="h-4 w-4" aria-hidden="true" />
+            <span>{status === "paused" ? "Resume" : "Play"}</span>
           </button>
         ) : (
           <button
             type="button"
             onClick={pause}
             aria-label="Pause reading"
-            className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-secondary text-secondary-foreground transition-colors hover:bg-secondary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            className="inline-flex h-11 min-w-[44px] items-center justify-center gap-1.5 rounded-md bg-secondary px-3 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
-            <Pause className="h-4 w-4" />
+            <Pause className="h-4 w-4" aria-hidden="true" />
+            <span>Pause</span>
           </button>
         )}
         <button
@@ -255,25 +273,21 @@ const ReadAloud = ({
           onClick={stop}
           disabled={status === "idle"}
           aria-label="Stop reading"
-          className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border bg-background text-foreground transition-colors hover:bg-secondary disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-border bg-background text-foreground transition-colors hover:bg-secondary disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
         >
-          <Square className="h-3.5 w-3.5" />
+          <Square className="h-4 w-4" aria-hidden="true" />
         </button>
-      </div>
-      <label className="ml-2 inline-flex items-center gap-1 text-xs text-muted-foreground">
-        <span className="sr-only">Playback speed</span>
         <select
           value={rate}
           onChange={(e) => {
             const newRate = Number(e.target.value);
             setRate(newRate);
-            // If currently speaking, restart with new rate.
             if (status !== "idle") {
               window.speechSynthesis.cancel();
               setStatus("idle");
             }
           }}
-          className="rounded-md border border-border bg-background px-1.5 py-0.5 text-xs text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="h-11 rounded-md border border-border bg-background px-2 text-xs text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           aria-label="Playback speed"
         >
           <option value={0.85}>0.85×</option>
@@ -281,9 +295,9 @@ const ReadAloud = ({
           <option value={1.15}>1.15×</option>
           <option value={1.3}>1.3×</option>
         </select>
-      </label>
+      </div>
       {status === "paused" && (
-        <span className="ml-1 text-xs text-muted-foreground">Paused</span>
+        <span className="text-xs text-muted-foreground">Paused</span>
       )}
     </div>
   );
