@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import AudienceRouter, { type AudienceIntent } from "@/components/AudienceRouter";
 import BackToPathway from "@/components/BackToPathway";
-import ReadAloud from "@/components/ReadAloud";
 import { trackEvent } from "@/lib/analytics";
 import type { ReactNode } from "react";
 
@@ -93,12 +92,10 @@ const InsightLayout = ({
           </p>
         )}
 
-        <ReadAloud />
-
         {children}
 
         {/* Subtle pathway return — low emphasis, just above the bottom block. */}
-        <div className="mt-10" data-no-read>
+        <div className="mt-10">
           <BackToPathway intent={intent} />
         </div>
 

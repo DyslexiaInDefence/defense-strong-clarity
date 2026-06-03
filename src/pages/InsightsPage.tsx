@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
 import type { AudienceIntent } from "@/components/AudienceRouter";
-import ReadAloud from "@/components/ReadAloud";
 
 type IntentCategory = {
   id: AudienceIntent;
