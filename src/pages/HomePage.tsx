@@ -1,37 +1,7 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, ChevronRight, Shield, TrendingUp, Globe, Info, LifeBuoy } from "lucide-react";
+import { ArrowRight, ChevronRight, Info, LifeBuoy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-
-
-const impactStages = [
-{
-  stage: "Establishment",
-  icon: Shield,
-  objectives: [
-  "Governance framework in place",
-  "Resource library published",
-  "Founding member engagement"]
-
-},
-{
-  stage: "Consolidation",
-  icon: TrendingUp,
-  objectives: [
-  "Event programme delivered",
-  "Partnership base expanded",
-  "Measurable community engagement"]
-
-},
-{
-  stage: "Ecosystem Influence",
-  icon: Globe,
-  objectives: [
-  "Cross sector recognition",
-  "Contributing partner organisations",
-  "Sustainable operational model"]
-
-}];
 
 
 const HomePage = () => {
