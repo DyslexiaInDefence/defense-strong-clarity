@@ -4,7 +4,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import spikyProfileImg from "@/assets/spiky-profile.webp";
 import AllenCitation from "@/components/AllenCitation";
-import ReadAloud from "@/components/ReadAloud";
 
 const strengths = [
 { icon: Puzzle, label: "Systems thinking" },
@@ -28,10 +27,6 @@ const WhyItMattersPage = () => {
       <div className="container mx-auto px-4">
         <div className="mb-12 max-w-3xl">
           <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">Why It Matters</h1>
-          <p className="text-lg text-muted-foreground">
-            ​
-          </p>
-          <ReadAloud />
         </div>
 
         {/* Spiky Profile */}
