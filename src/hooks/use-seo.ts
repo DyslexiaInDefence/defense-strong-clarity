@@ -18,6 +18,18 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 1.0,
     indexable: true,
   },
+  "/about": {
+    title: "About Dyslexia in Defence | UK Defence Neurodiversity",
+    description: "Learn who Dyslexia in Defence is, why it exists, and how it supports dyslexia and neurodiversity across the UK Defence community.",
+    priority: 0.8,
+    indexable: true,
+  },
+  "/support": {
+    title: "Support for Dyslexia in Defence | Guidance and Community",
+    description: "Find dyslexia guidance, community support, lived experience, and ways to join the Dyslexia in Defence network.",
+    priority: 0.8,
+    indexable: true,
+  },
   "/why-it-matters": {
     title: "Why Dyslexia Matters in Defence | Dyslexia in Defence",
     description: "Understand why dyslexia awareness matters across the UK defence sector, military, civil service and defence industry. Cognitive diversity is a strategic advantage.",
