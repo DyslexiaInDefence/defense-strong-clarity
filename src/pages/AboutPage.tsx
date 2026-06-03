@@ -1,44 +1,82 @@
-import { User } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowRight, Compass, User, Shield, HandCoins, FileSearch, HeartHandshake } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+
+const aboutLinks = [
+  {
+    title: "Why It Matters",
+    description: "The case for dyslexia awareness across the UK Defence community.",
+    to: "/why-it-matters",
+    icon: Compass,
+  },
+  {
+    title: "Founder",
+    description: "Who started Dyslexia in Defence and why.",
+    to: "/governance/founder",
+    icon: User,
+  },
+  {
+    title: "Governance",
+    description: "How the network is run and held to account.",
+    to: "/governance",
+    icon: Shield,
+  },
+  {
+    title: "Sponsorship",
+    description: "Principles that protect independence and editorial integrity.",
+    to: "/governance/sponsorship",
+    icon: HandCoins,
+  },
+  {
+    title: "Transparency",
+    description: "Financial and ethical accountability commitments.",
+    to: "/governance/transparency",
+    icon: FileSearch,
+  },
+  {
+    title: "Safeguarding",
+    description: "How we keep the community safe and respectful.",
+    to: "/governance/safeguarding",
+    icon: HeartHandshake,
+  },
+];
 
 const AboutPage = () => {
   return (
     <div className="py-16">
       <div className="container mx-auto px-4">
         <div className="mb-12 max-w-3xl">
-          <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">About</h1>
+          <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">About Dyslexia in Defence</h1>
           <p className="text-lg text-muted-foreground">
-            Dyslexia in Defence is an independent, volunteer led peer support network for dyslexic individuals across the defence and security ecosystem.
+            Dyslexia in Defence exists to support people across the UK Defence community by improving understanding, sharing lived experience, and connecting people to the right support.
+          </p>
+          <p className="mt-4 text-base text-muted-foreground">
+            We are an independent, volunteer led initiative. Not affiliated with or endorsed by the Ministry of Defence or any employer.
           </p>
         </div>
 
-        {/* Founder */}
-        <section aria-label="Founder">
-          <Card>
-            <CardContent className="p-6 sm:p-8">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                  <User className="h-7 w-7 text-primary" aria-hidden="true" />
-                </div>
-                <div>
-                  <h2 className="text-2xl font-bold text-foreground">Symon Smith</h2>
-                  <p className="text-muted-foreground">Founder</p>
-                </div>
-              </div>
-              <div className="space-y-4 text-muted-foreground">
-                <p>
-                  Professional background in defence and cybersecurity governance, risk management, and assurance. MSc in Cyber Defence and Information Assurance. Chartered IT Professional.
-                </p>
-                <p>
-                  Dyslexia in Defence was established to provide independent peer support and structured signposting, grounded in the understanding that cognitive diversity is a strategic asset.
-                </p>
-                <p className="text-sm italic border-l-2 border-primary pl-4">
-                  Founded in a personal capacity. Independent of the Ministry of Defence and any employer.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {aboutLinks.map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-lg"
+              aria-label={item.title}
+            >
+              <Card className="h-full transition-colors hover:border-primary">
+                <CardContent className="p-6">
+                  <item.icon className="mb-3 h-6 w-6 text-primary" aria-hidden="true" />
+                  <h2 className="mb-2 text-lg font-bold text-foreground">{item.title}</h2>
+                  <p className="mb-3 text-sm text-muted-foreground">{item.description}</p>
+                  <span className="inline-flex items-center text-sm font-semibold text-primary">
+                    Read more
+                    <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                  </span>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
