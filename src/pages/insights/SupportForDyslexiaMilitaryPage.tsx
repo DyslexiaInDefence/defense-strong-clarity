@@ -16,7 +16,7 @@ const SupportForDyslexiaMilitaryPage = () => (
     preCtaLine="You don’t need every answer first — start by talking to one person who’s already used the support."
   >
     <p className="text-lg text-foreground leading-relaxed mb-4">
-      Dyslexia support in the UK military is structured and growing. You can access dyslexia assessments, workplace adjustments, peer networks, ambassadors and dedicated forums — across every service and rank.
+      Dyslexia support in the UK military is structured and growing. You can access dyslexia assessments, workplace adjustments, peer networks, volunteer ambassadors and dedicated forums — across every service and rank.
     </p>
     <p className="text-base text-foreground leading-relaxed mb-4">
       Asking for support does not put a mark against your career.
@@ -42,8 +42,8 @@ const SupportForDyslexiaMilitaryPage = () => (
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">The main support mechanisms</h2>
       <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
-        <li><strong>Defence Dyslexia Network</strong> — over 2,000 serving members across every rank, plus 240+ ambassadors covering Army, Royal Navy and RAF.</li>
-        <li><strong>Ambassadors</strong> — peer-trained personnel who advise on careers, military courses and academic study.</li>
+        <li><strong>Defence Dyslexia Network</strong> — over 2,000 serving members across every rank, plus 240+ volunteer ambassadors across Army, Royal Navy and RAF.</li>
+        <li><strong>Ambassadors</strong> — volunteers from across Defence who provide informal peer support, practical guidance, signposting and reassurance based on their own lived experience. They are not accredited specialists or professional advisors.</li>
         <li><strong>Service education and learning support teams</strong> — practical access point for assessment, study skills and assistive technology, with or without a diagnosis (for example Army Education Centres in the Army).</li>
         <li><strong>Active internal forum</strong> — a dyslexia-focused space inside Defence with daily posts on tips, tools and peer support.</li>
         <li><strong>Workplace adjustments</strong> — extra time on courses, assistive software, workplace needs assessments where appropriate.</li>
