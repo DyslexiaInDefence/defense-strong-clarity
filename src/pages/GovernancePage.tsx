@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Shield, Scale, Eye, Lock, Banknote, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import ReadAloud from "@/components/ReadAloud";
 
 
 const sections = [
@@ -75,7 +74,6 @@ const GovernancePage = () => {
           <p className="text-lg text-muted-foreground">
             Transparency and accountability are core to how we operate.
           </p>
-          <ReadAloud />
         </div>
 
         <div className="space-y-4">

@@ -170,10 +170,6 @@ const InsightsPage = () => {
             Pick the pathway that fits where you are right now.
           </p>
 
-          <div className="mb-8 max-w-2xl">
-            <ReadAloud />
-          </div>
-
           {/* Pathway picker — links jump to the matching intent section below */}
           <nav aria-label="Pick your pathway" className="grid gap-3 sm:grid-cols-3 max-w-3xl">
             {intentCategories.map(({ id, title, icon: Icon }) => {
