@@ -43,7 +43,7 @@ const ServingWithDyslexiaArmyPage = () => (
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">Who</h2>
       <p className="text-foreground leading-relaxed">
-        <strong>Symon Smith</strong> is a former British Army officer and the founder of the Defence Dyslexia Network, established in March 2022. The network now has over 2,000 members and 240+ ambassadors across the Army, Royal Navy and RAF. He is also the founder of Dyslexia in Defence, the wider initiative supporting the entire UK defence ecosystem.
+        <strong>Symon Smith</strong> is a former British Army officer and the founder of the Defence Dyslexia Network, established in March 2022. The network now has over 2,000 members and 240+ volunteer ambassadors across the Army, Royal Navy and RAF. He is also the founder of Dyslexia in Defence, the wider initiative supporting the entire UK defence ecosystem.
       </p>
     </section>
 
