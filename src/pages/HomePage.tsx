@@ -139,33 +139,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Impact framework */}
-      <section className="border-t border-border py-16 bg-inherit" aria-label="Impact framework">
-        <div className="container mx-auto px-4">
-          <h2 className="mb-10 text-center text-2xl font-bold text-foreground">Impact Framework</h2>
-          <div className="grid gap-6 md:grid-cols-3">
-            {impactStages.map((stage, i) =>
-            <Card key={stage.stage} className="relative overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-1" style={{
-                background: `hsl(var(--ribbon-${["yellow", "blue", "green"][i]}))`
-              }} aria-hidden="true" />
-                <CardContent className="p-6 pt-8">
-                  <stage.icon className="mb-3 h-7 w-7 text-primary" aria-hidden="true" />
-                  <h3 className="mb-3 text-lg font-semibold text-foreground">{stage.stage}</h3>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    {stage.objectives.map((obj) =>
-                  <li key={obj} className="flex items-start gap-2">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-                        {obj}
-                      </li>
-                  )}
-                  </ul>
-                </CardContent>
-              </Card>
-            )}
-          </div>
-        </div>
-      </section>
     </>);
 
 };
