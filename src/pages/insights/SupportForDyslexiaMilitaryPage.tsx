@@ -16,7 +16,7 @@ const SupportForDyslexiaMilitaryPage = () => (
     preCtaLine="You don’t need every answer first — start by talking to one person who’s already used the support."
   >
     <p className="text-lg text-foreground leading-relaxed mb-4">
-      Dyslexia support in the UK military is structured and growing. You can access dyslexia assessments, workplace adjustments, peer networks, ambassadors and dedicated forums — across every service and rank.
+      Dyslexia support in the UK military is structured and growing. You can access dyslexia assessments, workplace adjustments, peer networks, volunteer ambassadors and dedicated forums — across every service and rank.
     </p>
     <p className="text-base text-foreground leading-relaxed mb-4">
       Asking for support does not put a mark against your career.
