@@ -8,12 +8,8 @@ import didLogoFull from "@/assets/did-logo-full.webp";
 
 const navLinks = [
 { label: "Home", to: "/" },
-{ label: "Why It Matters", to: "/why-it-matters" },
-{ label: "FAQ", to: "/insights" },
-{ label: "Ask the Community", to: "/community" },
-{ label: "What We Want to Achieve", to: "/achieve" },
-{ label: "Partner", to: "/partner" },
-{ label: "Governance", to: "/governance" }];
+{ label: "About", to: "/about" },
+{ label: "Support", to: "/support" }];
 
 
 const Navbar = () => {
