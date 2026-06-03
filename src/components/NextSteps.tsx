@@ -30,7 +30,6 @@ const NextSteps = () => {
     <section
       className="border-t border-border bg-card py-14"
       aria-label="What to do next"
-      data-no-read
     >
       <div className="container mx-auto px-4">
         <div className="mx-auto mb-8 max-w-2xl text-center">

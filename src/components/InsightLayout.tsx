@@ -72,9 +72,7 @@ const InsightLayout = ({
   return (
     <div className="py-12 md:py-16">
       <div className="container mx-auto px-4 max-w-3xl">
-        <div data-no-read>
-          <AudienceRouter active={intent} className="mb-8" />
-        </div>
+        <AudienceRouter active={intent} className="mb-8" />
 
         {eyebrow && (
           <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-primary">
@@ -108,7 +106,6 @@ const InsightLayout = ({
         {/* PRIMARY conversion point — exact wording per brief. Do not add extra CTAs. */}
         <section
           aria-labelledby="next-steps-heading"
-          data-no-read
           className="mt-3 rounded-2xl border border-border bg-card p-6 md:p-8"
         >
           <h2
