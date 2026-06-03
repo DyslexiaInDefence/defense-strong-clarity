@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, ChevronRight, Shield, TrendingUp, Globe } from "lucide-react";
+import { ArrowRight, ChevronRight, Shield, TrendingUp, Globe, Info, LifeBuoy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -81,30 +81,18 @@ const HomePage = () => {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <Link to="/insights">
-              <Button variant="outline" size="lg" className="rounded-full border-2 border-primary px-10 text-base font-bold text-primary shadow-md hover:bg-primary hover:text-primary-foreground">
-                Explore Insights
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
           </div>
-          {/* Secondary links */}
-          <div className="flex flex-wrap items-center justify-center gap-3 mt-4">
-            <Link to="/why-it-matters">
-              <Button variant="ghost" size="sm" className="rounded-full text-sm text-muted-foreground hover:text-foreground">
-                Why It Matters
+          {/* Secondary pathways */}
+          <div className="flex flex-wrap items-center justify-center gap-3 mt-6">
+            <Link to="/about">
+              <Button variant="ghost" size="sm" className="rounded-full text-sm text-foreground/80 hover:text-foreground">
+                About
                 <ChevronRight className="ml-1 h-4 w-4" />
               </Button>
             </Link>
-            <Link to="/achieve">
-              <Button variant="ghost" size="sm" className="rounded-full text-sm text-muted-foreground hover:text-foreground">
-                What We Want to Achieve
-                <ChevronRight className="ml-1 h-4 w-4" />
-              </Button>
-            </Link>
-            <Link to="/partner">
-              <Button variant="ghost" size="sm" className="rounded-full text-sm text-muted-foreground hover:text-foreground">
-                Partner With Us
+            <Link to="/support">
+              <Button variant="ghost" size="sm" className="rounded-full text-sm text-foreground/80 hover:text-foreground">
+                Support
                 <ChevronRight className="ml-1 h-4 w-4" />
               </Button>
             </Link>
@@ -130,12 +118,53 @@ const HomePage = () => {
             <p className="text-lg leading-relaxed text-muted-foreground">
               We connect dyslexic individuals across service, transition, and industry environments — providing peer support, curated resources, and signposting to trusted services.
             </p>
+            <p className="mt-4 text-sm text-muted-foreground">
+              <Link to="/about" className="text-primary font-semibold hover:underline">Learn more about us</Link>
+            </p>
           </div>
           <div className="mx-auto mt-10 grid max-w-2xl gap-4 sm:grid-cols-2">
             {["Volunteer led", "Independently governed", "Strengths based", "Built on mutual respect"].map((item) => <div key={item} className="flex items-center gap-3 rounded-lg border border-border bg-background p-4">
                 <span className="h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
                 <span className="text-foreground">{item}</span>
               </div>)}
+          </div>
+        </div>
+      </section>
+
+      {/* Pathways */}
+      <section className="border-t border-border py-16" aria-label="Pathways">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
+            <Link to="/about" className="group">
+              <Card className="h-full transition-colors hover:border-primary">
+                <CardContent className="p-6">
+                  <Info className="mb-3 h-7 w-7 text-primary" aria-hidden="true" />
+                  <h3 className="mb-2 text-xl font-bold text-foreground">About</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Learn who we are, why this matters, and how the network is governed.
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
+            <Link to="/support" className="group">
+              <Card className="h-full transition-colors hover:border-primary">
+                <CardContent className="p-6">
+                  <LifeBuoy className="mb-3 h-7 w-7 text-primary" aria-hidden="true" />
+                  <h3 className="mb-2 text-xl font-bold text-foreground">Support</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Find guidance, ask the community, and connect with the network.
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
+
+          <div className="mx-auto mt-10 max-w-2xl text-center text-sm text-muted-foreground">
+            <p>
+              <span className="font-semibold text-foreground">Learn</span> with <Link to="/insights" className="text-primary hover:underline">Insights</Link> ·{" "}
+              <span className="font-semibold text-foreground">Ask</span> in the <Link to="/community" className="text-primary hover:underline">Community</Link> ·{" "}
+              <span className="font-semibold text-foreground">Commit</span> by choosing to <Link to="/join" className="text-primary hover:underline">Join</Link>.
+            </p>
           </div>
         </div>
       </section>
