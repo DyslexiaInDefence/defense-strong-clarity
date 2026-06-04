@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, BookOpen, MessageSquare, UserPlus, Target } from "lucide-react";
+import { ArrowRight, BookOpen, MessageSquare, UserPlus } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const supportLinks = [
@@ -23,12 +23,6 @@ const supportLinks = [
     to: "/join",
     icon: UserPlus,
     stage: "Commit",
-  },
-  {
-    title: "Achieve",
-    description: "Understand what the network aims to deliver and how it grows.",
-    to: "/achieve",
-    icon: Target,
   },
 ];
 
