@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Compass, User, Shield, HandCoins, FileSearch, HeartHandshake } from "lucide-react";
+import { ArrowRight, Compass, Target, User, Shield, HandCoins, FileSearch, HeartHandshake } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const aboutLinks = [
@@ -8,6 +8,12 @@ const aboutLinks = [
     description: "The case for dyslexia awareness across the UK Defence community.",
     to: "/why-it-matters",
     icon: Compass,
+  },
+  {
+    title: "What We Want to Achieve",
+    description: "Our vision for improving understanding, support, opportunity, and outcomes for people with dyslexia and neurodiversity across the Defence community.",
+    to: "/achieve",
+    icon: Target,
   },
   {
     title: "Founder",
