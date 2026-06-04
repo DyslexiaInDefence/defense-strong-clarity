@@ -10,6 +10,12 @@ const aboutLinks = [
     icon: Compass,
   },
   {
+    title: "What We Want to Achieve",
+    description: "Our vision for improving understanding, support, opportunity, and outcomes for people with dyslexia and neurodiversity across the Defence community.",
+    to: "/achieve",
+    icon: Target,
+  },
+  {
     title: "Founder",
     description: "Who started Dyslexia in Defence and why.",
     to: "/governance/founder",
