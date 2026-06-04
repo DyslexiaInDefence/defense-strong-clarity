@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Compass, User, Shield, HandCoins, FileSearch, HeartHandshake } from "lucide-react";
+import { ArrowRight, Compass, Target, User, Shield, HandCoins, FileSearch, HeartHandshake } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const aboutLinks = [
