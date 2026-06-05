@@ -7,9 +7,11 @@ import didLogoFull from "@/assets/did-logo-full.webp";
 
 
 const navLinks = [
-{ label: "Home", to: "/" },
-{ label: "About", to: "/about" },
-{ label: "Support", to: "/support" }];
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Support", to: "/support" },
+  { label: "Contact", to: "/contact" },
+];
 
 
 const Navbar = () => {
