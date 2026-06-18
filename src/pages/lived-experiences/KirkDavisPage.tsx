@@ -34,42 +34,6 @@ const KirkDavisPage = () => {
             </figcaption>
           </figure>
 
-          <aside className="mb-6 rounded-2xl border border-border bg-card p-5">
-            <h2 className="text-lg font-bold text-foreground">Profile</h2>
-            <dl className="mt-3 grid grid-cols-1 gap-2 text-sm">
-              <div className="flex gap-2">
-                <dt className="font-semibold text-foreground">Role:</dt>
-                <dd className="text-muted-foreground">Staff Sergeant</dd>
-              </div>
-              <div className="flex gap-2">
-                <dt className="font-semibold text-foreground">Service:</dt>
-                <dd className="text-muted-foreground">British Army</dd>
-              </div>
-              <div className="flex gap-2">
-                <dt className="font-semibold text-foreground">Joined:</dt>
-                <dd className="text-muted-foreground">2007</dd>
-              </div>
-              <div>
-                <dt className="font-semibold text-foreground">Themes:</dt>
-                <dd className="mt-2 flex flex-wrap gap-1.5">
-                  {[
-                    "Dyslexia",
-                    "Belonging",
-                    "Imposter Syndrome",
-                    "Neurodiversity",
-                    "Support",
-                  ].map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-border bg-muted px-2.5 py-0.5 text-xs font-medium text-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </dd>
-              </div>
-            </dl>
-          </aside>
 
           <p>
             I joined the Army in 2007 as a chef. Like many people with dyslexia, my journey has not always been straightforward.
