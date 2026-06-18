@@ -35,6 +35,7 @@ import DyslexiaIdentifiedDuringServicePage from "@/pages/insights/DyslexiaIdenti
 import LivedExperiencesPage from "@/pages/LivedExperiencesPage";
 import LisaHodgePage from "@/pages/lived-experiences/LisaHodgePage";
 import KirkDavisPage from "@/pages/lived-experiences/KirkDavisPage";
+import SymonSmithPage from "@/pages/lived-experiences/SymonSmithPage";
 import NotFound from "@/pages/NotFound";
 
 const App = () => (
@@ -69,6 +70,7 @@ const App = () => (
           <Route path="/lived-experiences" element={<LivedExperiencesPage />} />
           <Route path="/lived-experiences/lisa-hodge-civil-servant" element={<LisaHodgePage />} />
           <Route path="/lived-experiences/staff-sergeant-kirk-davis-british-army" element={<KirkDavisPage />} />
+          <Route path="/lived-experiences/symon-smith-british-army-veteran" element={<SymonSmithPage />} />
           <Route path="/governance" element={<GovernanceOverviewPage />} />
           <Route path="/governance/founder" element={<FounderPurposePage />} />
           <Route path="/governance/code-of-conduct" element={<CodeOfConductPage />} />
