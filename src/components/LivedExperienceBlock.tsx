@@ -1,4 +1,5 @@
 import { Quote } from "lucide-react";
+import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 export type LivedExperienceTag = "Joining" | "Serving" | "Veteran";
@@ -74,7 +75,18 @@ const LivedExperienceBlock = ({
 
       {(attribution || source) && (
         <figcaption className="mt-5 text-sm text-muted-foreground">
-          {attribution && <span className="font-semibold text-foreground">{attribution}</span>}
+          {attribution && (
+            attribution === "Symon Smith" ? (
+              <Link
+                to="/lived-experiences/symon-smith-british-army-veteran"
+                className="font-semibold text-foreground underline-offset-2 hover:text-primary hover:underline"
+              >
+                {attribution}
+              </Link>
+            ) : (
+              <span className="font-semibold text-foreground">{attribution}</span>
+            )
+          )}
           {attribution && source && <span> — </span>}
           {source && <span className="italic">{source}</span>}
         </figcaption>
