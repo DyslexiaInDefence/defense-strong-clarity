@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink, FileText } from "lucide-react";
 import StoryNav from "@/components/StoryNav";
 import { getStory } from "@/data/livedStories";
 
@@ -63,6 +63,66 @@ const SymonSmithPage = () => {
 
           <div className="clear-both" />
         </article>
+
+        <section className="mt-12" aria-label="Further reading">
+          <h2 className="text-2xl font-bold text-foreground">Further Reading</h2>
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+            Optional further reading — articles Symon has contributed to on dyslexia, neurodiversity and Defence.
+          </p>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            <a
+              href="https://www.bcs.org/articles-opinion-and-research/how-dyslexic-thinking-strengthens-cyber-security/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary hover:bg-muted/30"
+            >
+              <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                BCS — The Chartered Institute for IT
+              </div>
+              <h3 className="text-base font-bold text-foreground group-hover:text-primary">
+                How Dyslexic Thinking Strengthens Cyber Security
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                How dyslexic thinking can be an advantage in cyber security through problem solving, pattern recognition and alternative thinking.
+              </p>
+            </a>
+            <a
+              href="/documents/dyslexia-article.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary hover:bg-muted/30"
+            >
+              <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                <FileText className="h-4 w-4" aria-hidden="true" />
+                British Dyslexia Association
+              </div>
+              <h3 className="text-base font-bold text-foreground group-hover:text-primary">
+                British Dyslexia Association Feature
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Formal recognition of dyslexia within a military context, published in the BDA magazine.
+              </p>
+            </a>
+            <a
+              href="/documents/rsi-journal-winter-23.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary hover:bg-muted/30 sm:col-span-2"
+            >
+              <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                <FileText className="h-4 w-4" aria-hidden="true" />
+                Royal Signals Institute Journal — Winter 2023
+              </div>
+              <h3 className="text-base font-bold text-foreground group-hover:text-primary">
+                Dyslexia within the Royal Corps of Signals
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Professional and regimental level discussion of dyslexia within the Royal Corps of Signals.
+              </p>
+            </a>
+          </div>
+        </section>
 
         <aside className="mt-12 rounded-2xl border border-border bg-card p-6 md:p-8">
           <h2 className="text-2xl font-bold text-foreground">Share Your Story</h2>

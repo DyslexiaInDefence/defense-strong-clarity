@@ -1,4 +1,5 @@
 import { Headphones, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 import { trackEvent } from "@/lib/analytics";
 
 interface PodcastInsightProps {
@@ -47,6 +48,14 @@ const PodcastInsight = ({ title, className = "" }: PodcastInsightProps) => {
         <ExternalLink className="h-4 w-4" aria-hidden="true" />
         <span className="sr-only"> (opens Spotify in a new tab)</span>
       </a>
+      <div className="mt-3">
+        <Link
+          to="/lived-experiences/staff-sergeant-kirk-davis-british-army"
+          className="text-sm font-semibold text-primary underline-offset-4 hover:underline"
+        >
+          Read Kirk's full lived experience →
+        </Link>
+      </div>
     </aside>
   );
 };

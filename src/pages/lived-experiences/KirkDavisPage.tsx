@@ -90,6 +90,33 @@ const KirkDavisPage = () => {
           <div className="clear-both" />
         </article>
 
+        <section className="mt-12 rounded-2xl border border-border bg-muted/30 p-6 md:p-8" aria-label="Kirk's podcast episode">
+          <h2 className="text-2xl font-bold text-foreground">Hear Kirk's Story</h2>
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+            Listen to Kirk discuss dyslexia, belonging, imposter syndrome and neurodiversity in Defence in his own words.
+          </p>
+          <div className="mt-5 overflow-hidden rounded-xl">
+            <iframe
+              src="https://open.spotify.com/embed/episode/2zNd3YpRNMt14rNU3kCqpR?utm_source=generator&theme=0"
+              width="100%"
+              height="232"
+              frameBorder={0}
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              title="Kirk Davis — Spotify episode"
+              className="w-full"
+            />
+          </div>
+          <a
+            href="https://open.spotify.com/episode/2zNd3YpRNMt14rNU3kCqpR"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline"
+          >
+            Listen on Spotify →
+          </a>
+        </section>
+
         <aside className="mt-12 rounded-2xl border border-border bg-card p-6 md:p-8">
           <h2 className="text-2xl font-bold text-foreground">Share Your Story</h2>
           <p className="mt-3 text-base leading-relaxed text-muted-foreground">
