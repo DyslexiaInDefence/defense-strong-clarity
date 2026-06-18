@@ -162,6 +162,12 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.7,
     indexable: true,
   },
+  "/lived-experiences/staff-sergeant-kirk-davis-british-army": {
+    title: "Staff Sergeant Kirk Davis | Lived Experiences | Dyslexia in Defence",
+    description: "Staff Sergeant Kirk Davis shares his lived experience of dyslexia, belonging, imposter syndrome, and support throughout his British Army career.",
+    priority: 0.7,
+    indexable: true,
+  },
 };
 
 const setMeta = (name: string, content: string, attr = "name") => {

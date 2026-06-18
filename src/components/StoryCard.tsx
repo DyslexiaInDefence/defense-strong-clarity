@@ -24,6 +24,11 @@ const StoryCard = ({ story }: StoryCardProps) => {
       </div>
       <h3 className="text-lg font-bold text-foreground">{story.name}</h3>
       <p className="mt-1 text-sm text-muted-foreground">{story.role}</p>
+      {story.summary && (
+        <p className="mt-3 text-sm leading-relaxed text-foreground/80">
+          {story.summary}
+        </p>
+      )}
       <span className="mt-4 inline-flex items-center text-sm font-semibold text-primary">
         Read story
         <ArrowRight
