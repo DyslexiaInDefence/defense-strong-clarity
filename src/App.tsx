@@ -34,6 +34,7 @@ import SupportForDyslexiaMilitaryPage from "@/pages/insights/SupportForDyslexiaM
 import DyslexiaIdentifiedDuringServicePage from "@/pages/insights/DyslexiaIdentifiedDuringServicePage";
 import LivedExperiencesPage from "@/pages/LivedExperiencesPage";
 import LisaHodgePage from "@/pages/lived-experiences/LisaHodgePage";
+import KirkDavisPage from "@/pages/lived-experiences/KirkDavisPage";
 import NotFound from "@/pages/NotFound";
 
 const App = () => (
@@ -67,6 +68,7 @@ const App = () => (
           <Route path="/insights/what-happens-if-dyslexia-is-identified-during-service-uk" element={<DyslexiaIdentifiedDuringServicePage />} />
           <Route path="/lived-experiences" element={<LivedExperiencesPage />} />
           <Route path="/lived-experiences/lisa-hodge-civil-servant" element={<LisaHodgePage />} />
+          <Route path="/lived-experiences/staff-sergeant-kirk-davis-british-army" element={<KirkDavisPage />} />
           <Route path="/governance" element={<GovernanceOverviewPage />} />
           <Route path="/governance/founder" element={<FounderPurposePage />} />
           <Route path="/governance/code-of-conduct" element={<CodeOfConductPage />} />
