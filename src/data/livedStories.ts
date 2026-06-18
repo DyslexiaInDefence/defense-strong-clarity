@@ -1,5 +1,3 @@
-import lisaPhoto from "@/assets/lisa-hodge.png.asset.json";
-
 export interface LivedStory {
   slug: string;
   name: string;
@@ -15,7 +13,7 @@ export const livedStories: LivedStory[] = [
     slug: "lisa-hodge-civil-servant",
     name: "Lisa Hodge",
     role: "Civil Servant",
-    photoUrl: lisaPhoto.url,
+    photoUrl: "/images/lived-experiences/lisa-hodge-lived-experience.webp",
     photoAlt:
       "Lisa Hodge, founding member and Co Chair of the Defence Dyslexia Network",
     metaTitle:
