@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ChevronRight, Info, LifeBuoy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { livedStories, LIVED_EXPERIENCES_BASE } from "@/data/livedStories";
 
 
 const HomePage = () => {
@@ -82,6 +83,8 @@ const HomePage = () => {
 
       {/* Mission */}
       <section className="border-t border-border bg-card py-16" aria-label="Mission">
+
+        {/* placeholder removed below — Lived Experiences feature is rendered above this block */}
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="mb-4 text-2xl font-bold text-foreground">What We Do</h2>

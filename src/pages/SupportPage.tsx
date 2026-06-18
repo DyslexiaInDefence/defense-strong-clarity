@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, BookOpen, MessageSquare, UserPlus } from "lucide-react";
+import { ArrowRight, BookOpen, MessageSquare, UserPlus, Heart } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { livedStories } from "@/data/livedStories";
 
 const supportLinks = [
   {
@@ -16,6 +17,16 @@ const supportLinks = [
     to: "/community",
     icon: MessageSquare,
     stage: "Ask",
+  },
+  {
+    title: "Lived Experiences",
+    description:
+      "Read real stories from people across the defence community who have lived experience of dyslexia and neurodiversity.",
+    to: "/lived-experiences",
+    icon: Heart,
+    stage: "Relate",
+    cta: "Read their stories",
+    thumbnails: true,
   },
   {
     title: "Join",
@@ -57,8 +68,24 @@ const SupportPage = () => {
                   </div>
                   <h2 className="mb-2 text-lg font-bold text-foreground">{item.title}</h2>
                   <p className="mb-3 text-sm text-muted-foreground">{item.description}</p>
+                  {item.thumbnails && (
+                    <div className="mb-3 flex -space-x-2">
+                      {livedStories.slice(0, 3).map((s) => (
+                        <img
+                          key={s.slug}
+                          src={s.photoUrl}
+                          alt=""
+                          loading="lazy"
+                          onError={(e) => {
+                            (e.currentTarget as HTMLImageElement).style.display = "none";
+                          }}
+                          className="h-9 w-9 rounded-full border-2 border-card object-cover shadow-sm"
+                        />
+                      ))}
+                    </div>
+                  )}
                   <span className="inline-flex items-center text-sm font-semibold text-primary">
-                    Go to {item.title}
+                    {item.cta ?? `Go to ${item.title}`}
                     <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
                   </span>
                 </CardContent>
