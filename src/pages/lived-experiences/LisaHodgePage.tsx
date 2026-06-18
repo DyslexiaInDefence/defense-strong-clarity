@@ -24,6 +24,9 @@ const LisaHodgePage = () => {
             <img
               src={story.photoUrl}
               alt={story.photoAlt}
+              width={735}
+              height={1600}
+              loading="lazy"
               className="w-full rounded-2xl shadow-md"
             />
             <figcaption className="mt-2 text-xs italic text-muted-foreground">
