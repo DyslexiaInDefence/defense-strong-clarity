@@ -1,101 +1,59 @@
-## Lived Experiences section
+## Goal
 
-A new long-term home for first-person stories from the defence community. Launches with Lisa Hodge's story and is structured so future contributors can be added by appending a single entry to a data file.
+Make `/lived-experiences/*` pages the canonical destination for personal stories, quotes and "hear from someone serving" callouts across the site. Small, surgical changes — no redesign, no new founder-promotion sections.
 
-### 1. Data layer
+---
 
-Create `src/data/livedStories.ts` — the single source of truth for the section.
+## 1. Kirk Davis page — add "Hear Kirk's Story" podcast section
 
-```ts
-export interface LivedStory {
-  slug: string;            // e.g. "lisa-hodge-civil-servant"
-  name: string;            // "Lisa Hodge"
-  role: string;            // "Civil Servant"
-  photoUrl: string;        // CDN URL from .asset.json
-  photoAlt: string;
-  metaTitle: string;
-  metaDescription: string;
-}
-export const livedStories: LivedStory[] = [ /* Lisa */ ];
-```
+File: `src/pages/lived-experiences/KirkDavisPage.tsx`
 
-Each story page imports its own data entry plus the full list for the "Browse Stories" pill nav. Adding a future story = append to `livedStories`, add one route, drop in one page component.
+- Above the existing "Share Your Story" `<aside>`, insert a new section "Hear Kirk's Story".
+- Embed the Spotify episode using a standard Spotify iframe (the site already does this on InsightsPage), URL: `https://open.spotify.com/embed/episode/2zNd3YpRNMt14rNU3kCqpR?utm_source=generator&theme=0`.
+- Include short intro line: "Listen to Kirk discuss dyslexia, belonging, imposter syndrome and neurodiversity in Defence in his own words."
+- Fallback link: "Listen on Spotify" → `https://open.spotify.com/episode/2zNd3YpRNMt14rNU3kCqpR` (target="_blank", rel="noopener").
 
-### 2. Lisa's photo
+## 2. Symon Smith page — add "Further Reading" section
 
-Upload the supplied image (both people, as-is) via `lovable-assets create` to `src/assets/lisa-hodge.jpg.asset.json`. Alt text exactly as specified.
+File: `src/pages/lived-experiences/SymonSmithPage.tsx`
 
-### 3. Routes
+Above the "Share Your Story" aside, add a "Further Reading" section with three cards:
 
-Add to `src/App.tsx`:
-- `/lived-experiences` → `LivedExperiencesPage`
-- `/lived-experiences/lisa-hodge-civil-servant` → `LisaHodgePage`
+1. **How Dyslexic Thinking Strengthens Cyber Security** → `https://www.bcs.org/articles-opinion-and-research/how-dyslexic-thinking-strengthens-cyber-security/` (external, new tab)
+2. **British Dyslexia Association Feature** → `/documents/dyslexia-article.pdf` (reuse existing site asset, matches InsightsPage)
+3. **Royal Signals Institute Journal — Winter 2023** → `/documents/rsi-journal-winter-23.pdf` (reuse existing)
 
-### 4. New components
+Visual style: simple bordered card grid (`grid sm:grid-cols-2 gap-4`), low-key — framed as "optional further reading", not promotion.
 
-- `src/components/StoryNav.tsx` — horizontal scrollable pill chips (rounded-full, ribbon-coloured active state, `aria-current="page"` on active, `overflow-x-auto` on mobile). Rendered at the top of every story page.
-- `src/components/StoryCard.tsx` — landing-page card with circular photo, name, role, "Read story" affordance. Responsive grid (`sm:grid-cols-2 lg:grid-cols-3`) so it scales as stories are added.
+## 3. Re-point "hear from someone serving" callouts to Kirk's page
 
-### 5. Landing page — `src/pages/LivedExperiencesPage.tsx`
+`PodcastInsight` is currently used on three insight pages (Army, Navy, RAF, Declare). It already links to Kirk's Spotify episode — keep that. Add a secondary link beneath the "Listen to the episode" CTA: "Read Kirk's full lived experience →" → `/lived-experiences/staff-sergeant-kirk-davis-british-army`.
 
-- `<h1>Lived Experiences</h1>`
-- Intro paragraph (exact wording from brief).
-- "Browse Stories" heading + responsive grid of `StoryCard`s mapped from `livedStories`.
-- SEO via `useSeo` — title, description, indexable.
+File: `src/components/PodcastInsight.tsx` — add a `Link` (react-router) under the existing CTA.
 
-### 6. Story page — `src/pages/lived-experiences/LisaHodgePage.tsx`
+Also rename the Army page's heading prop from `"Hear from a serving soldier with dyslexia"` to keep current copy (no change needed) — the new link does the connecting.
 
-Layout:
-- `StoryNav` (Lisa highlighted as active).
-- `<h1>Lisa Hodge – Civil Servant</h1>`
-- Italic disclaimer paragraph (exact wording from brief).
-- Article body using CSS float for desktop wrap:
-  - `<figure class="md:float-right md:ml-8 md:mb-4 md:w-2/5">` with rounded corners + subtle shadow.
-  - On mobile/tablet (`<md`) the figure stays in normal flow above the prose (full-width).
-  - Prose rendered with semantic `<h2>`s for: "The moment of diagnosis", "Growing up undiagnosed", "Where I am now", "My advice to anyone newly diagnosed".
-  - **Story text used verbatim** — no edits, no summarising, no rephrasing, punctuation preserved.
-- Footer block: `<h2>Share Your Story</h2>` + exact wording + button-style `<Link to="/contact">`.
-- SEO via `useSeo` with the title/description from the brief.
+## 4. Link Symon-attributed quotes to his lived experience page
 
-### 7. Navigation updates — `src/components/Navbar.tsx`
+`LivedExperienceBlock` renders quotes attributed to Symon Smith with `source` text (BDA / RSI journal). Update `src/components/LivedExperienceBlock.tsx` so when `attribution === "Symon Smith"`, the figcaption renders his name as a `Link` to `/lived-experiences/symon-smith-british-army-veteran` with hover/underline styling, followed by the source text unchanged. This converts quote attributions into invitations to read the full story without changing layout.
 
-Under Support, replace current children with, in this order:
-- Join → `/join`
-- Community → `/community`
-- Contact Us → `/contact`
-- Lived Experiences → `/lived-experiences`
+No data file changes needed (`src/data/livedExperience.ts` stays as-is).
 
-Remove any "Achieve" entry from Support (Achieve remains under About as "What We Want to Achieve"). Apply to both desktop expandable menu and mobile menu.
+## 5. Homepage / Support page
 
-### 8. Footer — `src/components/Footer.tsx`
+Already done in prior turn — homepage "Real stories from across Defence" and Support page "Lived Experiences" card both link to `/lived-experiences`. No change.
 
-Add "Lived Experiences" link to the Support column (after Contact Us).
+## 6. Validation
 
-### 9. SEO plumbing
+- `rg "open.spotify.com/episode/2zNd3YpRNMt14rNU3kCqpR" src` — confirms Kirk embed renders.
+- Visit `/lived-experiences/staff-sergeant-kirk-davis-british-army`, `/lived-experiences/symon-smith-british-army-veteran`, and one insight page (e.g. Army) via Playwright to confirm new sections render and links resolve (no 404).
+- Build passes (auto).
 
-- `src/hooks/use-seo.ts`: register both new routes as indexable with the brief's title/description.
-- `public/sitemap.xml`: add `/lived-experiences` and `/lived-experiences/lisa-hodge-civil-servant`.
-- `public/robots.txt`: no Disallow needed (default Allow).
+---
 
-### 10. Out of scope
+## Out of scope (per design requirements)
 
-- No form, no submission backend — "Share Your Story" links to existing `/contact`.
-- No edits to existing pages beyond Navbar/Footer/SEO/sitemap.
-- No rewriting of Lisa's text under any circumstance.
-
-### Files touched
-
-New:
-- `src/data/livedStories.ts`
-- `src/assets/lisa-hodge.jpg.asset.json`
-- `src/components/StoryNav.tsx`
-- `src/components/StoryCard.tsx`
-- `src/pages/LivedExperiencesPage.tsx`
-- `src/pages/lived-experiences/LisaHodgePage.tsx`
-
-Edited:
-- `src/App.tsx`
-- `src/components/Navbar.tsx`
-- `src/components/Footer.tsx`
-- `src/hooks/use-seo.ts`
-- `public/sitemap.xml`
+- No large promotional sections, no founder hero treatment.
+- No changes to existing lived experience story copy.
+- No new routes; no sitemap changes.
+- No changes to InsightsPage "Research and formal insight" section (already lists BDA + RSI; the new cyber security article is added only on Symon's lived experience page as further reading).
