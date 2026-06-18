@@ -39,6 +39,21 @@ export const livedStories: LivedStory[] = [
     metaDescription:
       "Staff Sergeant Kirk Davis shares his lived experience of dyslexia, belonging, imposter syndrome, and support throughout his British Army career.",
   },
+  {
+    slug: "symon-smith-british-army-veteran",
+    name: "Symon Smith",
+    role: "British Army Veteran",
+    photoUrl:
+      "/images/lived-experiences/symon-smith-lived-experience.webp",
+    photoAlt:
+      "Symon Smith sharing his lived experience of dyslexia and military service",
+    summary:
+      "A British Army veteran reflects on growing up with dyslexia, succeeding through education and military service, and why supporting future generations matters.",
+    metaTitle:
+      "Symon Smith | British Army Veteran | Dyslexia in Defence",
+    metaDescription:
+      "Symon Smith shares his dyslexia journey, from diagnosis through education and military service, to founding Dyslexia in Defence after leaving the Army.",
+  },
 ];
 
 export const getStory = (slug: string) =>

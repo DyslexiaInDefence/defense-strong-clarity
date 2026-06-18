@@ -168,6 +168,12 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.7,
     indexable: true,
   },
+  "/lived-experiences/symon-smith-british-army-veteran": {
+    title: "Symon Smith | British Army Veteran | Dyslexia in Defence",
+    description: "Symon Smith shares his dyslexia journey, from diagnosis through education and military service, to founding Dyslexia in Defence after leaving the Army.",
+    priority: 0.7,
+    indexable: true,
+  },
 };
 
 const setMeta = (name: string, content: string, attr = "name") => {
