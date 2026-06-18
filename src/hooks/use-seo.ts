@@ -150,6 +150,18 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.6,
     indexable: true,
   },
+  "/lived-experiences": {
+    title: "Lived Experiences | Dyslexia in Defence",
+    description: "Personal stories of dyslexia and neurodiversity from across the UK defence community. Authentic first-person accounts intended to help others feel understood and less alone.",
+    priority: 0.8,
+    indexable: true,
+  },
+  "/lived-experiences/lisa-hodge-civil-servant": {
+    title: "Lisa Hodge – Civil Servant | Lived Experiences | Dyslexia in Defence",
+    description: "Lisa Hodge shares her personal journey of being diagnosed with dyslexia at age 32, growing up undiagnosed, and helping lead the Defence Dyslexia Network.",
+    priority: 0.7,
+    indexable: true,
+  },
 };
 
 const setMeta = (name: string, content: string, attr = "name") => {

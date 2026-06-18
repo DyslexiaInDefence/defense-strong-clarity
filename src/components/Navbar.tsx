@@ -27,12 +27,12 @@ const navLinks: NavItem[] = [
     label: "Support",
     to: "/support",
     children: [
-      { label: "Insights", to: "/insights" },
-      { label: "Ask the Community", to: "/community" },
-      { label: "Join the Network", to: "/join" },
+      { label: "Join", to: "/join" },
+      { label: "Community", to: "/community" },
+      { label: "Contact Us", to: "/contact" },
+      { label: "Lived Experiences", to: "/lived-experiences" },
     ],
   },
-  { label: "Contact", to: "/contact" },
 ];
 
 
