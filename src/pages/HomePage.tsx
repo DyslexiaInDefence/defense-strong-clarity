@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ChevronRight, Info, LifeBuoy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { livedStories, LIVED_EXPERIENCES_BASE } from "@/data/livedStories";
 
 
 const HomePage = () => {
@@ -76,6 +77,52 @@ const HomePage = () => {
               <path d="M0 28 Q40 8 80 28 T160 28 T240 28 T320 28" stroke="hsl(var(--ribbon-red))" strokeWidth="3" fill="none" />
               <path d="M0 32 Q40 12 80 32 T160 32 T240 32 T320 32" stroke="hsl(var(--ribbon-green))" strokeWidth="3" fill="none" />
             </svg>
+          </div>
+        </div>
+      </section>
+
+      {/* Lived Experiences feature */}
+      <section className="border-t border-border py-14" aria-label="Real stories from across Defence">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="mb-3 text-2xl font-bold text-foreground">Real stories from across Defence</h2>
+            <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+              Dyslexia affects people differently. Read lived experiences from people across the defence community and see how support, understanding and belonging can make a difference.
+            </p>
+          </div>
+
+          <ul className="mx-auto mt-8 grid max-w-3xl gap-4 sm:grid-cols-3">
+            {livedStories.slice(0, 3).map((s) => (
+              <li key={s.slug}>
+                <Link
+                  to={`${LIVED_EXPERIENCES_BASE}/${s.slug}`}
+                  className="group flex items-center gap-3 rounded-xl border border-border bg-card p-3 transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:flex-col sm:items-center sm:gap-2 sm:p-4 sm:text-center"
+                >
+                  <img
+                    src={s.photoUrl}
+                    alt={s.photoAlt}
+                    loading="lazy"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).style.display = "none";
+                    }}
+                    className="h-12 w-12 shrink-0 rounded-full border border-border object-cover shadow-sm sm:h-16 sm:w-16"
+                  />
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-semibold text-foreground">{s.name}</p>
+                    <p className="truncate text-xs text-muted-foreground">{s.role}</p>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-8 text-center">
+            <Link to="/lived-experiences">
+              <Button variant="outline" size="lg" className="rounded-full border-2 border-primary px-8 text-sm font-bold text-primary hover:bg-primary hover:text-primary-foreground">
+                Read lived experiences
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
