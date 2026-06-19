@@ -78,7 +78,7 @@ const AboutPage = () => {
                   <h2 className="mb-2 text-lg font-bold text-foreground">{item.title}</h2>
                   <p className="mb-3 text-sm text-muted-foreground">{item.description}</p>
                   <span className="inline-flex items-center text-sm font-semibold text-primary">
-                    Read more
+                    {`Read about ${item.title}`}
                     <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
                   </span>
                 </CardContent>

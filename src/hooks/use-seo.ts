@@ -8,7 +8,7 @@ interface PageSEO {
   title: string;
   description: string;
   priority: number;
-  indexable: true;
+  indexable: boolean;
 }
 
 const PUBLIC_PAGES: Record<string, PageSEO> = {
@@ -56,7 +56,7 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
   },
   "/join": {
     title: "Join the Dyslexia in Defence Community",
-    description: "Join the Dyslexia in Defence network. Open to military personnel, civil servants, veterans, defence industry professionals and families across the UK defence community.",
+    description: "Join Dyslexia in Defence — open to military personnel, civil servants, veterans, industry professionals and families across UK Defence.",
     priority: 0.9,
     indexable: true,
   },
@@ -157,13 +157,13 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     indexable: true,
   },
   "/lived-experiences/lisa-hodge-civil-servant": {
-    title: "Lisa Hodge – Civil Servant | Lived Experiences | Dyslexia in Defence",
+    title: "Lisa Hodge – Civil Servant | Dyslexia in Defence",
     description: "Lisa Hodge shares her personal journey of being diagnosed with dyslexia at age 32, growing up undiagnosed, and helping lead the Defence Dyslexia Network.",
     priority: 0.7,
     indexable: true,
   },
   "/lived-experiences/staff-sergeant-kirk-davis-british-army": {
-    title: "Staff Sergeant Kirk Davis | Lived Experiences | Dyslexia in Defence",
+    title: "Kirk Davis – British Army | Dyslexia in Defence",
     description: "Staff Sergeant Kirk Davis shares his lived experience of dyslexia, belonging, imposter syndrome, and support throughout his British Army career.",
     priority: 0.7,
     indexable: true,
@@ -173,6 +173,36 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     description: "Symon Smith shares his dyslexia journey, from diagnosis through education and military service, to founding Dyslexia in Defence after leaving the Army.",
     priority: 0.7,
     indexable: true,
+  },
+  "/community": {
+    title: "Community | Dyslexia in Defence",
+    description: "The Dyslexia in Defence community space — peer support and shared lived experience across the UK Defence community.",
+    priority: 0.5,
+    indexable: false,
+  },
+  "/resources": {
+    title: "Resources | Dyslexia in Defence",
+    description: "Curated dyslexia and neurodiversity resources for the UK Defence community.",
+    priority: 0.5,
+    indexable: false,
+  },
+  "/ecosystem": {
+    title: "Ecosystem | Dyslexia in Defence",
+    description: "How Dyslexia in Defence sits within the wider UK Defence, veteran and neurodiversity ecosystem.",
+    priority: 0.5,
+    indexable: false,
+  },
+  "/privacy": {
+    title: "Privacy | Dyslexia in Defence",
+    description: "Privacy information for visitors to the Dyslexia in Defence website.",
+    priority: 0.3,
+    indexable: false,
+  },
+  "/accessibility": {
+    title: "Accessibility | Dyslexia in Defence",
+    description: "Accessibility commitments and dyslexia-friendly design choices for the Dyslexia in Defence website.",
+    priority: 0.3,
+    indexable: false,
   },
 };
 
@@ -241,10 +271,14 @@ const useSEO = () => {
     canonical.setAttribute("href", url);
 
     if (pageData) {
-      // Public page — set full SEO metadata
+      // Registered page — set full SEO metadata
       document.title = pageData.title;
       setMeta("description", pageData.description);
-      removeMeta("robots");
+      if (pageData.indexable) {
+        removeMeta("robots");
+      } else {
+        setMeta("robots", "noindex, nofollow");
+      }
 
       // Open Graph
       setMeta("og:type", "website", "property");
@@ -260,13 +294,13 @@ const useSEO = () => {
       setMeta("twitter:image", OG_IMAGE);
 
       // Article schema for individual Insights articles only (hub uses FAQPage)
-      if (pathname.startsWith("/insights/") && pathname !== "/insights") {
+      if (pageData.indexable && pathname.startsWith("/insights/") && pathname !== "/insights") {
         setArticleSchema(url, pageData);
       } else {
         removeArticleSchema();
       }
     } else {
-      // Non-public page — add noindex
+      // Unregistered page — add noindex fallback
       document.title = "Dyslexia in Defence";
       setMeta("robots", "noindex, nofollow");
 
