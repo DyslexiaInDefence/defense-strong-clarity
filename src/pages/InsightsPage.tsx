@@ -43,6 +43,11 @@ const intentCategories: IntentCategory[] = [
         answer: "You're not legally required to declare. But declaring early unlocks reasonable adjustments during selection and training — and is almost always the better choice.",
         link: "/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk",
       },
+      {
+        question: "Is dyslexia a barrier in the military (UK)?",
+        answer: "No. Dyslexic personnel serve at every rank across all three services. If you're considering joining, this is the reassurance most people are looking for.",
+        link: "/insights/is-dyslexia-a-barrier-in-the-military-uk",
+      },
     ],
   },
   {
