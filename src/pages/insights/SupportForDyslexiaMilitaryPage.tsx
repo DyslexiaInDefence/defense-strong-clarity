@@ -1,12 +1,7 @@
 import { Link } from "react-router-dom";
 import InsightLayout from "@/components/InsightLayout";
-import MidContentNudge from "@/components/MidContentNudge";
-import LivedExperienceBlock from "@/components/LivedExperienceBlock";
 import DecisionConfidenceBlock from "@/components/DecisionConfidenceBlock";
 import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
-import { livedExperienceSnippets } from "@/data/livedExperience";
-
-const snippet = livedExperienceSnippets.find((s) => s.id === "coping-mechanisms")!;
 
 const SupportForDyslexiaMilitaryPage = () => (
   <InsightLayout
@@ -59,10 +54,6 @@ const SupportForDyslexiaMilitaryPage = () => (
       ]}
       reassurance="None of those things stop you starting — most of the people now using support began with a single conversation, not a diagnosis."
     />
-
-    <MidContentNudge intent="serving" />
-
-    <LivedExperienceBlock snippet={snippet} variant="inline" className="mb-10" />
 
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">What this looks like in practice</h2>

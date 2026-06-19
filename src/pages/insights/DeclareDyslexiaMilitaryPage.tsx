@@ -1,13 +1,8 @@
 import { Link } from "react-router-dom";
 import InsightLayout from "@/components/InsightLayout";
-import MidContentNudge from "@/components/MidContentNudge";
-import LivedExperienceBlock from "@/components/LivedExperienceBlock";
 import PodcastInsight from "@/components/PodcastInsight";
 import DecisionConfidenceBlock from "@/components/DecisionConfidenceBlock";
 import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
-import { livedExperienceSnippets } from "@/data/livedExperience";
-
-const snippet = livedExperienceSnippets.find((s) => s.id === "tick-the-box")!;
 
 const DeclareDyslexiaMilitaryPage = () => (
   <InsightLayout
@@ -76,8 +71,6 @@ const DeclareDyslexiaMilitaryPage = () => (
       reassurance="Most people who’ve been through it describe a calmer reality than they expected — declaring is a choice, not a trap."
     />
 
-    <MidContentNudge intent="joining" />
-
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">What this means in reality</h2>
       <p className="text-foreground leading-relaxed mb-4">
@@ -87,8 +80,6 @@ const DeclareDyslexiaMilitaryPage = () => (
         The MOD has signed the British Dyslexia Association’s Dyslexia Friendly Workplace Pledge, and dyslexic personnel serve at every rank across all three services.
       </p>
     </section>
-
-    <LivedExperienceBlock snippet={snippet} variant="inline" className="mb-10" />
 
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">Support already exists</h2>

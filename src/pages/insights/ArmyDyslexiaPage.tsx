@@ -1,13 +1,8 @@
 import { Link } from "react-router-dom";
 import InsightLayout from "@/components/InsightLayout";
-import MidContentNudge from "@/components/MidContentNudge";
-import LivedExperienceBlock from "@/components/LivedExperienceBlock";
 import PodcastInsight from "@/components/PodcastInsight";
 import DecisionConfidenceBlock from "@/components/DecisionConfidenceBlock";
 import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
-import { livedExperienceSnippets } from "@/data/livedExperience";
-
-const snippet = livedExperienceSnippets.find((s) => s.id === "army-attracts-dyslexics")!;
 
 const ArmyDyslexiaPage = () => (
   <InsightLayout
@@ -69,8 +64,6 @@ const ArmyDyslexiaPage = () => (
       reassurance="None of those things stop people joining — they’re the most common worries from applicants who go on to pass."
     />
 
-    <MidContentNudge intent="joining" />
-
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">Why dyslexic people often suit the Army</h2>
       <p className="text-foreground leading-relaxed mb-4">
@@ -80,8 +73,6 @@ const ArmyDyslexiaPage = () => (
         The MOD has signed the British Dyslexia Association’s Dyslexia Friendly Workplace Pledge, and dyslexic personnel serve at every rank across all three services.
       </p>
     </section>
-
-    <LivedExperienceBlock snippet={snippet} variant="inline" className="mb-10" />
 
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">Support once you’re in</h2>
