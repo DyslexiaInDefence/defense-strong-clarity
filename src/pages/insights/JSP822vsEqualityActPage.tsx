@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
 import InsightLayout from "@/components/InsightLayout";
-import MidContentNudge from "@/components/MidContentNudge";
-import LivedExperienceBlock from "@/components/LivedExperienceBlock";
 import DecisionConfidenceBlock from "@/components/DecisionConfidenceBlock";
 import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
-import { livedExperienceSnippets } from "@/data/livedExperience";
 import AllenCitation from "@/components/AllenCitation";
 import {
   Table,
@@ -14,8 +11,6 @@ import {
   TableRow,
   TableCell,
 } from "@/components/ui/table";
-
-const snippet = livedExperienceSnippets.find((s) => s.id === "support-disappeared")!;
 
 const JSP822vsEqualityActPage = () => (
   <InsightLayout
@@ -89,10 +84,6 @@ const JSP822vsEqualityActPage = () => (
       ]}
       reassurance="These are the most common worries from veterans in transition — none of them, on their own, stop you landing the role."
     />
-
-    <MidContentNudge intent="veteran" />
-
-    <LivedExperienceBlock snippet={snippet} variant="inline" className="mb-10" />
 
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">How civilian employers must operate (Equality Act 2010)</h2>

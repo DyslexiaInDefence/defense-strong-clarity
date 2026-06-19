@@ -1,13 +1,8 @@
 import { Link } from "react-router-dom";
 import InsightLayout from "@/components/InsightLayout";
-import MidContentNudge from "@/components/MidContentNudge";
-import LivedExperienceBlock from "@/components/LivedExperienceBlock";
 import DecisionConfidenceBlock from "@/components/DecisionConfidenceBlock";
 import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
-import { livedExperienceSnippets } from "@/data/livedExperience";
 import AllenCitation from "@/components/AllenCitation";
-
-const snippet = livedExperienceSnippets.find((s) => s.id === "judge-fish-tree")!;
 
 const NeurodiversityMODPage = () => (
   <InsightLayout
@@ -61,10 +56,6 @@ const NeurodiversityMODPage = () => (
       ]}
       reassurance="None of these things shut the door — most people who now use neurodiversity support started by quietly asking one question."
     />
-
-    <MidContentNudge intent="serving" />
-
-    <LivedExperienceBlock snippet={snippet} variant="inline" className="mb-10" />
 
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">Support and adjustments available</h2>

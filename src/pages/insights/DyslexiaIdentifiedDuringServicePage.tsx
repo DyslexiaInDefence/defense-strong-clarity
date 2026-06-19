@@ -1,13 +1,8 @@
 import { Link } from "react-router-dom";
 import InsightLayout from "@/components/InsightLayout";
-import MidContentNudge from "@/components/MidContentNudge";
-import LivedExperienceBlock from "@/components/LivedExperienceBlock";
 import DecisionConfidenceBlock from "@/components/DecisionConfidenceBlock";
 import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
-import { livedExperienceSnippets } from "@/data/livedExperience";
 import AllenCitation from "@/components/AllenCitation";
-
-const snippet = livedExperienceSnippets.find((s) => s.id === "tick-the-box")!;
 
 const DyslexiaIdentifiedDuringServicePage = () => (
   <InsightLayout
@@ -62,10 +57,6 @@ const DyslexiaIdentifiedDuringServicePage = () => (
       ]}
       reassurance="The people who’ve been through this describe a quieter reality than they expected — most kept their role and gained more support, not less."
     />
-
-    <MidContentNudge intent="serving" />
-
-    <LivedExperienceBlock snippet={snippet} variant="inline" className="mb-10" />
 
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">What this means in practice</h2>

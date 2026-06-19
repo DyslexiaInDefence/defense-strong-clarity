@@ -1,12 +1,7 @@
 import { Link } from "react-router-dom";
 import InsightLayout from "@/components/InsightLayout";
-import MidContentNudge from "@/components/MidContentNudge";
-import LivedExperienceBlock from "@/components/LivedExperienceBlock";
 import DecisionConfidenceBlock from "@/components/DecisionConfidenceBlock";
 import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
-import { livedExperienceSnippets } from "@/data/livedExperience";
-
-const snippet = livedExperienceSnippets.find((s) => s.id === "not-a-barrier")!;
 
 const DyslexiaBarrierMilitaryPage = () => (
   <InsightLayout
@@ -60,10 +55,6 @@ const DyslexiaBarrierMilitaryPage = () => (
       ]}
       reassurance="These worries are normal — and the people who’ve had a long career with dyslexia describe a far more workable reality than the policy alone suggests."
     />
-
-    <MidContentNudge intent="joining" />
-
-    <LivedExperienceBlock snippet={snippet} variant="inline" className="mb-10" />
 
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">Where the real challenges sit</h2>

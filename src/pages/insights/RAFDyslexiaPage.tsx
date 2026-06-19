@@ -1,13 +1,7 @@
 import { Link } from "react-router-dom";
 import InsightLayout from "@/components/InsightLayout";
-import MidContentNudge from "@/components/MidContentNudge";
-import LivedExperienceBlock from "@/components/LivedExperienceBlock";
-import PodcastInsight from "@/components/PodcastInsight";
 import DecisionConfidenceBlock from "@/components/DecisionConfidenceBlock";
 import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
-import { livedExperienceSnippets } from "@/data/livedExperience";
-
-const snippet = livedExperienceSnippets.find((s) => s.id === "not-a-barrier")!;
 
 const RAFDyslexiaPage = () => (
   <InsightLayout
@@ -55,11 +49,6 @@ const RAFDyslexiaPage = () => (
       </ul>
     </section>
 
-    <PodcastInsight
-      title="Hear from someone serving in the military with dyslexia"
-      className="mb-10"
-    />
-
     <IfThisSoundsLikeYou
       concerns={[
         "You’re worried the AST will go against you because of how you read under time pressure.",
@@ -68,8 +57,6 @@ const RAFDyslexiaPage = () => (
       ]}
       reassurance="These worries are common, and none of them — on their own — stop people joining or getting the role they want."
     />
-
-    <MidContentNudge intent="joining" />
 
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">Why dyslexic minds suit RAF roles</h2>
@@ -80,8 +67,6 @@ const RAFDyslexiaPage = () => (
         The MOD has signed the British Dyslexia Association’s Dyslexia Friendly Workplace Pledge, and dyslexic personnel serve at every rank across all three services.
       </p>
     </section>
-
-    <LivedExperienceBlock snippet={snippet} variant="inline" className="mb-10" />
 
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">Common misconceptions</h2>

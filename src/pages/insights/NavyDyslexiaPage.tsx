@@ -1,13 +1,7 @@
 import { Link } from "react-router-dom";
 import InsightLayout from "@/components/InsightLayout";
-import MidContentNudge from "@/components/MidContentNudge";
-import LivedExperienceBlock from "@/components/LivedExperienceBlock";
-import PodcastInsight from "@/components/PodcastInsight";
 import DecisionConfidenceBlock from "@/components/DecisionConfidenceBlock";
 import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
-import { livedExperienceSnippets } from "@/data/livedExperience";
-
-const snippet = livedExperienceSnippets.find((s) => s.id === "not-a-barrier")!;
 
 const NavyDyslexiaPage = () => (
   <InsightLayout
@@ -55,11 +49,6 @@ const NavyDyslexiaPage = () => (
       </ul>
     </section>
 
-    <PodcastInsight
-      title="Hear from someone serving in the military with dyslexia"
-      className="mb-10"
-    />
-
     <IfThisSoundsLikeYou
       concerns={[
         "You’re worried the Recruiting Test will go against you because of your reading speed.",
@@ -68,10 +57,6 @@ const NavyDyslexiaPage = () => (
       ]}
       reassurance="These are the most common worries from people who go on to join — none of them, on their own, stop you getting in."
     />
-
-    <MidContentNudge intent="joining" />
-
-    <LivedExperienceBlock snippet={snippet} variant="inline" className="mb-10" />
 
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">Common misconceptions</h2>
