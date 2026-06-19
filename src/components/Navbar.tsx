@@ -43,6 +43,24 @@ const Navbar = () => {
   const [openMobile, setOpenMobile] = useState<Record<string, boolean>>({});
   const { pathname } = useLocation();
   const desktopRef = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<number | null>(null);
+
+  const clearCloseTimer = () => {
+    if (closeTimer.current !== null) {
+      window.clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  };
+  const scheduleClose = (label: string) => {
+    clearCloseTimer();
+    closeTimer.current = window.setTimeout(() => {
+      setOpenDesktop((cur) => (cur === label ? null : cur));
+    }, 200);
+  };
+  const openNow = (label: string) => {
+    clearCloseTimer();
+    setOpenDesktop(label);
+  };
 
   const isChildActive = (item: NavItem) =>
     item.children?.some((c) => pathname === c.to || pathname.startsWith(c.to + "/")) ?? false;
@@ -87,6 +105,8 @@ const Navbar = () => {
     setOpenDesktop(null);
   }, [pathname]);
 
+  useEffect(() => () => clearCloseTimer(), []);
+
   return (
     <nav
       className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md"
@@ -121,23 +141,54 @@ const Navbar = () => {
               <div
                 key={link.to}
                 className="relative"
-                onMouseEnter={() => setOpenDesktop(link.label)}
-                onMouseLeave={() => setOpenDesktop((cur) => (cur === link.label ? null : cur))}
+                onMouseEnter={() => openNow(link.label)}
+                onMouseLeave={() => scheduleClose(link.label)}
+                onFocus={() => openNow(link.label)}
+                onBlur={(e) => {
+                  if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                    scheduleClose(link.label);
+                  }
+                }}
               >
-                <button
-                  type="button"
-                  onClick={() => setOpenDesktop(isOpen ? null : link.label)}
-                  aria-expanded={isOpen}
-                  aria-haspopup="menu"
-                  className={`inline-flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm px-1 ${active ? "text-primary" : "text-foreground/80"}`}
-                >
-                  {link.label}
-                  <ChevronDown className={`h-3.5 w-3.5 transition-transform ${isOpen ? "rotate-180" : ""}`} aria-hidden="true" />
-                </button>
+                <div className="inline-flex items-center gap-0.5">
+                  <NavLink
+                    to={link.to}
+                    end={link.to === "/"}
+                    onKeyDown={(e) => {
+                      if (e.key === "ArrowDown" || (e.key === " " && !isOpen)) {
+                        e.preventDefault();
+                        openNow(link.label);
+                      } else if (e.key === "Escape") {
+                        setOpenDesktop(null);
+                      }
+                    }}
+                    className={({ isActive }) =>
+                      `text-sm font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm px-1 ${isActive || active ? "text-primary" : "text-foreground/80"}`
+                    }
+                  >
+                    {link.label}
+                  </NavLink>
+                  <button
+                    type="button"
+                    onClick={() => (isOpen ? setOpenDesktop(null) : openNow(link.label))}
+                    aria-expanded={isOpen}
+                    aria-haspopup="menu"
+                    aria-label={`${isOpen ? "Close" : "Open"} ${link.label} menu`}
+                    className="rounded-sm p-1 text-foreground/70 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    onKeyDown={(e) => {
+                      if (e.key === "Escape") setOpenDesktop(null);
+                    }}
+                  >
+                    <ChevronDown className={`h-3.5 w-3.5 transition-transform ${isOpen ? "rotate-180" : ""}`} aria-hidden="true" />
+                  </button>
+                </div>
                 {isOpen && (
                   <div
                     role="menu"
-                    className="absolute left-0 top-full z-50 mt-2 min-w-[14rem] rounded-lg border border-border bg-popover p-2 shadow-lg"
+                    className="absolute left-0 top-full z-50 min-w-[14rem] rounded-lg border border-border bg-popover p-2 shadow-lg mt-2 before:absolute before:-top-2 before:left-0 before:h-2 before:w-full before:content-['']"
+                    onKeyDown={(e) => {
+                      if (e.key === "Escape") setOpenDesktop(null);
+                    }}
                   >
                     <NavLink
                       to={link.to}
