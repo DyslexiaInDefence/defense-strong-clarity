@@ -20,7 +20,7 @@ const PodcastInsight = ({ title, className = "" }: PodcastInsightProps) => {
   return (
     <aside
       className={`rounded-lg border border-border bg-muted/40 p-5 sm:p-6 ${className}`}
-      aria-label="Podcast insight"
+      aria-label="Lived experience"
     >
       <div className="flex items-start gap-3 mb-3">
         <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
@@ -28,7 +28,7 @@ const PodcastInsight = ({ title, className = "" }: PodcastInsightProps) => {
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-1">
-            Podcast insight
+            Lived experience
           </p>
           <h3 className="text-lg font-bold text-foreground leading-snug">{title}</h3>
         </div>
