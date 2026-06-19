@@ -247,8 +247,9 @@ const InsightsPage = () => {
                           <Link
                             to={item.link}
                             className="inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+                            aria-label={`Read the full guide: ${item.question.replace(/\?$/, "")}`}
                           >
-                            Read more <ChevronRight className="h-4 w-4" />
+                            Read the full guide <ChevronRight className="h-4 w-4" />
                           </Link>
                         </AccordionContent>
                       </AccordionItem>
