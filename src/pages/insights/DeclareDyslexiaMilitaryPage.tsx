@@ -63,7 +63,7 @@ const DeclareDyslexiaMilitaryPage = () => (
     </section>
 
     <PodcastInsight
-      title="Hear from someone serving in the military with dyslexia"
+      title="Hear from a serving member of the Armed Forces"
       className="mb-10"
     />
 
