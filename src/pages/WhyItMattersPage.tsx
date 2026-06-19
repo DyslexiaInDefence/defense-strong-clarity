@@ -62,17 +62,17 @@ const WhyItMattersPage = () => {
             </p>
           </div>
 
-          {/* Insights CTA */}
+          {/* Lived Experiences CTA */}
           <section className="my-10 rounded-xl border border-primary/20 bg-primary/5 p-8 md:p-10 text-center">
             <h2 className="mb-3 text-2xl font-bold text-foreground md:text-3xl">
               This Isn't Theory. It's Real Experience.
             </h2>
             <p className="mx-auto mb-6 max-w-xl text-lg text-muted-foreground">
-              Go beyond the data and hear from people experiencing dyslexia across the defence community.
+              These experiences are not theoretical. Read real stories from people across the Defence community who have lived with dyslexia throughout their careers.
             </p>
-            <Link to="/insights">
+            <Link to="/lived-experiences">
               <Button size="lg" className="rounded-full px-8 text-base font-semibold">
-                Explore Insights
+                View Lived Experiences
                 <ChevronRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

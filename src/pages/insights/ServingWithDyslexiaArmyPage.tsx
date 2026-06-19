@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import InsightLayout from "@/components/InsightLayout";
 import MidContentNudge from "@/components/MidContentNudge";
 import LivedExperienceBlock from "@/components/LivedExperienceBlock";
@@ -5,7 +6,6 @@ import DecisionConfidenceBlock from "@/components/DecisionConfidenceBlock";
 import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
 import { livedExperienceSnippets } from "@/data/livedExperience";
 import AllenCitation from "@/components/AllenCitation";
-import { Link } from "react-router-dom";
 
 const featuredQuotes = livedExperienceSnippets.filter((s) =>
   ["five-times-harder", "support-disappeared", "soft-skills-vital"].includes(s.id),
@@ -43,7 +43,8 @@ const ServingWithDyslexiaArmyPage = () => (
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">Who</h2>
       <p className="text-foreground leading-relaxed">
-        <strong>Symon Smith</strong> is a former British Army officer and the founder of the Defence Dyslexia Network, established in March 2022. The network now has over 2,000 members and 240+ volunteer ambassadors across the Army, Royal Navy and RAF. He is also the founder of Dyslexia in Defence, the wider initiative supporting the entire UK defence ecosystem.
+        <Link to="/lived-experiences/symon-smith-british-army-veteran" className="font-bold text-foreground underline-offset-2 hover:text-primary hover:underline">Symon Smith</Link> is a former British Army officer and the founder of the Defence Dyslexia Network, established in March 2022. The network now has over 2,000 members and 240+ volunteer ambassadors across the Army, Royal Navy and RAF. He is also the founder of Dyslexia in Defence, the wider initiative supporting the entire UK defence ecosystem.{" "}
+        <Link to="/lived-experiences/symon-smith-british-army-veteran" className="font-semibold text-primary underline-offset-4 hover:underline">Read Symon's full story →</Link>
       </p>
     </section>
 
