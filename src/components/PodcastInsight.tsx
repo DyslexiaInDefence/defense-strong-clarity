@@ -1,4 +1,4 @@
-import { Headphones, ExternalLink } from "lucide-react";
+import { Headphones, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { trackEvent } from "@/lib/analytics";
 
@@ -7,12 +7,12 @@ interface PodcastInsightProps {
   className?: string;
 }
 
-const PODCAST_URL = "https://open.spotify.com/episode/2zNd3YpRNMt14rNU3kCqpR";
+const KIRK_PATH = "/lived-experiences/staff-sergeant-kirk-davis-british-army";
 
 const PodcastInsight = ({ title, className = "" }: PodcastInsightProps) => {
   const handleClick = () => {
-    trackEvent("podcast_insight_click", {
-      target: PODCAST_URL,
+    trackEvent("lived_experience_click", {
+      target: KIRK_PATH,
       page_path: typeof window !== "undefined" ? window.location.pathname : "",
     });
   };
@@ -34,28 +34,16 @@ const PodcastInsight = ({ title, className = "" }: PodcastInsightProps) => {
         </div>
       </div>
       <p className="text-foreground leading-relaxed mb-4">
-        Hear directly from someone currently serving about what dyslexia is really like in the
-        military — the challenges, the coping strategies, and how it shapes success.
+        Hear directly from a serving member of the Armed Forces about their experience of living and serving with dyslexia — the challenges, the coping strategies, and how it shapes success.
       </p>
-      <a
-        href={PODCAST_URL}
-        target="_blank"
-        rel="noopener noreferrer"
+      <Link
+        to={KIRK_PATH}
         onClick={handleClick}
         className="inline-flex items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline"
       >
-        Listen to the episode
-        <ExternalLink className="h-4 w-4" aria-hidden="true" />
-        <span className="sr-only"> (opens Spotify in a new tab)</span>
-      </a>
-      <div className="mt-3">
-        <Link
-          to="/lived-experiences/staff-sergeant-kirk-davis-british-army"
-          className="text-sm font-semibold text-primary underline-offset-4 hover:underline"
-        >
-          Read Kirk's full lived experience →
-        </Link>
-      </div>
+        Read Staff Sergeant Kirk Davis' story
+        <ArrowRight className="h-4 w-4" aria-hidden="true" />
+      </Link>
     </aside>
   );
 };
