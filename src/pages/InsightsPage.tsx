@@ -62,16 +62,6 @@ const intentCategories: IntentCategory[] = [
         link: "/insights/what-happens-if-dyslexia-is-identified-during-service-uk",
       },
       {
-        question: "Is dyslexia a barrier in the military (UK)?",
-        answer: "No. Dyslexic personnel serve at every rank in every service. The real barriers are awareness and inconsistent support — not dyslexia itself.",
-        link: "/insights/is-dyslexia-a-barrier-in-the-military-uk",
-      },
-      {
-        question: "JSP 822 vs the Equality Act — what's the difference?",
-        answer: "JSP 822 is the MOD's training policy for specific learning differences. The Equality Act 2010 sits above it as the legal duty. Both apply.",
-        link: "/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk",
-      },
-      {
         question: "Neurodiversity in the MOD (UK)",
         answer: "The MOD recognises neurodiversity as a workforce strength — BDA Bronze recognition, growing networks across military and civil service roles.",
         link: "/insights/neurodiversity-in-the-mod-uk",
@@ -84,16 +74,6 @@ const intentCategories: IntentCategory[] = [
     blurb: "Transition, recognition of in-service assessments and what comes next.",
     icon: LogOut,
     items: [
-      {
-        question: "Is dyslexia a barrier in the military (UK)?",
-        answer: "Useful context if you're reflecting on your career or supporting someone still in. The barriers are systemic, not personal.",
-        link: "/insights/is-dyslexia-a-barrier-in-the-military-uk",
-      },
-      {
-        question: "Neurodiversity in the MOD (UK)",
-        answer: "Background on the wider system you served in — and how it's changing for those still serving and transitioning out.",
-        link: "/insights/neurodiversity-in-the-mod-uk",
-      },
       {
         question: "JSP 822 vs the Equality Act — what changes when you leave?",
         answer: "Leaving the military shifts your dyslexia rights from JSP 822 (policy-based, internal) to the Equality Act 2010 (legally enforceable in civilian employment). Know the difference before you transition.",
