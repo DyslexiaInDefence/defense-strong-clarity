@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Compass, Target, User, Shield, HandCoins, FileSearch, HeartHandshake } from "lucide-react";
+import { ArrowRight, Compass, Target, Building2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const aboutLinks = [
@@ -16,34 +16,10 @@ const aboutLinks = [
     icon: Target,
   },
   {
-    title: "Founder",
-    description: "Who started Dyslexia in Defence and why.",
-    to: "/governance/founder",
-    icon: User,
-  },
-  {
-    title: "Governance",
-    description: "How the network is run and held to account.",
-    to: "/governance",
-    icon: Shield,
-  },
-  {
-    title: "Sponsorship",
-    description: "Principles that protect independence and editorial integrity.",
-    to: "/governance/sponsorship",
-    icon: HandCoins,
-  },
-  {
-    title: "Transparency",
-    description: "Financial and ethical accountability commitments.",
-    to: "/governance/transparency",
-    icon: FileSearch,
-  },
-  {
-    title: "Safeguarding",
-    description: "How we keep the community safe and respectful.",
-    to: "/governance/safeguarding",
-    icon: HeartHandshake,
+    title: "Structure",
+    description: "How we are organised — founder, governance, transparency, sponsorship and CIC information.",
+    to: "/structure",
+    icon: Building2,
   },
 ];
 

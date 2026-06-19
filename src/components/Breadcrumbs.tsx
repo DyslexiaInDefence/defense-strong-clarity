@@ -16,6 +16,7 @@ const LABELS: Record<string, string> = {
   resources: "Resources",
   support: "Support",
   ecosystem: "Ecosystem",
+  structure: "Structure",
   founder: "Founder & Purpose",
   "code-of-conduct": "Code of Conduct",
   safeguarding: "Safeguarding",
@@ -30,8 +31,6 @@ const LABELS: Record<string, string> = {
     "JSP 822 vs Equality Act",
   "do-i-need-to-declare-dyslexia-when-joining-the-military-uk":
     "Declaring Dyslexia",
-  "serving-with-dyslexia-in-the-army-uk":
-    "Serving with Dyslexia",
   "what-support-is-available-for-dyslexia-in-the-military-uk":
     "Support Available",
   "what-happens-if-dyslexia-is-identified-during-service-uk":

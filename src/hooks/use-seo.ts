@@ -114,12 +114,6 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.8,
     indexable: true,
   },
-  "/insights/serving-with-dyslexia-in-the-army-uk": {
-    title: "Serving With Dyslexia in the Army | Lived Experience UK",
-    description: "A former British Army officer’s honest account of dyslexia in uniform — support, coping mechanisms, and why dyslexic strengths matter in Defence.",
-    priority: 0.7,
-    indexable: true,
-  },
   "/insights/what-support-is-available-for-dyslexia-in-the-military-uk": {
     title: "What Support Is Available for Dyslexia in the Military? | UK",
     description: "Dyslexia support in the UK military: Defence Dyslexia Network, 240+ volunteer ambassadors, service education teams, workplace adjustments and assistive technology.",
@@ -172,6 +166,12 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     title: "Symon Smith | British Army Veteran | Dyslexia in Defence",
     description: "Symon Smith shares his dyslexia journey, from diagnosis through education and military service, to founding Dyslexia in Defence after leaving the Army.",
     priority: 0.7,
+    indexable: true,
+  },
+  "/structure": {
+    title: "Structure | Dyslexia in Defence",
+    description: "How Dyslexia in Defence CIC is organised — founder, governance, transparency, sponsorship and CIC registration details.",
+    priority: 0.5,
     indexable: true,
   },
   "/community": {

@@ -17,10 +17,7 @@ const navLinks: NavItem[] = [
     children: [
       { label: "Why It Matters", to: "/why-it-matters" },
       { label: "What We Want to Achieve", to: "/achieve" },
-      { label: "Founder", to: "/governance/founder" },
-      { label: "Governance", to: "/governance" },
-      { label: "Sponsorship", to: "/governance/sponsorship" },
-      { label: "Transparency", to: "/governance/transparency" },
+      { label: "Structure", to: "/structure" },
     ],
   },
   {
