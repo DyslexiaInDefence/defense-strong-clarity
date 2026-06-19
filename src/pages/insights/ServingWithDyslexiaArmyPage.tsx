@@ -6,7 +6,6 @@ import DecisionConfidenceBlock from "@/components/DecisionConfidenceBlock";
 import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
 import { livedExperienceSnippets } from "@/data/livedExperience";
 import AllenCitation from "@/components/AllenCitation";
-import { Link } from "react-router-dom";
 
 const featuredQuotes = livedExperienceSnippets.filter((s) =>
   ["five-times-harder", "support-disappeared", "soft-skills-vital"].includes(s.id),
