@@ -50,11 +50,11 @@
     </script>
 
     <!-- Privacy-friendly analytics by Plausible -->
-    <script async data-domain="dyslexiaindefence.com" src="https://plausible.io/js/pa-ieOi8yl_qyfmlm35atIRi.js"></script>
+    <script async src="https://plausible.io/js/pa-ieOi8yl_qyfmlm35atIRi.js"></script>
     <script>
-      if (window.location.hostname === 'dyslexiaindefence.com') {
-        window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments) };
-      }
+      window.plausible = window.plausible || function () { (plausible.q = plausible.q || []).push(arguments) };
+      plausible.init = plausible.init || function () { plausible.o = plausible.o || {}; plausible.init() }
+      plausible.init();
     </script>
   </head>
 
