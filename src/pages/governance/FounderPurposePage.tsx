@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import PolicyLayout, { Callout } from "@/components/PolicyLayout";
 
 const sections = [
@@ -23,6 +24,12 @@ const FounderPurposePage = () => (
       </p>
       <p className="text-muted-foreground">
         It achieves this through independent peer support, curated resources, and structured signposting to established services and organisations.
+      </p>
+      <p className="text-muted-foreground mt-3">
+        Founded by Symon Smith, a British Army veteran.{" "}
+        <Link to="/lived-experiences/symon-smith-british-army-veteran" className="font-semibold text-primary underline-offset-4 hover:underline">
+          Read Symon's full story →
+        </Link>
       </p>
     </section>
 
