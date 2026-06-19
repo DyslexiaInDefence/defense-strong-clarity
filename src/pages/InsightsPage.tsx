@@ -1,10 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
-import { FileText, ExternalLink, PlayCircle, BookOpen, Lightbulb, ChevronRight, HelpCircle, UserPlus, Shield, LogOut } from "lucide-react";
+import { ArrowRight, Users, Lightbulb, ChevronRight, HelpCircle, UserPlus, Shield, LogOut } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
 import type { AudienceIntent } from "@/components/AudienceRouter";
+import { Button } from "@/components/ui/button";
+import { livedStories, LIVED_EXPERIENCES_BASE } from "@/data/livedStories";
 
 type IntentCategory = {
   id: AudienceIntent;
@@ -65,11 +67,6 @@ const intentCategories: IntentCategory[] = [
         link: "/insights/is-dyslexia-a-barrier-in-the-military-uk",
       },
       {
-        question: "Serving with dyslexia in the Army — a real journey",
-        answer: "A condensed featured story covering coping mechanisms, support gaps and success despite challenges across a full Army career.",
-        link: "/insights/serving-with-dyslexia-in-the-army-uk",
-      },
-      {
         question: "JSP 822 vs the Equality Act — what's the difference?",
         answer: "JSP 822 is the MOD's training policy for specific learning differences. The Equality Act 2010 sits above it as the legal duty. Both apply.",
         link: "/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk",
@@ -87,11 +84,6 @@ const intentCategories: IntentCategory[] = [
     blurb: "Transition, recognition of in-service assessments and what comes next.",
     icon: LogOut,
     items: [
-      {
-        question: "Serving with dyslexia in the Army — full journey",
-        answer: "Includes the transition phase: how in-service assessments translate into civilian-recognised diagnoses and what to ask for before you leave.",
-        link: "/insights/serving-with-dyslexia-in-the-army-uk",
-      },
       {
         question: "Is dyslexia a barrier in the military (UK)?",
         answer: "Useful context if you're reflecting on your career or supporting someone still in. The barriers are systemic, not personal.",
