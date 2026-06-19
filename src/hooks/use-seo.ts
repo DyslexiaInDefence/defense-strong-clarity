@@ -20,7 +20,7 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
   },
   "/about": {
     title: "About Dyslexia in Defence | UK Defence Neurodiversity",
-    description: "Learn who Dyslexia in Defence is, why it exists, and how it supports dyslexia and neurodiversity across the UK Defence community.",
+    description: "Learn about Dyslexia in Defence CIC, a registered Community Interest Company supporting dyslexia and neurodiversity across the UK Defence community.",
     priority: 0.8,
     indexable: true,
   },
@@ -50,7 +50,7 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
   },
   "/governance": {
     title: "Governance and Transparency | Dyslexia in Defence",
-    description: "Governance framework, transparency principles and operating model for Dyslexia in Defence, an independent volunteer-led neurodiversity initiative.",
+    description: "Governance information for Dyslexia in Defence CIC, including its registered company status and community interest structure.",
     priority: 0.7,
     indexable: true,
   },

@@ -72,6 +72,13 @@ const ContactPage = () => {
             );
           })}
         </div>
+
+        <div className="mt-12 border-t border-border pt-6 text-sm text-muted-foreground">
+          <h2 className="mb-2 text-base font-semibold text-foreground">Legal details</h2>
+          <p>Dyslexia in Defence CIC</p>
+          <p>Company number: 17285330</p>
+          <p>Registered in England and Wales</p>
+        </div>
       </div>
     </div>
   );

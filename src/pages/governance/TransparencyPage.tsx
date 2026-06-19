@@ -1,6 +1,7 @@
 import PolicyLayout, { Callout } from "@/components/PolicyLayout";
 
 const sections = [
+  { id: "legal-status", title: "Legal Status" },
   { id: "financial", title: "Financial Transparency" },
   { id: "governance-evolution", title: "Governance Evolution" },
   { id: "reporting", title: "Public Reporting" },
@@ -15,6 +16,13 @@ const TransparencyPage = () => (
     lastUpdated="1 March 2026"
     sections={sections}
   >
+    <section id="legal-status">
+      <h2 className="text-2xl font-bold text-foreground mb-4">Legal Status</h2>
+      <p className="text-muted-foreground mb-3">
+        Dyslexia in Defence CIC is registered in England and Wales as a Private Limited by Guarantee company. Company number: 17285330.
+      </p>
+    </section>
+
     <section id="financial">
       <h2 className="text-2xl font-bold text-foreground mb-4">Financial Transparency</h2>
       <p className="text-muted-foreground mb-3">
