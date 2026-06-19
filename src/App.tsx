@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AccessibilityProvider } from "@/contexts/AccessibilityContext";
 import Layout from "@/components/Layout";
 import HomePage from "@/pages/HomePage";
@@ -29,13 +29,13 @@ import DyslexiaBarrierMilitaryPage from "@/pages/insights/DyslexiaBarrierMilitar
 import NeurodiversityMODPage from "@/pages/insights/NeurodiversityMODPage";
 import JSP822vsEqualityActPage from "@/pages/insights/JSP822vsEqualityActPage";
 import DeclareDyslexiaMilitaryPage from "@/pages/insights/DeclareDyslexiaMilitaryPage";
-import ServingWithDyslexiaArmyPage from "@/pages/insights/ServingWithDyslexiaArmyPage";
 import SupportForDyslexiaMilitaryPage from "@/pages/insights/SupportForDyslexiaMilitaryPage";
 import DyslexiaIdentifiedDuringServicePage from "@/pages/insights/DyslexiaIdentifiedDuringServicePage";
 import LivedExperiencesPage from "@/pages/LivedExperiencesPage";
 import LisaHodgePage from "@/pages/lived-experiences/LisaHodgePage";
 import KirkDavisPage from "@/pages/lived-experiences/KirkDavisPage";
 import SymonSmithPage from "@/pages/lived-experiences/SymonSmithPage";
+import StructurePage from "@/pages/StructurePage";
 import NotFound from "@/pages/NotFound";
 
 const App = () => (
@@ -55,6 +55,7 @@ const App = () => (
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/accessibility" element={<AccessibilityPage />} />
           <Route path="/ecosystem" element={<EcosystemPage />} />
+          <Route path="/structure" element={<StructurePage />} />
           <Route path="/achieve" element={<AchievePage />} />
           <Route path="/insights" element={<InsightsPage />} />
           <Route path="/insights/can-you-join-army-with-dyslexia-uk" element={<ArmyDyslexiaPage />} />
@@ -64,7 +65,10 @@ const App = () => (
           <Route path="/insights/neurodiversity-in-the-mod-uk" element={<NeurodiversityMODPage />} />
           <Route path="/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk" element={<JSP822vsEqualityActPage />} />
           <Route path="/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk" element={<DeclareDyslexiaMilitaryPage />} />
-          <Route path="/insights/serving-with-dyslexia-in-the-army-uk" element={<ServingWithDyslexiaArmyPage />} />
+          <Route
+            path="/insights/serving-with-dyslexia-in-the-army-uk"
+            element={<Navigate to="/lived-experiences/staff-sergeant-kirk-davis-british-army" replace />}
+          />
           <Route path="/insights/what-support-is-available-for-dyslexia-in-the-military-uk" element={<SupportForDyslexiaMilitaryPage />} />
           <Route path="/insights/what-happens-if-dyslexia-is-identified-during-service-uk" element={<DyslexiaIdentifiedDuringServicePage />} />
           <Route path="/lived-experiences" element={<LivedExperiencesPage />} />

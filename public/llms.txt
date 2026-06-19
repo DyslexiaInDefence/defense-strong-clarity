@@ -28,7 +28,6 @@ Dyslexia in Defence is volunteer-led and not affiliated with the Ministry of Def
 
 - [What support is available for dyslexia in the military?](/insights/what-support-is-available-for-dyslexia-in-the-military-uk): Defence Dyslexia Network, ambassadors and adjustments.
 - [What happens if dyslexia is identified during service?](/insights/what-happens-if-dyslexia-is-identified-during-service-uk): Assessment, adjustments and career impact.
-- [Serving with dyslexia in the Army](/insights/serving-with-dyslexia-in-the-army-uk): Lived-experience account from a former Army officer.
 - [Neurodiversity in the MOD (UK)](/insights/neurodiversity-in-the-mod-uk): MOD-wide recognition of neurodiversity.
 - [JSP 822 vs Equality Act](/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk): What changes for dyslexia rights on leaving service.
 
@@ -43,6 +42,7 @@ Dyslexia in Defence is volunteer-led and not affiliated with the Ministry of Def
 - [Founder & Purpose](/governance/founder): Mission, scope and independence.
 - [Sponsorship Principles](/governance/sponsorship): How sponsorship is governed.
 - [Transparency Commitment](/governance/transparency): Financial and ethical accountability.
+- [Structure](/structure): How the CIC is organised and held to account.
 
 ## Optional
 
