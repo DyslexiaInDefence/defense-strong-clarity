@@ -284,77 +284,54 @@ const InsightsPage = () => {
         </div>
       </section>
 
-      {/* Podcast Insights */}
-      <section className="py-16 md:py-20">
+      {/* Real Stories */}
+      <section className="bg-card py-16 md:py-20" aria-labelledby="real-stories-heading">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl">
-            <div className="mb-8 flex items-center gap-3">
-              <PlayCircle className="h-7 w-7 text-primary" aria-hidden="true" />
-              <h2 className="text-2xl font-bold text-foreground md:text-3xl">Real experiences and perspectives</h2>
+            <div className="mb-6 flex items-center gap-3">
+              <Users className="h-7 w-7 text-primary" aria-hidden="true" />
+              <h2 id="real-stories-heading" className="text-2xl font-bold text-foreground md:text-3xl">Real Stories</h2>
             </div>
             <p className="mb-10 text-base leading-relaxed text-muted-foreground">
-              Podcast conversations featuring serving and former defence personnel sharing insights on <strong>dyslexia support in the MOD</strong> and beyond.
+              Policies and guidance matter. Real experiences matter more. Read the stories of serving personnel, veterans and civil servants who have lived with dyslexia throughout their careers.
             </p>
 
-            <div className="space-y-10">
-              <PodcastCard
-                embedUrl="https://open.spotify.com/embed/episode/3yGuLAcPYJqLcT05wSOlgU?utm_source=generator&theme=0"
-                title="Leadership and Dyslexia in Defence"
-                description="A candid discussion on how dyslexia intersects with leadership and decision making across the defence environment."
-              />
-              <PodcastCard
-                embedUrl="https://open.spotify.com/embed/episode/16a7rVgNCb3jTdfoRhDmrj?utm_source=generator&theme=0"
-                title="Neurodiversity and Leadership in the Army"
-                description="Exploring how neurodiverse thinking contributes to effective leadership within the British Army."
-              />
-              <PodcastCard
-                embedUrl="https://open.spotify.com/embed/episode/2zNd3YpRNMt14rNU3kCqpR?utm_source=generator&theme=0"
-                title="Lived experience inside the MOD"
-                description="First hand accounts of navigating dyslexia within the Ministry of Defence — challenges, turning points and the support that made a difference."
-              />
-              <div className="space-y-4">
-                <PodcastCard
-                  embedUrl="https://open.spotify.com/embed/episode/5F9sfDROyK9jkV1uK5i9Ot?utm_source=generator&theme=0"
-                  title="The Defence Dyslexia Network"
-                  description="An introduction to the Defence Dyslexia Network, which supports individuals currently serving within the MOD."
-                />
-                <div className="rounded-xl border border-border bg-background p-5 text-sm leading-relaxed text-muted-foreground">
-                  <p className="mb-2">
-                    <strong className="text-foreground">How it connects:</strong> The Defence Dyslexia Network focuses on individuals currently serving in the MOD.
-                  </p>
-                  <p>
-                    <strong className="text-foreground">Dyslexia in Defence</strong> provides broader, wraparound support across the entire defence ecosystem — including veterans, families, civil servants and industry. The two are <strong>complementary, not competing</strong>.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            <ul className="grid gap-4 sm:grid-cols-3">
+              {livedStories.slice(0, 3).map((s) => (
+                <li key={s.slug}>
+                  <Link
+                    to={`${LIVED_EXPERIENCES_BASE}/${s.slug}`}
+                    className="group flex h-full flex-col items-center gap-3 rounded-2xl border border-border bg-background p-5 text-center transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    <img
+                      src={s.photoUrl}
+                      alt={s.photoAlt}
+                      loading="lazy"
+                      onError={(e) => {
+                        (e.currentTarget as HTMLImageElement).style.display = "none";
+                      }}
+                      className="h-20 w-20 shrink-0 rounded-full border border-border object-cover shadow-sm"
+                    />
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold text-foreground">{s.name}</p>
+                      <p className="text-xs text-muted-foreground">{s.role}</p>
+                    </div>
+                    <span className="mt-auto inline-flex items-center text-sm font-semibold text-primary">
+                      Read story
+                      <ChevronRight className="ml-0.5 h-4 w-4" aria-hidden="true" />
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
-      {/* Research and Publications */}
-      <section className="bg-card py-16 md:py-20">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl">
-            <div className="mb-8 flex items-center gap-3">
-              <BookOpen className="h-7 w-7 text-primary" aria-hidden="true" />
-              <h2 className="text-2xl font-bold text-foreground md:text-3xl">Research and formal insight</h2>
-            </div>
-            <p className="mb-10 text-base leading-relaxed text-muted-foreground">
-              Published articles and journal entries reflecting growing recognition of <strong>neurodiversity in the military</strong> and defence sector.
-            </p>
-
-            <div className="grid gap-6 sm:grid-cols-2">
-              <PublicationCard
-                href="/documents/dyslexia-article.pdf"
-                title="British Dyslexia Association Feature"
-                description="Formal recognition of dyslexia within a military context, published in the BDA magazine."
-              />
-              <PublicationCard
-                href="/documents/rsi-journal-winter-23.pdf"
-                title="Royal Signals Institute Journal — Winter 2023"
-                description="Professional and regimental level discussion of dyslexia within the Royal Corps of Signals."
-              />
+            <div className="mt-8 text-center">
+              <Link to="/lived-experiences">
+                <Button size="lg" className="rounded-full px-8 text-sm font-bold">
+                  View All Lived Experiences
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -364,58 +341,5 @@ const InsightsPage = () => {
 };
 
 /* ---------- Sub-components ---------- */
-
-const PodcastCard = ({
-  embedUrl,
-  title,
-  description,
-}: {
-  embedUrl: string;
-  title: string;
-  description: string;
-}) => (
-  <div className="space-y-3">
-    <h3 className="text-lg font-bold text-foreground">{title}</h3>
-    <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
-    <div className="overflow-hidden rounded-xl border border-border">
-      <iframe
-        src={embedUrl}
-        width="100%"
-        height="152"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy"
-        title={title}
-        className="block"
-        style={{ borderRadius: "12px" }}
-      />
-    </div>
-  </div>
-);
-
-const PublicationCard = ({
-  href,
-  title,
-  description,
-}: {
-  href: string;
-  title: string;
-  description: string;
-}) => (
-  <a
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="group flex flex-col gap-4 rounded-2xl border border-border bg-card p-6 transition-shadow hover:shadow-lg"
-  >
-    <div className="flex items-center gap-3">
-      <FileText className="h-8 w-8 shrink-0 text-primary" aria-hidden="true" />
-      <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">{title}</h3>
-    </div>
-    <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
-    <span className="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-primary">
-      View document <ExternalLink className="h-4 w-4" />
-    </span>
-  </a>
-);
 
 export default InsightsPage;
