@@ -293,8 +293,11 @@ const useSEO = () => {
       setMeta("twitter:description", pageData.description);
       setMeta("twitter:image", OG_IMAGE);
 
-      // Article schema for individual Insights articles only (hub uses FAQPage)
-      if (pageData.indexable && pathname.startsWith("/insights/") && pathname !== "/insights") {
+      // Article schema for individual Insights and Lived Experience articles (hubs excluded)
+      const isInsightArticle = pathname.startsWith("/insights/") && pathname !== "/insights";
+      const isLivedExperienceArticle =
+        pathname.startsWith("/lived-experiences/") && pathname !== "/lived-experiences";
+      if (pageData.indexable && (isInsightArticle || isLivedExperienceArticle)) {
         setArticleSchema(url, pageData);
       } else {
         removeArticleSchema();
