@@ -1,10 +1,15 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Shield, Scale, Eye, Lock, Banknote, Users } from "lucide-react";
+import { Shield, Scale, Eye, Lock, Banknote, Users, Building2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 
 const sections = [
+  {
+    icon: Building2,
+    title: "Legal status",
+    content: "Dyslexia in Defence CIC is a registered Community Interest Company. It is registered in England and Wales as a Private Limited by Guarantee company. Company number: 17285330.",
+  },
   {
     icon: Scale,
     title: "Operating Model",
@@ -41,12 +46,24 @@ const orgSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Dyslexia in Defence",
+  legalName: "DYSLEXIA IN DEFENCE CIC",
+  alternateName: "Dyslexia in Defence CIC",
   url: "https://dyslexiaindefence.com",
-  description: "An independent, volunteer-led initiative supporting dyslexic individuals across the UK defence community.",
+  description: "A registered Community Interest Company supporting dyslexic individuals across the UK defence community.",
   founder: {
     "@type": "Person",
     name: "Symon Smith",
     jobTitle: "Founder",
+  },
+  identifier: {
+    "@type": "PropertyValue",
+    propertyID: "UK Companies House",
+    value: "17285330",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "GB",
+    addressRegion: "England and Wales",
   },
 };
 

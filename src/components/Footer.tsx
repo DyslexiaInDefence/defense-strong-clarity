@@ -72,6 +72,14 @@ const Footer = () => {
             Committed to inclusion, cognitive diversity, and capability.
           </p>
         </div>
+
+        {/* Legal registration */}
+        <div className="mt-6 border-t border-border pt-4 text-center text-xs leading-relaxed text-muted-foreground">
+          <p>Dyslexia in Defence CIC</p>
+          <p>Company number: 17285330</p>
+          <p>Registered in England and Wales</p>
+          <p>Private Limited by Guarantee</p>
+        </div>
       </div>
     </footer>
   );

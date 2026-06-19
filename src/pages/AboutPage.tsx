@@ -54,10 +54,13 @@ const AboutPage = () => {
         <div className="mb-12 max-w-3xl">
           <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">About Dyslexia in Defence</h1>
           <p className="text-lg text-muted-foreground">
-            Dyslexia in Defence exists to support people across the UK Defence community by improving understanding, sharing lived experience, and connecting people to the right support.
+            Dyslexia in Defence is a registered Community Interest Company, created to support people with dyslexia and neurodiversity across the UK Defence community by improving understanding, sharing lived experience, and connecting people to the right support.
           </p>
           <p className="mt-4 text-base text-muted-foreground">
             We are an independent, volunteer led initiative. Not affiliated with or endorsed by the Ministry of Defence or any employer.
+          </p>
+          <p className="mt-4 text-sm text-muted-foreground">
+            Dyslexia in Defence CIC is registered in England and Wales. Company number: 17285330.
           </p>
         </div>
 
