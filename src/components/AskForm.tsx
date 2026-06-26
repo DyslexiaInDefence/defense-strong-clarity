@@ -6,7 +6,14 @@ import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { supabase } from "@/integrations/supabase/client";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   Form,
   FormControl,
@@ -15,60 +22,65 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { supabase } from "@/integrations/supabase/client";
 
-const contactSchema = z.object({
-  name: z
+const askSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100),
+  email: z.string().trim().min(1, "Email is required").email("Please enter a valid email").max(255),
+  connection: z.string().min(1, "Please select your connection"),
+  question: z
     .string()
     .trim()
-    .min(1, "Name is required")
-    .max(100, "Name must be under 100 characters"),
-  email: z
-    .string()
-    .trim()
-    .min(1, "Email is required")
-    .email("Please enter a valid email address")
-    .max(255, "Email must be under 255 characters"),
-  subject: z
-    .string()
-    .trim()
-    .min(1, "Subject is required")
-    .max(200, "Subject must be under 200 characters"),
-  message: z
-    .string()
-    .trim()
-    .min(1, "Message is required")
-    .max(2000, "Message must be under 2000 characters"),
+    .min(10, "Please share a little more so we can help")
+    .max(2000, "Please keep it under 2000 characters"),
+  consent: z.literal(true, {
+    errorMap: () => ({ message: "Please confirm you're happy for us to reply" }),
+  }),
 });
 
-type ContactFormData = z.infer<typeof contactSchema>;
+type AskFormData = z.infer<typeof askSchema>;
 
-const ContactForm = () => {
+const connections = [
+  "Serving — Military",
+  "Serving — Civil Service",
+  "Veteran",
+  "Reservist",
+  "Defence Industry",
+  "Family Member",
+  "Pre joining Candidate",
+  "Manager or Instructor",
+  "Other",
+  "Prefer not to say",
+];
+
+const AskForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const form = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
+  const form = useForm<AskFormData>({
+    resolver: zodResolver(askSchema),
     defaultValues: {
       name: "",
       email: "",
-      subject: "",
-      message: "",
+      connection: "",
+      question: "",
+      consent: undefined as unknown as true,
     },
   });
 
-  const onSubmit = async (data: ContactFormData) => {
+  const onSubmit = async (data: AskFormData) => {
     if (submitting) return;
     setSubmitting(true);
     setSubmitError(null);
     try {
       const { data: res, error } = await supabase.functions.invoke("forms-to-brevo", {
         body: {
-          formType: "contact",
+          formType: "ask",
           name: data.name,
           email: data.email,
-          subject: data.subject,
-          message: data.message,
+          connection: data.connection,
+          message: data.question,
           consent: true,
           website: "",
         },
@@ -79,7 +91,7 @@ const ContactForm = () => {
       }
       setSubmitted(true);
     } catch (err) {
-      console.error("Contact form submission error:", err);
+      console.error("Ask form submission error:", err);
       setSubmitError(
         err instanceof Error ? err.message : "Something went wrong. Please try again later.",
       );
@@ -96,29 +108,20 @@ const ContactForm = () => {
         aria-live="polite"
       >
         <CheckCircle className="mx-auto mb-4 h-12 w-12 text-primary" aria-hidden="true" />
-        <h3 className="mb-2 text-xl font-bold text-foreground">Message Sent</h3>
+        <h3 className="mb-2 text-xl font-bold text-foreground">Question Received</h3>
         <p className="text-muted-foreground">
-          Thank you for getting in touch. We'll respond within 5 working days.
+          Thank you for reaching out. A member of the community will reply by email as soon as we can.
         </p>
-        <Button
-          variant="outline"
-          className="mt-6"
-          onClick={() => {
-            setSubmitted(false);
-            form.reset();
-          }}
-        >
-          Send Another Message
-        </Button>
       </div>
     );
   }
 
   return (
     <div className="rounded-xl border border-border bg-card p-6 shadow-sm sm:p-8">
-      <h3 className="mb-1 text-xl font-bold text-foreground">Send Us a Message</h3>
+      <h3 className="mb-1 text-xl font-bold text-foreground">Ask the Community</h3>
       <p className="mb-6 text-sm text-muted-foreground">
-        All fields are required. We aim to reply within 5 working days.
+        Peer support from people who get it. We aim to reply within 5 working days. Please don't share
+        sensitive personal information you wouldn't put in an email.
       </p>
 
       {submitError && (
@@ -132,12 +135,7 @@ const ContactForm = () => {
       )}
 
       <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-5"
-          noValidate
-          aria-label="Contact form"
-        >
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5" noValidate>
           <div className="grid gap-5 sm:grid-cols-2">
             <FormField
               control={form.control}
@@ -159,12 +157,7 @@ const ContactForm = () => {
                 <FormItem>
                   <FormLabel>Email Address</FormLabel>
                   <FormControl>
-                    <Input
-                      type="email"
-                      placeholder="you@example.com"
-                      autoComplete="email"
-                      {...field}
-                    />
+                    <Input type="email" placeholder="you@example.com" autoComplete="email" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -174,12 +167,39 @@ const ContactForm = () => {
 
           <FormField
             control={form.control}
-            name="subject"
+            name="connection"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Subject</FormLabel>
+                <FormLabel>Connection to Defence</FormLabel>
+                <Select onValueChange={field.onChange} value={field.value}>
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select your connection" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    {connections.map((c) => (
+                      <SelectItem key={c} value={c}>{c}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="question"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Your Question</FormLabel>
                 <FormControl>
-                  <Input placeholder="What is this about?" {...field} />
+                  <Textarea
+                    placeholder="What would you like to ask?"
+                    className="min-h-[140px] resize-y"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -188,18 +208,19 @@ const ContactForm = () => {
 
           <FormField
             control={form.control}
-            name="message"
+            name="consent"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel>Message</FormLabel>
+              <FormItem className="flex items-start gap-2 space-y-0">
                 <FormControl>
-                  <Textarea
-                    placeholder="Tell us how we can help…"
-                    className="min-h-[120px] resize-y"
-                    {...field}
-                  />
+                  <Checkbox checked={field.value === true} onCheckedChange={field.onChange} />
                 </FormControl>
-                <FormMessage />
+                <div>
+                  <FormLabel className="text-sm font-normal">
+                    I'm happy for the team to reply by email and to handle my data in line with UK data
+                    protection principles.
+                  </FormLabel>
+                  <FormMessage />
+                </div>
               </FormItem>
             )}
           />
@@ -213,7 +234,7 @@ const ContactForm = () => {
             ) : (
               <>
                 <Send className="mr-2 h-4 w-4" aria-hidden="true" />
-                Send Message
+                Send Question
               </>
             )}
           </Button>
@@ -223,4 +244,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default AskForm;

@@ -27,6 +27,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -121,18 +122,34 @@ const JoinForm = () => {
     };
 
     try {
-      if (!GOOGLE_SCRIPT_URL) {
-        throw new Error("Form endpoint not configured. Please set VITE_GOOGLE_SCRIPT_URL.");
-      }
-
-      const response = await fetch(GOOGLE_SCRIPT_URL, {
-        method: "POST",
-        headers: { "Content-Type": "text/plain" },
-        body: JSON.stringify(payload),
+      // Dual-write during Brevo transition: Brevo is primary, Google Sheets is the safety net.
+      const brevoCall = supabase.functions.invoke("forms-to-brevo", {
+        body: {
+          formType: "join",
+          name: data.name,
+          email: data.email,
+          connection: data.connection,
+          interests: data.interests ?? [],
+          consent: data.consent === true,
+          website: "",
+        },
       });
 
-      if (!response.ok) {
-        throw new Error("Submission failed. Please try again.");
+      const sheetsCall = GOOGLE_SCRIPT_URL
+        ? fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            headers: { "Content-Type": "text/plain" },
+            body: JSON.stringify(payload),
+          }).catch((e) => {
+            console.warn("Google Sheets dual-write failed (non-blocking):", e);
+            return null;
+          })
+        : Promise.resolve(null);
+
+      const [brevoRes] = await Promise.all([brevoCall, sheetsCall]);
+      if (brevoRes.error) throw brevoRes.error;
+      if (brevoRes.data && (brevoRes.data as { ok?: boolean }).ok === false) {
+        throw new Error((brevoRes.data as { error?: string }).error ?? "Submission failed");
       }
 
       console.info("Join form submitted successfully:", {
