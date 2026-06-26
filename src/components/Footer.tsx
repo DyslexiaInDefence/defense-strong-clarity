@@ -58,6 +58,19 @@ const Footer = () => {
             <p className="text-sm leading-relaxed text-muted-foreground">
               Dyslexia in Defence is an independent, volunteer led initiative. It is not affiliated with or endorsed by the Ministry of Defence or any employer.
             </p>
+            <div className="mt-4 flex items-start gap-3">
+              <img
+                src="/images/badges/seuk-certified.webp"
+                alt="Certified Social Enterprise UK member badge"
+                width="56"
+                height="56"
+                loading="lazy"
+                className="h-14 w-14 shrink-0"
+              />
+              <p className="text-xs leading-relaxed text-muted-foreground">
+                Certified Social Enterprise UK member.
+              </p>
+            </div>
           </div>
         </div>
 

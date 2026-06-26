@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, User, Shield, FileSearch, HandCoins, Building2 } from "lucide-react";
+import { ArrowRight, User, Shield, FileSearch, HandCoins, Building2, Heart } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const items = [
@@ -52,6 +52,28 @@ const StructurePage = () => {
             <p className="mt-3 text-sm text-muted-foreground">
               We are independent and volunteer led. Not affiliated with or endorsed by the Ministry of Defence or any employer.
             </p>
+          </div>
+        </section>
+
+        <section aria-labelledby="seuk-info" className="mb-10">
+          <div className="rounded-2xl border border-border bg-card p-6">
+            <div className="mb-3 flex items-center gap-3">
+              <Heart className="h-5 w-5 text-primary" aria-hidden="true" />
+              <h2 id="seuk-info" className="text-xl font-bold text-foreground">Social enterprise status</h2>
+            </div>
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
+              <img
+                src="/images/badges/seuk-certified.webp"
+                alt="Certified Social Enterprise UK member badge"
+                width="112"
+                height="112"
+                loading="lazy"
+                className="h-28 w-28 shrink-0"
+              />
+              <p className="text-muted-foreground">
+                Dyslexia in Defence CIC is a registered Community Interest Company and a certified Social Enterprise UK member. This reflects our commitment to using our work for public benefit, supporting dyslexic people across the Defence community, and keeping lived experience at the heart of what we do.
+              </p>
+            </div>
           </div>
         </section>
 
