@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Send, CheckCircle } from "lucide-react";
+import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { supabase } from "@/integrations/supabase/client";
 import {
   Form,
   FormControl,
@@ -43,6 +44,8 @@ type ContactFormData = z.infer<typeof contactSchema>;
 
 const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
@@ -54,10 +57,35 @@ const ContactForm = () => {
     },
   });
 
-  const onSubmit = (data: ContactFormData) => {
-    // For now, simulate a successful submission
-    console.info("Contact form submitted:", { name: data.name, email: data.email, subject: data.subject });
-    setSubmitted(true);
+  const onSubmit = async (data: ContactFormData) => {
+    if (submitting) return;
+    setSubmitting(true);
+    setSubmitError(null);
+    try {
+      const { data: res, error } = await supabase.functions.invoke("forms-to-brevo", {
+        body: {
+          formType: "contact",
+          name: data.name,
+          email: data.email,
+          subject: data.subject,
+          message: data.message,
+          consent: true,
+          website: "",
+        },
+      });
+      if (error) throw error;
+      if (res && (res as { ok?: boolean }).ok === false) {
+        throw new Error((res as { error?: string }).error ?? "Submission failed");
+      }
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Contact form submission error:", err);
+      setSubmitError(
+        err instanceof Error ? err.message : "Something went wrong. Please try again later.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -92,6 +120,16 @@ const ContactForm = () => {
       <p className="mb-6 text-sm text-muted-foreground">
         All fields are required. We aim to reply within 5 working days.
       </p>
+
+      {submitError && (
+        <div
+          className="mb-4 flex items-center gap-2 rounded-lg border border-destructive/50 bg-destructive/10 p-3 text-sm text-destructive"
+          role="alert"
+        >
+          <AlertCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
+          <span>{submitError}</span>
+        </div>
+      )}
 
       <Form {...form}>
         <form
@@ -166,9 +204,18 @@ const ContactForm = () => {
             )}
           />
 
-          <Button type="submit" size="lg" className="w-full sm:w-auto">
-            <Send className="mr-2 h-4 w-4" aria-hidden="true" />
-            Send Message
+          <Button type="submit" size="lg" className="w-full sm:w-auto" disabled={submitting}>
+            {submitting ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
+                Sending…
+              </>
+            ) : (
+              <>
+                <Send className="mr-2 h-4 w-4" aria-hidden="true" />
+                Send Message
+              </>
+            )}
           </Button>
         </form>
       </Form>
