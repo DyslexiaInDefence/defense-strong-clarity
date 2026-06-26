@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import didLogoFull from "@/assets/did-logo-full.webp";
 
 const Footer = () => {
   return (
@@ -13,72 +14,80 @@ const Footer = () => {
           aria-hidden="true"
         />
 
-        {/* Top area: name, tagline, independence */}
-        <div className="mb-10 text-center">
-          <p className="mb-2 text-lg font-bold text-foreground">
-            Dyslexia in Defence
-          </p>
-          <p className="mx-auto max-w-xl text-sm leading-relaxed text-muted-foreground">
+        <div className="grid gap-10 md:grid-cols-4">
+          {/* Brand */}
+          <div>
+            <div className="mb-3 flex items-center gap-2">
+              <img src={didLogoFull} alt="Dyslexia in Defence" className="h-10 w-auto" />
+            </div>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              An independent, volunteer led initiative providing peer support and structured signposting across the defence and security ecosystem.
+            </p>
+          </div>
+
+          {/* About group */}
+          <div>
+            <h3 className="mb-3 text-lg font-bold text-foreground">
+              <Link to="/about" className="hover:text-primary transition-colors">About</Link>
+            </h3>
+          <ul className="space-y-2 text-sm">
+              <li><Link to="/why-it-matters" className="text-muted-foreground hover:text-primary transition-colors">Why It Matters</Link></li>
+              <li><Link to="/achieve" className="text-muted-foreground hover:text-primary transition-colors">What We Want to Achieve</Link></li>
+              <li><Link to="/structure" className="text-muted-foreground hover:text-primary transition-colors">Structure</Link></li>
+            </ul>
+          </div>
+
+          {/* Support group */}
+          <div>
+            <h3 className="mb-3 text-lg font-bold text-foreground">
+              <Link to="/support" className="hover:text-primary transition-colors">Support</Link>
+            </h3>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/insights" className="text-muted-foreground hover:text-primary transition-colors">Insights</Link></li>
+              <li><Link to="/community" className="text-muted-foreground hover:text-primary transition-colors">Community</Link></li>
+              <li><Link to="/join" className="text-muted-foreground hover:text-primary transition-colors">Join</Link></li>
+              <li><Link to="/partner" className="text-muted-foreground hover:text-primary transition-colors">Partner With Us</Link></li>
+              <li><Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact Us</Link></li>
+              <li><Link to="/lived-experiences" className="text-muted-foreground hover:text-primary transition-colors">Lived Experiences</Link></li>
+            </ul>
+          </div>
+
+          {/* Independence disclaimer */}
+          <div>
+            <h3 className="mb-3 text-lg font-bold text-foreground">Independence</h3>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Dyslexia in Defence is an independent, volunteer led initiative. It is not affiliated with or endorsed by the Ministry of Defence or any employer.
+            </p>
+            <div className="mt-4 flex items-start gap-3">
+              <img
+                src="/images/badges/seuk-certified.webp"
+                alt="Certified Social Enterprise UK member badge"
+                width="56"
+                height="56"
+                loading="lazy"
+                className="h-14 w-14 shrink-0"
+              />
+              <p className="text-xs leading-relaxed text-muted-foreground">
+                Certified Social Enterprise UK member.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="mt-10 flex flex-col items-center gap-4 text-center text-sm text-muted-foreground md:flex-row md:justify-between">
+          <p>© {new Date().getFullYear()} Dyslexia in Defence. All rights reserved.</p>
+          <p className="font-medium">
             Committed to inclusion, cognitive diversity, and capability.
           </p>
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
-            Dyslexia in Defence is an independent, volunteer led initiative. It
-            is not affiliated with or endorsed by the Ministry of Defence or any
-            employer.
-          </p>
         </div>
 
-        {/* Middle area: actions, email, badge */}
-        <div className="mb-10 flex flex-col items-center gap-6">
-          <div className="flex flex-wrap justify-center gap-3">
-            <Link
-              to="/structure"
-              className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-            >
-              Structure
-            </Link>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-            >
-              Contact Us
-            </Link>
-          </div>
-
-          <a
-            href="mailto:contact@dyslexiaindefence.com"
-            className="text-sm text-muted-foreground transition-colors hover:text-primary"
-          >
-            contact@dyslexiaindefence.com
-          </a>
-
-          <div className="flex items-center gap-3">
-            <img
-              src="/images/badges/seuk-certified.webp"
-              alt="Certified Social Enterprise UK member badge"
-              width="56"
-              height="56"
-              loading="lazy"
-              className="h-14 w-14"
-            />
-            <span className="text-xs text-muted-foreground">
-              Certified Social Enterprise UK member.
-            </span>
-          </div>
-        </div>
-
-        {/* Bottom area: copyright, legal, privacy */}
-        <div className="border-t border-border pt-6 text-center text-xs leading-relaxed text-muted-foreground">
-          <p className="mb-1">© 2026 Dyslexia in Defence. All rights reserved.</p>
+        {/* Legal registration */}
+        <div className="mt-6 border-t border-border pt-4 text-center text-xs leading-relaxed text-muted-foreground">
           <p>Dyslexia in Defence CIC</p>
           <p>Company number: 17285330</p>
           <p>Registered in England and Wales</p>
           <p>Private Limited by Guarantee</p>
-          <p className="mt-3">
-            <Link to="/privacy" className="underline transition-colors hover:text-primary">
-              Privacy
-            </Link>
-          </p>
         </div>
       </div>
     </footer>
