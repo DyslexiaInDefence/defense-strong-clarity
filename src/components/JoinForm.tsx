@@ -1,25 +1,11 @@
 /**
  * JoinForm Component
- * 
- * SUBMISSION LOGIC:
- * This form submits data to a Google Apps Script web app endpoint,
- * which writes each submission as a new row in a Google Sheet.
- * 
- * HOW IT WORKS:
- * 1. User fills in the form and clicks "Register Interest"
- * 2. Client-side validation runs (zod schema)
- * 3. Data is POSTed as JSON to the Google Apps Script URL
- * 4. The Apps Script parses the JSON and appends a row to the Google Sheet
- * 
- * HOW TO CHANGE THE DESTINATION GOOGLE SHEET:
- * 1. Update the GOOGLE_SCRIPT_URL constant below with your new Apps Script deployment URL
- * 2. Or create a new Apps Script project attached to a different Google Sheet
- *    and deploy it as a web app (see docs/google-sheets-setup.md)
- * 
- * SECURITY:
- * - No API keys are exposed client-side; the Apps Script URL is a public web app endpoint
- * - Server-side validation is performed in the Apps Script
- * - The Apps Script only accepts POST requests with the expected fields
+ *
+ * Submits to the `forms-to-brevo` Lovable Cloud edge function, which:
+ *   - upserts the contact in Brevo
+ *   - adds them to L1 Network Members (and L2 Newsletter if consented)
+ *   - sends the welcome email to the user
+ *   - sends an admin notification to contact@dyslexiaindefence.com
  */
 
 import { useState } from "react";
@@ -46,13 +32,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-
-/**
- * Google Apps Script web app URL.
- * Replace this with your own deployment URL.
- * See docs/google-sheets-setup.md for instructions.
- */
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxwfEUTaRFqYl3-XWAFZs9qDCB-rpC6hvwKcNxny9Fm_TFghKQVd1gy3EBFKNwZ1lwiow/exec";
 
 const joinSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -109,23 +88,8 @@ const JoinForm = () => {
     setSubmitting(true);
     setSubmitError(null);
 
-    // Build the payload matching the Google Sheet columns
-    const payload = {
-      timestamp: new Date().toISOString(),
-      fullName: data.name,
-      email: data.email,
-      connectionToDefence: data.connection,
-      peerNetworking: data.interests?.includes("Peer networking") ?? false,
-      resourcesAndGuidance: data.interests?.includes("Resources and guidance") ?? false,
-      eventsAndWorkshops: data.interests?.includes("Events and workshops") ?? false,
-      volunteering: data.interests?.includes("Volunteering") ?? false,
-      researchParticipation: data.interests?.includes("Research participation") ?? false,
-      communityGuidelinesAgreed: data.consent === true,
-    };
-
     try {
-      // Dual-write during Brevo transition: Brevo is primary, Google Sheets is the safety net.
-      const brevoCall = supabase.functions.invoke("forms-to-brevo", {
+      const brevoRes = await supabase.functions.invoke("forms-to-brevo", {
         body: {
           formType: "join",
           name: data.name,
@@ -138,19 +102,6 @@ const JoinForm = () => {
           website: "",
         },
       });
-
-      const sheetsCall = GOOGLE_SCRIPT_URL
-        ? fetch(GOOGLE_SCRIPT_URL, {
-            method: "POST",
-            headers: { "Content-Type": "text/plain" },
-            body: JSON.stringify(payload),
-          }).catch((e) => {
-            console.warn("Google Sheets dual-write failed (non-blocking):", e);
-            return null;
-          })
-        : Promise.resolve(null);
-
-      const [brevoRes] = await Promise.all([brevoCall, sheetsCall]);
       if (brevoRes.error) throw brevoRes.error;
       if (brevoRes.data && (brevoRes.data as { ok?: boolean }).ok === false) {
         throw new Error((brevoRes.data as { error?: string }).error ?? "Submission failed");
