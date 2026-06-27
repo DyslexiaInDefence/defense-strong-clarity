@@ -59,6 +59,7 @@ const joinSchema = z.object({
   email: z.string().trim().min(1, "Email is required").email("Please enter a valid email").max(255),
   connection: z.string().min(1, "Please select your connection to defence"),
   interests: z.array(z.string()).optional(),
+  newsletterConsent: z.boolean().optional(),
   consent: z.literal(true, { errorMap: () => ({ message: "You must agree to the community guidelines" }) }),
 });
 
@@ -96,6 +97,7 @@ const JoinForm = () => {
       email: "",
       connection: "",
       interests: [],
+      newsletterConsent: false,
       consent: undefined as unknown as true,
     },
   });
@@ -131,6 +133,8 @@ const JoinForm = () => {
           connection: data.connection,
           interests: data.interests ?? [],
           consent: data.consent === true,
+          newsletterConsent: data.newsletterConsent === true,
+          sourcePage: "/join",
           website: "",
         },
       });
