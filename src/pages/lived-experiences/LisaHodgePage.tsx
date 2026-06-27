@@ -113,6 +113,21 @@ const LisaHodgePage = () => {
           <div className="clear-both" />
         </article>
 
+        <section className="mt-12 rounded-2xl border border-border bg-muted/30 p-6 md:p-8" aria-label="Lisa's podcast episode">
+          <h2 className="text-2xl font-bold text-foreground">Listen to Lisa's story</h2>
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+            Lisa has also shared her experience in this podcast episode, offering further insight into dyslexia, identity and lived experience.
+          </p>
+          <a
+            href="https://open.spotify.com/episode/5F9sfDROyK9jkV1uK5i9Ot"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline"
+          >
+            Listen on Spotify →
+          </a>
+        </section>
+
         <aside className="mt-12 rounded-2xl border border-border bg-card p-6 md:p-8">
           <h2 className="text-2xl font-bold text-foreground">Share Your Story</h2>
           <p className="mt-3 text-base leading-relaxed text-muted-foreground">
