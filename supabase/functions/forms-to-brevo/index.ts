@@ -168,15 +168,17 @@ async function sendEmail(params: {
   toName?: string;
   subject: string;
   htmlContent: string;
+  textContent?: string;
   replyTo?: string;
 }) {
-  const body = {
+  const body: Record<string, unknown> = {
     sender: { email: SENDER_EMAIL, name: SENDER_NAME },
     to: [{ email: params.to, name: params.toName }],
     replyTo: { email: params.replyTo ?? REPLY_TO, name: SENDER_NAME },
     subject: params.subject,
     htmlContent: params.htmlContent,
   };
+  if (params.textContent) body.textContent = params.textContent;
   const res = await brevo("/smtp/email", { method: "POST", body: JSON.stringify(body) });
   if (!res.ok) {
     const txt = await res.text();
@@ -192,14 +194,21 @@ function escapeHtml(s: string) {
   );
 }
 
-function userConfirmationHtml(p: Payload): { subject: string; html: string } {
-  const name = escapeHtml(p.name.split(/\s+/)[0] ?? "there");
+function userConfirmationHtml(p: Payload): { subject: string; html: string; text: string } {
+  const firstNameRaw = (p.name ?? "").split(/\s+/)[0]?.trim() ?? "";
+  const greeting = firstNameRaw ? `Hi ${escapeHtml(firstNameRaw)},` : "Hi,";
+  const greetingText = firstNameRaw ? `Hi ${firstNameRaw},` : "Hi,";
+
+  // Join form gets the branded welcome template.
+  if (p.formType === "join") {
+    return joinWelcomeEmail(p, greeting, greetingText);
+  }
+
+  // Fallback for contact / ask — unchanged minimal confirmation.
+  const fallbackName = firstNameRaw ? escapeHtml(firstNameRaw) : "there";
   let intro = "";
   let subject = "We've received your message — Dyslexia in Defence";
-  if (p.formType === "join") {
-    subject = "Welcome to the Dyslexia in Defence network";
-    intro = `Thank you for registering your interest in the Dyslexia in Defence network. We'll be in touch with next steps.`;
-  } else if (p.formType === "contact") {
+  if (p.formType === "contact") {
     intro = `Thanks for contacting Dyslexia in Defence. We aim to reply within five working days.`;
   } else {
     subject = "Your question has been received — Dyslexia in Defence";
@@ -208,14 +217,115 @@ function userConfirmationHtml(p: Payload): { subject: string; html: string } {
 
   const html = `
     <div style="font-family: Arial, sans-serif; max-width: 560px; margin: 0 auto; color: #1a1a1a;">
-      <h2 style="color: #0f3460;">Hi ${name},</h2>
+      <h2 style="color: #0f3460;">Hi ${fallbackName},</h2>
       <p>${escapeHtml(intro)}</p>
       <p>You can reply to this email and it will reach a real person at <a href="mailto:${REPLY_TO}">${REPLY_TO}</a>.</p>
       <p style="margin-top: 24px;">Warm regards,<br/>Dyslexia in Defence CIC</p>
       <hr style="border:none;border-top:1px solid #eee;margin:24px 0;"/>
       <p style="font-size:12px;color:#666;">An independent, peer-led community interest company. Not affiliated with the Ministry of Defence.</p>
     </div>`;
-  return { subject, html };
+  const text = `${greetingText}\n\n${intro}\n\nYou can reply to this email and it will reach a real person at ${REPLY_TO}.\n\nWarm regards,\nDyslexia in Defence CIC\n\nAn independent, peer-led community interest company. Not affiliated with the Ministry of Defence.`;
+  return { subject, html, text };
+}
+
+function joinWelcomeEmail(
+  p: Payload,
+  greeting: string,
+  greetingText: string,
+): { subject: string; html: string; text: string } {
+  const subject = "Welcome to the Dyslexia in Defence network";
+  const preview = "Thank you for registering your interest. We're glad you're here.";
+  const logoUrl = "https://dyslexiaindefence.com/images/did-logo-full.webp";
+  const siteUrl = "https://dyslexiaindefence.com";
+
+  // Brand palette (derived from website CSS tokens)
+  const PRIMARY = "#156BC1"; // --primary
+  const BG = "#F0F7FD"; // --background (light blue base)
+  const CARD = "#FFFFFF";
+  const TEXT = "#20303F"; // --foreground
+  const MUTED = "#5B6B7A";
+  const BORDER = "#D5E2EE";
+
+  const newsletterBlockHtml = p.newsletterConsent
+    ? `
+      <p style="margin:0 0 12px 0;font-size:16px;line-height:1.6;color:${TEXT};">Regarding the information in our newsletters:</p>
+      <ul style="margin:0 0 20px 20px;padding:0;font-size:16px;line-height:1.6;color:${TEXT};">
+        <li style="margin-bottom:8px;">We'll keep you updated as the network develops.</li>
+        <li style="margin-bottom:8px;">We'll share useful resources, lived experiences and opportunities to get involved.</li>
+        <li style="margin-bottom:8px;">If you asked for support or want to share something specific, you can reply to this email.</li>
+      </ul>`
+    : `
+      <p style="margin:0 0 20px 0;font-size:16px;line-height:1.6;color:${TEXT};">We have recorded your interest in joining the network. If you want to share something, ask a question, or get in touch, you can reply directly to this email.</p>`;
+
+  const html = `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="color-scheme" content="light only" />
+<title>${escapeHtml(subject)}</title>
+</head>
+<body style="margin:0;padding:0;background-color:${BG};font-family:Arial,Helvetica,sans-serif;color:${TEXT};">
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">${escapeHtml(preview)}</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:${BG};">
+  <tr>
+    <td align="center" style="padding:24px 12px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;background:${CARD};border:1px solid ${BORDER};border-radius:12px;">
+        <tr>
+          <td align="center" style="padding:28px 24px 8px 24px;">
+            <img src="${logoUrl}" alt="Dyslexia in Defence" width="180" style="display:block;width:180px;max-width:60%;height:auto;border:0;outline:none;text-decoration:none;" />
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:8px 28px 0 28px;">
+            <h1 style="margin:16px 0 16px 0;font-size:24px;line-height:1.3;color:${PRIMARY};font-weight:700;">Welcome to Dyslexia in Defence</h1>
+            <p style="margin:0 0 16px 0;font-size:16px;line-height:1.6;color:${TEXT};">${greeting}</p>
+            <p style="margin:0 0 16px 0;font-size:16px;line-height:1.6;color:${TEXT};">Thank you for registering your interest.</p>
+            <p style="margin:0 0 20px 0;font-size:16px;line-height:1.6;color:${TEXT};">We are building a real force for change to empower dyslexic talent before, during and after service.</p>
+            ${newsletterBlockHtml}
+            <p style="margin:0 0 8px 0;font-size:16px;line-height:1.6;color:${TEXT};">You can reply directly to this email and it will reach a real person at:</p>
+            <p style="margin:0 0 24px 0;font-size:16px;line-height:1.6;"><a href="mailto:${REPLY_TO}" style="color:${PRIMARY};text-decoration:underline;">${REPLY_TO}</a></p>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" style="padding:0 28px 32px 28px;">
+            <a href="${siteUrl}" style="display:inline-block;background:${PRIMARY};color:#ffffff;text-decoration:none;font-weight:600;font-size:16px;padding:14px 28px;border-radius:8px;mso-padding-alt:0;">Visit Dyslexia in Defence</a>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0 28px 28px 28px;border-top:1px solid ${BORDER};">
+            <p style="margin:20px 0 6px 0;font-size:14px;line-height:1.5;color:${TEXT};font-weight:600;">Dyslexia in Defence CIC</p>
+            <p style="margin:0 0 12px 0;font-size:14px;line-height:1.5;color:${MUTED};">A Community Interest Company for serving personnel, veterans, civil servants, families and industry.</p>
+            <p style="margin:0 0 12px 0;font-size:14px;line-height:1.5;color:${MUTED};">This is an independent community initiative and is not an official MOD service.</p>
+            <p style="margin:0;font-size:13px;line-height:1.5;color:${MUTED};">You are receiving this email because you registered interest in the Dyslexia in Defence network.</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>`;
+
+  const newsletterBlockText = p.newsletterConsent
+    ? `Regarding the information in our newsletters:\n- We'll keep you updated as the network develops.\n- We'll share useful resources, lived experiences and opportunities to get involved.\n- If you asked for support or want to share something specific, you can reply to this email.\n\n`
+    : `We have recorded your interest in joining the network. If you want to share something, ask a question, or get in touch, you can reply directly to this email.\n\n`;
+
+  const text =
+    `Welcome to Dyslexia in Defence\n\n` +
+    `${greetingText}\n\n` +
+    `Thank you for registering your interest.\n\n` +
+    `We are building a real force for change to empower dyslexic talent before, during and after service.\n\n` +
+    newsletterBlockText +
+    `You can reply directly to this email and it will reach a real person at:\n${REPLY_TO}\n\n` +
+    `Visit Dyslexia in Defence: ${siteUrl}\n\n` +
+    `--\n` +
+    `Dyslexia in Defence CIC\n` +
+    `A Community Interest Company for serving personnel, veterans, civil servants, families and industry.\n\n` +
+    `This is an independent community initiative and is not an official MOD service.\n\n` +
+    `You are receiving this email because you registered interest in the Dyslexia in Defence network.\n`;
+
+  return { subject, html, text };
 }
 
 function adminNotificationHtml(p: Payload): { subject: string; html: string } {
@@ -289,7 +399,7 @@ Deno.serve(async (req) => {
   const userMail = userConfirmationHtml(p);
   const adminMail = adminNotificationHtml(p);
   const results = await Promise.allSettled([
-    sendEmail({ to: p.email, toName: p.name, subject: userMail.subject, htmlContent: userMail.html }),
+    sendEmail({ to: p.email, toName: p.name, subject: userMail.subject, htmlContent: userMail.html, textContent: userMail.text }),
     sendEmail({ to: ADMIN_EMAIL, subject: adminMail.subject, htmlContent: adminMail.html, replyTo: p.email }),
   ]);
   const emailsSent = results.every((r) => r.status === "fulfilled" && r.value === true);
