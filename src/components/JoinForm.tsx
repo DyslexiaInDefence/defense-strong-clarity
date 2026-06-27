@@ -295,6 +295,31 @@ const JoinForm = () => {
           {/* Consent */}
           <FormField
             control={form.control}
+            name="newsletterConsent"
+            render={({ field }) => (
+              <FormItem className="flex items-start gap-2 space-y-0">
+                <FormControl>
+                  <Checkbox
+                    checked={field.value === true}
+                    onCheckedChange={field.onChange}
+                  />
+                </FormControl>
+                <div>
+                  <FormLabel className="text-sm font-normal">
+                    I would also like to receive Dyslexia in Defence email updates and newsletters.
+                  </FormLabel>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    You can unsubscribe at any time. We will only use this to send updates about
+                    Dyslexia in Defence, resources, events, lived experiences and relevant support
+                    information.
+                  </p>
+                </div>
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
             name="consent"
             render={({ field }) => (
               <FormItem className="flex items-start gap-2 space-y-0">
