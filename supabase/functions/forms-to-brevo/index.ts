@@ -23,6 +23,7 @@ const REPLY_TO = Deno.env.get("BREVO_REPLY_TO") ?? ADMIN_EMAIL;
 // Optional list IDs — set as secrets after lists are created in Brevo UI.
 const LIST_NETWORK = numEnv("BREVO_LIST_NETWORK");
 const LIST_SUPPORT = numEnv("BREVO_LIST_SUPPORT");
+const LIST_NEWSLETTER = numEnv("BREVO_LIST_NEWSLETTER");
 
 function numEnv(name: string): number | undefined {
   const v = Deno.env.get(name);
@@ -42,6 +43,9 @@ interface Payload {
   subject?: string;
   message?: string;
   consent: boolean;
+  newsletterConsent?: boolean;
+  sourcePage?: string;
+  dyslexiaRelationship?: string;
   // honeypot — must be empty
   website?: string;
 }
@@ -77,10 +81,28 @@ function validate(body: unknown): { ok: true; data: Payload } | { ok: false; err
   const subject = b.subject ? String(b.subject).slice(0, 200) : undefined;
   const message = b.message ? String(b.message).slice(0, 5000) : undefined;
   const website = b.website ? String(b.website) : "";
+  const newsletterConsent = b.newsletterConsent === true;
+  const sourcePage = b.sourcePage ? String(b.sourcePage).slice(0, 200) : undefined;
+  const dyslexiaRelationship = b.dyslexiaRelationship
+    ? String(b.dyslexiaRelationship).slice(0, 100)
+    : undefined;
 
   return {
     ok: true,
-    data: { formType: formType as FormType, name, email, connection, interests, subject, message, consent, website },
+    data: {
+      formType: formType as FormType,
+      name,
+      email,
+      connection,
+      interests,
+      subject,
+      message,
+      consent,
+      newsletterConsent,
+      sourcePage,
+      dyslexiaRelationship,
+      website,
+    },
   };
 }
 
@@ -99,15 +121,28 @@ async function upsertContact(p: Payload) {
   const listIds: number[] = [];
   if (p.formType === "join" && LIST_NETWORK) listIds.push(LIST_NETWORK);
   if ((p.formType === "contact" || p.formType === "ask") && LIST_SUPPORT) listIds.push(LIST_SUPPORT);
+  if (p.newsletterConsent && LIST_NEWSLETTER) listIds.push(LIST_NEWSLETTER);
+
+  const enquiryType =
+    p.formType === "join"
+      ? "Join the Network"
+      : p.formType === "ask"
+        ? "Ask the Community"
+        : p.subject ?? "Contact";
 
   const attributes: Record<string, unknown> = {
     FIRSTNAME: first ?? "",
     LASTNAME: last,
-    CONNECTION: p.connection ?? "",
-    INTERESTS: (p.interests ?? []).join(", "),
-    CONSENT_MARKETING: p.consent,
-    CONSENT_TIMESTAMP: new Date().toISOString(),
+    FULLNAME: p.name,
+    ROLE_GROUP: p.connection ?? "",
+    ENQUIRY_TYPE: enquiryType,
     SOURCE_FORM: p.formType,
+    SOURCE_PAGE: p.sourcePage ?? "",
+    CONSENT_CONTACT: p.consent,
+    CONSENT_NEWSLETTER: p.newsletterConsent === true,
+    DYSLEXIA_RELATIONSHIP: p.dyslexiaRelationship ?? "",
+    AREAS_OF_INTEREST: (p.interests ?? []).join(", "),
+    DATE_JOINED: new Date().toISOString().slice(0, 10),
   };
 
   // Create or update — use updateEnabled to upsert.
