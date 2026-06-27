@@ -70,6 +70,7 @@ const ContactForm = () => {
           subject: data.subject,
           message: data.message,
           consent: true,
+          sourcePage: "/contact",
           website: "",
         },
       });
