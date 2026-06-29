@@ -45,14 +45,19 @@ const joinSchema = z.object({
 type JoinFormData = z.infer<typeof joinSchema>;
 
 const connections = [
-  "Serving — Military",
-  "Serving — Civil Service",
-  "Veteran",
-  "Reservist",
+  "Serving - Army",
+  "Serving - Royal Navy",
+  "Serving - Royal Air Force",
+  "Serving - Other",
+  "Veteran - Army",
+  "Veteran - Royal Navy",
+  "Veteran - Royal Air Force",
+  "Veteran - Other",
+  "Civil servant",
+  "Family member",
   "Defence Industry",
-  "Family Member",
-  "Pre joining Candidate",
   "Other",
+  "Prefer not to say",
 ];
 
 const interestOptions = [
