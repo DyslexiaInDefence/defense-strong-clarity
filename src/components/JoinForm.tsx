@@ -39,6 +39,7 @@ const joinSchema = z.object({
   connection: z.string().min(1, "Please select your connection to defence"),
   interests: z.array(z.string()).optional(),
   newsletterConsent: z.boolean().optional(),
+  ageConfirm: z.literal(true, { errorMap: () => ({ message: "You must confirm you are 18 or over to join" }) }),
   consent: z.literal(true, { errorMap: () => ({ message: "You must agree to the community guidelines" }) }),
 });
 
@@ -82,6 +83,7 @@ const JoinForm = () => {
       connection: "",
       interests: [],
       newsletterConsent: false,
+      ageConfirm: undefined as unknown as true,
       consent: undefined as unknown as true,
     },
   });
@@ -102,6 +104,7 @@ const JoinForm = () => {
           connection: data.connection,
           interests: data.interests ?? [],
           consent: data.consent === true,
+          ageConfirm: data.ageConfirm === true,
           newsletterConsent: data.newsletterConsent === true,
           sourcePage: "/join",
           website: "",
@@ -138,6 +141,9 @@ const JoinForm = () => {
         <p className="text-muted-foreground">
           Thank you for your interest. We will be in touch with further details about joining the community.
         </p>
+        <p className="mt-3 text-sm text-muted-foreground">
+          Dyslexia in Defence is for adults aged 18 and over.
+        </p>
       </div>
     );
   }
@@ -146,7 +152,7 @@ const JoinForm = () => {
     <div className="rounded-xl border border-border bg-card p-6 shadow-sm sm:p-8">
       <h3 className="mb-1 text-xl font-bold text-foreground">Join the Community</h3>
       <p className="mb-6 text-sm text-muted-foreground">
-        Register your interest to join the Dyslexia in Defence peer network.
+        Register your interest to join the Dyslexia in Defence peer network. Open to adults aged 18 and over.
       </p>
 
       {submitError && (
@@ -269,6 +275,27 @@ const JoinForm = () => {
                     Dyslexia in Defence, resources, events, lived experiences and relevant support
                     information.
                   </p>
+                </div>
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="ageConfirm"
+            render={({ field }) => (
+              <FormItem className="flex items-start gap-2 space-y-0">
+                <FormControl>
+                  <Checkbox
+                    checked={field.value === true}
+                    onCheckedChange={field.onChange}
+                  />
+                </FormControl>
+                <div>
+                  <FormLabel className="text-sm font-normal">
+                    I confirm that I am 18 years of age or over.
+                  </FormLabel>
+                  <FormMessage />
                 </div>
               </FormItem>
             )}
