@@ -13,8 +13,8 @@ const sections = [
 const FounderPurposePage = () => (
   <PolicyLayout
     title="Founder & Purpose"
-    summary="This page sets out the mission, scope, and boundaries of Dyslexia in Defence. It clarifies what the initiative does, what it does not do, and the principles that guide the founder's involvement."
-    lastUpdated="1 March 2026"
+    summary="This page sets out the mission, scope, and boundaries of Dyslexia in Defence, operated by Dyslexia in Defence CIC. It clarifies what the initiative does, what it does not do, and the principles that guide the founder's involvement."
+    lastUpdated="8 August 2026"
     sections={sections}
   >
     <section id="mission">
@@ -26,7 +26,7 @@ const FounderPurposePage = () => (
         It achieves this through independent peer support, curated resources, and structured signposting to established services and organisations.
       </p>
       <p className="text-muted-foreground mt-3">
-        Founded by Symon Smith, a British Army veteran.{" "}
+        Founded by Symon Smith, a British Army veteran, who is the sole director of Dyslexia in Defence CIC (company number 17285330), a Community Interest Company registered in England and Wales.{" "}
         <Link to="/lived-experiences/symon-smith-british-army-veteran" className="font-semibold text-primary underline-offset-4 hover:underline">
           Read Symon's full story →
         </Link>
@@ -72,12 +72,12 @@ const FounderPurposePage = () => (
     <section id="independence">
       <h2 className="text-2xl font-bold text-foreground mb-4">Independence from Employer</h2>
       <Callout>
-        Dyslexia in Defence is founded and operated in a personal capacity. It is entirely independent of the founder's employer, past or present.
+        Dyslexia in Defence is operated by Dyslexia in Defence CIC, an independent Community Interest Company. It is entirely independent of the founder's employer, past or present, and is not affiliated with, endorsed by, or operated on behalf of the Ministry of Defence, any branch of the Armed Forces, or any government department.
       </Callout>
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
         <li>No employer has oversight of, input into, or editorial control over the initiative</li>
         <li>The initiative does not use employer resources, systems, or facilities</li>
-        <li>Views expressed through the initiative are personal and do not represent any employer</li>
+        <li>Views expressed through the initiative are those of the CIC and its contributors, and do not represent any employer, government department, or Armed Forces branch</li>
         <li>The initiative does not solicit or accept funding from the founder's employer</li>
       </ul>
     </section>
@@ -100,7 +100,7 @@ const FounderPurposePage = () => (
     <section id="funding">
       <h2 className="text-2xl font-bold text-foreground mb-4">Funding Position</h2>
       <p className="text-muted-foreground mb-3">
-        Dyslexia in Defence is currently self funded by the founder. The initiative operates on a non profit basis.
+        Dyslexia in Defence CIC is currently self funded by the founder. It operates on a non profit basis, with its assets locked to its community purpose as required of a Community Interest Company.
       </p>
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
         <li>No revenue is generated for personal gain</li>
