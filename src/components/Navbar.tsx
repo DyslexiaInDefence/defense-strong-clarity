@@ -10,24 +10,42 @@ type NavChild = { label: string; to: string };
 type NavItem = { label: string; to: string; children?: NavChild[] };
 
 const navLinks: NavItem[] = [
-  { label: "Home", to: "/" },
   {
-    label: "About",
+    label: "About Us",
     to: "/about",
     children: [
-      { label: "Why It Matters", to: "/why-it-matters" },
-      { label: "What We Want to Achieve", to: "/achieve" },
-      { label: "Structure", to: "/structure" },
+      { label: "Our Story", to: "/about/our-story" },
+      { label: "What We Do", to: "/about/what-we-do" },
+      { label: "FAQ", to: "/about/faq" },
+      { label: "Contact Us", to: "/contact" },
+      { label: "Governance", to: "/governance" },
     ],
   },
   {
-    label: "Support",
+    label: "Get Support",
     to: "/support",
     children: [
-      { label: "Join", to: "/join" },
-      { label: "Community", to: "/community" },
-      { label: "Contact Us", to: "/contact" },
+      { label: "Join the Network", to: "/join" },
+      { label: "Guidance", to: "/insights" },
+      { label: "What We Want to Achieve", to: "/achieve" },
+    ],
+  },
+  {
+    label: "Community",
+    to: "/community",
+    children: [
       { label: "Lived Experiences", to: "/lived-experiences" },
+      { label: "Peer Community", to: "/community" },
+      { label: "Ask the Community", to: "/ask" },
+    ],
+  },
+  {
+    label: "Resources",
+    to: "/resources",
+    children: [
+      { label: "Downloads & Tools", to: "/resources" },
+      { label: "Partner With Us", to: "/partner" },
+      { label: "Ecosystem", to: "/ecosystem" },
     ],
   },
 ];
