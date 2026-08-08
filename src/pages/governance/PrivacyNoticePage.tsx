@@ -152,7 +152,7 @@ const PrivacyNoticePage = () => (
     <section id="no-sale">
       <h2 className="text-2xl font-bold text-foreground mb-4">No Sale of Personal Data</h2>
       <Callout>
-        <strong>Dyslexia in Defence does not sell, rent, lease, or trade personal data to any third party, for any reason, under any circumstances.</strong>
+        <strong>Dyslexia in Defence CIC does not sell, rent, lease, or trade personal data to any third party, for any reason, under any circumstances.</strong>
       </Callout>
     </section>
   </PolicyLayout>
