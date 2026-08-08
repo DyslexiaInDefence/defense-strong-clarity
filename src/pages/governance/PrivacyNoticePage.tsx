@@ -131,27 +131,21 @@ const PrivacyNoticePage = () => (
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
         <li>Encrypted connections (HTTPS) across the website</li>
         <li>Personal data access kept tightly restricted. In almost all cases, only the founder has access. Where limited information genuinely needs to be shared, for example to verify someone's military affiliation, this is only ever the minimum needed, decided case by case, and you are always told first</li>
-        <li>Use of reputable, security conscious third party services</li>
+        <li>Use of reputable, security conscious third party service providers</li>
         <li>Regular review of our data handling practices</li>
       </ul>
       <p className="text-muted-foreground mt-3">
-        No system is entirely secure. While we take reasonable precautions, we cannot guarantee absolute security of data transmitted to or stored by us.
+        No system is entirely secure, and while we take reasonable precautions, we cannot guarantee absolute security of data transmitted to or stored by us.
       </p>
     </section>
 
     <section id="risk-assessment">
       <h2 className="text-2xl font-bold text-foreground mb-4">How We Assessed the Risks</h2>
       <p className="text-muted-foreground mb-3">
-        Because our community includes serving personnel and veterans, and because people sometimes choose to tell us about a dyslexia diagnosis, we carried out a Data Protection Impact Assessment. This is a structured check of what could go wrong and what we have done about it. In summary:
+        We have carried out a Data Protection Impact Assessment (DPIA) covering our sign up form, our Discord community, how we verify military affiliation for targeted support, and our email correspondence with members. A DPIA is a structured way of thinking through the risks involved in how we use personal information, and what we are doing to reduce them.
       </p>
-      <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-        <li><strong>What we looked at</strong> — the sign up form, our email and newsletter tools, support correspondence, verification of eligibility for targeted support, and our Discord community</li>
-        <li><strong>Main risks identified</strong> — someone's service status or a diagnosis becoming known without their agreement, information being kept longer than needed, and sensitive details being shared more widely than necessary</li>
-        <li><strong>What we do about it</strong> — we ask for the minimum information, keep marketing consent separate, never ask for health or diagnosis information on the site, restrict access to the founder in almost all cases, share only the minimum needed for verification and tell you first, and delete information on request</li>
-        <li><strong>Our conclusion</strong> — the remaining risk is low and proportionate to the benefit of the support we provide. We review this assessment as the network grows or when we add a new tool or activity</li>
-      </ul>
-      <p className="text-muted-foreground mt-3">
-        If you would like more detail on this assessment, you can request it at <a href="mailto:contact@dyslexiaindefence.com" className="text-primary underline underline-offset-2">contact@dyslexiaindefence.com</a>.
+      <p className="text-muted-foreground">
+        We are a small, founder led organisation, and we are honest that some of our processes are still maturing as we grow. Carrying out this assessment helped us identify where we needed to be clearer with you, including in this notice, where we needed to bring our practice in line with our own stated policies, such as requiring sign ups to confirm they are 18 or over, and where we still have work to do, particularly around confirming the exact safeguards used by some of our third party service providers. This DPIA is reviewed at least once a year, and whenever we introduce a new way of collecting or using personal information. It was last reviewed in August 2026.
       </p>
     </section>
 
