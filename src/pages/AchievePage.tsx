@@ -35,6 +35,7 @@ const AchievePage = () => {
       <section className="border-t border-border bg-card py-16" aria-label="Ecosystem diagram">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl">
+            <h2 className="mb-8 text-center text-2xl font-bold text-foreground">How the Defence Ecosystem Connects</h2>
             <img
               src={vennDiagram}
               alt="Venn diagram showing Dyslexia in Defence at the intersection of Defence Industry, Dyslexia and Neurodiversity Charities, and Veteran Support Organisations"
