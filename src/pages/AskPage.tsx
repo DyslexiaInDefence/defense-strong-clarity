@@ -14,6 +14,22 @@ const AskPage = () => {
         <div className="max-w-2xl">
           <AskForm />
         </div>
+
+        <div className="mt-8 max-w-2xl rounded-lg border border-border bg-card p-6">
+          <h2 className="mb-2 text-lg font-bold text-foreground">Prefer to chat?</h2>
+          <p className="mb-4 text-sm text-muted-foreground">
+            Join our Discord community to ask questions and connect with serving personnel, veterans,
+            civil servants, families, and industry.
+          </p>
+          <a
+            href="https://discord.com/invite/XhjNGsbny"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center text-sm font-semibold text-primary underline-offset-4 hover:underline"
+          >
+            Join the Discord community
+          </a>
+        </div>
       </div>
     </div>
   );
