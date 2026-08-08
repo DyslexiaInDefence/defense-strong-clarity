@@ -9,111 +9,111 @@ const sections = [
   { id: "rights", title: "Your Rights" },
   { id: "contact-data", title: "Data Requests" },
   { id: "security", title: "Security" },
+  { id: "risk-assessment", title: "How We Assessed the Risks" },
   { id: "no-sale", title: "No Sale of Data" },
 ];
 
 const PrivacyNoticePage = () => (
   <PolicyLayout
     title="Privacy Notice"
-    summary="This Privacy Notice explains how Dyslexia in Defence collects, uses, and protects personal data. It is written in plain English and reflects the initiative's commitment to responsible data handling in line with UK data protection principles."
-    lastUpdated="1 March 2026"
+    summary="This Privacy Notice explains how Dyslexia in Defence CIC collects, uses, and protects personal data. It is written in plain English and reflects our commitment to responsible data handling in line with UK data protection law."
+    lastUpdated="8 August 2026"
     sections={sections}
   >
     <section id="controller">
       <h2 className="text-2xl font-bold text-foreground mb-4">Data Controller</h2>
       <p className="text-muted-foreground mb-3">
-        The data controller for personal data collected through Dyslexia in Defence is the founder of the initiative. The founder is personally responsible for ensuring that data is handled appropriately and in accordance with UK data protection law.
+        The data controller for personal data collected through this website and our wider network is Dyslexia in Defence CIC (company number 17285330), a Community Interest Company registered in England and Wales. Symon Smith, as founder and director, is personally responsible for making sure data is handled appropriately on the organisation's behalf and in accordance with UK data protection law.
       </p>
       <p className="text-muted-foreground">
-        For data-related enquiries, please contact: <a href="mailto:contact@dyslexiaindefence.com" className="text-primary underline underline-offset-2">contact@dyslexiaindefence.com</a>
+        For data related enquiries, please contact: <a href="mailto:contact@dyslexiaindefence.com" className="text-primary underline underline-offset-2">contact@dyslexiaindefence.com</a>
       </p>
     </section>
 
     <section id="data-collected">
-      <h2 className="text-2xl font-bold text-foreground mb-4">Types of Data Collected</h2>
+      <h2 className="text-2xl font-bold text-foreground mb-4">Data We Collect</h2>
       <p className="text-muted-foreground mb-3">
-        The initiative collects only the minimum data necessary to operate. This may include:
+        We collect only what we need to run the network and support our community. This includes:
       </p>
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-        <li><strong>Contact information</strong> — Name and email address, provided when you contact us or join the community</li>
-        <li><strong>Sector connection</strong> — Your connection to the defence and security sector, if voluntarily provided</li>
-        <li><strong>Areas of interest</strong> — Topics or areas you are interested in, if voluntarily provided</li>
-        <li><strong>Technical data</strong> — IP address, browser type, and device information collected automatically for site functionality and security</li>
-        <li><strong>Communication records</strong> — Records of correspondence with the initiative</li>
+        <li><strong>Contact information</strong> — your name and email address, provided when you sign up, contact us, or join the community</li>
+        <li><strong>Confirmation you are 18 or over</strong> — Dyslexia in Defence is for adults aged 18 and over. We ask you to confirm this when you sign up</li>
+        <li><strong>Connection to Defence</strong> — a category you choose yourself when signing up (for example serving, veteran, family member, civil servant, or defence industry), and any areas of interest you tell us about</li>
+        <li><strong>Marketing preference</strong> — whether you have opted in to receive newsletters and updates, kept separate from the rest of your sign up so you have a genuine choice</li>
+        <li><strong>Verification details</strong> — if you apply for targeted, funded support (for example support specifically for serving Army personnel), we may ask you to confirm details that let us verify your service, so that support reaches the people it is intended for</li>
+        <li><strong>Correspondence</strong> — records of what you tell us if you email us or contact us directly, including, where you choose to share it, information about a dyslexia diagnosis or your personal circumstances</li>
+        <li><strong>Community platform activity</strong> — if you join our Discord community, we do not ask you for anything beyond agreeing to be respectful of others and confirming you are 18 or over. Discord's own account details are held by Discord, not by us. Anything else you choose to share there is voluntary</li>
+        <li><strong>Technical data</strong> — standard information like IP address and browser type, collected automatically for site functionality and security</li>
       </ul>
       <Callout>
-        We do not collect sensitive personal data (such as health information or detailed disability status) unless you choose to share it voluntarily in correspondence or community discussions.
+        We do not ask for information about a diagnosis, disability, or health condition anywhere on this site. Where you choose to share this with us voluntarily, for example in an email asking for support, we treat it with particular care. See "Legal Basis" below for how we handle this.
       </Callout>
     </section>
 
     <section id="legal-basis">
-      <h2 className="text-2xl font-bold text-foreground mb-4">Legal Basis for Processing</h2>
+      <h2 className="text-2xl font-bold text-foreground mb-4">Legal Basis</h2>
       <p className="text-muted-foreground mb-3">
-        Personal data is processed on one or more of the following bases:
+        We rely on the following legal bases to process your information:
       </p>
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-        <li><strong>Consent</strong> — Where you have given clear consent for us to process your data for a specific purpose (e.g., joining the community or subscribing to updates)</li>
-        <li><strong>Legitimate interest</strong> — Where processing is necessary for the legitimate interests of the initiative (e.g., responding to enquiries, maintaining community safety, improving the website), provided those interests are not overridden by your rights</li>
+        <li><strong>Consent</strong> — for anything you have actively opted in to, such as receiving newsletters and updates. You can withdraw this consent at any time by contacting us, and this will not affect anything done before you withdrew it</li>
+        <li><strong>Legitimate interests</strong> — for running the core network, responding to enquiries, verifying eligibility for targeted support, and maintaining community safety, always balanced against your rights and interests</li>
+        <li><strong>Explicit consent for sensitive information</strong> — if you choose to share details of a diagnosis or health condition with us, for example in a support related email, we rely on your explicit, freely given consent to hold and use that information to support you. You can withdraw this consent and ask us to delete this information at any time</li>
       </ul>
-      <p className="text-muted-foreground mt-3">
-        You may withdraw consent at any time by contacting us. Withdrawal of consent does not affect the lawfulness of processing carried out before withdrawal.
-      </p>
     </section>
 
     <section id="retention">
       <h2 className="text-2xl font-bold text-foreground mb-4">Data Retention</h2>
       <p className="text-muted-foreground mb-3">
-        Personal data is retained only for as long as necessary to fulfil the purpose for which it was collected. Specifically:
+        We keep personal information only for as long as it serves a genuine purpose, and no longer than that:
       </p>
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-        <li>Contact form submissions are retained for as long as needed to respond and follow up</li>
-        <li>Community membership data is retained for the duration of membership</li>
-        <li>Communication records are retained for a reasonable period for reference and accountability</li>
-        <li>Technical data is retained in accordance with hosting provider policies</li>
+        <li>General sign up and membership information is kept for as long as you remain engaged with the network. We review this periodically, and you can ask us to delete it at any time</li>
+        <li>Verification details used to confirm eligibility for targeted support are kept only as long as needed for that purpose</li>
+        <li>Support correspondence, including anything relating to a diagnosis, may be kept for longer. We recognise this can be a genuinely useful record for you to refer back to in future, for example if you later need evidence of a past diagnosis discussion. We keep this with your interests in mind, and you can ask us to delete it at any time</li>
+        <li>Technical data is retained in line with our hosting and service providers' standard policies</li>
       </ul>
-      <p className="text-muted-foreground mt-3">
-        You may request deletion of your personal data at any time. Requests will be fulfilled promptly unless retention is required by law.
-      </p>
     </section>
 
     <section id="third-parties">
       <h2 className="text-2xl font-bold text-foreground mb-4">Third Party Services</h2>
       <p className="text-muted-foreground mb-3">
-        The initiative uses a limited number of third party services to operate the website and community. These may include:
+        We use a small number of trusted platforms to run the network:
       </p>
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-        <li>Website hosting providers</li>
-        <li>Email service providers</li>
-        <li>Analytics tools (anonymised where possible)</li>
-        <li>Community platform providers</li>
+        <li>Our website and sign up form, built and hosted through Lovable</li>
+        <li>Email and newsletter services, currently Brevo and Zoho Mail, both used to hold contact details and correspond with you</li>
+        <li>Our community platform, Discord, for peer support conversations</li>
       </ul>
       <p className="text-muted-foreground mt-3">
-        Third party services are selected with regard to their data protection practices. Data is not shared with third parties for marketing purposes.
+        Where any of these services are based outside the UK, we check that appropriate data protection safeguards are in place. We do not share your information with any third party for marketing purposes, and we do not sell, rent, lease, or trade personal data under any circumstances.
+      </p>
+      <p className="text-muted-foreground mt-3">
+        If we confirm military affiliation with a small number of trusted volunteers as part of verifying eligibility for targeted support, we only ever share the minimum needed, decided case by case, and we always tell you first.
       </p>
     </section>
 
     <section id="rights">
       <h2 className="text-2xl font-bold text-foreground mb-4">Your Rights</h2>
       <p className="text-muted-foreground mb-3">
-        Under UK data protection law, you have the following rights:
+        Under UK data protection law, you have the right to:
       </p>
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-        <li><strong>Right of access</strong> — You can request a copy of the personal data we hold about you</li>
-        <li><strong>Right to rectification</strong> — You can request correction of inaccurate data</li>
-        <li><strong>Right to erasure</strong> — You can request deletion of your data</li>
-        <li><strong>Right to restrict processing</strong> — You can request that we limit how we use your data</li>
-        <li><strong>Right to data portability</strong> — You can request your data in a structured, commonly used format</li>
-        <li><strong>Right to object</strong> — You can object to processing based on legitimate interest</li>
+        <li>Request a copy of the personal data we hold about you</li>
+        <li>Request correction of anything inaccurate</li>
+        <li>Request deletion of your data</li>
+        <li>Request that we restrict how we use your data</li>
+        <li>Request your data in a structured, commonly used format</li>
+        <li>Object to processing based on legitimate interests</li>
+        <li>Withdraw consent at any time, including for marketing emails or for sensitive information you have shared with us</li>
+        <li>Complain to the Information Commissioner's Office (ICO) if you are unhappy with how we have handled your information</li>
       </ul>
-      <p className="text-muted-foreground mt-3">
-        To exercise any of these rights, please contact us using the details below. We will respond within one calendar month.
-      </p>
     </section>
 
     <section id="contact-data">
-      <h2 className="text-2xl font-bold text-foreground mb-4">Contact for Data Requests</h2>
+      <h2 className="text-2xl font-bold text-foreground mb-4">Data Requests</h2>
       <p className="text-muted-foreground mb-3">
-        All data-related requests, questions, or concerns should be directed to:
+        All data related requests, questions, or concerns should be directed to:
       </p>
       <p className="text-muted-foreground">
         <a href="mailto:contact@dyslexiaindefence.com" className="text-primary underline underline-offset-2 font-medium">contact@dyslexiaindefence.com</a>
@@ -126,16 +126,32 @@ const PrivacyNoticePage = () => (
     <section id="security">
       <h2 className="text-2xl font-bold text-foreground mb-4">Security</h2>
       <p className="text-muted-foreground mb-3">
-        The initiative takes reasonable steps to protect personal data from unauthorised access, loss, or misuse. Measures include:
+        We take reasonable steps to protect personal data from unauthorised access, loss, or misuse. This includes:
       </p>
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-        <li>Use of encrypted connections (HTTPS) for all website traffic</li>
-        <li>Access to personal data restricted to the founder</li>
-        <li>Use of reputable, security conscious third party service providers</li>
-        <li>Regular review of data handling practices</li>
+        <li>Encrypted connections (HTTPS) across the website</li>
+        <li>Personal data access kept tightly restricted. In almost all cases, only the founder has access. Where limited information genuinely needs to be shared, for example to verify someone's military affiliation, this is only ever the minimum needed, decided case by case, and you are always told first</li>
+        <li>Use of reputable, security conscious third party services</li>
+        <li>Regular review of our data handling practices</li>
       </ul>
       <p className="text-muted-foreground mt-3">
-        No system is entirely secure. While we take reasonable precautions, we cannot guarantee absolute security of data transmitted to or stored by the initiative.
+        No system is entirely secure. While we take reasonable precautions, we cannot guarantee absolute security of data transmitted to or stored by us.
+      </p>
+    </section>
+
+    <section id="risk-assessment">
+      <h2 className="text-2xl font-bold text-foreground mb-4">How We Assessed the Risks</h2>
+      <p className="text-muted-foreground mb-3">
+        Because our community includes serving personnel and veterans, and because people sometimes choose to tell us about a dyslexia diagnosis, we carried out a Data Protection Impact Assessment. This is a structured check of what could go wrong and what we have done about it. In summary:
+      </p>
+      <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
+        <li><strong>What we looked at</strong> — the sign up form, our email and newsletter tools, support correspondence, verification of eligibility for targeted support, and our Discord community</li>
+        <li><strong>Main risks identified</strong> — someone's service status or a diagnosis becoming known without their agreement, information being kept longer than needed, and sensitive details being shared more widely than necessary</li>
+        <li><strong>What we do about it</strong> — we ask for the minimum information, keep marketing consent separate, never ask for health or diagnosis information on the site, restrict access to the founder in almost all cases, share only the minimum needed for verification and tell you first, and delete information on request</li>
+        <li><strong>Our conclusion</strong> — the remaining risk is low and proportionate to the benefit of the support we provide. We review this assessment as the network grows or when we add a new tool or activity</li>
+      </ul>
+      <p className="text-muted-foreground mt-3">
+        If you would like more detail on this assessment, you can request it at <a href="mailto:contact@dyslexiaindefence.com" className="text-primary underline underline-offset-2">contact@dyslexiaindefence.com</a>.
       </p>
     </section>
 
