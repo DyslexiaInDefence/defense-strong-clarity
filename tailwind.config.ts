@@ -86,11 +86,16 @@ export default {
           "50%": { backgroundPosition: "100% 50%" },
           "100%": { backgroundPosition: "0% 50%" },
         },
+        "personnel-scroll": {
+          from: { transform: "translateX(-50%)" },
+          to: { transform: "translateX(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "ribbon-flow": "ribbon-flow 8s ease infinite",
+        "personnel-scroll": "personnel-scroll 60s linear infinite",
       },
     },
   },
