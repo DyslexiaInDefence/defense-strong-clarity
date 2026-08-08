@@ -86,7 +86,7 @@ const PrivacyNoticePage = () => (
         <li>Our community platform, Discord, for peer support conversations</li>
       </ul>
       <p className="text-muted-foreground mt-3">
-        Where any of these services are based outside the UK, we check that appropriate data protection safeguards are in place. We do not share your information with any third party for marketing purposes, and we do not sell, rent, lease, or trade personal data under any circumstances.
+        Where any of these services are based outside the UK, we work to ensure that appropriate data protection safeguards are in place, and we are in the process of confirming this for each of our current providers. We do not share your information with any third party for marketing purposes, and we do not sell, rent, lease, or trade personal data under any circumstances.
       </p>
       <p className="text-muted-foreground mt-3">
         If we confirm military affiliation with a small number of trusted volunteers as part of verifying eligibility for targeted support, we only ever share the minimum needed, decided case by case, and we always tell you first.
