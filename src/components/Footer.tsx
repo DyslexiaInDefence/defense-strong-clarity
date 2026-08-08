@@ -25,30 +25,36 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* About group */}
+          {/* About Us group */}
           <div>
             <h3 className="mb-3 text-lg font-bold text-foreground">
-              <Link to="/about" className="hover:text-primary transition-colors">About</Link>
+              <Link to="/about" className="hover:text-primary transition-colors">About Us</Link>
             </h3>
           <ul className="space-y-2 text-sm">
-              <li><Link to="/why-it-matters" className="text-muted-foreground hover:text-primary transition-colors">Why It Matters</Link></li>
-              <li><Link to="/achieve" className="text-muted-foreground hover:text-primary transition-colors">What We Want to Achieve</Link></li>
+              <li><Link to="/about/our-story" className="text-muted-foreground hover:text-primary transition-colors">Our Story</Link></li>
+              <li><Link to="/about/what-we-do" className="text-muted-foreground hover:text-primary transition-colors">What We Do</Link></li>
+              <li><Link to="/about/faq" className="text-muted-foreground hover:text-primary transition-colors">FAQ</Link></li>
+              <li><Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact Us</Link></li>
+              <li><Link to="/governance" className="text-muted-foreground hover:text-primary transition-colors">Governance</Link></li>
               <li><Link to="/structure" className="text-muted-foreground hover:text-primary transition-colors">Structure</Link></li>
             </ul>
           </div>
 
-          {/* Support group */}
+          {/* Get Support / Community / Resources group */}
           <div>
             <h3 className="mb-3 text-lg font-bold text-foreground">
-              <Link to="/support" className="hover:text-primary transition-colors">Support</Link>
+              <Link to="/support" className="hover:text-primary transition-colors">Get Support</Link>
             </h3>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/insights" className="text-muted-foreground hover:text-primary transition-colors">Insights</Link></li>
-              <li><Link to="/community" className="text-muted-foreground hover:text-primary transition-colors">Community</Link></li>
-              <li><Link to="/join" className="text-muted-foreground hover:text-primary transition-colors">Join</Link></li>
-              <li><Link to="/partner" className="text-muted-foreground hover:text-primary transition-colors">Partner With Us</Link></li>
-              <li><Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact Us</Link></li>
+              <li><Link to="/join" className="text-muted-foreground hover:text-primary transition-colors">Join the Network</Link></li>
+              <li><Link to="/insights" className="text-muted-foreground hover:text-primary transition-colors">Guidance</Link></li>
+              <li><Link to="/achieve" className="text-muted-foreground hover:text-primary transition-colors">What We Want to Achieve</Link></li>
               <li><Link to="/lived-experiences" className="text-muted-foreground hover:text-primary transition-colors">Lived Experiences</Link></li>
+              <li><Link to="/community" className="text-muted-foreground hover:text-primary transition-colors">Peer Community</Link></li>
+              <li><Link to="/ask" className="text-muted-foreground hover:text-primary transition-colors">Ask the Community</Link></li>
+              <li><Link to="/resources" className="text-muted-foreground hover:text-primary transition-colors">Resources</Link></li>
+              <li><Link to="/partner" className="text-muted-foreground hover:text-primary transition-colors">Partner With Us</Link></li>
+              <li><Link to="/ecosystem" className="text-muted-foreground hover:text-primary transition-colors">Ecosystem</Link></li>
             </ul>
           </div>
 

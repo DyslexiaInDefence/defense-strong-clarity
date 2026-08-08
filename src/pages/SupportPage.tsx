@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, BookOpen, MessageSquare, UserPlus, Heart } from "lucide-react";
+import { ArrowRight, BookOpen, MessageSquare, UserPlus, Target } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { livedStories } from "@/data/livedStories";
 
