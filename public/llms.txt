@@ -6,10 +6,12 @@ Dyslexia in Defence is volunteer-led and not affiliated with the Ministry of Def
 
 ## Pages
 
-- [About](/about): Mission, governance and CIC registration details.
-- [Why It Matters](/why-it-matters): The case for dyslexia awareness across UK Defence.
+- [About Us](/about): Mission, governance and CIC registration details.
+- [Our Story](/about/our-story): How Dyslexia in Defence started and who it serves today.
+- [What We Do](/about/what-we-do): Guidance, community and the case for dyslexia awareness across UK Defence.
+- [FAQ](/about/faq): Questions grouped by joining, serving and leaving service.
 - [What We Want to Achieve](/achieve): Aims and success measures.
-- [Support](/support): Guidance, community, lived experience and ways to join.
+- [Get Support](/support): Guidance, community, lived experience and ways to join.
 - [Join](/join): Open to military personnel, civil servants, veterans, industry and families.
 - [Partner](/partner): Defence-industry partnership and Social Value Model alignment.
 - [Governance](/governance): How the CIC is run and held to account.

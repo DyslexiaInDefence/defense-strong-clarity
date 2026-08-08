@@ -24,8 +24,26 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.8,
     indexable: true,
   },
+  "/about/our-story": {
+    title: "Our Story | Dyslexia in Defence",
+    description: "How Dyslexia in Defence started, from one veteran's experience and the Defence Dyslexia Network, to an independent CIC supporting dyslexic talent across UK Defence.",
+    priority: 0.8,
+    indexable: true,
+  },
+  "/about/what-we-do": {
+    title: "What We Do | Dyslexia in Defence",
+    description: "Guidance, peer community, lived experience and signposting for dyslexia and neurodiversity across the UK military, civil service and defence industry.",
+    priority: 0.8,
+    indexable: true,
+  },
+  "/about/faq": {
+    title: "Dyslexia & Armed Forces FAQ UK | Dyslexia in Defence",
+    description: "Common questions about dyslexia and the UK Armed Forces — joining, serving, and leaving service. Clear answers for each pathway.",
+    priority: 0.8,
+    indexable: true,
+  },
   "/support": {
-    title: "Support for Dyslexia in Defence | Guidance and Community",
+    title: "Get Support for Dyslexia in Defence | Guidance and Community",
     description: "Find dyslexia guidance, community support, lived experience, and ways to join the Dyslexia in Defence network.",
     priority: 0.8,
     indexable: true,

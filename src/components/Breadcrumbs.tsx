@@ -2,10 +2,14 @@ import { Link, useLocation } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 
 const LABELS: Record<string, string> = {
-  insights: "FAQ",
+  insights: "Guidance",
   governance: "Governance",
-  about: "About",
-  community: "Ask the Community",
+  about: "About Us",
+  "our-story": "Our Story",
+  "what-we-do": "What We Do",
+  faq: "FAQ",
+  community: "Community",
+  ask: "Ask the Community",
   join: "Join the Network",
   partner: "Partner",
   achieve: "What We Want to Achieve",
@@ -14,7 +18,7 @@ const LABELS: Record<string, string> = {
   privacy: "Privacy",
   accessibility: "Accessibility",
   resources: "Resources",
-  support: "Support",
+  support: "Get Support",
   ecosystem: "Ecosystem",
   structure: "Structure",
   founder: "Founder & Purpose",

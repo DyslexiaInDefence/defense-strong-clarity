@@ -3,7 +3,6 @@ import { AccessibilityProvider } from "@/contexts/AccessibilityContext";
 import Layout from "@/components/Layout";
 import HomePage from "@/pages/HomePage";
 import AboutPage from "@/pages/AboutPage";
-import WhyItMattersPage from "@/pages/WhyItMattersPage";
 import CommunityPage from "@/pages/CommunityPage";
 import ResourcesPage from "@/pages/ResourcesPage";
 import SupportPage from "@/pages/SupportPage";
@@ -23,6 +22,9 @@ import SponsorshipPage from "@/pages/governance/SponsorshipPage";
 import TransparencyPage from "@/pages/governance/TransparencyPage";
 import AchievePage from "@/pages/AchievePage";
 import InsightsPage from "@/pages/InsightsPage";
+import OurStoryPage from "@/pages/about/OurStoryPage";
+import WhatWeDoPage from "@/pages/about/WhatWeDoPage";
+import FaqPage from "@/pages/about/FaqPage";
 import ArmyDyslexiaPage from "@/pages/insights/ArmyDyslexiaPage";
 import RAFDyslexiaPage from "@/pages/insights/RAFDyslexiaPage";
 import NavyDyslexiaPage from "@/pages/insights/NavyDyslexiaPage";
@@ -46,7 +48,10 @@ const App = () => (
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/why-it-matters" element={<WhyItMattersPage />} />
+          <Route path="/about/our-story" element={<OurStoryPage />} />
+          <Route path="/about/what-we-do" element={<WhatWeDoPage />} />
+          <Route path="/about/faq" element={<FaqPage />} />
+          <Route path="/why-it-matters" element={<Navigate to="/about/what-we-do" replace />} />
           <Route path="/community" element={<CommunityPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/support" element={<SupportPage />} />

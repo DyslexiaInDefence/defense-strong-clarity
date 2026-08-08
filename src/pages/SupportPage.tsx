@@ -1,39 +1,38 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, BookOpen, MessageSquare, UserPlus, Heart } from "lucide-react";
+import { ArrowRight, BookOpen, MessageSquare, UserPlus, Target } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { livedStories } from "@/data/livedStories";
 
 const supportLinks = [
-  {
-    title: "Insights",
-    description: "Clear answers to common questions about dyslexia in UK Defence.",
-    to: "/insights",
-    icon: BookOpen,
-    stage: "Learn",
-  },
-  {
-    title: "Community",
-    description: "Ask others, share lived experience, and find peer support.",
-    to: "/community",
-    icon: MessageSquare,
-    stage: "Ask",
-  },
-  {
-    title: "Lived Experiences",
-    description:
-      "Read real stories from people across the defence community who have lived experience of dyslexia and neurodiversity.",
-    to: "/lived-experiences",
-    icon: Heart,
-    stage: "Relate",
-    cta: "Read their stories",
-    thumbnails: true,
-  },
   {
     title: "Join",
     description: "Become part of the Dyslexia in Defence network.",
     to: "/join",
     icon: UserPlus,
     stage: "Commit",
+  },
+  {
+    title: "Guidance",
+    description: "Clear answers to common questions about dyslexia in UK Defence.",
+    to: "/insights",
+    icon: BookOpen,
+    stage: "Learn",
+  },
+  {
+    title: "What We Want to Achieve",
+    description: "Our aims for understanding, support, opportunity and outcomes across the Defence community.",
+    to: "/achieve",
+    icon: Target,
+    stage: "Aims",
+  },
+  {
+    title: "Community",
+    description: "Ask others, read lived experience, and find peer support.",
+    to: "/community",
+    icon: MessageSquare,
+    stage: "Ask",
+    thumbnails: true,
+    cta: "Go to Community",
   },
 ];
 
@@ -42,7 +41,7 @@ const SupportPage = () => {
     <div className="py-16">
       <div className="container mx-auto px-4">
         <div className="mb-12 max-w-3xl">
-          <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">Support</h1>
+          <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">Get Support</h1>
           <p className="text-lg text-muted-foreground">
             Start here if you are looking for guidance, reassurance, community support, or a way to get involved.
           </p>
@@ -97,7 +96,7 @@ const SupportPage = () => {
         <div className="mt-12 rounded-lg border border-border bg-card p-6">
           <h2 className="mb-2 text-lg font-bold text-foreground">Your journey</h2>
           <p className="text-sm text-muted-foreground">
-            Learn with <Link to="/insights" className="text-primary hover:underline">Insights</Link> · Ask in the <Link to="/community" className="text-primary hover:underline">Community</Link> · Commit by choosing to <Link to="/join" className="text-primary hover:underline">Join</Link>.
+            Learn with <Link to="/insights" className="text-primary hover:underline">Guidance</Link> · Ask in the <Link to="/community" className="text-primary hover:underline">Community</Link> · Relate through <Link to="/lived-experiences" className="text-primary hover:underline">Lived Experiences</Link> · Commit by choosing to <Link to="/join" className="text-primary hover:underline">Join</Link>.
           </p>
         </div>
       </div>

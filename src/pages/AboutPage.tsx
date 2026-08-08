@@ -1,25 +1,37 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Compass, Target, Building2 } from "lucide-react";
+import { ArrowRight, Compass, BookOpen, HelpCircle, Mail, Scale } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const aboutLinks = [
   {
-    title: "Why It Matters",
-    description: "The case for dyslexia awareness across the UK Defence community.",
-    to: "/why-it-matters",
+    title: "Our Story",
+    description: "How Dyslexia in Defence started, from one veteran's experience and the Defence Dyslexia Network, to who we serve today.",
+    to: "/about/our-story",
     icon: Compass,
   },
   {
-    title: "What We Want to Achieve",
-    description: "Our vision for improving understanding, support, opportunity, and outcomes for people with dyslexia and neurodiversity across the Defence community.",
-    to: "/achieve",
-    icon: Target,
+    title: "What We Do",
+    description: "Guidance, peer community and lived experience — and the case for dyslexia awareness across the UK Defence community.",
+    to: "/about/what-we-do",
+    icon: BookOpen,
   },
   {
-    title: "Structure",
-    description: "How we are organised — founder, governance, transparency, sponsorship and CIC information.",
-    to: "/structure",
-    icon: Building2,
+    title: "FAQ",
+    description: "Clear answers to the questions we are asked most often, grouped by whether you are joining, serving, or leaving service.",
+    to: "/about/faq",
+    icon: HelpCircle,
+  },
+  {
+    title: "Contact Us",
+    description: "Reach us by email, LinkedIn or Discord.",
+    to: "/contact",
+    icon: Mail,
+  },
+  {
+    title: "Governance",
+    description: "Our reference area — overview, founder and purpose, code of conduct, safeguarding, privacy notice, sponsorship and transparency.",
+    to: "/governance",
+    icon: Scale,
   },
 ];
 
