@@ -3,7 +3,6 @@ import { AccessibilityProvider } from "@/contexts/AccessibilityContext";
 import Layout from "@/components/Layout";
 import HomePage from "@/pages/HomePage";
 import AboutPage from "@/pages/AboutPage";
-import WhyItMattersPage from "@/pages/WhyItMattersPage";
 import CommunityPage from "@/pages/CommunityPage";
 import ResourcesPage from "@/pages/ResourcesPage";
 import SupportPage from "@/pages/SupportPage";
