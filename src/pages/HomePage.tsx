@@ -83,7 +83,7 @@ const HomePage = () => {
       </section>
 
       {/* One in ten band */}
-      <section className="border-t border-border py-12" aria-label="Dyslexia prevalence across Defence">
+      <section className="border-t border-border bg-card py-12" aria-label="Dyslexia prevalence across Defence">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-3 text-2xl font-bold text-foreground">Supporting the 10% to give their 100%</h2>
@@ -109,7 +109,7 @@ const HomePage = () => {
       </section>
 
       {/* Lived Experiences feature */}
-      <section className="border-t border-border bg-card py-14" aria-label="Real stories from across Defence">
+      <section className="border-t border-border py-14" aria-label="Real stories from across Defence">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-3 text-2xl font-bold text-foreground">Real stories from across Defence</h2>
@@ -123,7 +123,7 @@ const HomePage = () => {
               <li key={s.slug}>
                 <Link
                   to={`${LIVED_EXPERIENCES_BASE}/${s.slug}`}
-                  className="group flex items-center gap-3 rounded-xl border border-border bg-background p-3 transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:flex-col sm:items-center sm:gap-2 sm:p-4 sm:text-center"
+                  className="group flex items-center gap-3 rounded-xl border border-border bg-card p-3 transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:flex-col sm:items-center sm:gap-2 sm:p-4 sm:text-center"
                 >
                   <img
                     src={s.photoUrl}
