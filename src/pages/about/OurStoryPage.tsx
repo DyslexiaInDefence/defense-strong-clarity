@@ -71,7 +71,7 @@ const OurStoryPage = () => (
               How we are governed, funded and held to account is set out in our{" "}
               <Link to="/governance" className="font-semibold text-primary hover:underline">governance pages</Link>{" "}
               and our{" "}
-              <Link to="/structure" className="font-semibold text-primary hover:underline">structure</Link>.
+              <Link to="/governance" className="font-semibold text-primary hover:underline">structure</Link>.
             </p>
           </div>
         </section>
