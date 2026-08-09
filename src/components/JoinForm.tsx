@@ -233,7 +233,7 @@ const JoinForm = () => {
                         <FormItem className="flex items-center gap-2 space-y-0">
                           <FormControl>
                             <Checkbox
-                              checked={field.value?.includes(interest)}
+                              checked={field.value?.includes(interest) ?? false}
                               onCheckedChange={(checked) => {
                                 const current = field.value || [];
                                 field.onChange(
