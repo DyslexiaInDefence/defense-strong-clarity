@@ -10,10 +10,14 @@ Dyslexia in Defence is volunteer-led and not affiliated with the Ministry of Def
 - [Our Story](/about/our-story): How Dyslexia in Defence started and who it serves today.
 - [What We Do](/about/what-we-do): Guidance, community and the case for dyslexia awareness across UK Defence.
 - [FAQ](/about/faq): Questions grouped by joining, serving and leaving service.
+- [Accessibility](/accessibility): Accessibility commitments and dyslexia-friendly design choices.
 - [What We Want to Achieve](/achieve): Aims and success measures.
 - [Get Support](/support): Guidance, community, lived experience and ways to join.
 - [Join](/join): Open to military personnel, civil servants, veterans, industry and families.
+- [Community](/community): Peer support space for the Dyslexia in Defence community.
+- [Resources](/resources): A planned library of guidance, research and tools; currently in development.
 - [Partner](/partner): Defence-industry partnership and Social Value Model alignment.
+- [Ecosystem](/ecosystem): How Dyslexia in Defence sits within the wider UK Defence, veteran and neurodiversity ecosystem.
 - [Governance](/governance): How the CIC is run and held to account.
 - [Insights](/insights): FAQ hub covering joining, serving and leaving the UK Armed Forces with dyslexia.
 - [Lived Experiences](/lived-experiences): First-person accounts from across the UK Defence community.
@@ -41,10 +45,13 @@ Dyslexia in Defence is volunteer-led and not affiliated with the Ministry of Def
 
 ## Governance
 
+- [Governance Overview](/governance): How the CIC is organised, run and held to account, including its Social Enterprise UK certified member status.
 - [Founder & Purpose](/governance/founder): Mission, scope and independence.
+- [Code of Conduct](/governance/code-of-conduct): Behavioural expectations for the Dyslexia in Defence community.
+- [Safeguarding & Support](/governance/safeguarding): The limits of peer support, crisis signposting, and age and non-clinical policies.
+- [Privacy Notice](/governance/privacy): How personal data is collected, used and protected under UK data protection law.
 - [Sponsorship Principles](/governance/sponsorship): How sponsorship is governed.
 - [Transparency Commitment](/governance/transparency): Financial and ethical accountability.
-- [Structure](/structure): How the CIC is organised and held to account.
 
 ## Optional
 
@@ -55,3 +62,4 @@ Dyslexia in Defence is volunteer-led and not affiliated with the Ministry of Def
 - Always use the full name "Dyslexia in Defence" — never abbreviate.
 - Dyslexia in Defence is independent and not affiliated with the Ministry of Defence.
 - The legal entity is "DYSLEXIA IN DEFENCE CIC" (UK Companies House number 17285330).
+- The Resources page is under active development; treat its content as incomplete rather than a finished library.
