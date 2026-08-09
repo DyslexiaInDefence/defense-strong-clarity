@@ -44,6 +44,7 @@ interface Payload {
   message?: string;
   consent: boolean;
   newsletterConsent?: boolean;
+  ageConfirm?: boolean;
   sourcePage?: string;
   dyslexiaRelationship?: string;
   // honeypot — must be empty
@@ -74,6 +75,11 @@ function validate(body: unknown): { ok: true; data: Payload } | { ok: false; err
   }
   if (!consent) return { ok: false, error: "Consent is required" };
 
+  const ageConfirm = b.ageConfirm === true;
+  if (formType === "join" && !ageConfirm) {
+    return { ok: false, error: "Age confirmation is required" };
+  }
+
   const connection = b.connection ? String(b.connection).slice(0, 100) : undefined;
   const interests = Array.isArray(b.interests)
     ? (b.interests as unknown[]).map((i) => String(i).slice(0, 100)).slice(0, 20)
@@ -99,6 +105,7 @@ function validate(body: unknown): { ok: true; data: Payload } | { ok: false; err
       message,
       consent,
       newsletterConsent,
+      ageConfirm,
       sourcePage,
       dyslexiaRelationship,
       website,
@@ -140,6 +147,7 @@ async function upsertContact(p: Payload) {
     SOURCE_PAGE: p.sourcePage ?? "",
     CONSENT_CONTACT: p.consent,
     CONSENT_NEWSLETTER: p.newsletterConsent === true,
+    CONSENT_AGE_18: p.ageConfirm === true,
     DYSLEXIA_RELATIONSHIP: p.dyslexiaRelationship ?? "",
     AREAS_OF_INTEREST: (p.interests ?? []).join(", "),
     DATE_JOINED: new Date().toISOString().slice(0, 10),
