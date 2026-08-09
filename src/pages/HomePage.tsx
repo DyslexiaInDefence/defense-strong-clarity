@@ -83,12 +83,18 @@ const HomePage = () => {
       </section>
 
       {/* One in ten band */}
-      <section className="border-t border-border py-12" aria-label="Dyslexia prevalence across Defence">
+      <section className="border-t border-border bg-card py-12" aria-label="Dyslexia prevalence across Defence">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-3 text-2xl font-bold text-foreground">Supporting the 10% to give their 100%</h2>
             <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
               We are here for serving personnel, and for those preparing to join or who have already transitioned out.
+            </p>
+            <p className="mt-6 text-4xl font-extrabold tracking-tight text-primary md:text-5xl">
+              Around 18,000
+            </p>
+            <p className="mx-auto mt-2 max-w-2xl text-base leading-relaxed text-muted-foreground">
+              serving UK Armed Forces personnel may be dyslexic — an estimate based on 10 per cent prevalence applied to a total strength of roughly 184,000.
             </p>
           </div>
 
@@ -149,7 +155,7 @@ const HomePage = () => {
       </section>
 
       {/* Mission */}
-      <section className="border-t border-border bg-card py-16" aria-label="Mission">
+      <section className="border-t border-border py-16" aria-label="Mission">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="mb-4 text-2xl font-bold text-foreground">What We Do</h2>
@@ -161,7 +167,7 @@ const HomePage = () => {
             </p>
           </div>
           <div className="mx-auto mt-10 grid max-w-2xl gap-4 sm:grid-cols-2">
-            {["Volunteer led", "Independently governed", "Strengths based", "Built on mutual respect"].map((item) => <div key={item} className="flex items-center gap-3 rounded-lg border border-border bg-background p-4">
+            {["Volunteer led", "Independently governed", "Strengths based", "Built on mutual respect"].map((item) => <div key={item} className="flex items-center gap-3 rounded-lg border border-border bg-card p-4">
                 <span className="h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
                 <span className="text-foreground">{item}</span>
               </div>)}
