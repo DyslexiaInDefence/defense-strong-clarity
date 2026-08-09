@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { ArrowRight, BookOpen, MessageSquare, UserPlus, Target } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { livedStories } from "@/data/livedStories";
@@ -52,7 +52,7 @@ const SupportPage = () => {
             <Link
               key={item.to}
               to={item.to}
-              className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-lg"
+              className="group focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring rounded-lg"
               aria-label={item.title}
             >
               <Card className="h-full transition-colors hover:border-primary">
@@ -78,7 +78,7 @@ const SupportPage = () => {
                           onError={(e) => {
                             (e.currentTarget as HTMLImageElement).style.display = "none";
                           }}
-                          className="h-9 w-9 rounded-full border-2 border-card object-cover shadow-sm"
+                          className="h-9 w-9 rounded-full border-2 border-card object-cover shadow-xs"
                         />
                       ))}
                     </div>

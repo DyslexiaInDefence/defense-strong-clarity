@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { UserPlus, Shield, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
@@ -53,7 +53,7 @@ const AudienceRouter = ({ active, className }: AudienceRouterProps) => (
               }
               className={cn(
                 "group flex h-full items-center gap-3 rounded-xl border p-3 transition-colors",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                "focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring",
                 isActive
                   ? "border-primary bg-primary/10"
                   : "border-border bg-background hover:border-primary",

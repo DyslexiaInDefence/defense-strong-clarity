@@ -1,5 +1,5 @@
 import { Quote } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { cn } from "@/lib/utils";
 
 export type LivedExperienceTag = "Joining" | "Serving" | "Veteran";

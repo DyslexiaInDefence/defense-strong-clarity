@@ -59,7 +59,7 @@ const ContactPage = () => {
                 href={method.link}
                 target={method.external ? "_blank" : undefined}
                 rel={method.external ? "noopener noreferrer" : undefined}
-                className="group flex flex-col rounded-lg border border-border bg-card p-6 shadow-sm transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="group flex flex-col rounded-lg border border-border bg-card p-6 shadow-xs transition-colors hover:border-primary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <Icon className="mb-4 h-7 w-7 text-primary" aria-hidden="true" />
                 <h2 className="mb-2 text-lg font-bold text-foreground">{method.title}</h2>

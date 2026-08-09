@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import didLogoFull from "@/assets/did-logo-full.webp";
 
 const Footer = () => {

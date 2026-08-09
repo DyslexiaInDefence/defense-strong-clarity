@@ -1,0 +1,3 @@
+{"functions": [
+  {"name": "forms-to-brevo", "classification": "internal-only", "signal": "called from src/components/JoinForm.tsx via supabase.functions.invoke; depends on BREVO_API_KEY/LOVABLE_API_KEY and Brevo list-ID secrets provisioned in the edge-function environment, and the invoke call keeps working unchanged after migration — moving it would risk breaking the live Join form", "outcome": "left"}
+]}

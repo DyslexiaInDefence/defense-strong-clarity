@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from "@/lib/router-compat";
 import { livedStories, LIVED_EXPERIENCES_BASE } from "@/data/livedStories";
 
 interface StoryNavProps {
@@ -19,7 +19,7 @@ const StoryNav = ({ currentSlug }: StoryNavProps) => {
               key={story.slug}
               to={`${LIVED_EXPERIENCES_BASE}/${story.slug}`}
               aria-current={active ? "page" : undefined}
-              className={`shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+              className={`shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring ${
                 active
                   ? "border-primary bg-primary text-primary-foreground"
                   : "border-border bg-card text-foreground/80 hover:border-primary hover:text-primary"

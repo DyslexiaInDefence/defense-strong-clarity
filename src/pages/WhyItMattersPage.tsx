@@ -1,5 +1,5 @@
 import { Brain, Eye, Lightbulb, Puzzle, Compass, Users, ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import spikyProfileImg from "@/assets/spiky-profile.webp";
@@ -47,7 +47,7 @@ const WhyItMattersPage = () => {
             <img
               src={spikyProfileImg}
               alt="Graph illustrating the spiky cognitive profile of neurodiverse individuals compared to a neurotypical baseline, showing dramatic peaks and troughs across different cognitive abilities."
-              className="w-full h-auto rounded" />
+              className="w-full h-auto rounded-sm" />
             
             <p className="mt-3 text-center text-xs text-muted-foreground">
               Source:{" "}

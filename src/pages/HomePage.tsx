@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { ArrowRight, Info, LifeBuoy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -117,7 +117,7 @@ const HomePage = () => {
               <li key={s.slug}>
                 <Link
                   to={`${LIVED_EXPERIENCES_BASE}/${s.slug}`}
-                  className="group flex items-center gap-3 rounded-xl border border-border bg-card p-3 transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:flex-col sm:items-center sm:gap-2 sm:p-4 sm:text-center"
+                  className="group flex items-center gap-3 rounded-xl border border-border bg-card p-3 transition-colors hover:border-primary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring sm:flex-col sm:items-center sm:gap-2 sm:p-4 sm:text-center"
                 >
                   <img
                     src={s.photoUrl}
@@ -126,7 +126,7 @@ const HomePage = () => {
                     onError={(e) => {
                       (e.currentTarget as HTMLImageElement).style.display = "none";
                     }}
-                    className="h-12 w-12 shrink-0 rounded-full border border-border object-cover shadow-sm sm:h-16 sm:w-16"
+                    className="h-12 w-12 shrink-0 rounded-full border border-border object-cover shadow-xs sm:h-16 sm:w-16"
                   />
                   <div className="min-w-0">
                     <p className="truncate text-sm font-semibold text-foreground">{s.name}</p>

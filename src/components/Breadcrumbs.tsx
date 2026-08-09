@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "@/lib/router-compat";
 import { ChevronRight } from "lucide-react";
 
 const LABELS: Record<string, string> = {
@@ -64,7 +64,7 @@ const Breadcrumbs = () => {
         <li>
           <Link
             to="/"
-            className="text-muted-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+            className="text-muted-foreground hover:text-primary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring rounded-xs"
           >
             Home
           </Link>
@@ -79,7 +79,7 @@ const Breadcrumbs = () => {
             ) : (
               <Link
                 to={c.to}
-                className="text-muted-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+                className="text-muted-foreground hover:text-primary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring rounded-xs"
               >
                 {c.label}
               </Link>

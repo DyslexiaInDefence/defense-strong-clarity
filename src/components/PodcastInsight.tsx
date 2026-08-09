@@ -1,5 +1,5 @@
 import { Headphones, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { trackEvent } from "@/lib/analytics";
 
 interface PodcastInsightProps {

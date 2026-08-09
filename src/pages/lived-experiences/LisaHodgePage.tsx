@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { ArrowRight } from "lucide-react";
 import StoryNav from "@/components/StoryNav";
 import { getStory } from "@/data/livedStories";
@@ -135,7 +135,7 @@ const LisaHodgePage = () => {
           </p>
           <Link
             to="/contact"
-            className="mt-5 inline-flex items-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="mt-5 inline-flex items-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
           >
             Contact Us
             <ArrowRight className="ml-1.5 h-4 w-4" aria-hidden="true" />

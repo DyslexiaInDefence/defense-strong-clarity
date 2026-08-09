@@ -135,7 +135,7 @@ const JoinForm = () => {
 
   if (submitted) {
     return (
-      <div className="rounded-xl border border-border bg-card p-8 text-center shadow-sm" role="status" aria-live="polite">
+      <div className="rounded-xl border border-border bg-card p-8 text-center shadow-xs" role="status" aria-live="polite">
         <CheckCircle className="mx-auto mb-4 h-12 w-12 text-primary" aria-hidden="true" />
         <h3 className="mb-2 text-xl font-bold text-foreground">Registration Received</h3>
         <p className="text-muted-foreground">
@@ -149,7 +149,7 @@ const JoinForm = () => {
   }
 
   return (
-    <div className="rounded-xl border border-border bg-card p-6 shadow-sm sm:p-8">
+    <div className="rounded-xl border border-border bg-card p-6 shadow-xs sm:p-8">
       <h3 className="mb-1 text-xl font-bold text-foreground">Join the Community</h3>
       <p className="mb-6 text-sm text-muted-foreground">
         Register your interest to join the Dyslexia in Defence peer network. Open to adults aged 18 and over.
@@ -233,7 +233,7 @@ const JoinForm = () => {
                         <FormItem className="flex items-center gap-2 space-y-0">
                           <FormControl>
                             <Checkbox
-                              checked={field.value?.includes(interest)}
+                              checked={field.value?.includes(interest) ?? false}
                               onCheckedChange={(checked) => {
                                 const current = field.value || [];
                                 field.onChange(

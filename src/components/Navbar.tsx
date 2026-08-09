@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "@/lib/router-compat";
 import { Moon, Sun, Type, Zap, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAccessibility } from "@/contexts/AccessibilityContext";
@@ -144,7 +144,7 @@ const Navbar = () => {
                   to={link.to}
                   end={link.to === "/"}
                   className={({ isActive }) =>
-                    `text-sm font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm px-1 ${isActive ? "text-primary" : "text-foreground/80"}`
+                    `text-sm font-medium transition-colors hover:text-primary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-xs px-1 ${isActive ? "text-primary" : "text-foreground/80"}`
                   }
                 >
                   {link.label}
@@ -178,7 +178,7 @@ const Navbar = () => {
                       }
                     }}
                     className={({ isActive }) =>
-                      `text-sm font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm px-1 ${isActive || active ? "text-primary" : "text-foreground/80"}`
+                      `text-sm font-medium transition-colors hover:text-primary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-xs px-1 ${isActive || active ? "text-primary" : "text-foreground/80"}`
                     }
                   >
                     {link.label}
@@ -189,7 +189,7 @@ const Navbar = () => {
                     aria-expanded={isOpen}
                     aria-haspopup="menu"
                     aria-label={`${isOpen ? "Close" : "Open"} ${link.label} menu`}
-                    className="rounded-sm p-1 text-foreground/70 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    className="rounded-xs p-1 text-foreground/70 hover:text-primary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                     onKeyDown={(e) => {
                       if (e.key === "Escape") setOpenDesktop(null);
                     }}
@@ -238,7 +238,7 @@ const Navbar = () => {
         <div className="hidden items-center gap-2 xl:flex">
           <button
             onClick={toggleDarkMode}
-            className="rounded-lg p-2 text-foreground/70 transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="rounded-lg p-2 text-foreground/70 transition-colors hover:bg-secondary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
             aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
             title={darkMode ? "Light mode" : "Dark mode"}>
             
@@ -246,7 +246,7 @@ const Navbar = () => {
           </button>
           <button
             onClick={toggleLargeText}
-            className={`rounded-lg p-2 transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${largeText ? "bg-secondary text-primary" : "text-foreground/70"}`}
+            className={`rounded-lg p-2 transition-colors hover:bg-secondary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring ${largeText ? "bg-secondary text-primary" : "text-foreground/70"}`}
             aria-label={largeText ? "Reset text size" : "Increase text size"}
             title="Text size">
             
@@ -254,7 +254,7 @@ const Navbar = () => {
           </button>
           <button
             onClick={toggleReduceMotion}
-            className={`rounded-lg p-2 transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${reduceMotion ? "bg-secondary text-primary" : "text-foreground/70"}`}
+            className={`rounded-lg p-2 transition-colors hover:bg-secondary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring ${reduceMotion ? "bg-secondary text-primary" : "text-foreground/70"}`}
             aria-label={reduceMotion ? "Enable animations" : "Reduce motion"}
             title="Reduce motion">
             
@@ -262,7 +262,7 @@ const Navbar = () => {
           </button>
           <button
             onClick={toggleDyslexicFont}
-            className={`rounded-lg px-2 py-1 transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring font-bold text-sm ${dyslexicFont ? "bg-secondary text-primary" : "text-foreground/70"}`}
+            className={`rounded-lg px-2 py-1 transition-colors hover:bg-secondary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring font-bold text-sm ${dyslexicFont ? "bg-secondary text-primary" : "text-foreground/70"}`}
             aria-label={dyslexicFont ? "Use default font" : "Use OpenDyslexic font"}
             title="Dyslexic friendly font"
             style={dyslexicFont ? { fontFamily: "'Open Dyslexic', sans-serif" } : undefined}>
@@ -279,7 +279,7 @@ const Navbar = () => {
 
         {/* Mobile hamburger */}
         <button
-          className="rounded-lg p-2 text-foreground xl:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="rounded-lg p-2 text-foreground xl:hidden focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}>
           
@@ -330,7 +330,7 @@ const Navbar = () => {
                       }
                       aria-expanded={expanded}
                       aria-label={`${expanded ? "Collapse" : "Expand"} ${link.label} section`}
-                      className="rounded-lg px-3 text-foreground/70 hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      className="rounded-lg px-3 text-foreground/70 hover:bg-secondary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
                     >
                       <ChevronDown className={`h-5 w-5 transition-transform ${expanded ? "rotate-180" : ""}`} aria-hidden="true" />
                     </button>

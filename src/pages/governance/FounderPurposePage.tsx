@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import PolicyLayout, { Callout } from "@/components/PolicyLayout";
 
 const sections = [
