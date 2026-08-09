@@ -81,7 +81,7 @@ const SafeguardingPage = () => (
       </ul>
       <h3 className="text-lg font-semibold text-foreground mb-2 mt-6">How to Report</h3>
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-        <li>Contact the founder directly at <a href="mailto:contact@dyslexiaindefence.com" className="text-primary underline underline-offset-2">contact@dyslexiaindefence.com</a></li>
+        <li>Contact the founder directly at <a href="mailto:admin@dyslexiaindefence.com" className="text-primary underline underline-offset-2">admin@dyslexiaindefence.com</a></li>
         <li>Reports will be acknowledged as promptly as possible</li>
         <li>All reports will be treated with seriousness and sensitivity</li>
       </ul>
