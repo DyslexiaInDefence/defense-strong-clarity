@@ -147,6 +147,7 @@ async function upsertContact(p: Payload) {
     SOURCE_PAGE: p.sourcePage ?? "",
     CONSENT_CONTACT: p.consent,
     CONSENT_NEWSLETTER: p.newsletterConsent === true,
+    CONSENT_AGE_18: p.ageConfirm === true,
     DYSLEXIA_RELATIONSHIP: p.dyslexiaRelationship ?? "",
     AREAS_OF_INTEREST: (p.interests ?? []).join(", "),
     DATE_JOINED: new Date().toISOString().slice(0, 10),
