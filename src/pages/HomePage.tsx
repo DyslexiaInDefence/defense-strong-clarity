@@ -83,7 +83,7 @@ const HomePage = () => {
       </section>
 
       {/* One in ten band */}
-      <section className="border-t border-border bg-card py-12" aria-label="Dyslexia prevalence across Defence">
+      <section className="border-t border-border py-12" aria-label="Dyslexia prevalence across Defence">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-3 text-2xl font-bold text-foreground">Supporting the 10% to give their 100%</h2>
@@ -91,10 +91,10 @@ const HomePage = () => {
               We are here for serving personnel, and for those preparing to join or who have already transitioned out.
             </p>
             <p className="mt-6 text-4xl font-extrabold tracking-tight text-primary md:text-5xl">
-              Around 18,000
+              18,205
             </p>
             <p className="mx-auto mt-2 max-w-2xl text-base leading-relaxed text-muted-foreground">
-              serving UK Armed Forces personnel may be dyslexic — an estimate based on 10 per cent prevalence applied to a total strength of roughly 184,000.
+              serving UK Armed Forces personnel are likely to be dyslexic — 10 per cent dyslexia prevalence applied to a total strength of 182,050.
             </p>
           </div>
 
@@ -103,13 +103,13 @@ const HomePage = () => {
           </div>
 
           <p className="mx-auto mt-6 max-w-xl text-center text-xs leading-relaxed text-muted-foreground/70">
-            Around 1 in 10 people are estimated to be dyslexic. Figures illustrative, based on UK dyslexia prevalence estimates alongside published MOD personnel statistics.
+            Based on UK dyslexia prevalence estimates of 1 in 10 people, applied to MOD Quarterly Service Personnel Statistics, 1 January 2026.
           </p>
         </div>
       </section>
 
       {/* Lived Experiences feature */}
-      <section className="border-t border-border py-14" aria-label="Real stories from across Defence">
+      <section className="border-t border-border bg-card py-14" aria-label="Real stories from across Defence">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-3 text-2xl font-bold text-foreground">Real stories from across Defence</h2>
@@ -123,7 +123,7 @@ const HomePage = () => {
               <li key={s.slug}>
                 <Link
                   to={`${LIVED_EXPERIENCES_BASE}/${s.slug}`}
-                  className="group flex items-center gap-3 rounded-xl border border-border bg-card p-3 transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:flex-col sm:items-center sm:gap-2 sm:p-4 sm:text-center"
+                  className="group flex items-center gap-3 rounded-xl border border-border bg-background p-3 transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:flex-col sm:items-center sm:gap-2 sm:p-4 sm:text-center"
                 >
                   <img
                     src={s.photoUrl}
@@ -155,7 +155,7 @@ const HomePage = () => {
       </section>
 
       {/* Mission */}
-      <section className="border-t border-border py-16" aria-label="Mission">
+      <section className="border-t border-border bg-card py-16" aria-label="Mission">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="mb-4 text-2xl font-bold text-foreground">What We Do</h2>
@@ -165,12 +165,6 @@ const HomePage = () => {
             <p className="mt-4 text-sm text-muted-foreground">
               <Link to="/about" className="text-primary font-semibold hover:underline">Learn more about us</Link>
             </p>
-          </div>
-          <div className="mx-auto mt-10 grid max-w-2xl gap-4 sm:grid-cols-2">
-            {["Volunteer led", "Independently governed", "Strengths based", "Built on mutual respect"].map((item) => <div key={item} className="flex items-center gap-3 rounded-lg border border-border bg-card p-4">
-                <span className="h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-                <span className="text-foreground">{item}</span>
-              </div>)}
           </div>
         </div>
       </section>

@@ -6,32 +6,56 @@
  */
 const FIGURE_COUNT = 30; // 3 highlighted per pass (every 10th)
 
-// 40 x 66 viewBox. Head + service headwear + sloped-shoulder torso, single fill.
+/**
+ * 64 x 64 viewBox. Flat circular badge, faceless head-and-shoulders silhouette,
+ * distinguished only by headwear shape. Head centre ~ (32, 30), r 9.
+ */
+const shoulders = <path d="M32 41 q11 0 15.5 8 q2.5 4.5 2.5 11 h-36 q0 -6.5 2.5 -11 q4.5 -8 15.5 -8 Z" />;
+
 const variants = [
-  // Army: beret, squarer shoulders
+  // Beret, sloped and worn to one side
   (
-    <g key="army">
-      <path d="M9 15 Q11 5 21 5 Q31 5 30 13 Q22 17 9 15 Z" />
-      <circle cx="20" cy="22" r="8" />
-      <path d="M20 31 q10 1 13 8 q3 6 3 27 h-32 q0 -21 3 -27 q3 -7 13 -8 Z" />
+    <g key="beret">
+      <circle cx="32" cy="30" r="9" />
+      <path d="M21 22 q1 -8 11 -8 q11 0 13 6 q-1 3 -6 3 q-10 1 -18 -1 Z" />
+      {shoulders}
     </g>
   ),
-  // Royal Navy: flat-topped cap with band
+  // Naval officer cap: flat top, band and peak
   (
-    <g key="navy">
-      <rect x="11" y="7" width="18" height="6" rx="2.5" />
-      <rect x="9" y="13" width="22" height="3.5" rx="1.6" />
-      <circle cx="20" cy="23" r="7.5" />
-      <path d="M20 31 q10 1 12.5 8 q2.5 6 2.5 27 h-30 q0 -21 2.5 -27 q2.5 -7 12.5 -8 Z" />
+    <g key="naval">
+      <circle cx="32" cy="31" r="8.5" />
+      <rect x="23" y="13" width="18" height="6" rx="2.5" />
+      <rect x="21" y="19" width="22" height="3.5" rx="1.6" />
+      <path d="M18 22.5 h11 v3 h-11 Z" />
+      {shoulders}
     </g>
   ),
-  // RAF: soft side cap with a small forward peak
+  // Army peaked cap: structured crown, forward peak
   (
-    <g key="raf">
-      <path d="M10 15 Q12 6 21 6 Q30 6 30 15 Z" />
-      <path d="M5 15 h8 v3.5 h-8 Z" />
-      <circle cx="20" cy="23" r="7.5" />
-      <path d="M20 31 q11 1 13 9 q2 6 2 26 h-30 q0 -20 2 -26 q2 -8 13 -9 Z" />
+    <g key="peaked">
+      <circle cx="32" cy="31" r="8.5" />
+      <path d="M22 20 q1 -8 10 -8 q10 0 11 8 Z" />
+      <rect x="20" y="20" width="24" height="3.5" rx="1.6" />
+      <path d="M17 23.5 h12 v3 h-12 Z" />
+      {shoulders}
+    </g>
+  ),
+  // Combat helmet: rounded dome, low brow line
+  (
+    <g key="helmet">
+      <circle cx="32" cy="31" r="8.5" />
+      <path d="M20 25 q0 -13 12 -13 q12 0 12 13 q-3 2 -12 2 q-9 0 -12 -2 Z" />
+      {shoulders}
+    </g>
+  ),
+  // Field cap: soft low crown, short peak
+  (
+    <g key="field">
+      <circle cx="32" cy="31" r="8.5" />
+      <path d="M23 21 q0 -7 9 -7 q9 0 9 7 Z" />
+      <path d="M19 21 h12 v3 h-12 Z" />
+      {shoulders}
     </g>
   ),
 ];
@@ -42,19 +66,21 @@ const Figure = ({ index }: { index: number }) => {
     ["hsl(var(--ribbon-blue))", "hsl(var(--ribbon-yellow))", "hsl(var(--ribbon-green))"][
       Math.floor(index / 10) % 3
     ];
-  const fill = highlighted ? accent : "hsl(var(--muted-foreground))";
-  const opacity = highlighted ? 0.95 : 0.22;
+  const tone = highlighted ? accent : "hsl(var(--muted-foreground))";
 
   return (
     <svg
-      width="40"
-      height="66"
-      viewBox="0 0 40 66"
+      width="56"
+      height="56"
+      viewBox="0 0 64 64"
       className="shrink-0"
       role="presentation"
       focusable="false"
     >
-      <g fill={fill} opacity={opacity}>{variants[index % 3]}</g>
+      <circle cx="32" cy="32" r="32" fill={tone} opacity={highlighted ? 0.16 : 0.08} />
+      <g fill={tone} opacity={highlighted ? 0.95 : 0.3}>
+        {variants[index % 5]}
+      </g>
     </svg>
   );
 };
@@ -68,9 +94,9 @@ const HeroPersonnelBand = () => {
       aria-hidden="true"
       data-testid="personnel-band"
     >
-      <div className="flex w-max animate-personnel-scroll items-end gap-4 motion-reduce:animate-none">
+      <div className="flex w-max animate-personnel-scroll items-center gap-4 motion-reduce:animate-none">
         {[0, 1].map((track) => (
-          <div key={track} className="flex items-end gap-4">
+          <div key={track} className="flex items-center gap-4">
             {figures.map((i) => (
               <Figure key={`${track}-${i}`} index={i} />
             ))}
