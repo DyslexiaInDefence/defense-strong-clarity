@@ -54,12 +54,6 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.7,
     indexable: true,
   },
-  "/ask": {
-    title: "Ask the Community | Dyslexia in Defence",
-    description: "Ask a plain-English question about dyslexia in the UK defence community and get a peer-led reply by email.",
-    priority: 0.7,
-    indexable: true,
-  },
   "/why-it-matters": {
     title: "Why Dyslexia Matters in Defence | Dyslexia in Defence",
     description: "Understand why dyslexia awareness matters across the UK defence sector, military, civil service and defence industry. Cognitive diversity is a strategic advantage.",

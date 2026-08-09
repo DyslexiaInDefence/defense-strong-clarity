@@ -36,7 +36,6 @@ const navLinks: NavItem[] = [
     children: [
       { label: "Lived Experiences", to: "/lived-experiences" },
       { label: "Peer Community", to: "/community" },
-      { label: "Ask the Community", to: "/ask" },
     ],
   },
   {

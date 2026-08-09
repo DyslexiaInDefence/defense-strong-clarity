@@ -9,7 +9,6 @@ import SupportPage from "@/pages/SupportPage";
 import PartnerPage from "@/pages/PartnerPage";
 import JoinPage from "@/pages/JoinPage";
 import ContactPage from "@/pages/ContactPage";
-import AskPage from "@/pages/AskPage";
 import PrivacyPage from "@/pages/PrivacyPage";
 import AccessibilityPage from "@/pages/AccessibilityPage";
 import EcosystemPage from "@/pages/EcosystemPage";
@@ -58,7 +57,7 @@ const App = () => (
           <Route path="/partner" element={<PartnerPage />} />
           <Route path="/join" element={<JoinPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/ask" element={<AskPage />} />
+          <Route path="/ask" element={<Navigate to="/community" replace />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/accessibility" element={<AccessibilityPage />} />
           <Route path="/ecosystem" element={<EcosystemPage />} />
