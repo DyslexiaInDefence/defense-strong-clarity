@@ -75,6 +75,11 @@ function validate(body: unknown): { ok: true; data: Payload } | { ok: false; err
   }
   if (!consent) return { ok: false, error: "Consent is required" };
 
+  const ageConfirm = b.ageConfirm === true;
+  if (formType === "join" && !ageConfirm) {
+    return { ok: false, error: "Age confirmation is required" };
+  }
+
   const connection = b.connection ? String(b.connection).slice(0, 100) : undefined;
   const interests = Array.isArray(b.interests)
     ? (b.interests as unknown[]).map((i) => String(i).slice(0, 100)).slice(0, 20)
@@ -100,6 +105,7 @@ function validate(body: unknown): { ok: true; data: Payload } | { ok: false; err
       message,
       consent,
       newsletterConsent,
+      ageConfirm,
       sourcePage,
       dyslexiaRelationship,
       website,
