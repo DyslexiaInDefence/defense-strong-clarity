@@ -8,9 +8,9 @@ import p6 from "@/assets/personnel-6.png.asset.json";
 /**
  * Decorative, continuously scrolling band of six military role icons.
  * Order is randomised (deterministic seed) so the row never reads as a
- * mechanical repeat. Roughly 1 in every 10 icons shows in full original
- * colour; the rest are greyscale, representing the estimated 1 in 10
- * dyslexia prevalence rate. Motion stops under reduced-motion settings.
+ * mechanical repeat. Roughly 1 in every 5 icons shows in full original
+ * colour; the rest are greyscale. The ratio is a deliberate visual choice
+ * for carousel readability. Motion stops under reduced-motion settings.
  */
 const IMAGES = [p1.url, p2.url, p3.url, p4.url, p5.url, p6.url];
 
@@ -31,9 +31,9 @@ const buildSequence = () => {
     last = pick;
     items.push({ src: IMAGES[pick], colour: false });
   }
-  // roughly 1 in 10 in full colour, spread with jitter
-  for (let block = 0; block * 10 < COUNT; block += 1) {
-    const idx = block * 10 + Math.floor(rand() * 10);
+  // roughly 1 in 5 in full colour, spread with jitter
+  for (let block = 0; block * 5 < COUNT; block += 1) {
+    const idx = block * 5 + Math.floor(rand() * 5);
     if (items[idx]) items[idx].colour = true;
   }
   return items;
