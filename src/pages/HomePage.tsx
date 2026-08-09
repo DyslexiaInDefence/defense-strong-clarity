@@ -155,7 +155,7 @@ const HomePage = () => {
       </section>
 
       {/* Mission */}
-      <section className="border-t border-border bg-card py-16" aria-label="Mission">
+      <section className="border-t border-border py-16" aria-label="Mission">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="mb-4 text-2xl font-bold text-foreground">What We Do</h2>
