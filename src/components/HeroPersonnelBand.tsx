@@ -16,11 +16,12 @@ type IconProps = {
   o3: number;
 };
 
-// 64 x 64 viewBox. Head centred at (32, 31) r 9.5. Shoulders cropped by badge edge.
-const Head = ({ o }: { o: number }) => <circle cx="32" cy="31" r="9.5" opacity={o} />;
+// 64 x 64 viewBox. Head centred at (32, 31) r 11. Headwear sits on the brow,
+// overlapping the top of the head. Shoulders cropped by the badge edge.
+const Head = ({ o }: { o: number }) => <circle cx="32" cy="31" r="11" opacity={o} />;
 
 const Shoulders = ({ o }: { o: number }) => (
-  <path d="M32 41 q12 0 16.5 8.5 q3 5 3 14.5 h-39 q0 -9.5 3 -14.5 q4.5 -8.5 16.5 -8.5 Z" opacity={o} />
+  <path d="M32 42 q13 0 17.5 9 q3 5 3 13 h-41 q0 -8 3 -13 q4.5 -9 17.5 -9 Z" opacity={o} />
 );
 
 const icons: Array<(p: IconProps) => JSX.Element> = [
@@ -29,23 +30,23 @@ const icons: Array<(p: IconProps) => JSX.Element> = [
     <g>
       <Head o={o1} />
       <Shoulders o={o2} />
-      <path d="M21 22 q0 -9 11 -9 q12 0 13.5 6.5 q-1.5 3.5 -7.5 3.5 q-10 0.5 -17 -1 Z" opacity={o3} />
-      <circle cx="39" cy="18.5" r="2" opacity={o1} />
-      <path d="M32 41 l5 5 l-5 18 l-5 -18 Z" opacity={o1} />
-      <path d="M27 42 l5 4 l-3 3 l-5 -4 Z" opacity={o3} />
-      <path d="M37 42 l-5 4 l3 3 l5 -4 Z" opacity={o3} />
+      <path d="M19 25 q0 -12 13 -12 q14 0 15 8 q-2 4 -9 4.5 q-12 1 -19 -0.5 Z" opacity={o3} />
+      <circle cx="41.5" cy="20" r="2.1" opacity={o1} />
+      <path d="M32 42 l5.5 5 l-5.5 17 l-5.5 -17 Z" opacity={o1} />
+      <path d="M26.5 43 l5.5 4 l-3 3.5 l-5.5 -4.5 Z" opacity={o3} />
+      <path d="M37.5 43 l-5.5 4 l3 3.5 l5.5 -4.5 Z" opacity={o3} />
     </g>
   ),
-  // 2. Naval officer's white cap with dark peak, open shirt collar
+  // 2. Naval officer's cap with dark peak, open shirt collar
   ({ o1, o2, o3 }) => (
     <g>
       <Head o={o1} />
       <Shoulders o={o2} />
-      <path d="M22 20 q1 -8 10 -8 q9 0 10 8 Z" opacity={o2} />
-      <rect x="21" y="19.5" width="22" height="3.6" rx="1.6" opacity={o3} />
-      <path d="M18 23 q6 -0.5 12 0 v3 q-7 0.5 -12 -0.5 Z" opacity={o3} />
-      <circle cx="32" cy="16" r="1.8" opacity={o3} />
-      <path d="M25 42 l7 6 l7 -6 l4 3 l-11 9 l-11 -9 Z" opacity={o3} />
+      <path d="M21 22 q1 -10 11 -10 q10 0 11 10 Z" opacity={o2} />
+      <rect x="20" y="21.5" width="24" height="4.2" rx="1.8" opacity={o3} />
+      <path d="M16 25.5 q7 -0.8 14 0 v3.4 q-8 0.8 -14 -0.6 Z" opacity={o3} />
+      <circle cx="32" cy="17" r="2" opacity={o3} />
+      <path d="M24 43 l8 7 l8 -7 l4.5 3.5 l-12.5 10 l-12.5 -10 Z" opacity={o3} />
     </g>
   ),
   // 3. Army peaked cap with raised crown, tunic collar
@@ -53,12 +54,12 @@ const icons: Array<(p: IconProps) => JSX.Element> = [
     <g>
       <Head o={o1} />
       <Shoulders o={o2} />
-      <path d="M22 19 q0 -10 10 -10 q11 0 11.5 10 Z" opacity={o3} />
-      <rect x="20.5" y="18.5" width="23" height="4" rx="1.8" opacity={o1} />
-      <path d="M17.5 22.3 q6.5 -0.6 13 0 v3.2 q-7.5 0.6 -13 -0.6 Z" opacity={o1} />
-      <path d="M32 41 l6 5 v18 h-12 v-18 Z" opacity={o3} />
-      <circle cx="32" cy="52" r="1.6" opacity={o1} />
-      <circle cx="32" cy="58" r="1.6" opacity={o1} />
+      <path d="M21 21 q0 -12 11 -12 q12 0 12.5 12 Z" opacity={o3} />
+      <rect x="19.5" y="20.5" width="25" height="4.6" rx="2" opacity={o1} />
+      <path d="M15.5 24.8 q7 -0.8 14.5 0 v3.6 q-8 0.8 -14.5 -0.7 Z" opacity={o1} />
+      <path d="M32 42 l6.5 5.5 v16.5 h-13 v-16.5 Z" opacity={o3} />
+      <circle cx="32" cy="53" r="1.7" opacity={o1} />
+      <circle cx="32" cy="59.5" r="1.7" opacity={o1} />
     </g>
   ),
   // 4. Combat helmet with goggles pushed up on the brow
@@ -66,9 +67,11 @@ const icons: Array<(p: IconProps) => JSX.Element> = [
     <g>
       <Head o={o1} />
       <Shoulders o={o2} />
-      <path d="M20 27 q0 -15 12 -15 q12 0 12 15 q-4 2 -12 2 q-8 0 -12 -2 Z" opacity={o3} />
-      <path d="M20.5 18 q11.5 -3 23 0 v4.5 q-11.5 -3 -23 0 Z" opacity={o1} />
-      <path d="M24 43 h16 v5 h-16 Z" opacity={o3} />
+      <path d="M19 27 q0 -16 13 -16 q13 0 13 16 q0 2.5 -1.5 3 h-23 q-1.5 -0.5 -1.5 -3 Z" opacity={o3} />
+      <path d="M19.5 20 q12.5 -3.5 25 0 v5 q-12.5 -3.5 -25 0 Z" opacity={o1} />
+      <path d="M21 30 h6 v3 h-6 Z" opacity={o1} />
+      <path d="M37 30 h6 v3 h-6 Z" opacity={o1} />
+      <path d="M24 44 h16 v5.5 h-16 Z" opacity={o3} />
     </g>
   ),
   // 5. Camo field cap with soft peak, patterned combat collar
@@ -76,13 +79,13 @@ const icons: Array<(p: IconProps) => JSX.Element> = [
     <g>
       <Head o={o1} />
       <Shoulders o={o2} />
-      <path d="M23 20 q0 -8 9 -8 q10 0 10 8 Z" opacity={o3} />
-      <path d="M18.5 20 q7 -0.6 14 0 v3.4 q-8 0.6 -14 -0.6 Z" opacity={o3} />
-      <circle cx="25" cy="52" r="3.4" opacity={o3} />
-      <circle cx="39" cy="49" r="2.6" opacity={o3} />
-      <circle cx="32" cy="60" r="3" opacity={o3} />
-      <circle cx="44" cy="58" r="2.4" opacity={o3} />
-      <circle cx="21" cy="61" r="2.2" opacity={o3} />
+      <path d="M21.5 23 q0 -11 10.5 -11 q11 0 11 11 Z" opacity={o3} />
+      <path d="M15.5 22.5 q8 -0.8 15 0 v4 q-9 0.8 -15 -0.8 Z" opacity={o3} />
+      <circle cx="24" cy="53" r="3.6" opacity={o3} />
+      <circle cx="40" cy="50" r="2.8" opacity={o3} />
+      <circle cx="32" cy="61" r="3.2" opacity={o3} />
+      <circle cx="46" cy="59" r="2.6" opacity={o3} />
+      <circle cx="19" cy="62" r="2.4" opacity={o3} />
     </g>
   ),
   // 6. Helmet with headset cups and boom mic, plated vest collar
@@ -90,12 +93,12 @@ const icons: Array<(p: IconProps) => JSX.Element> = [
     <g>
       <Head o={o1} />
       <Shoulders o={o2} />
-      <path d="M21 25 q0 -13 11 -13 q11 0 11 13 q-4 1.5 -11 1.5 q-7 0 -11 -1.5 Z" opacity={o3} />
-      <rect x="16.5" y="24" width="6" height="9" rx="2.6" opacity={o1} />
-      <rect x="41.5" y="24" width="6" height="9" rx="2.6" opacity={o1} />
-      <path d="M22 32 q3 6 8 6.5 v2.4 q-7 -0.6 -10.4 -8.4 Z" opacity={o1} />
-      <path d="M23 43 h18 v6 h-18 Z" opacity={o3} />
-      <rect x="26" y="52" width="12" height="9" rx="1.6" opacity={o3} />
+      <path d="M20 26 q0 -15 12 -15 q12 0 12 15 q-4 1.5 -12 1.5 q-8 0 -12 -1.5 Z" opacity={o3} />
+      <rect x="14.5" y="25" width="6.5" height="10" rx="3" opacity={o1} />
+      <rect x="43" y="25" width="6.5" height="10" rx="3" opacity={o1} />
+      <path d="M21 34 q3.5 6.5 9 7 v2.6 q-7.5 -0.6 -11.2 -9 Z" opacity={o1} />
+      <path d="M22.5 44 h19 v6.5 h-19 Z" opacity={o3} />
+      <rect x="26" y="54" width="12" height="9.5" rx="1.6" opacity={o3} />
     </g>
   ),
   // 7. Pilot's helmet with visor and oxygen mask, flight suit collar
@@ -103,11 +106,11 @@ const icons: Array<(p: IconProps) => JSX.Element> = [
     <g>
       <Head o={o1} />
       <Shoulders o={o2} />
-      <path d="M20 30 q0 -18 12 -18 q12 0 12 18 q0 4 -2 5 h-20 q-2 -1 -2 -5 Z" opacity={o3} />
-      <path d="M21 21.5 q11 -3.5 22 0 v4.8 q-11 -3.4 -22 0 Z" opacity={o1} />
-      <path d="M25 28 q7 -2 14 0 v6 q0 5 -7 5 q-7 0 -7 -5 Z" opacity={o1} />
-      <rect x="30.5" y="36" width="3" height="7" rx="1.4" opacity={o1} />
-      <path d="M22 44 h20 v5 h-20 Z" opacity={o3} />
+      <path d="M19 30 q0 -19 13 -19 q13 0 13 19 q0 4 -2 5 h-22 q-2 -1 -2 -5 Z" opacity={o3} />
+      <path d="M20 22 q12 -4 24 0 v5.5 q-12 -3.8 -24 0 Z" opacity={o1} />
+      <path d="M24 31 q8 -2.5 16 0 v6.5 q0 5.5 -8 5.5 q-8 0 -8 -5.5 Z" opacity={o1} />
+      <rect x="30.5" y="40" width="3" height="7" rx="1.4" opacity={o1} />
+      <path d="M21 45 h22 v5.5 h-22 Z" opacity={o3} />
     </g>
   ),
   // 8. Sailor's cap with rolled brim, V-neck sailor collar
@@ -115,10 +118,10 @@ const icons: Array<(p: IconProps) => JSX.Element> = [
     <g>
       <Head o={o1} />
       <Shoulders o={o2} />
-      <path d="M23.5 20 q0 -8 8.5 -8 q8.5 0 8.5 8 Z" opacity={o3} />
-      <path d="M21.5 19.5 q10.5 -2.5 21 0 q0 3.6 -10.5 3.6 q-10.5 0 -10.5 -3.6 Z" opacity={o3} />
-      <path d="M24 42 l8 9 l8 -9 l5 3 l-13 13 l-13 -13 Z" opacity={o3} />
-      <path d="M32 52 l4 4 l-4 3 l-4 -3 Z" opacity={o1} />
+      <path d="M22.5 22 q0 -10 9.5 -10 q9.5 0 9.5 10 Z" opacity={o3} />
+      <path d="M20 21.5 q12 -3 24 0 q0 4.2 -12 4.2 q-12 0 -12 -4.2 Z" opacity={o3} />
+      <path d="M23 43 l9 9.5 l9 -9.5 l5 3.5 l-14 13 l-14 -13 Z" opacity={o3} />
+      <path d="M32 54 l4.5 4 l-4.5 3.5 l-4.5 -3.5 Z" opacity={o1} />
     </g>
   ),
   // 9. Dress uniform peaked cap, high buttoned collar
@@ -126,15 +129,15 @@ const icons: Array<(p: IconProps) => JSX.Element> = [
     <g>
       <Head o={o1} />
       <Shoulders o={o2} />
-      <path d="M22.5 19 q0 -9 9.5 -9 q10 0 10 9 Z" opacity={o3} />
-      <rect x="21" y="18.5" width="22" height="4" rx="1.8" opacity={o1} />
-      <path d="M18 22.3 q6.5 -0.6 13 0 v3.2 q-7.5 0.6 -13 -0.6 Z" opacity={o3} />
-      <circle cx="32" cy="14" r="1.8" opacity={o1} />
-      <path d="M32 41 l7 5 v18 h-14 v-18 Z" opacity={o3} />
-      <circle cx="27.5" cy="50" r="1.5" opacity={o1} />
-      <circle cx="36.5" cy="50" r="1.5" opacity={o1} />
-      <circle cx="27.5" cy="57" r="1.5" opacity={o1} />
-      <circle cx="36.5" cy="57" r="1.5" opacity={o1} />
+      <path d="M21.5 21 q0 -11 10.5 -11 q11 0 11 11 Z" opacity={o3} />
+      <rect x="20" y="20.5" width="24" height="4.6" rx="2" opacity={o1} />
+      <path d="M16 24.8 q7 -0.8 14.5 0 v3.6 q-8 0.8 -14.5 -0.7 Z" opacity={o3} />
+      <circle cx="32" cy="15" r="2" opacity={o1} />
+      <path d="M32 42 l7.5 5.5 v16.5 h-15 v-16.5 Z" opacity={o3} />
+      <circle cx="27.5" cy="52" r="1.6" opacity={o1} />
+      <circle cx="36.5" cy="52" r="1.6" opacity={o1} />
+      <circle cx="27.5" cy="59" r="1.6" opacity={o1} />
+      <circle cx="36.5" cy="59" r="1.6" opacity={o1} />
     </g>
   ),
 ];
