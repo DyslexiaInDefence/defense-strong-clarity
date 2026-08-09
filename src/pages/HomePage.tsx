@@ -29,18 +29,15 @@ const HomePage = () => {
           aria-hidden="true" />
         
         <div className="container mx-auto px-4 text-center">
-          <img alt="Shield emblem with a multi-colour ribbon banner reading Dyslexia in Defence" className="mx-auto mb-8 h-32 w-auto sm:h-40 md:h-48 drop-shadow-lg object-fill" src="/lovable-uploads/4eee789e-61aa-4a04-8ec1-96380d579791.webp" width="620" height="662" fetchPriority="high" />
-
-          <HeroPersonnelBand />
-
-          <h1 className="mb-4 mt-6 text-4xl font-extrabold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
-            Supporting the 10% to give their 100%
+          <img alt="Shield emblem with a multi-colour ribbon banner reading Dyslexia in Defence" className="mx-auto mb-8 h-40 w-auto sm:h-48 md:h-56 lg:h-64 drop-shadow-lg object-fill" src="/lovable-uploads/4eee789e-61aa-4a04-8ec1-96380d579791.webp" width="620" height="662" fetchPriority="high" />
+          <h1 className="mb-4 text-4xl font-extrabold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
+            Dyslexia in Defence — Empowering Dyslexic Talent
           </h1>
-          <p className="mx-auto mb-4 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-            We are here for serving personnel, and for those preparing to join or who have already transitioned out.
+          <p className="mx-auto mb-3 max-w-2xl text-sm font-semibold uppercase tracking-wider text-primary">
+            For serving personnel, veterans, civil service, and industry
           </p>
-          <p className="mx-auto mb-10 max-w-xl text-xs leading-relaxed text-muted-foreground/70">
-            Around 1 in 10 people are estimated to be dyslexic. Figures illustrative, based on UK dyslexia prevalence estimates alongside published MOD personnel statistics.
+          <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+            Empowering dyslexic talent across Defence, before and after service.
           </p>
           {/* Primary CTAs */}
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
@@ -82,6 +79,26 @@ const HomePage = () => {
               <path d="M0 32 Q40 12 80 32 T160 32 T240 32 T320 32" stroke="hsl(var(--ribbon-green))" strokeWidth="3" fill="none" />
             </svg>
           </div>
+        </div>
+      </section>
+
+      {/* One in ten band */}
+      <section className="border-t border-border py-12" aria-label="Dyslexia prevalence across Defence">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="mb-3 text-2xl font-bold text-foreground">Supporting the 10% to give their 100%</h2>
+            <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+              We are here for serving personnel, and for those preparing to join or who have already transitioned out.
+            </p>
+          </div>
+
+          <div className="mt-8">
+            <HeroPersonnelBand />
+          </div>
+
+          <p className="mx-auto mt-6 max-w-xl text-center text-xs leading-relaxed text-muted-foreground/70">
+            Around 1 in 10 people are estimated to be dyslexic. Figures illustrative, based on UK dyslexia prevalence estimates alongside published MOD personnel statistics.
+          </p>
         </div>
       </section>
 
