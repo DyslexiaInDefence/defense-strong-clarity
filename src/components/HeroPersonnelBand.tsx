@@ -6,6 +6,35 @@
  */
 const FIGURE_COUNT = 30; // 3 highlighted per pass (every 10th)
 
+const variants = [
+  // Army: beret-style headwear, squarer shoulders
+  (
+    <g key="army">
+      <path d="M7 8 Q17 0 27 6 Q22 9 8 10 Z" />
+      <circle cx="17" cy="14" r="7.5" />
+      <path d="M5 26 h24 a3 3 0 0 1 3 3 v25 h-30 v-25 a3 3 0 0 1 3 -3 Z" />
+    </g>
+  ),
+  // Royal Navy: flat-topped cap, narrower shoulders
+  (
+    <g key="navy">
+      <rect x="8" y="4" width="18" height="4" rx="1.5" />
+      <rect x="7" y="8" width="20" height="2.5" rx="1.2" />
+      <circle cx="17" cy="15" r="7" />
+      <path d="M7 27 h20 a4 4 0 0 1 4 4 v23 h-28 v-23 a4 4 0 0 1 4 -4 Z" />
+    </g>
+  ),
+  // RAF: soft side cap with small forward peak
+  (
+    <g key="raf">
+      <path d="M8 9 Q10 3 18 3 Q26 3 26 9 Z" />
+      <path d="M4 9 h6 v2.5 h-6 Z" />
+      <circle cx="17" cy="15" r="7" />
+      <path d="M6 27 h22 a5 5 0 0 1 5 5 v22 h-32 v-22 a5 5 0 0 1 5 -5 Z" />
+    </g>
+  ),
+];
+
 const Figure = ({ index }: { index: number }) => {
   const highlighted = index % 10 === 4;
   const accent =
@@ -24,10 +53,7 @@ const Figure = ({ index }: { index: number }) => {
       role="presentation"
       focusable="false"
     >
-      <g fill={fill} opacity={opacity}>
-        <circle cx="17" cy="12" r="9" />
-        <rect x="6" y="25" width="22" height="29" rx="8" />
-      </g>
+      <g fill={fill} opacity={opacity}>{variants[index % 3]}</g>
     </svg>
   );
 };
