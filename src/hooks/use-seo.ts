@@ -162,6 +162,24 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.6,
     indexable: true,
   },
+  "/governance/code-of-conduct": {
+    title: "Code of Conduct | Dyslexia in Defence Governance",
+    description: "Behavioural expectations for the Dyslexia in Defence community, covering respect, harassment, operational security, moderation and appeals.",
+    priority: 0.6,
+    indexable: true,
+  },
+  "/governance/safeguarding": {
+    title: "Safeguarding & Support | Dyslexia in Defence Governance",
+    description: "How Dyslexia in Defence handles safeguarding concerns, the limits of its peer support role, crisis signposting, and its age and non-clinical policies.",
+    priority: 0.6,
+    indexable: true,
+  },
+  "/governance/privacy": {
+    title: "Privacy Notice | Dyslexia in Defence Governance",
+    description: "How Dyslexia in Defence CIC collects, uses, retains and protects personal data under UK data protection law, including your rights and data requests.",
+    priority: 0.6,
+    indexable: true,
+  },
   "/lived-experiences": {
     title: "Lived Experiences | Dyslexia in Defence",
     description: "Personal stories of dyslexia and neurodiversity from across the UK defence community. Authentic first-person accounts intended to help others feel understood and less alone.",
@@ -186,12 +204,6 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.7,
     indexable: true,
   },
-  "/structure": {
-    title: "Structure | Dyslexia in Defence",
-    description: "How Dyslexia in Defence CIC is organised — founder, governance, transparency, sponsorship and CIC registration details.",
-    priority: 0.5,
-    indexable: true,
-  },
   "/community": {
     title: "Community | Dyslexia in Defence",
     description: "The Dyslexia in Defence community space — peer support and shared lived experience across the UK Defence community.",
@@ -208,12 +220,6 @@ const PUBLIC_PAGES: Record<string, PageSEO> = {
     title: "Ecosystem | Dyslexia in Defence",
     description: "How Dyslexia in Defence sits within the wider UK Defence, veteran and neurodiversity ecosystem.",
     priority: 0.5,
-    indexable: false,
-  },
-  "/privacy": {
-    title: "Privacy | Dyslexia in Defence",
-    description: "Privacy information for visitors to the Dyslexia in Defence website.",
-    priority: 0.3,
     indexable: false,
   },
   "/accessibility": {

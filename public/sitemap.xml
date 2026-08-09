@@ -2,44 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dyslexiaindefence.com/</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-09</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://dyslexiaindefence.com/about</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dyslexiaindefence.com/about/our-story</loc>
+    <lastmod>2026-08-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dyslexiaindefence.com/about/what-we-do</loc>
+    <lastmod>2026-08-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dyslexiaindefence.com/about/faq</loc>
+    <lastmod>2026-08-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dyslexiaindefence.com/achieve</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dyslexiaindefence.com/structure</loc>
-    <lastmod>2026-06-19</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://dyslexiaindefence.com/support</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dyslexiaindefence.com/contact</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-09</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -53,13 +51,28 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://dyslexiaindefence.com/community</loc>
+    <lastmod>2026-08-09</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dyslexiaindefence.com/resources</loc>
+    <lastmod>2026-08-09</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dyslexiaindefence.com/ecosystem</loc>
+    <lastmod>2026-08-09</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://dyslexiaindefence.com/lived-experiences</loc>
     <lastmod>2026-06-19</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://dyslexiaindefence.com/lived-experiences/lisa-hodge-civil-servant</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -74,7 +87,7 @@
   </url>
   <url>
     <loc>https://dyslexiaindefence.com/insights</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-09</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -121,5 +134,40 @@
     <loc>https://dyslexiaindefence.com/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk</loc>
     <lastmod>2026-06-19</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dyslexiaindefence.com/governance</loc>
+    <lastmod>2026-08-09</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dyslexiaindefence.com/governance/founder</loc>
+    <lastmod>2026-08-09</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dyslexiaindefence.com/governance/code-of-conduct</loc>
+    <lastmod>2026-08-09</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dyslexiaindefence.com/governance/safeguarding</loc>
+    <lastmod>2026-08-09</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dyslexiaindefence.com/governance/privacy</loc>
+    <lastmod>2026-08-09</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dyslexiaindefence.com/governance/sponsorship</loc>
+    <lastmod>2026-08-09</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dyslexiaindefence.com/governance/transparency</loc>
+    <lastmod>2026-08-09</lastmod>
+    <priority>0.6</priority>
   </url>
 </urlset>
