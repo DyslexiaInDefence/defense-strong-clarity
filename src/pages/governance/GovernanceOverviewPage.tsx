@@ -2,6 +2,7 @@ import PolicyLayout, { Callout } from "@/components/PolicyLayout";
 
 const sections = [
   { id: "founder-led", title: "Legal Structure & Founder Leadership" },
+  { id: "social-enterprise", title: "Social Enterprise Status" },
   { id: "independence", title: "Independence" },
   { id: "non-profit", title: "Non Profit Intent" },
   { id: "governance-model", title: "Current Governance Model" },
@@ -28,6 +29,26 @@ const GovernanceOverviewPage = () => (
       <p className="text-muted-foreground">
         As sole director, the founder bears responsibility for the direction, content, and conduct of the initiative. As the network matures, governance structures will be reviewed and adapted proportionately.
       </p>
+      <p className="text-muted-foreground mt-3">
+        Dyslexia in Defence CIC is a Community Interest Company registered in England and Wales, Private Limited by Guarantee. Company number: 17285330.
+      </p>
+    </section>
+
+    <section id="social-enterprise">
+      <h2 className="text-2xl font-bold text-foreground mb-4">Social Enterprise Status</h2>
+      <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
+        <img
+          src="/images/badges/seuk-certified.webp"
+          alt="Certified Social Enterprise UK member badge"
+          width="112"
+          height="112"
+          loading="lazy"
+          className="h-28 w-28 shrink-0"
+        />
+        <p className="text-muted-foreground">
+          Dyslexia in Defence CIC is a registered Community Interest Company and a certified Social Enterprise UK member. This reflects our commitment to using our work for public benefit, supporting dyslexic people across the Defence community, and keeping lived experience at the heart of what we do.
+        </p>
+      </div>
     </section>
 
     <section id="independence">

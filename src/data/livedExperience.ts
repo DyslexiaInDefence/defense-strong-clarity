@@ -60,7 +60,7 @@ export const livedExperienceSnippets: LivedExperienceSnippet[] = [
     attribution: "Symon Smith",
     source: "BDA Contact Magazine, 2024",
     tag: "Serving",
-    placements: ["/why-it-matters", "/achieve", "/partner"],
+    placements: ["/about/what-we-do", "/achieve", "/partner"],
     purpose: "Confidence",
   },
   {
@@ -156,7 +156,7 @@ export const livedExperienceSnippets: LivedExperienceSnippet[] = [
     attribution: "Symon Smith",
     source: "Founder, Dyslexia in Defence",
     tag: "Veteran",
-    placements: ["/why-it-matters", "/partner", "/achieve"],
+    placements: ["/about/what-we-do", "/partner", "/achieve"],
     purpose: "Confidence",
   },
 ];
