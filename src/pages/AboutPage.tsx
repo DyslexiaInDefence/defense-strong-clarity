@@ -57,7 +57,7 @@ const AboutPage = () => {
             <Link
               key={item.to}
               to={item.to}
-              className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-lg"
+              className="group focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring rounded-lg"
               aria-label={item.title}
             >
               <Card className="h-full transition-colors hover:border-primary">

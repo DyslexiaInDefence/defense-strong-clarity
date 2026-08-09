@@ -1,0 +1,24 @@
+{
+  "customizations": [
+    { "token": "Lexend Google Fonts @import", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "OpenDyslexic cdnfonts @import", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--background/--foreground light-blue palette (:root, 13 core tokens)", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": ".dark palette overrides", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--radius: 0.75rem", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--ribbon-yellow", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--ribbon-blue", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--ribbon-red", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--ribbon-green", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "sidebar-* token set", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "bg-ribbon-*/text-ribbon-* utilities (@theme color registration)", "source": "tailwind.config.ts", "reappliedIn": "src/styles.css" },
+    { "token": "font-sans Lexend + body font-family", "source": "tailwind.config.ts + src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "container (centered, 2rem padding, 1400px)", "source": "tailwind.config.ts", "reappliedIn": "src/styles.css" },
+    { "token": "animate-accordion-down / animate-accordion-up", "source": "tailwind.config.ts", "reappliedIn": "src/styles.css" },
+    { "token": "animate-ribbon-flow", "source": "tailwind.config.ts", "reappliedIn": "src/styles.css" },
+    { "token": "animate-personnel-scroll", "source": "tailwind.config.ts", "reappliedIn": "src/styles.css" },
+    { "token": ".text-large scaling rules", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": ".reduce-motion overrides", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": ".dyslexic-font override", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "* { border-color: border } base rule", "source": "src/index.css", "reappliedIn": "src/styles.css" }
+  ]
+}

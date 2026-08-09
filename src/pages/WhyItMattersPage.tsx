@@ -47,7 +47,7 @@ const WhyItMattersPage = () => {
             <img
               src={spikyProfileImg}
               alt="Graph illustrating the spiky cognitive profile of neurodiverse individuals compared to a neurotypical baseline, showing dramatic peaks and troughs across different cognitive abilities."
-              className="w-full h-auto rounded" />
+              className="w-full h-auto rounded-sm" />
             
             <p className="mt-3 text-center text-xs text-muted-foreground">
               Source:{" "}

@@ -11,7 +11,7 @@ const StoryCard = ({ story }: StoryCardProps) => {
   return (
     <Link
       to={`${LIVED_EXPERIENCES_BASE}/${story.slug}`}
-      className="group flex flex-col items-center rounded-2xl border border-border bg-card p-6 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      className="group flex flex-col items-center rounded-2xl border border-border bg-card p-6 text-center shadow-xs transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-md focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
       aria-label={`Read ${story.name}'s story`}
     >
       <div className="mb-4 h-24 w-24 overflow-hidden rounded-full border-2 border-border bg-muted">

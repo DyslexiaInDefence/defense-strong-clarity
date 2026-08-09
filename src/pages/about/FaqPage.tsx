@@ -62,7 +62,7 @@ const FaqPage = () => {
                   })
                 }
                 className={cn(
-                  "flex items-center gap-3 rounded-xl border p-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                  "flex items-center gap-3 rounded-xl border p-4 transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring",
                   isActive ? "border-primary bg-primary/10" : "border-border bg-background hover:border-primary",
                 )}
               >

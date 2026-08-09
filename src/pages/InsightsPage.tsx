@@ -71,7 +71,7 @@ const InsightsPage = () => {
                     })
                   }
                   className={cn(
-                    "flex items-center gap-3 rounded-xl border p-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                    "flex items-center gap-3 rounded-xl border p-4 transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring",
                     isActive
                       ? "border-primary bg-primary/10"
                       : "border-border bg-background hover:border-primary",
@@ -191,7 +191,7 @@ const InsightsPage = () => {
                 <li key={s.slug}>
                   <Link
                     to={`${LIVED_EXPERIENCES_BASE}/${s.slug}`}
-                    className="group flex h-full flex-col items-center gap-3 rounded-2xl border border-border bg-background p-5 text-center transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="group flex h-full flex-col items-center gap-3 rounded-2xl border border-border bg-background p-5 text-center transition-colors hover:border-primary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     <img
                       src={s.photoUrl}
@@ -200,7 +200,7 @@ const InsightsPage = () => {
                       onError={(e) => {
                         (e.currentTarget as HTMLImageElement).style.display = "none";
                       }}
-                      className="h-20 w-20 shrink-0 rounded-full border border-border object-cover shadow-sm"
+                      className="h-20 w-20 shrink-0 rounded-full border border-border object-cover shadow-xs"
                     />
                     <div className="min-w-0">
                       <p className="text-sm font-semibold text-foreground">{s.name}</p>

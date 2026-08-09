@@ -43,7 +43,7 @@ const NextSteps = () => {
             <Link
               key={item.to}
               to={item.to}
-              className="group flex h-full flex-col rounded-lg border border-border bg-background p-5 transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="group flex h-full flex-col rounded-lg border border-border bg-background p-5 transition-colors hover:border-primary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
             >
               <item.icon className="mb-3 h-6 w-6 text-primary" aria-hidden="true" />
               <h3 className="mb-1 text-lg font-semibold text-foreground">

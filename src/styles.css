@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.cdnfonts.com/css/open-dyslexic');
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * Project tokens are stored as HSL triplets (e.g. --primary: 210 80% 42%)
+ * because many components reference them inline as hsl(var(--token)).
+ */
+
+@theme inline {
+  --font-sans: 'Lexend', sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-ring-offset-background: hsl(var(--background));
+
+  --color-ribbon-yellow: hsl(var(--ribbon-yellow));
+  --color-ribbon-blue: hsl(var(--ribbon-blue));
+  --color-ribbon-red: hsl(var(--ribbon-red));
+  --color-ribbon-green: hsl(var(--ribbon-green));
+
+  --color-sidebar: hsl(var(--sidebar-background));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-ribbon-flow: ribbon-flow 8s ease infinite;
+  --animate-personnel-scroll: personnel-scroll 60s linear infinite;
+
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+  @keyframes ribbon-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  @keyframes personnel-scroll {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
+}
+
+/* v3-style container behaviour (centered, 2rem padding, 1400px cap) */
+@utility container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 2rem;
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+:root {
+  --background: 205 100% 97%;
+  --foreground: 215 30% 18%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 215 30% 18%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 215 30% 18%;
+
+  --primary: 210 80% 42%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 205 60% 90%;
+  --secondary-foreground: 215 30% 18%;
+
+  --muted: 205 30% 93%;
+  --muted-foreground: 215 15% 45%;
+
+  --accent: 48 95% 55%;
+  --accent-foreground: 215 30% 18%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 210 30% 88%;
+  --input: 210 30% 88%;
+  --ring: 210 80% 42%;
+
+  --radius: 0.75rem;
+
+  --ribbon-yellow: 48 95% 55%;
+  --ribbon-blue: 210 80% 50%;
+  --ribbon-red: 0 75% 55%;
+  --ribbon-green: 145 60% 42%;
+
+  --sidebar-background: 0 0% 98%;
+  --sidebar-foreground: 240 5.3% 26.1%;
+  --sidebar-primary: 240 5.9% 10%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 240 4.8% 95.9%;
+  --sidebar-accent-foreground: 240 5.9% 10%;
+  --sidebar-border: 220 13% 91%;
+  --sidebar-ring: 217.2 91.2% 59.8%;
+}
+
+.dark {
+  --background: 215 35% 10%;
+  --foreground: 210 40% 92%;
+
+  --card: 215 30% 14%;
+  --card-foreground: 210 40% 92%;
+
+  --popover: 215 30% 14%;
+  --popover-foreground: 210 40% 92%;
+
+  --primary: 210 70% 55%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 215 25% 20%;
+  --secondary-foreground: 210 40% 92%;
+
+  --muted: 215 20% 18%;
+  --muted-foreground: 210 15% 60%;
+
+  --accent: 48 90% 50%;
+  --accent-foreground: 215 30% 10%;
+
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 210 40% 92%;
+
+  --border: 215 20% 22%;
+  --input: 215 20% 22%;
+  --ring: 210 70% 55%;
+
+  --ribbon-yellow: 48 90% 50%;
+  --ribbon-blue: 210 70% 55%;
+  --ribbon-red: 0 70% 50%;
+  --ribbon-green: 145 55% 38%;
+
+  --sidebar-background: 240 5.9% 10%;
+  --sidebar-foreground: 240 4.8% 95.9%;
+  --sidebar-primary: 224.3 76.3% 48%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 240 3.7% 15.9%;
+  --sidebar-accent-foreground: 240 4.8% 95.9%;
+  --sidebar-border: 240 3.7% 15.9%;
+  --sidebar-ring: 217.2 91.2% 59.8%;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: 'Lexend', sans-serif;
+  }
+
+  .text-large body,
+  .text-large {
+    font-size: 1.15rem;
+    line-height: 1.8;
+  }
+
+  .text-large h1 { font-size: 3.2rem; }
+  .text-large h2 { font-size: 2.4rem; }
+  .text-large h3 { font-size: 1.6rem; }
+
+  .reduce-motion *,
+  .reduce-motion *::before,
+  .reduce-motion *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .dyslexic-font,
+  .dyslexic-font * {
+    font-family: 'Open Dyslexic', 'OpenDyslexic', sans-serif !important;
+  }
+}

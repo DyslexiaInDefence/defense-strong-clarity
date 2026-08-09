@@ -84,7 +84,7 @@ const PolicyLayout = ({ title, summary, lastUpdated, sections, children }: Polic
       />
 
       {/* Back nav */}
-      <div className="border-b border-border bg-background/80 backdrop-blur-sm sticky top-0 z-40">
+      <div className="border-b border-border bg-background/80 backdrop-blur-xs sticky top-0 z-40">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <Link
             to="/"
