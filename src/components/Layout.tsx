@@ -4,15 +4,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NextSteps from "@/components/NextSteps";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import useSEO from "@/hooks/use-seo";
 
 // Pages where the global "What to do next" block would be redundant
 const NEXT_STEPS_SKIP = new Set<string>(["/", "/join", "/community"]);
 
 const Layout = () => {
   const { pathname } = useLocation();
-
-  useSEO();
 
   useEffect(() => {
     window.scrollTo(0, 0);
