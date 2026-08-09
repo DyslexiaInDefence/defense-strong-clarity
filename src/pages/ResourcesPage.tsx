@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Briefcase, Users, Monitor, ArrowRightLeft, BookOpen, ExternalLink } from "lucide-react";
+import { Briefcase, Users, Monitor, ArrowRightLeft, BookOpen, Hammer } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 const audiences = ["All", "Pre-joining", "Serving", "Veterans", "Industry", "Families"] as const;
 
@@ -41,6 +42,16 @@ const ResourcesPage = () => {
           </p>
         </div>
 
+        {/* Work in progress notice */}
+        <Alert className="mb-8 max-w-3xl border-primary/30 bg-primary/5">
+          <Hammer className="h-4 w-4" aria-hidden="true" />
+          <AlertTitle>This resource library is still being built</AlertTitle>
+          <AlertDescription>
+            The items below are a preview of what we plan to publish. They are not live resources yet, so nothing here is
+            downloadable or viewable at this stage. We will add each resource as it is ready.
+          </AlertDescription>
+        </Alert>
+
         {/* Audience filter */}
         <div className="mb-8 flex flex-wrap gap-2" role="tablist" aria-label="Filter by audience">
           {audiences.map((a) => (
@@ -69,10 +80,8 @@ const ResourcesPage = () => {
                 </div>
                 <h3 className="mb-2 text-base font-semibold text-foreground">{r.title}</h3>
                 <p className="mb-4 flex-1 text-sm text-muted-foreground">{r.summary}</p>
-                <Button variant="outline" size="sm" className="w-fit" asChild>
-                  <a href="#" aria-label={`View ${r.title}`}>
-                    View Resource <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
-                  </a>
+                <Button variant="secondary" size="sm" className="w-fit" disabled aria-label={`${r.title} — coming soon`}>
+                  Coming Soon
                 </Button>
               </CardContent>
             </Card>
