@@ -13,7 +13,14 @@ import {
   Navigate as TSNavigate,
   Outlet as TSOutlet,
 } from "@tanstack/react-router";
-import { useMemo, useCallback, forwardRef, type ComponentProps, type ReactNode } from "react";
+import {
+  useMemo,
+  useCallback,
+  forwardRef,
+  type ComponentProps,
+  type CSSProperties,
+  type ReactNode,
+} from "react";
 
 // ---------- shared URL parsing ----------
 
@@ -153,6 +160,44 @@ export function Navigate({ to, replace, state }: { to: string; replace?: boolean
 
 export const Outlet = TSOutlet;
 
-// ---------- NavLink (minimal) ----------
+// ---------- NavLink (react-router-dom compat) ----------
+// Supports the function form of className/style/children ({ isActive }) and
+// the `end` prop, which the project's Navbar and StoryNav rely on.
 
-export const NavLink = Link;
+type NavLinkRenderProps = { isActive: boolean; isPending: boolean };
+
+export type NavLinkProps = Omit<LinkProps, "className" | "style" | "children"> & {
+  end?: boolean;
+  className?: string | ((props: NavLinkRenderProps) => string | undefined);
+  style?: CSSProperties | ((props: NavLinkRenderProps) => CSSProperties | undefined);
+  children?: ReactNode | ((props: NavLinkRenderProps) => ReactNode);
+};
+
+const stripTrailingSlash = (p: string) => (p.length > 1 && p.endsWith("/") ? p.slice(0, -1) : p);
+
+export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(function NavLink(
+  { to, end, className, style, children, ...rest },
+  ref,
+) {
+  const loc = tsLocation();
+  const { pathname } = parseTo(to);
+  const target = stripTrailingSlash(pathname === "." ? loc.pathname : pathname);
+  const current = stripTrailingSlash(loc.pathname);
+  const isActive = end
+    ? current === target
+    : current === target || current.startsWith(target === "/" ? "/" : `${target}/`);
+  const renderProps: NavLinkRenderProps = { isActive, isPending: false };
+
+  return (
+    <Link
+      ref={ref}
+      to={to}
+      aria-current={isActive ? "page" : undefined}
+      className={typeof className === "function" ? className(renderProps) : className}
+      style={typeof style === "function" ? style(renderProps) : style}
+      {...(rest as Record<string, unknown>)}
+    >
+      {typeof children === "function" ? children(renderProps) : children}
+    </Link>
+  );
+});
