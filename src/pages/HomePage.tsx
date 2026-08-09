@@ -86,7 +86,7 @@ const HomePage = () => {
       <section className="border-t border-border bg-card py-12" aria-label="Dyslexia prevalence across Defence">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-3 text-2xl font-bold text-foreground">Supporting the 10% to give their 100%</h2>
+            <h2 className="mb-3 text-2xl font-bold text-foreground">Supporting the 10% to enable their 100%</h2>
             <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
               We are here for serving personnel, and for those preparing to join or who have already transitioned out.
             </p>
