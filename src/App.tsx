@@ -9,7 +9,6 @@ import SupportPage from "@/pages/SupportPage";
 import PartnerPage from "@/pages/PartnerPage";
 import JoinPage from "@/pages/JoinPage";
 import ContactPage from "@/pages/ContactPage";
-import PrivacyPage from "@/pages/PrivacyPage";
 import AccessibilityPage from "@/pages/AccessibilityPage";
 import EcosystemPage from "@/pages/EcosystemPage";
 import GovernanceOverviewPage from "@/pages/governance/GovernanceOverviewPage";
@@ -37,7 +36,6 @@ import LivedExperiencesPage from "@/pages/LivedExperiencesPage";
 import LisaHodgePage from "@/pages/lived-experiences/LisaHodgePage";
 import KirkDavisPage from "@/pages/lived-experiences/KirkDavisPage";
 import SymonSmithPage from "@/pages/lived-experiences/SymonSmithPage";
-import StructurePage from "@/pages/StructurePage";
 import NotFound from "@/pages/NotFound";
 
 const App = () => (
@@ -58,10 +56,10 @@ const App = () => (
           <Route path="/join" element={<JoinPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/ask" element={<Navigate to="/community" replace />} />
-          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/privacy" element={<Navigate to="/governance/privacy" replace />} />
           <Route path="/accessibility" element={<AccessibilityPage />} />
           <Route path="/ecosystem" element={<EcosystemPage />} />
-          <Route path="/structure" element={<StructurePage />} />
+          <Route path="/structure" element={<Navigate to="/governance" replace />} />
           <Route path="/achieve" element={<AchievePage />} />
           <Route path="/insights" element={<InsightsPage />} />
           <Route path="/insights/can-you-join-army-with-dyslexia-uk" element={<ArmyDyslexiaPage />} />

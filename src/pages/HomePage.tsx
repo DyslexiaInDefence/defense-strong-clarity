@@ -171,7 +171,7 @@ const HomePage = () => {
               <Card className="h-full transition-colors hover:border-primary">
                 <CardContent className="p-6">
                   <Info className="mb-3 h-7 w-7 text-primary" aria-hidden="true" />
-                  <h3 className="mb-2 text-xl font-bold text-foreground">About</h3>
+                  <h3 className="mb-2 text-xl font-bold text-foreground">About Us</h3>
                   <p className="text-sm text-muted-foreground">
                     Learn who we are, why this matters, and how the network is governed.
                   </p>
@@ -182,7 +182,7 @@ const HomePage = () => {
               <Card className="h-full transition-colors hover:border-primary">
                 <CardContent className="p-6">
                   <LifeBuoy className="mb-3 h-7 w-7 text-primary" aria-hidden="true" />
-                  <h3 className="mb-2 text-xl font-bold text-foreground">Support</h3>
+                  <h3 className="mb-2 text-xl font-bold text-foreground">Get Support</h3>
                   <p className="text-sm text-muted-foreground">
                     Find guidance, ask the community, and connect with the network.
                   </p>

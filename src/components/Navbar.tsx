@@ -19,6 +19,7 @@ const navLinks: NavItem[] = [
       { label: "FAQ", to: "/about/faq" },
       { label: "Contact Us", to: "/contact" },
       { label: "Governance", to: "/governance" },
+      { label: "Accessibility", to: "/accessibility" },
     ],
   },
   {
