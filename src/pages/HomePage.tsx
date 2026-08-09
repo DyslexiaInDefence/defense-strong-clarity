@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, ChevronRight, Info, LifeBuoy } from "lucide-react";
+import { ArrowRight, Info, LifeBuoy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { livedStories, LIVED_EXPERIENCES_BASE } from "@/data/livedStories";
