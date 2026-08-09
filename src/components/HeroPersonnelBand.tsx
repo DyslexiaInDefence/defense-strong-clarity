@@ -29,7 +29,7 @@ const buildSequence = () => {
     let pick = Math.floor(rand() * IMAGES.length);
     if (pick === last) pick = (pick + 1) % IMAGES.length;
     last = pick;
-    items.push({ src: IMAGES[pick], colour: false });
+    items.push({ src: IMAGES[pick] ?? IMAGES[0]!, colour: false });
   }
   // roughly 1 in 5 in full colour, spread with jitter
   for (let block = 0; block * 5 < COUNT; block += 1) {
