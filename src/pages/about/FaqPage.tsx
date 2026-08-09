@@ -5,21 +5,10 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
 import type { AudienceIntent } from "@/components/AudienceRouter";
-import { intentCategories, faqSchema } from "@/data/faqCategories";
+import { intentCategories } from "@/data/faqCategories";
 
 const FaqPage = () => {
   const { hash } = useLocation();
-
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.id = "about-faq-schema";
-    script.textContent = JSON.stringify(faqSchema);
-    document.head.appendChild(script);
-    return () => {
-      document.getElementById("about-faq-schema")?.remove();
-    };
-  }, []);
 
   useEffect(() => {
     if (!hash) return;

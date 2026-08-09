@@ -3,8 +3,10 @@
  * Ported from the old client-side use-seo.ts hook: instead of mutating
  * document.head after hydration, each route file calls pageHead(path) from
  * its head() option so titles, descriptions, canonical, OG/Twitter tags and
- * Article JSON-LD render in the server HTML.
+ * Article/FAQPage JSON-LD render in the server HTML.
  */
+import { faqSchema } from "@/data/faqCategories";
+
 const BASE_URL = "https://dyslexiaindefence.com";
 const OG_IMAGE = "https://dyslexiaindefence.com/og-image.webp";
 
@@ -281,10 +283,13 @@ export function pageHead(pathname: string) {
   const isInsightArticle = pathname.startsWith("/insights/") && pathname !== "/insights";
   const isLivedExperienceArticle =
     pathname.startsWith("/lived-experiences/") && pathname !== "/lived-experiences";
-  const scripts =
-    page.indexable && (isInsightArticle || isLivedExperienceArticle)
-      ? [{ type: "application/ld+json", children: articleSchema(url, page) }]
-      : undefined;
+  const scripts = !page.indexable
+    ? undefined
+    : pathname === "/about/faq"
+      ? [{ type: "application/ld+json", children: JSON.stringify(faqSchema) }]
+      : isInsightArticle || isLivedExperienceArticle
+        ? [{ type: "application/ld+json", children: articleSchema(url, page) }]
+        : undefined;
 
   return {
     meta,
