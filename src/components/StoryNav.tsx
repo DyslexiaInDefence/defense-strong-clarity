@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from "@/lib/router-compat";
 import { livedStories, LIVED_EXPERIENCES_BASE } from "@/data/livedStories";
 
 interface StoryNavProps {

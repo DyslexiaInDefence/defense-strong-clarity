@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { cn } from "@/lib/utils";
 import AudienceRouter, { type AudienceIntent } from "@/components/AudienceRouter";
 import BackToPathway from "@/components/BackToPathway";

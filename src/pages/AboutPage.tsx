@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { ArrowRight, Compass, BookOpen, HelpCircle, Mail, Scale } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 

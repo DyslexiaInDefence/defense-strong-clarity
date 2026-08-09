@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { ArrowRight, ExternalLink, FileText } from "lucide-react";
 import StoryNav from "@/components/StoryNav";
 import { getStory } from "@/data/livedStories";

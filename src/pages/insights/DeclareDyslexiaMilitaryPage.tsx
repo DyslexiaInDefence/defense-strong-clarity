@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import InsightLayout from "@/components/InsightLayout";
 import PodcastInsight from "@/components/PodcastInsight";
 import DecisionConfidenceBlock from "@/components/DecisionConfidenceBlock";

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import type { AudienceIntent } from "@/components/AudienceRouter";
 import { trackEvent } from "@/lib/analytics";
