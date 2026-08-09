@@ -29,12 +29,9 @@ const buildSequence = () => {
     let pick = Math.floor(rand() * IMAGES.length);
     if (pick === last) pick = (pick + 1) % IMAGES.length;
     last = pick;
-    items.push({ src: IMAGES[pick], colour: i % 10 === Math.floor(rand() * 10) % 10 });
+    items.push({ src: IMAGES[pick], colour: false });
   }
-  // guarantee roughly 1 in 10 in colour, evenly spread with jitter
-  items.forEach((item, i) => {
-    item.colour = false;
-  });
+  // roughly 1 in 10 in full colour, spread with jitter
   for (let block = 0; block * 10 < COUNT; block += 1) {
     const idx = block * 10 + Math.floor(rand() * 10);
     if (items[idx]) items[idx].colour = true;
