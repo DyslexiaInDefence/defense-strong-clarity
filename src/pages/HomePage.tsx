@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, ChevronRight, Info, LifeBuoy } from "lucide-react";
+import { ArrowRight, Info, LifeBuoy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { livedStories, LIVED_EXPERIENCES_BASE } from "@/data/livedStories";
@@ -47,25 +47,19 @@ const HomePage = () => {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <Link to="/community">
-              <Button variant="outline" size="lg" className="rounded-full border-2 border-primary px-10 text-base font-bold text-primary shadow-md hover:bg-primary hover:text-primary-foreground">
-                Ask the Community
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
           </div>
           {/* Secondary pathways */}
           <div className="flex flex-wrap items-center justify-center gap-3 mt-6">
             <Link to="/about">
-              <Button variant="ghost" size="sm" className="rounded-full text-sm text-foreground/80 hover:text-foreground">
-                About
-                <ChevronRight className="ml-1 h-4 w-4" />
+              <Button variant="outline" size="lg" className="rounded-full border-2 border-primary px-10 text-base font-bold text-primary shadow-md hover:bg-primary hover:text-primary-foreground">
+                About Us
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <Link to="/support">
-              <Button variant="ghost" size="sm" className="rounded-full text-sm text-foreground/80 hover:text-foreground">
-                Support
-                <ChevronRight className="ml-1 h-4 w-4" />
+              <Button variant="outline" size="lg" className="rounded-full border-2 border-primary px-10 text-base font-bold text-primary shadow-md hover:bg-primary hover:text-primary-foreground">
+                Get Support
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
           </div>
