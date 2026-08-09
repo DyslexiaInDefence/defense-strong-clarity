@@ -26,7 +26,7 @@ const PrivacyNoticePage = () => (
         The data controller for personal data collected through this website and our wider network is Dyslexia in Defence CIC (company number 17285330), a Community Interest Company registered in England and Wales. Symon Smith, as founder and director, is personally responsible for making sure data is handled appropriately on the organisation's behalf and in accordance with UK data protection law.
       </p>
       <p className="text-muted-foreground">
-        For data related enquiries, please contact: <a href="mailto:contact@dyslexiaindefence.com" className="text-primary underline underline-offset-2">contact@dyslexiaindefence.com</a>
+        For data related enquiries, please contact: <a href="mailto:admin@dyslexiaindefence.com" className="text-primary underline underline-offset-2">admin@dyslexiaindefence.com</a>
       </p>
     </section>
 
@@ -116,7 +116,7 @@ const PrivacyNoticePage = () => (
         All data related requests, questions, or concerns should be directed to:
       </p>
       <p className="text-muted-foreground">
-        <a href="mailto:contact@dyslexiaindefence.com" className="text-primary underline underline-offset-2 font-medium">contact@dyslexiaindefence.com</a>
+        <a href="mailto:admin@dyslexiaindefence.com" className="text-primary underline underline-offset-2 font-medium">admin@dyslexiaindefence.com</a>
       </p>
       <p className="text-muted-foreground mt-3">
         We aim to acknowledge all requests within five working days and to fulfil them within one calendar month.

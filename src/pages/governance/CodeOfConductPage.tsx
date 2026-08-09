@@ -137,7 +137,7 @@ const CodeOfConductPage = () => (
         Any individual subject to a moderation decision may request a review of that decision by contacting the founder directly.
       </p>
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-        <li>Appeals should be submitted in writing to <a href="mailto:contact@dyslexiaindefence.com" className="text-primary underline underline-offset-2">contact@dyslexiaindefence.com</a></li>
+        <li>Appeals should be submitted in writing to <a href="mailto:admin@dyslexiaindefence.com" className="text-primary underline underline-offset-2">admin@dyslexiaindefence.com</a></li>
         <li>Appeals will be acknowledged within a reasonable timeframe</li>
         <li>The founder will review the decision and provide a written response</li>
         <li>The founder's decision on appeal is final</li>
