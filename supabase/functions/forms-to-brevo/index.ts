@@ -44,6 +44,7 @@ interface Payload {
   message?: string;
   consent: boolean;
   newsletterConsent?: boolean;
+  ageConfirm?: boolean;
   sourcePage?: string;
   dyslexiaRelationship?: string;
   // honeypot — must be empty
