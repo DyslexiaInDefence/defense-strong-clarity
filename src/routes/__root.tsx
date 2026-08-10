@@ -70,8 +70,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     scripts: [
       { children: ACCESSIBILITY_BOOTSTRAP },
       { type: "application/ld+json", children: ORGANIZATION_SCHEMA },
-      { src: "https://plausible.io/js/pa-ieOi8yl_qyfmlm35atIRi.js", async: true },
-      { children: PLAUSIBLE_INIT },
     ],
   }),
   shellComponent: RootShell,
