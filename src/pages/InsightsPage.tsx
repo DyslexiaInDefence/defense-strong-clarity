@@ -7,22 +7,10 @@ import { trackEvent } from "@/lib/analytics";
 import type { AudienceIntent } from "@/components/AudienceRouter";
 import { Button } from "@/components/ui/button";
 import { livedStories, LIVED_EXPERIENCES_BASE } from "@/data/livedStories";
-import { intentCategories, faqSchema } from "@/data/faqCategories";
+import { intentCategories } from "@/data/faqCategories";
 
 const InsightsPage = () => {
   const { hash } = useLocation();
-
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.id = "faq-schema";
-    script.textContent = JSON.stringify(faqSchema);
-    document.head.appendChild(script);
-    return () => {
-      const el = document.getElementById("faq-schema");
-      if (el) el.remove();
-    };
-  }, []);
 
   // Scroll to the matching intent section when arriving via #hash
   useEffect(() => {

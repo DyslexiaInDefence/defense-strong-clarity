@@ -285,7 +285,7 @@ export function pageHead(pathname: string) {
     pathname.startsWith("/lived-experiences/") && pathname !== "/lived-experiences";
   const scripts = !page.indexable
     ? undefined
-    : pathname === "/about/faq"
+    : pathname === "/about/faq" || pathname === "/insights"
       ? [{ type: "application/ld+json", children: JSON.stringify(faqSchema) }]
       : isInsightArticle || isLivedExperienceArticle
         ? [{ type: "application/ld+json", children: articleSchema(url, page) }]
