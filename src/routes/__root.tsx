@@ -39,8 +39,6 @@ const ORGANIZATION_SCHEMA = JSON.stringify({
 // motion, OpenDyslexic) to <html> before first paint to avoid a flash.
 const ACCESSIBILITY_BOOTSTRAP = `(function(){try{var c=document.documentElement.classList;if(localStorage.getItem("did-dark")==="true")c.add("dark");if(localStorage.getItem("did-large")==="true")c.add("text-large");if(localStorage.getItem("did-motion")==="true")c.add("reduce-motion");if(localStorage.getItem("did-dyslexic")==="true")c.add("dyslexic-font");}catch(e){}})();`;
 
-const PLAUSIBLE_INIT = `window.plausible = window.plausible || function () { (plausible.q = plausible.q || []).push(arguments) };plausible.init = plausible.init || function () { plausible.o = plausible.o || {}; plausible.init() };plausible.init();`;
-
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
@@ -72,8 +70,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     scripts: [
       { children: ACCESSIBILITY_BOOTSTRAP },
       { type: "application/ld+json", children: ORGANIZATION_SCHEMA },
-      { src: "https://plausible.io/js/pa-ieOi8yl_qyfmlm35atIRi.js", async: true },
-      { children: PLAUSIBLE_INIT },
     ],
   }),
   shellComponent: RootShell,
