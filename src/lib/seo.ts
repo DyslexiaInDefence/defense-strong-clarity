@@ -91,8 +91,8 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
     indexable: true,
   },
   "/insights": {
-    title: "Dyslexia & Armed Forces FAQ UK | Dyslexia in Defence",
-    description: "Common questions about dyslexia and joining the UK Armed Forces. Can you join the Army, RAF or Navy with dyslexia? Get clear answers.",
+    title: "Dyslexia in the UK Military: Insights & Guides",
+    description: "Practical guides on dyslexia and UK military service — joining the Army, RAF or Navy, declaring dyslexia, JSP 822, and the support available.",
     priority: 0.8,
     indexable: true,
   },
@@ -103,19 +103,19 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
     indexable: true,
   },
   "/insights/can-you-join-army-with-dyslexia-uk": {
-    title: "Can You Join the Army With Dyslexia in the UK?",
+    title: "Can You Join the Army With Dyslexia? UK Eligibility Guide",
     description: "Yes, you can join the British Army with dyslexia. Find out how recruitment works, what adjustments are available, and what to expect.",
     priority: 0.8,
     indexable: true,
   },
   "/insights/can-you-join-raf-with-dyslexia-uk": {
-    title: "Can You Join the RAF With Dyslexia in the UK?",
+    title: "Can You Join the RAF With Dyslexia? UK Eligibility Guide",
     description: "Yes, dyslexia does not disqualify you from the RAF. Learn about recruitment adjustments, support in service, and common misconceptions.",
     priority: 0.8,
     indexable: true,
   },
   "/insights/can-you-join-navy-with-dyslexia-uk": {
-    title: "Can You Join the Royal Navy With Dyslexia in the UK?",
+    title: "Can You Join the Royal Navy With Dyslexia? UK Guide",
     description: "Yes, the Royal Navy accepts dyslexic applicants. Discover how dyslexia is assessed, what support exists, and how to apply.",
     priority: 0.8,
     indexable: true,
