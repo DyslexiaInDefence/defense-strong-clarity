@@ -4,6 +4,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Card, CardContent } from "@/components/ui/card";
 import { intentCategories } from "@/data/faqCategories";
 import ddnLogo from "@/assets/defence-dyslexia-network.jpg.asset.json";
+import rlcLogo from "@/assets/rlc-logo.png.asset.json";
 
 const servingCategory = intentCategories.find((c) => c.id === "serving");
 
@@ -21,6 +22,13 @@ const accessRoutes = [
     note: "Defence Connect (Defence Gateway) group",
     href: "https://jive.defencegateway.mod.uk/groups/dyslexia-network",
     icon: Smartphone,
+  },
+  {
+    label: "Serving in the Royal Logistic Corps?",
+    body: "Join via the RLC app",
+    note: "Requires serving military status to join",
+    href: "https://link.militaryapp.org/rlc/Jb2gM",
+    image: rlcLogo.url,
   },
 ];
 
@@ -54,7 +62,7 @@ const CurrentlyServingPage = () => {
               questions or just provide a place to feel heard. Other resources will be added as soon as possible.
             </p>
 
-            <div className="grid gap-5 sm:grid-cols-2">
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {accessRoutes.map((r) => (
                 <a
                   key={r.href}
@@ -65,7 +73,11 @@ const CurrentlyServingPage = () => {
                 >
                   <Card className="h-full transition-colors hover:border-primary">
                     <CardContent className="p-6">
-                      <r.icon className="mb-3 h-6 w-6 text-primary" aria-hidden="true" />
+                      {"image" in r && r.image ? (
+                        <img src={r.image} alt="" loading="lazy" className="mb-3 h-10 w-auto" />
+                      ) : (
+                        r.icon && <r.icon className="mb-3 h-6 w-6 text-primary" aria-hidden="true" />
+                      )}
                       <h3 className="mb-2 text-lg font-bold text-foreground">{r.label}</h3>
                       <p className="mb-2 text-sm text-muted-foreground">{r.body}</p>
                       <p className="mb-3 text-xs text-muted-foreground">{r.note}</p>
