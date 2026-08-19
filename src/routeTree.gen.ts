@@ -49,6 +49,7 @@ import { Route as LivedExperiencesIndexRouteImport } from './routes/lived-experi
 import { Route as LivedExperiencesLisaHodgeCivilServantRouteImport } from './routes/lived-experiences/lisa-hodge-civil-servant'
 import { Route as LivedExperiencesStaffSergeantKirkDavisBritishArmyRouteImport } from './routes/lived-experiences/staff-sergeant-kirk-davis-british-army'
 import { Route as LivedExperiencesSymonSmithBritishArmyVeteranRouteImport } from './routes/lived-experiences/symon-smith-british-army-veteran'
+import { Route as SupportCurrentlyServingRouteImport } from './routes/support/currently-serving'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -263,6 +264,11 @@ const LivedExperiencesSymonSmithBritishArmyVeteranRoute =
     path: '/lived-experiences/symon-smith-british-army-veteran',
     getParentRoute: () => rootRouteImport,
   } as any)
+const SupportCurrentlyServingRoute = SupportCurrentlyServingRouteImport.update({
+  id: '/currently-serving',
+  path: '/currently-serving',
+  getParentRoute: () => SupportRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -277,7 +283,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
   '/structure': typeof StructureRoute
-  '/support': typeof SupportRoute
+  '/support': typeof SupportRouteWithChildren
   '/why-it-matters': typeof WhyItMattersRoute
   '/about/faq': typeof AboutFaqRoute
   '/about/our-story': typeof AboutOurStoryRoute
@@ -301,6 +307,7 @@ export interface FileRoutesByFullPath {
   '/lived-experiences/lisa-hodge-civil-servant': typeof LivedExperiencesLisaHodgeCivilServantRoute
   '/lived-experiences/staff-sergeant-kirk-davis-british-army': typeof LivedExperiencesStaffSergeantKirkDavisBritishArmyRoute
   '/lived-experiences/symon-smith-british-army-veteran': typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
+  '/support/currently-serving': typeof SupportCurrentlyServingRoute
   '/about/': typeof AboutIndexRoute
   '/governance/': typeof GovernanceIndexRoute
   '/insights/': typeof InsightsIndexRoute
@@ -319,7 +326,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
   '/structure': typeof StructureRoute
-  '/support': typeof SupportRoute
+  '/support': typeof SupportRouteWithChildren
   '/why-it-matters': typeof WhyItMattersRoute
   '/about/faq': typeof AboutFaqRoute
   '/about/our-story': typeof AboutOurStoryRoute
@@ -343,6 +350,7 @@ export interface FileRoutesByTo {
   '/lived-experiences/lisa-hodge-civil-servant': typeof LivedExperiencesLisaHodgeCivilServantRoute
   '/lived-experiences/staff-sergeant-kirk-davis-british-army': typeof LivedExperiencesStaffSergeantKirkDavisBritishArmyRoute
   '/lived-experiences/symon-smith-british-army-veteran': typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
+  '/support/currently-serving': typeof SupportCurrentlyServingRoute
   '/about': typeof AboutIndexRoute
   '/governance': typeof GovernanceIndexRoute
   '/insights': typeof InsightsIndexRoute
@@ -362,7 +370,7 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
   '/structure': typeof StructureRoute
-  '/support': typeof SupportRoute
+  '/support': typeof SupportRouteWithChildren
   '/why-it-matters': typeof WhyItMattersRoute
   '/about/faq': typeof AboutFaqRoute
   '/about/our-story': typeof AboutOurStoryRoute
@@ -386,6 +394,7 @@ export interface FileRoutesById {
   '/lived-experiences/lisa-hodge-civil-servant': typeof LivedExperiencesLisaHodgeCivilServantRoute
   '/lived-experiences/staff-sergeant-kirk-davis-british-army': typeof LivedExperiencesStaffSergeantKirkDavisBritishArmyRoute
   '/lived-experiences/symon-smith-british-army-veteran': typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
+  '/support/currently-serving': typeof SupportCurrentlyServingRoute
   '/about/': typeof AboutIndexRoute
   '/governance/': typeof GovernanceIndexRoute
   '/insights/': typeof InsightsIndexRoute
@@ -430,6 +439,7 @@ export interface FileRouteTypes {
     | '/lived-experiences/lisa-hodge-civil-servant'
     | '/lived-experiences/staff-sergeant-kirk-davis-british-army'
     | '/lived-experiences/symon-smith-british-army-veteran'
+    | '/support/currently-serving'
     | '/about/'
     | '/governance/'
     | '/insights/'
@@ -472,6 +482,7 @@ export interface FileRouteTypes {
     | '/lived-experiences/lisa-hodge-civil-servant'
     | '/lived-experiences/staff-sergeant-kirk-davis-british-army'
     | '/lived-experiences/symon-smith-british-army-veteran'
+    | '/support/currently-serving'
     | '/about'
     | '/governance'
     | '/insights'
@@ -514,6 +525,7 @@ export interface FileRouteTypes {
     | '/lived-experiences/lisa-hodge-civil-servant'
     | '/lived-experiences/staff-sergeant-kirk-davis-british-army'
     | '/lived-experiences/symon-smith-british-army-veteran'
+    | '/support/currently-serving'
     | '/about/'
     | '/governance/'
     | '/insights/'
@@ -533,7 +545,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   ResourcesRoute: typeof ResourcesRoute
   StructureRoute: typeof StructureRoute
-  SupportRoute: typeof SupportRoute
+  SupportRoute: typeof SupportRouteWithChildren
   WhyItMattersRoute: typeof WhyItMattersRoute
   AboutFaqRoute: typeof AboutFaqRoute
   AboutOurStoryRoute: typeof AboutOurStoryRoute
@@ -845,8 +857,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LivedExperiencesSymonSmithBritishArmyVeteranRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/support/currently-serving': {
+      id: '/support/currently-serving'
+      path: '/currently-serving'
+      fullPath: '/support/currently-serving'
+      preLoaderRoute: typeof SupportCurrentlyServingRouteImport
+      parentRoute: typeof SupportRoute
+    }
   }
 }
+
+interface SupportRouteChildren {
+  SupportCurrentlyServingRoute: typeof SupportCurrentlyServingRoute
+}
+
+const SupportRouteChildren: SupportRouteChildren = {
+  SupportCurrentlyServingRoute: SupportCurrentlyServingRoute,
+}
+
+const SupportRouteWithChildren =
+  SupportRoute._addFileChildren(SupportRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -861,7 +891,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   ResourcesRoute: ResourcesRoute,
   StructureRoute: StructureRoute,
-  SupportRoute: SupportRoute,
+  SupportRoute: SupportRouteWithChildren,
   WhyItMattersRoute: WhyItMattersRoute,
   AboutFaqRoute: AboutFaqRoute,
   AboutOurStoryRoute: AboutOurStoryRoute,
