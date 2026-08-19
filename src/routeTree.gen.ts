@@ -15,7 +15,6 @@ import { Route as AchieveRouteImport } from './routes/achieve'
 import { Route as AskRouteImport } from './routes/ask'
 import { Route as CommunityRouteImport } from './routes/community'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as EcosystemRouteImport } from './routes/ecosystem'
 import { Route as JoinRouteImport } from './routes/join'
 import { Route as PartnerRouteImport } from './routes/partner'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -79,11 +78,6 @@ const CommunityRoute = CommunityRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EcosystemRoute = EcosystemRouteImport.update({
-  id: '/ecosystem',
-  path: '/ecosystem',
   getParentRoute: () => rootRouteImport,
 } as any)
 const JoinRoute = JoinRouteImport.update({
@@ -277,7 +271,6 @@ export interface FileRoutesByFullPath {
   '/ask': typeof AskRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
-  '/ecosystem': typeof EcosystemRoute
   '/join': typeof JoinRoute
   '/partner': typeof PartnerRoute
   '/privacy': typeof PrivacyRoute
@@ -320,7 +313,6 @@ export interface FileRoutesByTo {
   '/ask': typeof AskRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
-  '/ecosystem': typeof EcosystemRoute
   '/join': typeof JoinRoute
   '/partner': typeof PartnerRoute
   '/privacy': typeof PrivacyRoute
@@ -364,7 +356,6 @@ export interface FileRoutesById {
   '/ask': typeof AskRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
-  '/ecosystem': typeof EcosystemRoute
   '/join': typeof JoinRoute
   '/partner': typeof PartnerRoute
   '/privacy': typeof PrivacyRoute
@@ -409,7 +400,6 @@ export interface FileRouteTypes {
     | '/ask'
     | '/community'
     | '/contact'
-    | '/ecosystem'
     | '/join'
     | '/partner'
     | '/privacy'
@@ -452,7 +442,6 @@ export interface FileRouteTypes {
     | '/ask'
     | '/community'
     | '/contact'
-    | '/ecosystem'
     | '/join'
     | '/partner'
     | '/privacy'
@@ -495,7 +484,6 @@ export interface FileRouteTypes {
     | '/ask'
     | '/community'
     | '/contact'
-    | '/ecosystem'
     | '/join'
     | '/partner'
     | '/privacy'
@@ -539,7 +527,6 @@ export interface RootRouteChildren {
   AskRoute: typeof AskRoute
   CommunityRoute: typeof CommunityRoute
   ContactRoute: typeof ContactRoute
-  EcosystemRoute: typeof EcosystemRoute
   JoinRoute: typeof JoinRoute
   PartnerRoute: typeof PartnerRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -618,13 +605,6 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ecosystem': {
-      id: '/ecosystem'
-      path: '/ecosystem'
-      fullPath: '/ecosystem'
-      preLoaderRoute: typeof EcosystemRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/join': {
@@ -875,7 +855,6 @@ const rootRouteChildren: RootRouteChildren = {
   AskRoute: AskRoute,
   CommunityRoute: CommunityRoute,
   ContactRoute: ContactRoute,
-  EcosystemRoute: EcosystemRoute,
   JoinRoute: JoinRoute,
   PartnerRoute: PartnerRoute,
   PrivacyRoute: PrivacyRoute,

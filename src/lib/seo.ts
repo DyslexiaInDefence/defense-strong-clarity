@@ -228,12 +228,6 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.5,
     indexable: false,
   },
-  "/ecosystem": {
-    title: "Ecosystem | Dyslexia in Defence",
-    description: "How Dyslexia in Defence sits within the wider UK Defence, veteran and neurodiversity ecosystem.",
-    priority: 0.5,
-    indexable: false,
-  },
   "/accessibility": {
     title: "Accessibility | Dyslexia in Defence",
     description: "Accessibility commitments and dyslexia-friendly design choices for the Dyslexia in Defence website.",
