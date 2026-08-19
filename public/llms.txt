@@ -11,7 +11,7 @@ Dyslexia in Defence is volunteer-led and not affiliated with the Ministry of Def
 - [What We Do](/about/what-we-do): Guidance, community and the case for dyslexia awareness across UK Defence.
 - [FAQ](/about/faq): Questions grouped by joining, serving and leaving service.
 - [Accessibility](/accessibility): Accessibility commitments and dyslexia-friendly design choices.
-- [What We Want to Achieve](/achieve): Aims and success measures.
+- [What We Want to Achieve](/about/what-we-want-to-achieve): Aims and success measures.
 - [Get Support](/support): Guidance, community, lived experience and ways to join.
 - [Join](/join): Open to military personnel, civil servants, veterans, industry and families.
 - [Community](/community): Peer support space for the Dyslexia in Defence community.

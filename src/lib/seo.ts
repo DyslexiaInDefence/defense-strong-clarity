@@ -72,7 +72,7 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.8,
     indexable: true,
   },
-  "/achieve": {
+  "/about/what-we-want-to-achieve": {
     title: "What We Want to Achieve | Dyslexia in Defence",
     description: "Discover what Dyslexia in Defence aims to achieve for neurodiversity across the UK defence ecosystem, military personnel, veterans, and defence industry.",
     priority: 0.8,

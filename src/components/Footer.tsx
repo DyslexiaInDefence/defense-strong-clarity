@@ -34,6 +34,7 @@ const Footer = () => {
           <ul className="space-y-2 text-sm">
               <li><Link to="/about/our-story" className="text-muted-foreground hover:text-primary transition-colors">Our Story</Link></li>
               <li><Link to="/about/what-we-do" className="text-muted-foreground hover:text-primary transition-colors">What We Do</Link></li>
+              <li><Link to="/about/what-we-want-to-achieve" className="text-muted-foreground hover:text-primary transition-colors">What We Want to Achieve</Link></li>
               <li><Link to="/about/faq" className="text-muted-foreground hover:text-primary transition-colors">FAQ</Link></li>
               <li><Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact Us</Link></li>
               <li><Link to="/governance" className="text-muted-foreground hover:text-primary transition-colors">Governance</Link></li>
@@ -50,7 +51,6 @@ const Footer = () => {
               <li><Link to="/support/currently-serving" className="text-muted-foreground hover:text-primary transition-colors">Currently Serving</Link></li>
               <li><Link to="/join" className="text-muted-foreground hover:text-primary transition-colors">Join the Network</Link></li>
               <li><Link to="/insights" className="text-muted-foreground hover:text-primary transition-colors">Guidance</Link></li>
-              <li><Link to="/achieve" className="text-muted-foreground hover:text-primary transition-colors">What We Want to Achieve</Link></li>
               <li><Link to="/lived-experiences" className="text-muted-foreground hover:text-primary transition-colors">Lived Experiences</Link></li>
               <li><Link to="/community" className="text-muted-foreground hover:text-primary transition-colors">Peer Community</Link></li>
               <li><Link to="/resources" className="text-muted-foreground hover:text-primary transition-colors">Resources</Link></li>

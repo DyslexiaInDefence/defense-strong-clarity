@@ -25,6 +25,7 @@ import { Route as AboutIndexRouteImport } from './routes/about/index'
 import { Route as AboutFaqRouteImport } from './routes/about/faq'
 import { Route as AboutOurStoryRouteImport } from './routes/about/our-story'
 import { Route as AboutWhatWeDoRouteImport } from './routes/about/what-we-do'
+import { Route as AboutWhatWeWantToAchieveRouteImport } from './routes/about/what-we-want-to-achieve'
 import { Route as GovernanceIndexRouteImport } from './routes/governance/index'
 import { Route as GovernanceCodeOfConductRouteImport } from './routes/governance/code-of-conduct'
 import { Route as GovernanceFounderRouteImport } from './routes/governance/founder'
@@ -130,6 +131,12 @@ const AboutWhatWeDoRoute = AboutWhatWeDoRouteImport.update({
   path: '/about/what-we-do',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutWhatWeWantToAchieveRoute =
+  AboutWhatWeWantToAchieveRouteImport.update({
+    id: '/about/what-we-want-to-achieve',
+    path: '/about/what-we-want-to-achieve',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const GovernanceIndexRoute = GovernanceIndexRouteImport.update({
   id: '/governance/',
   path: '/governance/',
@@ -280,6 +287,7 @@ export interface FileRoutesByFullPath {
   '/about/faq': typeof AboutFaqRoute
   '/about/our-story': typeof AboutOurStoryRoute
   '/about/what-we-do': typeof AboutWhatWeDoRoute
+  '/about/what-we-want-to-achieve': typeof AboutWhatWeWantToAchieveRoute
   '/governance/code-of-conduct': typeof GovernanceCodeOfConductRoute
   '/governance/founder': typeof GovernanceFounderRoute
   '/governance/privacy': typeof GovernancePrivacyRoute
@@ -322,6 +330,7 @@ export interface FileRoutesByTo {
   '/about/faq': typeof AboutFaqRoute
   '/about/our-story': typeof AboutOurStoryRoute
   '/about/what-we-do': typeof AboutWhatWeDoRoute
+  '/about/what-we-want-to-achieve': typeof AboutWhatWeWantToAchieveRoute
   '/governance/code-of-conduct': typeof GovernanceCodeOfConductRoute
   '/governance/founder': typeof GovernanceFounderRoute
   '/governance/privacy': typeof GovernancePrivacyRoute
@@ -365,6 +374,7 @@ export interface FileRoutesById {
   '/about/faq': typeof AboutFaqRoute
   '/about/our-story': typeof AboutOurStoryRoute
   '/about/what-we-do': typeof AboutWhatWeDoRoute
+  '/about/what-we-want-to-achieve': typeof AboutWhatWeWantToAchieveRoute
   '/governance/code-of-conduct': typeof GovernanceCodeOfConductRoute
   '/governance/founder': typeof GovernanceFounderRoute
   '/governance/privacy': typeof GovernancePrivacyRoute
@@ -409,6 +419,7 @@ export interface FileRouteTypes {
     | '/about/faq'
     | '/about/our-story'
     | '/about/what-we-do'
+    | '/about/what-we-want-to-achieve'
     | '/governance/code-of-conduct'
     | '/governance/founder'
     | '/governance/privacy'
@@ -451,6 +462,7 @@ export interface FileRouteTypes {
     | '/about/faq'
     | '/about/our-story'
     | '/about/what-we-do'
+    | '/about/what-we-want-to-achieve'
     | '/governance/code-of-conduct'
     | '/governance/founder'
     | '/governance/privacy'
@@ -493,6 +505,7 @@ export interface FileRouteTypes {
     | '/about/faq'
     | '/about/our-story'
     | '/about/what-we-do'
+    | '/about/what-we-want-to-achieve'
     | '/governance/code-of-conduct'
     | '/governance/founder'
     | '/governance/privacy'
@@ -536,6 +549,7 @@ export interface RootRouteChildren {
   AboutFaqRoute: typeof AboutFaqRoute
   AboutOurStoryRoute: typeof AboutOurStoryRoute
   AboutWhatWeDoRoute: typeof AboutWhatWeDoRoute
+  AboutWhatWeWantToAchieveRoute: typeof AboutWhatWeWantToAchieveRoute
   GovernanceCodeOfConductRoute: typeof GovernanceCodeOfConductRoute
   GovernanceFounderRoute: typeof GovernanceFounderRoute
   GovernancePrivacyRoute: typeof GovernancePrivacyRoute
@@ -675,6 +689,13 @@ declare module '@tanstack/react-router' {
       path: '/about/what-we-do'
       fullPath: '/about/what-we-do'
       preLoaderRoute: typeof AboutWhatWeDoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/what-we-want-to-achieve': {
+      id: '/about/what-we-want-to-achieve'
+      path: '/about/what-we-want-to-achieve'
+      fullPath: '/about/what-we-want-to-achieve'
+      preLoaderRoute: typeof AboutWhatWeWantToAchieveRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/governance/': {
@@ -864,6 +885,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutFaqRoute: AboutFaqRoute,
   AboutOurStoryRoute: AboutOurStoryRoute,
   AboutWhatWeDoRoute: AboutWhatWeDoRoute,
+  AboutWhatWeWantToAchieveRoute: AboutWhatWeWantToAchieveRoute,
   GovernanceCodeOfConductRoute: GovernanceCodeOfConductRoute,
   GovernanceFounderRoute: GovernanceFounderRoute,
   GovernancePrivacyRoute: GovernancePrivacyRoute,

@@ -11,7 +11,7 @@ const LABELS: Record<string, string> = {
   community: "Community",
   join: "Join the Network",
   partner: "Partner",
-  achieve: "What We Want to Achieve",
+  "what-we-want-to-achieve": "What We Want to Achieve",
   "why-it-matters": "Why It Matters",
   contact: "Contact",
   privacy: "Privacy",

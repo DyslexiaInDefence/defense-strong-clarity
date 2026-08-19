@@ -14,7 +14,7 @@ const successItems = [
 "Clearer pathways for people leaving the military into meaningful careers"];
 
 
-const AchievePage = () => {
+const WhatWeWantToAchievePage = () => {
   return (
     <>
       {/* Hero */}
@@ -85,4 +85,4 @@ const AchievePage = () => {
 
 };
 
-export default AchievePage;
+export default WhatWeWantToAchievePage;
