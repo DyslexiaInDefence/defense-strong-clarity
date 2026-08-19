@@ -46,6 +46,7 @@ const Footer = () => {
               <Link to="/support" className="hover:text-primary transition-colors">Get Support</Link>
             </h3>
             <ul className="space-y-2 text-sm">
+              <li><Link to="/support/currently-serving" className="text-muted-foreground hover:text-primary transition-colors">Currently Serving</Link></li>
               <li><Link to="/join" className="text-muted-foreground hover:text-primary transition-colors">Join the Network</Link></li>
               <li><Link to="/insights" className="text-muted-foreground hover:text-primary transition-colors">Guidance</Link></li>
               <li><Link to="/achieve" className="text-muted-foreground hover:text-primary transition-colors">What We Want to Achieve</Link></li>

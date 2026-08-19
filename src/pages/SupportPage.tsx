@@ -1,5 +1,5 @@
 import { Link } from "@/lib/router-compat";
-import { ArrowRight, BookOpen, MessageSquare, UserPlus, Target } from "lucide-react";
+import { ArrowRight, BookOpen, MessageSquare, Shield, UserPlus, Target } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { livedStories } from "@/data/livedStories";
 
@@ -46,6 +46,30 @@ const SupportPage = () => {
             Start here if you are looking for guidance, reassurance, community support, or a way to get involved.
           </p>
         </div>
+
+        <section
+          aria-labelledby="currently-serving-callout"
+          className="mb-10 rounded-2xl border border-primary bg-primary/10 p-6 md:flex md:items-center md:justify-between md:gap-6"
+        >
+          <div className="mb-4 md:mb-0">
+            <div className="mb-2 flex items-center gap-3">
+              <Shield className="h-6 w-6 text-primary" aria-hidden="true" />
+              <h2 id="currently-serving-callout" className="text-xl font-bold text-foreground">
+                Are you currently serving?
+              </h2>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              Everything relevant to serving personnel in one place, including how to join the internal Defence Dyslexia Network.
+            </p>
+          </div>
+          <Link
+            to="/support/currently-serving"
+            className="inline-flex shrink-0 items-center rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            Go to Currently Serving
+            <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+          </Link>
+        </section>
 
         <div className="grid gap-5 sm:grid-cols-2">
           {supportLinks.map((item) => (

@@ -54,6 +54,12 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.8,
     indexable: true,
   },
+  "/support/currently-serving": {
+    title: "Currently Serving | Dyslexia in Defence",
+    description: "A hub for serving Royal Navy, Army and RAF personnel: how to join the internal Defence Dyslexia Network, answers to common questions, and further resources.",
+    priority: 0.8,
+    indexable: true,
+  },
   "/contact": {
     title: "Contact Dyslexia in Defence",
     description: "Get in touch with Dyslexia in Defence through email, LinkedIn, or Discord.",
