@@ -12,13 +12,6 @@ const supportLinks = [
     stage: "Learn",
   },
   {
-    title: "What We Want to Achieve",
-    description: "Our aims for understanding, support, opportunity and outcomes across the Defence community.",
-    to: "/achieve",
-    icon: Target,
-    stage: "Aims",
-  },
-  {
     title: "Community",
     description: "Ask others, read lived experience, and find peer support.",
     to: "/community",
