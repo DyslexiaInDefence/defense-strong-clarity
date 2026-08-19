@@ -1,5 +1,5 @@
 import { Link } from "@/lib/router-compat";
-import { ArrowRight, BookOpen, MessageSquare, Shield, Target } from "lucide-react";
+import { ArrowRight, BookOpen, MessageSquare, Shield } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { livedStories } from "@/data/livedStories";
 
