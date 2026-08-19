@@ -31,12 +31,14 @@ const CurrentlyServingPage = () => {
         <div className="mb-12 max-w-3xl">
           <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">Currently Serving</h1>
           <p className="mb-4 text-lg text-muted-foreground">
-            Welcome. If you are currently serving in the Royal Navy, British Army or Royal Air Force, this page is for you.
+            If you are <strong className="font-bold text-foreground">currently serving</strong> in the Royal Navy, British
+            Army or Royal Air Force, this page is for you.
           </p>
           <p className="text-base text-muted-foreground">
-            We have brought together everything relevant to serving personnel in one place: how to join the internal
-            Defence Dyslexia Network, answers to the questions we hear most from people in service, and further materials
-            as we add them. Take what is useful, at your own pace.
+            The internal Defence Dyslexia Network is there to support you{" "}
+            <strong className="font-bold text-foreground">now</strong>, with over 250 ambassadors across all 3 services
+            ready to answer your questions or just provide a place to feel heard. Other resources will be added as soon as
+            possible.
           </p>
         </div>
 
