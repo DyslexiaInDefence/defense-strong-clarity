@@ -16,6 +16,7 @@ const navLinks: NavItem[] = [
     children: [
       { label: "Our Story", to: "/about/our-story" },
       { label: "What We Do", to: "/about/what-we-do" },
+      { label: "What We Want to Achieve", to: "/about/what-we-want-to-achieve" },
       { label: "FAQ", to: "/about/faq" },
       { label: "Contact Us", to: "/contact" },
       { label: "Governance", to: "/governance" },
@@ -29,7 +30,6 @@ const navLinks: NavItem[] = [
       { label: "Currently Serving", to: "/support/currently-serving" },
       { label: "Join the Network", to: "/join" },
       { label: "Guidance", to: "/insights" },
-      { label: "What We Want to Achieve", to: "/achieve" },
     ],
   },
   {
