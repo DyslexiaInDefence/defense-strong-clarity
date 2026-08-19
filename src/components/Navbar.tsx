@@ -46,7 +46,6 @@ const navLinks: NavItem[] = [
     children: [
       { label: "Downloads & Tools", to: "/resources" },
       { label: "Partner With Us", to: "/partner" },
-      { label: "Ecosystem", to: "/ecosystem" },
     ],
   },
 ];

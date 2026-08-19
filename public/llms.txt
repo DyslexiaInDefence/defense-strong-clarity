@@ -17,7 +17,6 @@ Dyslexia in Defence is volunteer-led and not affiliated with the Ministry of Def
 - [Community](/community): Peer support space for the Dyslexia in Defence community.
 - [Resources](/resources): A planned library of guidance, research and tools; currently in development.
 - [Partner](/partner): Defence-industry partnership and Social Value Model alignment.
-- [Ecosystem](/ecosystem): How Dyslexia in Defence sits within the wider UK Defence, veteran and neurodiversity ecosystem.
 - [Governance](/governance): How the CIC is run and held to account.
 - [Insights](/insights): FAQ hub covering joining, serving and leaving the UK Armed Forces with dyslexia.
 - [Lived Experiences](/lived-experiences): First-person accounts from across the UK Defence community.

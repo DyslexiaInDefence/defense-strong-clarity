@@ -19,7 +19,6 @@ const LABELS: Record<string, string> = {
   resources: "Resources",
   support: "Get Support",
   "currently-serving": "Currently Serving",
-  ecosystem: "Ecosystem",
   structure: "Structure",
   founder: "Founder & Purpose",
   "code-of-conduct": "Code of Conduct",
