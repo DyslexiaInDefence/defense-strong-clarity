@@ -146,7 +146,7 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
   },
   "/insights/what-support-is-available-for-dyslexia-in-the-military-uk": {
     title: "What Support Is Available for Dyslexia in the Military? | UK",
-    description: "Dyslexia support in the UK military: Defence Dyslexia Network, 240+ volunteer ambassadors, service education teams, workplace adjustments and assistive technology.",
+    description: "Dyslexia support in the UK military: Defence Dyslexia Network, 250+ volunteer ambassadors, service education teams, workplace adjustments and assistive technology.",
     priority: 0.8,
     indexable: true,
   },

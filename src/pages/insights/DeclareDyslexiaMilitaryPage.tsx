@@ -85,7 +85,7 @@ const DeclareDyslexiaMilitaryPage = () => (
       <h2 className="text-2xl font-bold text-foreground mb-4">Support already exists</h2>
       <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
         <li><strong>Defence Dyslexia Network</strong> — over 2,000 serving personnel, every rank.</li>
-        <li><strong>240+ volunteer ambassadors</strong> — volunteers from across Defence who provide informal peer support, practical guidance and signposting based on their own lived experience. They are not accredited specialists or professional advisors.</li>
+        <li><strong>250+ volunteer ambassadors</strong> — volunteers from across Defence who provide informal peer support, practical guidance and signposting based on their own lived experience. They are not accredited specialists or professional advisors.</li>
         <li><strong>Active internal forum</strong> — daily peer support.</li>
       </ul>
       <p className="text-foreground leading-relaxed mt-4">
