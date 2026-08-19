@@ -21,7 +21,6 @@ import { Route as PartnerRouteImport } from './routes/partner'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as StructureRouteImport } from './routes/structure'
-import { Route as SupportRouteImport } from './routes/support'
 import { Route as WhyItMattersRouteImport } from './routes/why-it-matters'
 import { Route as AboutIndexRouteImport } from './routes/about/index'
 import { Route as AboutFaqRouteImport } from './routes/about/faq'
@@ -49,6 +48,7 @@ import { Route as LivedExperiencesIndexRouteImport } from './routes/lived-experi
 import { Route as LivedExperiencesLisaHodgeCivilServantRouteImport } from './routes/lived-experiences/lisa-hodge-civil-servant'
 import { Route as LivedExperiencesStaffSergeantKirkDavisBritishArmyRouteImport } from './routes/lived-experiences/staff-sergeant-kirk-davis-british-army'
 import { Route as LivedExperiencesSymonSmithBritishArmyVeteranRouteImport } from './routes/lived-experiences/symon-smith-british-army-veteran'
+import { Route as SupportIndexRouteImport } from './routes/support/index'
 import { Route as SupportCurrentlyServingRouteImport } from './routes/support/currently-serving'
 
 const IndexRoute = IndexRouteImport.update({
@@ -109,11 +109,6 @@ const ResourcesRoute = ResourcesRouteImport.update({
 const StructureRoute = StructureRouteImport.update({
   id: '/structure',
   path: '/structure',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SupportRoute = SupportRouteImport.update({
-  id: '/support',
-  path: '/support',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WhyItMattersRoute = WhyItMattersRouteImport.update({
@@ -264,10 +259,15 @@ const LivedExperiencesSymonSmithBritishArmyVeteranRoute =
     path: '/lived-experiences/symon-smith-british-army-veteran',
     getParentRoute: () => rootRouteImport,
   } as any)
+const SupportIndexRoute = SupportIndexRouteImport.update({
+  id: '/support/',
+  path: '/support/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SupportCurrentlyServingRoute = SupportCurrentlyServingRouteImport.update({
-  id: '/currently-serving',
-  path: '/currently-serving',
-  getParentRoute: () => SupportRoute,
+  id: '/support/currently-serving',
+  path: '/support/currently-serving',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -283,7 +283,6 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
   '/structure': typeof StructureRoute
-  '/support': typeof SupportRouteWithChildren
   '/why-it-matters': typeof WhyItMattersRoute
   '/about/faq': typeof AboutFaqRoute
   '/about/our-story': typeof AboutOurStoryRoute
@@ -312,6 +311,7 @@ export interface FileRoutesByFullPath {
   '/governance/': typeof GovernanceIndexRoute
   '/insights/': typeof InsightsIndexRoute
   '/lived-experiences/': typeof LivedExperiencesIndexRoute
+  '/support/': typeof SupportIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -326,7 +326,6 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
   '/structure': typeof StructureRoute
-  '/support': typeof SupportRouteWithChildren
   '/why-it-matters': typeof WhyItMattersRoute
   '/about/faq': typeof AboutFaqRoute
   '/about/our-story': typeof AboutOurStoryRoute
@@ -355,6 +354,7 @@ export interface FileRoutesByTo {
   '/governance': typeof GovernanceIndexRoute
   '/insights': typeof InsightsIndexRoute
   '/lived-experiences': typeof LivedExperiencesIndexRoute
+  '/support': typeof SupportIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -370,7 +370,6 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
   '/structure': typeof StructureRoute
-  '/support': typeof SupportRouteWithChildren
   '/why-it-matters': typeof WhyItMattersRoute
   '/about/faq': typeof AboutFaqRoute
   '/about/our-story': typeof AboutOurStoryRoute
@@ -399,6 +398,7 @@ export interface FileRoutesById {
   '/governance/': typeof GovernanceIndexRoute
   '/insights/': typeof InsightsIndexRoute
   '/lived-experiences/': typeof LivedExperiencesIndexRoute
+  '/support/': typeof SupportIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -415,7 +415,6 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/resources'
     | '/structure'
-    | '/support'
     | '/why-it-matters'
     | '/about/faq'
     | '/about/our-story'
@@ -444,6 +443,7 @@ export interface FileRouteTypes {
     | '/governance/'
     | '/insights/'
     | '/lived-experiences/'
+    | '/support/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -458,7 +458,6 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/resources'
     | '/structure'
-    | '/support'
     | '/why-it-matters'
     | '/about/faq'
     | '/about/our-story'
@@ -487,6 +486,7 @@ export interface FileRouteTypes {
     | '/governance'
     | '/insights'
     | '/lived-experiences'
+    | '/support'
   id:
     | '__root__'
     | '/'
@@ -501,7 +501,6 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/resources'
     | '/structure'
-    | '/support'
     | '/why-it-matters'
     | '/about/faq'
     | '/about/our-story'
@@ -530,6 +529,7 @@ export interface FileRouteTypes {
     | '/governance/'
     | '/insights/'
     | '/lived-experiences/'
+    | '/support/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -545,7 +545,6 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   ResourcesRoute: typeof ResourcesRoute
   StructureRoute: typeof StructureRoute
-  SupportRoute: typeof SupportRouteWithChildren
   WhyItMattersRoute: typeof WhyItMattersRoute
   AboutFaqRoute: typeof AboutFaqRoute
   AboutOurStoryRoute: typeof AboutOurStoryRoute
@@ -569,10 +568,12 @@ export interface RootRouteChildren {
   LivedExperiencesLisaHodgeCivilServantRoute: typeof LivedExperiencesLisaHodgeCivilServantRoute
   LivedExperiencesStaffSergeantKirkDavisBritishArmyRoute: typeof LivedExperiencesStaffSergeantKirkDavisBritishArmyRoute
   LivedExperiencesSymonSmithBritishArmyVeteranRoute: typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
+  SupportCurrentlyServingRoute: typeof SupportCurrentlyServingRoute
   AboutIndexRoute: typeof AboutIndexRoute
   GovernanceIndexRoute: typeof GovernanceIndexRoute
   InsightsIndexRoute: typeof InsightsIndexRoute
   LivedExperiencesIndexRoute: typeof LivedExperiencesIndexRoute
+  SupportIndexRoute: typeof SupportIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -659,13 +660,6 @@ declare module '@tanstack/react-router' {
       path: '/structure'
       fullPath: '/structure'
       preLoaderRoute: typeof StructureRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/support': {
-      id: '/support'
-      path: '/support'
-      fullPath: '/support'
-      preLoaderRoute: typeof SupportRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/why-it-matters': {
@@ -857,26 +851,22 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LivedExperiencesSymonSmithBritishArmyVeteranRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/support/': {
+      id: '/support/'
+      path: '/support'
+      fullPath: '/support/'
+      preLoaderRoute: typeof SupportIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/support/currently-serving': {
       id: '/support/currently-serving'
-      path: '/currently-serving'
+      path: '/support/currently-serving'
       fullPath: '/support/currently-serving'
       preLoaderRoute: typeof SupportCurrentlyServingRouteImport
-      parentRoute: typeof SupportRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
-
-interface SupportRouteChildren {
-  SupportCurrentlyServingRoute: typeof SupportCurrentlyServingRoute
-}
-
-const SupportRouteChildren: SupportRouteChildren = {
-  SupportCurrentlyServingRoute: SupportCurrentlyServingRoute,
-}
-
-const SupportRouteWithChildren =
-  SupportRoute._addFileChildren(SupportRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -891,7 +881,6 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   ResourcesRoute: ResourcesRoute,
   StructureRoute: StructureRoute,
-  SupportRoute: SupportRouteWithChildren,
   WhyItMattersRoute: WhyItMattersRoute,
   AboutFaqRoute: AboutFaqRoute,
   AboutOurStoryRoute: AboutOurStoryRoute,
@@ -927,10 +916,12 @@ const rootRouteChildren: RootRouteChildren = {
     LivedExperiencesStaffSergeantKirkDavisBritishArmyRoute,
   LivedExperiencesSymonSmithBritishArmyVeteranRoute:
     LivedExperiencesSymonSmithBritishArmyVeteranRoute,
+  SupportCurrentlyServingRoute: SupportCurrentlyServingRoute,
   AboutIndexRoute: AboutIndexRoute,
   GovernanceIndexRoute: GovernanceIndexRoute,
   InsightsIndexRoute: InsightsIndexRoute,
   LivedExperiencesIndexRoute: LivedExperiencesIndexRoute,
+  SupportIndexRoute: SupportIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
