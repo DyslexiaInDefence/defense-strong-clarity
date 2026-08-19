@@ -48,9 +48,10 @@ const CurrentlyServingPage = () => {
               Join the Defence Dyslexia Network
             </h2>
             <p className="mb-6 max-w-3xl text-base text-muted-foreground">
-              The internal Defence Dyslexia Network is a 2000+ network there to support you now, with over 250 ambassadors
-              across all 3 services ready to answer your questions or just provide a place to feel heard. Other resources
-              will be added as soon as possible.
+              The internal Defence Dyslexia Network is a <strong className="font-bold text-foreground">2000+</strong>{" "}
+              network there to support you now, with over <strong className="font-bold text-foreground">250</strong>{" "}
+              ambassadors across all <strong className="font-bold text-foreground">3 services</strong> ready to answer your
+              questions or just provide a place to feel heard. Other resources will be added as soon as possible.
             </p>
 
             <div className="grid gap-5 sm:grid-cols-2">
