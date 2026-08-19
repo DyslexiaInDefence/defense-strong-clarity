@@ -24,7 +24,7 @@ const OurStoryPage = () => (
           <h2 id="how-it-started" className="mb-4 text-2xl font-bold text-foreground">How it started</h2>
           <div className="space-y-4 leading-relaxed text-foreground">
             <p>
-              Dyslexia in Defence began with one person's experience of service. Our founder, Symon Smith, is a British Army veteran who was diagnosed with dyslexia and spent years navigating education, training and a military career without a clear map of what support existed or how to ask for it.
+              Dyslexia in Defence began with one person's experience of service. Our founder, Symon Smith, is a British Army veteran who was diagnosed with dyslexia and spent years navigating education, training and a military career without a clear map of what support existed or how to ask for it. His journey continued as Co-Chair of the Defence Dyslexia Network, before leaving service and realising he wanted to keep supporting people both before and after their time in the military, and to make sure the Defence Dyslexia Network itself gets the recognition and support it deserves.
             </p>
             <p>
               Much of what helped came from other people who had been through the same thing. That is the pattern this organisation is built on: practical information, shared openly, from people who understand the environment.
@@ -41,16 +41,11 @@ const OurStoryPage = () => (
           <h2 id="ddn" className="mb-4 text-2xl font-bold text-foreground">The Defence Dyslexia Network</h2>
           <div className="space-y-4 leading-relaxed text-foreground">
             <p>
-              Inside Defence, the Defence Dyslexia Network grew from a small group of people comparing notes into a recognised staff network with thousands of members and hundreds of volunteer ambassadors across the military and the civil service. It is referenced on the{" "}
-              <a
-                href="https://www.gov.uk/government/organisations/ministry-of-defence/about/equality-and-diversity"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-primary underline-offset-4 hover:underline"
-              >
-                Ministry of Defence diversity and inclusion pages
-              </a>{" "}
-              as part of Defence's recognised network provision.
+              Inside Defence, the{" "}
+              <Link to="/support/currently-serving" className="font-semibold text-primary underline-offset-4 hover:underline">
+                Defence Dyslexia Network
+              </Link>{" "}
+              grew from a small group of people comparing notes into a recognised staff network with thousands of members and hundreds of volunteer ambassadors across the military and the civil service.
             </p>
             <p>
               That work matters, and it continues. But an internal network can only reach people who are already inside the organisation, and only for as long as they are serving.
