@@ -129,9 +129,16 @@ const CurrentlyServingPage = () => {
                 Other Resources
               </h2>
             </div>
-            <p className="text-sm text-muted-foreground">
-              Videos and further materials for serving personnel will be added here soon.
-            </p>
+            <div className="relative w-full overflow-hidden rounded-lg" style={{ aspectRatio: "16 / 9" }}>
+              <iframe
+                src="https://www.youtube.com/embed/ET8ddLATf5E"
+                title="Defence Dyslexia Network video for currently serving personnel"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full border-0"
+              />
+            </div>
           </div>
         </section>
       </div>
