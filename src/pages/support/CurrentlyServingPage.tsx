@@ -30,15 +30,9 @@ const CurrentlyServingPage = () => {
       <div className="container mx-auto px-4">
         <div className="mb-12 max-w-3xl">
           <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">Currently Serving</h1>
-          <p className="mb-4 text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground">
             If you are <strong className="font-bold text-foreground">currently serving</strong> in the Royal Navy, British
             Army or Royal Air Force, this page is for you.
-          </p>
-          <p className="text-base text-muted-foreground">
-            The internal Defence Dyslexia Network is there to support you{" "}
-            <strong className="font-bold text-foreground">now</strong>, with over 250 ambassadors across all 3 services
-            ready to answer your questions or just provide a place to feel heard. Other resources will be added as soon as
-            possible.
           </p>
         </div>
 
@@ -54,9 +48,9 @@ const CurrentlyServingPage = () => {
               Join the Defence Dyslexia Network
             </h2>
             <p className="mb-6 max-w-3xl text-base text-muted-foreground">
-              The Defence Dyslexia Network is the internal network for serving personnel and Defence civil servants. It is
-              run inside Defence, with thousands of members and volunteer ambassadors across all three services. Joining is
-              informal and one of the quickest ways to find people who understand how dyslexia plays out in service.
+              The internal Defence Dyslexia Network is a 2000+ network there to support you now, with over 250 ambassadors
+              across all 3 services ready to answer your questions or just provide a place to feel heard. Other resources
+              will be added as soon as possible.
             </p>
 
             <div className="grid gap-5 sm:grid-cols-2">
