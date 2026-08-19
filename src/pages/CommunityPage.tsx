@@ -54,7 +54,7 @@ const CommunityPage = () => {
             Ask questions, share your experience, and connect with others who understand. The community is open and waiting for you.
           </p>
           <a
-            href="https://discord.com/invite/XhjNGsbny"
+            href="https://discord.gg/9VuKbhTMM"
             target="_blank"
             rel="noopener noreferrer"
           >

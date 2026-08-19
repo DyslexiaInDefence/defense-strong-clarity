@@ -37,7 +37,7 @@ const SupportForDyslexiaMilitaryPage = () => (
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">The main support mechanisms</h2>
       <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
-        <li><strong>Defence Dyslexia Network</strong> — over 2,000 serving members across every rank, plus 240+ volunteer ambassadors across Army, Royal Navy and RAF.</li>
+        <li><strong>Defence Dyslexia Network</strong> — over 2,000 serving members across every rank, plus 250+ volunteer ambassadors across Army, Royal Navy and RAF.</li>
         <li><strong>Ambassadors</strong> — volunteers from across Defence who provide informal peer support, practical guidance, signposting and reassurance based on their own lived experience. They are not accredited specialists or professional advisors.</li>
         <li><strong>Service education and learning support teams</strong> — practical access point for assessment, study skills and assistive technology, with or without a diagnosis (for example Army Education Centres in the Army).</li>
         <li><strong>Active internal forum</strong> — a dyslexia-focused space inside Defence with daily posts on tips, tools and peer support.</li>

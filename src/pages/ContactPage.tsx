@@ -33,8 +33,8 @@ const contactMethods = [
     icon: DiscordIcon,
     title: "Discord Community",
     description: "Join conversations, ask questions, and connect with serving personnel, veterans, and supporters.",
-    link: "https://discord.com/invite/XhjNGsbny",
-    display: "discord.com/invite/XhjNGsbny",
+    link: "https://discord.gg/9VuKbhTMM",
+    display: "discord.gg/9VuKbhTMM",
     external: true,
   },
 ];

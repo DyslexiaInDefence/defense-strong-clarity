@@ -51,7 +51,7 @@ export const intentCategories: FaqCategory[] = [
     items: [
       {
         question: "What support is available for dyslexia in the military (UK)?",
-        answer: "Defence Dyslexia Network (2,000+ members), 240+ volunteer ambassadors, service education and learning support provision, internal forums, and workplace adjustments — across all three services.",
+        answer: "Defence Dyslexia Network (2,000+ members), 250+ volunteer ambassadors, service education and learning support provision, internal forums, and workplace adjustments — across all three services.",
         link: "/insights/what-support-is-available-for-dyslexia-in-the-military-uk",
       },
       {
