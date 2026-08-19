@@ -91,8 +91,8 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
     indexable: true,
   },
   "/insights": {
-    title: "Dyslexia in the UK Military: Insights & Guides",
-    description: "Practical guides on dyslexia and UK military service — joining the Army, RAF or Navy, declaring dyslexia, JSP 822, and the support available.",
+    title: "Dyslexia in the UK Armed Forces: Complete Guide Hub",
+    description: "Clear answers for UK military personnel with dyslexia — joining the Army, RAF or Navy, declaring dyslexia while serving, JSP 822, and veteran transition support.",
     priority: 0.8,
     indexable: true,
   },
