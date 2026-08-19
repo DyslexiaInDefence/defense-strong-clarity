@@ -1,16 +1,9 @@
 import { Link } from "@/lib/router-compat";
-import { ArrowRight, BookOpen, MessageSquare, Shield, UserPlus, Target } from "lucide-react";
+import { ArrowRight, BookOpen, MessageSquare, Shield, Target } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { livedStories } from "@/data/livedStories";
 
 const supportLinks = [
-  {
-    title: "Join",
-    description: "Become part of the Dyslexia in Defence network.",
-    to: "/join",
-    icon: UserPlus,
-    stage: "Commit",
-  },
   {
     title: "Guidance",
     description: "Clear answers to common questions about dyslexia in UK Defence.",
