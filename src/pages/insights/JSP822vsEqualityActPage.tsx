@@ -160,6 +160,19 @@ const JSP822vsEqualityActPage = () => (
       <p className="text-foreground leading-relaxed mt-4">
         How smoothly that shift lands varies by employer and sector — but you don’t have to navigate it alone. Veterans’ peer networks, including connections through the Defence Dyslexia Network, can help you work out what to ask for and when.
       </p>
+      <p className="text-foreground leading-relaxed mt-4">
+        For the practical side of leaving service, Forces Transition Group offers free CV writing
+        support and job fairs for service leavers, veterans and their families.{" "}
+        <a
+          href="https://ftgjobfairs.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit the Forces Transition Group website (opens in a new tab)"
+          className="text-primary hover:underline"
+        >
+          ftgjobfairs.com
+        </a>
+      </p>
     </section>
 
     <section className="mb-2">
