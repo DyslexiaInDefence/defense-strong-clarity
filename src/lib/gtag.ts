@@ -6,7 +6,7 @@
  * route changes. Page views only — no custom events.
  */
 export const GA_MEASUREMENT_ID =
-  (import.meta.env.VITE_LOVABLE_CONNECTOR_GOOGLE_ANALYTICS_API_KEY as string | undefined) ||
+  (import.meta.env['VITE_LOVABLE_CONNECTOR_GOOGLE_ANALYTICS_API_KEY'] as string | undefined) ||
   "G-8EHH0K4473";
 
 export const trackPageView = (path: string) => {

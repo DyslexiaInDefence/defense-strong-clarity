@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Outlet, useLocation } from "@/lib/router-compat";
 import { trackPageView } from "@/lib/gtag";
 import Navbar from "@/components/Navbar";
