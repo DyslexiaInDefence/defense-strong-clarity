@@ -54,6 +54,10 @@ const OurStoryPage = () => (
         </section>
 
         <section aria-labelledby="pivot">
+          <h2 id="ftg" className="sr-only" hidden />
+        </section>
+
+        <section aria-labelledby="pivot">
           <h2 id="pivot" className="mb-4 text-2xl font-bold text-foreground">From one story to a wider mission</h2>
           <div className="space-y-4 leading-relaxed text-foreground">
             <p>
