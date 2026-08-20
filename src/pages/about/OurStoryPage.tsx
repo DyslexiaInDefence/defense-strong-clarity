@@ -53,7 +53,6 @@ const OurStoryPage = () => (
           </div>
         </section>
 
-        <section aria-labelledby="pivot">
         <section aria-labelledby="ftg">
           <h2 id="ftg" className="mb-4 text-2xl font-bold text-foreground">Recognised by the Forces Transition Group</h2>
           <div className="space-y-4 leading-relaxed text-foreground">
