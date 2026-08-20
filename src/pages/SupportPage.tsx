@@ -1,5 +1,5 @@
 import { Link } from "@/lib/router-compat";
-import { ArrowRight, BookOpen, ExternalLink, MessageSquare, Shield } from "lucide-react";
+import { ArrowRight, BookOpen, MessageSquare, Shield } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { livedStories } from "@/data/livedStories";
 
@@ -109,39 +109,6 @@ const SupportPage = () => {
             Learn with <Link to="/insights" className="text-primary hover:underline">Guidance</Link> · Ask in the <Link to="/community" className="text-primary hover:underline">Community</Link> · Relate through <Link to="/lived-experiences" className="text-primary hover:underline">Lived Experiences</Link> · Commit by choosing to <Link to="/join" className="text-primary hover:underline">Join</Link>.
           </p>
         </div>
-
-        <section className="mt-12" aria-labelledby="recognised-orgs">
-          <h2 id="recognised-orgs" className="mb-2 text-2xl font-bold text-foreground">
-            Organisations we recognise
-          </h2>
-          <p className="mb-5 text-sm text-muted-foreground">
-            Independent organisations doing valuable work for the Forces community. These are not
-            partnerships or endorsements — we simply think they are worth knowing about.
-          </p>
-          <Card>
-            <CardContent className="p-6">
-              <h3 className="mb-2 text-lg font-bold text-foreground">Forces Transition Group</h3>
-              <p className="mb-2 text-sm text-muted-foreground">
-                Forces Transition Group provides free transition support to serving personnel,
-                service leavers, veterans, spouses, siblings and blue light staff.
-              </p>
-              <p className="mb-4 text-sm text-muted-foreground">
-                Their support includes online job fairs, live Transition Days, free CV writing, a
-                live jobs board and the FTG Academy course providers.
-              </p>
-              <a
-                href="https://ftgjobfairs.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit the Forces Transition Group website (opens in a new tab)"
-                className="inline-flex items-center text-sm font-semibold text-primary hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
-              >
-                Visit ftgjobfairs.com
-                <ExternalLink className="ml-1.5 h-4 w-4" aria-hidden="true" />
-              </a>
-            </CardContent>
-          </Card>
-        </section>
       </div>
     </div>
   );
