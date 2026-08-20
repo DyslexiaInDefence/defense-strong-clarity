@@ -53,6 +53,24 @@ const OurStoryPage = () => (
           </div>
         </section>
 
+        <section aria-labelledby="ftg">
+          <h2 id="ftg" className="mb-4 text-2xl font-bold text-foreground">Recognised by the Forces Transition Group</h2>
+          <div className="space-y-4 leading-relaxed text-foreground">
+            <p>
+              We're grateful to the{" "}
+              <a
+                href="https://ftgjobfairs.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-primary underline-offset-4 hover:underline"
+              >
+                Forces Transition Group
+              </a>{" "}
+              (FTG) for the work they do supporting service leavers, veterans and their families into meaningful civilian careers through free job fairs, CV support and training, and for featuring Dyslexia in Defence as one of the organisations they support.
+            </p>
+          </div>
+        </section>
+
         <section aria-labelledby="pivot">
           <h2 id="pivot" className="mb-4 text-2xl font-bold text-foreground">From one story to a wider mission</h2>
           <div className="space-y-4 leading-relaxed text-foreground">
