@@ -73,9 +73,8 @@ const PartnerLogoScroller = () => (
           <ul
             key={track}
             className={
-              track === 1
-                ? "flex items-center gap-10 pl-10 md:gap-20 md:pl-20 motion-reduce:hidden"
-                : "flex items-center gap-10 md:gap-20"
+              "flex items-center gap-10 pr-10 md:gap-20 md:pr-20" +
+              (track === 1 ? " motion-reduce:hidden" : "")
             }
             aria-hidden={track === 1 ? true : undefined}
           >
