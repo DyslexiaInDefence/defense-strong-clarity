@@ -63,12 +63,19 @@ const PartnerLogoCarousel = () => {
     logoIndex >= currentIndex && logoIndex < currentIndex + visibleCount;
 
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-    touchStartX.current = e.changedTouches[0].screenX;
+    const touch = e.changedTouches[0];
+    if (!touch) return;
+    touchStartX.current = touch.screenX;
   };
 
   const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
     if (touchStartX.current === null) return;
-    const endX = e.changedTouches[0].screenX;
+    const touch = e.changedTouches[0];
+    if (!touch) {
+      touchStartX.current = null;
+      return;
+    }
+    const endX = touch.screenX;
     const diff = endX - touchStartX.current;
     if (Math.abs(diff) > 50) {
       if (diff < 0) goNext();
