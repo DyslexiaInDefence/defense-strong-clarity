@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { livedStories, LIVED_EXPERIENCES_BASE } from "@/data/livedStories";
 import HeroPersonnelBand from "@/components/HeroPersonnelBand";
-import PartnerLogoScroller from "@/components/PartnerLogoScroller";
+import PartnerLogoCarousel from "@/components/PartnerLogoCarousel";
 
 
 const HomePage = () => {
@@ -214,7 +214,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <PartnerLogoScroller />
+      <PartnerLogoCarousel />
     </>);
 
 
