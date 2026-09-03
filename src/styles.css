@@ -85,6 +85,10 @@
     from { transform: translateX(-50%); }
     to { transform: translateX(0); }
   }
+  @keyframes partner-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
 }
 
 /* v3-style container behaviour (centered, 2rem padding, 1400px cap) */
