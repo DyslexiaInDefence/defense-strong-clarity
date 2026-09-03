@@ -14,7 +14,7 @@ const FTG_LOGO_PATH = "/images/partners/FTG-colour-Logo.png";
 const LOGOS: PartnerLogo[] = [
   {
     name: "Forces Transition Group",
-    alt: "Forces Transition Group logo",
+    alt: "Forces Transition Group logo, opens in new tab",
     src: FTG_LOGO_PATH,
     href: "https://ftgjobfairs.com",
   },
@@ -148,7 +148,7 @@ const PartnerLogoCarousel = () => {
                           href={logo.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-center rounded-md focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+                          className="flex items-center justify-center rounded-md transition-transform duration-300 hover:scale-105 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
                         >
                           {img}
                         </a>
