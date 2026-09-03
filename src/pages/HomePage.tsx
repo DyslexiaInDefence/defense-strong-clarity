@@ -214,7 +214,9 @@ const HomePage = () => {
         </div>
       </section>
 
+      <PartnerLogoScroller />
     </>);
+
 
 };
 
