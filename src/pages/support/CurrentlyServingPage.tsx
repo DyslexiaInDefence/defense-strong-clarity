@@ -53,7 +53,7 @@ const CurrentlyServingPage = () => {
               className="mb-6 h-auto w-full max-w-xs rounded-lg"
             />
             <h2 id="ddn-heading" className="mb-3 text-2xl font-bold text-foreground">
-              connect with the Defence Dyslexia Network
+              Connect with the Defence Dyslexia Network
             </h2>
             <p className="mb-6 max-w-3xl text-base text-muted-foreground">
               The internal Defence Dyslexia Network is a <strong className="font-bold text-foreground">2000+</strong>{" "}
