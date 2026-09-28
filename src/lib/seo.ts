@@ -78,6 +78,12 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.7,
     indexable: true,
   },
+  "/armed-forces-covenant": {
+    title: "Our Armed Forces Covenant Pledge | Dyslexia in Defence",
+    description: "Dyslexia in Defence CIC has signed the Armed Forces Covenant, pledging support to serving personnel, reservists, veterans and military families.",
+    priority: 0.8,
+    indexable: true,
+  },
   "/why-it-matters": {
     title: "Why Dyslexia Matters in Defence | Dyslexia in Defence",
     description: "Understand why dyslexia awareness matters across the UK defence sector, military, civil service and defence industry. Cognitive diversity is a strategic advantage.",

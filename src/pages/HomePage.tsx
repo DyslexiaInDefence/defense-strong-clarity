@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { livedStories, LIVED_EXPERIENCES_BASE } from "@/data/livedStories";
 import HeroPersonnelBand from "@/components/HeroPersonnelBand";
 import PartnerLogoCarousel from "@/components/PartnerLogoCarousel";
+import HomeCovenantStrip from "@/components/HomeCovenantStrip";
 
 
 const HomePage = () => {
@@ -215,6 +216,7 @@ const HomePage = () => {
       </section>
 
       <PartnerLogoCarousel />
+      <HomeCovenantStrip />
     </>);
 
 

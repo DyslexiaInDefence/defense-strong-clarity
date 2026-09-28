@@ -1,6 +1,7 @@
 import { Link } from "@/lib/router-compat";
 import { Youtube } from "lucide-react";
 import didLogoFull from "@/assets/did-logo-full.webp";
+import CovenantPledgeBand from "@/components/CovenantPledgeBand";
 
 const Footer = () => {
   return (
@@ -38,6 +39,7 @@ const Footer = () => {
               <li><Link to="/about/faq" className="text-muted-foreground hover:text-primary transition-colors">FAQ</Link></li>
               <li><Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact Us</Link></li>
               <li><Link to="/governance" className="text-muted-foreground hover:text-primary transition-colors">Governance</Link></li>
+              <li><Link to="/armed-forces-covenant" className="text-muted-foreground hover:text-primary transition-colors">Armed Forces Covenant</Link></li>
               <li><Link to="/accessibility" className="text-muted-foreground hover:text-primary transition-colors">Accessibility</Link></li>
             </ul>
           </div>
@@ -111,6 +113,8 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
+        <CovenantPledgeBand />
 
         {/* Bottom bar */}
         <div className="mt-10 flex flex-col items-center gap-4 text-center text-sm text-muted-foreground md:flex-row md:justify-between">
