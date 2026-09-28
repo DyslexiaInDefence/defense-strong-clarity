@@ -175,22 +175,6 @@ const CurrentlyServingPage = () => {
           </div>
         </section>
 
-        <section aria-labelledby="slc-heading" className="mt-12 max-w-3xl">
-          <h2 id="slc-heading" className="mb-2 text-lg font-bold text-foreground">
-            Funding a dyslexia assessment with Standard Learning Credits
-          </h2>
-          <p className="mb-2 text-sm text-muted-foreground">
-            Serving personnel across all services can use Standard Learning Credits (SLC) towards a dyslexia diagnostic
-            assessment. We have a pre filled application template to help.
-          </p>
-          <Link
-            to="/currently-serving/standard-learning-credits"
-            className="inline-flex items-center gap-1 text-sm font-semibold text-primary underline-offset-4 hover:underline"
-          >
-            Read more and download the template <ChevronRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
-        </section>
-
         <div className="mt-8 max-w-3xl">
           <Link
             to="/currently-serving/army-education-centres"
