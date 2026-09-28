@@ -77,6 +77,25 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Currently Serving Hub banner */}
+      <section className="border-t border-border bg-primary py-10" aria-labelledby="serving-hub-banner">
+        <div className="container mx-auto flex flex-col items-start gap-5 px-4 md:flex-row md:items-center md:justify-between">
+          <div className="max-w-2xl">
+            <h2 id="serving-hub-banner" className="mb-2 text-2xl font-bold text-primary-foreground">Currently serving? This hub is for you.</h2>
+            <p className="text-base text-primary-foreground/90">
+              Find out how to fund a dyslexia assessment and where to get support, all in one place.
+            </p>
+          </div>
+          <Link to="/currently-serving">
+            <Button size="lg" variant="secondary" className="rounded-full px-8 text-base font-bold">
+              Go to the Currently Serving Hub
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
+        </div>
+      </section>
+
+
       {/* One in ten band */}
       <section className="border-t border-border bg-card py-12" aria-label="Dyslexia prevalence across Defence">
         <div className="container mx-auto px-4">
