@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AchieveRouteImport } from './routes/achieve'
+import { Route as ArmedForcesCovenantRouteImport } from './routes/armed-forces-covenant'
 import { Route as AskRouteImport } from './routes/ask'
 import { Route as CommunityRouteImport } from './routes/community'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -67,6 +68,11 @@ const AccessibilityRoute = AccessibilityRouteImport.update({
 const AchieveRoute = AchieveRouteImport.update({
   id: '/achieve',
   path: '/achieve',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArmedForcesCovenantRoute = ArmedForcesCovenantRouteImport.update({
+  id: '/armed-forces-covenant',
+  path: '/armed-forces-covenant',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AskRoute = AskRouteImport.update({
@@ -295,6 +301,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/accessibility': typeof AccessibilityRoute
   '/achieve': typeof AchieveRoute
+  '/armed-forces-covenant': typeof ArmedForcesCovenantRoute
   '/ask': typeof AskRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
@@ -341,6 +348,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/accessibility': typeof AccessibilityRoute
   '/achieve': typeof AchieveRoute
+  '/armed-forces-covenant': typeof ArmedForcesCovenantRoute
   '/ask': typeof AskRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
@@ -388,6 +396,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/accessibility': typeof AccessibilityRoute
   '/achieve': typeof AchieveRoute
+  '/armed-forces-covenant': typeof ArmedForcesCovenantRoute
   '/ask': typeof AskRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
@@ -436,6 +445,7 @@ export interface FileRouteTypes {
     | '/'
     | '/accessibility'
     | '/achieve'
+    | '/armed-forces-covenant'
     | '/ask'
     | '/community'
     | '/contact'
@@ -482,6 +492,7 @@ export interface FileRouteTypes {
     | '/'
     | '/accessibility'
     | '/achieve'
+    | '/armed-forces-covenant'
     | '/ask'
     | '/community'
     | '/contact'
@@ -528,6 +539,7 @@ export interface FileRouteTypes {
     | '/'
     | '/accessibility'
     | '/achieve'
+    | '/armed-forces-covenant'
     | '/ask'
     | '/community'
     | '/contact'
@@ -575,6 +587,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccessibilityRoute: typeof AccessibilityRoute
   AchieveRoute: typeof AchieveRoute
+  ArmedForcesCovenantRoute: typeof ArmedForcesCovenantRoute
   AskRoute: typeof AskRoute
   CommunityRoute: typeof CommunityRoute
   ContactRoute: typeof ContactRoute
@@ -639,6 +652,13 @@ declare module '@tanstack/react-router' {
       path: '/achieve'
       fullPath: '/achieve'
       preLoaderRoute: typeof AchieveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/armed-forces-covenant': {
+      id: '/armed-forces-covenant'
+      path: '/armed-forces-covenant'
+      fullPath: '/armed-forces-covenant'
+      preLoaderRoute: typeof ArmedForcesCovenantRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ask': {
@@ -935,6 +955,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccessibilityRoute: AccessibilityRoute,
   AchieveRoute: AchieveRoute,
+  ArmedForcesCovenantRoute: ArmedForcesCovenantRoute,
   AskRoute: AskRoute,
   CommunityRoute: CommunityRoute,
   ContactRoute: ContactRoute,
