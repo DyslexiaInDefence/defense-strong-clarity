@@ -66,7 +66,7 @@ const ArmyEducationCentresPage = () => {
         <section aria-labelledby="what-heading" className="mb-12 max-w-3xl">
           <h2 id="what-heading" className="mb-3 text-2xl font-bold text-foreground">What an Army Education Centre does</h2>
           <p className="text-lg text-muted-foreground">
-            Your local Army Education Centre (AEC) is an education and resettlement support hub for serving personnel. AEC staff can advise on Standard Learning Credits (SLC) and Enhanced Learning Credits (ELC), including funding towards a dyslexia assessment, and provide support around resettlement.
+            Your local Army Education Centre (AEC) is an education and resettlement support hub for serving personnel. AEC staff do not carry out dyslexia assessments themselves, that is done by separately listed assessors. AEC staff can advise on Standard Learning Credits (SLC) and Enhanced Learning Credits (ELC), including funding towards a dyslexia assessment, and provide support and guidance to personnel with neurodiversity, whether or not they have had a formal assessment.
           </p>
         </section>
 
