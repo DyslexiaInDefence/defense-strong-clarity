@@ -66,12 +66,14 @@ const ArmyEducationCentresPage = () => {
         <section aria-labelledby="what-heading" className="mb-12 max-w-3xl">
           <h2 id="what-heading" className="mb-3 text-2xl font-bold text-foreground">What an Army Education Centre does</h2>
           <p className="text-lg text-muted-foreground">
-            Your local Army Education Centre (AEC) is an education and resettlement support hub for serving personnel. AEC staff can advise on Standard Learning Credits (SLC) and Enhanced Learning Credits (ELC), including funding towards a dyslexia assessment, and provide support around resettlement.
+            Your local Army Education Centre (AEC) is an education and resettlement support hub for serving personnel. AEC staff do not carry out dyslexia assessments themselves, that is done by separately listed assessors. AEC staff can advise on Standard Learning Credits (SLC) and Enhanced Learning Credits (ELC), including funding towards a dyslexia assessment, and provide support and guidance to personnel with neurodiversity, whether or not they have had a formal assessment.
           </p>
         </section>
 
         <section aria-labelledby="map-heading" className="mb-10">
           <h2 id="map-heading" className="mb-4 text-2xl font-bold text-foreground">Centres map</h2>
+          {/* Update this date whenever AEC details are reconfirmed */}
+          <p className="mb-4 text-xs text-muted-foreground">Army Education Centre details last confirmed: 28 September 2026.</p>
           <CentresMap />
         </section>
 
@@ -104,6 +106,14 @@ const ArmyEducationCentresPage = () => {
             </ul>
           )}
         </section>
+
+        <p className="mb-10 max-w-3xl text-sm text-muted-foreground">
+          AEC Group 55 (British Forces Cyprus) is not shown on the map as it is based overseas. Contact:{" "}
+          <a href="mailto:BFC-JETS-55AEC-RstlmntGpMailbox@mod.gov.uk" className="break-all text-primary hover:underline">
+            BFC-JETS-55AEC-RstlmntGpMailbox@mod.gov.uk
+          </a>
+          .
+        </p>
 
         <a href={REPORT_HREF}>
           <Button variant="outline" size="lg" className="rounded-full border-2 border-primary px-8 font-bold text-primary hover:bg-primary hover:text-primary-foreground">
