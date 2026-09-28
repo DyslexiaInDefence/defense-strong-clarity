@@ -107,6 +107,14 @@ const ArmyEducationCentresPage = () => {
           )}
         </section>
 
+        <p className="mb-10 max-w-3xl text-sm text-muted-foreground">
+          AEC Group 55 (British Forces Cyprus) is not shown on the map as it is based overseas. Contact:{" "}
+          <a href="mailto:BFC-JETS-55AEC-RstlmntGpMailbox@mod.gov.uk" className="break-all text-primary hover:underline">
+            BFC-JETS-55AEC-RstlmntGpMailbox@mod.gov.uk
+          </a>
+          .
+        </p>
+
         <a href={REPORT_HREF}>
           <Button variant="outline" size="lg" className="rounded-full border-2 border-primary px-8 font-bold text-primary hover:bg-primary hover:text-primary-foreground">
             Report out of date information
