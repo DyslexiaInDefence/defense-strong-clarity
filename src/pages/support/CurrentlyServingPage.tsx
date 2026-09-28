@@ -1,5 +1,5 @@
 import { Link } from "@/lib/router-compat";
-import { ChevronRight, ExternalLink, HelpCircle, Laptop, Smartphone, Video } from "lucide-react";
+import { ChevronRight, ExternalLink, HelpCircle, Laptop, PoundSterling, Smartphone, Video } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card, CardContent } from "@/components/ui/card";
 import { intentCategories } from "@/data/faqCategories";
