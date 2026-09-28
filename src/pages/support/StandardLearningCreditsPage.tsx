@@ -12,9 +12,37 @@ const StandardLearningCreditsPage = () => {
           Using Standard Learning Credits for a dyslexia assessment
         </h1>
         <p className="mb-4 text-lg text-muted-foreground">
-          Anyone in service can use Standard Learning Credits (SLC) towards a dyslexia diagnostic assessment.
+          The Standard Learning Credits (SLC) Scheme provides financial support throughout your career to enhance your
+          educational and vocational achievements in Service. It covers multiple, small scale learning purposes and
+          courses that have been approved by your line manager and Education Staff or Education Centre.
         </p>
-        <p className="mb-12 text-lg text-muted-foreground">This applies across all services.</p>
+        <p className="mb-4 text-lg text-muted-foreground">
+          You can spend up to £175 per financial year while in Service or during your resettlement phase. If you are
+          diagnosed with a Specific Learning Difference, you can use SLC towards specialist tuition and support, and
+          even towards software bought specifically to support your Specific Learning Difference.
+        </p>
+        <p className="mb-6 text-lg text-muted-foreground">
+          SLC is not to be used for Service training, civilian accredited Service training, professional bodies and
+          institutes, course material, pure sport and Adventurous Training, battlefield tours, or the City and Guilds
+          Professional Recognition Awards scheme.
+        </p>
+
+        <div role="note" className="mb-6 rounded-xl border-l-4 border-primary bg-card p-5">
+          <h2 className="mb-2 text-lg font-bold text-foreground">What you get</h2>
+          <p className="text-base text-muted-foreground">
+            You may claim 80% of fees paid to a learning provider for certain personal development courses,
+            examinations and support, up to a maximum of £175 per financial year. You must have permission to claim
+            before the course starts.
+          </p>
+        </div>
+
+        <div role="note" className="mb-12 rounded-xl border-l-4 border-primary bg-card p-5">
+          <h2 className="mb-2 text-lg font-bold text-foreground">When you cannot use this</h2>
+          <p className="text-base text-muted-foreground">
+            SLC cannot be used at the same time as Enhanced Learning Credit (ELC) funding for elements of the same
+            course of study.
+          </p>
+        </div>
 
         <section aria-labelledby="download-heading" className="mb-12 rounded-2xl border border-border bg-card p-6 md:p-8">
           <h2 id="download-heading" className="mb-3 text-2xl font-bold text-foreground">Download the template</h2>
@@ -62,10 +90,12 @@ const StandardLearningCreditsPage = () => {
             Before you start
           </h2>
           <p className="text-base text-muted-foreground">
-            Check your own SLC eligibility and remaining balance first.
-          </p>
-          <p className="mt-2 text-base text-muted-foreground">
-            SLC entitlement is limited each year, and you may already have used yours.
+            You can use up to £175 of Standard Learning Credits per financial year towards this assessment, covering
+            80% of the fee, up to that £175 cap. You must pay at least 20% of the fee yourself. The figures below are
+            indicative, based on the current self funded rates published by the British Dyslexia Association, and
+            assume full use of your available SLC balance for the year. Check your own remaining SLC balance before
+            applying, since your full entitlement may not be available if you have already used some this financial
+            year.
           </p>
         </section>
 
