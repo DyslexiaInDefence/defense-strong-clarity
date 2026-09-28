@@ -1,6 +1,5 @@
 import { Download, ExternalLink, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import CovenantLogoLockup from "@/components/CovenantLogoLockup";
 import covenantBanner from "@/assets/armed-forces-covenant-banner.png.asset.json";
 import pledgeImage from "@/assets/dyslexia-in-defence-signed-armed-forces-covenant.png.asset.json";
 import pledgePdf from "@/assets/dyslexia-in-defence-signed-armed-forces-covenant.pdf.asset.json";
@@ -36,9 +35,6 @@ const ArmedForcesCovenantPage = () => (
   <div className="py-12 md:py-16">
     <div className="container mx-auto max-w-5xl px-4">
       <section className="mb-14" aria-labelledby="covenant-title">
-        <div className="mb-8">
-          <CovenantLogoLockup />
-        </div>
         <p className="mb-3 text-sm font-semibold uppercase text-primary">Our Armed Forces Covenant pledge</p>
         <h1 id="covenant-title" className="max-w-4xl text-3xl font-extrabold leading-tight text-foreground md:text-5xl">
           We have signed the Armed Forces Covenant.
