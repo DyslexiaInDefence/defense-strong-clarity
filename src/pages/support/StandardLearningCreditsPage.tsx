@@ -11,20 +11,9 @@ const StandardLearningCreditsPage = () => {
         <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
           Using Standard Learning Credits for a dyslexia assessment
         </h1>
-        <p className="mb-4 text-lg text-muted-foreground">
-          The Standard Learning Credits (SLC) Scheme provides financial support throughout your career to enhance your
-          educational and vocational achievements in Service. It covers multiple, small scale learning purposes and
-          courses that have been approved by your line manager and Education Staff or Education Centre.
-        </p>
-        <p className="mb-4 text-lg text-muted-foreground">
-          You can spend up to £175 per financial year while in Service or during your resettlement phase. If you are
-          diagnosed with a Specific Learning Difference, you can use SLC towards specialist tuition and support, and
-          even towards software bought specifically to support your Specific Learning Difference.
-        </p>
         <p className="mb-6 text-lg text-muted-foreground">
-          SLC is not to be used for Service training, civilian accredited Service training, professional bodies and
-          institutes, course material, pure sport and Adventurous Training, battlefield tours, or the City and Guilds
-          Professional Recognition Awards scheme.
+          The Standard Learning Credits (SLC) Scheme provides financial support throughout your career to enhance your
+          educational and vocational achievements in Service. SLCs can be used to obtain a dyslexia assessment.
         </p>
 
         <div role="note" className="mb-6 rounded-xl border-l-4 border-primary bg-card p-5">
