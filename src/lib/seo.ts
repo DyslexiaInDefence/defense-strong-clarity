@@ -54,6 +54,24 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.8,
     indexable: true,
   },
+  "/currently-serving": {
+    title: "Currently Serving Hub | Dyslexia in Defence",
+    description: "Practical help for serving personnel: use Standard Learning Credits for a dyslexia assessment and find your local Army Education Centre.",
+    priority: 0.8,
+    indexable: true,
+  },
+  "/currently-serving/standard-learning-credits": {
+    title: "Standard Learning Credits for a Dyslexia Assessment | Dyslexia in Defence",
+    description: "Download a pre filled SLC template based on MOD Form 1950 to fund a dyslexia assessment, plus a list of assessors. For all services.",
+    priority: 0.8,
+    indexable: true,
+  },
+  "/currently-serving/army-education-centres": {
+    title: "Find Your Local Army Education Centre | Dyslexia in Defence",
+    description: "Map and searchable list of Army Education Centres across the UK, where staff can advise on SLC, ELC and resettlement support.",
+    priority: 0.7,
+    indexable: true,
+  },
   "/support/currently-serving": {
     title: "Currently Serving | Dyslexia in Defence",
     description: "A hub for serving Royal Navy, Army and RAF personnel: how to join the internal Defence Dyslexia Network, answers to common questions, and further resources.",

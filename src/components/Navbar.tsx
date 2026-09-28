@@ -33,6 +33,15 @@ const navLinks: NavItem[] = [
     ],
   },
   {
+    label: "Currently Serving",
+    to: "/currently-serving",
+    children: [
+      { label: "Currently Serving Hub", to: "/currently-serving" },
+      { label: "Standard Learning Credits", to: "/currently-serving/standard-learning-credits" },
+      { label: "Army Education Centres", to: "/currently-serving/army-education-centres" },
+    ],
+  },
+  {
     label: "Community",
     to: "/community",
     children: [
