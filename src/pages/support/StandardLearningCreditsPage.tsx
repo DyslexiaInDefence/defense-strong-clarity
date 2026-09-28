@@ -73,6 +73,54 @@ const StandardLearningCreditsPage = () => {
           </p>
         </section>
 
+        <section aria-labelledby="cost-heading" className="mb-12">
+          <h2 id="cost-heading" className="mb-4 text-2xl font-bold text-foreground">
+            What will this cost me?
+          </h2>
+          <div className="overflow-x-auto rounded-xl border border-border">
+            <table className="w-full min-w-[34rem] text-left text-base">
+              <caption className="sr-only">
+                Comparison of assessment routes, total costs, what Standard Learning Credits pay and what you pay
+              </caption>
+              <thead className="bg-muted">
+                <tr className="text-sm font-bold text-foreground">
+                  <th scope="col" className="px-4 py-3">Assessment route</th>
+                  <th scope="col" className="px-4 py-3">Total cost (inc VAT)</th>
+                  <th scope="col" className="px-4 py-3">SLC pays</th>
+                  <th scope="col" className="px-4 py-3">You pay</th>
+                </tr>
+              </thead>
+              <tbody className="text-muted-foreground">
+                <tr className="border-t border-border bg-card">
+                  <th scope="row" className="px-4 py-3 font-semibold text-foreground">Specialist Teacher assessment</th>
+                  <td className="px-4 py-3">£690</td>
+                  <td className="px-4 py-3">£175</td>
+                  <td className="px-4 py-3">£515</td>
+                </tr>
+                <tr className="border-t border-border bg-card">
+                  <th scope="row" className="px-4 py-3 font-semibold text-foreground">Psychologist assessment</th>
+                  <td className="px-4 py-3">£882</td>
+                  <td className="px-4 py-3">£175</td>
+                  <td className="px-4 py-3">£707</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          {/* NOTE FOR FUTURE UPDATES: the date and figures in the note below come from the BDA self funded rates.
+              Update SLCCOST_DATE, SLCCOST_TEACHER, SLCCOST_PSYCH, SLCCOST_SLC, SLCCOST_YOU_TEACHER and
+              SLCCOST_YOU_PSYCH together when the BDA publishes new pricing. */}
+          <p className="mt-4 text-base text-muted-foreground">
+            SLC normally covers 80% of the fee, but 80% of either of these assessment costs is well above the £175 per
+            year cap, so £175 is what actually applies. Prices shown are the BDA's current self funded rates as of 28
+            September 2026, correct at time of publishing. Check the BDA website for current pricing before applying.
+          </p>
+          <p className="mt-3 text-base font-semibold text-foreground">
+            We are working with assessors to bring these costs down as far as possible for Service personnel. Check
+            back here for updates.
+          </p>
+        </section>
+
+
         <section aria-labelledby="before-heading" className="mb-12 rounded-xl border-l-4 border-primary bg-card p-5">
           <h2 id="before-heading" className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
             <Info className="h-5 w-5 text-primary" aria-hidden="true" />
