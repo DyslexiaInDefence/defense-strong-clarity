@@ -60,6 +60,18 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.8,
     indexable: true,
   },
+  "/currently-serving/standard-learning-credits": {
+    title: "Standard Learning Credits for a Dyslexia Assessment | Dyslexia in Defence",
+    description: "How serving personnel can use Standard Learning Credits (SLC) towards a dyslexia diagnostic assessment, with a pre filled application template to download.",
+    priority: 0.7,
+    indexable: true,
+  },
+  "/currently-serving/army-education-centres": {
+    title: "Army Education Centres Map | Dyslexia in Defence",
+    description: "Find your local Army Education Centre for advice on Standard and Enhanced Learning Credits, including funding towards a dyslexia assessment. Army only.",
+    priority: 0.7,
+    indexable: true,
+  },
   "/contact": {
     title: "Contact Dyslexia in Defence",
     description: "Get in touch with Dyslexia in Defence through email, LinkedIn, or Discord.",
