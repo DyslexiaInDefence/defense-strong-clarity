@@ -153,6 +153,32 @@ const CurrentlyServingPage = () => {
             </div>
           </div>
         </section>
+
+        <section aria-labelledby="slc-heading" className="mt-12 max-w-3xl">
+          <h2 id="slc-heading" className="mb-2 text-lg font-bold text-foreground">
+            Funding a dyslexia assessment with Standard Learning Credits
+          </h2>
+          <p className="mb-2 text-sm text-muted-foreground">
+            Serving personnel across all services can use Standard Learning Credits (SLC) towards a dyslexia diagnostic
+            assessment. We have a pre filled application template to help.
+          </p>
+          <Link
+            to="/currently-serving/standard-learning-credits"
+            className="inline-flex items-center gap-1 text-sm font-semibold text-primary underline-offset-4 hover:underline"
+          >
+            Read more and download the template <ChevronRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        </section>
+
+        <div className="mt-8 max-w-3xl">
+          <Link
+            to="/currently-serving/army-education-centres"
+            className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <span className="rounded bg-primary px-2 py-0.5 text-xs font-bold text-primary-foreground">Army only</span>
+            Find your Army Education Centre
+          </Link>
+        </div>
       </div>
     </div>
   );

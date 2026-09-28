@@ -28,6 +28,8 @@ const navLinks: NavItem[] = [
     to: "/support",
     children: [
       { label: "Currently Serving", to: "/support/currently-serving" },
+      { label: "› Standard Learning Credits", to: "/currently-serving/standard-learning-credits" },
+      { label: "› Army Education Centres", to: "/currently-serving/army-education-centres" },
       { label: "Join the Network", to: "/join" },
       { label: "Guidance", to: "/insights" },
     ],
