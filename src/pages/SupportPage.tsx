@@ -49,7 +49,7 @@ const SupportPage = () => {
             </p>
           </div>
           <Link
-            to="/currently-serving"
+            to="/support/currently-serving"
             className="inline-flex shrink-0 items-center rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
           >
             Go to Currently Serving
