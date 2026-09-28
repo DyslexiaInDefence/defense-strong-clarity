@@ -1,5 +1,5 @@
 import { Link } from "@/lib/router-compat";
-import { ChevronRight, ExternalLink, HelpCircle, Laptop, Smartphone, Video } from "lucide-react";
+import { ChevronRight, ExternalLink, HelpCircle, Laptop, PoundSterling, Smartphone, Video } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card, CardContent } from "@/components/ui/card";
 import { intentCategories } from "@/data/faqCategories";
@@ -93,6 +93,27 @@ const CurrentlyServingPage = () => {
           </div>
         </section>
 
+        <section aria-labelledby="slc-heading" className="mb-16">
+          <div className="rounded-2xl border-2 border-primary/30 bg-secondary/40 p-6 md:p-8">
+            <div className="mb-4 flex items-center gap-3">
+              <PoundSterling className="h-7 w-7 text-primary" aria-hidden="true" />
+              <h2 id="slc-heading" className="text-2xl font-bold text-foreground">
+                Funding a dyslexia assessment with Standard Learning Credits
+              </h2>
+            </div>
+            <p className="mb-5 max-w-3xl text-base text-muted-foreground">
+              Serving personnel across all services can use Standard Learning Credits (SLC) towards a dyslexia diagnostic
+              assessment. We have a pre filled application template to help.
+            </p>
+            <Link
+              to="/currently-serving/standard-learning-credits"
+              className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              Read more and download the template <ChevronRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+        </section>
+
         {servingCategory && (
           <section aria-labelledby="serving-faq-heading" className="mb-16 max-w-3xl">
             <div className="mb-4 flex items-center gap-3">
@@ -152,22 +173,6 @@ const CurrentlyServingPage = () => {
               />
             </div>
           </div>
-        </section>
-
-        <section aria-labelledby="slc-heading" className="mt-12 max-w-3xl">
-          <h2 id="slc-heading" className="mb-2 text-lg font-bold text-foreground">
-            Funding a dyslexia assessment with Standard Learning Credits
-          </h2>
-          <p className="mb-2 text-sm text-muted-foreground">
-            Serving personnel across all services can use Standard Learning Credits (SLC) towards a dyslexia diagnostic
-            assessment. We have a pre filled application template to help.
-          </p>
-          <Link
-            to="/currently-serving/standard-learning-credits"
-            className="inline-flex items-center gap-1 text-sm font-semibold text-primary underline-offset-4 hover:underline"
-          >
-            Read more and download the template <ChevronRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
         </section>
 
         <div className="mt-8 max-w-3xl">
