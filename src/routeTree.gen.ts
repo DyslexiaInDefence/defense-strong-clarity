@@ -26,6 +26,9 @@ import { Route as AboutFaqRouteImport } from './routes/about/faq'
 import { Route as AboutOurStoryRouteImport } from './routes/about/our-story'
 import { Route as AboutWhatWeDoRouteImport } from './routes/about/what-we-do'
 import { Route as AboutWhatWeWantToAchieveRouteImport } from './routes/about/what-we-want-to-achieve'
+import { Route as CurrentlyServingIndexRouteImport } from './routes/currently-serving/index'
+import { Route as CurrentlyServingArmyEducationCentresRouteImport } from './routes/currently-serving/army-education-centres'
+import { Route as CurrentlyServingStandardLearningCreditsRouteImport } from './routes/currently-serving/standard-learning-credits'
 import { Route as GovernanceIndexRouteImport } from './routes/governance/index'
 import { Route as GovernanceCodeOfConductRouteImport } from './routes/governance/code-of-conduct'
 import { Route as GovernanceFounderRouteImport } from './routes/governance/founder'
@@ -135,6 +138,23 @@ const AboutWhatWeWantToAchieveRoute =
   AboutWhatWeWantToAchieveRouteImport.update({
     id: '/about/what-we-want-to-achieve',
     path: '/about/what-we-want-to-achieve',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CurrentlyServingIndexRoute = CurrentlyServingIndexRouteImport.update({
+  id: '/currently-serving/',
+  path: '/currently-serving/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CurrentlyServingArmyEducationCentresRoute =
+  CurrentlyServingArmyEducationCentresRouteImport.update({
+    id: '/currently-serving/army-education-centres',
+    path: '/currently-serving/army-education-centres',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CurrentlyServingStandardLearningCreditsRoute =
+  CurrentlyServingStandardLearningCreditsRouteImport.update({
+    id: '/currently-serving/standard-learning-credits',
+    path: '/currently-serving/standard-learning-credits',
     getParentRoute: () => rootRouteImport,
   } as any)
 const GovernanceIndexRoute = GovernanceIndexRouteImport.update({
@@ -288,6 +308,8 @@ export interface FileRoutesByFullPath {
   '/about/our-story': typeof AboutOurStoryRoute
   '/about/what-we-do': typeof AboutWhatWeDoRoute
   '/about/what-we-want-to-achieve': typeof AboutWhatWeWantToAchieveRoute
+  '/currently-serving/army-education-centres': typeof CurrentlyServingArmyEducationCentresRoute
+  '/currently-serving/standard-learning-credits': typeof CurrentlyServingStandardLearningCreditsRoute
   '/governance/code-of-conduct': typeof GovernanceCodeOfConductRoute
   '/governance/founder': typeof GovernanceFounderRoute
   '/governance/privacy': typeof GovernancePrivacyRoute
@@ -309,6 +331,7 @@ export interface FileRoutesByFullPath {
   '/lived-experiences/symon-smith-british-army-veteran': typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
   '/support/currently-serving': typeof SupportCurrentlyServingRoute
   '/about/': typeof AboutIndexRoute
+  '/currently-serving/': typeof CurrentlyServingIndexRoute
   '/governance/': typeof GovernanceIndexRoute
   '/insights/': typeof InsightsIndexRoute
   '/lived-experiences/': typeof LivedExperiencesIndexRoute
@@ -331,6 +354,8 @@ export interface FileRoutesByTo {
   '/about/our-story': typeof AboutOurStoryRoute
   '/about/what-we-do': typeof AboutWhatWeDoRoute
   '/about/what-we-want-to-achieve': typeof AboutWhatWeWantToAchieveRoute
+  '/currently-serving/army-education-centres': typeof CurrentlyServingArmyEducationCentresRoute
+  '/currently-serving/standard-learning-credits': typeof CurrentlyServingStandardLearningCreditsRoute
   '/governance/code-of-conduct': typeof GovernanceCodeOfConductRoute
   '/governance/founder': typeof GovernanceFounderRoute
   '/governance/privacy': typeof GovernancePrivacyRoute
@@ -352,6 +377,7 @@ export interface FileRoutesByTo {
   '/lived-experiences/symon-smith-british-army-veteran': typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
   '/support/currently-serving': typeof SupportCurrentlyServingRoute
   '/about': typeof AboutIndexRoute
+  '/currently-serving': typeof CurrentlyServingIndexRoute
   '/governance': typeof GovernanceIndexRoute
   '/insights': typeof InsightsIndexRoute
   '/lived-experiences': typeof LivedExperiencesIndexRoute
@@ -375,6 +401,8 @@ export interface FileRoutesById {
   '/about/our-story': typeof AboutOurStoryRoute
   '/about/what-we-do': typeof AboutWhatWeDoRoute
   '/about/what-we-want-to-achieve': typeof AboutWhatWeWantToAchieveRoute
+  '/currently-serving/army-education-centres': typeof CurrentlyServingArmyEducationCentresRoute
+  '/currently-serving/standard-learning-credits': typeof CurrentlyServingStandardLearningCreditsRoute
   '/governance/code-of-conduct': typeof GovernanceCodeOfConductRoute
   '/governance/founder': typeof GovernanceFounderRoute
   '/governance/privacy': typeof GovernancePrivacyRoute
@@ -396,6 +424,7 @@ export interface FileRoutesById {
   '/lived-experiences/symon-smith-british-army-veteran': typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
   '/support/currently-serving': typeof SupportCurrentlyServingRoute
   '/about/': typeof AboutIndexRoute
+  '/currently-serving/': typeof CurrentlyServingIndexRoute
   '/governance/': typeof GovernanceIndexRoute
   '/insights/': typeof InsightsIndexRoute
   '/lived-experiences/': typeof LivedExperiencesIndexRoute
@@ -420,6 +449,8 @@ export interface FileRouteTypes {
     | '/about/our-story'
     | '/about/what-we-do'
     | '/about/what-we-want-to-achieve'
+    | '/currently-serving/army-education-centres'
+    | '/currently-serving/standard-learning-credits'
     | '/governance/code-of-conduct'
     | '/governance/founder'
     | '/governance/privacy'
@@ -441,6 +472,7 @@ export interface FileRouteTypes {
     | '/lived-experiences/symon-smith-british-army-veteran'
     | '/support/currently-serving'
     | '/about/'
+    | '/currently-serving/'
     | '/governance/'
     | '/insights/'
     | '/lived-experiences/'
@@ -463,6 +495,8 @@ export interface FileRouteTypes {
     | '/about/our-story'
     | '/about/what-we-do'
     | '/about/what-we-want-to-achieve'
+    | '/currently-serving/army-education-centres'
+    | '/currently-serving/standard-learning-credits'
     | '/governance/code-of-conduct'
     | '/governance/founder'
     | '/governance/privacy'
@@ -484,6 +518,7 @@ export interface FileRouteTypes {
     | '/lived-experiences/symon-smith-british-army-veteran'
     | '/support/currently-serving'
     | '/about'
+    | '/currently-serving'
     | '/governance'
     | '/insights'
     | '/lived-experiences'
@@ -506,6 +541,8 @@ export interface FileRouteTypes {
     | '/about/our-story'
     | '/about/what-we-do'
     | '/about/what-we-want-to-achieve'
+    | '/currently-serving/army-education-centres'
+    | '/currently-serving/standard-learning-credits'
     | '/governance/code-of-conduct'
     | '/governance/founder'
     | '/governance/privacy'
@@ -527,6 +564,7 @@ export interface FileRouteTypes {
     | '/lived-experiences/symon-smith-british-army-veteran'
     | '/support/currently-serving'
     | '/about/'
+    | '/currently-serving/'
     | '/governance/'
     | '/insights/'
     | '/lived-experiences/'
@@ -550,6 +588,8 @@ export interface RootRouteChildren {
   AboutOurStoryRoute: typeof AboutOurStoryRoute
   AboutWhatWeDoRoute: typeof AboutWhatWeDoRoute
   AboutWhatWeWantToAchieveRoute: typeof AboutWhatWeWantToAchieveRoute
+  CurrentlyServingArmyEducationCentresRoute: typeof CurrentlyServingArmyEducationCentresRoute
+  CurrentlyServingStandardLearningCreditsRoute: typeof CurrentlyServingStandardLearningCreditsRoute
   GovernanceCodeOfConductRoute: typeof GovernanceCodeOfConductRoute
   GovernanceFounderRoute: typeof GovernanceFounderRoute
   GovernancePrivacyRoute: typeof GovernancePrivacyRoute
@@ -571,6 +611,7 @@ export interface RootRouteChildren {
   LivedExperiencesSymonSmithBritishArmyVeteranRoute: typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
   SupportCurrentlyServingRoute: typeof SupportCurrentlyServingRoute
   AboutIndexRoute: typeof AboutIndexRoute
+  CurrentlyServingIndexRoute: typeof CurrentlyServingIndexRoute
   GovernanceIndexRoute: typeof GovernanceIndexRoute
   InsightsIndexRoute: typeof InsightsIndexRoute
   LivedExperiencesIndexRoute: typeof LivedExperiencesIndexRoute
@@ -696,6 +737,27 @@ declare module '@tanstack/react-router' {
       path: '/about/what-we-want-to-achieve'
       fullPath: '/about/what-we-want-to-achieve'
       preLoaderRoute: typeof AboutWhatWeWantToAchieveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/currently-serving/': {
+      id: '/currently-serving/'
+      path: '/currently-serving'
+      fullPath: '/currently-serving/'
+      preLoaderRoute: typeof CurrentlyServingIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/currently-serving/army-education-centres': {
+      id: '/currently-serving/army-education-centres'
+      path: '/currently-serving/army-education-centres'
+      fullPath: '/currently-serving/army-education-centres'
+      preLoaderRoute: typeof CurrentlyServingArmyEducationCentresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/currently-serving/standard-learning-credits': {
+      id: '/currently-serving/standard-learning-credits'
+      path: '/currently-serving/standard-learning-credits'
+      fullPath: '/currently-serving/standard-learning-credits'
+      preLoaderRoute: typeof CurrentlyServingStandardLearningCreditsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/governance/': {
@@ -886,6 +948,10 @@ const rootRouteChildren: RootRouteChildren = {
   AboutOurStoryRoute: AboutOurStoryRoute,
   AboutWhatWeDoRoute: AboutWhatWeDoRoute,
   AboutWhatWeWantToAchieveRoute: AboutWhatWeWantToAchieveRoute,
+  CurrentlyServingArmyEducationCentresRoute:
+    CurrentlyServingArmyEducationCentresRoute,
+  CurrentlyServingStandardLearningCreditsRoute:
+    CurrentlyServingStandardLearningCreditsRoute,
   GovernanceCodeOfConductRoute: GovernanceCodeOfConductRoute,
   GovernanceFounderRoute: GovernanceFounderRoute,
   GovernancePrivacyRoute: GovernancePrivacyRoute,
@@ -919,6 +985,7 @@ const rootRouteChildren: RootRouteChildren = {
     LivedExperiencesSymonSmithBritishArmyVeteranRoute,
   SupportCurrentlyServingRoute: SupportCurrentlyServingRoute,
   AboutIndexRoute: AboutIndexRoute,
+  CurrentlyServingIndexRoute: CurrentlyServingIndexRoute,
   GovernanceIndexRoute: GovernanceIndexRoute,
   InsightsIndexRoute: InsightsIndexRoute,
   LivedExperiencesIndexRoute: LivedExperiencesIndexRoute,
