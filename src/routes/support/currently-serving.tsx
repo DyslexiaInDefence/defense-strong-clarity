@@ -1,8 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-import CurrentlyServingPage from "@/pages/support/CurrentlyServingPage";
-import { pageHead } from "@/lib/seo";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
+// Permanent server-level redirect (301) to the new Currently Serving Hub.
 export const Route = createFileRoute("/support/currently-serving")({
-  component: CurrentlyServingPage,
-  head: () => pageHead("/support/currently-serving"),
+  beforeLoad: () => {
+    throw redirect({ to: "/currently-serving", statusCode: 301 });
+  },
 });

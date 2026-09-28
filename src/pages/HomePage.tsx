@@ -124,7 +124,7 @@ const HomePage = () => {
             <p className="mb-4 text-base font-semibold text-foreground">
               Still serving? There is support waiting for you right now.
             </p>
-            <Link to="/support/currently-serving">
+            <Link to="/currently-serving">
               <Button variant="outline" size="lg" className="rounded-full border-2 border-primary px-8 text-sm font-bold text-primary hover:bg-primary hover:text-primary-foreground">
                 See support for currently serving
                 <ArrowRight className="ml-2 h-4 w-4" />
