@@ -1,8 +1,7 @@
 import { Link } from "@/lib/router-compat";
-import { AlertTriangle, ArrowRight, Download, Info, Mail, Phone } from "lucide-react";
+import { AlertTriangle, ArrowRight, Download, ExternalLink, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { assessors } from "@/data/assessors";
 import slcTemplate from "@/assets/slc-template.docx.asset.json";
 
 const StandardLearningCreditsPage = () => (
@@ -65,39 +64,53 @@ const StandardLearningCreditsPage = () => (
 
       <section aria-labelledby="assessors-heading">
         <h2 id="assessors-heading" className="mb-4 text-2xl font-bold text-foreground">Approved assessors</h2>
-        <div role="note" className="mb-6 flex gap-3 rounded-xl border-2 border-primary/40 bg-primary/5 p-5">
-          <Info className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-          <p className="text-sm text-foreground">
-            Assessors are listed by Dyslexia in Defence. Being listed is not an endorsement by the Ministry of Defence or the Army. Please check that any assessor meets the requirements of your unit and funding route before booking.
-          </p>
-        </div>
-        <ul className="grid gap-4 sm:grid-cols-2">
-          {assessors.map((a, i) => (
-            <li key={i}>
+        <p className="mb-6 text-base text-muted-foreground">
+          We are building up a list of approved assessors. At the moment, the route to a dyslexia diagnostic assessment is through the British Dyslexia Association (BDA):
+        </p>
+        <ul className="mb-6 grid gap-4 sm:grid-cols-2">
+          <li>
+            <a
+              href="https://www.bdadyslexia.org.uk/services/assessments/diagnostic-assessments-2/start-you-application/in-person-dyslexia-assessment-service-self-funded"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block h-full transition-transform hover:scale-[1.02]"
+            >
               <Card className="h-full">
-                <CardContent className="p-5">
-                  {a.placeholder && (
-                    <span className="mb-2 inline-block rounded bg-muted px-2 py-0.5 text-xs font-semibold text-muted-foreground">Placeholder</span>
-                  )}
-                  {a.name && <h3 className="text-lg font-bold text-foreground">{a.name}</h3>}
-                  {a.organisation && <p className="mb-3 text-sm text-muted-foreground">{a.organisation}</p>}
-                  {a.telephone && (
-                    <p className="mb-1 flex items-center gap-2 text-sm">
-                      <Phone className="h-4 w-4 text-primary" aria-hidden="true" />
-                      <a href={`tel:${a.telephone.replace(/\s/g, "")}`} className="text-primary hover:underline">{a.telephone}</a>
-                    </p>
-                  )}
-                  {a.email && (
-                    <p className="flex items-center gap-2 text-sm">
-                      <Mail className="h-4 w-4 text-primary" aria-hidden="true" />
-                      <a href={`mailto:${a.email}`} className="break-all text-primary hover:underline">{a.email}</a>
-                    </p>
-                  )}
+                <CardContent className="flex h-full items-center justify-between gap-4 p-5">
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground">In Person Dyslexia Assessment Service (Self Funded)</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">British Dyslexia Association (BDA) — opens in new tab</p>
+                  </div>
+                  <ExternalLink className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
                 </CardContent>
               </Card>
-            </li>
-          ))}
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.bdadyslexia.org.uk/services/assessments/diagnostic-assessments-2/start-you-application/remote-dyslexia-assessment-service-self-funded"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block h-full transition-transform hover:scale-[1.02]"
+            >
+              <Card className="h-full">
+                <CardContent className="flex h-full items-center justify-between gap-4 p-5">
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground">Remote (Online) Dyslexia Assessment Service (Self Funded)</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">British Dyslexia Association (BDA) — opens in new tab</p>
+                  </div>
+                  <ExternalLink className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                </CardContent>
+              </Card>
+            </a>
+          </li>
         </ul>
+        <div role="note" className="flex gap-3 rounded-xl border-2 border-primary/40 bg-primary/5 p-5">
+          <Info className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+          <p className="text-sm text-foreground">
+            Assessment routes are listed by Dyslexia in Defence. Being listed is not an endorsement by the Ministry of Defence or the Army. Please check that any assessment route meets the requirements of your unit and funding route before booking.
+          </p>
+        </div>
       </section>
     </div>
   </div>
