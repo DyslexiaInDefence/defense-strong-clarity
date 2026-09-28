@@ -21,6 +21,7 @@ const LABELS: Record<string, string> = {
   "currently-serving": "Currently Serving",
   "standard-learning-credits": "Standard Learning Credits",
   "army-education-centres": "Army Education Centres",
+  "armed-forces-covenant": "Armed Forces Covenant",
   structure: "Structure",
   founder: "Founder & Purpose",
   "code-of-conduct": "Code of Conduct",
