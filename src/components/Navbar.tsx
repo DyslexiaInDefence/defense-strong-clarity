@@ -27,7 +27,6 @@ const navLinks: NavItem[] = [
     label: "Get Support",
     to: "/support",
     children: [
-      { label: "Currently Serving", to: "/support/currently-serving" },
       { label: "Join the Network", to: "/join" },
       { label: "Guidance", to: "/insights" },
     ],

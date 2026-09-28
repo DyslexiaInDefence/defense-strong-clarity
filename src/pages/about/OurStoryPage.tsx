@@ -42,7 +42,7 @@ const OurStoryPage = () => (
           <div className="space-y-4 leading-relaxed text-foreground">
             <p>
               Inside Defence, the{" "}
-              <Link to="/support/currently-serving" className="font-semibold text-primary underline-offset-4 hover:underline">
+              <Link to="/currently-serving" className="font-semibold text-primary underline-offset-4 hover:underline">
                 Defence Dyslexia Network
               </Link>{" "}
               grew from a small group of people comparing notes into a recognised staff network with thousands of members and hundreds of volunteer ambassadors across the military and the civil service.
