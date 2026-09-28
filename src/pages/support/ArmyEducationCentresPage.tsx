@@ -91,7 +91,7 @@ const ArmyEducationCentresPage = () => {
         </section>
 
         <p className="mb-8 text-sm text-muted-foreground">
-          {OVERSEAS_AEC.name.replace("AEC Group 55", "AEC Group 55")} is not shown on the map as it is based overseas.
+          {OVERSEAS_AEC.name} is not shown on the map as it is based overseas.
           Contact:{" "}
           <a href={`mailto:${OVERSEAS_AEC.email}`} className="break-all font-semibold text-primary underline-offset-4 hover:underline">
             {OVERSEAS_AEC.email}
