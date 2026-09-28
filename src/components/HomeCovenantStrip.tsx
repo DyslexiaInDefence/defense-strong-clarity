@@ -8,7 +8,7 @@ const HomeCovenantStrip = () => (
         <img
           src={covenantLogo.url}
           alt="Armed Forces Covenant"
-          className="h-[3.75rem] w-auto object-contain"
+          className="h-auto w-20 object-contain"
         />
       </div>
       <div>

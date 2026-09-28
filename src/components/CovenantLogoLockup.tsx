@@ -10,7 +10,7 @@ const CovenantLogoLockup = ({ compact = false }: CovenantLogoLockupProps) => (
     <img
       src={didLogoFull}
       alt="Dyslexia in Defence"
-      className={compact ? "h-20 w-auto object-contain" : "h-28 w-auto object-contain"}
+      className={compact ? "h-40 w-auto object-contain" : "h-48 w-auto object-contain"}
     />
     <div className="hidden self-stretch border-l border-border sm:block" aria-hidden="true" />
     <div className="w-px self-stretch border-t border-border sm:hidden" aria-hidden="true" />
@@ -18,7 +18,7 @@ const CovenantLogoLockup = ({ compact = false }: CovenantLogoLockupProps) => (
       <img
         src={covenantLogo.url}
         alt="Armed Forces Covenant"
-        className={compact ? "h-14 w-auto object-contain" : "h-[4.75rem] w-auto object-contain"}
+        className={compact ? "h-auto w-20 object-contain" : "h-auto w-24 object-contain"}
       />
     </div>
   </div>
