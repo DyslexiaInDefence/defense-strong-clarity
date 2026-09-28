@@ -72,6 +72,8 @@ const ArmyEducationCentresPage = () => {
 
         <section aria-labelledby="map-heading" className="mb-10">
           <h2 id="map-heading" className="mb-4 text-2xl font-bold text-foreground">Centres map</h2>
+          {/* Update this date whenever AEC details are reconfirmed */}
+          <p className="mb-4 text-xs text-muted-foreground">Army Education Centre details last confirmed: 28 September 2026.</p>
           <CentresMap />
         </section>
 
