@@ -1,8 +1,7 @@
 import { Link } from "@/lib/router-compat";
-import { AlertTriangle, ArrowRight, Download, Info, Mail, Phone } from "lucide-react";
+import { AlertTriangle, ArrowRight, Download, ExternalLink, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { assessors } from "@/data/assessors";
 import slcTemplate from "@/assets/slc-template.docx.asset.json";
 
 const StandardLearningCreditsPage = () => (
