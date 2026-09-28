@@ -111,12 +111,8 @@ const StandardLearningCreditsPage = () => {
             Before you start
           </h2>
           <p className="text-base text-muted-foreground">
-            You can use up to £175 of Standard Learning Credits per financial year towards this assessment, covering
-            80% of the fee, up to that £175 cap. You must pay at least 20% of the fee yourself. The figures below are
-            indicative, based on the current self funded rates published by the British Dyslexia Association, and
-            assume full use of your available SLC balance for the year. Check your own remaining SLC balance before
-            applying, since your full entitlement may not be available if you have already used some this financial
-            year.
+            You must check your own SLC eligibility and remaining balance before applying, because SLC entitlement is
+            limited each year and you may already have used some of it this financial year.
           </p>
         </section>
 
