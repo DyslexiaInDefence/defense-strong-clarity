@@ -11,20 +11,9 @@ const StandardLearningCreditsPage = () => {
         <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
           Using Standard Learning Credits for a dyslexia assessment
         </h1>
-        <p className="mb-4 text-lg text-muted-foreground">
-          The Standard Learning Credits (SLC) Scheme provides financial support throughout your career to enhance your
-          educational and vocational achievements in Service. It covers multiple, small scale learning purposes and
-          courses that have been approved by your line manager and Education Staff or Education Centre.
-        </p>
-        <p className="mb-4 text-lg text-muted-foreground">
-          You can spend up to £175 per financial year while in Service or during your resettlement phase. If you are
-          diagnosed with a Specific Learning Difference, you can use SLC towards specialist tuition and support, and
-          even towards software bought specifically to support your Specific Learning Difference.
-        </p>
         <p className="mb-6 text-lg text-muted-foreground">
-          SLC is not to be used for Service training, civilian accredited Service training, professional bodies and
-          institutes, course material, pure sport and Adventurous Training, battlefield tours, or the City and Guilds
-          Professional Recognition Awards scheme.
+          The Standard Learning Credits (SLC) Scheme provides financial support throughout your career to enhance your
+          educational and vocational achievements in Service. SLCs can be used to obtain a dyslexia assessment.
         </p>
 
         <div role="note" className="mb-6 rounded-xl border-l-4 border-primary bg-card p-5">
@@ -83,6 +72,54 @@ const StandardLearningCreditsPage = () => {
             chain of command or unit education staff if you are unsure.
           </p>
         </section>
+
+        <section aria-labelledby="cost-heading" className="mb-12">
+          <h2 id="cost-heading" className="mb-4 text-2xl font-bold text-foreground">
+            What will this cost me?
+          </h2>
+          <div className="overflow-x-auto rounded-xl border border-border">
+            <table className="w-full min-w-[34rem] text-left text-base">
+              <caption className="sr-only">
+                Comparison of assessment routes, total costs, what Standard Learning Credits pay and what you pay
+              </caption>
+              <thead className="bg-muted">
+                <tr className="text-sm font-bold text-foreground">
+                  <th scope="col" className="px-4 py-3">Assessment route</th>
+                  <th scope="col" className="px-4 py-3">Total cost (inc VAT)</th>
+                  <th scope="col" className="px-4 py-3">SLC pays</th>
+                  <th scope="col" className="px-4 py-3">You pay</th>
+                </tr>
+              </thead>
+              <tbody className="text-muted-foreground">
+                <tr className="border-t border-border bg-card">
+                  <th scope="row" className="px-4 py-3 font-semibold text-foreground">Specialist Teacher assessment</th>
+                  <td className="px-4 py-3">£690</td>
+                  <td className="px-4 py-3">£175</td>
+                  <td className="px-4 py-3">£515</td>
+                </tr>
+                <tr className="border-t border-border bg-card">
+                  <th scope="row" className="px-4 py-3 font-semibold text-foreground">Psychologist assessment</th>
+                  <td className="px-4 py-3">£882</td>
+                  <td className="px-4 py-3">£175</td>
+                  <td className="px-4 py-3">£707</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          {/* NOTE FOR FUTURE UPDATES: the date and figures in the note below come from the BDA self funded rates.
+              Update SLCCOST_DATE, SLCCOST_TEACHER, SLCCOST_PSYCH, SLCCOST_SLC, SLCCOST_YOU_TEACHER and
+              SLCCOST_YOU_PSYCH together when the BDA publishes new pricing. */}
+          <p className="mt-4 text-base text-muted-foreground">
+            SLC normally covers 80% of the fee, but 80% of either of these assessment costs is well above the £175 per
+            year cap, so £175 is what actually applies. Prices shown are the BDA's current self funded rates as of 28
+            September 2026, correct at time of publishing. Check the BDA website for current pricing before applying.
+          </p>
+          <p className="mt-3 text-base font-semibold text-foreground">
+            We are working with assessors to bring these costs down as far as possible for Service personnel. Check
+            back here for updates.
+          </p>
+        </section>
+
 
         <section aria-labelledby="before-heading" className="mb-12 rounded-xl border-l-4 border-primary bg-card p-5">
           <h2 id="before-heading" className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
@@ -147,53 +184,6 @@ const StandardLearningCreditsPage = () => {
               </a>
             ))}
           </div>
-        </section>
-
-        <section aria-labelledby="cost-heading" className="mt-12">
-          <h2 id="cost-heading" className="mb-4 text-2xl font-bold text-foreground">
-            What will this actually cost me?
-          </h2>
-          <div className="overflow-x-auto rounded-xl border border-border">
-            <table className="w-full min-w-[34rem] text-left text-base">
-              <caption className="sr-only">
-                Comparison of assessment routes, total costs, what Standard Learning Credits pay and what you pay
-              </caption>
-              <thead className="bg-muted">
-                <tr className="text-sm font-bold text-foreground">
-                  <th scope="col" className="px-4 py-3">Assessment route</th>
-                  <th scope="col" className="px-4 py-3">Total cost (inc VAT)</th>
-                  <th scope="col" className="px-4 py-3">SLC pays</th>
-                  <th scope="col" className="px-4 py-3">You pay</th>
-                </tr>
-              </thead>
-              <tbody className="text-muted-foreground">
-                <tr className="border-t border-border bg-card">
-                  <th scope="row" className="px-4 py-3 font-semibold text-foreground">Specialist Teacher assessment</th>
-                  <td className="px-4 py-3">£690</td>
-                  <td className="px-4 py-3">£175</td>
-                  <td className="px-4 py-3">£515</td>
-                </tr>
-                <tr className="border-t border-border bg-card">
-                  <th scope="row" className="px-4 py-3 font-semibold text-foreground">Psychologist assessment</th>
-                  <td className="px-4 py-3">£882</td>
-                  <td className="px-4 py-3">£175</td>
-                  <td className="px-4 py-3">£707</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          {/* NOTE FOR FUTURE UPDATES: the date and figures in the note below come from the BDA self funded rates.
-              Update SLCCOST_DATE, SLCCOST_TEACHER, SLCCOST_PSYCH, SLCCOST_SLC, SLCCOST_YOU_TEACHER and
-              SLCCOST_YOU_PSYCH together when the BDA publishes new pricing. */}
-          <p className="mt-4 text-base text-muted-foreground">
-            SLC normally covers 80% of the fee, but 80% of either of these assessment costs is well above the £175 per
-            year cap, so £175 is what actually applies. Prices shown are the BDA's current self funded rates as of 28
-            September 2026, correct at time of publishing. Check the BDA website for current pricing before applying.
-          </p>
-          <p className="mt-3 text-base font-semibold text-foreground">
-            We are working with assessors to bring these costs down as far as possible for Service personnel. Check
-            back here for updates.
-          </p>
         </section>
       </div>
     </div>
