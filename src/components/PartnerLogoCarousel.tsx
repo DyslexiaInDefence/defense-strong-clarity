@@ -168,7 +168,7 @@ const PartnerLogoCarousel = () => {
                             rel="noopener noreferrer"
                             className={`flex items-center justify-center rounded-md transition-transform duration-300 hover:scale-105 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring ${
                               logo.name === "Embers Woodcraft"
-                                ? "bg-foreground px-3 py-2"
+                                ? "bg-primary px-3 py-2"
                                 : ""
                             }`}
                           >
