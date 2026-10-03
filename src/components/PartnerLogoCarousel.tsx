@@ -148,7 +148,7 @@ const PartnerLogoCarousel = () => {
         </h2>
         <p className="mx-auto mb-8 max-w-xl text-center text-sm leading-relaxed text-muted-foreground">
           Independent organisations we work alongside and are happy to
-          recommend. Listing here isn't a formal partnership or sponsorship.
+          recommend.
         </p>
 
         <div className="mx-auto max-w-3xl">
