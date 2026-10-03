@@ -211,6 +211,14 @@ const PartnerLogoCarousel = () => {
                                 ? "bg-primary px-3 py-2"
                                 : ""
                             }`}
+                            style={
+                              isVob
+                                ? // The emblem file has a transparent background and
+                                  // white lettering, so it needs its own native green
+                                  // behind it to stay readable on the white card.
+                                  { backgroundColor: "#47704C" }
+                                : undefined
+                            }
                           >
                             {img}
                           </a>
