@@ -19,11 +19,16 @@ const LOGOS: PartnerLogo[] = [
     alt: "Forces Transition Group logo, opens in new tab",
     src: FTG_LOGO_PATH,
     href: "https://ftgjobfairs.com",
+    tagline:
+      "Free support helping military and blue-light personnel and their families move from service to civilian life: online and live job fairs, free CV writing, a live jobs board, the FTG Academy for training, and interview and LinkedIn workshops.",
   },
   {
     name: "FANDF",
-    alt: "FANDF, Forces Additional Needs and Disability Forum logo",
+    alt: "FANDF, Forces Additional Needs and Disability Forum logo, opens in new tab",
     src: fandfLogo.url,
+    href: "https://www.ssafa.org.uk/get-help/disability-support/additional-needs-and-disability-support",
+    tagline:
+      "A tri-Service forum, facilitated by SSAFA, giving Forces families who have a child or adult dependant with an additional need or disability a voice, with support, advice, an annual conference and a guide for Service families. Free to join.",
   },
   {
     name: "The Education People",
@@ -124,15 +129,19 @@ const PartnerLogoCarousel = () => {
   return (
     <section
       className="border-t border-border bg-white py-16"
-      aria-label="Partners and organisations we work with"
+      aria-label="Organisations we recommend"
     >
       <div className="container mx-auto px-4">
         <h2
-          className="mb-8 text-center text-2xl font-bold"
+          className="mb-3 text-center text-2xl font-bold"
           style={{ color: "#09245B" }}
         >
-          Partners &amp; Organisations We Work With
+          Organisations We Recommend
         </h2>
+        <p className="mx-auto mb-8 max-w-xl text-center text-sm leading-relaxed text-muted-foreground">
+          Independent organisations we work alongside and are happy to
+          recommend. Listing here isn't a formal partnership or sponsorship.
+        </p>
 
         <div className="mx-auto max-w-3xl">
           <div className="flex items-center justify-center gap-2 md:gap-4">
@@ -141,7 +150,7 @@ const PartnerLogoCarousel = () => {
                 type="button"
                 onClick={goPrev}
                 disabled={currentIndex === 0}
-                aria-label="Show previous partner logo"
+                aria-label="Show previous organisation"
                 className="shrink-0 rounded-full border border-border bg-white p-1.5 text-primary shadow-sm transition-colors hover:bg-secondary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-40 md:p-2"
               >
                 <ChevronLeft className="h-5 w-5" aria-hidden="true" />
@@ -219,7 +228,7 @@ const PartnerLogoCarousel = () => {
                 type="button"
                 onClick={goNext}
                 disabled={currentIndex === maxIndex}
-                aria-label="Show next partner logo"
+                aria-label="Show next organisation"
                 className="shrink-0 rounded-full border border-border bg-white p-1.5 text-primary shadow-sm transition-colors hover:bg-secondary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-40 md:p-2"
               >
                 <ChevronRight className="h-5 w-5" aria-hidden="true" />
@@ -231,7 +240,7 @@ const PartnerLogoCarousel = () => {
             <div
               className="mt-6 flex justify-center gap-2"
               role="tablist"
-              aria-label="Partner logo navigation"
+              aria-label="Organisation navigation"
             >
               {LOGOS.map((logo, index) => (
                 <button
