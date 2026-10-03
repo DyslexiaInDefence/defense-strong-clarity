@@ -7,6 +7,7 @@ type PartnerLogo = {
   alt: string;
   src: string;
   href?: string;
+  nameLabel?: string;
   tagline?: string;
 };
 
@@ -23,6 +24,23 @@ const LOGOS: PartnerLogo[] = [
     name: "FANDF",
     alt: "FANDF, Forces Additional Needs and Disability Forum logo",
     src: fandfLogo.url,
+  },
+  {
+    name: "The Education People",
+    alt: "The Education People logo, opens in new tab",
+    src: "/images/partners/the-education-people.png",
+    href: "https://www.theeducationpeople.org/connecttowork",
+    tagline:
+      "Delivers Connect to Work across Kent and Medway: up to 12 months of tailored employment support for disabled people, people with health conditions and those facing complex barriers to work. Free recruitment and retention support for employers too.",
+  },
+  {
+    name: "VOB",
+    alt: "Veterans Operating Base emblem, opens in new tab",
+    src: "/images/partners/veterans-operating-base.png",
+    href: "https://vob.org.uk/",
+    nameLabel: "Veterans Operating Base",
+    tagline:
+      "Veteran-led drop-in hub offering immediate, trauma-informed support to veterans and their families: on-site mental health specialists, a PTSD therapist for private sessions, community projects and days out. Open six days a week.",
   },
   {
     name: "Embers Woodcraft",
@@ -178,6 +196,12 @@ const PartnerLogoCarousel = () => {
                           img
                         )}
                       </div>
+
+                      {logo.nameLabel && (
+                        <p className="mx-auto mt-2 max-w-sm text-center text-sm font-bold text-foreground">
+                          {logo.nameLabel}
+                        </p>
+                      )}
 
                       {logo.tagline && (
                         <p className="mx-auto mt-3 max-w-sm text-center text-sm leading-relaxed text-muted-foreground">
