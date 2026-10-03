@@ -63,6 +63,14 @@ const LOGOS: PartnerLogo[] = [
     tagline:
       "Kent County Council's secure online referral system. Professionals refer adults to support across Kent and Medway, from debt to mental health and wellbeing, with a response within 3 working days. Free for voluntary sector organisations.",
   },
+  {
+    name: "Head Up",
+    alt: "Head Up logo, opens in new tab",
+    src: "/images/partners/head-up.png",
+    href: "https://www.head-up.org.uk/",
+    tagline:
+      "Veteran-founded charity supporting the mental health of serving personnel, reservists and veterans from any UK service: one-to-one support, wellness days and mini retreats, and wellness presentations, with a free 7-day residential retreat in development.",
+  },
 ];
 
 const MD_BREAKPOINT = 768;
@@ -129,14 +137,14 @@ const PartnerLogoCarousel = () => {
   return (
     <section
       className="border-t border-border bg-white py-16"
-      aria-label="Organisations we recommend"
+      aria-label="Support beyond us"
     >
       <div className="container mx-auto px-4">
         <h2
           className="mb-3 text-center text-2xl font-bold"
           style={{ color: "#09245B" }}
         >
-          Organisations We Recommend
+          Support Beyond Us
         </h2>
         <p className="mx-auto mb-8 max-w-xl text-center text-sm leading-relaxed text-muted-foreground">
           Independent organisations we work alongside and are happy to
