@@ -1,5 +1,5 @@
 import { Link } from "@/lib/router-compat";
-import { ArrowRight, Info, LifeBuoy } from "lucide-react";
+import { ArrowRight, Info, LifeBuoy, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { livedStories, LIVED_EXPERIENCES_BASE } from "@/data/livedStories";
@@ -64,6 +64,18 @@ const HomePage = () => {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
+          </div>
+          {/* LinkedIn follow */}
+          <div className="mt-4 flex justify-center">
+            <a
+              href="https://www.linkedin.com/company/dyslexia-in-defence-cic/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-primary px-10 text-base font-bold text-primary shadow-md hover:bg-primary hover:text-primary-foreground transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <Linkedin className="h-5 w-5" aria-hidden="true" />
+              Follow us on LinkedIn
+            </a>
           </div>
 
           {/* Ribbon wave */}
