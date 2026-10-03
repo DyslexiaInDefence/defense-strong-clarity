@@ -110,14 +110,15 @@ function RootComponent() {
   );
 }
 
-function RootErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function RootErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
   const router = useRouter();
+  const reportableError = error instanceof Error ? error : new Error(String(error));
 
   console.error(error);
 
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
+    reportLovableError(reportableError, { boundary: "tanstack_root_error_component" });
+  }, [reportableError]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
