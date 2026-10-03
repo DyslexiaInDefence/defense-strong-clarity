@@ -110,13 +110,14 @@ function RootComponent() {
   );
 }
 
-function RootErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function RootErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
   const router = useRouter();
 
   console.error(error);
 
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    const reportableError = error instanceof Error ? error : new Error(String(error));
+    reportLovableError(reportableError, { boundary: "tanstack_root_error_component" });
   }, [error]);
 
   return (
