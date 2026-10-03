@@ -7,6 +7,7 @@ type PartnerLogo = {
   alt: string;
   src: string;
   href?: string;
+  tagline?: string;
 };
 
 const FTG_LOGO_PATH = "/images/partners/FTG-colour-Logo.png";
@@ -22,6 +23,22 @@ const LOGOS: PartnerLogo[] = [
     name: "FANDF",
     alt: "FANDF, Forces Additional Needs and Disability Forum logo",
     src: fandfLogo.url,
+  },
+  {
+    name: "Embers Woodcraft",
+    alt: "Embers Woodcraft logo, opens in new tab",
+    src: "/images/partners/embers-woodcraft.png",
+    href: "https://emberswoodcraft.co.uk",
+    tagline:
+      "Woodland bushcraft days in Kent for military and blue-light communities: build new skills, connect with nature and look after your mental health, with a campfire check-in and signposting to further support.",
+  },
+  {
+    name: "ReferKent",
+    alt: "ReferKent logo, opens in new tab",
+    src: "/images/partners/refer-kent.png",
+    href: "https://www.kent.gov.uk/referkent",
+    tagline:
+      "Kent County Council's secure online referral system. Professionals refer adults to support across Kent and Medway, from debt to mental health and wellbeing, with a response within 3 working days. Free for voluntary sector organisations.",
   },
 ];
 
@@ -140,20 +157,32 @@ const PartnerLogoCarousel = () => {
                   return (
                     <div
                       key={logo.name}
-                      className="flex shrink-0 items-center justify-center px-4 md:px-8"
+                      className="flex shrink-0 flex-col items-center px-4 md:px-8"
                       style={{ width: `${100 / visibleCount}%` }}
                     >
-                      {logo.href ? (
-                        <a
-                          href={logo.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-center rounded-md transition-transform duration-300 hover:scale-105 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
-                        >
-                          {img}
-                        </a>
-                      ) : (
-                        img
+                      <div className="flex h-24 w-full items-center justify-center md:h-28">
+                        {logo.href ? (
+                          <a
+                            href={logo.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`flex items-center justify-center rounded-md transition-transform duration-300 hover:scale-105 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring ${
+                              logo.name === "Embers Woodcraft"
+                                ? "bg-foreground px-3 py-2"
+                                : ""
+                            }`}
+                          >
+                            {img}
+                          </a>
+                        ) : (
+                          img
+                        )}
+                      </div>
+
+                      {logo.tagline && (
+                        <p className="mx-auto mt-3 max-w-sm text-center text-sm leading-relaxed text-muted-foreground">
+                          {logo.tagline}
+                        </p>
                       )}
                     </div>
                   );
