@@ -171,13 +171,20 @@ const PartnerLogoCarousel = () => {
                 }}
               >
                 {LOGOS.map((logo) => {
+                  // VOB is an emblem with words that need to stay readable,
+                  // so it renders far larger than the other logos.
+                  const isVob = logo.name === "VOB";
                   const img = (
                     <img
                       src={logo.src}
                       alt={logo.alt}
                       loading="lazy"
                       decoding="async"
-                      className="h-10 w-auto max-w-[240px] object-contain md:h-[60px]"
+                      className={
+                        isVob
+                          ? "h-24 w-auto max-w-full object-contain md:h-[150px]"
+                          : "h-10 w-auto max-w-[240px] object-contain md:h-[60px]"
+                      }
                     />
                   );
 
@@ -187,7 +194,13 @@ const PartnerLogoCarousel = () => {
                       className="flex shrink-0 flex-col items-center px-4 md:px-8"
                       style={{ width: `${100 / visibleCount}%` }}
                     >
-                      <div className="flex h-24 w-full items-center justify-center md:h-28">
+                      <div
+                        className={
+                          isVob
+                            ? "flex min-h-[112px] w-full items-center justify-center md:min-h-[160px]"
+                            : "flex h-24 w-full items-center justify-center md:h-28"
+                        }
+                      >
                         {logo.href ? (
                           <a
                             href={logo.href}
