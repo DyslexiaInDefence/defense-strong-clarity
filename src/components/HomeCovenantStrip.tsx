@@ -2,7 +2,7 @@ import { Link } from "@/lib/router-compat";
 import covenantLogo from "@/assets/armed-forces-covenant-logo-positive.png.asset.json";
 
 const HomeCovenantStrip = () => (
-  <section className="border-t border-border bg-card py-5" aria-label="Armed Forces Covenant pledge">
+  <section className="border-t border-border py-5" aria-label="Armed Forces Covenant pledge">
     <div className="container mx-auto flex flex-col items-center justify-center gap-4 px-4 text-center sm:flex-row sm:text-left">
       <div className="bg-card p-3">
         <img
