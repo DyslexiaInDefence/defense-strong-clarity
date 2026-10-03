@@ -5,3 +5,4 @@
 - [x] Add the route-aware footer pledge band and legal/about link, hiding the Covenant mark on funding and sponsorship routes.
 - [x] Add the homepage-only pledge strip without changing other homepage content.
 - [x] Verify logo sizing, excluded routes, accessibility, desktop/mobile presentation, links, and build health.
+- [ ] Rename the homepage carousel to “Support Beyond Us” and add the supplied Head Up logo as its final card.
