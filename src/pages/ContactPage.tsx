@@ -1,4 +1,4 @@
-import { Mail, ExternalLink } from "lucide-react";
+import { Facebook, Mail, ExternalLink } from "lucide-react";
 
 const LinkedInIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

@@ -95,6 +95,15 @@ const Footer = () => {
                 <Linkedin className="h-6 w-6" />
               </a>
               <a
+                href="https://www.facebook.com/profile.php?id=61595201726937"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Facebook className="h-6 w-6" />
+              </a>
+              <a
                 href="https://youtube.com/@dyslexiaindefence"
                 target="_blank"
                 rel="noopener noreferrer"
