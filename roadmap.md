@@ -6,3 +6,5 @@
 - [x] Add the homepage-only pledge strip without changing other homepage content.
 - [x] Verify logo sizing, excluded routes, accessibility, desktop/mobile presentation, links, and build health.
 - [x] Rename the homepage carousel to “Support Beyond Us” and add the supplied Head Up logo as its final card.
+- [x] Add the supplied NeuroDiverse Community logo as the eighth carousel entry and verify desktop/mobile links and layout.
+- [x] Remove the homepage-only Covenant strip and verify the footer pledge remains unchanged.

@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import fandfLogo from "@/assets/fandf-logo.png.asset.json";
+import neurodiverseLogo from "../../public/images/partners/neurodiverse-community.png.asset.json";
 
 type PartnerLogo = {
   name: string;
@@ -70,6 +71,14 @@ const LOGOS: PartnerLogo[] = [
     href: "https://www.head-up.org.uk/",
     tagline:
       "Veteran-founded charity supporting the mental health of serving personnel, reservists and veterans from any UK service: one-to-one support, wellness days and mini retreats, and wellness presentations, with a free 7-day residential retreat in development.",
+  },
+  {
+    name: "NeuroDiverse Community",
+    alt: "NeuroDiverse Community CIC logo, opens in new tab",
+    src: neurodiverseLogo.url,
+    href: "https://neurodiverse-community.co.uk",
+    tagline:
+      "Community led support for neurodivergent children, young people, adults and families, including Armed Forces and veteran families, with hubs in Catterick and Windsor, parent and carer support, training and employability programmes.",
   },
 ];
 
@@ -191,7 +200,9 @@ const PartnerLogoCarousel = () => {
                       className={
                         isVob
                           ? "h-24 w-auto max-w-full object-contain md:h-[150px]"
-                          : "h-10 w-auto max-w-[240px] object-contain md:h-[60px]"
+                          : logo.name === "NeuroDiverse Community"
+                            ? "h-auto max-h-24 w-full max-w-[240px] object-contain md:max-h-28"
+                            : "h-10 w-auto max-w-[240px] object-contain md:h-[60px]"
                       }
                     />
                   );
