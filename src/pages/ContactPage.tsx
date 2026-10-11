@@ -1,4 +1,4 @@
-import { Mail, ExternalLink } from "lucide-react";
+import { Facebook, Mail, ExternalLink } from "lucide-react";
 
 const LinkedInIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -27,6 +27,14 @@ const contactMethods = [
     description: "Connect with the wider Dyslexia in Defence community on LinkedIn.",
     link: "https://www.linkedin.com/groups/19133015",
     display: "linkedin.com/groups/19133015",
+    external: true,
+  },
+  {
+    icon: Facebook,
+    title: "Facebook",
+    description: "Follow Dyslexia in Defence on Facebook for news, updates and events.",
+    link: "https://www.facebook.com/profile.php?id=61595201726937",
+    display: "Dyslexia in Defence on Facebook",
     external: true,
   },
   {
