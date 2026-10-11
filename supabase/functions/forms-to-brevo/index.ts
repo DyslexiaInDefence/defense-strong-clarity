@@ -153,21 +153,23 @@ async function upsertContact(p: Payload) {
     DATE_JOINED: new Date().toISOString().slice(0, 10),
   };
 
-  // Create or update — use updateEnabled to upsert.
+  // Create-only: updateEnabled stays false so an anonymous submission can
+  // never overwrite an existing contact's attributes or list memberships.
+  // Re-submitting with an already-registered email is a no-op in Brevo.
   const res = await brevo("/contacts", {
     method: "POST",
     body: JSON.stringify({
       email: p.email,
       attributes,
       listIds: listIds.length ? listIds : undefined,
-      updateEnabled: true,
+      updateEnabled: false,
     }),
   });
 
   if (!res.ok && res.status !== 204) {
     const txt = await res.text();
-    // 400 with "Contact already exist" can happen on some plans — treat as ok if updateEnabled
-    console.warn("brevo contacts upsert non-ok", res.status, txt);
+    // 400 "Contact already exist" is expected for returning users — harmless.
+    console.warn("brevo contacts create non-ok", res.status, txt);
   }
 }
 
