@@ -1,5 +1,5 @@
 import { Link } from "@/lib/router-compat";
-import { Linkedin, Youtube } from "lucide-react";
+import { Facebook, Linkedin, Youtube } from "lucide-react";
 import didLogoFull from "@/assets/did-logo-full.webp";
 import CovenantPledgeBand from "@/components/CovenantPledgeBand";
 
