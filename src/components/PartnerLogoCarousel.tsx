@@ -200,7 +200,9 @@ const PartnerLogoCarousel = () => {
                       className={
                         isVob
                           ? "h-24 w-auto max-w-full object-contain md:h-[150px]"
-                          : "h-10 w-auto max-w-[240px] object-contain md:h-[60px]"
+                          : logo.name === "NeuroDiverse Community"
+                            ? "h-auto max-h-24 w-full max-w-[240px] object-contain md:max-h-28"
+                            : "h-10 w-auto max-w-[240px] object-contain md:h-[60px]"
                       }
                     />
                   );
