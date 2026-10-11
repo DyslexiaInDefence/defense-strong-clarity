@@ -30,6 +30,14 @@ const contactMethods = [
     external: true,
   },
   {
+    icon: Facebook,
+    title: "Facebook",
+    description: "Follow Dyslexia in Defence on Facebook for news, updates and events.",
+    link: "https://www.facebook.com/profile.php?id=61595201726937",
+    display: "Dyslexia in Defence on Facebook",
+    external: true,
+  },
+  {
     icon: DiscordIcon,
     title: "Discord Community",
     description: "Join conversations, ask questions, and connect with serving personnel, veterans, and supporters.",
