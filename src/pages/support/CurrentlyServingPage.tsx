@@ -155,7 +155,7 @@ const CurrentlyServingPage = () => {
                 <ul className="space-y-2">
                   {armyGuidanceLinks.map((item) => (
                     <li key={item.url}>
-                      {isExternalLink(item) ? (
+                      {!isExternalLink(item) ? (
                         <Link
                           to={item.url}
                           className="inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-primary/80 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
