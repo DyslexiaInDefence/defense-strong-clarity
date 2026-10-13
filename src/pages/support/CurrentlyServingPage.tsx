@@ -34,13 +34,17 @@ const accessRoutes = [
 ];
 
 // Add more Army guidance links here — the list renders them in order.
-type GuidanceLink = { label: string; url: string; note?: string };
+// Set external: true for anything that leaves the site (PDFs, other websites).
+type GuidanceLink = { label: string; url: string; note?: string; external?: boolean };
+
+const isExternalLink = (item: GuidanceLink) => item.external ?? /^https?:\/\//.test(item.url);
 
 const armyGuidanceLinks: GuidanceLink[] = [
   {
     label: "Introduction to Neurodiversity (Army)",
     url: neurodiversityPdf.url,
     note: "PDF, about 1.2 MB",
+    external: true,
   },
   {
     label: "Find your Army Education Centre",
@@ -151,7 +155,7 @@ const CurrentlyServingPage = () => {
                 <ul className="space-y-2">
                   {armyGuidanceLinks.map((item) => (
                     <li key={item.url}>
-                      {item.url.startsWith("/") ? (
+                      {isExternalLink(item) ? (
                         <Link
                           to={item.url}
                           className="inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-primary/80 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
