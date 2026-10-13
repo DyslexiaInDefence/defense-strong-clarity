@@ -168,8 +168,20 @@ async function upsertContact(p: Payload) {
 
   if (!res.ok && res.status !== 204) {
     const txt = await res.text();
-    // 400 "Contact already exist" is expected for returning users — harmless.
     console.warn("brevo contacts create non-ok", res.status, txt);
+    // Returning contact: add-only list membership. This never changes the
+    // existing contact's attributes, consent flags or removes any lists.
+    if (res.status === 400 && /already exist/i.test(txt) && listIds.length) {
+      await Promise.allSettled(
+        listIds.map(async (id) => {
+          const r = await brevo(`/contacts/lists/${id}/contacts/add`, {
+            method: "POST",
+            body: JSON.stringify({ emails: [p.email] }),
+          });
+          if (!r.ok) console.warn("brevo list add non-ok", id, r.status, await r.text());
+        }),
+      );
+    }
   }
 }
 
