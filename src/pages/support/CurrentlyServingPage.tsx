@@ -33,6 +33,25 @@ const accessRoutes = [
   },
 ];
 
+// Add more Army guidance links here — the list renders them in order.
+// Set external: true for anything that leaves the site (PDFs, other websites).
+type GuidanceLink = { label: string; url: string; note?: string; external?: boolean };
+
+const isExternalLink = (item: GuidanceLink) => item.external ?? /^https?:\/\//.test(item.url);
+
+const armyGuidanceLinks: GuidanceLink[] = [
+  {
+    label: "Introduction to Neurodiversity (Army)",
+    url: neurodiversityPdf.url,
+    note: "PDF, about 1.2 MB",
+    external: true,
+  },
+  {
+    label: "Find your Army Education Centre",
+    url: "/currently-serving/army-education-centres",
+  },
+];
+
 const CurrentlyServingPage = () => {
   return (
     <div className="py-16">
@@ -128,30 +147,42 @@ const CurrentlyServingPage = () => {
                 Army
               </AccordionTrigger>
               <AccordionContent>
-                <p className="mb-3 text-sm leading-relaxed text-muted-foreground">
+                <h3 className="mb-2 text-base font-bold text-foreground">Official Army neurodiversity guidance</h3>
+                <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
                   An official Army guide explaining neurodiversity in plain language, including dyslexia, and how it can
                   affect you at work.
                 </p>
-                <a
-                  href={neurodiversityPdf.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mb-4 inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
-                >
-                  Introduction to Neurodiversity (Army) <ExternalLink className="h-4 w-4" aria-hidden="true" />
-                  <span className="font-normal text-muted-foreground">(PDF, about 1.2 MB)</span>
-                </a>
-                <div>
-                  <Link
-                    to="/currently-serving/army-education-centres"
-                    className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
-                  >
-                    <span className="rounded bg-primary px-2 py-0.5 text-xs font-bold text-primary-foreground">
-                      Army only
-                    </span>
-                    Find your Army Education Centre
-                  </Link>
-                </div>
+                <ul className="space-y-2">
+                  {armyGuidanceLinks.map((item) => (
+                    <li key={item.url}>
+                      {!isExternalLink(item) ? (
+                        <Link
+                          to={item.url}
+                          className="text-sm font-semibold text-primary transition-colors hover:text-primary/80 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+                        >
+                          {item.label}
+                          <ChevronRight className="ml-1 inline h-4 w-4 align-middle" aria-hidden="true" />
+                          {item.note ? (
+                            <span className="ml-1 font-normal text-muted-foreground">({item.note})</span>
+                          ) : null}
+                        </Link>
+                      ) : (
+                        <a
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm font-semibold text-primary transition-colors hover:text-primary/80 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+                        >
+                          {item.label}
+                          <ExternalLink className="ml-1 inline h-4 w-4 align-middle" aria-hidden="true" />
+                          {item.note ? (
+                            <span className="ml-1 font-normal text-muted-foreground">({item.note})</span>
+                          ) : null}
+                        </a>
+                      )}
+                    </li>
+                  ))}
+                </ul>
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="raf" className="border-border px-5">
