@@ -33,6 +33,21 @@ const accessRoutes = [
   },
 ];
 
+// Add more Army guidance links here — the list renders them in order.
+type GuidanceLink = { label: string; url: string; note?: string };
+
+const armyGuidanceLinks: GuidanceLink[] = [
+  {
+    label: "Introduction to Neurodiversity (Army)",
+    url: neurodiversityPdf.url,
+    note: "PDF, about 1.2 MB",
+  },
+  {
+    label: "Find your Army Education Centre",
+    url: "/currently-serving/army-education-centres",
+  },
+];
+
 const CurrentlyServingPage = () => {
   return (
     <div className="py-16">
