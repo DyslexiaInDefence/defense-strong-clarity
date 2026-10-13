@@ -158,22 +158,26 @@ const CurrentlyServingPage = () => {
                       {!isExternalLink(item) ? (
                         <Link
                           to={item.url}
-                          className="inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-primary/80 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+                          className="text-sm font-semibold text-primary transition-colors hover:text-primary/80 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
                         >
                           {item.label}
-                          <ChevronRight className="h-4 w-4" aria-hidden="true" />
-                          {item.note ? <span className="font-normal text-muted-foreground">({item.note})</span> : null}
+                          <ChevronRight className="ml-1 inline h-4 w-4 align-middle" aria-hidden="true" />
+                          {item.note ? (
+                            <span className="ml-1 font-normal text-muted-foreground">({item.note})</span>
+                          ) : null}
                         </Link>
                       ) : (
                         <a
                           href={item.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-primary/80 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+                          className="text-sm font-semibold text-primary transition-colors hover:text-primary/80 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
                         >
                           {item.label}
-                          <ExternalLink className="h-4 w-4" aria-hidden="true" />
-                          {item.note ? <span className="font-normal text-muted-foreground">({item.note})</span> : null}
+                          <ExternalLink className="ml-1 inline h-4 w-4 align-middle" aria-hidden="true" />
+                          {item.note ? (
+                            <span className="ml-1 font-normal text-muted-foreground">({item.note})</span>
+                          ) : null}
                         </a>
                       )}
                     </li>
