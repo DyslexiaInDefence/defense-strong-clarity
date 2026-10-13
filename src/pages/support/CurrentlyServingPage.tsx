@@ -115,6 +115,68 @@ const CurrentlyServingPage = () => {
           </div>
         </section>
 
+        <section aria-labelledby="service-resources-heading" className="mb-16 max-w-3xl">
+          <div className="mb-4 flex items-center gap-3">
+            <FileText className="h-7 w-7 text-primary" aria-hidden="true" />
+            <h2 id="service-resources-heading" className="text-2xl font-bold text-foreground">
+              Resources by Service
+            </h2>
+          </div>
+          <Accordion type="multiple" className="rounded-xl border border-border bg-card">
+            <AccordionItem value="army" className="border-border px-5">
+              <AccordionTrigger className="text-left text-base font-medium text-foreground hover:no-underline">
+                Army
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="mb-3 text-sm leading-relaxed text-muted-foreground">
+                  An official Army guide explaining neurodiversity in plain language, including dyslexia, and how it can
+                  affect you at work.
+                </p>
+                <a
+                  href={neurodiversityPdf.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mb-4 inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+                >
+                  Introduction to Neurodiversity (Army) <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                  <span className="font-normal text-muted-foreground">(PDF, about 1.2 MB)</span>
+                </a>
+                <div>
+                  <Link
+                    to="/currently-serving/army-education-centres"
+                    className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    <span className="rounded bg-primary px-2 py-0.5 text-xs font-bold text-primary-foreground">
+                      Army only
+                    </span>
+                    Find your Army Education Centre
+                  </Link>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="raf" className="border-border px-5">
+              <AccordionTrigger className="text-left text-base font-medium text-foreground hover:no-underline">
+                Royal Air Force
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  Resources for RAF personnel will be added here soon.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="royal-navy" className="border-border px-5">
+              <AccordionTrigger className="text-left text-base font-medium text-foreground hover:no-underline">
+                Royal Navy
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  Resources for Royal Navy personnel will be added here soon.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </section>
+
         {servingCategory && (
           <section aria-labelledby="serving-faq-heading" className="mb-16 max-w-3xl">
             <div className="mb-4 flex items-center gap-3">
@@ -175,16 +237,6 @@ const CurrentlyServingPage = () => {
             </div>
           </div>
         </section>
-
-        <div className="mt-8 max-w-3xl">
-          <Link
-            to="/currently-serving/army-education-centres"
-            className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
-          >
-            <span className="rounded bg-primary px-2 py-0.5 text-xs font-bold text-primary-foreground">Army only</span>
-            Find your Army Education Centre
-          </Link>
-        </div>
       </div>
     </div>
   );
