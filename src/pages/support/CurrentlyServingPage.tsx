@@ -33,7 +33,7 @@ const accessRoutes = [
   },
 ];
 
-// Add more Army guidance links here — the list renders them in order.
+// Add more Army guidance documents here — the list renders them in order.
 // Set external: true for anything that leaves the site (PDFs, other websites).
 type GuidanceLink = { label: string; url: string; note?: string; external?: boolean };
 
@@ -46,11 +46,45 @@ const armyGuidanceLinks: GuidanceLink[] = [
     note: "PDF, about 1.2 MB",
     external: true,
   },
+];
+
+// Add more Army Education Centre links here.
+const armyEducationLinks: GuidanceLink[] = [
   {
     label: "Find your Army Education Centre",
     url: "/currently-serving/army-education-centres",
   },
 ];
+
+const GuidanceLinks = ({ items }: { items: GuidanceLink[] }) => (
+  <ul className="space-y-2">
+    {items.map((item) => (
+      <li key={item.url}>
+        {!isExternalLink(item) ? (
+          <Link
+            to={item.url}
+            className="text-sm font-semibold text-primary transition-colors hover:text-primary/80 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            {item.label}
+            <ChevronRight className="ml-1 inline h-4 w-4 align-middle" aria-hidden="true" />
+            {item.note ? <span className="ml-1 font-normal text-muted-foreground">({item.note})</span> : null}
+          </Link>
+        ) : (
+          <a
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-semibold text-primary transition-colors hover:text-primary/80 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            {item.label}
+            <ExternalLink className="ml-1 inline h-4 w-4 align-middle" aria-hidden="true" />
+            {item.note ? <span className="ml-1 font-normal text-muted-foreground">({item.note})</span> : null}
+          </a>
+        )}
+      </li>
+    ))}
+  </ul>
+);
 
 const CurrentlyServingPage = () => {
   return (
@@ -147,42 +181,21 @@ const CurrentlyServingPage = () => {
                 Army
               </AccordionTrigger>
               <AccordionContent>
-                <h3 className="mb-2 text-base font-bold text-foreground">Official Army neurodiversity guidance</h3>
-                <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
-                  An official Army guide explaining neurodiversity in plain language, including dyslexia, and how it can
-                  affect you at work.
-                </p>
-                <ul className="space-y-2">
-                  {armyGuidanceLinks.map((item) => (
-                    <li key={item.url}>
-                      {!isExternalLink(item) ? (
-                        <Link
-                          to={item.url}
-                          className="text-sm font-semibold text-primary transition-colors hover:text-primary/80 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
-                        >
-                          {item.label}
-                          <ChevronRight className="ml-1 inline h-4 w-4 align-middle" aria-hidden="true" />
-                          {item.note ? (
-                            <span className="ml-1 font-normal text-muted-foreground">({item.note})</span>
-                          ) : null}
-                        </Link>
-                      ) : (
-                        <a
-                          href={item.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm font-semibold text-primary transition-colors hover:text-primary/80 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
-                        >
-                          {item.label}
-                          <ExternalLink className="ml-1 inline h-4 w-4 align-middle" aria-hidden="true" />
-                          {item.note ? (
-                            <span className="ml-1 font-normal text-muted-foreground">({item.note})</span>
-                          ) : null}
-                        </a>
-                      )}
-                    </li>
-                  ))}
-                </ul>
+                <div>
+                  <h3 className="mb-2 text-base font-bold text-foreground">Official army neurodiversity guidance</h3>
+                  <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+                    An official Army guide explaining neurodiversity in plain language, including dyslexia, and how it can
+                    affect you at work.
+                  </p>
+                  <GuidanceLinks items={armyGuidanceLinks} />
+                </div>
+                <div className="mt-6 border-t border-border pt-6">
+                  <h3 className="mb-2 text-base font-bold text-foreground">Army Education Centres</h3>
+                  <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+                    Local support for education and learning, including help with dyslexia and other learning differences.
+                  </p>
+                  <GuidanceLinks items={armyEducationLinks} />
+                </div>
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="raf" className="border-border px-5">
