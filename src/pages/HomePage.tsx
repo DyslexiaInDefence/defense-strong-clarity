@@ -7,12 +7,10 @@ import HeroPersonnelBand from "@/components/HeroPersonnelBand";
 import PartnerLogoCarousel from "@/components/PartnerLogoCarousel";
 
 
-
 const HomePage = () => {
   return (
     <>
       {/* Hero */}
-
       <section className="relative overflow-hidden py-20 md:py-32" aria-label="Hero">
         <div
           className="absolute top-0 left-0 right-0 h-1.5"
