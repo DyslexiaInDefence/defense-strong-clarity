@@ -8,3 +8,5 @@
 - [x] Rename the homepage carousel to “Support Beyond Us” and add the supplied Head Up logo as its final card.
 - [x] Add the supplied NeuroDiverse Community logo as the eighth carousel entry and verify desktop/mobile links and layout.
 - [x] Remove the homepage-only Covenant strip and verify the footer pledge remains unchanged.
+- [x] Add a homepage-only "Share your lived experience" banner above the hero with a pre-filled mailto link.
+
