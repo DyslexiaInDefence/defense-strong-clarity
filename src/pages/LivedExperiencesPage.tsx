@@ -1,9 +1,12 @@
 import { livedStories } from "@/data/livedStories";
 import StoryCard from "@/components/StoryCard";
+import ShareLivedExperienceBanner from "@/components/ShareLivedExperienceBanner";
 
 const LivedExperiencesPage = () => {
   return (
-    <div className="py-16">
+    <>
+      <ShareLivedExperienceBanner />
+      <div className="py-16">
       <div className="container mx-auto px-4">
         <header className="mb-10 max-w-3xl">
           <h1 className="text-3xl font-bold text-foreground md:text-4xl">
@@ -29,6 +32,7 @@ const LivedExperiencesPage = () => {
         </section>
       </div>
     </div>
+    </>
   );
 };
 

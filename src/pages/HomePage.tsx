@@ -5,15 +5,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { livedStories, LIVED_EXPERIENCES_BASE } from "@/data/livedStories";
 import HeroPersonnelBand from "@/components/HeroPersonnelBand";
 import PartnerLogoCarousel from "@/components/PartnerLogoCarousel";
-import ShareLivedExperienceBanner from "@/components/ShareLivedExperienceBanner";
 
 
 
 const HomePage = () => {
   return (
     <>
-      <ShareLivedExperienceBanner />
-
       {/* Hero */}
 
       <section className="relative overflow-hidden py-20 md:py-32" aria-label="Hero">
