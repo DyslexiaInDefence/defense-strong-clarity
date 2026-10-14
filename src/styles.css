@@ -53,6 +53,12 @@
   --color-ribbon-red: hsl(var(--ribbon-red));
   --color-ribbon-green: hsl(var(--ribbon-green));
 
+  --color-brand-navy: hsl(var(--brand-navy));
+  --color-brand-navy-foreground: hsl(var(--brand-navy-foreground));
+  --color-brand-gold: hsl(var(--brand-gold));
+  --color-brand-gold-foreground: hsl(var(--brand-gold-foreground));
+
+
   --color-sidebar: hsl(var(--sidebar-background));
   --color-sidebar-foreground: hsl(var(--sidebar-foreground));
   --color-sidebar-primary: hsl(var(--sidebar-primary));
@@ -131,6 +137,13 @@
   --ribbon-blue: 210 80% 50%;
   --ribbon-red: 0 75% 55%;
   --ribbon-green: 145 60% 42%;
+
+  /* Brand navy #09245B and gold #F2BA2F */
+  --brand-navy: 220 82% 19.6%;
+  --brand-navy-foreground: 0 0% 100%;
+  --brand-gold: 43 88% 57%;
+  --brand-gold-foreground: 220 82% 19.6%;
+
 
   --sidebar-background: 0 0% 98%;
   --sidebar-foreground: 240 5.3% 26.1%;

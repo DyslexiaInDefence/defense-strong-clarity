@@ -5,6 +5,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { livedStories, LIVED_EXPERIENCES_BASE } from "@/data/livedStories";
 import HeroPersonnelBand from "@/components/HeroPersonnelBand";
 import PartnerLogoCarousel from "@/components/PartnerLogoCarousel";
+import ShareLivedExperienceBanner from "@/components/ShareLivedExperienceBanner";
+
 
 
 const HomePage = () => {
