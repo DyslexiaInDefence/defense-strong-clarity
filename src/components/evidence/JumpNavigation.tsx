@@ -46,6 +46,10 @@ export default function JumpNavigation() {
     return () => { sizeObserver.disconnect(); observer?.disconnect(); cancelAnimationFrame(frame); window.removeEventListener("scroll", scroll); window.removeEventListener("resize", scroll); };
   }, []);
   useEffect(() => {
+    ref.current?.querySelectorAll<HTMLAnchorElement>("a[data-section-id]").forEach(link => {
+      if (link.dataset.sectionId === active) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
     const link = ref.current?.querySelector<HTMLElement>('[aria-current="location"]');
     const nav = ref.current;
     if (link && nav && window.innerWidth < 1024) nav.scrollLeft = Math.max(0, link.offsetLeft - (nav.clientWidth - link.offsetWidth) / 2);
@@ -53,7 +57,7 @@ export default function JumpNavigation() {
   return (
     <nav ref={ref} className="evidence-jump" aria-label="Evidence sections">
       <div className="evidence-progress" aria-hidden="true"><div style={{ transform: `scaleY(${progress})` }} /></div>
-      {evidenceSections.map(section => <Link key={section.id} to={`#${section.id}`} activeProps={{ "aria-current": active === section.id ? "location" : undefined }} aria-current={active === section.id ? "location" : undefined} className="evidence-jump-link">{section.label}</Link>)}
+      {evidenceSections.map(section => <Link key={section.id} to={`#${section.id}`} activeOptions={{ includeHash: true }} data-section-id={section.id} data-evidence-active={active === section.id} aria-current={active === section.id ? "location" : undefined} className="evidence-jump-link">{section.label}</Link>)}
     </nav>
   );
 }
