@@ -14,7 +14,7 @@ const LIVED_EXPERIENCES = 92;
 const EvidencePage = () => {
   const motion = useEvidenceMotion();
   return (
-    <div className="evidence-page" onClick={event => {
+    <div className="evidence-page" onClickCapture={event => {
       const target = event.target;
       if (!(target instanceof Element)) return;
       const anchor = target.closest<HTMLAnchorElement>('a[href*="#"]');
@@ -39,7 +39,7 @@ const EvidencePage = () => {
             </Reveal>
             <div className="mx-auto mt-12 grid max-w-3xl grid-cols-1 gap-8 md:grid-cols-3">
               {[{ value: MEMBERS, suffix: "+", label: "network members" }, { value: TRAINING_RESPONSES, label: "training responses" }, { value: LIVED_EXPERIENCES, label: "lived experiences shared" }].map(counter => (
-                <div key={counter.label}><p className="text-4xl font-bold leading-tight md:text-5xl"><CountUp value={counter.value} suffix={counter.suffix} /></p><p className="mt-3 text-base leading-relaxed">{counter.label}</p></div>
+                <div key={counter.label}><p className="text-4xl font-bold leading-tight md:text-5xl"><CountUp value={counter.value} suffix={counter.suffix ?? ""} /></p><p className="mt-3 text-base leading-relaxed">{counter.label}</p></div>
               ))}
             </div>
             <Link to="#what-defence-is-doing-well" className="mx-auto mt-12 flex min-h-11 w-fit flex-col items-center gap-2 rounded-sm px-4 py-2 text-base">Scroll to explore<ArrowDown aria-hidden="true" className="evidence-scroll-arrow h-5 w-5" /></Link>

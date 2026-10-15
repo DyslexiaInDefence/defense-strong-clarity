@@ -53,7 +53,7 @@ export default function JumpNavigation() {
   return (
     <nav ref={ref} className="evidence-jump" aria-label="Evidence sections">
       <div className="evidence-progress" aria-hidden="true"><div style={{ transform: `scaleY(${progress})` }} /></div>
-      {evidenceSections.map(section => <Link key={section.id} to={`#${section.id}`} aria-current={active === section.id ? "location" : undefined} className="evidence-jump-link">{section.label}</Link>)}
+      {evidenceSections.map(section => <Link key={section.id} to={`#${section.id}`} activeProps={{ "aria-current": active === section.id ? "location" : undefined }} aria-current={active === section.id ? "location" : undefined} className="evidence-jump-link">{section.label}</Link>)}
     </nav>
   );
 }
