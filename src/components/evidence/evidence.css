@@ -1,0 +1,21 @@
+.evidence-page { --evidence-header-height: 80px; }
+.evidence-hero { background: linear-gradient(135deg, hsl(var(--brand-navy)), hsl(var(--brand-navy)), hsl(var(--ribbon-blue) / .25)); }
+.evidence-counter { display: inline-block; min-width: 5ch; font-variant-numeric: tabular-nums; }
+.evidence-jump { position: sticky; top: var(--evidence-header-height); z-index: 30; display: flex; gap: .5rem; overflow-x: auto; padding: .75rem 1rem; background: hsl(var(--card)); border-bottom: 1px solid hsl(var(--border)); }
+.evidence-jump-link { display: flex; align-items: center; min-height: 44px; padding: .5rem 1rem; flex-shrink: 0; border-radius: 999px; color: hsl(var(--foreground)); border: 1px solid hsl(var(--border)); font-size: 1rem; line-height: 1.5; }
+.evidence-jump-link[aria-current] { background: hsl(var(--brand-navy)); color: hsl(var(--brand-navy-foreground)); border-color: hsl(var(--brand-navy)); }
+.evidence-page a:focus-visible { outline: 3px solid hsl(var(--brand-gold)); outline-offset: 4px; }
+.evidence-shell { scroll-margin-top: calc(var(--evidence-header-height) + 100px); }
+.evidence-progress { display: none; }
+.evidence-scroll-arrow { animation: evidence-arrow 2.4s ease-in-out infinite; }
+@keyframes evidence-arrow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+@media (min-width: 1024px) {
+  .evidence-main { padding-left: 250px; }
+  .evidence-jump { position: fixed; left: 16px; top: calc(var(--evidence-header-height) + 32px); width: 218px; flex-direction: column; overflow: visible; padding: .5rem .5rem .5rem 1rem; border: 0; border-radius: 8px; gap: .75rem; }
+  .evidence-jump-link { flex-shrink: 1; border: 0; border-radius: 4px; padding: .5rem .75rem; }
+  .evidence-progress { display: block; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: hsl(var(--border)); }
+  .evidence-progress div { height: 100%; background: hsl(var(--primary)); transform-origin: top; }
+  .evidence-shell { scroll-margin-top: calc(var(--evidence-header-height) + 24px); }
+}
+@media (prefers-reduced-motion: reduce) { .evidence-scroll-arrow { animation: none; } }
+.reduce-motion .evidence-scroll-arrow { animation: none; }
