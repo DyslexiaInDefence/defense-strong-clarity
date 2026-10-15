@@ -50,7 +50,7 @@ export default function YouSaidSection() {
             <div className={`grid min-w-0 grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1fr)_20px_minmax(0,1fr)_20px_minmax(0,1fr)] lg:gap-4 ${index > 0 ? "border-t border-border pt-12" : ""}`}>
               <Column label="You said" colour="bg-ribbon-yellow">{row.said}</Column>
               <DirectionArrow />
-              <Column label="We heard" colour="bg-ribbon-blue">{row.heard}</Column>
+              <Column label="We heard" colour="bg-ribbon-blue/20">{row.heard}</Column>
               <DirectionArrow />
               <Column label={row.actionLabel} colour="bg-ribbon-green">{row.action}</Column>
             </div>
