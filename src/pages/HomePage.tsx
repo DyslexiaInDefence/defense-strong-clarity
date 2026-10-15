@@ -5,9 +5,64 @@ import { Card, CardContent } from "@/components/ui/card";
 import { livedStories, LIVED_EXPERIENCES_BASE } from "@/data/livedStories";
 import HeroPersonnelBand from "@/components/HeroPersonnelBand";
 import PartnerLogoCarousel from "@/components/PartnerLogoCarousel";
+import { useEffect, useRef, useState } from "react";
+import { useAccessibility } from "@/contexts/AccessibilityContext";
 
+const MEMBERS = 2000;
+const TRAINING_RESPONSES = 228;
+const LIVED_EXPERIENCES = 92;
+const FINAL_COUNTERS = [MEMBERS, TRAINING_RESPONSES, LIVED_EXPERIENCES];
+const COUNTER_LABELS = ["network members", "training responses", "lived experiences shared"];
+const numberFormatter = new Intl.NumberFormat("en-GB");
 
 const HomePage = () => {
+  const evidenceSection = useRef<HTMLElement>(null);
+  const animationStarted = useRef(false);
+  const [counters, setCounters] = useState(FINAL_COUNTERS);
+  const { reduceMotion } = useAccessibility();
+
+  useEffect(() => {
+    const section = evidenceSection.current;
+    if (!section) return;
+    if (reduceMotion || window.matchMedia("(prefers-reduced-motion: reduce)").matches || document.documentElement.classList.contains("reduce-motion")) {
+      setCounters(FINAL_COUNTERS);
+      return;
+    }
+    if (animationStarted.current || !("IntersectionObserver" in window)) return;
+
+    let frame = 0;
+    const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const stopForReducedMotion = () => {
+      if (!motionPreference.matches) return;
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+      setCounters(FINAL_COUNTERS);
+    };
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting && entry.intersectionRatio >= 0.4)) return;
+      if (animationStarted.current) return;
+      animationStarted.current = true;
+      observer.disconnect();
+      if (motionPreference.matches || document.documentElement.classList.contains("reduce-motion")) return;
+      setCounters([0, 0, 0]);
+      const start = performance.now();
+      const animate = (now: number) => {
+        const progress = Math.min((now - start) / 1200, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        setCounters(FINAL_COUNTERS.map((value) => Math.round(value * eased)));
+        if (progress < 1) frame = requestAnimationFrame(animate);
+      };
+      frame = requestAnimationFrame(animate);
+    }, { threshold: 0.4 });
+    observer.observe(section);
+    motionPreference.addEventListener("change", stopForReducedMotion);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+      motionPreference.removeEventListener("change", stopForReducedMotion);
+    };
+  }, [reduceMotion]);
+
   return (
     <>
       {/* Hero */}
@@ -173,27 +228,40 @@ const HomePage = () => {
             </Link>
           </div>
 
-          <div className="mx-auto mt-14 max-w-3xl">
-            <h3 className="mb-3 text-center text-xl font-bold text-foreground">Voices from across Defence</h3>
-            <p className="mx-auto mb-8 max-w-2xl text-center text-base leading-relaxed text-muted-foreground">
-              The real voices of Defence. More than 200 people across Defence were surveyed and shared their lived experience of dyslexia. These are their words.
-            </p>
-            <div className="grid gap-5 md:grid-cols-2">
-              {[
-                { q: "I would like people not to presume that I was thick and difficult but that I just understand the world a little differently from the norm!", c: "border-l-ribbon-yellow" },
-                { q: "That is isnt a barrier to work or intelligence.", c: "border-l-ribbon-blue" },
-                { q: "Accept me for who I am, don't judge me based on your own standards or expectations,", c: "border-l-ribbon-red" },
-                { q: "we just have a different way our brain works and one size does not fit all.", c: "border-l-ribbon-green" },
-              ].map(({ q, c }) => (
-                <blockquote
-                  key={q}
-                  className={`rounded-xl border border-border border-l-8 ${c} bg-card p-6 text-left text-lg font-bold leading-loose text-foreground md:text-xl`}
-                >
-                  “{q}”
-                </blockquote>
-              ))}
-            </div>
+        </div>
+      </section>
+
+      <section
+        ref={evidenceSection}
+        aria-labelledby="homepage-evidence-heading"
+        className="relative overflow-hidden border-t border-border bg-brand-navy py-14 text-brand-navy-foreground"
+      >
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 1200 480" preserveAspectRatio="xMidYMid slice" className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.08]">
+          {Array.from({ length: 600 }, (_, index) => {
+            const lit = index % 10 === Math.floor(index / 40) % 10;
+            const colour = ["fill-ribbon-yellow", "fill-ribbon-blue", "fill-ribbon-red", "fill-ribbon-green"][Math.floor(index / 10) % 4];
+            return <circle key={index} cx={15 + (index % 40) * 30} cy={15 + Math.floor(index / 40) * 32} r={lit ? 2.5 : 1.5} className={lit ? colour : "fill-brand-navy-foreground"} />;
+          })}
+        </svg>
+        <div className="container relative mx-auto px-4 text-center">
+          <h2 id="homepage-evidence-heading" className="text-3xl font-extrabold leading-tight md:text-4xl">Behind the 18,205</h2>
+          <p className="mt-3 text-lg font-light leading-relaxed md:text-xl">What people across Defence are telling us</p>
+          <div className="mt-8">
+            <Button asChild size="lg" className="min-h-11 h-auto max-w-full whitespace-normal rounded-full bg-brand-gold px-8 py-3 text-base font-bold text-brand-gold-foreground hover:bg-brand-gold/90 focus-visible:ring-brand-gold focus-visible:ring-offset-brand-navy">
+              <Link to="/evidence">The data behind the story <ArrowRight className="h-5 w-5" aria-hidden="true" /></Link>
+            </Button>
           </div>
+          <dl className="mx-auto mt-10 grid max-w-4xl gap-8 md:grid-cols-3">
+            {FINAL_COUNTERS.map((value, index) => (
+              <div key={COUNTER_LABELS[index]} className="flex flex-col items-center gap-2">
+                <dd className="order-first min-h-12 text-4xl font-extrabold leading-tight tabular-nums md:text-5xl">
+                  <span className="sr-only">{numberFormatter.format(value)}{index === 0 ? "+" : ""}</span>
+                  <span aria-hidden="true">{numberFormatter.format(counters[index] ?? value)}{index === 0 ? "+" : ""}</span>
+                </dd>
+                <dt className="text-sm leading-relaxed text-brand-navy-foreground/80">{COUNTER_LABELS[index]}</dt>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
