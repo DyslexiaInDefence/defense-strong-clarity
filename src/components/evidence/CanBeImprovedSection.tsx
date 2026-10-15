@@ -1,5 +1,6 @@
 import CountUp from "./CountUp";
 import EvidenceBar from "./EvidenceBar";
+import EvidenceWide from "./EvidenceWide";
 import GrowOnView from "./GrowOnView";
 import Reveal from "./Reveal";
 import { defenceBars, diagnosisSegments, journeyStages } from "./improvementFigures";
@@ -39,7 +40,7 @@ export default function CanBeImprovedSection() {
           <p className="text-sm font-semibold leading-relaxed text-foreground">NATIONAL FIGURES, MOSTLY ENGLAND. NOT DEFENCE DATA.</p>
           <h3 className="text-2xl font-bold leading-relaxed text-foreground md:text-3xl">Beyond Defence: it starts at school and follows people into work.</h3>
           <p className="max-w-[65ch] text-xl leading-relaxed text-foreground">In England, only <strong>1 in 5</strong> pupils with dyslexia reaches a grade 5 in GCSE English and maths, against more than half of pupils with no recorded special educational needs. <strong>78%</strong> of dyslexic teenagers say people assume they aren't clever, and <strong>65%</strong> hide their dyslexia. Children in households earning under £30,000 are less than half as likely to be diagnosed as those earning £100,000 or more (<strong>43%</strong> against <strong>90%</strong>). Then comes work: <strong>81%</strong> of 16 to 24 year olds find job adverts hard to read, <strong>87%</strong> find applications hard, and <strong>77%</strong> worry that telling an employer will cost them the job.</p>
-          <div role="group" aria-labelledby="evidence-journey-title" className="pt-4">
+          <EvidenceWide><div role="group" aria-labelledby="evidence-journey-title" className="pt-4">
             <p id="evidence-journey-title" className="mb-6 text-xl font-bold leading-relaxed text-foreground">School, diagnosis, work</p>
             <div className="relative">
               <GrowOnView responsiveLine className="absolute bottom-0 left-2 top-0 w-0.5 bg-primary lg:bottom-auto lg:left-0 lg:right-0 lg:top-2 lg:h-0.5 lg:w-auto" />
@@ -55,7 +56,7 @@ export default function CanBeImprovedSection() {
                 ))}
               </div>
             </div>
-          </div>
+          </div></EvidenceWide>
           <p className="max-w-[65ch] text-sm leading-relaxed text-muted-foreground">British Dyslexia Association, Set up for somebody else, 2025; A pathway interrupted, 2026. The school figures are for England, 2023 to 24. Other figures are UK surveys of young people.</p>
         </div>
       </Reveal>

@@ -4,7 +4,7 @@ import { Link } from "@/lib/router-compat";
 export const evidenceSections = [
   { id: "what-defence-is-doing-well", label: "What is going well", title: "What Defence is doing well" },
   { id: "what-can-be-improved", label: "What can be improved", title: "What can be improved" },
-  { id: "you-said-we-heard", label: "You said, we heard", title: "You said, we heard" },
+  { id: "you-said-we-heard", label: "You said, we heard", title: "You said. We heard. We're doing." },
   { id: "sources-and-method", label: "Sources and method", title: "Sources and method" },
 ];
 

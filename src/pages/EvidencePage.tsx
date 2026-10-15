@@ -3,6 +3,7 @@ import { Link } from "@/lib/router-compat";
 import CountUp from "@/components/evidence/CountUp";
 import DoingWellSection from "@/components/evidence/DoingWellSection";
 import CanBeImprovedSection from "@/components/evidence/CanBeImprovedSection";
+import YouSaidSection from "@/components/evidence/YouSaidSection";
 import DotField from "@/components/evidence/DotField";
 import Reveal from "@/components/evidence/Reveal";
 import JumpNavigation, { evidenceSections } from "@/components/evidence/JumpNavigation";
@@ -53,7 +54,7 @@ const EvidencePage = () => {
         <section key={section.id} id={section.id} tabIndex={-1} aria-labelledby={`${section.id}-heading`} className={`evidence-shell evidence-main py-16 md:py-24 ${index % 2 === 0 ? "bg-card" : "bg-muted"}`}>
           <div className="container px-6">
             <div className="mx-auto max-w-[65ch]">
-              {section.id === "what-defence-is-doing-well" ? <><Reveal><h2 id={`${section.id}-heading`} className="mb-6 text-3xl font-bold leading-tight text-foreground md:text-4xl">{section.title}</h2></Reveal><DoingWellSection /></> : section.id === "what-can-be-improved" ? <><Reveal><h2 id={`${section.id}-heading`} className="mb-6 text-3xl font-bold leading-tight text-foreground md:text-4xl">{section.title}</h2><p className="text-xl leading-relaxed text-muted-foreground">From training rooms to the transition out of service, and into the wider world of school and work.</p></Reveal><CanBeImprovedSection /></> : <Reveal><h2 id={`${section.id}-heading`} className="mb-6 text-3xl font-bold leading-tight text-foreground md:text-4xl">{section.title}</h2><p className="text-xl leading-relaxed text-foreground">Content coming in the next update.</p></Reveal>}
+              {section.id === "what-defence-is-doing-well" ? <><Reveal><h2 id={`${section.id}-heading`} className="mb-6 text-3xl font-bold leading-tight text-foreground md:text-4xl">{section.title}</h2></Reveal><DoingWellSection /></> : section.id === "what-can-be-improved" ? <><Reveal><h2 id={`${section.id}-heading`} className="mb-6 text-3xl font-bold leading-tight text-foreground md:text-4xl">{section.title}</h2><p className="text-xl leading-relaxed text-muted-foreground">From training rooms to the transition out of service, and into the wider world of school and work.</p></Reveal><CanBeImprovedSection /></> : section.id === "you-said-we-heard" ? <><Reveal><h2 id={`${section.id}-heading`} className="mb-6 text-3xl font-bold leading-tight text-foreground md:text-4xl">{section.title}</h2></Reveal><YouSaidSection /></> : <Reveal><h2 id={`${section.id}-heading`} className="mb-6 text-3xl font-bold leading-tight text-foreground md:text-4xl">{section.title}</h2><p className="text-xl leading-relaxed text-foreground">Content coming in the next update.</p></Reveal>}
               {index === evidenceSections.length - 1 && <Reveal><aside className="mt-12 border-t border-border pt-8"><h3 className="mb-3 text-xl font-bold text-foreground">What the rules say</h3><p className="text-xl leading-relaxed text-foreground">A dedicated page on JSP 822, the Equality Act and your entitlements is coming.</p></aside></Reveal>}
             </div>
           </div>

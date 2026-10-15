@@ -29,7 +29,7 @@ const BODY = [
   "[Your name]",
 ].join("\r\n");
 
-const SHARE_MAILTO = `mailto:${RECIPIENT}?subject=${encodeURIComponent(SUBJECT)}&body=${encodeURIComponent(BODY)}`;
+export const SHARE_MAILTO = `mailto:${RECIPIENT}?subject=${encodeURIComponent(SUBJECT)}&body=${encodeURIComponent(BODY)}`;
 
 const ShareLivedExperienceBanner = () => (
   <section
