@@ -172,6 +172,28 @@ const HomePage = () => {
               </Button>
             </Link>
           </div>
+
+          <div className="mx-auto mt-14 max-w-3xl">
+            <h3 className="mb-3 text-center text-xl font-bold text-foreground">Voices from across Defence</h3>
+            <p className="mx-auto mb-8 max-w-2xl text-center text-base leading-relaxed text-muted-foreground">
+              The real voices of Defence. More than 200 people across Defence were surveyed and shared their lived experience of dyslexia. These are their words.
+            </p>
+            <div className="grid gap-5 md:grid-cols-2">
+              {[
+                { q: "I would like people not to presume that I was thick and difficult but that I just understand the world a little differently from the norm!", c: "border-l-ribbon-yellow" },
+                { q: "That is isnt a barrier to work or intelligence.", c: "border-l-ribbon-blue" },
+                { q: "Accept me for who I am, don't judge me based on your own standards or expectations,", c: "border-l-ribbon-red" },
+                { q: "we just have a different way our brain works and one size does not fit all.", c: "border-l-ribbon-green" },
+              ].map(({ q, c }) => (
+                <blockquote
+                  key={q}
+                  className={`rounded-xl border border-border border-l-8 ${c} bg-card p-6 text-left text-lg font-bold leading-loose text-foreground md:text-xl`}
+                >
+                  “{q}”
+                </blockquote>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
