@@ -23,9 +23,12 @@ export default function JumpNavigation() {
     let observer: IntersectionObserver | undefined;
     if ("IntersectionObserver" in window) {
       const offset = (nav?.getBoundingClientRect().height ?? 80) + (window.innerWidth < 1024 ? 100 : 24);
-      observer = new IntersectionObserver(entries => {
-        const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible[0]) setActive(visible[0].target.id);
+      observer = new IntersectionObserver(() => {
+        const visible = sections.filter(section => {
+          const rect = section.getBoundingClientRect();
+          return rect.bottom > offset + 2 && rect.top < offset + 120;
+        }).sort((a, b) => Math.abs(a.getBoundingClientRect().top - offset) - Math.abs(b.getBoundingClientRect().top - offset));
+        if (visible[0]) setActive(visible[0].id);
       }, { rootMargin: `-${offset}px 0px -${Math.max(0, window.innerHeight - offset - 120)}px 0px`, threshold: 0 });
       sections.forEach(section => observer?.observe(section));
     }
