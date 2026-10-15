@@ -16,6 +16,7 @@ import { Route as ArmedForcesCovenantRouteImport } from './routes/armed-forces-c
 import { Route as AskRouteImport } from './routes/ask'
 import { Route as CommunityRouteImport } from './routes/community'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as EvidenceRouteImport } from './routes/evidence'
 import { Route as JoinRouteImport } from './routes/join'
 import { Route as PartnerRouteImport } from './routes/partner'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -88,6 +89,11 @@ const CommunityRoute = CommunityRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EvidenceRoute = EvidenceRouteImport.update({
+  id: '/evidence',
+  path: '/evidence',
   getParentRoute: () => rootRouteImport,
 } as any)
 const JoinRoute = JoinRouteImport.update({
@@ -305,6 +311,7 @@ export interface FileRoutesByFullPath {
   '/ask': typeof AskRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
+  '/evidence': typeof EvidenceRoute
   '/join': typeof JoinRoute
   '/partner': typeof PartnerRoute
   '/privacy': typeof PrivacyRoute
@@ -352,6 +359,7 @@ export interface FileRoutesByTo {
   '/ask': typeof AskRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
+  '/evidence': typeof EvidenceRoute
   '/join': typeof JoinRoute
   '/partner': typeof PartnerRoute
   '/privacy': typeof PrivacyRoute
@@ -400,6 +408,7 @@ export interface FileRoutesById {
   '/ask': typeof AskRoute
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
+  '/evidence': typeof EvidenceRoute
   '/join': typeof JoinRoute
   '/partner': typeof PartnerRoute
   '/privacy': typeof PrivacyRoute
@@ -449,6 +458,7 @@ export interface FileRouteTypes {
     | '/ask'
     | '/community'
     | '/contact'
+    | '/evidence'
     | '/join'
     | '/partner'
     | '/privacy'
@@ -496,6 +506,7 @@ export interface FileRouteTypes {
     | '/ask'
     | '/community'
     | '/contact'
+    | '/evidence'
     | '/join'
     | '/partner'
     | '/privacy'
@@ -543,6 +554,7 @@ export interface FileRouteTypes {
     | '/ask'
     | '/community'
     | '/contact'
+    | '/evidence'
     | '/join'
     | '/partner'
     | '/privacy'
@@ -591,6 +603,7 @@ export interface RootRouteChildren {
   AskRoute: typeof AskRoute
   CommunityRoute: typeof CommunityRoute
   ContactRoute: typeof ContactRoute
+  EvidenceRoute: typeof EvidenceRoute
   JoinRoute: typeof JoinRoute
   PartnerRoute: typeof PartnerRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -680,6 +693,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/evidence': {
+      id: '/evidence'
+      path: '/evidence'
+      fullPath: '/evidence'
+      preLoaderRoute: typeof EvidenceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/join': {
@@ -959,6 +979,7 @@ const rootRouteChildren: RootRouteChildren = {
   AskRoute: AskRoute,
   CommunityRoute: CommunityRoute,
   ContactRoute: ContactRoute,
+  EvidenceRoute: EvidenceRoute,
   JoinRoute: JoinRoute,
   PartnerRoute: PartnerRoute,
   PrivacyRoute: PrivacyRoute,
