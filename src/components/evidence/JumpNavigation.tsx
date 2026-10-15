@@ -22,10 +22,11 @@ export default function JumpNavigation() {
     const sections = evidenceSections.map(section => document.getElementById(section.id)).filter((section): section is HTMLElement => Boolean(section));
     let observer: IntersectionObserver | undefined;
     if ("IntersectionObserver" in window) {
+      const offset = (nav?.getBoundingClientRect().height ?? 80) + (window.innerWidth < 1024 ? 100 : 24);
       observer = new IntersectionObserver(entries => {
         const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
         if (visible[0]) setActive(visible[0].target.id);
-      }, { rootMargin: "-25% 0px -45% 0px", threshold: 0 });
+      }, { rootMargin: `-${offset}px 0px -${Math.max(0, window.innerHeight - offset - 120)}px 0px`, threshold: 0 });
       sections.forEach(section => observer?.observe(section));
     }
     let frame = 0;
@@ -47,7 +48,7 @@ export default function JumpNavigation() {
   }, []);
   useEffect(() => {
     ref.current?.querySelectorAll<HTMLAnchorElement>("a[data-section-id]").forEach(link => {
-      if (link.dataset.sectionId === active) link.setAttribute("aria-current", "location");
+      if (link.dataset["sectionId"] === active) link.setAttribute("aria-current", "location");
       else link.removeAttribute("aria-current");
     });
     const link = ref.current?.querySelector<HTMLElement>('[aria-current="location"]');
