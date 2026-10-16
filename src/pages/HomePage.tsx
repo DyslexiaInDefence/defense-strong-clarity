@@ -12,7 +12,7 @@ const MEMBERS = 2000;
 const TRAINING_RESPONSES = 228;
 const LIVED_EXPERIENCES = 92;
 const FINAL_COUNTERS = [MEMBERS, TRAINING_RESPONSES, LIVED_EXPERIENCES];
-const COUNTER_LABELS = ["network members", "training responses", "lived experiences shared"];
+const COUNTER_LABELS = ["Defence Dyslexia Network members", "training responses", "lived experiences shared"];
 const numberFormatter = new Intl.NumberFormat("en-GB");
 
 const HomePage = () => {

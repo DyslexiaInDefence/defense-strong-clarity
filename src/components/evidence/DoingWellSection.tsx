@@ -21,7 +21,7 @@ export default function DoingWellSection() {
           <h3 className="text-2xl font-bold leading-relaxed text-foreground md:text-3xl">Strength in numbers: when you share your data, we can help more people.</h3>
           <p className="max-w-[65ch] text-xl leading-relaxed text-foreground">More than <strong>2,000</strong> people have joined the Defence Dyslexia Network. <strong>228</strong> have told us how accessible Defence training really is. <strong>92</strong> have written, in their own words, what they want people to understand. Every answer is evidence, and evidence is where help starts. If you can't measure it, you can't improve it.</p>
           <div className="grid grid-cols-1 gap-8 py-4 md:grid-cols-3">
-            {[{ value: doingWellFigures.members, suffix: "+", label: "network members" }, { value: doingWellFigures.trainingResponses, label: "training responses" }, { value: doingWellFigures.livedExperiences, label: "written lived experiences" }].map(figure => (
+            {[{ value: doingWellFigures.members, suffix: "+", label: "Defence Dyslexia Network members" }, { value: doingWellFigures.trainingResponses, label: "training responses" }, { value: doingWellFigures.livedExperiences, label: "written lived experiences" }].map(figure => (
               <div key={figure.label}><p className="text-4xl font-bold leading-tight text-primary md:text-5xl"><CountUp value={figure.value} suffix={figure.suffix ?? ""} /></p><p className="mt-3 text-lg leading-relaxed text-foreground">{figure.label}</p></div>
             ))}
           </div>

@@ -1,6 +1,5 @@
 import { ArrowDown } from "lucide-react";
 import { Link } from "@/lib/router-compat";
-import CountUp from "@/components/evidence/CountUp";
 import DoingWellSection from "@/components/evidence/DoingWellSection";
 import CanBeImprovedSection from "@/components/evidence/CanBeImprovedSection";
 import YouSaidSection from "@/components/evidence/YouSaidSection";
@@ -11,9 +10,6 @@ import JumpNavigation, { evidenceSections } from "@/components/evidence/JumpNavi
 import { useEvidenceMotion } from "@/components/evidence/useEvidenceMotion";
 import "@/components/evidence/evidence.css";
 
-const MEMBERS = 2000;
-const TRAINING_RESPONSES = 228;
-const LIVED_EXPERIENCES = 92;
 
 const EvidencePage = () => {
   const motion = useEvidenceMotion();
@@ -39,14 +35,8 @@ const EvidencePage = () => {
               <p className="mb-5 text-base font-medium">Dyslexia in Defence evidence</p>
               <h1 className="mx-auto max-w-3xl text-4xl font-extrabold leading-tight md:text-5xl">The data behind the story</h1>
               <p className="mx-auto mt-6 max-w-2xl text-xl font-light leading-relaxed">What people across Defence are telling us, and what the research says.</p>
-              <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed">An estimated 18,205 serving personnel have dyslexia (10% of 182,050, MOD statistics, 1 January 2026).</p>
             </Reveal>
-            <div className="mx-auto mt-12 grid max-w-3xl grid-cols-1 gap-8 md:grid-cols-3">
-              {[{ value: MEMBERS, suffix: "+", label: "network members" }, { value: TRAINING_RESPONSES, label: "training responses" }, { value: LIVED_EXPERIENCES, label: "lived experiences shared" }].map(counter => (
-                <div key={counter.label}><p className="text-4xl font-bold leading-tight md:text-5xl"><CountUp value={counter.value} suffix={counter.suffix ?? ""} /></p><p className="mt-3 text-base leading-relaxed">{counter.label}</p></div>
-              ))}
-            </div>
-            <Link to="#what-defence-is-doing-well" className="mx-auto mt-12 flex min-h-11 w-fit flex-col items-center gap-2 rounded-sm px-4 py-2 text-base">Scroll to explore<ArrowDown aria-hidden="true" className="evidence-scroll-arrow h-5 w-5" /></Link>
+            <Link to="#what-defence-is-doing-well" className="mx-auto mt-10 flex min-h-11 w-fit flex-col items-center gap-2 rounded-sm px-4 py-2 text-base">Scroll to explore<ArrowDown aria-hidden="true" className="evidence-scroll-arrow h-5 w-5" /></Link>
           </div>
         </div>
       </header>
