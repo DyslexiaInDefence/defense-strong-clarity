@@ -4,30 +4,32 @@ User-agent: *
 Allow: /
 Disallow: /community
 Disallow: /accessibility
-Disallow: /governance/code-of-conduct
-Disallow: /governance/safeguarding
-Disallow: /governance/privacy
+Disallow: /your-voice.html
 
 # AI / LLM crawlers — explicitly allowed for primary content
 User-agent: GPTBot
 Allow: /
 Disallow: /community
 Disallow: /accessibility
+Disallow: /your-voice.html
 
 User-agent: ClaudeBot
 Allow: /
 Disallow: /community
 Disallow: /accessibility
+Disallow: /your-voice.html
 
 User-agent: Google-Extended
 Allow: /
 Disallow: /community
 Disallow: /accessibility
+Disallow: /your-voice.html
 
 User-agent: PerplexityBot
 Allow: /
 Disallow: /community
 Disallow: /accessibility
+Disallow: /your-voice.html
 
 User-agent: Googlebot
 Allow: /
