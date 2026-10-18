@@ -4,6 +4,9 @@ User-agent: *
 Allow: /
 Disallow: /community
 Disallow: /accessibility
+Disallow: /governance/code-of-conduct
+Disallow: /governance/safeguarding
+Disallow: /governance/privacy
 Disallow: /your-voice.html
 
 # AI / LLM crawlers — explicitly allowed for primary content
