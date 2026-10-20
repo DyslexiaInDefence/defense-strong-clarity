@@ -34,6 +34,13 @@ const ORGANIZATION_SCHEMA = JSON.stringify({
     addressCountry: "GB",
     addressRegion: "England and Wales",
   },
+  sameAs: [
+    "https://www.linkedin.com/company/dyslexia-in-defence-cic/",
+    "https://www.facebook.com/profile.php?id=61595201726937",
+    "https://youtube.com/@dyslexiaindefence",
+    "https://www.instagram.com/dyslexia_in_defence",
+    "https://discord.gg/9VuKbhTMM",
+  ],
 });
 
 // Applies saved accessibility preferences (dark mode, text size, reduced
