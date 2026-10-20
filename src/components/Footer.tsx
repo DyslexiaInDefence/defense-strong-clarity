@@ -1,5 +1,5 @@
 import { Link } from "@/lib/router-compat";
-import { Facebook, Linkedin, Youtube } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import didLogoFull from "@/assets/did-logo-full.webp";
 import CovenantPledgeBand from "@/components/CovenantPledgeBand";
 
@@ -111,6 +111,15 @@ const Footer = () => {
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Youtube className="h-6 w-6" />
+              </a>
+              <a
+                href="https://www.instagram.com/dyslexia_in_defence"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Instagram className="h-6 w-6" />
               </a>
               <a
                 href="https://discord.gg/9VuKbhTMM"
