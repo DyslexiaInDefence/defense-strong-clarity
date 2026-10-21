@@ -53,6 +53,7 @@ import { Route as LivedExperiencesIndexRouteImport } from './routes/lived-experi
 import { Route as LivedExperiencesLisaHodgeCivilServantRouteImport } from './routes/lived-experiences/lisa-hodge-civil-servant'
 import { Route as LivedExperiencesStaffSergeantKirkDavisBritishArmyRouteImport } from './routes/lived-experiences/staff-sergeant-kirk-davis-british-army'
 import { Route as LivedExperiencesSymonSmithBritishArmyVeteranRouteImport } from './routes/lived-experiences/symon-smith-british-army-veteran'
+import { Route as NewslettersOctober2026RouteImport } from './routes/newsletters/october-2026'
 import { Route as SupportIndexRouteImport } from './routes/support/index'
 import { Route as SupportCurrentlyServingRouteImport } from './routes/support/currently-serving'
 
@@ -292,6 +293,11 @@ const LivedExperiencesSymonSmithBritishArmyVeteranRoute =
     path: '/lived-experiences/symon-smith-british-army-veteran',
     getParentRoute: () => rootRouteImport,
   } as any)
+const NewslettersOctober2026Route = NewslettersOctober2026RouteImport.update({
+  id: '/newsletters/october-2026',
+  path: '/newsletters/october-2026',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SupportIndexRoute = SupportIndexRouteImport.update({
   id: '/support/',
   path: '/support/',
@@ -343,6 +349,7 @@ export interface FileRoutesByFullPath {
   '/lived-experiences/lisa-hodge-civil-servant': typeof LivedExperiencesLisaHodgeCivilServantRoute
   '/lived-experiences/staff-sergeant-kirk-davis-british-army': typeof LivedExperiencesStaffSergeantKirkDavisBritishArmyRoute
   '/lived-experiences/symon-smith-british-army-veteran': typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
+  '/newsletters/october-2026': typeof NewslettersOctober2026Route
   '/support/currently-serving': typeof SupportCurrentlyServingRoute
   '/about/': typeof AboutIndexRoute
   '/currently-serving/': typeof CurrentlyServingIndexRoute
@@ -391,6 +398,7 @@ export interface FileRoutesByTo {
   '/lived-experiences/lisa-hodge-civil-servant': typeof LivedExperiencesLisaHodgeCivilServantRoute
   '/lived-experiences/staff-sergeant-kirk-davis-british-army': typeof LivedExperiencesStaffSergeantKirkDavisBritishArmyRoute
   '/lived-experiences/symon-smith-british-army-veteran': typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
+  '/newsletters/october-2026': typeof NewslettersOctober2026Route
   '/support/currently-serving': typeof SupportCurrentlyServingRoute
   '/about': typeof AboutIndexRoute
   '/currently-serving': typeof CurrentlyServingIndexRoute
@@ -440,6 +448,7 @@ export interface FileRoutesById {
   '/lived-experiences/lisa-hodge-civil-servant': typeof LivedExperiencesLisaHodgeCivilServantRoute
   '/lived-experiences/staff-sergeant-kirk-davis-british-army': typeof LivedExperiencesStaffSergeantKirkDavisBritishArmyRoute
   '/lived-experiences/symon-smith-british-army-veteran': typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
+  '/newsletters/october-2026': typeof NewslettersOctober2026Route
   '/support/currently-serving': typeof SupportCurrentlyServingRoute
   '/about/': typeof AboutIndexRoute
   '/currently-serving/': typeof CurrentlyServingIndexRoute
@@ -490,6 +499,7 @@ export interface FileRouteTypes {
     | '/lived-experiences/lisa-hodge-civil-servant'
     | '/lived-experiences/staff-sergeant-kirk-davis-british-army'
     | '/lived-experiences/symon-smith-british-army-veteran'
+    | '/newsletters/october-2026'
     | '/support/currently-serving'
     | '/about/'
     | '/currently-serving/'
@@ -538,6 +548,7 @@ export interface FileRouteTypes {
     | '/lived-experiences/lisa-hodge-civil-servant'
     | '/lived-experiences/staff-sergeant-kirk-davis-british-army'
     | '/lived-experiences/symon-smith-british-army-veteran'
+    | '/newsletters/october-2026'
     | '/support/currently-serving'
     | '/about'
     | '/currently-serving'
@@ -586,6 +597,7 @@ export interface FileRouteTypes {
     | '/lived-experiences/lisa-hodge-civil-servant'
     | '/lived-experiences/staff-sergeant-kirk-davis-british-army'
     | '/lived-experiences/symon-smith-british-army-veteran'
+    | '/newsletters/october-2026'
     | '/support/currently-serving'
     | '/about/'
     | '/currently-serving/'
@@ -635,6 +647,7 @@ export interface RootRouteChildren {
   LivedExperiencesLisaHodgeCivilServantRoute: typeof LivedExperiencesLisaHodgeCivilServantRoute
   LivedExperiencesStaffSergeantKirkDavisBritishArmyRoute: typeof LivedExperiencesStaffSergeantKirkDavisBritishArmyRoute
   LivedExperiencesSymonSmithBritishArmyVeteranRoute: typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
+  NewslettersOctober2026Route: typeof NewslettersOctober2026Route
   SupportCurrentlyServingRoute: typeof SupportCurrentlyServingRoute
   AboutIndexRoute: typeof AboutIndexRoute
   CurrentlyServingIndexRoute: typeof CurrentlyServingIndexRoute
@@ -954,6 +967,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LivedExperiencesSymonSmithBritishArmyVeteranRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/newsletters/october-2026': {
+      id: '/newsletters/october-2026'
+      path: '/newsletters/october-2026'
+      fullPath: '/newsletters/october-2026'
+      preLoaderRoute: typeof NewslettersOctober2026RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/support/': {
       id: '/support/'
       path: '/support'
@@ -1025,6 +1045,7 @@ const rootRouteChildren: RootRouteChildren = {
     LivedExperiencesStaffSergeantKirkDavisBritishArmyRoute,
   LivedExperiencesSymonSmithBritishArmyVeteranRoute:
     LivedExperiencesSymonSmithBritishArmyVeteranRoute,
+  NewslettersOctober2026Route: NewslettersOctober2026Route,
   SupportCurrentlyServingRoute: SupportCurrentlyServingRoute,
   AboutIndexRoute: AboutIndexRoute,
   CurrentlyServingIndexRoute: CurrentlyServingIndexRoute,
