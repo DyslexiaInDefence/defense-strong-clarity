@@ -51,6 +51,7 @@ import { Route as InsightsWhatHappensIfDyslexiaIsIdentifiedDuringServiceUkRouteI
 import { Route as InsightsWhatSupportIsAvailableForDyslexiaInTheMilitaryUkRouteImport } from './routes/insights/what-support-is-available-for-dyslexia-in-the-military-uk'
 import { Route as LivedExperiencesIndexRouteImport } from './routes/lived-experiences/index'
 import { Route as LivedExperiencesLisaHodgeCivilServantRouteImport } from './routes/lived-experiences/lisa-hodge-civil-servant'
+import { Route as LivedExperiencesMajorLenaBeardsellRouteImport } from './routes/lived-experiences/major-lena-beardsell'
 import { Route as LivedExperiencesStaffSergeantKirkDavisBritishArmyRouteImport } from './routes/lived-experiences/staff-sergeant-kirk-davis-british-army'
 import { Route as LivedExperiencesSymonSmithBritishArmyVeteranRouteImport } from './routes/lived-experiences/symon-smith-british-army-veteran'
 import { Route as NewslettersOctober2026RouteImport } from './routes/newsletters/october-2026'
@@ -281,6 +282,12 @@ const LivedExperiencesLisaHodgeCivilServantRoute =
     path: '/lived-experiences/lisa-hodge-civil-servant',
     getParentRoute: () => rootRouteImport,
   } as any)
+const LivedExperiencesMajorLenaBeardsellRoute =
+  LivedExperiencesMajorLenaBeardsellRouteImport.update({
+    id: '/lived-experiences/major-lena-beardsell',
+    path: '/lived-experiences/major-lena-beardsell',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LivedExperiencesStaffSergeantKirkDavisBritishArmyRoute =
   LivedExperiencesStaffSergeantKirkDavisBritishArmyRouteImport.update({
     id: '/lived-experiences/staff-sergeant-kirk-davis-british-army',
@@ -347,6 +354,7 @@ export interface FileRoutesByFullPath {
   '/insights/what-happens-if-dyslexia-is-identified-during-service-uk': typeof InsightsWhatHappensIfDyslexiaIsIdentifiedDuringServiceUkRoute
   '/insights/what-support-is-available-for-dyslexia-in-the-military-uk': typeof InsightsWhatSupportIsAvailableForDyslexiaInTheMilitaryUkRoute
   '/lived-experiences/lisa-hodge-civil-servant': typeof LivedExperiencesLisaHodgeCivilServantRoute
+  '/lived-experiences/major-lena-beardsell': typeof LivedExperiencesMajorLenaBeardsellRoute
   '/lived-experiences/staff-sergeant-kirk-davis-british-army': typeof LivedExperiencesStaffSergeantKirkDavisBritishArmyRoute
   '/lived-experiences/symon-smith-british-army-veteran': typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
   '/newsletters/october-2026': typeof NewslettersOctober2026Route
@@ -396,6 +404,7 @@ export interface FileRoutesByTo {
   '/insights/what-happens-if-dyslexia-is-identified-during-service-uk': typeof InsightsWhatHappensIfDyslexiaIsIdentifiedDuringServiceUkRoute
   '/insights/what-support-is-available-for-dyslexia-in-the-military-uk': typeof InsightsWhatSupportIsAvailableForDyslexiaInTheMilitaryUkRoute
   '/lived-experiences/lisa-hodge-civil-servant': typeof LivedExperiencesLisaHodgeCivilServantRoute
+  '/lived-experiences/major-lena-beardsell': typeof LivedExperiencesMajorLenaBeardsellRoute
   '/lived-experiences/staff-sergeant-kirk-davis-british-army': typeof LivedExperiencesStaffSergeantKirkDavisBritishArmyRoute
   '/lived-experiences/symon-smith-british-army-veteran': typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
   '/newsletters/october-2026': typeof NewslettersOctober2026Route
@@ -446,6 +455,7 @@ export interface FileRoutesById {
   '/insights/what-happens-if-dyslexia-is-identified-during-service-uk': typeof InsightsWhatHappensIfDyslexiaIsIdentifiedDuringServiceUkRoute
   '/insights/what-support-is-available-for-dyslexia-in-the-military-uk': typeof InsightsWhatSupportIsAvailableForDyslexiaInTheMilitaryUkRoute
   '/lived-experiences/lisa-hodge-civil-servant': typeof LivedExperiencesLisaHodgeCivilServantRoute
+  '/lived-experiences/major-lena-beardsell': typeof LivedExperiencesMajorLenaBeardsellRoute
   '/lived-experiences/staff-sergeant-kirk-davis-british-army': typeof LivedExperiencesStaffSergeantKirkDavisBritishArmyRoute
   '/lived-experiences/symon-smith-british-army-veteran': typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
   '/newsletters/october-2026': typeof NewslettersOctober2026Route
@@ -497,6 +507,7 @@ export interface FileRouteTypes {
     | '/insights/what-happens-if-dyslexia-is-identified-during-service-uk'
     | '/insights/what-support-is-available-for-dyslexia-in-the-military-uk'
     | '/lived-experiences/lisa-hodge-civil-servant'
+    | '/lived-experiences/major-lena-beardsell'
     | '/lived-experiences/staff-sergeant-kirk-davis-british-army'
     | '/lived-experiences/symon-smith-british-army-veteran'
     | '/newsletters/october-2026'
@@ -546,6 +557,7 @@ export interface FileRouteTypes {
     | '/insights/what-happens-if-dyslexia-is-identified-during-service-uk'
     | '/insights/what-support-is-available-for-dyslexia-in-the-military-uk'
     | '/lived-experiences/lisa-hodge-civil-servant'
+    | '/lived-experiences/major-lena-beardsell'
     | '/lived-experiences/staff-sergeant-kirk-davis-british-army'
     | '/lived-experiences/symon-smith-british-army-veteran'
     | '/newsletters/october-2026'
@@ -595,6 +607,7 @@ export interface FileRouteTypes {
     | '/insights/what-happens-if-dyslexia-is-identified-during-service-uk'
     | '/insights/what-support-is-available-for-dyslexia-in-the-military-uk'
     | '/lived-experiences/lisa-hodge-civil-servant'
+    | '/lived-experiences/major-lena-beardsell'
     | '/lived-experiences/staff-sergeant-kirk-davis-british-army'
     | '/lived-experiences/symon-smith-british-army-veteran'
     | '/newsletters/october-2026'
@@ -645,6 +658,7 @@ export interface RootRouteChildren {
   InsightsWhatHappensIfDyslexiaIsIdentifiedDuringServiceUkRoute: typeof InsightsWhatHappensIfDyslexiaIsIdentifiedDuringServiceUkRoute
   InsightsWhatSupportIsAvailableForDyslexiaInTheMilitaryUkRoute: typeof InsightsWhatSupportIsAvailableForDyslexiaInTheMilitaryUkRoute
   LivedExperiencesLisaHodgeCivilServantRoute: typeof LivedExperiencesLisaHodgeCivilServantRoute
+  LivedExperiencesMajorLenaBeardsellRoute: typeof LivedExperiencesMajorLenaBeardsellRoute
   LivedExperiencesStaffSergeantKirkDavisBritishArmyRoute: typeof LivedExperiencesStaffSergeantKirkDavisBritishArmyRoute
   LivedExperiencesSymonSmithBritishArmyVeteranRoute: typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
   NewslettersOctober2026Route: typeof NewslettersOctober2026Route
@@ -953,6 +967,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LivedExperiencesLisaHodgeCivilServantRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lived-experiences/major-lena-beardsell': {
+      id: '/lived-experiences/major-lena-beardsell'
+      path: '/lived-experiences/major-lena-beardsell'
+      fullPath: '/lived-experiences/major-lena-beardsell'
+      preLoaderRoute: typeof LivedExperiencesMajorLenaBeardsellRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lived-experiences/staff-sergeant-kirk-davis-british-army': {
       id: '/lived-experiences/staff-sergeant-kirk-davis-british-army'
       path: '/lived-experiences/staff-sergeant-kirk-davis-british-army'
@@ -1041,6 +1062,8 @@ const rootRouteChildren: RootRouteChildren = {
     InsightsWhatSupportIsAvailableForDyslexiaInTheMilitaryUkRoute,
   LivedExperiencesLisaHodgeCivilServantRoute:
     LivedExperiencesLisaHodgeCivilServantRoute,
+  LivedExperiencesMajorLenaBeardsellRoute:
+    LivedExperiencesMajorLenaBeardsellRoute,
   LivedExperiencesStaffSergeantKirkDavisBritishArmyRoute:
     LivedExperiencesStaffSergeantKirkDavisBritishArmyRoute,
   LivedExperiencesSymonSmithBritishArmyVeteranRoute:
