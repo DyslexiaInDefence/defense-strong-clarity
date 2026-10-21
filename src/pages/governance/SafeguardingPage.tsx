@@ -15,7 +15,7 @@ const SafeguardingPage = () => (
   <PolicyLayout
     title="Safeguarding & Support"
     summary="Dyslexia in Defence takes safeguarding seriously. This page sets out the limits of the initiative's responsibility, how concerns are handled, and where to find professional support."
-    lastUpdated="1 March 2026"
+    lastUpdated="2 November 2026"
     sections={sections}
   >
     <section id="limits">
@@ -58,6 +58,7 @@ const SafeguardingPage = () => (
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
         <li><strong>Emergency services:</strong> 999</li>
         <li><strong>Samaritans:</strong> 116 123 (free, 24/7)</li>
+        <li><strong>Childline (under 19s):</strong> 0800 1111 (free and confidential)</li>
         <li><strong>Veterans' Gateway:</strong> 0808 802 1212</li>
         <li><strong>Combat Stress:</strong> 0800 138 1619</li>
         <li><strong>NHS urgent mental health support:</strong> 111, option 2</li>
@@ -85,6 +86,9 @@ const SafeguardingPage = () => (
         <li>Reports will be acknowledged as promptly as possible</li>
         <li>All reports will be treated with seriousness and sensitivity</li>
       </ul>
+      <p className="text-muted-foreground mt-3">
+        The survey is anonymous, so we cannot follow up on individual answers. If you are worried about someone's safety, please use the contact route above or the services listed under Crisis Signposting.
+      </p>
     </section>
 
     <section id="escalation">
@@ -119,10 +123,10 @@ const SafeguardingPage = () => (
     <section id="age-policy">
       <h2 className="text-2xl font-bold text-foreground mb-4">Age Policy</h2>
       <Callout>
-        <strong>Dyslexia in Defence is designed for adults aged 18 and over.</strong> The initiative does not knowingly engage with individuals under the age of 18.
+        Dyslexia in Defence membership, the sign up form, the community and support are designed for adults aged 18 and over. Our anonymous survey is open to people aged 16 and over and collects no names or contact details.
       </Callout>
       <p className="text-muted-foreground mb-3">
-        If it becomes apparent that a participant is under 18, their access to community spaces will be suspended and appropriate steps will be taken, which may include contacting a parent or guardian.
+        If it becomes apparent that a participant is under 18, their access to membership and community spaces will be suspended and appropriate steps will be taken, which may include contacting a parent or guardian.
       </p>
       <p className="text-muted-foreground">
         For resources relating to dyslexia in children and young people, please contact the British Dyslexia Association or your local education authority.

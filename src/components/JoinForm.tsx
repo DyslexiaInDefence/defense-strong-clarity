@@ -115,14 +115,8 @@ const JoinForm = () => {
         throw new Error((brevoRes.data as { error?: string }).error ?? "Submission failed");
       }
 
-      console.info("Join form submitted successfully:", {
-        name: data.name,
-        email: data.email,
-        connection: data.connection,
-      });
       setSubmitted(true);
     } catch (error) {
-      console.error("Form submission error:", error);
       setSubmitError(
         error instanceof Error
           ? error.message
