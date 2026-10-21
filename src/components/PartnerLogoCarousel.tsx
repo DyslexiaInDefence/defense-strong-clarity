@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import fandfLogo from "@/assets/fandf-logo.png.asset.json";
 import neurodiverseLogo from "../../public/images/partners/neurodiverse-community.png.asset.json";
+import vobLockup from "@/assets/vob-lockup.jpg.asset.json";
+import vobMark from "@/assets/vob-mark.png.asset.json";
 
 type PartnerLogo = {
   name: string;
@@ -10,6 +12,7 @@ type PartnerLogo = {
   href?: string;
   nameLabel?: string;
   tagline?: string;
+  mobileSrc?: string;
 };
 
 const FTG_LOGO_PATH = "/images/partners/FTG-colour-Logo.png";
@@ -41,8 +44,9 @@ const LOGOS: PartnerLogo[] = [
   },
   {
     name: "VOB",
-    alt: "Veterans Operating Base emblem, opens in new tab",
-    src: "/images/partners/veterans-operating-base.png",
+    alt: "Veterans Operating Base (VOB) logo",
+    src: vobLockup.url,
+    mobileSrc: vobMark.url,
     href: "https://vob.org.uk/",
     nameLabel: "Veterans Operating Base",
     tagline:
@@ -188,21 +192,34 @@ const PartnerLogoCarousel = () => {
                 }}
               >
                 {LOGOS.map((logo) => {
-                  // VOB is an emblem with words that need to stay readable,
-                  // so it renders far larger than the other logos.
-                  const isVob = logo.name === "VOB";
-                  const img = (
+                  const img = logo.mobileSrc ? (
+                    <>
+                      <img
+                        src={logo.mobileSrc}
+                        alt={logo.alt}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-10 w-auto max-w-[240px] bg-white object-contain md:hidden"
+                      />
+                      <img
+                        src={logo.src}
+                        alt=""
+                        aria-hidden="true"
+                        loading="lazy"
+                        decoding="async"
+                        className="hidden h-10 w-auto max-w-[280px] bg-white object-contain md:block md:h-[60px]"
+                      />
+                    </>
+                  ) : (
                     <img
                       src={logo.src}
                       alt={logo.alt}
                       loading="lazy"
                       decoding="async"
                       className={
-                        isVob
-                          ? "h-24 w-auto max-w-full object-contain md:h-[150px]"
-                          : logo.name === "NeuroDiverse Community"
-                            ? "h-auto max-h-24 w-full max-w-[240px] object-contain md:max-h-28"
-                            : "h-10 w-auto max-w-[240px] object-contain md:h-[60px]"
+                        logo.name === "NeuroDiverse Community"
+                          ? "h-auto max-h-24 w-full max-w-[240px] object-contain md:max-h-28"
+                          : "h-10 w-auto max-w-[240px] object-contain md:h-[60px]"
                       }
                     />
                   );
@@ -213,13 +230,7 @@ const PartnerLogoCarousel = () => {
                       className="flex shrink-0 flex-col items-center px-4 md:px-8"
                       style={{ width: `${100 / visibleCount}%` }}
                     >
-                      <div
-                        className={
-                          isVob
-                            ? "flex min-h-[112px] w-full items-center justify-center md:min-h-[160px]"
-                            : "flex h-24 w-full items-center justify-center md:h-28"
-                        }
-                      >
+                      <div className="flex h-24 w-full items-center justify-center md:h-28">
                         {logo.href ? (
                           <a
                             href={logo.href}
@@ -230,14 +241,6 @@ const PartnerLogoCarousel = () => {
                                 ? "bg-primary px-3 py-2"
                                 : ""
                             }`}
-                            style={
-                              isVob
-                                ? // The emblem file has a transparent background and
-                                  // white lettering, so it needs its own native green
-                                  // behind it to stay readable on the white card.
-                                  { backgroundColor: "#47704C" }
-                                : undefined
-                            }
                           >
                             {img}
                           </a>
