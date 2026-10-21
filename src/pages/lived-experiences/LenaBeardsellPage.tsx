@@ -1,6 +1,6 @@
 import { Link } from "@/lib/router-compat";
 import { ArrowLeft } from "lucide-react";
-import StoryNav from "@/components/StoryNav";
+import LivedExperienceLayout from "@/components/LivedExperienceLayout";
 import { getStory } from "@/data/livedStories";
 
 const QUOTE = "it's not failure if you can learn from it";
@@ -23,68 +23,40 @@ const LenaBeardsellPage = () => {
   const story = getStory("major-lena-beardsell")!;
 
   return (
-    <div className="py-16">
-      <div className="container mx-auto max-w-4xl px-4">
-        <StoryNav currentSlug={story.slug} />
-
-        <header className="flex flex-col gap-6 sm:flex-row sm:items-end">
-          {/* Swap the photo by replacing the file at story.photoUrl */}
-          <div className="aspect-[3/4] w-40 shrink-0 overflow-hidden rounded-2xl border border-border bg-muted sm:w-48">
-            <img
-              src={story.photoUrl}
-              alt="Major Lena Beardsell"
-              width={864}
-              height={1152}
-              className="h-full w-full object-cover"
-            />
-          </div>
-          <div>
-            <p className="text-base font-semibold text-primary">
-              Lived Experience: Dyslexia
-            </p>
-            <h1 className="mt-2 text-3xl font-bold text-foreground md:text-4xl">
-              Major Lena Beardsell
-            </h1>
-          </div>
-        </header>
-
-        <p className="mt-8 rounded-lg border-l-4 border-primary bg-primary/5 p-4 text-base leading-relaxed text-muted-foreground">
-          Every dyslexic journey is different. These lived experiences provide personal perspectives from across the defence community. The views expressed are those of the individual and do not represent official MOD policy or the views of Dyslexia in Defence.
-        </p>
-
-        <article className="mt-10 max-w-[68ch] text-left text-lg leading-[1.7] text-foreground">
-          {PARAGRAPHS_BEFORE_QUOTE.map((p) => (
-            <p key={p.slice(0, 24)} className="mb-7">{p}</p>
-          ))}
-
-          <blockquote className="my-10 rounded-xl border-l-4 border-primary bg-muted/40 px-6 py-5 text-xl font-semibold leading-[1.6] text-foreground">
-            “{QUOTE}”
-          </blockquote>
-
-          {PARAGRAPHS_AFTER_QUOTE.map((p) => (
-            <p key={p.slice(0, 24)} className="mb-7">{p}</p>
-          ))}
-        </article>
-
-        <aside className="mt-12 max-w-[68ch] rounded-2xl border border-border bg-card p-6 md:p-8">
-          <p className="text-lg leading-[1.7] text-foreground">
-            <Link
-              to="/contact"
-              className="font-semibold text-primary underline underline-offset-4 hover:text-primary/80"
-            >
+    <LivedExperienceLayout
+      story={story}
+      photoWidth={864}
+      photoHeight={1152}
+      after={
+        <aside className="mt-12 rounded-2xl border border-border bg-card p-6 md:p-8">
+          <h2 className="text-2xl font-bold text-foreground">Share Your Story</h2>
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+            <Link to="/contact" className="font-semibold text-primary underline underline-offset-4 hover:text-primary/80">
               Want to share your own story? Get in touch.
             </Link>
           </p>
           <Link
             to="/lived-experiences"
-            className="mt-4 inline-flex min-h-11 items-center gap-2 text-base font-semibold text-primary hover:underline"
+            className="mt-5 inline-flex items-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
           >
-            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+            <ArrowLeft className="mr-1.5 h-4 w-4" aria-hidden="true" />
             Back to Lived Experiences
           </Link>
         </aside>
-      </div>
-    </div>
+      }
+    >
+      {PARAGRAPHS_BEFORE_QUOTE.map((p, i) => (
+        <p key={p.slice(0, 24)} className={i === 0 ? undefined : "mt-4"}>{p}</p>
+      ))}
+
+      <blockquote className="mt-4 rounded-lg border-l-4 border-primary bg-primary/5 p-4 font-semibold leading-relaxed text-foreground">
+        “{QUOTE}”
+      </blockquote>
+
+      {PARAGRAPHS_AFTER_QUOTE.map((p) => (
+        <p key={p.slice(0, 24)} className="mt-4">{p}</p>
+      ))}
+    </LivedExperienceLayout>
   );
 };
 
