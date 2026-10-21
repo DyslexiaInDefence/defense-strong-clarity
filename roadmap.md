@@ -1,8 +1,8 @@
 # Roadmap
 
-- [ ] Replace the survey HTML exactly and verify unlisted status and crawl blocks.
-- [ ] Update privacy and safeguarding notices with supplied survey rules.
-- [ ] Audit analytics consent, remove any Join form personal-data logging, and report age references.
+- [x] Replace the survey HTML exactly and verify unlisted status and crawl blocks.
+- [x] Update privacy and safeguarding notices with supplied survey rules.
+- [x] Audit analytics consent, remove any Join form personal-data logging, and report age references.
 
 - [x] Add the licensed Armed Forces Covenant assets and signed pledge certificate.
 - [x] Build `/armed-forces-covenant` with required content, certificate download, metadata, and sitemap entry.
