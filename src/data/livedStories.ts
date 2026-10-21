@@ -62,11 +62,11 @@ export const livedStories: LivedStory[] = [
       "/images/lived-experiences/major-lena-beardsell-lived-experience.webp",
     photoAlt: "Major Lena Beardsell",
     summary:
-      "A serving Army officer on school, university, Op HERRICK, RMAS and becoming a teacher in the Army.",
+      "A serving Army officer on school, university, Operation HERRICK, Sandhurst and becoming a teacher in the Army.",
     metaTitle:
       "Major Lena Beardsell: Lived Experience of Dyslexia | Dyslexia in Defence",
     metaDescription:
-      "A serving Army officer shares her lived experience of dyslexia, from school and university to Op HERRICK, RMAS and teaching in the Army.",
+      "A serving Army officer shares her lived experience of dyslexia, from school and university to Operation HERRICK, Sandhurst and teaching in the Army.",
   },
 ];
 
