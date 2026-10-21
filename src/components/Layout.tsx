@@ -33,6 +33,9 @@ const Layout = () => {
   const showNextSteps = !NEXT_STEPS_SKIP.has(pathname) && !isInsightArticle;
   const showBreadcrumbs = pathname !== "/";
 
+  // Unlisted newsletter web copies render without site chrome.
+  if (pathname.startsWith("/newsletters/")) return <Outlet />;
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
