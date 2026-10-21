@@ -236,7 +236,7 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
   },
   "/lived-experiences/major-lena-beardsell": {
     title: "Major Lena Beardsell: Lived Experience of Dyslexia | Dyslexia in Defence",
-    description: "A serving Army officer shares her lived experience of dyslexia, from school and university to Op HERRICK, RMAS and teaching in the Army.",
+    description: "A serving Army officer shares her lived experience of dyslexia, from school and university to Operation HERRICK, Sandhurst and teaching in the Army.",
     priority: 0.7,
     indexable: true,
   },

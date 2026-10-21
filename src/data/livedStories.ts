@@ -66,7 +66,7 @@ export const livedStories: LivedStory[] = [
     metaTitle:
       "Major Lena Beardsell: Lived Experience of Dyslexia | Dyslexia in Defence",
     metaDescription:
-      "A serving Army officer shares her lived experience of dyslexia, from school and university to Op HERRICK, RMAS and teaching in the Army.",
+      "A serving Army officer shares her lived experience of dyslexia, from school and university to Operation HERRICK, Sandhurst and teaching in the Army.",
   },
 ];
 
