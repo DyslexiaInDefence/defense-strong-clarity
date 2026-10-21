@@ -3,6 +3,7 @@ import PolicyLayout, { Callout } from "@/components/PolicyLayout";
 const sections = [
   { id: "controller", title: "Data Controller" },
   { id: "data-collected", title: "Data We Collect" },
+  { id: "survey", title: "Our Survey" },
   { id: "legal-basis", title: "Legal Basis" },
   { id: "retention", title: "Data Retention" },
   { id: "third-parties", title: "Third Party Services" },
@@ -17,7 +18,7 @@ const PrivacyNoticePage = () => (
   <PolicyLayout
     title="Privacy Notice"
     summary="This Privacy Notice explains how Dyslexia in Defence CIC collects, uses, and protects personal data. It is written in plain English and reflects our commitment to responsible data handling in line with UK data protection law."
-    lastUpdated="8 August 2026"
+    lastUpdated="2 November 2026"
     sections={sections}
   >
     <section id="controller">
@@ -46,8 +47,30 @@ const PrivacyNoticePage = () => (
         <li><strong>Technical data</strong> — standard information like IP address and browser type, collected automatically for site functionality and security</li>
       </ul>
       <Callout>
-        We do not ask for information about a diagnosis, disability, or health condition anywhere on this site. Where you choose to share this with us voluntarily, for example in an email asking for support, we treat it with particular care. See "Legal Basis" below for how we handle this.
+        Our website sign up form does not ask for health information. Our optional survey does, and only with your explicit consent. If you choose to share health information with us in an email, we treat it with particular care. See Legal Basis below.
       </Callout>
+    </section>
+
+    <section id="survey">
+      <h2 className="text-2xl font-bold text-foreground mb-4">Our Survey</h2>
+      <p className="text-muted-foreground mb-3">
+        The survey is anonymous and voluntary and is open to people aged 16 and over. We do not ask for your name or contact details. We ask about your connection to Defence and your experience of dyslexia or other neurodivergent conditions, which is health information. You can answer in two parts, and Part 2 is optional.
+      </p>
+      <p className="text-muted-foreground mb-3">
+        You receive a reference code. If you want your response removed, email <a href="mailto:admin@dyslexiaindefence.com" className="text-primary underline underline-offset-2">admin@dyslexiaindefence.com</a> with the code. We cannot find a response without its code.
+      </p>
+      <p className="text-muted-foreground mb-3">
+        Legal basis: your consent, and your explicit consent for health information, given by ticking the boxes before you submit.
+      </p>
+      <p className="text-muted-foreground mb-3">
+        Results are only reported for groups of 10 or more, and we do not publish or share individual responses. We keep responses for up to 3 years.
+      </p>
+      <p className="text-muted-foreground mb-3">
+        If you are 16 or 17, you can take part in your own right, and we ask you not to include names, schools, units, dates or contact details.
+      </p>
+      <p className="text-muted-foreground">
+        Responses are stored in Google Sheets, and Cloudflare Turnstile checks that the form is used by a person.
+      </p>
     </section>
 
     <section id="legal-basis">
@@ -84,6 +107,8 @@ const PrivacyNoticePage = () => (
         <li>Our website and sign up form, built and hosted through Lovable</li>
         <li>Email and newsletter services, currently Brevo and Zoho Mail, both used to hold contact details and correspond with you</li>
         <li>Our community platform, Discord, for peer support conversations</li>
+        <li>Google (Google Sheets and Apps Script), to store survey responses</li>
+        <li>Cloudflare (Turnstile), to protect the survey from automated spam</li>
       </ul>
       <p className="text-muted-foreground mt-3">
         Where any of these services are based outside the UK, we work to ensure that appropriate data protection safeguards are in place, and we are in the process of confirming this for each of our current providers. We do not share your information with any third party for marketing purposes, and we do not sell, rent, lease, or trade personal data under any circumstances.
@@ -142,10 +167,10 @@ const PrivacyNoticePage = () => (
     <section id="risk-assessment">
       <h2 className="text-2xl font-bold text-foreground mb-4">How We Assessed the Risks</h2>
       <p className="text-muted-foreground mb-3">
-        We have carried out a Data Protection Impact Assessment (DPIA) covering our sign up form, our Discord community, how we verify military affiliation for targeted support, and our email correspondence with members. A DPIA is a structured way of thinking through the risks involved in how we use personal information, and what we are doing to reduce them.
+        We have carried out a Data Protection Impact Assessment (DPIA) covering our sign up form, our Discord community, how we verify military affiliation for targeted support, our survey, and our email correspondence with members. A DPIA is a structured way of thinking through the risks involved in how we use personal information, and what we are doing to reduce them.
       </p>
       <p className="text-muted-foreground">
-        We are a small, founder led organisation, and we are honest that some of our processes are still maturing as we grow. Carrying out this assessment helped us identify where we needed to be clearer with you, including in this notice, where we needed to bring our practice in line with our own stated policies, such as requiring sign ups to confirm they are 18 or over, and where we still have work to do, particularly around confirming the exact safeguards used by some of our third party service providers. This DPIA is reviewed at least once a year, and whenever we introduce a new way of collecting or using personal information. It was last reviewed in August 2026.
+        We are a small, founder led organisation, and we are honest that some of our processes are still maturing as we grow. Carrying out this assessment helped us identify where we needed to be clearer with you, including in this notice, where we needed to bring our practice in line with our own stated policies, such as requiring sign ups to confirm they are 18 or over, and where we still have work to do, particularly around confirming the exact safeguards used by some of our third party service providers. This DPIA is reviewed at least once a year, and whenever we introduce a new way of collecting or using personal information. It was last reviewed in October 2026.
       </p>
     </section>
 
