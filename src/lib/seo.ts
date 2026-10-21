@@ -234,6 +234,12 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.7,
     indexable: true,
   },
+  "/lived-experiences/major-lena-beardsell": {
+    title: "Major Lena Beardsell: Lived Experience of Dyslexia | Dyslexia in Defence",
+    description: "A serving Army officer shares her lived experience of dyslexia, from school and university to Op HERRICK, RMAS and teaching in the Army.",
+    priority: 0.7,
+    indexable: true,
+  },
   "/community": {
     title: "Community | Dyslexia in Defence",
     description: "The Dyslexia in Defence community space — peer support and shared lived experience across the UK Defence community.",
