@@ -62,7 +62,7 @@ export const livedStories: LivedStory[] = [
       "/images/lived-experiences/major-lena-beardsell-lived-experience.webp",
     photoAlt: "Major Lena Beardsell",
     summary:
-      "A serving Army officer on school, university, Op HERRICK, RMAS and becoming a teacher in the Army.",
+      "A serving Army officer on school, university, Operation HERRICK, Sandhurst and becoming a teacher in the Army.",
     metaTitle:
       "Major Lena Beardsell: Lived Experience of Dyslexia | Dyslexia in Defence",
     metaDescription:
