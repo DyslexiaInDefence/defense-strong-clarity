@@ -1,12 +1,14 @@
 import PolicyLayout, { Callout } from "@/components/PolicyLayout";
 
 const sections = [
+  { id: "summary", title: "How We Look After Your Data" },
   { id: "controller", title: "Data Controller" },
   { id: "data-collected", title: "Data We Collect" },
   { id: "survey", title: "Our Survey" },
   { id: "legal-basis", title: "Legal Basis" },
   { id: "retention", title: "Data Retention" },
   { id: "third-parties", title: "Third Party Services" },
+  { id: "cookies", title: "Cookies and Analytics" },
   { id: "rights", title: "Your Rights" },
   { id: "contact-data", title: "Data Requests" },
   { id: "security", title: "Security" },
@@ -21,13 +23,29 @@ const PrivacyNoticePage = () => (
     lastUpdated="2 November 2026"
     sections={sections}
   >
+    <section id="summary">
+      <h2 className="text-2xl font-bold text-foreground mb-4">How We Look After Your Data</h2>
+      <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
+        <li>We collect only what we need.</li>
+        <li>We never sell your data.</li>
+        <li>We only send newsletters if you ask for them.</li>
+        <li>Analytics cookies are off unless you say yes.</li>
+        <li>You can ask to see, change or delete your data at any time.</li>
+        <li>Email us at <a href="mailto:contact@dyslexiaindefence.com" className="text-primary underline underline-offset-2">contact@dyslexiaindefence.com</a>.</li>
+      </ul>
+      <p className="text-muted-foreground mt-3">The full detail is below.</p>
+    </section>
+
     <section id="controller">
       <h2 className="text-2xl font-bold text-foreground mb-4">Data Controller</h2>
       <p className="text-muted-foreground mb-3">
         The data controller for personal data collected through this website and our wider network is Dyslexia in Defence CIC (company number 17285330), a Community Interest Company registered in England and Wales. Symon Smith, as founder and director, is personally responsible for making sure data is handled appropriately on the organisation's behalf and in accordance with UK data protection law.
       </p>
       <p className="text-muted-foreground">
-        Dyslexia in Defence CIC is registered with the Information Commissioner's Office (ICO), registration reference ZC280118.
+        Dyslexia in Defence CIC is registered with the Information Commissioner's Office (ICO), registration reference ZC280118. Registered 20 October 2026. Renewal due 19 October 2027.
+      </p>
+      <p className="text-muted-foreground mt-3">
+        Our registered address is 124-128 City Road, London, EC1V 2NX.
       </p>
       <p className="text-muted-foreground mt-3">
         For data related enquiries, please contact: <a href="mailto:contact@dyslexiaindefence.com" className="text-primary underline underline-offset-2">contact@dyslexiaindefence.com</a>
@@ -48,6 +66,7 @@ const PrivacyNoticePage = () => (
         <li><strong>Correspondence</strong> — records of what you tell us if you email us or contact us directly, including, where you choose to share it, information about a dyslexia diagnosis or your personal circumstances</li>
         <li><strong>Community platform activity</strong> — if you join our Discord community, we do not ask you for anything beyond agreeing to be respectful of others and confirming you are 18 or over. Discord's own account details are held by Discord, not by us. Anything else you choose to share there is voluntary</li>
         <li><strong>Technical data</strong> — standard information like IP address and browser type, collected automatically for site functionality and security</li>
+        <li><strong>Analytics data</strong> — only if you accept analytics cookies. Google Analytics records which pages you visit, roughly where you are, and your device and browser type. See Cookies and Analytics below</li>
       </ul>
       <Callout>
         Our website sign up form does not ask for health information. Our optional survey does, and only with your explicit consent. If you choose to share health information with us by email, we treat it with particular care. See Legal Basis below.
@@ -96,6 +115,7 @@ const PrivacyNoticePage = () => (
       <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
         <li><strong>Consent</strong> — for anything you have actively opted in to, such as receiving newsletters and updates. You can withdraw this consent at any time by contacting us, and this will not affect anything done before you withdrew it</li>
         <li><strong>Legitimate interests</strong> — for running the core network, responding to enquiries, verifying eligibility for targeted support, and maintaining community safety, always balanced against your rights and interests</li>
+        <li><strong>Consent for analytics</strong> — we only use Google Analytics if you accept analytics cookies. You can change your mind at any time using Cookie settings in the footer</li>
         <li><strong>Explicit consent for sensitive information</strong> — if you choose to share details of a diagnosis or health condition with us, for example in a support related email, we rely on your explicit, freely given consent to hold and use that information to support you. You can withdraw this consent and ask us to delete this information at any time</li>
       </ul>
     </section>
@@ -124,12 +144,29 @@ const PrivacyNoticePage = () => (
         <li>Our community platform, Discord, for peer support conversations</li>
         <li>Google (Google Sheets and Apps Script), used to store survey responses</li>
         <li>Cloudflare (Turnstile), used to protect the survey from automated spam</li>
+        <li>Google Analytics, used to count visits to the website, only if you accept analytics cookies</li>
       </ul>
       <p className="text-muted-foreground mt-3">
         Where any of these services are based outside the UK, we work to ensure that appropriate data protection safeguards are in place, and we are in the process of confirming this for each of our current providers. We do not share your information with any third party for marketing purposes, and we do not sell, rent, lease, or trade personal data under any circumstances.
       </p>
       <p className="text-muted-foreground mt-3">
         If we confirm military affiliation with a small number of trusted volunteers as part of verifying eligibility for targeted support, we only ever share the minimum needed, decided case by case, and we always tell you first.
+      </p>
+    </section>
+
+    <section id="cookies">
+      <h2 className="text-2xl font-bold text-foreground mb-4">Cookies and Analytics</h2>
+      <p className="text-muted-foreground mb-3">
+        We use Google Analytics to see how many people visit and which pages they read. It sets cookies with names starting "_ga".
+      </p>
+      <p className="text-muted-foreground mb-3">
+        These cookies are off by default. They are only set if you choose "Accept analytics". If you choose "No thanks", we do not load Google Analytics.
+      </p>
+      <p className="text-muted-foreground mb-3">
+        We save your choice, and your accessibility settings such as dark mode and text size, in your own browser. This is not shared with anyone.
+      </p>
+      <p className="text-muted-foreground">
+        You can change your choice at any time using Cookie settings in the footer.
       </p>
     </section>
 
@@ -150,6 +187,12 @@ const PrivacyNoticePage = () => (
       </ul>
       <p className="text-muted-foreground mt-3">
         For the survey, we can act on a request only if you give us your reference code.
+      </p>
+      <p className="text-muted-foreground mt-3">
+        To use any of these rights, email <a href="mailto:contact@dyslexiaindefence.com" className="text-primary underline underline-offset-2">contact@dyslexiaindefence.com</a>.
+      </p>
+      <p className="text-muted-foreground mt-3">
+        If you are unhappy with how we have handled your data, you can complain to the Information Commissioner's Office at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2">ico.org.uk</a> or by phone on 0303 123 1113.
       </p>
     </section>
 
