@@ -31,7 +31,7 @@ function loadAnalytics() {
 
 function clearGaCookies() {
   document.cookie.split(";").forEach((c) => {
-    const name = c.split("=")[0].trim();
+    const name = (c.split("=")[0] ?? "").trim();
     if (name.startsWith("_ga")) {
       const host = window.location.hostname.replace(/^www\./, "");
       document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
