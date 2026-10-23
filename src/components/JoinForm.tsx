@@ -14,6 +14,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { Link } from "@/lib/router-compat";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -315,6 +316,14 @@ const JoinForm = () => {
               </FormItem>
             )}
           />
+
+          <p className="text-sm text-muted-foreground">
+            We use your details only to run the network and, if you tick the box, send updates. Read our{" "}
+            <Link to="/governance/privacy" className="font-medium text-primary underline underline-offset-2">
+              Privacy Notice
+            </Link>
+            .
+          </p>
 
           <Button type="submit" size="lg" className="w-full sm:w-auto" disabled={submitting}>
             {submitting ? (
