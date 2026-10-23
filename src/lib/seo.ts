@@ -146,7 +146,7 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
   },
   "/insights/neurodiversity-in-the-mod-uk": {
     title: "Neurodiversity in the MOD UK | Dyslexia in Defence",
-    description: "The MOD supports neurodiversity across military and civil service roles. Learn about available adjustments and workplace support.",
+    description: "The MOD supports neurodiversity across military and civil service roles. Learn about neurodiversity policy and workplace support.",
     priority: 0.8,
     indexable: true,
   },
@@ -164,13 +164,13 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
   },
   "/insights/what-support-is-available-for-dyslexia-in-the-military-uk": {
     title: "What Support Is Available for Dyslexia in the Military? | UK",
-    description: "Dyslexia support in the UK military: Defence Dyslexia Network, 250+ volunteer ambassadors, service education teams, workplace adjustments and assistive technology.",
+    description: "Dyslexia support in the UK military: Defence Dyslexia Network, 250+ volunteer ambassadors, and service education teams.",
     priority: 0.8,
     indexable: true,
   },
   "/insights/what-happens-if-dyslexia-is-identified-during-service-uk": {
     title: "What Happens if Dyslexia Is Identified During Service? | UK",
-    description: "If dyslexia is identified during military service, your career isn’t at risk. Here’s what JSP 822 says and what support and adjustments you can access.",
+    description: "If dyslexia is identified during military service, your career isn’t at risk. Here’s what JSP 822 says and what support is available.",
     priority: 0.8,
     indexable: true,
   },

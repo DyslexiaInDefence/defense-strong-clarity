@@ -26,7 +26,7 @@ const DyslexiaBarrierMilitaryPage = () => (
       bullets={[
         "No — dyslexic personnel reach every rank, including senior officer, across all three services.",
         "It depends on how some written tasks (timed essays, customs-style briefs) are assessed — these are the friction points, not dyslexia itself.",
-        "Adjustments and peer support are available throughout your career, but you usually have to ask for them.",
+        "Peer support and ambassador advice are available throughout your career, but you usually have to ask for them. Practical adjustments vary by service, and the Army has no assessment accommodations for job-related assessments.",
       ]}
       links={[
         { label: "Ask the Community", to: "/community" },
@@ -62,7 +62,7 @@ const DyslexiaBarrierMilitaryPage = () => (
         The barrier isn’t dyslexia itself. It’s how some tasks are assessed — long written documents, customs-style briefs, timed handwritten essays — that don’t play to dyslexic strengths.
       </p>
       <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
-        <li>Selection tests are standard for everyone — adjustments are available with a diagnosis.</li>
+        <li>Selection tests are standard for everyone, and you need to meet the same standards as every other applicant.</li>
         <li>Training and courses can be demanding on written work — support exists, but you have to ask.</li>
         <li>Career progression isn’t blocked — dyslexic personnel reach every rank, including senior officer.</li>
       </ul>

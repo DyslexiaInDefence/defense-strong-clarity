@@ -11,7 +11,7 @@ const SupportForDyslexiaMilitaryPage = () => (
     preCtaLine="You don’t need every answer first — start by talking to one person who’s already used the support."
   >
     <p className="text-lg text-foreground leading-relaxed mb-4">
-      Dyslexia support in the UK military is structured and growing. You can access dyslexia assessments, workplace adjustments, peer networks, volunteer ambassadors and dedicated forums — across every service and rank.
+      Dyslexia support in the UK military is structured and growing. You can access peer networks, volunteer ambassadors and dedicated forums across every service and rank, plus routes to a dyslexia assessment through your service’s education provision. Support on courses varies by service.
     </p>
     <p className="text-base text-foreground leading-relaxed mb-4">
       Asking for support does not put a mark against your career.
@@ -24,7 +24,7 @@ const SupportForDyslexiaMilitaryPage = () => (
       heading="What can I actually get — and how?"
       intent="serving"
       bullets={[
-        "Yes — assessments, assistive tech, extra time on courses and peer support are all accessible to serving personnel.",
+        "Yes — peer support, volunteer ambassadors and routes to a dyslexia assessment are available to serving personnel. Practical support on courses varies by service, and in the Army there are currently no assessment accommodations for job-related assessments.",
         "It depends partly on your unit and line manager — formal routes (your service’s education or learning support provision and the Defence Dyslexia Network) are the most reliable.",
         "In reality, the strongest support usually comes from peers who’ve already navigated the same courses and exams.",
       ]}
@@ -41,7 +41,7 @@ const SupportForDyslexiaMilitaryPage = () => (
         <li><strong>Ambassadors</strong> — volunteers from across Defence who provide informal peer support, practical guidance, signposting and reassurance based on their own lived experience. They are not accredited specialists or professional advisors.</li>
         <li><strong>Service education and learning support teams</strong> — practical access point for assessment, study skills and assistive technology, with or without a diagnosis (for example Army Education Centres in the Army).</li>
         <li><strong>Active internal forum</strong> — a dyslexia-focused space inside Defence with daily posts on tips, tools and peer support.</li>
-        <li><strong>Workplace adjustments</strong> — extra time on courses, assistive software, workplace needs assessments where appropriate.</li>
+        <li><strong>Practical support on courses</strong> — varies by service and unit. In the Army there are currently no assessment accommodations for job-related assessments, which is something we’re working to influence.</li>
         <li><strong>Monthly virtual events and in-person sessions</strong> — open to anyone serving in Defence.</li>
       </ul>
     </section>
