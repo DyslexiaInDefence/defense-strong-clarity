@@ -33,7 +33,7 @@ export const intentCategories: FaqCategory[] = [
       },
       {
         question: "Do I need to declare dyslexia when joining the military (UK)?",
-        answer: "You're not legally required to declare. But declaring early unlocks reasonable adjustments during selection and training — and is almost always the better choice.",
+        answer: "You're not legally required to declare. Declaring can help others understand how you work best, but what support follows varies by service: in the Army there are no assessment accommodations for job-related assessments.",
         link: "/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk",
       },
       {
@@ -51,12 +51,12 @@ export const intentCategories: FaqCategory[] = [
     items: [
       {
         question: "What support is available for dyslexia in the military (UK)?",
-        answer: "Defence Dyslexia Network (2,000+ members), 250+ volunteer ambassadors, service education and learning support provision, internal forums, and workplace adjustments — across all three services.",
+        answer: "Defence Dyslexia Network (2,000+ members), 250+ volunteer ambassadors, service education and learning support provision, and internal forums — across all three services.",
         link: "/insights/what-support-is-available-for-dyslexia-in-the-military-uk",
       },
       {
         question: "What happens if dyslexia is identified during service?",
-        answer: "You can self-refer through your chain of command and your service’s education or learning support provision. Assessment leads to adjustments — extra time on courses, assistive tech and study support. It does not end careers.",
+        answer: "You can self-refer through your chain of command and your service’s education or learning support provision. An assessment can help you understand your strengths and plan coping strategies. Support after that varies by service. It does not end careers.",
         link: "/insights/what-happens-if-dyslexia-is-identified-during-service-uk",
       },
       {

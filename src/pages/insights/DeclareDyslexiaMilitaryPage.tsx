@@ -27,7 +27,7 @@ const DeclareDyslexiaMilitaryPage = () => (
       bullets={[
         "No — there is no requirement to declare dyslexia at recruitment, and you’re not screened for it.",
         "It depends on whether your dyslexia affects your training or work — at that point, you do need to tell your chain of command.",
-        "If you do declare with a diagnosis, you can ask for reasonable adjustments at selection and on courses.",
+        "If you do declare with a diagnosis, it can help your line manager and instructors understand how you work best. What support follows varies by service: the Army has no assessment accommodations for job-related assessments, while the Navy and RAF assess for neurodiversity in phase 1 training.",
       ]}
       links={[
         { label: "Ask the Community", to: "/community" },
