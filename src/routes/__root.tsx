@@ -81,8 +81,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     scripts: [
       { children: ACCESSIBILITY_BOOTSTRAP },
-      { src: `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`, async: true },
-      { children: GA_BOOTSTRAP },
       { type: "application/ld+json", children: ORGANIZATION_SCHEMA },
     ],
   }),
