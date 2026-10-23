@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NextSteps from "@/components/NextSteps";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import CookieBanner from "@/components/CookieBanner";
 
 // Pages where the global "What to do next" block would be redundant
 const NEXT_STEPS_SKIP = new Set<string>(["/", "/join", "/community"]);
@@ -16,8 +17,8 @@ const Layout = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  // The initial page view is sent by gtag('config') in the root head; send one
-  // for each subsequent client-side route change.
+  // The initial page view is sent by gtag('config') once analytics consent is
+  // given (see CookieBanner); send one for each later client-side route change.
   const isFirstView = useRef(true);
   useEffect(() => {
     if (isFirstView.current) {
@@ -45,6 +46,7 @@ const Layout = () => {
         {showNextSteps && <NextSteps />}
       </main>
       <Footer />
+      <CookieBanner />
     </div>
   );
 };
