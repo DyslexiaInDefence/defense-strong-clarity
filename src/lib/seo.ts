@@ -122,7 +122,7 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
   },
   "/insights/can-you-join-army-with-dyslexia-uk": {
     title: "Can You Join the Army With Dyslexia? UK Eligibility Guide",
-    description: "Yes, you can join the British Army with dyslexia. Find out how recruitment works, what adjustments are available, and what to expect.",
+    description: "Dyslexia is not a bar to joining the British Army. Here's what recruitment looks like, what support to expect, and how the Army differs from the Navy and RAF.",
     priority: 0.8,
     indexable: true,
   },

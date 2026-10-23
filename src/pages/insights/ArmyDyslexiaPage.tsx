@@ -3,6 +3,7 @@ import InsightLayout from "@/components/InsightLayout";
 import PodcastInsight from "@/components/PodcastInsight";
 import DecisionConfidenceBlock from "@/components/DecisionConfidenceBlock";
 import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
+import LivedExperienceBlock from "@/components/LivedExperienceBlock";
 
 const ArmyDyslexiaPage = () => (
   <InsightLayout
@@ -12,14 +13,22 @@ const ArmyDyslexiaPage = () => (
     preCtaLine="You don’t need to decide everything now — start with the step that feels easiest."
   >
     <p className="text-lg text-foreground leading-relaxed mb-4">
-      Yes. Dyslexia is not a barrier to joining the British Army. You are not screened for it during recruitment, and dyslexic personnel serve at every rank across every branch.
-    </p>
-    <p className="text-base text-foreground leading-relaxed mb-4">
-      Having dyslexia does not stop you joining the Army.
+      Yes. Dyslexia is not a barrier to joining the British Army. You aren't screened for it at recruitment, and dyslexic personnel serve at every rank.
     </p>
     <p className="text-lg text-foreground leading-relaxed mb-8">
-      You will need to meet the same selection, training and performance standards as everyone else. If you have a diagnosis, reasonable adjustments are available — extra time on written tests, assistive technology, and study support once in service.
+      What matters is being prepared to work hard to reach the standard expected of a trained soldier, including on the subjects you may have found difficult at school. Army instructors are there to help you get there. Many of the Army's most successful leaders are neurodiverse, and the Army recognises that this is part of what makes them excellent soldiers.
     </p>
+
+    <LivedExperienceBlock
+      variant="inline"
+      className="mb-10"
+      snippet={{
+        id: "sue-thain-army-recruitment",
+        quote: "Dyslexia is not a bar to joining the Army.",
+        attribution: "Sue Thain, Head of Skills Leadership, British Army",
+        tag: "Joining",
+      }}
+    />
 
     <DecisionConfidenceBlock
       heading="Can I actually join the Army with dyslexia?"
@@ -27,7 +36,7 @@ const ArmyDyslexiaPage = () => (
       bullets={[
         "Yes — dyslexia is not a disqualifier and you are not screened for it at recruitment.",
         "It depends on meeting the same aptitude, fitness and medical standards as every other applicant — not on your diagnosis.",
-        "If you declare a diagnosis, you can ask for reasonable adjustments at selection and on courses once you’re in.",
+        "You don't have to declare dyslexia to join, and the Army's position is that there are no assessment accommodations for assessments related to your job. See the section below.",
       ]}
       links={[
         { label: "Ask the Community", to: "/community" },
@@ -39,15 +48,28 @@ const ArmyDyslexiaPage = () => (
       <h2 className="text-2xl font-bold text-foreground mb-4">What recruitment actually looks like</h2>
       <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
         <li>Aptitude tests are standard for every applicant.</li>
-        <li>If you have a formal diagnosis, declare it early so the team can arrange adjustments.</li>
-        <li>Adjustments don’t lower the bar — they level the playing field.</li>
-        <li>You don’t have to declare dyslexia to join. See{" "}
+        <li>You'll need to meet the same selection, training and performance standards as everyone else.</li>
+        <li>You don't have to declare dyslexia to join. See{" "}
           <Link to="/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk" className="font-medium text-primary underline-offset-4 hover:underline">
             do I need to declare dyslexia
           </Link>
           {" "}for the policy.
         </li>
+        <li>A diagnosis can still help you understand your strengths and plan your coping strategies early.</li>
       </ul>
+    </section>
+
+    <section className="mb-10">
+      <h2 className="text-2xl font-bold text-foreground mb-4">The honest bit: what the Army doesn't offer yet</h2>
+      <p className="text-foreground leading-relaxed mb-4">
+        The Army's position is that there are no assessment accommodations for assessments related to your job. The reasoning is safety: it is about making sure you and the people you work with can do the job. In practice, that means you shouldn't expect extra time or adjusted formats on role-related assessments in the way you might have had at school or university.
+      </p>
+      <p className="text-foreground leading-relaxed mb-4">
+        This is different to the Navy and RAF. Both assess for neurodiversity during phase 1 training, and the Navy has a dedicated neurodiversity role. The Army doesn't currently take the same approach, even though a large share of dyslexic personnel serve in it.
+      </p>
+      <p className="text-foreground leading-relaxed">
+        We think that's a gap, and we're working to influence it, including better support on courses, earlier identification, and more consistent understanding among line managers and chain of command. Change takes time, so if you're joining now, go in with your eyes open: build your coping strategies early, and use the network.
+      </p>
     </section>
 
     <PodcastInsight
@@ -77,10 +99,7 @@ const ArmyDyslexiaPage = () => (
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">Support once you’re in</h2>
       <p className="text-foreground leading-relaxed mb-4">
-        Once serving, you can access assessments through your local Army Education Centre, peer support through the Defence Dyslexia Network, and reasonable adjustments on courses.
-      </p>
-      <p className="text-foreground leading-relaxed mb-4">
-        Experiences can vary between units and roles, but the support is there if you know where to look — and the Defence Dyslexia Network is one of the most effective ways to find it.
+        Once serving, you can get peer support through the Defence Dyslexia Network, advice from its ambassadors, and help finding an assessment through your Army Education Centre. Experience varies between units and roles, and the Defence Dyslexia Network is the quickest way to find what's available in yours.
       </p>
       <p className="text-foreground leading-relaxed">
         For the full picture see{" "}
