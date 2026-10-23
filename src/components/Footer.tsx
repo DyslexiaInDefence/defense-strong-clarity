@@ -2,6 +2,7 @@ import { Link } from "@/lib/router-compat";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import didLogoFull from "@/assets/did-logo-full.webp";
 import CovenantPledgeBand from "@/components/CovenantPledgeBand";
+import { OPEN_EVENT } from "@/components/CookieBanner";
 
 const Footer = () => {
   return (
@@ -153,10 +154,17 @@ const Footer = () => {
 
         {/* Legal registration */}
         <div className="mt-6 border-t border-border pt-4 text-center text-xs leading-relaxed text-muted-foreground">
-          <p>Dyslexia in Defence CIC</p>
-          <p>Company number: 17285330</p>
-          <p>Registered in England and Wales</p>
-          <p>Private Limited by Guarantee</p>
+          <p>Dyslexia in Defence CIC. Registered in England and Wales, company number 17285330.</p>
+          <p className="mt-2 flex justify-center gap-4">
+            <Link to="/governance/privacy" className="underline underline-offset-2 hover:text-primary">Privacy Notice</Link>
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event(OPEN_EVENT))}
+              className="underline underline-offset-2 hover:text-primary"
+            >
+              Cookie settings
+            </button>
+          </p>
         </div>
       </div>
     </footer>

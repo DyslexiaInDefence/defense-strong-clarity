@@ -11,7 +11,6 @@ import { AccessibilityProvider } from "@/contexts/AccessibilityContext";
 import Layout from "@/components/Layout";
 import NotFound from "@/pages/NotFound";
 import { reportLovableError } from "@/lib/lovable-error-reporting";
-import { GA_MEASUREMENT_ID } from "@/lib/gtag";
 import appCss from "../styles.css?url";
 
 const ORGANIZATION_SCHEMA = JSON.stringify({
@@ -47,9 +46,6 @@ const ORGANIZATION_SCHEMA = JSON.stringify({
 // motion, OpenDyslexic) to <html> before first paint to avoid a flash.
 const ACCESSIBILITY_BOOTSTRAP = `(function(){try{var c=document.documentElement.classList;if(localStorage.getItem("did-dark")==="true")c.add("dark");if(localStorage.getItem("did-large")==="true")c.add("text-large");if(localStorage.getItem("did-motion")==="true")c.add("reduce-motion");if(localStorage.getItem("did-dyslexic")==="true")c.add("dyslexic-font");}catch(e){}})();`;
 
-// Google Analytics 4 (gtag.js). Sends the initial page view; client-side route
-// changes are tracked from Layout via trackPageView.
-const GA_BOOTSTRAP = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}');`;
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
@@ -81,8 +77,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     scripts: [
       { children: ACCESSIBILITY_BOOTSTRAP },
-      { src: `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`, async: true },
-      { children: GA_BOOTSTRAP },
       { type: "application/ld+json", children: ORGANIZATION_SCHEMA },
     ],
   }),
