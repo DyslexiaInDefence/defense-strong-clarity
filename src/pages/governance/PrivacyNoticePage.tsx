@@ -30,7 +30,7 @@ const PrivacyNoticePage = () => (
         Dyslexia in Defence CIC is registered with the Information Commissioner's Office (ICO), registration reference ZC280118.
       </p>
       <p className="text-muted-foreground mt-3">
-        For data related enquiries, please contact: <a href="mailto:admin@dyslexiaindefence.com" className="text-primary underline underline-offset-2">admin@dyslexiaindefence.com</a>
+        For data related enquiries, please contact: <a href="mailto:contact@dyslexiaindefence.com" className="text-primary underline underline-offset-2">contact@dyslexiaindefence.com</a>
       </p>
     </section>
 
@@ -69,7 +69,7 @@ const PrivacyNoticePage = () => (
         The survey has two parts. Part 1 is saved when you submit it. Part 2 is optional and is saved against the same reference code.
       </p>
       <p className="text-muted-foreground mb-3">
-        After you submit you receive a reference code. If you want your response removed, email <a href="mailto:admin@dyslexiaindefence.com" className="text-primary underline underline-offset-2">admin@dyslexiaindefence.com</a> with the code. Because we do not know who you are, we cannot find a response without its code.
+        After you submit you receive a reference code. If you want your response removed, email <a href="mailto:contact@dyslexiaindefence.com" className="text-primary underline underline-offset-2">contact@dyslexiaindefence.com</a> with the code. Because we do not know who you are, we cannot find a response without its code.
       </p>
       <p className="text-muted-foreground mb-3">
         Our legal basis is your consent (Article 6(1)(a) UK GDPR) and, for health information, your explicit consent (Article 9(2)(a)), given by ticking the boxes before you submit. If you are 16 or 17 you can consent in your own right.
@@ -159,7 +159,7 @@ const PrivacyNoticePage = () => (
         All data related requests, questions, or concerns should be directed to:
       </p>
       <p className="text-muted-foreground">
-        <a href="mailto:admin@dyslexiaindefence.com" className="text-primary underline underline-offset-2 font-medium">admin@dyslexiaindefence.com</a>
+        <a href="mailto:contact@dyslexiaindefence.com" className="text-primary underline underline-offset-2 font-medium">contact@dyslexiaindefence.com</a>
       </p>
       <p className="text-muted-foreground mt-3">
         We aim to acknowledge all requests within five working days and to fulfil them within one calendar month.

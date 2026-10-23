@@ -97,7 +97,7 @@ function NewsletterOctober2026() {
           <p className="text-center font-bold">Get involved</p>
           <p>
             If you would like to get involved in any other way then just contact{" "}
-            <a href="mailto:admin@dyslexiaindefence.com" className={link}>admin@dyslexiaindefence.com</a> direct.
+            <a href="mailto:contact@dyslexiaindefence.com" className={link}>contact@dyslexiaindefence.com</a> direct.
           </p>
         </section>
 

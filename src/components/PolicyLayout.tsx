@@ -178,10 +178,10 @@ const PolicyLayout = ({ title, summary, lastUpdated, sections, children }: Polic
                 For questions about governance, policies, or any matter raised on this page, please contact:
               </p>
               <a
-                href="mailto:admin@dyslexiaindefence.com"
+                href="mailto:contact@dyslexiaindefence.com"
                 className="text-primary hover:text-primary/80 underline underline-offset-4 font-medium"
               >
-                admin@dyslexiaindefence.com
+                contact@dyslexiaindefence.com
               </a>
             </div>
 
