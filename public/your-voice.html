@@ -411,8 +411,7 @@ function renderRest(p, saved) {
   const body = SCHEMA.fields.map((f, k) => inPath_(f, p) && stepOf_(f) === step ? fieldHTML(f, p, k) : "").join("");
   if (step === 2) {
     $("rest").innerHTML = `<p class="pathnote">${esc(def.time2)}. Questions appear as you answer.</p>${body}
-    <div class="btnrow"><button class="btn" type="submit" id="send">Save my extra detail</button><button class="btn alt" type="button" id="finish">I am finished</button></div>`;
-    $("finish").addEventListener("click", () => showDone());
+    <div class="btnrow"><button class="btn" type="submit" id="send">Submit my details</button></div>`;
     refresh();
     return;
   }
