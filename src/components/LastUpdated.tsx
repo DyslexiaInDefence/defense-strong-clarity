@@ -4,7 +4,7 @@ import { EVIDENCE_DATA_AS_AT, formatPageDate, getPageDate } from "@/data/pageDat
 
 export default function LastUpdated() {
   const { pathname } = useLocation();
-  const isNotFound = useRouterState({ select: state => state.statusCode === 404 });
+  const isNotFound = useRouterState({ select: state => state.matches.some(match => match.status === "notFound") });
   const isEvidence = pathname.replace(/\/$/, "") === "/evidence";
   const date = getPageDate(pathname);
 
