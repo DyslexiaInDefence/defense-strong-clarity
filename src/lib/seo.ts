@@ -6,6 +6,7 @@
  * Article/FAQPage JSON-LD render in the server HTML.
  */
 import { faqSchema } from "@/data/faqCategories";
+import { getPageDate } from "@/data/pageDates";
 
 const BASE_URL = "https://dyslexiaindefence.com";
 const OG_IMAGE = "https://dyslexiaindefence.com/og-image.webp";
@@ -260,7 +261,7 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
   },
 };
 
-const articleSchema = (url: string, page: PageSEO) =>
+const articleSchema = (url: string, page: PageSEO, dateModified: string | undefined) =>
   JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Article",
@@ -269,6 +270,7 @@ const articleSchema = (url: string, page: PageSEO) =>
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     image: OG_IMAGE,
     inLanguage: "en-GB",
+    ...(dateModified ? { dateModified } : {}),
     author: { "@type": "Organization", name: "Dyslexia in Defence", url: BASE_URL },
     publisher: {
       "@type": "Organization",
@@ -307,13 +309,23 @@ export function pageHead(pathname: string) {
   const isInsightArticle = pathname.startsWith("/insights/") && pathname !== "/insights";
   const isLivedExperienceArticle =
     pathname.startsWith("/lived-experiences/") && pathname !== "/lived-experiences";
+  const dateModified = getPageDate(pathname);
   const scripts = !page.indexable
     ? undefined
     : pathname === "/about/faq" || pathname === "/insights"
-      ? [{ type: "application/ld+json", children: JSON.stringify(faqSchema) }]
+      ? [{ type: "application/ld+json", children: JSON.stringify({ ...faqSchema, ...(dateModified ? { dateModified } : {}) }) }]
       : isInsightArticle || isLivedExperienceArticle
-        ? [{ type: "application/ld+json", children: articleSchema(url, page) }]
-        : undefined;
+        ? [{ type: "application/ld+json", children: articleSchema(url, page, dateModified) }]
+        : dateModified
+          ? [{ type: "application/ld+json", children: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              name: page.title,
+              url,
+              inLanguage: "en-GB",
+              dateModified,
+            }) }]
+          : undefined;
 
   return {
     meta,

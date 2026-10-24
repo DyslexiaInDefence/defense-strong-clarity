@@ -1,5 +1,6 @@
 import { Link } from "@/lib/router-compat";
 import Reveal from "./Reveal";
+import { EVIDENCE_DATA_AS_AT } from "@/data/pageDates";
 
 const headingClass = "text-2xl font-bold leading-relaxed text-foreground md:text-3xl";
 const listClass = "list-disc space-y-5 pl-6 text-xl leading-relaxed text-foreground";
@@ -8,7 +9,7 @@ const paragraphClass = "text-xl leading-relaxed text-foreground";
 export default function SourcesSection() {
   return (
     <div className="max-w-[65ch] space-y-12 md:space-y-16">
-      <Reveal><p className={paragraphClass}>Every figure on this page comes from one of the sources below. Figures are as at October 2026.</p></Reveal>
+      <Reveal><p className={paragraphClass}>Every figure on this page comes from one of the sources below. Figures are as at <time dateTime={EVIDENCE_DATA_AS_AT.iso}>{EVIDENCE_DATA_AS_AT.label}</time>.</p></Reveal>
       <Reveal>
         <div className="space-y-6">
           <h3 className={headingClass}>Our own data</h3>
