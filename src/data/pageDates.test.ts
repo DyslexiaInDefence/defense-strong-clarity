@@ -46,7 +46,7 @@ describe("Page date rules", () => {
         expect(schema.dateModified, path).toBe(getPageDate(path));
       }
     }
-    for (const [path, type] of [["/about", "WebPage"], ["/about/faq", "FAQPage"], ["/insights", "FAQPage"], ["/insights/can-you-join-army-with-dyslexia-uk", "Article"], ["/lived-experiences/major-lena-beardsell", "Article"]]) {
+    for (const [path, type] of [["/about", "WebPage"], ["/about/faq", "FAQPage"], ["/insights", "FAQPage"], ["/insights/can-you-join-army-with-dyslexia-uk", "Article"], ["/lived-experiences/major-lena-beardsell", "Article"]] as const) {
       const head = pageHead(path);
       const script = "scripts" in head ? head.scripts?.[0] : undefined;
       expect(script).toBeDefined();
@@ -58,6 +58,7 @@ describe("Page date rules", () => {
     const sitemap = readFileSync("public/sitemap.xml", "utf8");
     for (const match of sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
       const block = match[1];
+      if (!block) throw new Error("Missing sitemap URL block");
       const path = block.match(/<loc>https:\/\/dyslexiaindefence.com([^<]*)<\/loc>/)?.[1];
       if (!path || !getPageDate(path)) continue;
       expect(block.match(/<lastmod>([^<]+)<\/lastmod>/)?.[1], path).toBe(getPageDate(path));

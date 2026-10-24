@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Add shared page dates and the evidence as-at line with matching metadata and sitemap dates; verify exclusions.
+- [x] Add shared page dates and the evidence as-at line with matching metadata and sitemap dates; verify exclusions.
 
 - [x] Replace the survey HTML exactly and verify unlisted status and crawl blocks.
 - [x] Update privacy and safeguarding notices with supplied survey rules.
