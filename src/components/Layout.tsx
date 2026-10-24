@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import NextSteps from "@/components/NextSteps";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CookieBanner from "@/components/CookieBanner";
+import LastUpdated from "@/components/LastUpdated";
 
 // Pages where the global "What to do next" block would be redundant
 const NEXT_STEPS_SKIP = new Set<string>(["/", "/join", "/community"]);
@@ -44,6 +45,7 @@ const Layout = () => {
       <main>
         <Outlet />
         {showNextSteps && <NextSteps />}
+        <LastUpdated />
       </main>
       <Footer />
       <CookieBanner />
