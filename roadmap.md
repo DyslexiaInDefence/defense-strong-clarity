@@ -1,7 +1,7 @@
 # Roadmap
 
-- [ ] Add Why We Are Here and its requested navigation, metadata, dates and discovery entries only.
-- [ ] Verify the three level visual, source links, reduced motion and desktop/mobile presentation without publishing.
+- [x] Add Why We Are Here and its requested navigation, metadata, dates and discovery entries only.
+- [x] Verify the three level visual, source links, reduced motion and desktop/mobile presentation without publishing.
 
 - [x] Add shared page dates and the evidence as-at line with matching metadata and sitemap dates; verify exclusions.
 
