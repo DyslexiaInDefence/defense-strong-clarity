@@ -1,0 +1,14 @@
+.whyhere-hero canvas {
+  --ribbon-yellow: var(--primary);
+  --ribbon-blue: var(--primary);
+  --ribbon-red: var(--primary);
+  --ribbon-green: var(--primary);
+}
+.whyhere-page a:focus-visible { outline-color: hsl(var(--primary)); }
+.whyhere-hero a:focus-visible { outline-color: hsl(var(--brand-navy-foreground)); }
+.whyhere-dot { display: block; align-self: center; width: 100%; aspect-ratio: 1; border-radius: 50%; }
+.whyhere-dot-outlined { background: transparent; }
+.whyhere-connector { transform: rotate(90deg); height: 56px; width: 1px; }
+.whyhere-connector > div { transform: rotate(-90deg); }
+.whyhere-bars .bg-muted-foreground { background: hsl(var(--primary) / .45); }
+.whyhere-page .evidence-counter { min-width: 3ch; }

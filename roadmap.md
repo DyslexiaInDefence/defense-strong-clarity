@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Add Why We Are Here and its requested navigation, metadata, dates and discovery entries only.
+- [x] Verify the three level visual, source links, reduced motion and desktop/mobile presentation without publishing.
+
 - [x] Add shared page dates and the evidence as-at line with matching metadata and sitemap dates; verify exclusions.
 
 - [x] Replace the survey HTML exactly and verify unlisted status and crawl blocks.

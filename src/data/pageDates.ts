@@ -2,6 +2,7 @@
 export const PAGE_DATES: Readonly<Record<string, string>> = {
   "/about": "2026-10-24",
   "/about/our-story": "2026-10-24",
+  "/about/why-we-are-here": "2026-10-25",
   "/about/what-we-do": "2026-10-24",
   "/about/faq": "2026-10-24",
   "/about/what-we-want-to-achieve": "2026-10-24",
