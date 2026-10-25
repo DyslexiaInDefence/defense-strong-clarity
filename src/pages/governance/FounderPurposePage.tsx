@@ -14,7 +14,6 @@ const FounderPurposePage = () => (
   <PolicyLayout
     title="Founder & Purpose"
     summary="This page sets out the mission, scope, and boundaries of Dyslexia in Defence, operated by Dyslexia in Defence CIC. It clarifies what the initiative does, what it does not do, and the principles that guide the founder's involvement."
-    lastUpdated="8 August 2026"
     sections={sections}
   >
     <section id="mission">

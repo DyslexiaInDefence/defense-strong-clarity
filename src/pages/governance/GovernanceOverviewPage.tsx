@@ -15,7 +15,6 @@ const GovernanceOverviewPage = () => (
   <PolicyLayout
     title="Governance Overview"
     summary="Dyslexia in Defence is a founder led, independent, volunteer driven initiative operated by Dyslexia in Defence CIC. This page outlines how the initiative is governed, how decisions are made, and the principles that guide its operation."
-    lastUpdated="8 August 2026"
     sections={sections}
   >
     <section id="founder-led">

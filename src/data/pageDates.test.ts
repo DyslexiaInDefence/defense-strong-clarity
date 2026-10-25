@@ -12,9 +12,19 @@ function routeFiles(directory: string): string[] {
 }
 
 describe("Page date rules", () => {
-  it("seeds every mapped page with 24 October 2026", () => {
+  it("maps every page to its honest content date", () => {
     expect(Object.keys(PAGE_DATES)).toHaveLength(38);
-    for (const date of Object.values(PAGE_DATES)) expect(date).toBe("2026-10-24");
+    for (const [path, date] of Object.entries(PAGE_DATES)) {
+      if (path.startsWith("/governance")) continue;
+      expect(date, path).toBe("2026-10-24");
+    }
+    expect(PAGE_DATES["/governance"]).toBe("2026-08-08");
+    expect(PAGE_DATES["/governance/founder"]).toBe("2026-08-08");
+    expect(PAGE_DATES["/governance/sponsorship"]).toBe("2026-03-01");
+    expect(PAGE_DATES["/governance/transparency"]).toBe("2026-03-01");
+    expect(PAGE_DATES["/governance/code-of-conduct"]).toBe("2026-03-01");
+    expect(PAGE_DATES["/governance/safeguarding"]).toBe("2026-11-02");
+    expect(PAGE_DATES["/governance/privacy"]).toBe("2026-11-02");
     expect(formatPageDate("2026-10-24")).toBe("24 October 2026");
   });
 
@@ -24,7 +34,7 @@ describe("Page date rules", () => {
       if (!text.includes("component:") || path.endsWith("__root.tsx")) continue;
       const route = text.match(/createFileRoute\("([^"]+)"\)/)?.[1]?.replace(/\/$/, "");
       if (!route || route === "/evidence" || route.startsWith("/newsletters/")) continue;
-      expect(getPageDate(route), route).toBe("2026-10-24");
+      expect(getPageDate(route), route).toBeDefined();
     }
   });
 

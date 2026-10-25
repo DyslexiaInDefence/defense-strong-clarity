@@ -15,7 +15,6 @@ const SafeguardingPage = () => (
   <PolicyLayout
     title="Safeguarding & Support"
     summary="Dyslexia in Defence takes safeguarding seriously. This page sets out the limits of the initiative's responsibility, how concerns are handled, and where to find professional support."
-    lastUpdated="2 November 2026"
     sections={sections}
   >
     <section id="limits">

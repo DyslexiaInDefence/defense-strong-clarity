@@ -15,7 +15,6 @@ const CodeOfConductPage = () => (
   <PolicyLayout
     title="Code of Conduct"
     summary="This Code of Conduct sets out the behavioural expectations for everyone who participates in Dyslexia in Defence. It exists to maintain a safe, respectful, and constructive environment for all members of the community."
-    lastUpdated="1 March 2026"
     sections={sections}
   >
     <section id="expectations">
