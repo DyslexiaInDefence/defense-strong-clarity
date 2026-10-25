@@ -17,6 +17,7 @@ describe("Page date rules", () => {
     for (const [path, date] of Object.entries(PAGE_DATES)) {
       if (path.startsWith("/governance")) continue;
       if (path === "/about/why-we-are-here") continue;
+      if (path === "/contact") continue;
       expect(date, path).toBe("2026-10-24");
     }
     expect(PAGE_DATES["/governance"]).toBe("2026-08-08");
@@ -26,6 +27,7 @@ describe("Page date rules", () => {
     expect(PAGE_DATES["/governance/code-of-conduct"]).toBe("2026-03-01");
     expect(PAGE_DATES["/governance/safeguarding"]).toBe("2026-11-02");
     expect(PAGE_DATES["/governance/privacy"]).toBe("2026-11-02");
+    expect(PAGE_DATES["/contact"]).toBe("2026-10-25");
     expect(formatPageDate("2026-10-24")).toBe("24 October 2026");
   });
 
