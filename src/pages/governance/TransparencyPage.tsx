@@ -13,7 +13,6 @@ const TransparencyPage = () => (
   <PolicyLayout
     title="Transparency Commitment"
     summary="Dyslexia in Defence is committed to operating openly, honestly, and accountably. This page sets out how the initiative approaches transparency across its governance, finances, and operations."
-    lastUpdated="1 March 2026"
     sections={sections}
   >
     <section id="legal-status">

@@ -11,7 +11,6 @@ interface Section {
 interface PolicyLayoutProps {
   title: string;
   summary: string;
-  lastUpdated: string;
   sections: Section[];
   children: React.ReactNode;
 }
@@ -39,7 +38,7 @@ export const Callout = ({ children, variant = "info" }: { children: React.ReactN
   );
 };
 
-const PolicyLayout = ({ title, summary, lastUpdated, sections, children }: PolicyLayoutProps) => {
+const PolicyLayout = ({ title, summary, sections, children }: PolicyLayoutProps) => {
   const [activeSection, setActiveSection] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -183,11 +182,6 @@ const PolicyLayout = ({ title, summary, lastUpdated, sections, children }: Polic
               >
                 contact@dyslexiaindefence.com
               </a>
-            </div>
-
-            {/* Last updated */}
-            <div className="mt-10 pt-6 border-t border-border">
-              <p className="text-sm text-muted-foreground">Last updated: {lastUpdated}</p>
             </div>
           </main>
         </div>

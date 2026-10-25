@@ -15,7 +15,6 @@ const SponsorshipPage = () => (
   <PolicyLayout
     title="Sponsorship Principles"
     summary="This page sets out the principles that govern any current or future sponsorship of Dyslexia in Defence. These principles exist to protect the initiative's independence, credibility, and the trust of its community."
-    lastUpdated="1 March 2026"
     sections={sections}
   >
     <section id="purpose">

@@ -20,7 +20,6 @@ const PrivacyNoticePage = () => (
   <PolicyLayout
     title="Privacy Notice"
     summary="This Privacy Notice explains how Dyslexia in Defence CIC collects, uses, and protects personal data. It is written in plain English and reflects our commitment to responsible data handling in line with UK data protection law."
-    lastUpdated="2 November 2026"
     sections={sections}
   >
     <section id="summary">
