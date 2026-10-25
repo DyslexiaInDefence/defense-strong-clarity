@@ -28,6 +28,7 @@ import { Route as AboutFaqRouteImport } from './routes/about/faq'
 import { Route as AboutOurStoryRouteImport } from './routes/about/our-story'
 import { Route as AboutWhatWeDoRouteImport } from './routes/about/what-we-do'
 import { Route as AboutWhatWeWantToAchieveRouteImport } from './routes/about/what-we-want-to-achieve'
+import { Route as AboutWhyWeAreHereRouteImport } from './routes/about/why-we-are-here'
 import { Route as CurrentlyServingIndexRouteImport } from './routes/currently-serving/index'
 import { Route as CurrentlyServingArmyEducationCentresRouteImport } from './routes/currently-serving/army-education-centres'
 import { Route as CurrentlyServingStandardLearningCreditsRouteImport } from './routes/currently-serving/standard-learning-credits'
@@ -154,6 +155,11 @@ const AboutWhatWeWantToAchieveRoute =
     path: '/about/what-we-want-to-achieve',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AboutWhyWeAreHereRoute = AboutWhyWeAreHereRouteImport.update({
+  id: '/about/why-we-are-here',
+  path: '/about/why-we-are-here',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CurrentlyServingIndexRoute = CurrentlyServingIndexRouteImport.update({
   id: '/currently-serving/',
   path: '/currently-serving/',
@@ -335,6 +341,7 @@ export interface FileRoutesByFullPath {
   '/about/our-story': typeof AboutOurStoryRoute
   '/about/what-we-do': typeof AboutWhatWeDoRoute
   '/about/what-we-want-to-achieve': typeof AboutWhatWeWantToAchieveRoute
+  '/about/why-we-are-here': typeof AboutWhyWeAreHereRoute
   '/currently-serving/army-education-centres': typeof CurrentlyServingArmyEducationCentresRoute
   '/currently-serving/standard-learning-credits': typeof CurrentlyServingStandardLearningCreditsRoute
   '/governance/code-of-conduct': typeof GovernanceCodeOfConductRoute
@@ -385,6 +392,7 @@ export interface FileRoutesByTo {
   '/about/our-story': typeof AboutOurStoryRoute
   '/about/what-we-do': typeof AboutWhatWeDoRoute
   '/about/what-we-want-to-achieve': typeof AboutWhatWeWantToAchieveRoute
+  '/about/why-we-are-here': typeof AboutWhyWeAreHereRoute
   '/currently-serving/army-education-centres': typeof CurrentlyServingArmyEducationCentresRoute
   '/currently-serving/standard-learning-credits': typeof CurrentlyServingStandardLearningCreditsRoute
   '/governance/code-of-conduct': typeof GovernanceCodeOfConductRoute
@@ -436,6 +444,7 @@ export interface FileRoutesById {
   '/about/our-story': typeof AboutOurStoryRoute
   '/about/what-we-do': typeof AboutWhatWeDoRoute
   '/about/what-we-want-to-achieve': typeof AboutWhatWeWantToAchieveRoute
+  '/about/why-we-are-here': typeof AboutWhyWeAreHereRoute
   '/currently-serving/army-education-centres': typeof CurrentlyServingArmyEducationCentresRoute
   '/currently-serving/standard-learning-credits': typeof CurrentlyServingStandardLearningCreditsRoute
   '/governance/code-of-conduct': typeof GovernanceCodeOfConductRoute
@@ -488,6 +497,7 @@ export interface FileRouteTypes {
     | '/about/our-story'
     | '/about/what-we-do'
     | '/about/what-we-want-to-achieve'
+    | '/about/why-we-are-here'
     | '/currently-serving/army-education-centres'
     | '/currently-serving/standard-learning-credits'
     | '/governance/code-of-conduct'
@@ -538,6 +548,7 @@ export interface FileRouteTypes {
     | '/about/our-story'
     | '/about/what-we-do'
     | '/about/what-we-want-to-achieve'
+    | '/about/why-we-are-here'
     | '/currently-serving/army-education-centres'
     | '/currently-serving/standard-learning-credits'
     | '/governance/code-of-conduct'
@@ -588,6 +599,7 @@ export interface FileRouteTypes {
     | '/about/our-story'
     | '/about/what-we-do'
     | '/about/what-we-want-to-achieve'
+    | '/about/why-we-are-here'
     | '/currently-serving/army-education-centres'
     | '/currently-serving/standard-learning-credits'
     | '/governance/code-of-conduct'
@@ -639,6 +651,7 @@ export interface RootRouteChildren {
   AboutOurStoryRoute: typeof AboutOurStoryRoute
   AboutWhatWeDoRoute: typeof AboutWhatWeDoRoute
   AboutWhatWeWantToAchieveRoute: typeof AboutWhatWeWantToAchieveRoute
+  AboutWhyWeAreHereRoute: typeof AboutWhyWeAreHereRoute
   CurrentlyServingArmyEducationCentresRoute: typeof CurrentlyServingArmyEducationCentresRoute
   CurrentlyServingStandardLearningCreditsRoute: typeof CurrentlyServingStandardLearningCreditsRoute
   GovernanceCodeOfConductRoute: typeof GovernanceCodeOfConductRoute
@@ -804,6 +817,13 @@ declare module '@tanstack/react-router' {
       path: '/about/what-we-want-to-achieve'
       fullPath: '/about/what-we-want-to-achieve'
       preLoaderRoute: typeof AboutWhatWeWantToAchieveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/why-we-are-here': {
+      id: '/about/why-we-are-here'
+      path: '/about/why-we-are-here'
+      fullPath: '/about/why-we-are-here'
+      preLoaderRoute: typeof AboutWhyWeAreHereRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/currently-serving/': {
@@ -1031,6 +1051,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutOurStoryRoute: AboutOurStoryRoute,
   AboutWhatWeDoRoute: AboutWhatWeDoRoute,
   AboutWhatWeWantToAchieveRoute: AboutWhatWeWantToAchieveRoute,
+  AboutWhyWeAreHereRoute: AboutWhyWeAreHereRoute,
   CurrentlyServingArmyEducationCentresRoute:
     CurrentlyServingArmyEducationCentresRoute,
   CurrentlyServingStandardLearningCreditsRoute:
