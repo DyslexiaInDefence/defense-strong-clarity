@@ -23,10 +23,10 @@ const contactMethods = [
   },
   {
     icon: LinkedInIcon,
-    title: "LinkedIn Community",
-    description: "Connect with the wider Dyslexia in Defence community on LinkedIn.",
-    link: "https://www.linkedin.com/groups/19133015",
-    display: "linkedin.com/groups/19133015",
+    title: "LinkedIn",
+    description: "Follow Dyslexia in Defence on LinkedIn for news, updates and events.",
+    link: "https://www.linkedin.com/company/dyslexia-in-defence-cic/",
+    display: "Dyslexia in Defence on LinkedIn",
     external: true,
   },
   {
