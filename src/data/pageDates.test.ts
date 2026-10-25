@@ -13,9 +13,10 @@ function routeFiles(directory: string): string[] {
 
 describe("Page date rules", () => {
   it("maps every page to its honest content date", () => {
-    expect(Object.keys(PAGE_DATES)).toHaveLength(38);
+    expect(Object.keys(PAGE_DATES)).toHaveLength(39);
     for (const [path, date] of Object.entries(PAGE_DATES)) {
       if (path.startsWith("/governance")) continue;
+      if (path === "/about/why-we-are-here") continue;
       expect(date, path).toBe("2026-10-24");
     }
     expect(PAGE_DATES["/governance"]).toBe("2026-08-08");
@@ -26,6 +27,13 @@ describe("Page date rules", () => {
     expect(PAGE_DATES["/governance/safeguarding"]).toBe("2026-11-02");
     expect(PAGE_DATES["/governance/privacy"]).toBe("2026-11-02");
     expect(formatPageDate("2026-10-24")).toBe("24 October 2026");
+  });
+
+  it("dates Why We Are Here to its first content publication on 25 October 2026", () => {
+    expect(getPageDate("/about/why-we-are-here")).toBe("2026-10-25");
+    expect(formatPageDate(getPageDate("/about/why-we-are-here") ?? "")).toBe("25 October 2026");
+    const head = pageHead("/about/why-we-are-here");
+    expect(JSON.parse(head.scripts?.[0]?.children ?? "{}").dateModified).toBe("2026-10-25");
   });
 
   it("covers every content route except the homepage, newsletters and evidence", () => {

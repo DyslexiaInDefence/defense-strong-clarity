@@ -43,6 +43,12 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.8,
     indexable: true,
   },
+  "/about/why-we-are-here": {
+    title: "Why we are here | Dyslexia in Defence",
+    description: "Defence has more dyslexic people than most workplaces but a weaker legal safety net around them. This is the gap Dyslexia in Defence exists to close.",
+    priority: 0.8,
+    indexable: true,
+  },
   "/about/faq": {
     title: "Dyslexia & Armed Forces FAQ UK | Dyslexia in Defence",
     description: "Common questions about dyslexia and the UK Armed Forces — joining, serving, and leaving service. Clear answers for each pathway.",

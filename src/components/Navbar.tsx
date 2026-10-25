@@ -15,6 +15,7 @@ const navLinks: NavItem[] = [
     to: "/about",
     children: [
       { label: "Our Story", to: "/about/our-story" },
+      { label: "Why We Are Here", to: "/about/why-we-are-here" },
       { label: "What We Do", to: "/about/what-we-do" },
       { label: "What We Want to Achieve", to: "/about/what-we-want-to-achieve" },
       { label: "FAQ", to: "/about/faq" },

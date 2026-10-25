@@ -8,6 +8,7 @@ Dyslexia in Defence is volunteer-led and not affiliated with the Ministry of Def
 
 - [About Us](/about): Mission, governance and CIC registration details.
 - [Our Story](/about/our-story): How Dyslexia in Defence started and who it serves today.
+- [Why We Are Here](/about/why-we-are-here): Why Defence attracts dyslexic people but offers a weaker legal safety net, and the gap Dyslexia in Defence exists to close.
 - [What We Do](/about/what-we-do): Guidance, community and the case for dyslexia awareness across UK Defence.
 - [FAQ](/about/faq): Questions grouped by joining, serving and leaving service.
 - [Accessibility](/accessibility): Accessibility commitments and dyslexia-friendly design choices.
