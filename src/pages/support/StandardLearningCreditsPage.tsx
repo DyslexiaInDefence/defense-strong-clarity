@@ -64,8 +64,12 @@ const StandardLearningCreditsPage = () => {
           Using Standard Learning Credits for a dyslexia assessment
         </h1>
         <p className="mb-6 text-lg text-muted-foreground">
-          The Standard Learning Credits (SLC) Scheme provides financial support throughout your career to enhance your
+          The Standard Learning Credits (SLC) or Enhanced Learning Credits (ELC) Scheme provides financial support throughout your career to enhance your
           educational and vocational achievements in Service. SLCs can be used to obtain a dyslexia assessment.
+        </p>
+        <p className="mb-6 text-lg text-muted-foreground">
+          Before using SLC, ask your SpLD Advisor or Army Education Centre whether your Service can fund the assessment.
+          JSP 822 Vol 7 (paras 2.1.9 and 2.3.1) requires Services to fund specialist assessment where required.
         </p>
 
         <section aria-labelledby="cost-heading" className="mb-12">
@@ -88,7 +92,7 @@ const StandardLearningCreditsPage = () => {
                   <th scope="col" className="px-4 py-3">Assessment option</th>
                   <th scope="col" className="px-4 py-3">Total cost</th>
                   <th scope="col" className="px-4 py-3">SLC pays</th>
-                  <th scope="col" className="px-4 py-3">You pay</th>
+                  <th scope="col" className="px-4 py-3">You pay if self-funding with SLC alone</th>
                   <th scope="col" className="px-4 py-3">Application form</th>
                 </tr>
               </thead>
@@ -324,7 +328,8 @@ const StandardLearningCreditsPage = () => {
           <p className="text-sm text-foreground">
             Assessment routes are listed by Dyslexia in Defence. Being listed is not an endorsement by the Ministry of
             Defence or the Army. Please check that any assessment route meets the requirements of your unit and funding
-            route before booking.
+            route before booking. MOD-funded assessments follow MOD requirements (JSP 822 Vol 7, Annex B), so check with
+            your SpLD Advisor before self-funding.
           </p>
         </div>
       </div>

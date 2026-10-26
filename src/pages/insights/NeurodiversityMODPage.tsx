@@ -26,7 +26,7 @@ const NeurodiversityMODPage = () => (
       intent="serving"
       bullets={[
         "Yes — neurodiversity is formally recognised, with BDA Bronze recognition and active D&I and staff networks.",
-        "It depends on which part of Defence you’re in — Armed Forces, Civil Service, contractors and industry partners are all covered, but routes differ.",
+        "It depends on which part of Defence you’re in — the Armed Forces and Civil Service have separate routes, and contractors and industry partners depend on their employer.",
         "In reality, support is real and improving — but most people get the most value from peer networks alongside the formal channels.",
       ]}
       links={[
@@ -62,7 +62,7 @@ const NeurodiversityMODPage = () => (
       <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
         <li>Text-to-speech and speech-to-text software, screen readers, coloured overlays.</li>
         <li>Noise-cancelling headphones, flexible working patterns.</li>
-        <li>Additional time for exams and assessments.</li>
+        <li>Additional time for some exams and assessments, depending on Service, establishment and qualification.</li>
         <li>Workplace needs assessments through line management or occupational health.</li>
         <li>Internal neurodiversity staff networks for peer support — military and civilian.</li>
       </ul>
@@ -87,7 +87,7 @@ const NeurodiversityMODPage = () => (
       <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
         <li><strong>The MOD doesn’t take neurodiversity seriously.</strong> BDA Bronze recognition and dedicated D&I teams say otherwise.</li>
         <li><strong>Neurodiverse personnel can’t reach senior positions.</strong> They serve at senior ranks and grades across the MOD.</li>
-        <li><strong>Only military personnel are supported.</strong> Civil servants, contractors and industry partners are also covered.</li>
+        <li><strong>Only military personnel are supported.</strong> Civil servants have their own route through the MOD Disability Toolkit. JSP 822 Vol 7 is written for Service personnel, and contractors and industry partners depend on their employer.</li>
       </ul>
     </section>
 

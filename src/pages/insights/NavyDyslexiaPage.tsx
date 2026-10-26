@@ -17,7 +17,7 @@ const NavyDyslexiaPage = () => (
       Having dyslexia does not stop you joining the Royal Navy or the Royal Marines.
     </p>
     <p className="text-lg text-foreground leading-relaxed mb-8">
-      You will need to meet the same recruitment and performance standards as every candidate. Where you declare a diagnosis, reasonable adjustments are available from selection through to senior career stages.
+      You will need to meet the same recruitment and performance standards as every candidate. Where you have a diagnosis, support may be available. What’s offered varies.
     </p>
 
     <DecisionConfidenceBlock
@@ -26,7 +26,7 @@ const NavyDyslexiaPage = () => (
       bullets={[
         "Yes — dyslexic sailors, Royal Marines and officers serve at every rank.",
         "It depends on meeting the standard Recruiting Test, fitness and medical requirements — not on whether you’re dyslexic.",
-        "Declare a diagnosis and you can request adjustments such as additional time on written elements at selection.",
+        "If you have a diagnosis, you can ask about adjustments such as additional time on written elements at selection. Confirm with your recruiter.",
       ]}
       links={[
         { label: "Ask the Community", to: "/community" },
@@ -88,7 +88,7 @@ const NavyDyslexiaPage = () => (
     <section className="mb-2">
       <h2 className="text-2xl font-bold text-foreground mb-4">Reassurance</h2>
       <p className="text-foreground leading-relaxed">
-        Dyslexic personnel are already a valued part of the Naval Service and serve at every rank. The MOD has signed the British Dyslexia Association’s Dyslexia Friendly Workplace Pledge — declare, use the adjustments available, and focus on what you bring to the fleet.
+        Dyslexic personnel are already a valued part of the Naval Service and serve at every rank. The MOD has signed the British Dyslexia Association’s Dyslexia Friendly Workplace Pledge — declare, use the support available, and focus on what you bring to the fleet.
       </p>
     </section>
   </InsightLayout>

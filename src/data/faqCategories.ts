@@ -56,7 +56,7 @@ export const intentCategories: FaqCategory[] = [
       },
       {
         question: "What happens if dyslexia is identified during service?",
-        answer: "You can self-refer through your chain of command and your service’s education or learning support provision. An assessment can help you understand your strengths and plan coping strategies. Support after that varies by service. It does not end careers.",
+        answer: "You can ask your SpLD Advisor, through your chain of command and your service’s education or learning support team, about screening and assessment. An assessment can help you understand your strengths and plan coping strategies. Support after that varies by service. Being dyslexic is not in itself a bar to serving.",
         link: "/insights/what-happens-if-dyslexia-is-identified-during-service-uk",
       },
       {
@@ -74,7 +74,7 @@ export const intentCategories: FaqCategory[] = [
     items: [
       {
         question: "JSP 822 vs the Equality Act — what changes when you leave?",
-        answer: "Leaving the military shifts your dyslexia rights from JSP 822 (policy-based, internal) to the Equality Act 2010 (legally enforceable in civilian employment). Know the difference before you transition.",
+        answer: "Leaving the military shifts your dyslexia support from Defence training policy, JSP 822 (internal) to the Equality Act 2010 (legally enforceable in civilian employment). Know the difference before you transition.",
         link: "/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk",
       },
     ],

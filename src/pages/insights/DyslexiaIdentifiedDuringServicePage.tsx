@@ -12,7 +12,7 @@ const DyslexiaIdentifiedDuringServicePage = () => (
     preCtaLine="You don’t need to disclose anything today — start by talking to someone who’s already been through it."
   >
     <p className="text-lg text-foreground leading-relaxed mb-4">
-      If dyslexia is identified while you’re serving, nothing automatically changes about your career. You don’t have to declare it unless it affects your training or work, and you can’t be discharged for being dyslexic.
+      If dyslexia is identified while you’re serving, nothing automatically changes about your career. You don’t have to declare it unless it affects your training or work. Being dyslexic is not in itself a reason to be discharged, but you still need to meet the required standards.
     </p>
     <p className="text-base text-foreground leading-relaxed mb-4">
       Nothing automatically changes about your role, posting or career path.
@@ -25,8 +25,8 @@ const DyslexiaIdentifiedDuringServicePage = () => (
       heading="What actually happens if dyslexia comes up mid-career?"
       intent="serving"
       bullets={[
-        "Nothing automatic — you can’t be discharged or downgraded simply because you’re dyslexic.",
-        "It depends on whether it affects your training or duties — at that point, you do need to inform your chain of command.",
+        "Nothing automatic — being dyslexic is not in itself grounds for discharge or downgrading, but the required standards still apply.",
+        "It depends on whether it affects your training or duties — at that point, you’re advised to tell your chain of command.",
         "In reality, identification opens access to assessment, adjustments and peer support — it doesn’t close doors.",
       ]}
       links={[
@@ -38,14 +38,14 @@ const DyslexiaIdentifiedDuringServicePage = () => (
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">What the policy says — and the process</h2>
       <p className="text-foreground leading-relaxed mb-4">
-        JSP 822 (Vol 7) is the military’s policy on Specific Learning Differences. The key points if dyslexia is identified mid-career:
+        JSP 822 (Vol 7) is Defence’s policy on Specific Learning Differences in training. Each Service has its own localised version. The key points if dyslexia is identified mid-career:
       </p>
       <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
         <li>You are <strong>not required</strong> to inform your line manager, trainer or commander if it doesn’t affect your training or work.</li>
-        <li>If it does affect your duties, it’s your responsibility to tell your chain of command.</li>
-        <li>You can request a dyslexia assessment through your chain of command and your service’s education or learning support provision (for example Army Education Centres in the Army).</li>
-        <li>Reasonable adjustments — extra time, assistive technology, workplace needs assessments — can be put in place.</li>
-        <li>Identification is not grounds for discharge or career limitation.</li>
+        <li>If it does affect your work or training, you’re advised to tell your chain of command so support can be signposted or provided (JSP 822 Vol 7, paras 2.1.6 and 2.1.13).</li>
+        <li>You can ask your SpLD Advisor, through your chain of command and your service’s education or learning support team (for example Army Education Centres in the Army), about screening and, if needed, a formal assessment.</li>
+        <li>Support may include specialist advice, coaching, assistive technology and, for exams at Defence training establishments, access arrangements (JCQ Form 8), where feasible within Service and resource constraints.</li>
+        <li>Identification is not in itself grounds for discharge or career limitation. If someone can’t meet the required standards despite feasible support, they may be moved to a more suitable role or discharged (JSP 822 Vol 7, para 2.1.4).</li>
       </ul>
     </section>
 
@@ -85,7 +85,7 @@ const DyslexiaIdentifiedDuringServicePage = () => (
     <section className="mb-2">
       <h2 className="text-2xl font-bold text-foreground mb-4">Reassurance</h2>
       <p className="text-foreground leading-relaxed">
-        Identification doesn’t end careers — it usually opens doors. You stay in control of when, how and to whom you share it.
+        Identification doesn’t in itself end careers, and for many people it opens the door to support. You stay in control of when, how and to whom you share it.
       </p>
     </section>
   </InsightLayout>
