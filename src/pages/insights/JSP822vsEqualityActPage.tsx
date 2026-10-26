@@ -57,6 +57,7 @@ const JSP822vsEqualityActPage = () => (
         </a>
       </p>
       <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
+        <li>JSP 822 Vol 7 covers Specific Learning Differences in training within Defence and is written for Service personnel.</li>
         <li>Dyslexia sits within Specific Learning Differences (SpLD) and wider neurodiversity.</li>
         <li>It’s recognised as a normal variation in how people think and learn.</li>
         <li>Dyslexia is not a bar to recruitment or service, provided required standards are met.</li>
