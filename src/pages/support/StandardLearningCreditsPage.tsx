@@ -9,7 +9,15 @@ import { assessmentRoutes } from "@/data/assessors";
 
 const SLC_COST_DATE = "26 October 2026";
 // Each option carries its own application form so the table row and its download button stay in sync.
-const SLC_COST_OPTIONS = [
+const SLC_COST_OPTIONS: {
+  name: string;
+  detail: string;
+  total: string;
+  slc: string;
+  you: string;
+  note?: string;
+  form: { url: string; filename: string; label: string };
+}[] = [
   {
     name: "Option 1: Level 1 screening",
     detail: "A brief online check and short report. Not a diagnosis. Roughly 1 hour.",
@@ -32,6 +40,7 @@ const SLC_COST_OPTIONS = [
     total: "£495",
     slc: "£175",
     you: "£320",
+    note: "£195 less than the BDA (£690)",
     form: { url: slcFull.url, filename: "SLC_Application_Sarah_Hickinbotham_Full_Diagnostic_Assessment_V1.docx", label: "Download the full diagnostic assessment form (Word)" },
   },
 ];
@@ -103,9 +112,12 @@ const StandardLearningCreditsPage = () => {
                       <span className="block">{o.name}</span>
                       <span className="mt-1 block text-sm font-normal text-muted-foreground">{o.detail}</span>
                     </th>
-                    <td className="px-4 py-3">{o.total}</td>
+                    <td className="px-4 py-3">
+                      <span className="block">{o.total}</span>
+                      {o.note && <span className="mt-1 block text-sm text-primary">{o.note}</span>}
+                    </td>
                     <td className="px-4 py-3">{o.slc}</td>
-                    <td className="px-4 py-3">{o.you}</td>
+                    <td className="px-4 py-3 text-lg font-bold text-foreground">{o.you}</td>
                     <td className="px-4 py-3">
                       <Button asChild size="sm" variant="outline" className="min-h-11 whitespace-nowrap rounded-full font-semibold">
                         <a href={o.form.url} download={o.form.filename} aria-label={o.form.label}>
