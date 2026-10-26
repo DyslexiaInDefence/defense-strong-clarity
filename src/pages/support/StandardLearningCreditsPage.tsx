@@ -9,7 +9,15 @@ import { assessmentRoutes } from "@/data/assessors";
 
 const SLC_COST_DATE = "26 October 2026";
 // Each option carries its own application form so the table row and its download button stay in sync.
-const SLC_COST_OPTIONS = [
+const SLC_COST_OPTIONS: {
+  name: string;
+  detail: string;
+  total: string;
+  slc: string;
+  you: string;
+  note?: string;
+  form: { url: string; filename: string; label: string };
+}[] = [
   {
     name: "Option 1: Level 1 screening",
     detail: "A brief online check and short report. Not a diagnosis. Roughly 1 hour.",
@@ -32,6 +40,7 @@ const SLC_COST_OPTIONS = [
     total: "£495",
     slc: "£175",
     you: "£320",
+    note: "£195 less than the BDA (£690)",
     form: { url: slcFull.url, filename: "SLC_Application_Sarah_Hickinbotham_Full_Diagnostic_Assessment_V1.docx", label: "Download the full diagnostic assessment form (Word)" },
   },
 ];
