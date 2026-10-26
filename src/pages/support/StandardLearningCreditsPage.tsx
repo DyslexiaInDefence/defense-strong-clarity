@@ -44,7 +44,7 @@ const SLC_COST_OPTIONS: {
     total: "£495",
     slc: "£175",
     you: "£320",
-    note: "(£690 through the British Dyslexia Association)",
+    note: "(£690 through the BDA)",
     form: { url: slcFull.url, filename: "SLC_Application_Sarah_Hickinbotham_Full_Diagnostic_Assessment_V1.docx", label: "Download the full diagnostic assessment form (Word)" },
   },
 ];
@@ -105,7 +105,7 @@ const StandardLearningCreditsPage = () => {
               <thead className="bg-muted">
                 <tr className="text-sm font-bold text-foreground [overflow-wrap:anywhere]">
                   <th scope="col" className="px-2 py-3 sm:px-4">Assessment option</th>
-                  <th scope="col" className="px-2 py-3 sm:px-4">You pay if self-funding with SLC alone</th>
+                  <th scope="col" className="px-2 py-3 sm:px-4">You pay (full SLC commitment)</th>
                   <th scope="col" className="px-2 py-3 sm:px-4">SLC pays</th>
                   <th scope="col" className="px-2 py-3 sm:px-4">Total cost</th>
                 </tr>
@@ -116,10 +116,10 @@ const StandardLearningCreditsPage = () => {
                     <th scope="row" className="px-2 py-3 font-semibold text-foreground sm:px-4 [overflow-wrap:anywhere]">
                       <span className="block">{o.name}</span>
                       <span className="mt-1 block text-sm font-normal text-muted-foreground">{o.detail}</span>
-                      <Button asChild size="sm" variant="outline" className="mt-3 min-h-11 h-auto w-full gap-1 whitespace-normal rounded-full px-2 py-2 text-sm font-semibold sm:w-auto">
+                      <Button asChild size="sm" variant="outline" className="mt-3 min-h-10 h-auto w-full justify-center gap-1 whitespace-normal rounded-full px-2 py-1.5 text-center text-sm font-semibold">
                         <a href={o.form.url} download={o.form.filename} aria-label={o.form.label}>
                           <Download className="h-4 w-4 shrink-0" aria-hidden="true" />
-                          <span className="min-w-0 [overflow-wrap:normal]">Download application form</span>
+                          <span className="min-w-0 [overflow-wrap:normal]">Download SLC form</span>
                         </a>
                       </Button>
                     </th>
@@ -292,7 +292,7 @@ const StandardLearningCreditsPage = () => {
               <li>signatures</li>
               <li>the line manager and Ed Staff sections</li>
             </ul>
-            <Button asChild size="lg" className="rounded-full px-8 text-base font-bold">
+            <Button asChild size="lg" className="h-auto min-h-12 w-full whitespace-normal rounded-full px-4 text-center text-base font-bold sm:w-auto sm:px-8">
               <a href={slcTemplate.url} download="SLC_Application_Template_Dyslexia_Assessment.docx">
                 <Download className="mr-2 h-5 w-5" aria-hidden="true" />
                 Download the template (Word)
