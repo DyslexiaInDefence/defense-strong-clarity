@@ -99,7 +99,7 @@ const StandardLearningCreditsPage = () => {
               <thead className="bg-muted">
                 <tr className="text-sm font-bold text-foreground">
                   <th scope="col" className="px-4 py-3">Assessment option</th>
-                  <th scope="col" className="px-4 py-3">Total cost</th>
+                  <th scope="col" className="w-40 px-4 py-3">Total cost</th>
                   <th scope="col" className="px-4 py-3">SLC pays</th>
                   <th scope="col" className="px-4 py-3">You pay if self-funding with SLC alone</th>
                   <th scope="col" className="px-4 py-3">Application form</th>
@@ -114,7 +114,7 @@ const StandardLearningCreditsPage = () => {
                     </th>
                     <td className="min-w-[10rem] px-4 py-3">
                       <span className="block">{o.total}</span>
-                      {o.note && <span className="mt-1 block whitespace-nowrap text-sm text-primary">{o.note}</span>}
+                      {o.note && <span className="mt-1 block text-sm text-primary">{o.note}</span>}
                     </td>
                     <td className="px-4 py-3">{o.slc}</td>
                     <td className="px-4 py-3 text-lg font-bold text-foreground">{o.you}</td>
