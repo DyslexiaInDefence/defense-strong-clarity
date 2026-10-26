@@ -4,6 +4,13 @@ import { Button } from "@/components/ui/button";
 import slcTemplate from "@/assets/slc-template.docx.asset.json";
 import { assessmentRoutes } from "@/data/assessors";
 
+const SLC_COST_DATE = "26 October 2026";
+const SLC_COST_OPTIONS = [
+  { name: "Option 1: Level 1 screening", detail: "A brief check and short report. Not a diagnosis.", total: "£50", slc: "£40", you: "£10" },
+  { name: "Option 2: Level 2 screening", detail: "A more detailed check and short report. Not a diagnosis.", total: "£150", slc: "£120", you: "£30" },
+  { name: "Option 3: Full diagnostic assessment", detail: "A full day of testing and a detailed 30+ page diagnostic report. Armed Forces rate.", total: "£495", slc: "£175", you: "£320" },
+];
+
 const StandardLearningCreditsPage = () => {
   return (
     <div className="py-16">
@@ -68,42 +75,67 @@ const StandardLearningCreditsPage = () => {
               </caption>
               <thead className="bg-muted">
                 <tr className="text-sm font-bold text-foreground">
-                  <th scope="col" className="px-4 py-3">Assessment route</th>
-                  <th scope="col" className="px-4 py-3">Total cost (inc VAT)</th>
+                  <th scope="col" className="px-4 py-3">Assessment option</th>
+                  <th scope="col" className="px-4 py-3">Total cost</th>
                   <th scope="col" className="px-4 py-3">SLC pays</th>
                   <th scope="col" className="px-4 py-3">You pay</th>
                 </tr>
               </thead>
               <tbody className="text-muted-foreground">
-                <tr className="border-t border-border bg-card">
-                  <th scope="row" className="px-4 py-3 font-semibold text-foreground">Specialist Teacher assessment</th>
-                  <td className="px-4 py-3">£690</td>
-                  <td className="px-4 py-3">£175</td>
-                  <td className="px-4 py-3">£515</td>
-                </tr>
-                <tr className="border-t border-border bg-card">
-                  <th scope="row" className="px-4 py-3 font-semibold text-foreground">Psychologist assessment</th>
-                  <td className="px-4 py-3">£882</td>
-                  <td className="px-4 py-3">£175</td>
-                  <td className="px-4 py-3">£707</td>
-                </tr>
+                {SLC_COST_OPTIONS.map((o) => (
+                  <tr key={o.name} className="border-t border-border bg-card">
+                    <th scope="row" className="px-4 py-3 font-semibold text-foreground">
+                      <span className="block">{o.name}</span>
+                      <span className="mt-1 block text-sm font-normal text-muted-foreground">{o.detail}</span>
+                    </th>
+                    <td className="px-4 py-3">{o.total}</td>
+                    <td className="px-4 py-3">{o.slc}</td>
+                    <td className="px-4 py-3">{o.you}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
-          {/* NOTE FOR FUTURE UPDATES: the date and figures in the note below come from the BDA self funded rates.
-              Update SLCCOST_DATE, SLCCOST_TEACHER, SLCCOST_PSYCH, SLCCOST_SLC, SLCCOST_YOU_TEACHER and
-              SLCCOST_YOU_PSYCH together when the BDA publishes new pricing. */}
+          {/* NOTE FOR FUTURE UPDATES: the table figures come from Sarah Hickinbotham's published information pack
+              (as of SLC_COST_DATE). Update SLC_COST_DATE, SLC_COST_OPTIONS and the paragraphs and savings note below
+              together when the assessor publishes new pricing. The BDA comparison uses the BDA self funded rate as
+              of 28 September 2026 and must be updated separately if BDA pricing changes. */}
           <p className="mt-4 text-base text-muted-foreground">
-            SLC normally covers 80% of the fee, but 80% of either of these assessment costs is well above the £175 per
-            year cap, so £175 is what actually applies. Prices shown are the BDA's current self funded rates as of 28
-            September 2026, correct at time of publishing. Check the BDA website for current pricing before applying.
+            SLC normally covers 80% of the fee, up to a cap of £175 per year. For the two screenings, 80% of the fee is
+            under the cap, so that is what SLC pays. For the full assessment, 80% would be well above the cap, so £175 is
+            what applies. Prices are as published by the assessor as of {SLC_COST_DATE}. The full assessment price shown
+            is the Armed Forces rate (open to serving personnel and veterans); the standard public price is £595. Check
+            with the assessor for current pricing before you apply.
           </p>
+          <p className="mt-3 text-base text-muted-foreground">
+            Screening fees are deducted from the price of a full assessment booked within a month of the screening date.
+            A screening is not a diagnosis.
+          </p>
+          <div className="mt-4 rounded-xl border-l-4 border-primary bg-card p-5">
+            <p className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
+              <Info className="h-5 w-5 text-primary" aria-hidden="true" />
+              How much you save
+            </p>
+            <p className="text-base text-muted-foreground">
+              A full diagnostic assessment through this route is £495 at the Armed Forces rate, compared with £690 for
+              the British Dyslexia Association's specialist teacher assessment (BDA self funded rate as of 28 September
+              2026). That is £195 less. After SLC, you pay £320 instead of £515.
+            </p>
+          </div>
           <p className="mt-3 text-base font-semibold text-foreground">
             We are working with assessors to bring these costs down as far as possible for Service personnel. Check
             back here for updates.
           </p>
         </section>
 
+        <div role="note" className="mb-12 flex gap-3 rounded-xl border border-border bg-muted p-5">
+          <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+          <p className="text-sm text-foreground">
+            Dyslexia in Defence receives no payment, commission, referral fee or any other financial benefit from listing
+            this assessor. No money passes between this assessor and Dyslexia in Defence. The assessor is listed for
+            information only.
+          </p>
+        </div>
 
         <section aria-labelledby="before-heading" className="mb-12 rounded-xl border-l-4 border-primary bg-card p-5">
           <h2 id="before-heading" className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
@@ -141,8 +173,8 @@ const StandardLearningCreditsPage = () => {
         <section aria-labelledby="assessors-heading">
           <h2 id="assessors-heading" className="mb-3 text-2xl font-bold text-foreground">Approved assessors</h2>
           <p className="mb-6 text-base text-muted-foreground">
-            We are building up a list of approved assessors. At the moment, the route to a dyslexia diagnostic assessment
-            is through the British Dyslexia Association (BDA):
+            We are building up a list of assessors. You can get a dyslexia diagnostic assessment through the British
+            Dyslexia Association (BDA), or through the independent assessor listed first below:
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             {assessmentRoutes.map((r) => (
@@ -156,6 +188,7 @@ const StandardLearningCreditsPage = () => {
                 <div>
                   <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">{r.provider}</p>
                   <p className="mb-3 text-base font-bold text-foreground">{r.label}</p>
+                  {r.description ? <p className="mb-3 text-sm text-muted-foreground">{r.description}</p> : null}
                 </div>
                 <span className="inline-flex items-center text-sm font-semibold text-primary">
                   Open link <ExternalLink className="ml-1 h-4 w-4" aria-hidden="true" />
