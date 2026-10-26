@@ -18,8 +18,10 @@ describe("Page date rules", () => {
       if (path.startsWith("/governance")) continue;
       if (path === "/about/why-we-are-here") continue;
       if (path === "/contact") continue;
+      if (path === "/currently-serving/standard-learning-credits") continue;
       expect(date, path).toBe("2026-10-24");
     }
+    expect(PAGE_DATES["/currently-serving/standard-learning-credits"]).toBe("2026-10-26");
     expect(PAGE_DATES["/governance"]).toBe("2026-08-08");
     expect(PAGE_DATES["/governance/founder"]).toBe("2026-08-08");
     expect(PAGE_DATES["/governance/sponsorship"]).toBe("2026-03-01");

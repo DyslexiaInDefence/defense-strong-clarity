@@ -8,7 +8,7 @@ export const PAGE_DATES: Readonly<Record<string, string>> = {
   "/about/what-we-want-to-achieve": "2026-10-24",
   "/support": "2026-10-24",
   "/support/currently-serving": "2026-10-24",
-  "/currently-serving/standard-learning-credits": "2026-10-24",
+  "/currently-serving/standard-learning-credits": "2026-10-26",
   "/currently-serving/army-education-centres": "2026-10-24",
   "/insights": "2026-10-24",
   "/insights/can-you-join-army-with-dyslexia-uk": "2026-10-24",
