@@ -97,10 +97,10 @@ const StandardLearningCreditsPage = () => {
                 Credits pay and total costs
               </caption>
               <colgroup>
-                <col className="w-[38%]" />
+                <col className="w-[40%]" />
                 <col className="w-[20%]" />
                 <col className="w-[16%]" />
-                <col className="w-[26%]" />
+                <col className="w-[24%]" />
               </colgroup>
               <thead className="bg-muted">
                 <tr className="text-sm font-bold text-foreground [overflow-wrap:anywhere]">
@@ -119,7 +119,7 @@ const StandardLearningCreditsPage = () => {
                       <Button asChild size="sm" variant="outline" className="mt-3 min-h-11 h-auto w-full gap-1 whitespace-normal rounded-full px-2 py-2 text-sm font-semibold sm:w-auto">
                         <a href={o.form.url} download={o.form.filename} aria-label={o.form.label}>
                           <Download className="h-4 w-4 shrink-0" aria-hidden="true" />
-                          <span className="min-w-0">Download application form</span>
+                          <span className="min-w-0 [overflow-wrap:normal]">Download application form</span>
                         </a>
                       </Button>
                     </th>
