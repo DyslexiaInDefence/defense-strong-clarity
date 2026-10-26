@@ -1,5 +1,5 @@
 import { Link } from "@/lib/router-compat";
-import { AlertTriangle, ArrowRight, CircleHelp, Download, ExternalLink, Info, Mail } from "lucide-react";
+import { AlertTriangle, ArrowDown, ArrowRight, CircleHelp, Download, ExternalLink, Info, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import slcTemplate from "@/assets/slc-template.docx.asset.json";
 import slcLevel1 from "@/assets/slc-level1.docx.asset.json";
@@ -24,7 +24,7 @@ const SLC_COST_OPTIONS: {
 }[] = [
   {
     name: "Option 1: Level 1 screening",
-    detail: "A brief online check and short report. Not a diagnosis. Roughly 1 hour.",
+    detail: "A brief online check. Not a diagnosis.",
     total: "£50",
     slc: "£40",
     you: "£10",
@@ -32,7 +32,7 @@ const SLC_COST_OPTIONS: {
   },
   {
     name: "Option 2: Level 2 screening",
-    detail: "A more detailed online check and short report. Not a diagnosis. Roughly half a day.",
+    detail: "A more detailed online check. Not a diagnosis.",
     total: "£150",
     slc: "£120",
     you: "£30",
@@ -40,11 +40,11 @@ const SLC_COST_OPTIONS: {
   },
   {
     name: "Option 3: Full diagnostic assessment",
-    detail: "A full online diagnostic assessment and a detailed 30+ page report. Armed Forces rate. Roughly 1 to 2 days.",
+    detail: "A full online diagnostic assessment and report. Armed Forces rate.",
     total: "£495",
     slc: "£175",
     you: "£320",
-    note: "£195 less than the BDA (£690)",
+    note: "(£690 through the British Dyslexia Association)",
     form: { url: slcFull.url, filename: "SLC_Application_Sarah_Hickinbotham_Full_Diagnostic_Assessment_V1.docx", label: "Download the full diagnostic assessment form (Word)" },
   },
 ];
@@ -91,40 +91,47 @@ const StandardLearningCreditsPage = () => {
             Armed Forces rate.
           </p>
           <div className="overflow-x-auto rounded-xl border border-border">
-            <table className="w-full min-w-[44rem] text-left text-base">
+            <table className="w-full table-fixed text-left text-base">
               <caption className="sr-only">
-                Comparison of assessment options, total costs, what Standard Learning Credits pay, what you pay and the
-                application form for each option
+                Comparison of assessment options with their application forms, what you pay, what Standard Learning
+                Credits pay and total costs
               </caption>
+              <colgroup>
+                <col className="w-[40%]" />
+                <col className="w-[20%]" />
+                <col className="w-[18%]" />
+                <col className="w-[22%]" />
+              </colgroup>
               <thead className="bg-muted">
-                <tr className="text-sm font-bold text-foreground">
-                  <th scope="col" className="px-4 py-3">Assessment option</th>
-                  <th scope="col" className="px-4 py-3">Total cost</th>
-                  <th scope="col" className="px-4 py-3">SLC pays</th>
-                  <th scope="col" className="px-4 py-3">You pay if self-funding with SLC alone</th>
-                  <th scope="col" className="px-4 py-3">Application form</th>
+                <tr className="text-sm font-bold text-foreground [overflow-wrap:anywhere]">
+                  <th scope="col" className="px-2 py-3 sm:px-4">Assessment option</th>
+                  <th scope="col" className="px-2 py-3 sm:px-4">You pay if self-funding with SLC alone</th>
+                  <th scope="col" className="px-2 py-3 sm:px-4">SLC pays</th>
+                  <th scope="col" className="px-2 py-3 sm:px-4">Total cost</th>
                 </tr>
               </thead>
               <tbody className="text-muted-foreground">
                 {SLC_COST_OPTIONS.map((o) => (
                   <tr key={o.name} className="border-t border-border bg-card">
-                    <th scope="row" className="px-4 py-3 font-semibold text-foreground">
+                    <th scope="row" className="px-2 py-3 font-semibold text-foreground sm:px-4 [overflow-wrap:anywhere]">
                       <span className="block">{o.name}</span>
                       <span className="mt-1 block text-sm font-normal text-muted-foreground">{o.detail}</span>
-                    </th>
-                    <td className="px-4 py-3">
-                      <span className="block">{o.total}</span>
-                      {o.note && <span className="mt-1 block text-sm text-primary">{o.note}</span>}
-                    </td>
-                    <td className="px-4 py-3">{o.slc}</td>
-                    <td className="px-4 py-3 text-lg font-bold text-foreground">{o.you}</td>
-                    <td className="px-4 py-3">
-                      <Button asChild size="sm" variant="outline" className="min-h-11 whitespace-nowrap rounded-full font-semibold">
+                      <Button asChild size="sm" variant="outline" className="mt-3 min-h-11 h-auto w-full gap-1 whitespace-normal rounded-full px-2 py-2 text-sm font-semibold sm:w-auto">
                         <a href={o.form.url} download={o.form.filename} aria-label={o.form.label}>
-                          <Download className="mr-1 h-4 w-4" aria-hidden="true" />
-                          Download form (Word)
+                          <Download className="h-4 w-4 shrink-0" aria-hidden="true" />
+                          <span className="min-w-0">Download application form</span>
                         </a>
                       </Button>
+                    </th>
+                    <td className="px-2 py-3 text-lg font-bold text-foreground sm:px-4">{o.you}</td>
+                    <td className="px-2 py-3 sm:px-4">{o.slc}</td>
+                    <td className="px-2 py-3 sm:px-4">
+                      <span className="block">{o.total}</span>
+                      {o.note && (
+                        <a href="#bda-heading" className="mt-1 block text-sm text-primary underline-offset-4 hover:underline [overflow-wrap:anywhere]">
+                          {o.note} <ArrowDown className="inline h-3 w-3" aria-hidden="true" />
+                        </a>
+                      )}
                     </td>
                   </tr>
                 ))}
@@ -133,8 +140,8 @@ const StandardLearningCreditsPage = () => {
           </div>
           {/* NOTE FOR FUTURE UPDATES: the table figures come from Sarah Hickinbotham's published information pack
               (as of SLC_COST_DATE). Each SLC_COST_OPTIONS entry also holds its own application form asset, so replace
-              the form there when a new version is issued. Update SLC_COST_DATE, SLC_COST_OPTIONS and the paragraphs and
-              savings note below together when the assessor publishes new pricing. The BDA comparison and the BDA route
+              the form there when a new version is issued. Update SLC_COST_DATE, SLC_COST_OPTIONS and the pricing
+              paragraphs below together when the assessor publishes new pricing. The BDA comparison and the BDA route
               section use the BDA self funded rate as of 28 September 2026 and must be updated separately if BDA
               pricing changes. */}
           <div role="note" className="mt-4 flex gap-3 rounded-xl border border-border bg-muted p-5">
@@ -155,21 +162,6 @@ const StandardLearningCreditsPage = () => {
           <p className="mt-3 text-base text-muted-foreground">
             Screening fees are deducted from the price of a full assessment booked within a month of the screening date.
             A screening is not a diagnosis.
-          </p>
-          <div className="mt-4 rounded-xl border-l-4 border-primary bg-card p-5">
-            <p className="mb-2 flex items-center gap-2 text-xl font-bold text-foreground">
-              <Info className="h-5 w-5 text-primary" aria-hidden="true" />
-              How much you save
-            </p>
-            <p className="text-base text-muted-foreground">
-              A full diagnostic assessment through this route is £495 at the Armed Forces rate, compared with £690 for
-              the British Dyslexia Association's specialist teacher assessment (BDA self funded rate as of 28 September
-              2026). That is £195 less. After SLC, you pay £320 instead of £515.
-            </p>
-          </div>
-          <p className="mt-3 text-base font-semibold text-foreground">
-            We are working with assessors to bring these costs down as far as possible for Service personnel. Check
-            back here for updates.
           </p>
         </section>
 
@@ -267,7 +259,7 @@ const StandardLearningCreditsPage = () => {
         </section>
 
         <section aria-labelledby="bda-heading" className="mb-12">
-          <h2 id="bda-heading" className="mb-4 text-2xl font-bold text-foreground">
+          <h2 id="bda-heading" className="mb-4 scroll-mt-40 text-2xl font-bold text-foreground">
             Alternative route: through the BDA
           </h2>
           <p className="mb-6 text-base text-muted-foreground">
