@@ -17,7 +17,7 @@ const RAFDyslexiaPage = () => (
       Having dyslexia does not stop you joining the RAF — including in technical and aircrew roles.
     </p>
     <p className="text-lg text-foreground leading-relaxed mb-8">
-      You will need to meet the same standards as every applicant. Where you declare a diagnosis, reasonable adjustments — extra time, assistive technology, study support — are available throughout your career.
+      You will need to meet the same standards as every applicant. Support such as extra time on some assessments, assistive technology or study support may be available. What’s offered varies by Service, training establishment and qualification.
     </p>
 
     <DecisionConfidenceBlock
@@ -26,7 +26,7 @@ const RAFDyslexiaPage = () => (
       bullets={[
         "Yes — dyslexic personnel serve across engineering, logistics, intelligence, cyber and aircrew roles.",
         "It depends on the Airman/Airwoman Selection Test (AST), fitness and role-specific aptitude — assessed individually, not by diagnosis.",
-        "Declare a diagnosis with a report and you can request adjustments such as extra time on written elements.",
+        "If you have a diagnosis, you can ask whether adjustments such as extra time on written elements are possible. Confirm with your recruiter.",
       ]}
       links={[
         { label: "Ask the Community", to: "/community" },
@@ -88,7 +88,7 @@ const RAFDyslexiaPage = () => (
     <section className="mb-2">
       <h2 className="text-2xl font-bold text-foreground mb-4">Reassurance</h2>
       <p className="text-foreground leading-relaxed">
-        Dyslexia and a successful RAF career go hand in hand. Declare, take the support you’re entitled to, and focus on your strengths.
+        Dyslexia and a successful RAF career go hand in hand. Declare, take the support that’s available, and focus on your strengths.
       </p>
     </section>
   </InsightLayout>

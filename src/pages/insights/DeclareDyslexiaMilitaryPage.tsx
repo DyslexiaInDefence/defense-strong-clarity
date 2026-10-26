@@ -18,7 +18,7 @@ const DeclareDyslexiaMilitaryPage = () => (
       Choosing not to declare does not put you at a disadvantage in recruitment.
     </p>
     <p className="text-lg text-foreground leading-relaxed mb-8">
-      You will, however, need to meet the same selection, training and performance standards as everyone else. If your dyslexia could affect how you carry out your duties, it is your responsibility to tell your chain of command.
+      You will, however, need to meet the same selection, training and performance standards as everyone else. If your dyslexia could affect how you carry out your duties, you’re advised to tell your chain of command.
     </p>
 
     <DecisionConfidenceBlock
@@ -26,8 +26,8 @@ const DeclareDyslexiaMilitaryPage = () => (
       intent="joining"
       bullets={[
         "No — there is no requirement to declare dyslexia at recruitment, and you’re not screened for it.",
-        "It depends on whether your dyslexia affects your training or work — at that point, you do need to tell your chain of command.",
-        "If you do declare with a diagnosis, it can help your line manager and instructors understand how you work best. What support follows varies by service: the Army has no assessment accommodations for job-related assessments, while the Navy and RAF assess for neurodiversity in phase 1 training.",
+        "It depends on whether your dyslexia affects your training or work — at that point, you’re advised to tell your chain of command.",
+        "If you do declare with a diagnosis, it can help your line manager and instructors understand how you work best. What support follows varies by service: the Army has no assessment accommodations for job-related assessments, while Services can choose to screen during initial training, so practice differs between them.",
       ]}
       links={[
         { label: "Ask the Community", to: "/community" },
@@ -38,7 +38,7 @@ const DeclareDyslexiaMilitaryPage = () => (
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">What the policy actually says</h2>
       <p className="text-foreground leading-relaxed mb-4">
-        The military’s policy on Specific Learning Differences (JSP 822, Vol 7) is clear:
+        Defence’s policy on Specific Learning Differences in training (JSP 822, Vol 7) is clear:
       </p>
       <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
         <li>You are <strong>not required to declare</strong> dyslexia during recruitment.</li>
@@ -50,7 +50,7 @@ const DeclareDyslexiaMilitaryPage = () => (
           .
         </li>
         <li>You must meet the same standards as anyone else.</li>
-        <li>If your dyslexia <strong>could affect your training or work</strong>, it’s your responsibility to inform your chain of command.</li>
+        <li>If your dyslexia <strong>could affect your training or work</strong>, you’re advised to inform your chain of command.</li>
       </ul>
       <p className="text-foreground leading-relaxed mt-4">
         Direct policy wording: <em>“There is no requirement for SP with SpLD to inform their line manager, trainer, or commander, if their condition does not affect their training or work.”</em> (JSP 822, Vol 7, Para 2.4.2)

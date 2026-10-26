@@ -37,7 +37,7 @@ const DyslexiaBarrierMilitaryPage = () => (
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">Policy vs reality</h2>
       <p className="text-foreground leading-relaxed mb-4">
-        JSP 822 (Vol 7) is clear: dyslexia is not a barrier to joining or serving. You don’t need to declare it during recruitment, and you’re not screened for it.
+        JSP 822 (Vol 7), Defence’s policy on Specific Learning Differences in training, is clear: dyslexia is not a barrier to joining or serving. You don’t need to declare it during recruitment, and you’re not screened for it.
       </p>
       <p className="text-foreground leading-relaxed">
         In reality, around 1 in 10 personnel are dyslexic — roughly 18,000 people serving today. Senior leaders, long-serving soldiers, instructors and specialists across the Armed Forces are dyslexic. It’s common, not exceptional.

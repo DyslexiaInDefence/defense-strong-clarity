@@ -23,7 +23,7 @@ const JSP822vsEqualityActPage = () => (
       When you leave the Armed Forces for civilian work, your dyslexia support shifts from <strong>policy-based</strong> (JSP 822) to <strong>legally enforceable rights</strong> under the Equality Act 2010.
     </p>
     <p className="text-base text-foreground leading-relaxed mb-4">
-      Leaving service does not mean losing your support — your rights actually become stronger.
+      Leaving service does not mean losing your support — your legal protection actually becomes stronger.
     </p>
     <p className="text-lg text-foreground leading-relaxed mb-8">
       That single change is bigger than most people realise. It changes what you’re entitled to, how support is delivered, and who is responsible for making it happen.
@@ -44,7 +44,7 @@ const JSP822vsEqualityActPage = () => (
     />
 
     <section className="mb-10">
-      <h2 className="text-2xl font-bold text-foreground mb-4">How the military approaches dyslexia (JSP 822)</h2>
+      <h2 className="text-2xl font-bold text-foreground mb-4">How Defence approaches dyslexia in training (JSP 822)</h2>
       <p className="text-foreground leading-relaxed mb-3">
         <strong>JSP 822 — Specific Learning Differences</strong> ·{" "}
         <a
