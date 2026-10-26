@@ -11,7 +11,7 @@ export const assessmentRoutes: AssessmentRoute[] = [
     label: "Dyslexia screening and diagnostic assessment (Adults)",
     provider: "Sarah Hickinbotham, Specialist Dyslexia Teacher Assessor",
     description:
-      "Holds an Assessment Practising Certificate (APC). Screening (Level 1 and 2) and full diagnostic assessment, in person or remote for screening. Armed Forces rate available.",
+      "Holds an Assessment Practising Certificate (APC). Screening (Level 1 and 2) and full diagnostic assessment, all delivered online. Armed Forces rate available.",
     href: "https://sway.cloud.microsoft/MkhqFDmYV5A3r3SF?ref=Link",
   },
   {

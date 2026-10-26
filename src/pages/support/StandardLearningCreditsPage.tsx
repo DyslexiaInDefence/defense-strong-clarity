@@ -6,9 +6,9 @@ import { assessmentRoutes } from "@/data/assessors";
 
 const SLC_COST_DATE = "26 October 2026";
 const SLC_COST_OPTIONS = [
-  { name: "Option 1: Level 1 screening", detail: "A brief check and short report. Not a diagnosis.", total: "£50", slc: "£40", you: "£10" },
-  { name: "Option 2: Level 2 screening", detail: "A more detailed check and short report. Not a diagnosis.", total: "£150", slc: "£120", you: "£30" },
-  { name: "Option 3: Full diagnostic assessment", detail: "A full day of testing and a detailed 30+ page diagnostic report. Armed Forces rate.", total: "£495", slc: "£175", you: "£320" },
+  { name: "Option 1: Level 1 screening", detail: "A brief online check and short report. Not a diagnosis. Roughly 1 hour.", total: "£50", slc: "£40", you: "£10" },
+  { name: "Option 2: Level 2 screening", detail: "A more detailed online check and short report. Not a diagnosis. Roughly half a day.", total: "£150", slc: "£120", you: "£30" },
+  { name: "Option 3: Full diagnostic assessment", detail: "A full online diagnostic assessment and a detailed 30+ page report. Armed Forces rate. Roughly 1 to 2 days.", total: "£495", slc: "£175", you: "£320" },
 ];
 
 const StandardLearningCreditsPage = () => {
