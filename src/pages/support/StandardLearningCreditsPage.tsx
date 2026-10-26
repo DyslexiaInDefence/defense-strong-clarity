@@ -112,7 +112,7 @@ const StandardLearningCreditsPage = () => {
                       <span className="block">{o.name}</span>
                       <span className="mt-1 block text-sm font-normal text-muted-foreground">{o.detail}</span>
                     </th>
-                    <td className="px-4 py-3">
+                    <td className="min-w-[10rem] px-4 py-3">
                       <span className="block">{o.total}</span>
                       {o.note && <span className="mt-1 block text-sm text-primary">{o.note}</span>}
                     </td>
