@@ -1,5 +1,5 @@
 import { Link } from "@/lib/router-compat";
-import { AlertTriangle, ArrowRight, Download, ExternalLink, Info, Mail } from "lucide-react";
+import { AlertTriangle, ArrowRight, CircleHelp, Download, ExternalLink, Info, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import slcTemplate from "@/assets/slc-template.docx.asset.json";
 import slcLevel1 from "@/assets/slc-level1.docx.asset.json";
@@ -8,6 +8,10 @@ import slcFull from "@/assets/slc-full.docx.asset.json";
 import { assessmentRoutes } from "@/data/assessors";
 
 const SLC_COST_DATE = "26 October 2026";
+const JSP822_PAGE_URL = "https://www.gov.uk/government/publications/jsp-822-governance-and-management-of-defence-individual-training-education-and-skills";
+// GOV.UK media links change when the MOD republishes, so check the publication page at JSP822_PAGE_URL whenever the page is updated.
+const JSP822_VOL7_URL = "https://assets.publishing.service.gov.uk/media/65ce3f754239310011b7b8a9/JSP_822_V7.0__Vol_7_V3.0_-_Specific_Learning_Differences.pdf";
+const JSP822_VOL9_URL = "https://assets.publishing.service.gov.uk/media/6925b8c022424e25e6bc316d/JSP_822_Volume_9_Elective_Education.pdf";
 // Each option carries its own application form so the table row and its download button stay in sync.
 const SLC_COST_OPTIONS: {
   name: string;
@@ -75,10 +79,6 @@ const StandardLearningCreditsPage = () => {
         <p className="mb-6 text-lg text-muted-foreground">
           The Standard Learning Credits (SLC) or Enhanced Learning Credits (ELC) Scheme provides financial support throughout your career to enhance your
           educational and vocational achievements in Service. SLCs can be used to obtain a dyslexia assessment.
-        </p>
-        <p className="mb-6 text-lg text-muted-foreground">
-          Before using SLC, ask your SpLD Advisor or Army Education Centre whether your Service can fund the assessment.
-          JSP 822 Vol 7 (paras 2.1.9 and 2.3.1) requires Services to fund specialist assessment where required.
         </p>
 
         <section aria-labelledby="cost-heading" className="mb-12">
@@ -175,6 +175,28 @@ const StandardLearningCreditsPage = () => {
 
         <section aria-labelledby="how-heading" className="mb-12">
           <h2 id="how-heading" className="mb-4 text-2xl font-bold text-foreground">Step by step (Route 1)</h2>
+          <div className="mb-4 flex gap-3 rounded-xl border-l-4 border-primary bg-card p-4">
+            <CircleHelp className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+            <div>
+              <p className="text-base font-bold text-foreground">
+                It may be worth asking your SpLD Advisor or Army Education Centre (find your local one{" "}
+                <Link to="/currently-serving/army-education-centres" className="text-primary underline-offset-4 hover:underline">here</Link>)
+                {" "}whether an assessment can be funded.
+              </p>
+              <details className="mt-2 text-sm text-foreground">
+                <summary className="cursor-pointer text-primary">
+                  <CircleHelp className="mr-1 inline h-4 w-4" aria-hidden="true" />
+                  Why ask
+                </summary>
+                <p className="mt-2">
+                  <a href={JSP822_VOL7_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline-offset-4 hover:underline">
+                    JSP 822 Vol 7 (PDF)<span className="sr-only"> (opens in new tab)</span>
+                  </a>{" "}
+                  (paras 2.1.9 and 2.3.1) requires Services to fund specialist assessment where required.
+                </p>
+              </details>
+            </div>
+          </div>
           <ol className="mb-4 list-decimal space-y-2 pl-6 text-base text-muted-foreground">
             <li>Choose your option from the table above.</li>
             <li>
@@ -190,6 +212,7 @@ const StandardLearningCreditsPage = () => {
               <Link to="/currently-serving/army-education-centres" className="font-semibold text-primary underline-offset-4 hover:underline">
                 Army Education Centre
               </Link>{" "}
+              (find your local one <Link to="/currently-serving/army-education-centres" className="font-semibold text-primary underline-offset-4 hover:underline">here</Link>){" "}
               for Ed Staff to complete Part 6. SLC funding cannot be claimed retrospectively, so get this authorised
               before you book or pay anything.
             </li>
@@ -199,7 +222,8 @@ const StandardLearningCreditsPage = () => {
             </li>
             <li>
               After the assessment is completed, claim your SLC contribution back by submitting evidence that you
-              completed it and paid for it, as instructed by your Army Education Centre. Ask them exactly what evidence
+              completed it and paid for it, as instructed by your Army Education Centre (find your local one{" "}
+              <Link to="/currently-serving/army-education-centres" className="font-semibold text-primary underline-offset-4 hover:underline">here</Link>). Ask them exactly what evidence
               they need before you book.
             </li>
           </ol>
@@ -257,7 +281,10 @@ const StandardLearningCreditsPage = () => {
             <h3 id="download-heading" className="mb-3 text-2xl font-bold text-foreground">Download the template</h3>
             <p className="mb-4 text-base text-muted-foreground">Use this generic form if you choose the BDA route.</p>
             <p className="mb-4 text-base text-muted-foreground">
-              This Word document is based on the official MOD Form 1950.
+              This Word document is based on the official MOD Form 1950 (Annex A to{" "}
+              <a href={JSP822_VOL9_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline-offset-4 hover:underline">
+                JSP 822 Vol 9 (PDF)<span className="sr-only"> (opens in new tab)</span>
+              </a>).
             </p>
             <p className="mb-4 text-base text-muted-foreground">
               The <strong className="text-foreground">Reason for Study</strong> and{" "}
@@ -340,7 +367,10 @@ const StandardLearningCreditsPage = () => {
           <p className="text-sm text-foreground">
             Assessment routes are listed by Dyslexia in Defence. Being listed is not an endorsement by the Ministry of
             Defence or the Army. Please check that any assessment route meets the requirements of your unit and funding
-            route before booking. MOD-funded assessments follow MOD requirements (JSP 822 Vol 7, Annex B), so check with
+            route before booking. MOD-funded assessments follow MOD requirements ({" "}
+            <a href={JSP822_VOL7_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline-offset-4 hover:underline">
+              JSP 822 Vol 7 (PDF)<span className="sr-only"> (opens in new tab)</span>
+            </a>, Annex B), so check with
             your SpLD Advisor before self-funding.
           </p>
         </div>
