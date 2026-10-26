@@ -99,7 +99,7 @@ const StandardLearningCreditsPage = () => {
               <thead className="bg-muted">
                 <tr className="text-sm font-bold text-foreground">
                   <th scope="col" className="px-4 py-3">Assessment option</th>
-                  <th scope="col" className="w-40 px-4 py-3">Total cost</th>
+                  <th scope="col" className="w-[8.5rem] px-4 py-3">Total cost</th>
                   <th scope="col" className="px-4 py-3">SLC pays</th>
                   <th scope="col" className="px-4 py-3">You pay if self-funding with SLC alone</th>
                   <th scope="col" className="px-4 py-3">Application form</th>
