@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Link } from "@/lib/router-compat";
 import { AlertTriangle, ArrowDown, ArrowRight, CircleHelp, Download, ExternalLink, Info, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -112,28 +113,34 @@ const StandardLearningCreditsPage = () => {
               </thead>
               <tbody className="text-muted-foreground">
                 {SLC_COST_OPTIONS.map((o) => (
-                  <tr key={o.name} className="border-t border-border bg-card">
-                    <th scope="row" className="px-2 py-3 font-semibold text-foreground sm:px-4 [overflow-wrap:anywhere]">
-                      <span className="block">{o.name}</span>
-                      <span className="mt-1 block text-sm font-normal text-muted-foreground">{o.detail}</span>
-                      <Button asChild size="sm" variant="outline" className="mt-3 min-h-10 h-auto w-full justify-center gap-1 whitespace-normal rounded-full px-2 py-1.5 text-center text-sm font-semibold">
-                        <a href={o.form.url} download={o.form.filename} aria-label={o.form.label}>
-                          <Download className="h-4 w-4 shrink-0" aria-hidden="true" />
-                          <span className="min-w-0 [overflow-wrap:normal]">Download SLC form</span>
-                        </a>
-                      </Button>
-                    </th>
-                    <td className="px-2 py-3 text-lg font-bold text-foreground sm:px-4">{o.you}</td>
-                    <td className="px-2 py-3 sm:px-4">{o.slc}</td>
-                    <td className="px-2 py-3 sm:px-4">
-                      <span className="block">{o.total}</span>
-                      {o.note && (
-                        <a href="#bda-heading" className="mt-1 block text-sm text-primary underline-offset-4 hover:underline [overflow-wrap:anywhere]">
-                          {o.note} <ArrowDown className="inline h-3 w-3" aria-hidden="true" />
-                        </a>
-                      )}
-                    </td>
-                  </tr>
+                  <Fragment key={o.name}>
+                    <tr className="border-t border-border bg-card">
+                      <th scope="row" className="px-2 py-3 font-semibold text-foreground sm:px-4 [overflow-wrap:anywhere]">
+                        <span className="block">{o.name}</span>
+                        <span className="mt-1 block text-sm font-normal text-muted-foreground">{o.detail}</span>
+                      </th>
+                      <td className="px-2 py-3 text-lg font-bold text-foreground sm:px-4">{o.you}</td>
+                      <td className="px-2 py-3 sm:px-4">{o.slc}</td>
+                      <td className="px-2 py-3 sm:px-4">
+                        <span className="block">{o.total}</span>
+                        {o.note && (
+                          <a href="#bda-heading" className="mt-1 block text-sm text-primary underline-offset-4 hover:underline [overflow-wrap:anywhere]">
+                            {o.note} <ArrowDown className="inline h-3 w-3" aria-hidden="true" />
+                          </a>
+                        )}
+                      </td>
+                    </tr>
+                    <tr className="border-t-0 bg-card">
+                      <td colSpan={4} className="px-2 pb-3 sm:px-4">
+                        <Button asChild size="sm" variant="outline" className="min-h-10 h-auto w-full justify-center gap-1 whitespace-nowrap rounded-full px-2 py-1.5 text-center text-sm font-semibold">
+                          <a href={o.form.url} download={o.form.filename} aria-label={o.form.label}>
+                            <Download className="h-4 w-4 shrink-0" aria-hidden="true" />
+                            Download SLC form
+                          </a>
+                        </Button>
+                      </td>
+                    </tr>
+                  </Fragment>
                 ))}
               </tbody>
             </table>
@@ -196,7 +203,9 @@ const StandardLearningCreditsPage = () => {
               below).
             </li>
             <li>
-              Download the form for your option. Complete Part 1 (your details) and the red items in Part 2 and Part 3.
+              Download the <strong className="text-foreground">pre-populated</strong> SLC form for your option. It is
+              already filled in with Sarah's details, the costs and the reason for study. You complete Part 1 (your
+              details), Part 4 (your signature) and the red items in Parts 2 and 3.
             </li>
             <li>Give the form to your line manager to complete Part 5.</li>
             <li>
