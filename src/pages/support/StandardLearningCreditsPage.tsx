@@ -112,9 +112,12 @@ const StandardLearningCreditsPage = () => {
                       <span className="block">{o.name}</span>
                       <span className="mt-1 block text-sm font-normal text-muted-foreground">{o.detail}</span>
                     </th>
-                    <td className="px-4 py-3">{o.total}</td>
+                    <td className="px-4 py-3">
+                      <span className="block">{o.total}</span>
+                      {o.note && <span className="mt-1 block text-sm text-primary">{o.note}</span>}
+                    </td>
                     <td className="px-4 py-3">{o.slc}</td>
-                    <td className="px-4 py-3">{o.you}</td>
+                    <td className="px-4 py-3 text-lg font-bold text-foreground">{o.you}</td>
                     <td className="px-4 py-3">
                       <Button asChild size="sm" variant="outline" className="min-h-11 whitespace-nowrap rounded-full font-semibold">
                         <a href={o.form.url} download={o.form.filename} aria-label={o.form.label}>
