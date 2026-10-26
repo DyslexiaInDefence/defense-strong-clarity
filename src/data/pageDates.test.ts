@@ -11,6 +11,21 @@ function routeFiles(directory: string): string[] {
   });
 }
 
+const OCT_26_PAGES = [
+  "/currently-serving/standard-learning-credits",
+  "/currently-serving/army-education-centres",
+  "/about/faq",
+  "/insights",
+  "/insights/can-you-join-navy-with-dyslexia-uk",
+  "/insights/can-you-join-raf-with-dyslexia-uk",
+  "/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk",
+  "/insights/is-dyslexia-a-barrier-in-the-military-uk",
+  "/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk",
+  "/insights/neurodiversity-in-the-mod-uk",
+  "/insights/what-happens-if-dyslexia-is-identified-during-service-uk",
+  "/insights/what-support-is-available-for-dyslexia-in-the-military-uk",
+];
+
 describe("Page date rules", () => {
   it("maps every page to its honest content date", () => {
     expect(Object.keys(PAGE_DATES)).toHaveLength(39);
@@ -18,10 +33,10 @@ describe("Page date rules", () => {
       if (path.startsWith("/governance")) continue;
       if (path === "/about/why-we-are-here") continue;
       if (path === "/contact") continue;
-      if (path === "/currently-serving/standard-learning-credits") continue;
+      if (OCT_26_PAGES.includes(path)) continue;
       expect(date, path).toBe("2026-10-24");
     }
-    expect(PAGE_DATES["/currently-serving/standard-learning-credits"]).toBe("2026-10-26");
+    for (const path of OCT_26_PAGES) expect(PAGE_DATES[path], path).toBe("2026-10-26");
     expect(PAGE_DATES["/governance"]).toBe("2026-08-08");
     expect(PAGE_DATES["/governance/founder"]).toBe("2026-08-08");
     expect(PAGE_DATES["/governance/sponsorship"]).toBe("2026-03-01");
