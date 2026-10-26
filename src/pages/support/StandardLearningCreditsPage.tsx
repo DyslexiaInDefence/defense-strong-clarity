@@ -97,10 +97,10 @@ const StandardLearningCreditsPage = () => {
                 Credits pay and total costs
               </caption>
               <colgroup>
-                <col className="w-[40%]" />
+                <col className="w-[38%]" />
                 <col className="w-[20%]" />
-                <col className="w-[18%]" />
-                <col className="w-[22%]" />
+                <col className="w-[16%]" />
+                <col className="w-[26%]" />
               </colgroup>
               <thead className="bg-muted">
                 <tr className="text-sm font-bold text-foreground [overflow-wrap:anywhere]">
