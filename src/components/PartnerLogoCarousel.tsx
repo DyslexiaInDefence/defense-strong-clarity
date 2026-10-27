@@ -84,6 +84,14 @@ const LOGOS: PartnerLogo[] = [
     tagline:
       "Community led support for neurodivergent children, young people, adults and families, including Armed Forces and veteran families, with hubs in Catterick and Windsor, parent and carer support, training and employability programmes.",
   },
+  {
+    name: "Team Talk",
+    alt: "Team Talk logo, opens in new tab",
+    src: "/images/partners/team-talk.png",
+    href: "https://linktr.ee/t3amtalk",
+    tagline:
+      "An evidence-informed, people-first initiative breaking down stigma, building meaningful connections and strengthening resilience through the power of everyday conversations. Giving people permission to talk, the confidence to listen and the freedom to connect — without judgement, expectation or pressure. No agenda. No pressure. Just connections",
+  },
 ];
 
 const MD_BREAKPOINT = 768;
