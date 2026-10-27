@@ -25,7 +25,7 @@ const ArmyDyslexiaPage = () => (
       snippet={{
         id: "sue-thain-army-recruitment",
         quote: "Dyslexia is not a bar to joining the Army.",
-        attribution: "Sue Thain, Head of Skills Leadership, British Army",
+        attribution: "Sue Thain, Army lead for management of Specific Learning Differences",
         tag: "Joining",
       }}
     />
