@@ -8,7 +8,7 @@ import slcLevel2 from "@/assets/slc-level2.docx.asset.json";
 import slcFull from "@/assets/slc-full.docx.asset.json";
 import { assessmentRoutes } from "@/data/assessors";
 
-const SLC_COST_DATE = "26 October 2026";
+const SLC_COST_DATE = "30 October 2026";
 const JSP822_PAGE_URL = "https://www.gov.uk/government/publications/jsp-822-governance-and-management-of-defence-individual-training-education-and-skills";
 // GOV.UK media links change when the MOD republishes, so check the publication page at JSP822_PAGE_URL whenever the page is updated.
 const JSP822_VOL7_URL = "https://assets.publishing.service.gov.uk/media/65ce3f754239310011b7b8a9/JSP_822_V7.0__Vol_7_V3.0_-_Specific_Learning_Differences.pdf";
@@ -29,7 +29,7 @@ const SLC_COST_OPTIONS: {
     total: "£50",
     slc: "£40",
     you: "£10",
-    form: { url: slcLevel1.url, filename: "SLC_Application_Sarah_Hickinbotham_Level1_Screening_V1.docx", label: "Download the Level 1 screening form (Word)" },
+    form: { url: slcLevel1.url, filename: "SLC_Application_Sarah_Hickinbotham_Level1_Screening_V2.docx", label: "Download the Level 1 screening form (Word)" },
   },
   {
     name: "Option 2: Level 2 screening",
@@ -37,16 +37,16 @@ const SLC_COST_OPTIONS: {
     total: "£150",
     slc: "£120",
     you: "£30",
-    form: { url: slcLevel2.url, filename: "SLC_Application_Sarah_Hickinbotham_Level2_Screening_V1.docx", label: "Download the Level 2 screening form (Word)" },
+    form: { url: slcLevel2.url, filename: "SLC_Application_Sarah_Hickinbotham_Level2_Screening_V2.docx", label: "Download the Level 2 screening form (Word)" },
   },
   {
     name: "Option 3: Full diagnostic assessment",
-    detail: "A full online diagnostic assessment and report. Armed Forces rate.",
+    detail: "A full diagnostic assessment and report. Discounted rate for bookings through Dyslexia in Defence.",
     total: "£495",
     slc: "£175",
     you: "£320",
     note: "(£690 through the BDA)",
-    form: { url: slcFull.url, filename: "SLC_Application_Sarah_Hickinbotham_Full_Diagnostic_Assessment_V1.docx", label: "Download the full diagnostic assessment form (Word)" },
+    form: { url: slcFull.url, filename: "SLC_Application_Sarah_Hickinbotham_Full_Diagnostic_Assessment_V2.docx", label: "Download the full diagnostic assessment form (Word)" },
   },
 ];
 
@@ -55,10 +55,11 @@ const SARAH_SUBJECT = "Enquiry via Dyslexia in Defence: Standard Learning Credit
 const SARAH_BODY = [
   "Hello Sarah,",
   "",
-  "I found you through the Dyslexia in Defence website. I am interested in the following option (delete as appropriate): Level 1 screening / Level 2 screening / Full diagnostic assessment, at the Armed Forces rate.",
+  "I found you through the Dyslexia in Defence website. I am interested in the following option (delete as appropriate): Level 1 screening / Level 2 screening / Full diagnostic assessment, at the rate for bookings through Dyslexia in Defence.",
   "",
   "Could you please let me know:",
   "- your availability and possible dates",
+  "- whether you can hold a provisional date while I wait for my Standard Learning Credits to be authorised",
   "- the cost, including whether VAT is included",
   "- a written quote or invoice that I can attach to my Standard Learning Credits application",
   "- how payment works, and what evidence you can give me once the assessment is complete, as I will be claiming my SLC contribution back",
@@ -88,8 +89,9 @@ const StandardLearningCreditsPage = () => {
           </h2>
           <p className="mb-6 text-base text-muted-foreground">
             Sarah Hickinbotham is an independent Specialist Dyslexia Teacher Assessor who holds an Assessment Practising
-            Certificate (APC). She offers dyslexia screening and full diagnostic assessment, all delivered online, with an
-            Armed Forces rate.
+            Certificate (APC). She offers dyslexia screening and full diagnostic assessment, with a discounted rate for
+            bookings made through Dyslexia in Defence. The two screenings are online only. The full diagnostic assessment
+            is online, or face to face: Sarah is based in Chippenham and will travel a reasonable distance.
           </p>
           <div className="overflow-x-auto rounded-xl border border-border">
             <table className="w-full table-fixed text-left text-base">
@@ -163,11 +165,11 @@ const StandardLearningCreditsPage = () => {
             SLC normally covers 80% of the fee, up to a cap of £175 per year. For the two screenings, 80% of the fee is
             under the cap, so that is what SLC pays. For the full assessment, 80% would be well above the cap, so £175 is
             what applies. Prices are as published by the assessor as of {SLC_COST_DATE}. The full assessment price shown
-            is the Armed Forces rate (open to serving personnel and veterans); the standard public price is £595. Check
+            is a discounted rate for bookings made through Dyslexia in Defence; the usual price is £595. Check
             with the assessor for current pricing before you apply.
           </p>
           <p className="mt-3 text-base text-muted-foreground">
-            Screening fees are deducted from the price of a full assessment booked within a month of the screening date.
+            Screening fees are deducted from the price of a full assessment that is booked and carried out within a month of the screening date.
             A screening is not a diagnosis.
           </p>
         </section>
@@ -199,8 +201,8 @@ const StandardLearningCreditsPage = () => {
           <ol className="mb-4 list-decimal space-y-2 pl-6 text-base text-muted-foreground">
             <li>Choose your option from the table above.</li>
             <li>
-              Email Sarah to check availability and agree dates, and ask for a written quote or invoice (see the button
-              below).
+              Email Sarah to arrange her free initial consultation (Teams or Zoom), check availability and agree dates,
+              and ask for a written quote or invoice (see the button below).
             </li>
             <li>
               Download the <strong className="text-foreground">pre-populated</strong> SLC form for your option. It is
@@ -218,8 +220,9 @@ const StandardLearningCreditsPage = () => {
               before you book or pay anything.
             </li>
             <li>
-              Once authorised, book with Sarah and pay her. Her information pack says a deposit secures your date and the
-              full payment is due 7 days before the assessment, so plan for paying up front.
+              Once authorised, book with Sarah and pay her. Her information pack says the deposit is due within 48 hours
+              of receiving the Booking Pack, a pre-assessment questionnaire is due within 7 days, and full payment is due
+              7 days before the assessment, so plan for paying up front. Tell Sarah early if you are waiting for SLC authorisation.
             </li>
             <li>
               After the assessment is completed, claim your SLC contribution back by submitting evidence that you
@@ -240,7 +243,8 @@ const StandardLearningCreditsPage = () => {
             Contact Sarah
           </h2>
           <p className="mb-4 text-base text-muted-foreground">
-            Sarah Hickinbotham, Specialist Dyslexia Teacher Assessor. All assessments are delivered online.
+            Sarah Hickinbotham, Specialist Dyslexia Teacher Assessor. Screenings are online only. The full assessment is
+            online or face to face (Sarah is Chippenham-based and will travel a reasonable distance).
           </p>
           <div className="mb-4 flex flex-wrap items-center gap-3">
             <Button asChild size="lg" className="rounded-full px-8 text-base font-bold">
@@ -253,7 +257,7 @@ const StandardLearningCreditsPage = () => {
           </div>
           <ul className="space-y-2">
             <li>
-              <a href="https://sway.cloud.microsoft/MkhqFDmYV5A3r3SF?ref=Link" target="_blank" rel="noopener noreferrer" className={linkClass}>
+              <a href="https://sway.cloud.microsoft/HjNS1WQIQ6VdYA7d" target="_blank" rel="noopener noreferrer" className={linkClass}>
                 Read Sarah's assessment information pack <ExternalLink className="h-4 w-4" aria-hidden="true" />
                 <span className="sr-only"> (opens in new tab)</span>
               </a>
@@ -265,6 +269,9 @@ const StandardLearningCreditsPage = () => {
               </a>
             </li>
           </ul>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Sarah offers a free initial consultation by Teams or Zoom before you book.
+          </p>
         </section>
 
         <section aria-labelledby="bda-heading" className="mb-12">
