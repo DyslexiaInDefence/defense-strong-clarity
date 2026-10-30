@@ -91,7 +91,7 @@ const StandardLearningCreditsPage = () => {
             Sarah Hickinbotham is an independent Specialist Dyslexia Teacher Assessor who holds an Assessment Practising
             Certificate (APC). She offers dyslexia screening and full diagnostic assessment, with a discounted rate for
             bookings made through Dyslexia in Defence. The two screenings are online only. The full diagnostic assessment
-            is online, or face to face: Sarah is based in Chippenham and will travel a reasonable distance.
+            is online or face to face: discuss location and availability with Sarah direct.
           </p>
           <div className="overflow-x-auto rounded-xl border border-border">
             <table className="w-full table-fixed text-left text-base">
@@ -244,7 +244,7 @@ const StandardLearningCreditsPage = () => {
           </h2>
           <p className="mb-4 text-base text-muted-foreground">
             Sarah Hickinbotham, Specialist Dyslexia Teacher Assessor. Screenings are online only. The full assessment is
-            online or face to face (Sarah is Chippenham-based and will travel a reasonable distance).
+            online or face to face (discuss location and availability with Sarah direct).
           </p>
           <div className="mb-4 flex flex-wrap items-center gap-3">
             <Button asChild size="lg" className="rounded-full px-8 text-base font-bold">
