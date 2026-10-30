@@ -12,7 +12,6 @@ function routeFiles(directory: string): string[] {
 }
 
 const OCT_26_PAGES = [
-  "/currently-serving/standard-learning-credits",
   "/currently-serving/army-education-centres",
   "/about/faq",
   "/insights",
@@ -33,6 +32,7 @@ describe("Page date rules", () => {
       if (path.startsWith("/governance")) continue;
       if (path === "/about/why-we-are-here") continue;
       if (path === "/contact") continue;
+      if (path === "/currently-serving/standard-learning-credits") continue;
       if (OCT_26_PAGES.includes(path)) continue;
       expect(date, path).toBe("2026-10-24");
     }
@@ -46,6 +46,11 @@ describe("Page date rules", () => {
     expect(PAGE_DATES["/governance/privacy"]).toBe("2026-11-02");
     expect(PAGE_DATES["/contact"]).toBe("2026-10-25");
     expect(formatPageDate("2026-10-24")).toBe("24 October 2026");
+  });
+
+  it("dates the SLC content update to 30 October 2026", () => {
+    expect(getPageDate("/currently-serving/standard-learning-credits")).toBe("2026-10-30");
+    expect(formatPageDate(getPageDate("/currently-serving/standard-learning-credits") ?? "")).toBe("30 October 2026");
   });
 
   it("dates Why We Are Here to its first content publication on 25 October 2026", () => {

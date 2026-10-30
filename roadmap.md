@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Update only the SLC page wording, three V2 forms and matching dates; verify original downloads, SSR content, and desktop/375px fit without publishing.
+
 - [x] Add Why We Are Here and its requested navigation, metadata, dates and discovery entries only.
 - [x] Verify the three level visual, source links, reduced motion and desktop/mobile presentation without publishing.
 
