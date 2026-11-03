@@ -3,6 +3,8 @@ import InsightLayout from "@/components/InsightLayout";
 import DecisionConfidenceBlock from "@/components/DecisionConfidenceBlock";
 import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
 
+const JSP822_VOL7_URL = "https://assets.publishing.service.gov.uk/media/65ce3f754239310011b7b8a9/JSP_822_V7.0__Vol_7_V3.0_-_Specific_Learning_Differences.pdf";
+
 const RAFDyslexiaPage = () => (
   <InsightLayout
     title="Can you join the RAF with dyslexia in the UK?"
@@ -64,24 +66,18 @@ const RAFDyslexiaPage = () => (
         Specific learning difficulties are not in themselves a bar to Service if the required standards are met.
       </p>
       <p className="text-foreground leading-relaxed mt-4">
-        Ask your education staff about feasible support under JSP 822 Vol 7.
+        Ask your education staff about feasible support under{" "}
+        <a href={JSP822_VOL7_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline-offset-4 hover:underline">
+          JSP 822 Vol 7<span className="sr-only"> (opens in new tab)</span>
+        </a>.
       </p>
-    </section>
-
-    <section className="mb-10">
-      <h2 className="text-2xl font-bold text-foreground mb-4">Common misconceptions</h2>
-      <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
-        <li><strong>Dyslexia is automatically a bar to recruitment.</strong> Specific learning difficulties are not in themselves a bar if the required standards are met.</li>
-        <li><strong>Support lowers the required standards.</strong> Feasible support does not lower the required standards.</li>
-        <li><strong>Support is the same everywhere.</strong> Ask education staff what applies where you serve. See{" "}
-          <Link to="/insights/neurodiversity-in-the-mod-uk" className="font-medium text-primary underline-offset-4 hover:underline">
-            neurodiversity in the MOD
-          </Link>
-          .
-        </li>
-      </ul>
       <p className="text-foreground leading-relaxed mt-4">
         Ask your chain of command how to contact your education staff and what feasible support is available.
+      </p>
+      <p className="text-foreground leading-relaxed mt-4">
+        The{" "}
+        <Link to="/join" className="font-medium text-primary underline-offset-4 hover:underline">Defence Dyslexia Network</Link>
+        {" "}offers peer support and signposting for serving personnel, veterans and families.
       </p>
     </section>
 
