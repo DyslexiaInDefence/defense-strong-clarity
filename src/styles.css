@@ -103,6 +103,11 @@
 }
 
 :root {
+  /* Shared route accents for the staged Get support pages. */
+  --route-joining: #F2BA2F;
+  --route-serving: #B93030;
+  --route-leaving: #10609F;
+  --route-supporting: #359342;
   --background: 205 100% 97%;
   --foreground: 215 30% 18%;
 

@@ -58,6 +58,7 @@ import { Route as LivedExperiencesSymonSmithBritishArmyVeteranRouteImport } from
 import { Route as NewslettersOctober2026RouteImport } from './routes/newsletters/october-2026'
 import { Route as SupportIndexRouteImport } from './routes/support/index'
 import { Route as SupportCurrentlyServingRouteImport } from './routes/support/currently-serving'
+import { Route as SupportStartHereRouteImport } from './routes/support/start-here'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -321,6 +322,11 @@ const SupportCurrentlyServingRoute = SupportCurrentlyServingRouteImport.update({
   path: '/support/currently-serving',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SupportStartHereRoute = SupportStartHereRouteImport.update({
+  id: '/support/start-here',
+  path: '/support/start-here',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -366,6 +372,7 @@ export interface FileRoutesByFullPath {
   '/lived-experiences/symon-smith-british-army-veteran': typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
   '/newsletters/october-2026': typeof NewslettersOctober2026Route
   '/support/currently-serving': typeof SupportCurrentlyServingRoute
+  '/support/start-here': typeof SupportStartHereRoute
   '/about/': typeof AboutIndexRoute
   '/currently-serving/': typeof CurrentlyServingIndexRoute
   '/governance/': typeof GovernanceIndexRoute
@@ -417,6 +424,7 @@ export interface FileRoutesByTo {
   '/lived-experiences/symon-smith-british-army-veteran': typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
   '/newsletters/october-2026': typeof NewslettersOctober2026Route
   '/support/currently-serving': typeof SupportCurrentlyServingRoute
+  '/support/start-here': typeof SupportStartHereRoute
   '/about': typeof AboutIndexRoute
   '/currently-serving': typeof CurrentlyServingIndexRoute
   '/governance': typeof GovernanceIndexRoute
@@ -469,6 +477,7 @@ export interface FileRoutesById {
   '/lived-experiences/symon-smith-british-army-veteran': typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
   '/newsletters/october-2026': typeof NewslettersOctober2026Route
   '/support/currently-serving': typeof SupportCurrentlyServingRoute
+  '/support/start-here': typeof SupportStartHereRoute
   '/about/': typeof AboutIndexRoute
   '/currently-serving/': typeof CurrentlyServingIndexRoute
   '/governance/': typeof GovernanceIndexRoute
@@ -522,6 +531,7 @@ export interface FileRouteTypes {
     | '/lived-experiences/symon-smith-british-army-veteran'
     | '/newsletters/october-2026'
     | '/support/currently-serving'
+    | '/support/start-here'
     | '/about/'
     | '/currently-serving/'
     | '/governance/'
@@ -573,6 +583,7 @@ export interface FileRouteTypes {
     | '/lived-experiences/symon-smith-british-army-veteran'
     | '/newsletters/october-2026'
     | '/support/currently-serving'
+    | '/support/start-here'
     | '/about'
     | '/currently-serving'
     | '/governance'
@@ -624,6 +635,7 @@ export interface FileRouteTypes {
     | '/lived-experiences/symon-smith-british-army-veteran'
     | '/newsletters/october-2026'
     | '/support/currently-serving'
+    | '/support/start-here'
     | '/about/'
     | '/currently-serving/'
     | '/governance/'
@@ -676,6 +688,7 @@ export interface RootRouteChildren {
   LivedExperiencesSymonSmithBritishArmyVeteranRoute: typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
   NewslettersOctober2026Route: typeof NewslettersOctober2026Route
   SupportCurrentlyServingRoute: typeof SupportCurrentlyServingRoute
+  SupportStartHereRoute: typeof SupportStartHereRoute
   AboutIndexRoute: typeof AboutIndexRoute
   CurrentlyServingIndexRoute: typeof CurrentlyServingIndexRoute
   GovernanceIndexRoute: typeof GovernanceIndexRoute
@@ -1029,6 +1042,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SupportCurrentlyServingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/support/start-here': {
+      id: '/support/start-here'
+      path: '/support/start-here'
+      fullPath: '/support/start-here'
+      preLoaderRoute: typeof SupportStartHereRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -1091,6 +1111,7 @@ const rootRouteChildren: RootRouteChildren = {
     LivedExperiencesSymonSmithBritishArmyVeteranRoute,
   NewslettersOctober2026Route: NewslettersOctober2026Route,
   SupportCurrentlyServingRoute: SupportCurrentlyServingRoute,
+  SupportStartHereRoute: SupportStartHereRoute,
   AboutIndexRoute: AboutIndexRoute,
   CurrentlyServingIndexRoute: CurrentlyServingIndexRoute,
   GovernanceIndexRoute: GovernanceIndexRoute,
