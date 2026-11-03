@@ -1,6 +1,6 @@
 import { Link } from "@/lib/router-compat";
 import { ArrowRight, Info, LifeBuoy } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { livedStories, LIVED_EXPERIENCES_BASE } from "@/data/livedStories";
 import HeroPersonnelBand from "@/components/HeroPersonnelBand";
@@ -128,6 +128,38 @@ const HomePage = () => {
               <path d="M0 28 Q40 8 80 28 T160 28 T240 28 T320 28" stroke="hsl(var(--ribbon-red))" strokeWidth="3" fill="none" />
               <path d="M0 32 Q40 12 80 32 T160 32 T240 32 T320 32" stroke="hsl(var(--ribbon-green))" strokeWidth="3" fill="none" />
             </svg>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-background py-14" aria-labelledby="homepage-start-heading">
+        <div className="container mx-auto px-4">
+          <h2 id="homepage-start-heading" className="mb-8 text-center text-2xl font-bold text-foreground">
+            Where would you like to start?
+          </h2>
+          <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+            {[
+              { heading: "Get support", text: "Dyslexia support for serving personnel, veterans, those thinking of joining, and the people who support them.", to: "/support", id: "homepage-start-support" },
+              { heading: "Get involved", text: "Share your experience, join the community, and help change how Defence supports dyslexic people.", to: "/join", id: "homepage-start-involved" },
+              { heading: "Partner with us", text: "Work with us to improve dyslexia support across Defence.", to: "/partner", id: "homepage-start-partner" },
+            ].map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                aria-labelledby={item.id}
+                className="group rounded-lg focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              >
+                <Card className="h-full transition-colors group-hover:border-primary">
+                  <CardContent className="flex h-full flex-col p-6">
+                    <h3 id={item.id} className="mb-3 text-xl font-bold text-foreground">{item.heading}</h3>
+                    <p className="mb-6 text-base leading-relaxed text-muted-foreground">{item.text}</p>
+                    <span className={buttonVariants({ size: "lg", className: "mt-auto h-auto min-h-11 whitespace-normal rounded-full px-6 py-3 text-center text-base font-bold" })}>
+                      {item.heading}
+                    </span>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
