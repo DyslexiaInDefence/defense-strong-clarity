@@ -1,0 +1,12 @@
+/* This staged page supplies its exact breadcrumb without changing the shared one. */
+body:has(.support-start-here) nav[aria-label="Breadcrumb"] { display: none; }
+
+.support-route-joining { --support-route-accent: var(--route-joining); }
+.support-route-serving { --support-route-accent: var(--route-serving); }
+.support-route-leaving { --support-route-accent: var(--route-leaving); }
+.support-route-supporting { --support-route-accent: var(--route-supporting); }
+.support-route-card { border-inline-start: 6px solid var(--support-route-accent); }
+.support-route-chip { border: 3px solid var(--support-route-accent); }
+
+.support-start-here { overflow-wrap: anywhere; }
+.support-start-here :where(h1, h2, h3, p, a) { letter-spacing: 0; }
