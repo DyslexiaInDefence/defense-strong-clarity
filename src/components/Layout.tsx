@@ -9,7 +9,7 @@ import CookieBanner from "@/components/CookieBanner";
 import LastUpdated from "@/components/LastUpdated";
 
 // Pages where the global "What to do next" block would be redundant
-const NEXT_STEPS_SKIP = new Set<string>(["/", "/join", "/community"]);
+const NEXT_STEPS_SKIP = new Set<string>(["/", "/join", "/community", "/support/start-here"]);
 
 const Layout = () => {
   const { pathname, search } = useLocation();
