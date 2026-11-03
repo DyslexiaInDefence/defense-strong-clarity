@@ -13,7 +13,7 @@ const ArmyDyslexiaPage = () => (
     preCtaLine="You don’t need to decide everything now — start with the step that feels easiest."
   >
     <p className="text-lg text-foreground leading-relaxed mb-4">
-      Yes. Dyslexia is not a barrier to joining the British Army. You aren't screened for it at recruitment, and dyslexic personnel serve at every rank.
+      Specific learning difficulties are not in themselves a bar to recruitment or Service in the Armed Forces if the required standards are met. You aren't screened for it at recruitment, and dyslexic personnel serve at every rank.
     </p>
     <p className="text-lg text-foreground leading-relaxed mb-8">
       What matters is being prepared to work hard to reach the standard expected of a trained soldier, including on the subjects you may have found difficult at school. Army instructors are there to help you get there. Many of the Army's most successful leaders are neurodiverse, and the Army recognises that this is part of what makes them excellent soldiers.
@@ -34,9 +34,9 @@ const ArmyDyslexiaPage = () => (
       heading="Can I actually join the Army with dyslexia?"
       intent="joining"
       bullets={[
-        "Yes — dyslexia is not a disqualifier and you are not screened for it at recruitment.",
+        "Specific learning difficulties are not in themselves a bar to recruitment or Service in the Armed Forces if the required standards are met. You are not screened for dyslexia at recruitment.",
         "It depends on meeting the same aptitude, fitness and medical standards as every other applicant — not on your diagnosis.",
-        "You don't have to declare dyslexia to join, and the Army's position is that there are no assessment accommodations for assessments related to your job. See the section below.",
+        "You are not screened for dyslexia or other specific learning difficulties during recruitment. Ask your recruiter what the application asks, so you know what to expect. The Army's position is that there are no assessment accommodations for assessments related to your job. See the section below.",
       ]}
       links={[
         { label: "Ask the Community", to: "/community" },
@@ -49,7 +49,7 @@ const ArmyDyslexiaPage = () => (
       <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
         <li>Aptitude tests are standard for every applicant.</li>
         <li>You'll need to meet the same selection, training and performance standards as everyone else.</li>
-        <li>You don't have to declare dyslexia to join. See{" "}
+        <li>You are not screened for dyslexia or other specific learning difficulties during recruitment. Ask your recruiter what the application asks, so you know what to expect. See{" "}
           <Link to="/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk" className="font-medium text-primary underline-offset-4 hover:underline">
             do I need to declare dyslexia
           </Link>

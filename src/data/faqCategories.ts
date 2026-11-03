@@ -18,12 +18,12 @@ export const intentCategories: FaqCategory[] = [
     items: [
       {
         question: "Can you join the Army with dyslexia (UK)?",
-        answer: "Yes. Dyslexia is not a barrier to joining the British Army. You aren't screened for it during recruitment, and dyslexic personnel serve at every rank.",
+        answer: "Specific learning difficulties are not in themselves a bar to recruitment or Service in the Armed Forces if the required standards are met. You aren't screened for it during recruitment, and dyslexic personnel serve at every rank.",
         link: "/insights/can-you-join-army-with-dyslexia-uk",
       },
       {
         question: "Can you join the RAF with dyslexia (UK)?",
-        answer: "Yes. The RAF welcomes dyslexic applicants across all branches, including engineering, logistics and aircrew. Reasonable adjustments are available throughout your career.",
+        answer: "Yes. The RAF welcomes dyslexic applicants across all branches, including engineering, logistics and aircrew. Feasible support is available throughout your career.",
         link: "/insights/can-you-join-raf-with-dyslexia-uk",
       },
       {
@@ -33,12 +33,12 @@ export const intentCategories: FaqCategory[] = [
       },
       {
         question: "Do I need to declare dyslexia when joining the military (UK)?",
-        answer: "You're not legally required to declare. Declaring can help others understand how you work best, but what support follows varies by service: in the Army there are no assessment accommodations for job-related assessments.",
+        answer: "You are not screened for dyslexia or other specific learning difficulties during recruitment. Ask your recruiter what the application asks, so you know what to expect. Declaring can help others understand how you work best, but what support follows varies by service: in the Army there are no assessment accommodations for job-related assessments.",
         link: "/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk",
       },
       {
         question: "Is dyslexia a barrier in the military (UK)?",
-        answer: "No. Dyslexic personnel serve at every rank across all three services. If you're considering joining, this is the reassurance most people are looking for.",
+        answer: "Specific learning difficulties are not in themselves a bar to recruitment or Service in the Armed Forces if the required standards are met. Dyslexic personnel serve at every rank across all three services. If you're considering joining, this is the reassurance most people are looking for.",
         link: "/insights/is-dyslexia-a-barrier-in-the-military-uk",
       },
     ],

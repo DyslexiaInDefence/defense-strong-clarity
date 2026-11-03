@@ -17,7 +17,7 @@ interface Resource {
 }
 
 const resources: Resource[] = [
-  { title: "Workplace Adjustment Guidance", summary: "Practical guidance on reasonable adjustments for dyslexic individuals in defence and security roles.", category: "Workplace adjustments", audiences: ["Serving", "Industry"], icon: Briefcase },
+  { title: "Workplace Adjustment Guidance", summary: "Practical guidance on feasible support for dyslexic individuals in defence and security roles.", category: "Workplace adjustments", audiences: ["Serving", "Industry"], icon: Briefcase },
   { title: "Leadership Inclusion Framework", summary: "Supporting leaders to recognise and leverage neurodivergent strengths within their teams.", category: "Leadership inclusion", audiences: ["Serving", "Industry"], icon: Users },
   { title: "Assistive Technology Overview", summary: "A curated overview of assistive tools and software available for dyslexic professionals.", category: "Assistive technology", audiences: ["All"], icon: Monitor },
   { title: "Transition Support Resources", summary: "Guidance for personnel transitioning between roles or to civilian employment.", category: "Transition support", audiences: ["Veterans", "Serving"], icon: ArrowRightLeft },

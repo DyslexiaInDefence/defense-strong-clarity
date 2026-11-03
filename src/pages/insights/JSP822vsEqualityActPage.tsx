@@ -59,10 +59,10 @@ const JSP822vsEqualityActPage = () => (
       <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
         <li>JSP 822 Vol 7 covers Specific Learning Differences in training within Defence and is written for Service personnel.</li>
         <li>Dyslexia sits within Specific Learning Differences (SpLD) and wider neurodiversity.</li>
-        <li>It’s recognised as a normal variation in how people think and learn.</li>
+        <li>It’s recognised as a naturally occurring difference to learning.</li>
         <li>Dyslexia is not a bar to recruitment or service, provided required standards are met.</li>
         <li>Support is provided where feasible — but cannot lower training standards or affect operational effectiveness.</li>
-        <li>Crucially: the Armed Forces are exempt from parts of the Equality Act 2010 relating to disability discrimination.</li>
+        <li>Crucially: the Armed Forces are exempt from parts of the Equality Act 2010 relating to disability discrimination. JSP 822 Vol 7 para 2.1.4; Equality Act 2010, Schedule 9, Part 1, para 4(3).</li>
       </ul>
       <p className="text-foreground leading-relaxed mt-4">
         For the in-service picture see{" "}

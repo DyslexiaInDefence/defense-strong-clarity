@@ -62,7 +62,7 @@ const NeurodiversityMODPage = () => (
       <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
         <li>Text-to-speech and speech-to-text software, screen readers, coloured overlays.</li>
         <li>Noise-cancelling headphones, flexible working patterns.</li>
-        <li>Additional time for some exams and assessments, depending on Service, establishment and qualification.</li>
+        <li>Access arrangements (JCQ Form 8), depending on Service, establishment and qualification.</li>
         <li>Workplace needs assessments through line management or occupational health.</li>
         <li>Internal neurodiversity staff networks for peer support — military and civilian.</li>
       </ul>
@@ -87,7 +87,7 @@ const NeurodiversityMODPage = () => (
       <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
         <li><strong>The MOD doesn’t take neurodiversity seriously.</strong> BDA Bronze recognition and dedicated D&I teams say otherwise.</li>
         <li><strong>Neurodiverse personnel can’t reach senior positions.</strong> They serve at senior ranks and grades across the MOD.</li>
-        <li><strong>Only military personnel are supported.</strong> Civil servants have their own route through the MOD Disability Toolkit. JSP 822 Vol 7 is written for Service personnel, and contractors and industry partners depend on their employer.</li>
+        <li><strong>Only military personnel are supported.</strong> Civil servants have their own route through the MOD Disability Toolkit. JSP 822 Vol 7 is written for Service personnel, and contractors and industry partners depend on their employer. JSP 822 Vol 7 covers dyslexia, dyspraxia and dyscalculia only.</li>
       </ul>
     </section>
 
