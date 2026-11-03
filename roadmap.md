@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Add the hidden Start here page and reusable SupportTabs only; verify noindex, discovery exclusions, display controls and desktop/375px without publishing.
+- [x] Add the hidden Start here page and reusable SupportTabs only; verify noindex, discovery exclusions, display controls and desktop/375px without publishing.
 
 - [x] Apply shared inner-page light-blue canvas while retaining content surfaces; verify nine requested pages at desktop/375px, contrast and display controls without publishing.
 
