@@ -24,7 +24,7 @@ const SupportForDyslexiaMilitaryPage = () => (
       heading="What can I actually get — and how?"
       intent="serving"
       bullets={[
-        "Yes — peer support, volunteer ambassadors and access to screening and assessment routes are available to serving personnel. Practical support on courses varies by service, and in the Army there are currently no assessment accommodations for job-related assessments.",
+        "Yes — peer support, volunteer ambassadors and access to screening and assessment routes are available to serving personnel. Practical support on courses varies by service.",
         "It depends partly on your unit and line manager — formal routes (your service’s education or learning support provision and the Defence Dyslexia Network) are the most reliable.",
         "In reality, the strongest support usually comes from peers who’ve already navigated the same courses and exams.",
       ]}
@@ -41,7 +41,7 @@ const SupportForDyslexiaMilitaryPage = () => (
         <li><strong>Ambassadors</strong> — volunteers from across Defence who provide informal peer support, practical guidance, signposting and reassurance based on their own lived experience. They are not accredited specialists or professional advisors.</li>
         <li><strong>Service education and learning support teams</strong> — practical access point for screening, funding advice, study skills and assistive technology, with or without a diagnosis (for example Army Education Centres in the Army, which do not carry out formal assessments themselves).</li>
         <li><strong>Active internal forum</strong> — a dyslexia-focused space inside Defence with daily posts on tips, tools and peer support.</li>
-        <li><strong>Practical support on courses</strong> — varies by service and unit. In the Army there are currently no assessment accommodations for job-related assessments, which is something we’re working to influence.</li>
+        <li><strong>Practical support on courses</strong> — varies by service and unit.</li>
         <li><strong>Monthly virtual events and in-person sessions</strong> — open to anyone serving in Defence.</li>
       </ul>
     </section>
