@@ -202,6 +202,8 @@
 /* Inner-page canvases share the homepage token. Keep framed content surfaces
  * white without changing the header, footer, homepage or existing dark palette. */
 :root:not(.dark) [data-inner-page] {
+  /* Tinted support panels also need 4.5:1 for smaller muted text. */
+  --muted-foreground: 215 15% 42%;
   background-color: var(--color-background);
 }
 
