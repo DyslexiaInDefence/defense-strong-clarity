@@ -36,19 +36,12 @@ const navLinks: NavItem[] = [
     ],
   },
   {
-    label: "Community",
-    to: "/community",
+    label: "Get Involved",
+    to: "/join",
     children: [
+      { label: "Partner With Us", to: "/partner" },
       { label: "Lived Experiences", to: "/lived-experiences" },
       { label: "Peer Community", to: "/community" },
-    ],
-  },
-  {
-    label: "Resources",
-    to: "/resources",
-    children: [
-      { label: "Downloads & Tools", to: "/resources" },
-      { label: "Partner With Us", to: "/partner" },
     ],
   },
 ];
@@ -61,6 +54,7 @@ const Navbar = () => {
   const [openMobile, setOpenMobile] = useState<Record<string, boolean>>({});
   const { pathname } = useLocation();
   const desktopRef = useRef<HTMLDivElement>(null);
+  const mobileToggleRef = useRef<HTMLButtonElement>(null);
   const closeTimer = useRef<number | null>(null);
 
   const clearCloseTimer = () => {
@@ -118,9 +112,23 @@ const Navbar = () => {
     };
   }, []);
 
+  // Escape closes the mobile menu and returns focus to its toggle.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileOpen(false);
+        mobileToggleRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [mobileOpen]);
+
   // Close desktop dropdown on navigation
   useEffect(() => {
     setOpenDesktop(null);
+    setMobileOpen(false);
   }, [pathname]);
 
   useEffect(() => () => clearCloseTimer(), []);
@@ -273,17 +281,17 @@ const Navbar = () => {
             Aa
           </button>
 
-          <Link to="/join">
-            <Button className="ml-2 rounded-full font-semibold" size="lg">
-              Get Involved
-            </Button>
-          </Link>
+          <Button asChild className="ml-2 rounded-full font-semibold" size="lg">
+            <NavLink to="/join">Join the Network</NavLink>
+          </Button>
         </div>
 
         {/* Mobile hamburger */}
         <button
+          ref={mobileToggleRef}
           className="rounded-lg p-2 text-foreground xl:hidden focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}>
           
           {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -373,9 +381,9 @@ const Navbar = () => {
               Aa
             </button>
           </div>
-          <Link to="/join" className="mt-4 block" onClick={() => setMobileOpen(false)}>
-            <Button className="w-full rounded-full font-semibold" size="lg">Get Involved</Button>
-          </Link>
+          <Button asChild className="mt-4 w-full rounded-full font-semibold" size="lg">
+            <NavLink to="/join" onClick={() => setMobileOpen(false)}>Join the Network</NavLink>
+          </Button>
         </div>
       }
     </nav>);
