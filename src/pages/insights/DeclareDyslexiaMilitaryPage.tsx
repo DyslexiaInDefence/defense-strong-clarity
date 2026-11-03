@@ -27,7 +27,7 @@ const DeclareDyslexiaMilitaryPage = () => (
       bullets={[
         "You are not screened for dyslexia or other specific learning difficulties during recruitment. Ask your recruiter what the application asks, so you know what to expect.",
         "It depends on whether your dyslexia affects your training or work — at that point, you’re advised to tell your chain of command.",
-        "If you do declare with a diagnosis, it can help your line manager and instructors understand how you work best. What support follows varies by service: the Army has no assessment accommodations for job-related assessments, while Services can choose to screen during initial training, so practice differs between them.",
+        "If you do declare with a diagnosis, it can help your line manager and instructors understand how you work best. What support follows varies by service. Services can choose to screen during initial training, so practice differs between them.",
       ]}
       links={[
         { label: "Ask the Community", to: "/community" },

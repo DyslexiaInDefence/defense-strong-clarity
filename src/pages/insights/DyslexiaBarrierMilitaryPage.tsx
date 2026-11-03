@@ -26,7 +26,7 @@ const DyslexiaBarrierMilitaryPage = () => (
       bullets={[
         "No — dyslexic personnel reach every rank, including senior officer, across all three services.",
         "It depends on how some written tasks (timed essays, customs-style briefs) are assessed — these are the friction points, not dyslexia itself.",
-        "Peer support and ambassador advice are available throughout your career, but you usually have to ask for them. Practical adjustments vary by service, and the Army has no assessment accommodations for job-related assessments.",
+        "Peer support and ambassador advice are available throughout your career, but you usually have to ask for them. Practical adjustments vary by service.",
       ]}
       links={[
         { label: "Ask the Community", to: "/community" },

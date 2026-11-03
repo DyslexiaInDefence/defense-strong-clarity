@@ -36,7 +36,7 @@ const ArmyDyslexiaPage = () => (
       bullets={[
         "Specific learning difficulties are not in themselves a bar to recruitment or Service in the Armed Forces if the required standards are met. You are not screened for dyslexia at recruitment.",
         "It depends on meeting the same aptitude, fitness and medical standards as every other applicant — not on your diagnosis.",
-        "You are not screened for dyslexia or other specific learning difficulties during recruitment. Ask your recruiter what the application asks, so you know what to expect. The Army's position is that there are no assessment accommodations for assessments related to your job. See the section below.",
+        "You are not screened for dyslexia or other specific learning difficulties during recruitment. Ask your recruiter what the application asks, so you know what to expect. See the section below.",
       ]}
       links={[
         { label: "Ask the Community", to: "/community" },
@@ -62,10 +62,10 @@ const ArmyDyslexiaPage = () => (
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">The honest bit: what the Army doesn't offer yet</h2>
       <p className="text-foreground leading-relaxed mb-4">
-        The Army's position is that there are no assessment accommodations for assessments related to your job. The reasoning is safety: it is about making sure you and the people you work with can do the job. In practice, that means you shouldn't expect extra time or adjusted formats on role-related assessments in the way you might have had at school or university.
+        Safety is about making sure you and the people you work with can do the job.
       </p>
       <p className="text-foreground leading-relaxed mb-4">
-        This is different to the Navy and RAF. Both assess for neurodiversity during phase 1 training, and the Navy has a dedicated neurodiversity role. The Army doesn't currently take the same approach, even though a large share of dyslexic personnel serve in it.
+        The Navy has a dedicated neurodiversity role.
       </p>
       <p className="text-foreground leading-relaxed">
         We think that's a gap, and we're working to influence it, including better support on courses, earlier identification, and more consistent understanding among line managers and chain of command. Change takes time, so if you're joining now, go in with your eyes open: build your coping strategies early, and use the network.

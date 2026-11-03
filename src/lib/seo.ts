@@ -135,13 +135,13 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
   },
   "/insights/can-you-join-raf-with-dyslexia-uk": {
     title: "Can You Join the RAF With Dyslexia? UK Eligibility Guide",
-    description: "Yes, dyslexia does not disqualify you from the RAF. Learn about recruitment adjustments, support in service, and common misconceptions.",
+    description: "Specific learning difficulties are not in themselves a bar to recruitment or Service if the required standards are met. Ask education staff about feasible support under JSP 822 Vol 7.",
     priority: 0.8,
     indexable: true,
   },
   "/insights/can-you-join-navy-with-dyslexia-uk": {
     title: "Can You Join the Royal Navy With Dyslexia? UK Guide",
-    description: "Yes, the Royal Navy accepts dyslexic applicants. Discover how dyslexia is assessed, what support exists, and how to apply.",
+    description: "Specific learning difficulties are not in themselves a bar to recruitment or Service if the required standards are met. Ask education staff about feasible support under JSP 822 Vol 7.",
     priority: 0.8,
     indexable: true,
   },

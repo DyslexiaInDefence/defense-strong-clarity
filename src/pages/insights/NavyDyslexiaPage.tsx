@@ -11,22 +11,22 @@ const NavyDyslexiaPage = () => (
     preCtaLine="You don’t need to decide everything now — start with the step that feels easiest."
   >
     <p className="text-lg text-foreground leading-relaxed mb-4">
-      Yes. Dyslexia does not prevent you from joining the Royal Navy. Dyslexic sailors, Royal Marines and officers serve at every rank and across every branch.
+      Specific learning difficulties are not in themselves a bar to recruitment or Service in the Armed Forces if the required standards are met.
     </p>
     <p className="text-base text-foreground leading-relaxed mb-4">
-      Having dyslexia does not stop you joining the Royal Navy or the Royal Marines.
+      Ask your recruiter what the application asks, so you know what to expect.
     </p>
     <p className="text-lg text-foreground leading-relaxed mb-8">
-      You will need to meet the same recruitment and performance standards as every candidate. Where you have a diagnosis, support may be available. What’s offered varies.
+      You will need to meet the required standards. Ask your education staff about feasible support under JSP 822 Vol 7.
     </p>
 
     <DecisionConfidenceBlock
       heading="Can I actually join the Royal Navy with dyslexia?"
       intent="joining"
       bullets={[
-        "Yes — dyslexic sailors, Royal Marines and officers serve at every rank.",
-        "It depends on meeting the standard Recruiting Test, fitness and medical requirements — not on whether you’re dyslexic.",
-        "If you have a diagnosis, you can ask about adjustments such as additional time on written elements at selection. Confirm with your recruiter.",
+        "Specific learning difficulties are not in themselves a bar to recruitment or Service if the required standards are met.",
+        "Ask your recruiter what the application asks, so you know what to expect.",
+        "Ask your education staff what feasible support is available under JSP 822 Vol 7.",
       ]}
       links={[
         { label: "Ask the Community", to: "/community" },
@@ -37,10 +37,10 @@ const NavyDyslexiaPage = () => (
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">What Royal Navy recruitment looks like</h2>
       <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
-        <li>The Recruiting Test is standard for all applicants.</li>
-        <li>If you have a formal diagnosis, declare it when you apply so adjustments can be arranged.</li>
-        <li>Common adjustments include additional time on written elements.</li>
-        <li>You don’t have to declare dyslexia to join — see{" "}
+        <li>You need to meet the required standards.</li>
+        <li>Ask your recruiter what the application asks.</li>
+        <li>Ask education staff about feasible support under JSP 822 Vol 7.</li>
+        <li>For guidance on discussing dyslexia, see{" "}
           <Link to="/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk" className="font-medium text-primary underline-offset-4 hover:underline">
             do I need to declare dyslexia
           </Link>
@@ -51,26 +51,26 @@ const NavyDyslexiaPage = () => (
 
     <IfThisSoundsLikeYou
       concerns={[
-        "You’re worried the Recruiting Test will go against you because of your reading speed.",
-        "You’ve heard you can’t be aircrew or a submariner if you’re dyslexic — and you don’t know what’s true.",
+        "You’re unsure what the application asks about dyslexia.",
+        "You don’t know who to ask about feasible support.",
         "You’re unsure whether to mention dyslexia in your application or wait until later.",
       ]}
-      reassurance="These are the most common worries from people who go on to join — none of them, on their own, stop you getting in."
+      reassurance="Ask your recruiter about the application and your education staff about feasible support."
     />
 
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">Common misconceptions</h2>
       <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
-        <li><strong>The Navy won’t take dyslexic recruits.</strong> No — they serve at every rank.</li>
-        <li><strong>You can’t become an officer.</strong> No — many officers are dyslexic. The Admiralty Interview Board assesses leadership, not reading speed.</li>
-        <li><strong>Submariners can’t be dyslexic.</strong> No blanket exclusion. Each role is assessed on its own requirements.</li>
+        <li><strong>Dyslexia is automatically a bar to recruitment.</strong> Specific learning difficulties are not in themselves a bar if the required standards are met.</li>
+        <li><strong>Support is the same everywhere.</strong> Ask education staff what applies where you serve.</li>
+        <li><strong>Support lowers the required standards.</strong> Feasible support does not lower the required standards.</li>
       </ul>
     </section>
 
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">Support in service</h2>
       <p className="text-foreground leading-relaxed">
-        Naval education centres, divisional officers and the Defence Dyslexia Network are all available once in service. For the full picture see{" "}
+        Ask your chain of command how to contact your education staff and what feasible support is available. The Navy has a dedicated neurodiversity role. For the full picture see{" "}
         <Link to="/insights/what-support-is-available-for-dyslexia-in-the-military-uk" className="font-medium text-primary underline-offset-4 hover:underline">
           what support is available
         </Link>
@@ -81,14 +81,14 @@ const NavyDyslexiaPage = () => (
         .
       </p>
       <p className="text-foreground leading-relaxed mt-4">
-        How easily you access support can vary depending on your ship, unit or role — but the routes exist, and the Defence Dyslexia Network is one of the most reliable ways in.
+        Ask education staff what applies where you serve. JSP 822 Vol 7 sets out Defence policy on Specific Learning Differences.
       </p>
     </section>
 
     <section className="mb-2">
       <h2 className="text-2xl font-bold text-foreground mb-4">Reassurance</h2>
       <p className="text-foreground leading-relaxed">
-        Dyslexic personnel are already a valued part of the Naval Service and serve at every rank. The MOD has signed the British Dyslexia Association’s Dyslexia Friendly Workplace Pledge — declare, use the support available, and focus on what you bring to the fleet.
+        You can start by asking your education staff about feasible support under JSP 822 Vol 7.
       </p>
     </section>
   </InsightLayout>
