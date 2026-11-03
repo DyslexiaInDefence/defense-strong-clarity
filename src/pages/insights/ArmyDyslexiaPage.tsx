@@ -61,12 +61,6 @@ const ArmyDyslexiaPage = () => (
 
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">The honest bit: what the Army doesn't offer yet</h2>
-      <p className="text-foreground leading-relaxed mb-4">
-        Safety is about making sure you and the people you work with can do the job.
-      </p>
-      <p className="text-foreground leading-relaxed mb-4">
-        The Navy has a dedicated neurodiversity role.
-      </p>
       <p className="text-foreground leading-relaxed">
         We think that's a gap, and we're working to influence it, including better support on courses, earlier identification, and more consistent understanding among line managers and chain of command. Change takes time, so if you're joining now, go in with your eyes open: build your coping strategies early, and use the network.
       </p>
@@ -99,7 +93,7 @@ const ArmyDyslexiaPage = () => (
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">Support once you’re in</h2>
       <p className="text-foreground leading-relaxed mb-4">
-        Once serving, you can get peer support through the Defence Dyslexia Network, advice from its ambassadors, and help finding an assessment through your Army Education Centre. Experience varies between units and roles, and the Defence Dyslexia Network is the quickest way to find what's available in yours.
+        Once serving, you can get peer support through the Defence Dyslexia Network, advice from its ambassadors, and help finding an assessment through your Army Education Centre. Experience varies between units and roles, and the Defence Dyslexia Network is the quickest way to find what's available in yours. Support differs between the Services; the Navy has a dedicated neurodiversity role.
       </p>
       <p className="text-foreground leading-relaxed">
         For the full picture see{" "}
