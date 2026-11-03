@@ -193,7 +193,7 @@ const StandardLearningCreditsPage = () => {
                   <a href={JSP822_VOL7_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline-offset-4 hover:underline">
                     JSP 822 Vol 7 (PDF)<span className="sr-only"> (opens in new tab)</span>
                   </a>{" "}
-                  (paras 2.1.9 and 2.3.1) requires Services to fund specialist assessment where required.
+                  para 2.3.1 says Service Commanders fund specialist diagnosis and assessment where it is required, and para 2.1.4 says funding may be provided. Whether it is funded depends on your circumstances, so ask your education staff.
                 </p>
               </details>
             </div>

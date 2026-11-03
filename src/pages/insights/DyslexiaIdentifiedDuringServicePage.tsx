@@ -38,7 +38,7 @@ const DyslexiaIdentifiedDuringServicePage = () => (
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">What the policy says — and the process</h2>
       <p className="text-foreground leading-relaxed mb-4">
-        JSP 822 (Vol 7) is Defence’s policy on Specific Learning Differences in training. Each Service has its own localised version. The key points if dyslexia is identified mid-career:
+        JSP 822 (Vol 7) is Defence’s policy on Specific Learning Differences in training. Defence organisations have their own policy documents for local teams to follow. Ask your chain of command or education staff what applies where you serve. The key points if dyslexia is identified mid-career:
       </p>
       <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
         <li>You are <strong>not required</strong> to inform your line manager, trainer or commander if it doesn’t affect your training or work.</li>

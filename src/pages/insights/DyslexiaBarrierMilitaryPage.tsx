@@ -11,7 +11,7 @@ const DyslexiaBarrierMilitaryPage = () => (
     preCtaLine="You don’t need to decide everything now — start with the step that feels easiest."
   >
     <p className="text-lg text-foreground leading-relaxed mb-4">
-      No. Dyslexia is not a barrier to a military career in the UK. All three services accept dyslexic candidates and dyslexic personnel serve at every rank.
+      Specific learning difficulties are not in themselves a bar to recruitment or Service in the Armed Forces if the required standards are met. All three services accept dyslexic candidates and dyslexic personnel serve at every rank.
     </p>
     <p className="text-base text-foreground leading-relaxed mb-4">
       You are not at a disadvantage in your career just for being dyslexic.
@@ -37,7 +37,7 @@ const DyslexiaBarrierMilitaryPage = () => (
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">Policy vs reality</h2>
       <p className="text-foreground leading-relaxed mb-4">
-        JSP 822 (Vol 7), Defence’s policy on Specific Learning Differences in training, is clear: dyslexia is not a barrier to joining or serving. You don’t need to declare it during recruitment, and you’re not screened for it.
+        Specific learning difficulties are not in themselves a bar to recruitment or Service in the Armed Forces if the required standards are met. You are not screened for dyslexia or other specific learning difficulties during recruitment. Ask your recruiter what the application asks, so you know what to expect.
       </p>
       <p className="text-foreground leading-relaxed">
         In reality, around 1 in 10 personnel are dyslexic — roughly 18,000 people serving today. Senior leaders, long-serving soldiers, instructors and specialists across the Armed Forces are dyslexic. It’s common, not exceptional.

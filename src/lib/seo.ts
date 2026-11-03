@@ -129,7 +129,7 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
   },
   "/insights/can-you-join-army-with-dyslexia-uk": {
     title: "Can You Join the Army With Dyslexia? UK Eligibility Guide",
-    description: "Dyslexia is not a bar to joining the British Army. Here's what recruitment looks like, what support to expect, and how the Army differs from the Navy and RAF.",
+    description: "Specific learning difficulties are not in themselves a bar to recruitment or Service in the Armed Forces if the required standards are met. Here's what recruitment looks like, what support to expect, and how the Army differs from the Navy and RAF.",
     priority: 0.8,
     indexable: true,
   },
@@ -147,7 +147,7 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
   },
   "/insights/is-dyslexia-a-barrier-in-the-military-uk": {
     title: "Is Dyslexia a Barrier to a Military Career? | UK",
-    description: "No. Dyslexia is not a barrier to a UK military career. Around 1 in 10 personnel are dyslexic and serve at every rank — here’s the policy and the reality.",
+    description: "Specific learning difficulties are not in themselves a bar to recruitment or Service in the Armed Forces if the required standards are met. Around 1 in 10 personnel are dyslexic and serve at every rank — here’s the policy and the reality.",
     priority: 0.8,
     indexable: true,
   },
@@ -165,7 +165,7 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
   },
   "/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk": {
     title: "Do I Need to Declare Dyslexia Joining the Military? UK",
-    description: "No. You don’t need to declare dyslexia to join the UK military, and you’re not screened for it. Here’s what JSP 822 says — and what it means in practice.",
+    description: "You are not screened for dyslexia or other specific learning difficulties during recruitment. Ask your recruiter what the application asks, so you know what to expect. Here’s what JSP 822 says — and what it means in practice.",
     priority: 0.8,
     indexable: true,
   },
