@@ -42,7 +42,7 @@ const Layout = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       {showBreadcrumbs && <Breadcrumbs />}
-      <main>
+      <main data-inner-page={pathname !== "/" ? "" : undefined}>
         <Outlet />
         {showNextSteps && <NextSteps />}
         <LastUpdated />

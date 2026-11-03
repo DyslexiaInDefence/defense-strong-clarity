@@ -34,7 +34,7 @@ const box = "space-y-4 rounded-lg border border-border px-4 py-5";
 
 function NewsletterOctober2026() {
   return (
-    <div className="min-h-screen bg-[#F0F7FD] px-4 py-8 text-base leading-relaxed text-foreground">
+    <div className="min-h-screen bg-background px-4 py-8 text-base leading-relaxed text-foreground">
       <article className="mx-auto max-w-[600px] space-y-6 rounded-xl border border-border bg-card px-5 py-8 text-left sm:px-8">
         <a href="https://dyslexiaindefence.com/" className="mx-auto block w-[200px] max-w-[65%]">
           <img src={didLogo} alt="Dyslexia in Defence" className="h-auto w-full" />
