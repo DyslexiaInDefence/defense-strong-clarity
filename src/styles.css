@@ -199,6 +199,20 @@
   --sidebar-ring: 217.2 91.2% 59.8%;
 }
 
+/* Inner-page canvases share the homepage token. Keep framed content surfaces
+ * white without changing the header, footer, homepage or existing dark palette. */
+:root:not(.dark) [data-inner-page] {
+  background-color: var(--color-background);
+}
+
+:root:not(.dark) [data-inner-page] :where(section.bg-card, section.bg-muted, section.bg-secondary):not([class*="rounded"]):not(.border):not(.container) {
+  background-color: var(--color-background);
+}
+
+:root:not(.dark) [data-inner-page] :where([class*="rounded"].bg-background, input.bg-background, textarea.bg-background, [role="combobox"].bg-background) {
+  background-color: var(--color-card);
+}
+
 @layer base {
   * {
     border-color: var(--color-border);
