@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Apply the six requested policy wording corrections only; preserve links, layouts, dates and downloads; verify without publishing.
+- [x] Apply the six requested policy wording corrections only; preserve links, layouts, dates and downloads; verify without publishing.
 
 - [x] Update only the SLC page wording, three V2 forms and matching dates; verify original downloads, SSR content, and desktop/375px fit without publishing.
 
