@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Apply shared inner-page light-blue canvas while retaining content surfaces; verify nine requested pages at desktop/375px, contrast and display controls without publishing.
+
 - [x] Remove requested Service-specific claims and generalise Navy/RAF guidance only; preserve URLs, layout, dates and existing links; verify without publishing.
 
 - [x] Apply the six requested policy wording corrections only; preserve links, layouts, dates and downloads; verify without publishing.
