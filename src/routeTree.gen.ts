@@ -59,6 +59,7 @@ import { Route as NewslettersOctober2026RouteImport } from './routes/newsletters
 import { Route as SupportIndexRouteImport } from './routes/support/index'
 import { Route as SupportCurrentlyServingRouteImport } from './routes/support/currently-serving'
 import { Route as SupportStartHereRouteImport } from './routes/support/start-here'
+import { Route as SupportThinkingOfJoiningRouteImport } from './routes/support/thinking-of-joining'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -327,6 +328,12 @@ const SupportStartHereRoute = SupportStartHereRouteImport.update({
   path: '/support/start-here',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SupportThinkingOfJoiningRoute =
+  SupportThinkingOfJoiningRouteImport.update({
+    id: '/support/thinking-of-joining',
+    path: '/support/thinking-of-joining',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -373,6 +380,7 @@ export interface FileRoutesByFullPath {
   '/newsletters/october-2026': typeof NewslettersOctober2026Route
   '/support/currently-serving': typeof SupportCurrentlyServingRoute
   '/support/start-here': typeof SupportStartHereRoute
+  '/support/thinking-of-joining': typeof SupportThinkingOfJoiningRoute
   '/about/': typeof AboutIndexRoute
   '/currently-serving/': typeof CurrentlyServingIndexRoute
   '/governance/': typeof GovernanceIndexRoute
@@ -425,6 +433,7 @@ export interface FileRoutesByTo {
   '/newsletters/october-2026': typeof NewslettersOctober2026Route
   '/support/currently-serving': typeof SupportCurrentlyServingRoute
   '/support/start-here': typeof SupportStartHereRoute
+  '/support/thinking-of-joining': typeof SupportThinkingOfJoiningRoute
   '/about': typeof AboutIndexRoute
   '/currently-serving': typeof CurrentlyServingIndexRoute
   '/governance': typeof GovernanceIndexRoute
@@ -478,6 +487,7 @@ export interface FileRoutesById {
   '/newsletters/october-2026': typeof NewslettersOctober2026Route
   '/support/currently-serving': typeof SupportCurrentlyServingRoute
   '/support/start-here': typeof SupportStartHereRoute
+  '/support/thinking-of-joining': typeof SupportThinkingOfJoiningRoute
   '/about/': typeof AboutIndexRoute
   '/currently-serving/': typeof CurrentlyServingIndexRoute
   '/governance/': typeof GovernanceIndexRoute
@@ -532,6 +542,7 @@ export interface FileRouteTypes {
     | '/newsletters/october-2026'
     | '/support/currently-serving'
     | '/support/start-here'
+    | '/support/thinking-of-joining'
     | '/about/'
     | '/currently-serving/'
     | '/governance/'
@@ -584,6 +595,7 @@ export interface FileRouteTypes {
     | '/newsletters/october-2026'
     | '/support/currently-serving'
     | '/support/start-here'
+    | '/support/thinking-of-joining'
     | '/about'
     | '/currently-serving'
     | '/governance'
@@ -636,6 +648,7 @@ export interface FileRouteTypes {
     | '/newsletters/october-2026'
     | '/support/currently-serving'
     | '/support/start-here'
+    | '/support/thinking-of-joining'
     | '/about/'
     | '/currently-serving/'
     | '/governance/'
@@ -689,6 +702,7 @@ export interface RootRouteChildren {
   NewslettersOctober2026Route: typeof NewslettersOctober2026Route
   SupportCurrentlyServingRoute: typeof SupportCurrentlyServingRoute
   SupportStartHereRoute: typeof SupportStartHereRoute
+  SupportThinkingOfJoiningRoute: typeof SupportThinkingOfJoiningRoute
   AboutIndexRoute: typeof AboutIndexRoute
   CurrentlyServingIndexRoute: typeof CurrentlyServingIndexRoute
   GovernanceIndexRoute: typeof GovernanceIndexRoute
@@ -1049,6 +1063,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SupportStartHereRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/support/thinking-of-joining': {
+      id: '/support/thinking-of-joining'
+      path: '/support/thinking-of-joining'
+      fullPath: '/support/thinking-of-joining'
+      preLoaderRoute: typeof SupportThinkingOfJoiningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -1112,6 +1133,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewslettersOctober2026Route: NewslettersOctober2026Route,
   SupportCurrentlyServingRoute: SupportCurrentlyServingRoute,
   SupportStartHereRoute: SupportStartHereRoute,
+  SupportThinkingOfJoiningRoute: SupportThinkingOfJoiningRoute,
   AboutIndexRoute: AboutIndexRoute,
   CurrentlyServingIndexRoute: CurrentlyServingIndexRoute,
   GovernanceIndexRoute: GovernanceIndexRoute,
