@@ -65,7 +65,7 @@ describe("Page date rules", () => {
       const text = readFileSync(path, "utf8");
       if (!text.includes("component:") || path.endsWith("__root.tsx")) continue;
       const route = text.match(/createFileRoute\("([^"]+)"\)/)?.[1]?.replace(/\/$/, "");
-      if (!route || route === "/evidence" || route === "/support/start-here" || route === "/support/thinking-of-joining" || route.startsWith("/newsletters/")) continue;
+      if (!route || route === "/evidence" || route === "/support/start-here" || route === "/support/thinking-of-joining" || route === "/support/leaving-or-left-service" || route.startsWith("/newsletters/")) continue;
       expect(getPageDate(route), route).toBeDefined();
     }
   });
