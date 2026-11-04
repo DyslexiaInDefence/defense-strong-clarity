@@ -1,5 +1,5 @@
-/* This staged page supplies its exact breadcrumb without changing the shared one. */
-body:has(.support-start-here) nav[aria-label="Breadcrumb"] { display: none; }
+/* Staged support pages supply their exact breadcrumb without changing the shared one. */
+body:has(.support-start-here, .support-staged-page) nav[aria-label="Breadcrumb"] { display: none; }
 
 .support-route-joining { --support-route-accent: var(--route-joining); }
 .support-route-serving { --support-route-accent: var(--route-serving); }
@@ -7,6 +7,8 @@ body:has(.support-start-here) nav[aria-label="Breadcrumb"] { display: none; }
 .support-route-supporting { --support-route-accent: var(--route-supporting); }
 .support-route-card { border-inline-start: 6px solid var(--support-route-accent); }
 .support-route-chip { border: 3px solid var(--support-route-accent); }
+.support-identity-strip { border-inline-start: 6px solid var(--support-route-accent); }
 
-.support-start-here { overflow-wrap: anywhere; }
-.support-start-here :where(h1, h2, h3, p, a) { letter-spacing: 0; }
+.support-start-here, .support-staged-page { overflow-wrap: anywhere; }
+.support-start-here :where(h1, h2, h3, p, a),
+.support-staged-page :where(h1, h2, h3, p, a) { letter-spacing: 0; }
