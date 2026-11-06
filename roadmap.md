@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Add hidden Guidance library with ?for= filters, Everyone guides on every filter, discovery/date exclusions and tests; verify desktop/375px without publishing.
+
 - [x] Add hidden Supporting someone page using Leaving page pattern; verify guidance choice, discovery/date exclusions, tests and desktop/375px without publishing.
 
 - [x] Add Liz Oliver's verbatim story, optimised portrait, listing and discovery records; verify navigation, tests and desktop/375px without publishing.
