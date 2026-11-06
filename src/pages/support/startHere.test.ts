@@ -141,10 +141,12 @@ describe("Staged support page boundaries", () => {
         expect(routeText.includes(`createFileRoute("${item.link.to}")`), item.link.to).toBe(true);
         expect(linkLabel(item.link)).toBe("Open");
       } else {
-        const asset = assets.find(a => a.url === item.link.href);
+        const link = item.link;
+        const asset = assets.find(a => a.url === link.href);
         expect(asset, item.title).toBeDefined();
-        expect(asset?.content_type).toBe(mime[item.link.fileType]);
-        expect(linkLabel(item.link)).toBe(`Download (${item.link.fileType})`);
+        expect(asset?.content_type).toBe(mime[link.fileType]);
+        expect(link.contentType).toBe(mime[link.fileType]);
+        expect(linkLabel(link)).toBe(`Download (${link.fileType})`);
       }
     }
   });
