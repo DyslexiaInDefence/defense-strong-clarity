@@ -13,7 +13,7 @@ function files(directory: string): string[] {
 describe("Staged support page boundaries", () => {
   it("excludes Start here from all existing discovery content", () => {
     // Layout's exact-path opt-out is not an inbound link or discovery entry.
-    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/start-here"), path).toBe(false);
@@ -50,9 +50,28 @@ describe("Staged support page boundaries", () => {
     expect(getPageDate("/support/thinking-of-joining")).toBeUndefined();
   });
 
-  it("leaves the four remaining future support destinations unbuilt", () => {
+  it("excludes Supporting someone from all existing discovery content", () => {
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/StartHerePage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    for (const path of [...files("src"), ...files("public")]) {
+      if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
+      expect(readFileSync(path, "utf8").includes("/support/supporting-someone"), path).toBe(false);
+    }
+  });
+
+  it("keeps Supporting someone hidden with its staging banner and green accent", () => {
+    const route = readFileSync("src/routes/support/supporting-someone.tsx", "utf8");
+    const page = readFileSync("src/pages/support/SupportingSomeonePage.tsx", "utf8");
+    expect(route).toContain('createFileRoute("/support/supporting-someone")');
+    expect(route).toContain('content: "noindex, nofollow"');
+    expect(page).toContain("const SHOW_WIP_BANNER = true;");
+    expect(page).toContain("Work in progress – this page is not live yet.");
+    expect(page).toContain("support-route-supporting");
+    expect(getPageDate("/support/supporting-someone")).toBeUndefined();
+  });
+
+  it("leaves the three future support library destinations unbuilt", () => {
     const routeText = files("src/routes").filter(path => path.endsWith(".tsx")).map(path => readFileSync(path, "utf8")).join("\n");
-    for (const path of ["/support/supporting-someone", "/support/guidance", "/support/downloads-and-tools", "/support/faq"]) {
+    for (const path of ["/support/guidance", "/support/downloads-and-tools", "/support/faq"]) {
       expect(routeText.includes(`createFileRoute("${path}")`), path).toBe(false);
     }
   });

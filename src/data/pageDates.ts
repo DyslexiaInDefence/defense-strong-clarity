@@ -1,4 +1,6 @@
 // Only change a page's date when its content genuinely changes. Do not bump on deploys or cosmetic changes.
+// Hidden staged support pages (Start here, Thinking of joining, Leaving or left service,
+// Supporting someone) intentionally have no public content date.
 export const PAGE_DATES: Readonly<Record<string, string>> = {
   "/about": "2026-10-24",
   "/about/our-story": "2026-10-24",
