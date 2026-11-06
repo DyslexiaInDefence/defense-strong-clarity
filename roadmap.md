@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Add Liz Oliver's verbatim story, optimised portrait, listing and discovery records; verify navigation, tests and desktop/375px without publishing.
+- [x] Add Liz Oliver's verbatim story, optimised portrait, listing and discovery records; verify navigation, tests and desktop/375px without publishing.
 
 - [x] Add the hidden Start here page and reusable SupportTabs only; verify noindex, discovery exclusions, display controls and desktop/375px without publishing.
 
