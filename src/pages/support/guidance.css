@@ -1,0 +1,17 @@
+/* Guidance library audience chips: text always present, colour is only a supporting cue. */
+.guidance-chip {
+  display: inline-flex;
+  align-items: center;
+  border: 2px solid hsl(var(--border));
+  border-radius: 9999px;
+  background: hsl(var(--muted));
+  color: hsl(var(--foreground));
+  padding: 0.125rem 0.75rem;
+}
+.guidance-chip.support-route-joining,
+.guidance-chip.support-route-serving,
+.guidance-chip.support-route-leaving,
+.guidance-chip.support-route-supporting {
+  border-color: var(--support-route-accent);
+  background: color-mix(in srgb, var(--support-route-accent) 18%, hsl(var(--card)));
+}
