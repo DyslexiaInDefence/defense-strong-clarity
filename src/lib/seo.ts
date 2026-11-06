@@ -247,6 +247,12 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.7,
     indexable: true,
   },
+  "/lived-experiences/liz-oliver-british-army-veteran": {
+    title: "Liz Oliver | British Army Veteran | Dyslexia in Defence",
+    description: "Liz Oliver, a former Royal Army Medical Corps Environmental Health Technician, shares her experience of undiagnosed neurodivergence in the Army and her diagnosis in her mid-forties.",
+    priority: 0.7,
+    indexable: true,
+  },
   "/community": {
     title: "Community | Dyslexia in Defence",
     description: "The Dyslexia in Defence community space — peer support and shared lived experience across the UK Defence community.",

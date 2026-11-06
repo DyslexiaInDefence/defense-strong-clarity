@@ -19,7 +19,7 @@ const StoryCard = ({ story }: StoryCardProps) => {
           src={story.photoUrl}
           alt={story.photoAlt}
           loading="lazy"
-          className="h-full w-full object-cover"
+          className={`h-full w-full object-cover ${story.photoPositionClassName ?? ""}`}
         />
       </div>
       <h3 className="text-lg font-bold text-foreground">{story.name}</h3>

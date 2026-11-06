@@ -6,6 +6,8 @@ interface LivedExperienceLayoutProps {
   story: LivedStory;
   photoWidth: number;
   photoHeight: number;
+  heading?: string;
+  subheading?: string;
   /** Story body paragraphs, rendered beside the floated portrait. */
   children: ReactNode;
   /** Sections rendered after the story (podcast, share prompt, etc.). */
@@ -17,6 +19,8 @@ const LivedExperienceLayout = ({
   story,
   photoWidth,
   photoHeight,
+  heading,
+  subheading,
   children,
   after,
 }: LivedExperienceLayoutProps) => (
@@ -25,8 +29,9 @@ const LivedExperienceLayout = ({
       <StoryNav currentSlug={story.slug} />
 
       <h1 className="text-3xl font-bold text-foreground md:text-4xl">
-        {story.name} – {story.role}
+        {heading ?? `${story.name} – ${story.role}`}
       </h1>
+      {subheading && <p className="mt-3 text-lg text-muted-foreground">{subheading}</p>}
 
       <p className="mt-4 rounded-lg border-l-4 border-primary bg-primary/5 p-4 text-sm italic leading-relaxed text-muted-foreground">
         Every dyslexic journey is different. These lived experiences provide personal perspectives from across the defence community. The views expressed are those of the individual and do not represent official MOD policy or the views of Dyslexia in Defence.
@@ -40,7 +45,7 @@ const LivedExperienceLayout = ({
             width={photoWidth}
             height={photoHeight}
             loading="lazy"
-            className="w-full rounded-2xl shadow-md"
+            className={`w-full rounded-2xl shadow-md ${story.photoPositionClassName ?? ""}`}
           />
           <figcaption className="mt-2 text-xs italic text-muted-foreground">
             {story.photoAlt}.

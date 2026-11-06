@@ -25,6 +25,7 @@ export const PAGE_DATES: Readonly<Record<string, string>> = {
   "/lived-experiences/staff-sergeant-kirk-davis-british-army": "2026-10-24",
   "/lived-experiences/symon-smith-british-army-veteran": "2026-10-24",
   "/lived-experiences/major-lena-beardsell": "2026-10-24",
+  "/lived-experiences/liz-oliver-british-army-veteran": "2026-11-06",
   // Governance pages: dates must match each page's actual content revision.
   "/governance": "2026-08-08",
   "/governance/founder": "2026-08-08",
