@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Add hidden Supporting someone page using Leaving page pattern; verify guidance choice, discovery/date exclusions, tests and desktop/375px without publishing.
+- [x] Add hidden Supporting someone page using Leaving page pattern; verify guidance choice, discovery/date exclusions, tests and desktop/375px without publishing.
 
 - [x] Add Liz Oliver's verbatim story, optimised portrait, listing and discovery records; verify navigation, tests and desktop/375px without publishing.
 
