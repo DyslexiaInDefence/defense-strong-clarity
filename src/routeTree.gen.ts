@@ -61,6 +61,7 @@ import { Route as SupportIndexRouteImport } from './routes/support/index'
 import { Route as SupportCurrentlyServingRouteImport } from './routes/support/currently-serving'
 import { Route as SupportLeavingOrLeftServiceRouteImport } from './routes/support/leaving-or-left-service'
 import { Route as SupportStartHereRouteImport } from './routes/support/start-here'
+import { Route as SupportSupportingSomeoneRouteImport } from './routes/support/supporting-someone'
 import { Route as SupportThinkingOfJoiningRouteImport } from './routes/support/thinking-of-joining'
 
 const IndexRoute = IndexRouteImport.update({
@@ -342,6 +343,12 @@ const SupportStartHereRoute = SupportStartHereRouteImport.update({
   path: '/support/start-here',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SupportSupportingSomeoneRoute =
+  SupportSupportingSomeoneRouteImport.update({
+    id: '/support/supporting-someone',
+    path: '/support/supporting-someone',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SupportThinkingOfJoiningRoute =
   SupportThinkingOfJoiningRouteImport.update({
     id: '/support/thinking-of-joining',
@@ -396,6 +403,7 @@ export interface FileRoutesByFullPath {
   '/support/currently-serving': typeof SupportCurrentlyServingRoute
   '/support/leaving-or-left-service': typeof SupportLeavingOrLeftServiceRoute
   '/support/start-here': typeof SupportStartHereRoute
+  '/support/supporting-someone': typeof SupportSupportingSomeoneRoute
   '/support/thinking-of-joining': typeof SupportThinkingOfJoiningRoute
   '/about/': typeof AboutIndexRoute
   '/currently-serving/': typeof CurrentlyServingIndexRoute
@@ -451,6 +459,7 @@ export interface FileRoutesByTo {
   '/support/currently-serving': typeof SupportCurrentlyServingRoute
   '/support/leaving-or-left-service': typeof SupportLeavingOrLeftServiceRoute
   '/support/start-here': typeof SupportStartHereRoute
+  '/support/supporting-someone': typeof SupportSupportingSomeoneRoute
   '/support/thinking-of-joining': typeof SupportThinkingOfJoiningRoute
   '/about': typeof AboutIndexRoute
   '/currently-serving': typeof CurrentlyServingIndexRoute
@@ -507,6 +516,7 @@ export interface FileRoutesById {
   '/support/currently-serving': typeof SupportCurrentlyServingRoute
   '/support/leaving-or-left-service': typeof SupportLeavingOrLeftServiceRoute
   '/support/start-here': typeof SupportStartHereRoute
+  '/support/supporting-someone': typeof SupportSupportingSomeoneRoute
   '/support/thinking-of-joining': typeof SupportThinkingOfJoiningRoute
   '/about/': typeof AboutIndexRoute
   '/currently-serving/': typeof CurrentlyServingIndexRoute
@@ -564,6 +574,7 @@ export interface FileRouteTypes {
     | '/support/currently-serving'
     | '/support/leaving-or-left-service'
     | '/support/start-here'
+    | '/support/supporting-someone'
     | '/support/thinking-of-joining'
     | '/about/'
     | '/currently-serving/'
@@ -619,6 +630,7 @@ export interface FileRouteTypes {
     | '/support/currently-serving'
     | '/support/leaving-or-left-service'
     | '/support/start-here'
+    | '/support/supporting-someone'
     | '/support/thinking-of-joining'
     | '/about'
     | '/currently-serving'
@@ -674,6 +686,7 @@ export interface FileRouteTypes {
     | '/support/currently-serving'
     | '/support/leaving-or-left-service'
     | '/support/start-here'
+    | '/support/supporting-someone'
     | '/support/thinking-of-joining'
     | '/about/'
     | '/currently-serving/'
@@ -730,6 +743,7 @@ export interface RootRouteChildren {
   SupportCurrentlyServingRoute: typeof SupportCurrentlyServingRoute
   SupportLeavingOrLeftServiceRoute: typeof SupportLeavingOrLeftServiceRoute
   SupportStartHereRoute: typeof SupportStartHereRoute
+  SupportSupportingSomeoneRoute: typeof SupportSupportingSomeoneRoute
   SupportThinkingOfJoiningRoute: typeof SupportThinkingOfJoiningRoute
   AboutIndexRoute: typeof AboutIndexRoute
   CurrentlyServingIndexRoute: typeof CurrentlyServingIndexRoute
@@ -1105,6 +1119,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SupportStartHereRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/support/supporting-someone': {
+      id: '/support/supporting-someone'
+      path: '/support/supporting-someone'
+      fullPath: '/support/supporting-someone'
+      preLoaderRoute: typeof SupportSupportingSomeoneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/support/thinking-of-joining': {
       id: '/support/thinking-of-joining'
       path: '/support/thinking-of-joining'
@@ -1178,6 +1199,7 @@ const rootRouteChildren: RootRouteChildren = {
   SupportCurrentlyServingRoute: SupportCurrentlyServingRoute,
   SupportLeavingOrLeftServiceRoute: SupportLeavingOrLeftServiceRoute,
   SupportStartHereRoute: SupportStartHereRoute,
+  SupportSupportingSomeoneRoute: SupportSupportingSomeoneRoute,
   SupportThinkingOfJoiningRoute: SupportThinkingOfJoiningRoute,
   AboutIndexRoute: AboutIndexRoute,
   CurrentlyServingIndexRoute: CurrentlyServingIndexRoute,
