@@ -6,6 +6,7 @@ export interface LivedStory {
   role: string;
   photoUrl: string;
   photoAlt: string;
+  photoPositionClassName?: string;
   summary: string;
   metaTitle: string;
   metaDescription: string;
@@ -70,6 +71,17 @@ export const livedStories: LivedStory[] = [
       "Major Lena Beardsell: Lived Experience of Dyslexia | Dyslexia in Defence",
     metaDescription:
       "A serving Army officer shares her lived experience of dyslexia, from school and university to Operation HERRICK, Sandhurst and teaching in the Army.",
+  },
+  {
+    slug: "liz-oliver-british-army-veteran",
+    name: "Liz Oliver",
+    role: "British Army Veteran",
+    photoUrl: "/images/lived-experiences/liz-oliver-lived-experience.webp",
+    photoAlt: "Liz Oliver sharing her lived experience of neurodivergence in the British Army",
+    photoPositionClassName: "object-[50%_42%]",
+    summary: "A former Royal Army Medical Corps soldier on struggling in basic and trade training, being diagnosed with ADHD, dyslexia, dyspraxia and dyscalculia in her mid-forties, and what leaders and instructors can do differently.",
+    metaTitle: "Liz Oliver | British Army Veteran | Dyslexia in Defence",
+    metaDescription: "Liz Oliver, a former Royal Army Medical Corps Environmental Health Technician, shares her experience of undiagnosed neurodivergence in the Army and her diagnosis in her mid-forties.",
   },
 ];
 

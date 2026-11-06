@@ -1,5 +1,7 @@
 # Project architecture
 
+- Keep lived-story additions in the shared story registry and layout, with optional per-story heading and portrait-position settings so existing stories retain their presentation.
+
 - Scope inner-page canvas, white content-surface overrides and any muted-text contrast correction centrally through Layout's `data-inner-page` marker in global CSS, with light-mode-only selectors; keep homepage, site chrome and dark tokens unchanged.
 
 - Centralise Armed Forces Covenant licence exclusions in `CovenantPledgeBand`; route-aware rendering prevents the licensed mark appearing near funding or sponsorship content.

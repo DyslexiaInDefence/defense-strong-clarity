@@ -27,11 +27,12 @@ const OCT_26_PAGES = [
 
 describe("Page date rules", () => {
   it("maps every page to its honest content date", () => {
-    expect(Object.keys(PAGE_DATES)).toHaveLength(39);
+    expect(Object.keys(PAGE_DATES)).toHaveLength(40);
     for (const [path, date] of Object.entries(PAGE_DATES)) {
       if (path.startsWith("/governance")) continue;
       if (path === "/about/why-we-are-here") continue;
       if (path === "/contact") continue;
+      if (path === "/lived-experiences/liz-oliver-british-army-veteran") continue;
       if (path === "/currently-serving/standard-learning-credits") continue;
       if (OCT_26_PAGES.includes(path)) continue;
       expect(date, path).toBe("2026-10-24");
@@ -51,6 +52,10 @@ describe("Page date rules", () => {
   it("dates the SLC content update to 30 October 2026", () => {
     expect(getPageDate("/currently-serving/standard-learning-credits")).toBe("2026-10-30");
     expect(formatPageDate(getPageDate("/currently-serving/standard-learning-credits") ?? "")).toBe("30 October 2026");
+  });
+
+  it("dates Liz Oliver's story to 6 November 2026", () => {
+    expect(getPageDate("/lived-experiences/liz-oliver-british-army-veteran")).toBe("2026-11-06");
   });
 
   it("dates Why We Are Here to its first content publication on 25 October 2026", () => {
