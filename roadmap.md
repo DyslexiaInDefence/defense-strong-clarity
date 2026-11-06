@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Add hidden Downloads and tools library with ?for= filters, grouped items, discovery/date exclusions and tests; verify desktop/375px without publishing.
+- [x] Add hidden Downloads and tools library with ?for= filters, grouped items, discovery/date exclusions and tests; verify desktop/375px without publishing.
 
 - [x] Add hidden Guidance library with ?for= filters, Everyone guides on every filter, discovery/date exclusions and tests; verify desktop/375px without publishing.
 
