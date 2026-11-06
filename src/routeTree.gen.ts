@@ -59,6 +59,7 @@ import { Route as LivedExperiencesSymonSmithBritishArmyVeteranRouteImport } from
 import { Route as NewslettersOctober2026RouteImport } from './routes/newsletters/october-2026'
 import { Route as SupportIndexRouteImport } from './routes/support/index'
 import { Route as SupportCurrentlyServingRouteImport } from './routes/support/currently-serving'
+import { Route as SupportDownloadsAndToolsRouteImport } from './routes/support/downloads-and-tools'
 import { Route as SupportGuidanceRouteImport } from './routes/support/guidance'
 import { Route as SupportLeavingOrLeftServiceRouteImport } from './routes/support/leaving-or-left-service'
 import { Route as SupportStartHereRouteImport } from './routes/support/start-here'
@@ -333,6 +334,12 @@ const SupportCurrentlyServingRoute = SupportCurrentlyServingRouteImport.update({
   path: '/support/currently-serving',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SupportDownloadsAndToolsRoute =
+  SupportDownloadsAndToolsRouteImport.update({
+    id: '/support/downloads-and-tools',
+    path: '/support/downloads-and-tools',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SupportGuidanceRoute = SupportGuidanceRouteImport.update({
   id: '/support/guidance',
   path: '/support/guidance',
@@ -407,6 +414,7 @@ export interface FileRoutesByFullPath {
   '/lived-experiences/symon-smith-british-army-veteran': typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
   '/newsletters/october-2026': typeof NewslettersOctober2026Route
   '/support/currently-serving': typeof SupportCurrentlyServingRoute
+  '/support/downloads-and-tools': typeof SupportDownloadsAndToolsRoute
   '/support/guidance': typeof SupportGuidanceRoute
   '/support/leaving-or-left-service': typeof SupportLeavingOrLeftServiceRoute
   '/support/start-here': typeof SupportStartHereRoute
@@ -464,6 +472,7 @@ export interface FileRoutesByTo {
   '/lived-experiences/symon-smith-british-army-veteran': typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
   '/newsletters/october-2026': typeof NewslettersOctober2026Route
   '/support/currently-serving': typeof SupportCurrentlyServingRoute
+  '/support/downloads-and-tools': typeof SupportDownloadsAndToolsRoute
   '/support/guidance': typeof SupportGuidanceRoute
   '/support/leaving-or-left-service': typeof SupportLeavingOrLeftServiceRoute
   '/support/start-here': typeof SupportStartHereRoute
@@ -522,6 +531,7 @@ export interface FileRoutesById {
   '/lived-experiences/symon-smith-british-army-veteran': typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
   '/newsletters/october-2026': typeof NewslettersOctober2026Route
   '/support/currently-serving': typeof SupportCurrentlyServingRoute
+  '/support/downloads-and-tools': typeof SupportDownloadsAndToolsRoute
   '/support/guidance': typeof SupportGuidanceRoute
   '/support/leaving-or-left-service': typeof SupportLeavingOrLeftServiceRoute
   '/support/start-here': typeof SupportStartHereRoute
@@ -581,6 +591,7 @@ export interface FileRouteTypes {
     | '/lived-experiences/symon-smith-british-army-veteran'
     | '/newsletters/october-2026'
     | '/support/currently-serving'
+    | '/support/downloads-and-tools'
     | '/support/guidance'
     | '/support/leaving-or-left-service'
     | '/support/start-here'
@@ -638,6 +649,7 @@ export interface FileRouteTypes {
     | '/lived-experiences/symon-smith-british-army-veteran'
     | '/newsletters/october-2026'
     | '/support/currently-serving'
+    | '/support/downloads-and-tools'
     | '/support/guidance'
     | '/support/leaving-or-left-service'
     | '/support/start-here'
@@ -695,6 +707,7 @@ export interface FileRouteTypes {
     | '/lived-experiences/symon-smith-british-army-veteran'
     | '/newsletters/october-2026'
     | '/support/currently-serving'
+    | '/support/downloads-and-tools'
     | '/support/guidance'
     | '/support/leaving-or-left-service'
     | '/support/start-here'
@@ -753,6 +766,7 @@ export interface RootRouteChildren {
   LivedExperiencesSymonSmithBritishArmyVeteranRoute: typeof LivedExperiencesSymonSmithBritishArmyVeteranRoute
   NewslettersOctober2026Route: typeof NewslettersOctober2026Route
   SupportCurrentlyServingRoute: typeof SupportCurrentlyServingRoute
+  SupportDownloadsAndToolsRoute: typeof SupportDownloadsAndToolsRoute
   SupportGuidanceRoute: typeof SupportGuidanceRoute
   SupportLeavingOrLeftServiceRoute: typeof SupportLeavingOrLeftServiceRoute
   SupportStartHereRoute: typeof SupportStartHereRoute
@@ -1118,6 +1132,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SupportCurrentlyServingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/support/downloads-and-tools': {
+      id: '/support/downloads-and-tools'
+      path: '/support/downloads-and-tools'
+      fullPath: '/support/downloads-and-tools'
+      preLoaderRoute: typeof SupportDownloadsAndToolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/support/guidance': {
       id: '/support/guidance'
       path: '/support/guidance'
@@ -1217,6 +1238,7 @@ const rootRouteChildren: RootRouteChildren = {
     LivedExperiencesSymonSmithBritishArmyVeteranRoute,
   NewslettersOctober2026Route: NewslettersOctober2026Route,
   SupportCurrentlyServingRoute: SupportCurrentlyServingRoute,
+  SupportDownloadsAndToolsRoute: SupportDownloadsAndToolsRoute,
   SupportGuidanceRoute: SupportGuidanceRoute,
   SupportLeavingOrLeftServiceRoute: SupportLeavingOrLeftServiceRoute,
   SupportStartHereRoute: SupportStartHereRoute,

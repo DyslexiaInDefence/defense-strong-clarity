@@ -3,6 +3,7 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { getPageDate } from "../../data/pageDates";
 import { GUIDES, GUIDE_FILTERS, filterGuides, parseGuideFilter } from "./guidanceLibrary";
+import { DOWNLOAD_ITEMS, filterDownloads, linkLabel } from "./downloadsLibrary";
 
 function files(directory: string): string[] {
   return readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
@@ -112,9 +113,55 @@ describe("Staged support page boundaries", () => {
     expect(filterGuides(GUIDES, parseGuideFilter("veterans"))).toHaveLength(GUIDES.length);
   });
 
-  it("leaves the two future support library destinations unbuilt", () => {
+  it("excludes Downloads and tools from all existing discovery content", () => {
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/downloads-and-tools.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    for (const path of [...files("src"), ...files("public")]) {
+      if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
+      expect(readFileSync(path, "utf8").includes("/support/downloads-and-tools"), path).toBe(false);
+    }
+  });
+
+  it("keeps Downloads and tools hidden with its staging banner", () => {
+    const route = readFileSync("src/routes/support/downloads-and-tools.tsx", "utf8");
+    const page = readFileSync("src/pages/support/DownloadsAndToolsPage.tsx", "utf8");
+    expect(route).toContain('createFileRoute("/support/downloads-and-tools")');
+    expect(route).toContain('content: "noindex, nofollow"');
+    expect(page).toContain("const SHOW_WIP_BANNER = true;");
+    expect(page).toContain("Work in progress – this page is not live yet.");
+    expect(readFileSync("public/sitemap.xml", "utf8").includes("/support/downloads-and-tools")).toBe(false);
+    expect(getPageDate("/support/downloads-and-tools")).toBeUndefined();
+  });
+
+  it("links every download item to an existing route or stored file of the stated type", () => {
     const routeText = files("src/routes").filter(path => path.endsWith(".tsx")).map(path => readFileSync(path, "utf8")).join("\n");
-    for (const path of ["/support/downloads-and-tools", "/support/faq"]) {
+    const assets = files("src/assets").filter(path => path.endsWith(".asset.json")).map(path => JSON.parse(readFileSync(path, "utf8")) as { url: string; content_type: string });
+    const mime = { PDF: "application/pdf", DOCX: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" };
+    for (const item of DOWNLOAD_ITEMS) {
+      if (item.link.kind === "page") {
+        expect(routeText.includes(`createFileRoute("${item.link.to}")`), item.link.to).toBe(true);
+        expect(linkLabel(item.link)).toBe("Open");
+      } else {
+        const asset = assets.find(a => a.url === item.link.href);
+        expect(asset, item.title).toBeDefined();
+        expect(asset?.content_type).toBe(mime[item.link.fileType]);
+        expect(linkLabel(item.link)).toBe(`Download (${item.link.fileType})`);
+      }
+    }
+  });
+
+  it("shows any Everyone download items under every filter", () => {
+    const everyone = DOWNLOAD_ITEMS.filter(item => item.audience === "everyone");
+    for (const { value } of GUIDE_FILTERS) {
+      const shown = filterDownloads(DOWNLOAD_ITEMS, value);
+      for (const item of everyone) expect(shown, value).toContain(item);
+    }
+    expect(filterDownloads(DOWNLOAD_ITEMS, "serving")).toHaveLength(3);
+    expect(filterDownloads(DOWNLOAD_ITEMS, "joining")).toHaveLength(everyone.length);
+  });
+
+  it("leaves the remaining future support library destination unbuilt", () => {
+    const routeText = files("src/routes").filter(path => path.endsWith(".tsx")).map(path => readFileSync(path, "utf8")).join("\n");
+    for (const path of ["/support/faq"]) {
       expect(routeText.includes(`createFileRoute("${path}")`), path).toBe(false);
     }
   });
