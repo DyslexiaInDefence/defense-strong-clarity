@@ -46,3 +46,4 @@
 - [x] Build hidden SLC preview page with shared SLC content module and tests; live SLC page unchanged.
 - [x] Build hidden About us hub preview with tests; live About page unchanged.
 - [x] Build hidden Get involved hub preview with tests; live Join, Community and Lived experiences pages unchanged.
+- [x] Build hidden Partner with us preview with tests; live Partner page, Covenant page and homepage carousel unchanged.
