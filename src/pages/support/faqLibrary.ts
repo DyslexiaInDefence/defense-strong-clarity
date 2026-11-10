@@ -1,4 +1,4 @@
-// FAQ library data for the staged /support/faq page, kept separate so tests can check it.
+// FAQ library data for the staged support FAQ page, kept separate so tests can check it.
 // Independent of src/data/faqCategories.ts, which feeds the live /about/faq page.
 // Audience labels, filter buttons and ?for= parsing are shared with the Guidance library.
 import type { GuideAudience, GuideFilter } from "./guidanceLibrary";
