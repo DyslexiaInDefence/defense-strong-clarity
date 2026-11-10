@@ -207,7 +207,7 @@ describe("Staged support page boundaries", () => {
 
   it("builds all four support library destinations", () => {
     const routeText = files("src/routes").filter(path => path.endsWith(".tsx")).map(path => readFileSync(path, "utf8")).join("\n");
-    for (const path of ["/support/guidance", "/support/downloads-and-tools", "/support/faq", "/insights"]) {
+    for (const path of ["/support/guidance", "/support/downloads-and-tools", "/support/faq", "/insights/"]) {
       expect(routeText.includes(`createFileRoute("${path}")`), path).toBe(true);
     }
   });
