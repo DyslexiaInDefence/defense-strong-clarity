@@ -108,6 +108,11 @@ describe("Page date rules", () => {
     expect(pageHead("/support/serving-now-preview")).not.toHaveProperty("scripts");
   });
 
+  it("excludes the SLC preview from public dates and structured data", () => {
+    expect(getPageDate("/support/slc-preview")).toBeUndefined();
+    expect(pageHead("/support/slc-preview")).not.toHaveProperty("scripts");
+  });
+
   it("uses October 2026 for the evidence reporting period", () => {
     expect(EVIDENCE_DATA_AS_AT).toEqual({ iso: "2026-10", label: "October 2026" });
   });

@@ -5,6 +5,7 @@ import { getPageDate } from "../../data/pageDates";
 import { GUIDES, GUIDE_FILTERS, filterGuides, parseGuideFilter } from "./guidanceLibrary";
 import { DOWNLOAD_ITEMS, filterDownloads, linkLabel } from "./downloadsLibrary";
 import { FAQ_ITEMS, filterFaqs } from "./faqLibrary";
+import { BDA_PSYCHOLOGIST_FEE, BDA_PSYCHOLOGIST_YOU_PAY, BDA_RATE_DATE, BDA_TEACHER_FEE, BDA_TEACHER_YOU_PAY, JSP822_VOL7_URL, JSP822_VOL9_URL, SARAH_BODY, SARAH_EMAIL, SARAH_MAILTO, SARAH_SUBJECT, SLC_COST_DATE, SLC_COST_OPTIONS, SLC_FULL_USUAL_PRICE, SLC_TEMPLATE_FORM } from "./slcContent";
 
 function files(directory: string): string[] {
   return readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
@@ -16,7 +17,7 @@ function files(directory: string): string[] {
 describe("Staged support page boundaries", () => {
   it("excludes Start here from all existing discovery content", () => {
     // Layout's exact-path opt-out is not an inbound link or discovery entry.
-    const allowed = new Set(["src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/start-here"), path).toBe(false);
@@ -73,7 +74,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes Guidance from all existing discovery content", () => {
-    const allowed = new Set(["src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/guidance"), path).toBe(false);
@@ -115,7 +116,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes Downloads and tools from all existing discovery content", () => {
-    const allowed = new Set(["src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/downloads-and-tools.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/downloads-and-tools.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/downloads-and-tools"), path).toBe(false);
@@ -213,7 +214,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes the staged FAQ from all existing discovery content", () => {
-    const allowed = new Set(["src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/faq.tsx", "src/pages/support/FaqPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/faq.tsx", "src/pages/support/FaqPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/faq"), path).toBe(false);
@@ -294,7 +295,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("no hidden support page links Understanding how you think and learn to /why-it-matters", () => {
-    const hidden = ["StartHerePage.tsx", "ThinkingOfJoiningPage.tsx", "LeavingOrLeftServicePage.tsx", "SupportingSomeonePage.tsx", "GuidancePage.tsx", "DownloadsAndToolsPage.tsx", "FaqPage.tsx", "HowYouThinkAndLearnPage.tsx", "guidanceLibrary.ts", "downloadsLibrary.ts", "faqLibrary.ts"];
+    const hidden = ["StartHerePage.tsx", "ThinkingOfJoiningPage.tsx", "LeavingOrLeftServicePage.tsx", "SupportingSomeonePage.tsx", "GuidancePage.tsx", "DownloadsAndToolsPage.tsx", "FaqPage.tsx", "HowYouThinkAndLearnPage.tsx", "SlcPage.tsx", "guidanceLibrary.ts", "downloadsLibrary.ts", "faqLibrary.ts", "slcContent.ts"];
     for (const name of hidden) {
       expect(readFileSync(`src/pages/support/${name}`, "utf8").includes("/why-it-matters"), name).toBe(false);
     }
@@ -381,6 +382,81 @@ describe("Staged support page boundaries", () => {
     expect(live).toContain('import InsightsPage from "@/pages/InsightsPage"');
     expect(live).not.toContain("InsightsLandingPage");
     expect(readFileSync("src/components/SupportTabs.tsx", "utf8")).toContain('{ label: "Insights", to: "/insights" }');
+  });
+
+  it("excludes the SLC preview from all existing discovery content", () => {
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/slc-preview.tsx", "src/pages/support/SlcPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    for (const path of [...files("src"), ...files("public")]) {
+      if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
+      expect(readFileSync(path, "utf8").includes("/support/slc-preview"), path).toBe(false);
+    }
+    expect(readFileSync("public/sitemap.xml", "utf8").includes("slc-preview")).toBe(false);
+    expect(readFileSync("public/llms.txt", "utf8").includes("slc-preview")).toBe(false);
+    expect(readFileSync("src/lib/seo.ts", "utf8").includes("slc-preview")).toBe(false);
+    expect(getPageDate("/support/slc-preview")).toBeUndefined();
+  });
+
+  it("keeps the SLC preview hidden, bannered and in the serving accent", () => {
+    const route = readFileSync("src/routes/support/slc-preview.tsx", "utf8");
+    const page = readFileSync("src/pages/support/SlcPage.tsx", "utf8");
+    expect(route).toContain('createFileRoute("/support/slc-preview")');
+    expect(route).toContain('content: "noindex, nofollow"');
+    expect(page).toContain("const SHOW_WIP_BANNER = true;");
+    expect(page).toContain("Work in progress – this page is not live yet.");
+    expect(page).toContain("support-route-serving");
+    expect(page).toContain('activePath="/support/start-here"');
+    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/support/slc-preview"');
+    for (const text of [route, page]) {
+      expect(text).not.toContain("ld+json");
+      expect(text).not.toContain("FAQPage");
+    }
+  });
+
+  it("keeps the SLC preview to existing wording and rules", () => {
+    const page = readFileSync("src/pages/support/SlcPage.tsx", "utf8");
+    const content = readFileSync("src/pages/support/slcContent.ts", "utf8");
+    const text = (page + content + readFileSync("src/routes/support/slc-preview.tsx", "utf8")).toLowerCase();
+    for (const phrase of ["legally required to declare", "dyslexia is not a barrier", "reasonable adjustments", "serve at every rank", "guaranteed"]) expect(text.includes(phrase), phrase).toBe(false);
+    for (const t of [page, content]) expect(t).not.toContain("\u2014");
+    expect(page).toContain("paras 2.1.9 and 2.3.1, sets out who is responsible for funding specialist assessment. Whether it is funded depends on your circumstances, so ask your education staff.");
+    expect(page).toContain('const BDA_ANCHOR = "bda-heading"');
+    expect(page).toContain("id={BDA_ANCHOR}");
+    expect(page.match(/target="_blank"/g)?.length).toBe(page.match(/rel="noopener noreferrer"/g)?.length);
+    // Forms and figures come only from the shared module.
+    expect(page).not.toMatch(/@\/assets\/slc-/);
+    expect(page).toContain('from "./slcContent"');
+    expect(content).toContain("NOTE FOR FUTURE UPDATES");
+  });
+
+  it("keeps the shared SLC content identical to the live SLC page", () => {
+    const live = readFileSync("src/pages/support/StandardLearningCreditsPage.tsx", "utf8");
+    expect(SLC_COST_OPTIONS.map(o => [o.title, o.you, o.slc, o.total])).toEqual([
+      ["Level 1 screening", "£10", "£40", "£50"],
+      ["Level 2 screening", "£30", "£120", "£150"],
+      ["Full diagnostic assessment", "£320", "£175", "£495"],
+    ]);
+    for (const o of SLC_COST_OPTIONS) {
+      for (const snippet of [`name: "${o.name}"`, `detail: "${o.detail}"`, `total: "${o.total}"`, `slc: "${o.slc}"`, `you: "${o.you}"`, `"${o.form.filename}"`, `"${o.form.label}"`]) expect(live, snippet).toContain(snippet);
+    }
+    const assets = ["slc-level1", "slc-level2", "slc-full"].map(name => (JSON.parse(readFileSync(`src/assets/${name}.docx.asset.json`, "utf8")) as { url: string }).url);
+    expect(SLC_COST_OPTIONS.map(o => o.form.url)).toEqual(assets);
+    expect(SLC_TEMPLATE_FORM.url).toBe((JSON.parse(readFileSync("src/assets/slc-template.docx.asset.json", "utf8")) as { url: string }).url);
+    expect(live).toContain(`download="${SLC_TEMPLATE_FORM.filename}"`);
+    expect(live).toContain(`const SLC_COST_DATE = "${SLC_COST_DATE}"`);
+    expect(live).toContain(`const JSP822_VOL7_URL = "${JSP822_VOL7_URL}"`);
+    expect(live).toContain(`const JSP822_VOL9_URL = "${JSP822_VOL9_URL}"`);
+    expect(live).toContain(`const SARAH_EMAIL = "${SARAH_EMAIL}"`);
+    expect(live).toContain(`const SARAH_SUBJECT = "${SARAH_SUBJECT}"`);
+    for (const line of SARAH_BODY.split("\r\n")) expect(live).toContain(JSON.stringify(line));
+    expect(SARAH_MAILTO).toBe(`mailto:${SARAH_EMAIL}?subject=${encodeURIComponent(SARAH_SUBJECT)}&body=${encodeURIComponent(SARAH_BODY)}`);
+    for (const figure of [BDA_TEACHER_FEE, BDA_PSYCHOLOGIST_FEE, BDA_TEACHER_YOU_PAY, BDA_PSYCHOLOGIST_YOU_PAY, BDA_RATE_DATE, SLC_FULL_USUAL_PRICE]) expect(live, figure).toContain(figure);
+  });
+
+  it("leaves the live SLC route on the old page", () => {
+    const live = readFileSync("src/routes/currently-serving/standard-learning-credits.tsx", "utf8");
+    expect(live).toContain('createFileRoute("/currently-serving/standard-learning-credits")');
+    expect(live).toContain("StandardLearningCreditsPage");
+    expect(live).not.toContain("SlcPage");
   });
 
   it("does not assign a public content date to the hidden page", () => {
