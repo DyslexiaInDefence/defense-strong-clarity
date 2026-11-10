@@ -76,7 +76,7 @@ export default function StartHerePage() {
           <h2 id="not-ready" className="mb-3 text-2xl font-bold">Not ready to choose?</h2>
           <p className="mb-6 max-w-3xl text-base leading-relaxed">Start with how you think and learn. It is the same for everyone, wherever you are in your journey.</p>
           <Button asChild className="min-h-11 h-auto max-w-full whitespace-normal py-3 text-center text-base">
-            <Link to="/why-it-matters">Understanding how you think and learn<ArrowRight aria-hidden="true" /></Link>
+            <Link to="/support/how-you-think-and-learn">Understanding how you think and learn<ArrowRight aria-hidden="true" /></Link>
           </Button>
         </section>
         <section aria-labelledby="real-stories" className={panelClass}>

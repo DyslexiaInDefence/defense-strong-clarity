@@ -24,7 +24,7 @@ export const GUIDE_FILTERS: { value: GuideFilter; label: string }[] = [
 const SAME_AS_NAVY = "Specific learning difficulties are not in themselves a bar to recruitment or Service if the required standards are met.";
 
 export const GUIDES: Guide[] = [
-  { audience: "everyone", title: "Understanding how you think and learn", to: "/why-it-matters", description: "What dyslexia is, how it shows up for you, what screening and assessment can offer, and where to go next. An explanation, not a label." },
+  { audience: "everyone", title: "Understanding how you think and learn", to: "/support/how-you-think-and-learn", description: "What dyslexia is, how it shows up for you, what screening and assessment can offer, and where to go next. An explanation, not a label." },
   { audience: "joining", title: "Can you join the Army with dyslexia?", to: "/insights/can-you-join-army-with-dyslexia-uk", description: "What dyslexia does and doesn't change when you apply, and what to expect." },
   { audience: "joining", title: "Can you join the Royal Navy with dyslexia?", to: "/insights/can-you-join-navy-with-dyslexia-uk", description: SAME_AS_NAVY },
   { audience: "joining", title: "Can you join the RAF with dyslexia?", to: "/insights/can-you-join-raf-with-dyslexia-uk", description: SAME_AS_NAVY },

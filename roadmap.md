@@ -1,5 +1,6 @@
 # Roadmap
 
+- [x] Add hidden "Understanding how you think and learn" placeholder page, repoint hidden support links from /why-it-matters, add tests; verify desktop/375px without publishing.
 - [x] Add hidden FAQ library with ?for= filters, visible answers, no FAQ structured data, discovery/date exclusions and tests; verify desktop/375px without publishing.
 - [x] Add hidden Downloads and tools library with ?for= filters, grouped items, discovery/date exclusions and tests; verify desktop/375px without publishing.
 
