@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 import { getPageDate } from "../../data/pageDates";
 import { GUIDES, GUIDE_FILTERS, filterGuides, parseGuideFilter } from "./guidanceLibrary";
 import { DOWNLOAD_ITEMS, filterDownloads, linkLabel } from "./downloadsLibrary";
+import { FAQ_ITEMS, filterFaqs } from "./faqLibrary";
 
 function files(directory: string): string[] {
   return readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
@@ -15,7 +16,7 @@ function files(directory: string): string[] {
 describe("Staged support page boundaries", () => {
   it("excludes Start here from all existing discovery content", () => {
     // Layout's exact-path opt-out is not an inbound link or discovery entry.
-    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/start-here"), path).toBe(false);
@@ -72,7 +73,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes Guidance from all existing discovery content", () => {
-    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/guidance"), path).toBe(false);
@@ -114,7 +115,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes Downloads and tools from all existing discovery content", () => {
-    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/downloads-and-tools.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/downloads-and-tools.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/downloads-and-tools"), path).toBe(false);
@@ -204,10 +205,60 @@ describe("Staged support page boundaries", () => {
     for (const text of [page, data]) expect(text).not.toMatch(/£\s?\d|\d+\s?(pounds|GBP)/i);
   });
 
-  it("leaves the remaining future support library destination unbuilt", () => {
+  it("builds all four support library destinations", () => {
     const routeText = files("src/routes").filter(path => path.endsWith(".tsx")).map(path => readFileSync(path, "utf8")).join("\n");
-    for (const path of ["/support/faq"]) {
-      expect(routeText.includes(`createFileRoute("${path}")`), path).toBe(false);
+    for (const path of ["/support/guidance", "/support/downloads-and-tools", "/support/faq", "/insights/"]) {
+      expect(routeText.includes(`createFileRoute("${path}")`), path).toBe(true);
+    }
+  });
+
+  it("excludes the staged FAQ from all existing discovery content", () => {
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/faq.tsx", "src/pages/support/FaqPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    for (const path of [...files("src"), ...files("public")]) {
+      if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
+      expect(readFileSync(path, "utf8").includes("/support/faq"), path).toBe(false);
+    }
+  });
+
+  it("keeps the staged FAQ hidden, bannered and free of FAQPage structured data", () => {
+    const route = readFileSync("src/routes/support/faq.tsx", "utf8");
+    const page = readFileSync("src/pages/support/FaqPage.tsx", "utf8");
+    expect(route).toContain('createFileRoute("/support/faq")');
+    expect(route).toContain('content: "noindex, nofollow"');
+    expect(page).toContain("const SHOW_WIP_BANNER = true;");
+    expect(page).toContain("Work in progress – this page is not live yet.");
+    for (const text of [route, page]) {
+      expect(text).not.toContain("ld+json");
+      expect(text).not.toContain("FAQPage");
+      expect(text).not.toContain("faqCategories");
+    }
+    expect(readFileSync("src/pages/support/faqLibrary.ts", "utf8")).not.toMatch(/from\s+["'][^"']*faqCategories/);
+    expect(readFileSync("public/sitemap.xml", "utf8").includes("/support/faq")).toBe(false);
+    expect(getPageDate("/support/faq")).toBeUndefined();
+  });
+
+  it("links every FAQ answer to an existing route", () => {
+    const routeText = files("src/routes").filter(path => path.endsWith(".tsx")).map(path => readFileSync(path, "utf8")).join("\n");
+    for (const item of FAQ_ITEMS) {
+      expect(routeText.includes(`createFileRoute("${item.to}")`), item.to).toBe(true);
+    }
+  });
+
+  it("shows the expected number of FAQ questions under each filter", () => {
+    const expected = { all: 10, joining: 5, serving: 3, leaving: 1, supporting: 1 } as const;
+    for (const { value } of GUIDE_FILTERS) {
+      expect(filterFaqs(FAQ_ITEMS, value), value).toHaveLength(expected[value]);
+    }
+  });
+
+  it("keeps banned phrases off the staged FAQ", () => {
+    const text = [
+      readFileSync("src/pages/support/FaqPage.tsx", "utf8"),
+      readFileSync("src/pages/support/faqLibrary.ts", "utf8"),
+      readFileSync("src/routes/support/faq.tsx", "utf8"),
+    ].join("\n").toLowerCase();
+    for (const phrase of ["legally required to declare", "dyslexia is not a barrier", "reasonable adjustments", "serve at every rank", "you are not required to"]) {
+      expect(text.includes(phrase), phrase).toBe(false);
     }
   });
 

@@ -60,6 +60,7 @@ import { Route as NewslettersOctober2026RouteImport } from './routes/newsletters
 import { Route as SupportIndexRouteImport } from './routes/support/index'
 import { Route as SupportCurrentlyServingRouteImport } from './routes/support/currently-serving'
 import { Route as SupportDownloadsAndToolsRouteImport } from './routes/support/downloads-and-tools'
+import { Route as SupportFaqRouteImport } from './routes/support/faq'
 import { Route as SupportGuidanceRouteImport } from './routes/support/guidance'
 import { Route as SupportLeavingOrLeftServiceRouteImport } from './routes/support/leaving-or-left-service'
 import { Route as SupportStartHereRouteImport } from './routes/support/start-here'
@@ -340,6 +341,11 @@ const SupportDownloadsAndToolsRoute =
     path: '/support/downloads-and-tools',
     getParentRoute: () => rootRouteImport,
   } as any)
+const SupportFaqRoute = SupportFaqRouteImport.update({
+  id: '/support/faq',
+  path: '/support/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SupportGuidanceRoute = SupportGuidanceRouteImport.update({
   id: '/support/guidance',
   path: '/support/guidance',
@@ -415,6 +421,7 @@ export interface FileRoutesByFullPath {
   '/newsletters/october-2026': typeof NewslettersOctober2026Route
   '/support/currently-serving': typeof SupportCurrentlyServingRoute
   '/support/downloads-and-tools': typeof SupportDownloadsAndToolsRoute
+  '/support/faq': typeof SupportFaqRoute
   '/support/guidance': typeof SupportGuidanceRoute
   '/support/leaving-or-left-service': typeof SupportLeavingOrLeftServiceRoute
   '/support/start-here': typeof SupportStartHereRoute
@@ -473,6 +480,7 @@ export interface FileRoutesByTo {
   '/newsletters/october-2026': typeof NewslettersOctober2026Route
   '/support/currently-serving': typeof SupportCurrentlyServingRoute
   '/support/downloads-and-tools': typeof SupportDownloadsAndToolsRoute
+  '/support/faq': typeof SupportFaqRoute
   '/support/guidance': typeof SupportGuidanceRoute
   '/support/leaving-or-left-service': typeof SupportLeavingOrLeftServiceRoute
   '/support/start-here': typeof SupportStartHereRoute
@@ -532,6 +540,7 @@ export interface FileRoutesById {
   '/newsletters/october-2026': typeof NewslettersOctober2026Route
   '/support/currently-serving': typeof SupportCurrentlyServingRoute
   '/support/downloads-and-tools': typeof SupportDownloadsAndToolsRoute
+  '/support/faq': typeof SupportFaqRoute
   '/support/guidance': typeof SupportGuidanceRoute
   '/support/leaving-or-left-service': typeof SupportLeavingOrLeftServiceRoute
   '/support/start-here': typeof SupportStartHereRoute
@@ -592,6 +601,7 @@ export interface FileRouteTypes {
     | '/newsletters/october-2026'
     | '/support/currently-serving'
     | '/support/downloads-and-tools'
+    | '/support/faq'
     | '/support/guidance'
     | '/support/leaving-or-left-service'
     | '/support/start-here'
@@ -650,6 +660,7 @@ export interface FileRouteTypes {
     | '/newsletters/october-2026'
     | '/support/currently-serving'
     | '/support/downloads-and-tools'
+    | '/support/faq'
     | '/support/guidance'
     | '/support/leaving-or-left-service'
     | '/support/start-here'
@@ -708,6 +719,7 @@ export interface FileRouteTypes {
     | '/newsletters/october-2026'
     | '/support/currently-serving'
     | '/support/downloads-and-tools'
+    | '/support/faq'
     | '/support/guidance'
     | '/support/leaving-or-left-service'
     | '/support/start-here'
@@ -767,6 +779,7 @@ export interface RootRouteChildren {
   NewslettersOctober2026Route: typeof NewslettersOctober2026Route
   SupportCurrentlyServingRoute: typeof SupportCurrentlyServingRoute
   SupportDownloadsAndToolsRoute: typeof SupportDownloadsAndToolsRoute
+  SupportFaqRoute: typeof SupportFaqRoute
   SupportGuidanceRoute: typeof SupportGuidanceRoute
   SupportLeavingOrLeftServiceRoute: typeof SupportLeavingOrLeftServiceRoute
   SupportStartHereRoute: typeof SupportStartHereRoute
@@ -1139,6 +1152,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SupportDownloadsAndToolsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/support/faq': {
+      id: '/support/faq'
+      path: '/support/faq'
+      fullPath: '/support/faq'
+      preLoaderRoute: typeof SupportFaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/support/guidance': {
       id: '/support/guidance'
       path: '/support/guidance'
@@ -1239,6 +1259,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewslettersOctober2026Route: NewslettersOctober2026Route,
   SupportCurrentlyServingRoute: SupportCurrentlyServingRoute,
   SupportDownloadsAndToolsRoute: SupportDownloadsAndToolsRoute,
+  SupportFaqRoute: SupportFaqRoute,
   SupportGuidanceRoute: SupportGuidanceRoute,
   SupportLeavingOrLeftServiceRoute: SupportLeavingOrLeftServiceRoute,
   SupportStartHereRoute: SupportStartHereRoute,
