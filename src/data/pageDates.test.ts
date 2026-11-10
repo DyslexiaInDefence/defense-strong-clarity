@@ -96,6 +96,11 @@ describe("Page date rules", () => {
     expect(pageHead("/support/faq")).not.toHaveProperty("scripts");
   });
 
+  it("excludes Understanding how you think and learn from public dates and structured data", () => {
+    expect(getPageDate("/support/how-you-think-and-learn")).toBeUndefined();
+    expect(pageHead("/support/how-you-think-and-learn")).not.toHaveProperty("scripts");
+  });
+
   it("uses October 2026 for the evidence reporting period", () => {
     expect(EVIDENCE_DATA_AS_AT).toEqual({ iso: "2026-10", label: "October 2026" });
   });

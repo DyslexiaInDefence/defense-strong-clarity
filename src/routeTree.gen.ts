@@ -62,6 +62,7 @@ import { Route as SupportCurrentlyServingRouteImport } from './routes/support/cu
 import { Route as SupportDownloadsAndToolsRouteImport } from './routes/support/downloads-and-tools'
 import { Route as SupportFaqRouteImport } from './routes/support/faq'
 import { Route as SupportGuidanceRouteImport } from './routes/support/guidance'
+import { Route as SupportHowYouThinkAndLearnRouteImport } from './routes/support/how-you-think-and-learn'
 import { Route as SupportLeavingOrLeftServiceRouteImport } from './routes/support/leaving-or-left-service'
 import { Route as SupportStartHereRouteImport } from './routes/support/start-here'
 import { Route as SupportSupportingSomeoneRouteImport } from './routes/support/supporting-someone'
@@ -351,6 +352,12 @@ const SupportGuidanceRoute = SupportGuidanceRouteImport.update({
   path: '/support/guidance',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SupportHowYouThinkAndLearnRoute =
+  SupportHowYouThinkAndLearnRouteImport.update({
+    id: '/support/how-you-think-and-learn',
+    path: '/support/how-you-think-and-learn',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SupportLeavingOrLeftServiceRoute =
   SupportLeavingOrLeftServiceRouteImport.update({
     id: '/support/leaving-or-left-service',
@@ -423,6 +430,7 @@ export interface FileRoutesByFullPath {
   '/support/downloads-and-tools': typeof SupportDownloadsAndToolsRoute
   '/support/faq': typeof SupportFaqRoute
   '/support/guidance': typeof SupportGuidanceRoute
+  '/support/how-you-think-and-learn': typeof SupportHowYouThinkAndLearnRoute
   '/support/leaving-or-left-service': typeof SupportLeavingOrLeftServiceRoute
   '/support/start-here': typeof SupportStartHereRoute
   '/support/supporting-someone': typeof SupportSupportingSomeoneRoute
@@ -482,6 +490,7 @@ export interface FileRoutesByTo {
   '/support/downloads-and-tools': typeof SupportDownloadsAndToolsRoute
   '/support/faq': typeof SupportFaqRoute
   '/support/guidance': typeof SupportGuidanceRoute
+  '/support/how-you-think-and-learn': typeof SupportHowYouThinkAndLearnRoute
   '/support/leaving-or-left-service': typeof SupportLeavingOrLeftServiceRoute
   '/support/start-here': typeof SupportStartHereRoute
   '/support/supporting-someone': typeof SupportSupportingSomeoneRoute
@@ -542,6 +551,7 @@ export interface FileRoutesById {
   '/support/downloads-and-tools': typeof SupportDownloadsAndToolsRoute
   '/support/faq': typeof SupportFaqRoute
   '/support/guidance': typeof SupportGuidanceRoute
+  '/support/how-you-think-and-learn': typeof SupportHowYouThinkAndLearnRoute
   '/support/leaving-or-left-service': typeof SupportLeavingOrLeftServiceRoute
   '/support/start-here': typeof SupportStartHereRoute
   '/support/supporting-someone': typeof SupportSupportingSomeoneRoute
@@ -603,6 +613,7 @@ export interface FileRouteTypes {
     | '/support/downloads-and-tools'
     | '/support/faq'
     | '/support/guidance'
+    | '/support/how-you-think-and-learn'
     | '/support/leaving-or-left-service'
     | '/support/start-here'
     | '/support/supporting-someone'
@@ -662,6 +673,7 @@ export interface FileRouteTypes {
     | '/support/downloads-and-tools'
     | '/support/faq'
     | '/support/guidance'
+    | '/support/how-you-think-and-learn'
     | '/support/leaving-or-left-service'
     | '/support/start-here'
     | '/support/supporting-someone'
@@ -721,6 +733,7 @@ export interface FileRouteTypes {
     | '/support/downloads-and-tools'
     | '/support/faq'
     | '/support/guidance'
+    | '/support/how-you-think-and-learn'
     | '/support/leaving-or-left-service'
     | '/support/start-here'
     | '/support/supporting-someone'
@@ -781,6 +794,7 @@ export interface RootRouteChildren {
   SupportDownloadsAndToolsRoute: typeof SupportDownloadsAndToolsRoute
   SupportFaqRoute: typeof SupportFaqRoute
   SupportGuidanceRoute: typeof SupportGuidanceRoute
+  SupportHowYouThinkAndLearnRoute: typeof SupportHowYouThinkAndLearnRoute
   SupportLeavingOrLeftServiceRoute: typeof SupportLeavingOrLeftServiceRoute
   SupportStartHereRoute: typeof SupportStartHereRoute
   SupportSupportingSomeoneRoute: typeof SupportSupportingSomeoneRoute
@@ -1166,6 +1180,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SupportGuidanceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/support/how-you-think-and-learn': {
+      id: '/support/how-you-think-and-learn'
+      path: '/support/how-you-think-and-learn'
+      fullPath: '/support/how-you-think-and-learn'
+      preLoaderRoute: typeof SupportHowYouThinkAndLearnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/support/leaving-or-left-service': {
       id: '/support/leaving-or-left-service'
       path: '/support/leaving-or-left-service'
@@ -1261,6 +1282,7 @@ const rootRouteChildren: RootRouteChildren = {
   SupportDownloadsAndToolsRoute: SupportDownloadsAndToolsRoute,
   SupportFaqRoute: SupportFaqRoute,
   SupportGuidanceRoute: SupportGuidanceRoute,
+  SupportHowYouThinkAndLearnRoute: SupportHowYouThinkAndLearnRoute,
   SupportLeavingOrLeftServiceRoute: SupportLeavingOrLeftServiceRoute,
   SupportStartHereRoute: SupportStartHereRoute,
   SupportSupportingSomeoneRoute: SupportSupportingSomeoneRoute,
