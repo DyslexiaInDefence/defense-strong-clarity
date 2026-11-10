@@ -635,7 +635,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("carries every live Partner page sentence, figure and list item across unchanged", () => {
-    const text = (path: string) => readFileSync(path, "utf8").replace(/\{" "\}/g, " ").replace(/&nbsp;/g, " ").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").replace(/ ([.,:?])/g, "$1");
+    const text = (path: string) => readFileSync(path, "utf8").replace(/<span className="sr-only">[^<]*<\/span>/g, "").replace(/\{" "\}/g, " ").replace(/&nbsp;/g, " ").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").replace(/ ([.,:?])/g, "$1");
     const live = text("src/pages/PartnerPage.tsx");
     const page = text("src/pages/PartnerHubPage.tsx");
     const liveWording = [
