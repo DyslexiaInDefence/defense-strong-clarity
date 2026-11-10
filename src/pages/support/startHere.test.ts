@@ -146,7 +146,7 @@ describe("Staged support page boundaries", () => {
         expect(asset, item.title).toBeDefined();
         expect(asset?.content_type).toBe(mime[link.fileType]);
         expect(link.contentType).toBe(mime[link.fileType]);
-        expect(linkLabel(link)).toBe(`Download (${link.fileType})`);
+        expect(linkLabel(link)).toBe(link.fileType === "DOCX" ? "Download (Word)" : `Download (${link.fileType})`);
       }
     }
   });
@@ -157,8 +157,51 @@ describe("Staged support page boundaries", () => {
       const shown = filterDownloads(DOWNLOAD_ITEMS, value);
       for (const item of everyone) expect(shown, value).toContain(item);
     }
-    expect(filterDownloads(DOWNLOAD_ITEMS, "serving")).toHaveLength(3);
-    expect(filterDownloads(DOWNLOAD_ITEMS, "joining")).toHaveLength(everyone.length);
+  });
+
+  it("lists the four SLC Word forms using the same stored files and filenames as the SLC page", () => {
+    const slcPage = readFileSync("src/pages/support/StandardLearningCreditsPage.tsx", "utf8");
+    const expected = [
+      { asset: "slc-level1", filename: "SLC_Application_Sarah_Hickinbotham_Level1_Screening_V2.docx" },
+      { asset: "slc-level2", filename: "SLC_Application_Sarah_Hickinbotham_Level2_Screening_V2.docx" },
+      { asset: "slc-full", filename: "SLC_Application_Sarah_Hickinbotham_Full_Diagnostic_Assessment_V2.docx" },
+      { asset: "slc-template", filename: "SLC_Application_Template_Dyslexia_Assessment.docx" },
+    ];
+    const wordItems = DOWNLOAD_ITEMS.filter(item => item.link.kind === "file" && item.link.fileType === "DOCX");
+    expect(wordItems).toHaveLength(4);
+    expected.forEach(({ asset, filename }, index) => {
+      const stored = JSON.parse(readFileSync(`src/assets/${asset}.docx.asset.json`, "utf8")) as { url: string };
+      const item = wordItems[index];
+      if (!item) throw new Error(`missing Word item ${index}`);
+      const link = item.link;
+      if (link.kind !== "file") throw new Error("expected a file link");
+      expect(link.href).toBe(stored.url);
+      expect(stored.url.endsWith(".docx")).toBe(true);
+      expect(link.filename).toBe(filename);
+      expect(slcPage.includes(`"${filename}"`), filename).toBe(true);
+      expect(slcPage).toContain(`@/assets/${asset}.docx.asset.json`);
+      expect(item.group).toBe("assessment");
+      expect(item.audience).toBe("serving");
+      expect(link.ariaLabel).toMatch(/^Download the .+ \(Word, DOCX\)$/);
+      expect(item.secondaryLink).toEqual({ label: "Read how the process works", to: "/currently-serving/standard-learning-credits" });
+    });
+    // No duplicated Word files in the project.
+    expect(files("src").filter(path => path.endsWith(".docx"))).toHaveLength(0);
+    expect(files("public").filter(path => path.endsWith(".docx"))).toHaveLength(0);
+  });
+
+  it("shows 7 download items under All and Serving now, and none under the other filters", () => {
+    expect(filterDownloads(DOWNLOAD_ITEMS, "all")).toHaveLength(7);
+    expect(filterDownloads(DOWNLOAD_ITEMS, "serving")).toHaveLength(7);
+    for (const value of ["joining", "leaving", "supporting"] as const) {
+      expect(filterDownloads(DOWNLOAD_ITEMS, value), value).toHaveLength(0);
+    }
+  });
+
+  it("keeps prices off the Downloads and tools page", () => {
+    const page = readFileSync("src/pages/support/DownloadsAndToolsPage.tsx", "utf8");
+    const data = readFileSync("src/pages/support/downloadsLibrary.ts", "utf8");
+    for (const text of [page, data]) expect(text).not.toMatch(/£\s?\d|\d+\s?(pounds|GBP)/i);
   });
 
   it("leaves the remaining future support library destination unbuilt", () => {
