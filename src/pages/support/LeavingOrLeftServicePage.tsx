@@ -18,7 +18,7 @@ const begin: { title: string; description: string; links: CardLink[] }[] = [
   {
     title: "Understanding how you think and learn",
     description: "What dyslexia is, how it shows up for you, and what screening and assessment can offer. An explanation, not a label.",
-    links: [{ label: "Read the guidance", to: "/why-it-matters", srLabel: "Read the guidance on how you think and learn" }],
+    links: [{ label: "Read the guidance", to: "/support/how-you-think-and-learn", srLabel: "Read the guidance on how you think and learn" }],
   },
 ];
 
