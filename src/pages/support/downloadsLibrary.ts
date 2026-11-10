@@ -31,7 +31,6 @@ export type DownloadLink =
     };
 
 const SLC_PAGE = "/currently-serving/standard-learning-credits";
-const DOCX = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
 
 export type DownloadItem = {
   title: string;
@@ -42,8 +41,6 @@ export type DownloadItem = {
   /** Optional second text link to a page on this site. */
   secondaryLink?: { label: string; to: string };
 };
-
-export { DOCX as DOCX_CONTENT_TYPE };
 
 export const DOWNLOAD_ITEMS: DownloadItem[] = [
   {
