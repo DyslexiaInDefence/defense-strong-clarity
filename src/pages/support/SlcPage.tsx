@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AlertTriangle, ArrowDown, ArrowRight, ChevronRight, CircleHelp, Download, ExternalLink, Mail } from "lucide-react";
+import { AlertTriangle, ArrowDown, ArrowRight, ChevronDown, ChevronRight, CircleHelp, Download, ExternalLink, Mail } from "lucide-react";
 import { Link } from "@/lib/router-compat";
 import { Button } from "@/components/ui/button";
 import SupportTabs from "@/components/SupportTabs";
@@ -288,9 +288,10 @@ export default function SlcPage() {
             id={BDA_ANCHOR}
             open={bdaOpen}
             onToggle={event => setBdaOpen(event.currentTarget.open)}
-            className="scroll-mt-40 rounded-lg border border-border bg-card"
+            className="group scroll-mt-40 rounded-lg border border-border bg-card"
           >
             <summary className={`${summaryClass} px-5 py-3 text-lg sm:px-8`}>
+              <ChevronDown aria-hidden="true" className="size-5 shrink-0 transition-transform group-open:rotate-180 motion-reduce:transition-none" />
               Alternative route: through the British Dyslexia Association (BDA)
             </summary>
             <div className="border-t border-border p-5 sm:p-8">
