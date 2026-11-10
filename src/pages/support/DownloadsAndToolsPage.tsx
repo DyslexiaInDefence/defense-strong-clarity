@@ -27,9 +27,17 @@ function ItemLink({ item }: { item: DownloadItem }) {
   const label = linkLabel(item.link);
   if (item.link.kind === "page") {
     return (
-      <Link to={item.link.to} className={`${textLink} mt-auto self-start`} aria-label={`${label}: ${item.title}`}>
+      <Link to={item.link.to} className={textLink} aria-label={`${label}: ${item.title}`}>
         {label}<ArrowRight aria-hidden="true" className="size-4" />
       </Link>
+    );
+  }
+  if (item.link.filename) {
+    // Same pattern the Standard Learning Credits page uses for its Word forms: direct download with a set filename.
+    return (
+      <a href={item.link.href} download={item.link.filename} className={textLink} aria-label={item.link.ariaLabel ?? `${label}: ${item.title}`}>
+        <Download aria-hidden="true" className="size-4" />{label}
+      </a>
     );
   }
   // Same pattern the live Currently serving page uses for this file: stored file URL in a new tab.
@@ -38,8 +46,8 @@ function ItemLink({ item }: { item: DownloadItem }) {
       href={item.link.href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${textLink} mt-auto self-start`}
-      aria-label={`${label}: ${item.title} (opens in a new tab)`}
+      className={textLink}
+      aria-label={item.link.ariaLabel ?? `${label}: ${item.title} (opens in a new tab)`}
     >
       <Download aria-hidden="true" className="size-4" />{label}
     </a>
@@ -110,6 +118,13 @@ export default function DownloadsAndToolsPage() {
           return (
             <section key={group.id} aria-labelledby={`downloads-${group.id}`} className="mb-12">
               <h2 id={`downloads-${group.id}`} className="mb-6 text-2xl font-bold">{group.heading}</h2>
+              {group.id === "assessment" && (
+                <p className="mb-6 max-w-3xl text-base leading-relaxed">
+                  These are the Standard Learning Credits application forms. Which one you need depends on who you book with. Read{" "}
+                  <Link to="/currently-serving/standard-learning-credits" className={`rounded-sm font-semibold underline underline-offset-4 hover:text-primary ${linkFocus}`}>how the process works</Link>
+                  {" "}before you start.
+                </p>
+              )}
               <ul className="grid gap-5 md:grid-cols-2">
                 {items.map(item => (
                   <li key={`${item.audience}-${item.title}`} className="min-w-0">
@@ -121,7 +136,14 @@ export default function DownloadsAndToolsPage() {
                       </p>
                       <h3 className="mb-3 text-xl font-semibold leading-relaxed">{item.title}</h3>
                       <p className="mb-4 text-base leading-relaxed">{item.description}</p>
-                      <ItemLink item={item} />
+                      <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-1">
+                        <ItemLink item={item} />
+                        {item.secondaryLink && (
+                          <Link to={item.secondaryLink.to} className={textLink}>
+                            {item.secondaryLink.label}<ArrowRight aria-hidden="true" className="size-4" />
+                          </Link>
+                        )}
+                      </div>
                     </article>
                   </li>
                 ))}
