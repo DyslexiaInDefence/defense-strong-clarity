@@ -3,6 +3,8 @@ import covenantBanner from "@/assets/armed-forces-covenant-banner.png.asset.json
 
 const LOGO_EXCLUDED_ROUTES = new Set([
   "/partner",
+  // Hidden Partner preview shows the same sponsorship packages as /partner.
+  "/partner-preview",
   "/governance",
   "/governance/founder",
   "/governance/sponsorship",
