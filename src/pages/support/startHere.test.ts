@@ -16,7 +16,7 @@ function files(directory: string): string[] {
 describe("Staged support page boundaries", () => {
   it("excludes Start here from all existing discovery content", () => {
     // Layout's exact-path opt-out is not an inbound link or discovery entry.
-    const allowed = new Set(["src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/start-here"), path).toBe(false);
@@ -73,7 +73,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes Guidance from all existing discovery content", () => {
-    const allowed = new Set(["src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/guidance"), path).toBe(false);
@@ -115,7 +115,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes Downloads and tools from all existing discovery content", () => {
-    const allowed = new Set(["src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/downloads-and-tools.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/downloads-and-tools.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/downloads-and-tools"), path).toBe(false);
@@ -213,7 +213,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes the staged FAQ from all existing discovery content", () => {
-    const allowed = new Set(["src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/faq.tsx", "src/pages/support/FaqPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/faq.tsx", "src/pages/support/FaqPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/faq"), path).toBe(false);
@@ -324,6 +324,56 @@ describe("Staged support page boundaries", () => {
     expect(getPageDate("/support/insights-preview")).toBeUndefined();
     const text = (route + page).toLowerCase();
     for (const phrase of ["legally required to declare", "dyslexia is not a barrier", "reasonable adjustments"]) expect(text.includes(phrase), phrase).toBe(false);
+  });
+
+  it("excludes the Serving now preview from all existing discovery content", () => {
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/serving-now-preview.tsx", "src/pages/support/ServingNowPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    for (const path of [...files("src"), ...files("public")]) {
+      if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md)$/.test(path)) continue;
+      expect(readFileSync(path, "utf8").includes("/support/serving-now-preview"), path).toBe(false);
+    }
+    expect(readFileSync("public/sitemap.xml", "utf8").includes("/support/serving-now-preview")).toBe(false);
+    expect(readFileSync("public/llms.txt", "utf8").includes("serving-now-preview")).toBe(false);
+    expect(getPageDate("/support/serving-now-preview")).toBeUndefined();
+  });
+
+  it("keeps the Serving now preview hidden, bannered and in the serving accent", () => {
+    const route = readFileSync("src/routes/support/serving-now-preview.tsx", "utf8");
+    const page = readFileSync("src/pages/support/ServingNowPage.tsx", "utf8");
+    expect(route).toContain('createFileRoute("/support/serving-now-preview")');
+    expect(route).toContain('content: "noindex, nofollow"');
+    expect(page).toContain("const SHOW_WIP_BANNER = true;");
+    expect(page).toContain("Work in progress – this page is not live yet.");
+    expect(page).toContain("support-route-serving");
+    expect(readFileSync("src/styles.css", "utf8")).toMatch(/--route-serving:\s*#B93030;/);
+    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/support/serving-now-preview"');
+    for (const text of [route, page]) expect(text).not.toContain("ld+json");
+  });
+
+  it("keeps the Serving now preview to existing wording and the staged FAQ", () => {
+    const page = readFileSync("src/pages/support/ServingNowPage.tsx", "utf8");
+    const text = (page + readFileSync("src/routes/support/serving-now-preview.tsx", "utf8")).toLowerCase();
+    for (const phrase of ["legally required to declare", "dyslexia is not a barrier", "reasonable adjustments", "serve at every rank"]) expect(text.includes(phrase), phrase).toBe(false);
+    expect(page).not.toContain("\u2014");
+    expect(page).not.toMatch(/£\s?\d/);
+    expect(page).not.toContain("faqCategories");
+    expect(page).not.toContain("/about/faq");
+    expect(page).not.toContain("1.2 MB");
+    expect(filterFaqs(FAQ_ITEMS, "serving").length).toBeGreaterThan(0);
+    // Defence Dyslexia Network, SLC and video content matches the live page.
+    const live = readFileSync("src/pages/support/CurrentlyServingPage.tsx", "utf8");
+    for (const snippet of ["2000+", "250", "3 services", "Other resources will be added as soon as possible.", "https://modgovuk.sharepoint.com/sites/dddefencedyslexianetwork/SitePages/Home.aspx", "https://jive.defencegateway.mod.uk/groups/dyslexia-network", "https://link.militaryapp.org/rlc/Jb2gM", "Requires serving military status to join", "We have a pre filled application template to help.", "https://www.youtube.com/embed/ET8ddLATf5E"]) {
+      expect(live, snippet).toContain(snippet);
+      expect(page, snippet).toContain(snippet);
+    }
+    expect(page.match(/target="_blank"/g)?.length).toBe(page.match(/rel="noopener noreferrer"/g)?.length);
+  });
+
+  it("leaves the live Currently serving route on the old page", () => {
+    const live = readFileSync("src/routes/support/currently-serving.tsx", "utf8");
+    expect(live).toContain('createFileRoute("/support/currently-serving")');
+    expect(live).toContain("CurrentlyServingPage");
+    expect(live).not.toContain("ServingNowPage");
   });
 
   it("leaves the live /insights route unchanged", () => {
