@@ -66,6 +66,7 @@ import { Route as SupportHowYouThinkAndLearnRouteImport } from './routes/support
 import { Route as SupportInsightsPreviewRouteImport } from './routes/support/insights-preview'
 import { Route as SupportLeavingOrLeftServiceRouteImport } from './routes/support/leaving-or-left-service'
 import { Route as SupportServingNowPreviewRouteImport } from './routes/support/serving-now-preview'
+import { Route as SupportSlcPreviewRouteImport } from './routes/support/slc-preview'
 import { Route as SupportStartHereRouteImport } from './routes/support/start-here'
 import { Route as SupportSupportingSomeoneRouteImport } from './routes/support/supporting-someone'
 import { Route as SupportThinkingOfJoiningRouteImport } from './routes/support/thinking-of-joining'
@@ -377,6 +378,11 @@ const SupportServingNowPreviewRoute =
     path: '/support/serving-now-preview',
     getParentRoute: () => rootRouteImport,
   } as any)
+const SupportSlcPreviewRoute = SupportSlcPreviewRouteImport.update({
+  id: '/support/slc-preview',
+  path: '/support/slc-preview',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SupportStartHereRoute = SupportStartHereRouteImport.update({
   id: '/support/start-here',
   path: '/support/start-here',
@@ -447,6 +453,7 @@ export interface FileRoutesByFullPath {
   '/support/insights-preview': typeof SupportInsightsPreviewRoute
   '/support/leaving-or-left-service': typeof SupportLeavingOrLeftServiceRoute
   '/support/serving-now-preview': typeof SupportServingNowPreviewRoute
+  '/support/slc-preview': typeof SupportSlcPreviewRoute
   '/support/start-here': typeof SupportStartHereRoute
   '/support/supporting-someone': typeof SupportSupportingSomeoneRoute
   '/support/thinking-of-joining': typeof SupportThinkingOfJoiningRoute
@@ -509,6 +516,7 @@ export interface FileRoutesByTo {
   '/support/insights-preview': typeof SupportInsightsPreviewRoute
   '/support/leaving-or-left-service': typeof SupportLeavingOrLeftServiceRoute
   '/support/serving-now-preview': typeof SupportServingNowPreviewRoute
+  '/support/slc-preview': typeof SupportSlcPreviewRoute
   '/support/start-here': typeof SupportStartHereRoute
   '/support/supporting-someone': typeof SupportSupportingSomeoneRoute
   '/support/thinking-of-joining': typeof SupportThinkingOfJoiningRoute
@@ -572,6 +580,7 @@ export interface FileRoutesById {
   '/support/insights-preview': typeof SupportInsightsPreviewRoute
   '/support/leaving-or-left-service': typeof SupportLeavingOrLeftServiceRoute
   '/support/serving-now-preview': typeof SupportServingNowPreviewRoute
+  '/support/slc-preview': typeof SupportSlcPreviewRoute
   '/support/start-here': typeof SupportStartHereRoute
   '/support/supporting-someone': typeof SupportSupportingSomeoneRoute
   '/support/thinking-of-joining': typeof SupportThinkingOfJoiningRoute
@@ -636,6 +645,7 @@ export interface FileRouteTypes {
     | '/support/insights-preview'
     | '/support/leaving-or-left-service'
     | '/support/serving-now-preview'
+    | '/support/slc-preview'
     | '/support/start-here'
     | '/support/supporting-someone'
     | '/support/thinking-of-joining'
@@ -698,6 +708,7 @@ export interface FileRouteTypes {
     | '/support/insights-preview'
     | '/support/leaving-or-left-service'
     | '/support/serving-now-preview'
+    | '/support/slc-preview'
     | '/support/start-here'
     | '/support/supporting-someone'
     | '/support/thinking-of-joining'
@@ -760,6 +771,7 @@ export interface FileRouteTypes {
     | '/support/insights-preview'
     | '/support/leaving-or-left-service'
     | '/support/serving-now-preview'
+    | '/support/slc-preview'
     | '/support/start-here'
     | '/support/supporting-someone'
     | '/support/thinking-of-joining'
@@ -823,6 +835,7 @@ export interface RootRouteChildren {
   SupportInsightsPreviewRoute: typeof SupportInsightsPreviewRoute
   SupportLeavingOrLeftServiceRoute: typeof SupportLeavingOrLeftServiceRoute
   SupportServingNowPreviewRoute: typeof SupportServingNowPreviewRoute
+  SupportSlcPreviewRoute: typeof SupportSlcPreviewRoute
   SupportStartHereRoute: typeof SupportStartHereRoute
   SupportSupportingSomeoneRoute: typeof SupportSupportingSomeoneRoute
   SupportThinkingOfJoiningRoute: typeof SupportThinkingOfJoiningRoute
@@ -1235,6 +1248,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SupportServingNowPreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/support/slc-preview': {
+      id: '/support/slc-preview'
+      path: '/support/slc-preview'
+      fullPath: '/support/slc-preview'
+      preLoaderRoute: typeof SupportSlcPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/support/start-here': {
       id: '/support/start-here'
       path: '/support/start-here'
@@ -1327,6 +1347,7 @@ const rootRouteChildren: RootRouteChildren = {
   SupportInsightsPreviewRoute: SupportInsightsPreviewRoute,
   SupportLeavingOrLeftServiceRoute: SupportLeavingOrLeftServiceRoute,
   SupportServingNowPreviewRoute: SupportServingNowPreviewRoute,
+  SupportSlcPreviewRoute: SupportSlcPreviewRoute,
   SupportStartHereRoute: SupportStartHereRoute,
   SupportSupportingSomeoneRoute: SupportSupportingSomeoneRoute,
   SupportThinkingOfJoiningRoute: SupportThinkingOfJoiningRoute,
