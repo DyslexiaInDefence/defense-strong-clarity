@@ -123,6 +123,11 @@ describe("Page date rules", () => {
     expect(pageHead("/get-involved-preview")).not.toHaveProperty("scripts");
   });
 
+  it("excludes the Partner preview from public dates and structured data", () => {
+    expect(getPageDate("/partner-preview")).toBeUndefined();
+    expect(pageHead("/partner-preview")).not.toHaveProperty("scripts");
+  });
+
   it("uses October 2026 for the evidence reporting period", () => {
     expect(EVIDENCE_DATA_AS_AT).toEqual({ iso: "2026-10", label: "October 2026" });
   });

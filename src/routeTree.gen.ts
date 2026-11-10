@@ -21,6 +21,7 @@ import { Route as EvidenceRouteImport } from './routes/evidence'
 import { Route as GetInvolvedPreviewRouteImport } from './routes/get-involved-preview'
 import { Route as JoinRouteImport } from './routes/join'
 import { Route as PartnerRouteImport } from './routes/partner'
+import { Route as PartnerPreviewRouteImport } from './routes/partner-preview'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as StructureRouteImport } from './routes/structure'
@@ -131,6 +132,11 @@ const JoinRoute = JoinRouteImport.update({
 const PartnerRoute = PartnerRouteImport.update({
   id: '/partner',
   path: '/partner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartnerPreviewRoute = PartnerPreviewRouteImport.update({
+  id: '/partner-preview',
+  path: '/partner-preview',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -426,6 +432,7 @@ export interface FileRoutesByFullPath {
   '/get-involved-preview': typeof GetInvolvedPreviewRoute
   '/join': typeof JoinRoute
   '/partner': typeof PartnerRoute
+  '/partner-preview': typeof PartnerPreviewRoute
   '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
   '/structure': typeof StructureRoute
@@ -491,6 +498,7 @@ export interface FileRoutesByTo {
   '/get-involved-preview': typeof GetInvolvedPreviewRoute
   '/join': typeof JoinRoute
   '/partner': typeof PartnerRoute
+  '/partner-preview': typeof PartnerPreviewRoute
   '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
   '/structure': typeof StructureRoute
@@ -557,6 +565,7 @@ export interface FileRoutesById {
   '/get-involved-preview': typeof GetInvolvedPreviewRoute
   '/join': typeof JoinRoute
   '/partner': typeof PartnerRoute
+  '/partner-preview': typeof PartnerPreviewRoute
   '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
   '/structure': typeof StructureRoute
@@ -624,6 +633,7 @@ export interface FileRouteTypes {
     | '/get-involved-preview'
     | '/join'
     | '/partner'
+    | '/partner-preview'
     | '/privacy'
     | '/resources'
     | '/structure'
@@ -689,6 +699,7 @@ export interface FileRouteTypes {
     | '/get-involved-preview'
     | '/join'
     | '/partner'
+    | '/partner-preview'
     | '/privacy'
     | '/resources'
     | '/structure'
@@ -754,6 +765,7 @@ export interface FileRouteTypes {
     | '/get-involved-preview'
     | '/join'
     | '/partner'
+    | '/partner-preview'
     | '/privacy'
     | '/resources'
     | '/structure'
@@ -820,6 +832,7 @@ export interface RootRouteChildren {
   GetInvolvedPreviewRoute: typeof GetInvolvedPreviewRoute
   JoinRoute: typeof JoinRoute
   PartnerRoute: typeof PartnerRoute
+  PartnerPreviewRoute: typeof PartnerPreviewRoute
   PrivacyRoute: typeof PrivacyRoute
   ResourcesRoute: typeof ResourcesRoute
   StructureRoute: typeof StructureRoute
@@ -957,6 +970,13 @@ declare module '@tanstack/react-router' {
       path: '/partner'
       fullPath: '/partner'
       preLoaderRoute: typeof PartnerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/partner-preview': {
+      id: '/partner-preview'
+      path: '/partner-preview'
+      fullPath: '/partner-preview'
+      preLoaderRoute: typeof PartnerPreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -1332,6 +1352,7 @@ const rootRouteChildren: RootRouteChildren = {
   GetInvolvedPreviewRoute: GetInvolvedPreviewRoute,
   JoinRoute: JoinRoute,
   PartnerRoute: PartnerRoute,
+  PartnerPreviewRoute: PartnerPreviewRoute,
   PrivacyRoute: PrivacyRoute,
   ResourcesRoute: ResourcesRoute,
   StructureRoute: StructureRoute,
