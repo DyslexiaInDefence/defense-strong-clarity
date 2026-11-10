@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutPreviewRouteImport } from './routes/about-preview'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AchieveRouteImport } from './routes/achieve'
 import { Route as ArmedForcesCovenantRouteImport } from './routes/armed-forces-covenant'
@@ -74,6 +75,11 @@ import { Route as SupportThinkingOfJoiningRouteImport } from './routes/support/t
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutPreviewRoute = AboutPreviewRouteImport.update({
+  id: '/about-preview',
+  path: '/about-preview',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AccessibilityRoute = AccessibilityRouteImport.update({
@@ -403,6 +409,7 @@ const SupportThinkingOfJoiningRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about-preview': typeof AboutPreviewRoute
   '/accessibility': typeof AccessibilityRoute
   '/achieve': typeof AchieveRoute
   '/armed-forces-covenant': typeof ArmedForcesCovenantRoute
@@ -466,6 +473,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about-preview': typeof AboutPreviewRoute
   '/accessibility': typeof AccessibilityRoute
   '/achieve': typeof AchieveRoute
   '/armed-forces-covenant': typeof ArmedForcesCovenantRoute
@@ -530,6 +538,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about-preview': typeof AboutPreviewRoute
   '/accessibility': typeof AccessibilityRoute
   '/achieve': typeof AchieveRoute
   '/armed-forces-covenant': typeof ArmedForcesCovenantRoute
@@ -595,6 +604,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about-preview'
     | '/accessibility'
     | '/achieve'
     | '/armed-forces-covenant'
@@ -658,6 +668,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about-preview'
     | '/accessibility'
     | '/achieve'
     | '/armed-forces-covenant'
@@ -721,6 +732,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about-preview'
     | '/accessibility'
     | '/achieve'
     | '/armed-forces-covenant'
@@ -785,6 +797,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutPreviewRoute: typeof AboutPreviewRoute
   AccessibilityRoute: typeof AccessibilityRoute
   AchieveRoute: typeof AchieveRoute
   ArmedForcesCovenantRoute: typeof ArmedForcesCovenantRoute
@@ -854,6 +867,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about-preview': {
+      id: '/about-preview'
+      path: '/about-preview'
+      fullPath: '/about-preview'
+      preLoaderRoute: typeof AboutPreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/accessibility': {
@@ -1281,6 +1301,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutPreviewRoute: AboutPreviewRoute,
   AccessibilityRoute: AccessibilityRoute,
   AchieveRoute: AchieveRoute,
   ArmedForcesCovenantRoute: ArmedForcesCovenantRoute,

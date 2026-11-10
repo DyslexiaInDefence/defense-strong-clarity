@@ -5,6 +5,7 @@ import { getPageDate } from "../../data/pageDates";
 import { GUIDES, GUIDE_FILTERS, filterGuides, parseGuideFilter } from "./guidanceLibrary";
 import { DOWNLOAD_ITEMS, filterDownloads, linkLabel } from "./downloadsLibrary";
 import { FAQ_ITEMS, filterFaqs } from "./faqLibrary";
+import { ABOUT_CARDS, GOVERNANCE_CARDS, MORE_LINKS } from "../AboutHubPage";
 import { BDA_PSYCHOLOGIST_FEE, BDA_PSYCHOLOGIST_YOU_PAY, BDA_RATE_DATE, BDA_TEACHER_FEE, BDA_TEACHER_YOU_PAY, JSP822_VOL7_URL, JSP822_VOL9_URL, SARAH_BODY, SARAH_EMAIL, SARAH_MAILTO, SARAH_SUBJECT, SLC_COST_DATE, SLC_COST_OPTIONS, SLC_FULL_USUAL_PRICE, SLC_TEMPLATE_FORM } from "./slcContent";
 
 function files(directory: string): string[] {
@@ -17,7 +18,8 @@ function files(directory: string): string[] {
 describe("Staged support page boundaries", () => {
   it("excludes Start here from all existing discovery content", () => {
     // Layout's exact-path opt-out is not an inbound link or discovery entry.
-    const allowed = new Set(["src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    // AboutHubPage only imports the shared start-here.css styles; its links are pinned by the About us preview tests.
+    const allowed = new Set(["src/pages/AboutHubPage.tsx", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/start-here"), path).toBe(false);
@@ -457,6 +459,69 @@ describe("Staged support page boundaries", () => {
     expect(live).toContain('createFileRoute("/currently-serving/standard-learning-credits")');
     expect(live).toContain("StandardLearningCreditsPage");
     expect(live).not.toContain("SlcPage");
+  });
+
+  it("excludes the About us preview from all existing discovery content", () => {
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/about-preview.tsx", "src/pages/AboutHubPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    for (const path of [...files("src"), ...files("public")]) {
+      if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
+      expect(readFileSync(path, "utf8").includes("/about-preview"), path).toBe(false);
+    }
+    expect(readFileSync("public/sitemap.xml", "utf8").includes("about-preview")).toBe(false);
+    expect(readFileSync("public/llms.txt", "utf8").includes("about-preview")).toBe(false);
+    expect(readFileSync("src/lib/seo.ts", "utf8").includes("about-preview")).toBe(false);
+    expect(getPageDate("/about-preview")).toBeUndefined();
+  });
+
+  it("keeps the About us preview hidden, bannered and outside Get support", () => {
+    const route = readFileSync("src/routes/about-preview.tsx", "utf8");
+    const page = readFileSync("src/pages/AboutHubPage.tsx", "utf8");
+    expect(route).toContain('createFileRoute("/about-preview")');
+    expect(route).toContain('content: "noindex, nofollow"');
+    expect(page).toContain("const SHOW_WIP_BANNER = true;");
+    expect(page).toContain("Work in progress – this page is not live yet.");
+    expect(page).toContain("support-staged-page");
+    expect(page).not.toMatch(/support-route-(joining|serving|leaving|supporting)/);
+    expect(page).not.toContain("SupportTabs");
+    expect(page).not.toContain("support-identity-strip");
+    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/about-preview"');
+    for (const text of [route, page]) expect(text).not.toContain("ld+json");
+  });
+
+  it("links the About us preview only to existing pages, without What we do or FAQ", () => {
+    const routeText = files("src/routes").filter(path => path.endsWith(".tsx")).map(path => readFileSync(path, "utf8")).join("\n");
+    const links = [...ABOUT_CARDS, ...GOVERNANCE_CARDS, ...MORE_LINKS].map(item => item.to);
+    expect(links).toEqual(["/about/our-story", "/about/what-we-want-to-achieve", "/partner", "/governance", "/accessibility", "/contact", "/support", "/insights", "/lived-experiences", "/join"]);
+    for (const to of links) {
+      expect(routeText.includes(`createFileRoute("${to}")`) || routeText.includes(`createFileRoute("${to}/")`), to).toBe(true);
+    }
+    const page = readFileSync("src/pages/AboutHubPage.tsx", "utf8");
+    for (const banned of ["/about/what-we-do", "/about/faq", "/support/faq", "What we do and why"]) expect(page, banned).not.toContain(banned);
+    // Only the shared stylesheet import may mention a Get support sub-path.
+    expect(page.replace('import "./support/start-here.css";', "")).not.toMatch(/\/support\/[a-z]/);
+  });
+
+  it("copies the live About intro exactly and adds no banned wording", () => {
+    const live = readFileSync("src/pages/AboutPage.tsx", "utf8");
+    const page = readFileSync("src/pages/AboutHubPage.tsx", "utf8");
+    for (const sentence of [
+      "Dyslexia in Defence is a registered Community Interest Company, created to support people with dyslexia and neurodiversity across the UK Defence community by improving understanding, sharing lived experience, and connecting people to the right support.",
+      "We are an independent, volunteer led initiative. Not affiliated with or endorsed by the Ministry of Defence or any employer.",
+      "Dyslexia in Defence CIC is registered in England and Wales. Company number: 17285330.",
+    ]) {
+      expect(live, sentence).toContain(sentence);
+      expect(page, sentence).toContain(sentence);
+    }
+    expect(page).not.toContain("\u2014");
+    const text = page.toLowerCase();
+    for (const phrase of ["legally required to declare", "dyslexia is not a barrier", "reasonable adjustments", "serve at every rank"]) expect(text.includes(phrase), phrase).toBe(false);
+  });
+
+  it("leaves the live /about route on the old page", () => {
+    const live = readFileSync("src/routes/about/index.tsx", "utf8");
+    expect(live).toContain('createFileRoute("/about/")');
+    expect(live).toContain("AboutPage");
+    expect(live).not.toContain("AboutHubPage");
   });
 
   it("does not assign a public content date to the hidden page", () => {
