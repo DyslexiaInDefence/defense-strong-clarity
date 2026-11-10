@@ -65,6 +65,7 @@ import { Route as SupportGuidanceRouteImport } from './routes/support/guidance'
 import { Route as SupportHowYouThinkAndLearnRouteImport } from './routes/support/how-you-think-and-learn'
 import { Route as SupportInsightsPreviewRouteImport } from './routes/support/insights-preview'
 import { Route as SupportLeavingOrLeftServiceRouteImport } from './routes/support/leaving-or-left-service'
+import { Route as SupportServingNowPreviewRouteImport } from './routes/support/serving-now-preview'
 import { Route as SupportStartHereRouteImport } from './routes/support/start-here'
 import { Route as SupportSupportingSomeoneRouteImport } from './routes/support/supporting-someone'
 import { Route as SupportThinkingOfJoiningRouteImport } from './routes/support/thinking-of-joining'
@@ -370,6 +371,12 @@ const SupportLeavingOrLeftServiceRoute =
     path: '/support/leaving-or-left-service',
     getParentRoute: () => rootRouteImport,
   } as any)
+const SupportServingNowPreviewRoute =
+  SupportServingNowPreviewRouteImport.update({
+    id: '/support/serving-now-preview',
+    path: '/support/serving-now-preview',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SupportStartHereRoute = SupportStartHereRouteImport.update({
   id: '/support/start-here',
   path: '/support/start-here',
@@ -439,6 +446,7 @@ export interface FileRoutesByFullPath {
   '/support/how-you-think-and-learn': typeof SupportHowYouThinkAndLearnRoute
   '/support/insights-preview': typeof SupportInsightsPreviewRoute
   '/support/leaving-or-left-service': typeof SupportLeavingOrLeftServiceRoute
+  '/support/serving-now-preview': typeof SupportServingNowPreviewRoute
   '/support/start-here': typeof SupportStartHereRoute
   '/support/supporting-someone': typeof SupportSupportingSomeoneRoute
   '/support/thinking-of-joining': typeof SupportThinkingOfJoiningRoute
@@ -500,6 +508,7 @@ export interface FileRoutesByTo {
   '/support/how-you-think-and-learn': typeof SupportHowYouThinkAndLearnRoute
   '/support/insights-preview': typeof SupportInsightsPreviewRoute
   '/support/leaving-or-left-service': typeof SupportLeavingOrLeftServiceRoute
+  '/support/serving-now-preview': typeof SupportServingNowPreviewRoute
   '/support/start-here': typeof SupportStartHereRoute
   '/support/supporting-someone': typeof SupportSupportingSomeoneRoute
   '/support/thinking-of-joining': typeof SupportThinkingOfJoiningRoute
@@ -562,6 +571,7 @@ export interface FileRoutesById {
   '/support/how-you-think-and-learn': typeof SupportHowYouThinkAndLearnRoute
   '/support/insights-preview': typeof SupportInsightsPreviewRoute
   '/support/leaving-or-left-service': typeof SupportLeavingOrLeftServiceRoute
+  '/support/serving-now-preview': typeof SupportServingNowPreviewRoute
   '/support/start-here': typeof SupportStartHereRoute
   '/support/supporting-someone': typeof SupportSupportingSomeoneRoute
   '/support/thinking-of-joining': typeof SupportThinkingOfJoiningRoute
@@ -625,6 +635,7 @@ export interface FileRouteTypes {
     | '/support/how-you-think-and-learn'
     | '/support/insights-preview'
     | '/support/leaving-or-left-service'
+    | '/support/serving-now-preview'
     | '/support/start-here'
     | '/support/supporting-someone'
     | '/support/thinking-of-joining'
@@ -686,6 +697,7 @@ export interface FileRouteTypes {
     | '/support/how-you-think-and-learn'
     | '/support/insights-preview'
     | '/support/leaving-or-left-service'
+    | '/support/serving-now-preview'
     | '/support/start-here'
     | '/support/supporting-someone'
     | '/support/thinking-of-joining'
@@ -747,6 +759,7 @@ export interface FileRouteTypes {
     | '/support/how-you-think-and-learn'
     | '/support/insights-preview'
     | '/support/leaving-or-left-service'
+    | '/support/serving-now-preview'
     | '/support/start-here'
     | '/support/supporting-someone'
     | '/support/thinking-of-joining'
@@ -809,6 +822,7 @@ export interface RootRouteChildren {
   SupportHowYouThinkAndLearnRoute: typeof SupportHowYouThinkAndLearnRoute
   SupportInsightsPreviewRoute: typeof SupportInsightsPreviewRoute
   SupportLeavingOrLeftServiceRoute: typeof SupportLeavingOrLeftServiceRoute
+  SupportServingNowPreviewRoute: typeof SupportServingNowPreviewRoute
   SupportStartHereRoute: typeof SupportStartHereRoute
   SupportSupportingSomeoneRoute: typeof SupportSupportingSomeoneRoute
   SupportThinkingOfJoiningRoute: typeof SupportThinkingOfJoiningRoute
@@ -1214,6 +1228,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SupportLeavingOrLeftServiceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/support/serving-now-preview': {
+      id: '/support/serving-now-preview'
+      path: '/support/serving-now-preview'
+      fullPath: '/support/serving-now-preview'
+      preLoaderRoute: typeof SupportServingNowPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/support/start-here': {
       id: '/support/start-here'
       path: '/support/start-here'
@@ -1305,6 +1326,7 @@ const rootRouteChildren: RootRouteChildren = {
   SupportHowYouThinkAndLearnRoute: SupportHowYouThinkAndLearnRoute,
   SupportInsightsPreviewRoute: SupportInsightsPreviewRoute,
   SupportLeavingOrLeftServiceRoute: SupportLeavingOrLeftServiceRoute,
+  SupportServingNowPreviewRoute: SupportServingNowPreviewRoute,
   SupportStartHereRoute: SupportStartHereRoute,
   SupportSupportingSomeoneRoute: SupportSupportingSomeoneRoute,
   SupportThinkingOfJoiningRoute: SupportThinkingOfJoiningRoute,
