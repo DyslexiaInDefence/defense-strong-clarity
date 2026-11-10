@@ -7,7 +7,7 @@ const description = "Quick answers to common questions about dyslexia and Defenc
 
 export const Route = createFileRoute("/support/faq")({
   // ?for= is optional; unknown values are normalised to All inside the page.
-  // No FAQPage structured data while the page is hidden.
+  // No structured data while the page is hidden.
   validateSearch: (search: Record<string, unknown>): { for?: string } =>
     typeof search["for"] === "string" ? { for: search["for"] } : {},
   component: FaqPage,
