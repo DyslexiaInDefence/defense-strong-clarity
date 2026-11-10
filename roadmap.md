@@ -41,3 +41,5 @@
 - [x] Replace homepage voices with the evidence banner and verify animation, reduced motion and mobile layout.
 - [x] Add and verify the noindex evidence placeholder without changing sitemap or robots.
 
+
+- [x] Build hidden `/support/serving-now-preview` (Serving now, including civil service) with tests; live Currently serving page unchanged.
