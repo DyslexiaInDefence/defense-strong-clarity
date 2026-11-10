@@ -6,6 +6,8 @@ import { GUIDES, GUIDE_FILTERS, filterGuides, parseGuideFilter } from "./guidanc
 import { DOWNLOAD_ITEMS, filterDownloads, linkLabel } from "./downloadsLibrary";
 import { FAQ_ITEMS, filterFaqs } from "./faqLibrary";
 import { ABOUT_CARDS, GOVERNANCE_CARDS, MORE_LINKS } from "../AboutHubPage";
+import { WAYS_TO_TAKE_PART, MORE_LINKS as INVOLVED_MORE_LINKS } from "../GetInvolvedHubPage";
+import { SHARE_MAILTO } from "../../components/ShareLivedExperienceBanner";
 import { BDA_PSYCHOLOGIST_FEE, BDA_PSYCHOLOGIST_YOU_PAY, BDA_RATE_DATE, BDA_TEACHER_FEE, BDA_TEACHER_YOU_PAY, JSP822_VOL7_URL, JSP822_VOL9_URL, SARAH_BODY, SARAH_EMAIL, SARAH_MAILTO, SARAH_SUBJECT, SLC_COST_DATE, SLC_COST_OPTIONS, SLC_FULL_USUAL_PRICE, SLC_TEMPLATE_FORM } from "./slcContent";
 
 function files(directory: string): string[] {
@@ -18,8 +20,8 @@ function files(directory: string): string[] {
 describe("Staged support page boundaries", () => {
   it("excludes Start here from all existing discovery content", () => {
     // Layout's exact-path opt-out is not an inbound link or discovery entry.
-    // AboutHubPage only imports the shared start-here.css styles; its links are pinned by the About us preview tests.
-    const allowed = new Set(["src/pages/AboutHubPage.tsx", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    // AboutHubPage and GetInvolvedHubPage only import the shared start-here.css styles; its links are pinned by the About us preview tests.
+    const allowed = new Set(["src/pages/AboutHubPage.tsx", "src/pages/GetInvolvedHubPage.tsx", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/start-here"), path).toBe(false);
@@ -522,6 +524,69 @@ describe("Staged support page boundaries", () => {
     expect(live).toContain('createFileRoute("/about/")');
     expect(live).toContain("AboutPage");
     expect(live).not.toContain("AboutHubPage");
+  });
+
+  it("excludes the Get involved preview from all existing discovery content", () => {
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/get-involved-preview.tsx", "src/pages/GetInvolvedHubPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    for (const path of [...files("src"), ...files("public")]) {
+      if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
+      expect(readFileSync(path, "utf8").includes("/get-involved-preview"), path).toBe(false);
+    }
+    expect(readFileSync("public/sitemap.xml", "utf8").includes("get-involved")).toBe(false);
+    expect(readFileSync("public/llms.txt", "utf8").includes("get-involved")).toBe(false);
+    expect(readFileSync("src/lib/seo.ts", "utf8").includes("get-involved")).toBe(false);
+    expect(getPageDate("/get-involved-preview")).toBeUndefined();
+  });
+
+  it("keeps the Get involved preview hidden, bannered and outside Get support", () => {
+    const route = readFileSync("src/routes/get-involved-preview.tsx", "utf8");
+    const page = readFileSync("src/pages/GetInvolvedHubPage.tsx", "utf8");
+    expect(route).toContain('createFileRoute("/get-involved-preview")');
+    expect(route).toContain('content: "noindex, nofollow"');
+    expect(page).toContain("const SHOW_WIP_BANNER = true;");
+    expect(page).toContain("Work in progress – this page is not live yet.");
+    expect(page).toContain("support-staged-page");
+    expect(page).not.toMatch(/support-route-(joining|serving|leaving|supporting)/);
+    expect(page).not.toContain("SupportTabs");
+    expect(page).not.toContain("support-identity-strip");
+    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/get-involved-preview"');
+    for (const text of [route, page]) expect(text).not.toContain("ld+json");
+  });
+
+  it("links the Get involved preview only to existing pages and the shared story email", () => {
+    const routeText = files("src/routes").filter(path => path.endsWith(".tsx")).map(path => readFileSync(path, "utf8")).join("\n");
+    const internal = [...WAYS_TO_TAKE_PART.flatMap(card => ("to" in card ? [card.to] : [])), ...INVOLVED_MORE_LINKS.map(item => item.to)];
+    expect(internal).toEqual(["/community", "/lived-experiences", "/about", "/support", "/partner", "/insights"]);
+    for (const to of [...internal, "/join"]) {
+      expect(routeText.includes(`createFileRoute("${to}")`) || routeText.includes(`createFileRoute("${to}/")`), to).toBe(true);
+    }
+    const share = WAYS_TO_TAKE_PART.find(card => card.title === "Share your story");
+    expect(share && "href" in share ? share.href : undefined).toBe(SHARE_MAILTO);
+    const page = readFileSync("src/pages/GetInvolvedHubPage.tsx", "utf8");
+    expect(page).toContain('<Link to="/join">');
+    expect(page).not.toContain("JoinForm");
+    expect(page).not.toContain("<form");
+    expect(page).not.toContain('target="_blank"');
+    expect(page.replace('import "./support/start-here.css";', "")).not.toMatch(/\/support\/[a-z]/);
+  });
+
+  it("uses only live Join wording on the Get involved preview, with no cost or consent claims", () => {
+    const page = readFileSync("src/pages/GetInvolvedHubPage.tsx", "utf8");
+    expect(readFileSync("src/pages/JoinPage.tsx", "utf8")).toContain("Open to anyone connected to the defence and security sector.");
+    expect(readFileSync("src/components/JoinForm.tsx", "utf8")).toContain("Open to adults aged 18 and over.");
+    expect(page).toContain("Open to anyone connected to the defence and security sector.");
+    expect(page).toContain("Open to adults aged 18 and over.");
+    expect(page).not.toContain("\u2014");
+    const text = page.toLowerCase();
+    for (const phrase of ["free", "£", "no cost", "consent", "legally required to declare", "dyslexia is not a barrier", "reasonable adjustments"]) expect(text.includes(phrase), phrase).toBe(false);
+    // The live Share your story banner has no consent sentence, so none is added here.
+    expect(readFileSync("src/components/ShareLivedExperienceBanner.tsx", "utf8").toLowerCase()).not.toContain("consent");
+  });
+
+  it("leaves the live Get involved destinations unchanged", () => {
+    expect(readFileSync("src/components/Navbar.tsx", "utf8")).toMatch(/label: "Get Involved",\s*to: "\/join"/);
+    expect(readFileSync("src/components/Footer.tsx", "utf8")).toContain('<Link to="/join" className="text-muted-foreground hover:text-primary transition-colors">Get Involved</Link>');
+    expect(files("src/routes").some(path => /get-involved\.tsx$|get-involved[\\/]/.test(path))).toBe(false);
   });
 
   it("does not assign a public content date to the hidden page", () => {
