@@ -12,3 +12,4 @@ body:has(.support-start-here, .support-staged-page) nav[aria-label="Breadcrumb"]
 .support-start-here, .support-staged-page { overflow-wrap: anywhere; }
 .support-start-here :where(h1, h2, h3, p, a),
 .support-staged-page :where(h1, h2, h3, p, a) { letter-spacing: 0; }
+.support-step-number { background-color: var(--support-route-accent); }
