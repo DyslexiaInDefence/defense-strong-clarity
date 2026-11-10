@@ -172,6 +172,7 @@ describe("Staged support page boundaries", () => {
     expected.forEach(({ asset, filename }, index) => {
       const stored = JSON.parse(readFileSync(`src/assets/${asset}.docx.asset.json`, "utf8")) as { url: string };
       const item = wordItems[index];
+      if (!item) throw new Error(`missing Word item ${index}`);
       const link = item.link;
       if (link.kind !== "file") throw new Error("expected a file link");
       expect(link.href).toBe(stored.url);
