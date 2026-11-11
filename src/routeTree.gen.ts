@@ -20,6 +20,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as EvidenceRouteImport } from './routes/evidence'
 import { Route as GetInvolvedPreviewRouteImport } from './routes/get-involved-preview'
 import { Route as JoinRouteImport } from './routes/join'
+import { Route as LivedExperiencesPreviewRouteImport } from './routes/lived-experiences-preview'
 import { Route as PartnerRouteImport } from './routes/partner'
 import { Route as PartnerPreviewRouteImport } from './routes/partner-preview'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -127,6 +128,11 @@ const GetInvolvedPreviewRoute = GetInvolvedPreviewRouteImport.update({
 const JoinRoute = JoinRouteImport.update({
   id: '/join',
   path: '/join',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LivedExperiencesPreviewRoute = LivedExperiencesPreviewRouteImport.update({
+  id: '/lived-experiences-preview',
+  path: '/lived-experiences-preview',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PartnerRoute = PartnerRouteImport.update({
@@ -431,6 +437,7 @@ export interface FileRoutesByFullPath {
   '/evidence': typeof EvidenceRoute
   '/get-involved-preview': typeof GetInvolvedPreviewRoute
   '/join': typeof JoinRoute
+  '/lived-experiences-preview': typeof LivedExperiencesPreviewRoute
   '/partner': typeof PartnerRoute
   '/partner-preview': typeof PartnerPreviewRoute
   '/privacy': typeof PrivacyRoute
@@ -497,6 +504,7 @@ export interface FileRoutesByTo {
   '/evidence': typeof EvidenceRoute
   '/get-involved-preview': typeof GetInvolvedPreviewRoute
   '/join': typeof JoinRoute
+  '/lived-experiences-preview': typeof LivedExperiencesPreviewRoute
   '/partner': typeof PartnerRoute
   '/partner-preview': typeof PartnerPreviewRoute
   '/privacy': typeof PrivacyRoute
@@ -564,6 +572,7 @@ export interface FileRoutesById {
   '/evidence': typeof EvidenceRoute
   '/get-involved-preview': typeof GetInvolvedPreviewRoute
   '/join': typeof JoinRoute
+  '/lived-experiences-preview': typeof LivedExperiencesPreviewRoute
   '/partner': typeof PartnerRoute
   '/partner-preview': typeof PartnerPreviewRoute
   '/privacy': typeof PrivacyRoute
@@ -632,6 +641,7 @@ export interface FileRouteTypes {
     | '/evidence'
     | '/get-involved-preview'
     | '/join'
+    | '/lived-experiences-preview'
     | '/partner'
     | '/partner-preview'
     | '/privacy'
@@ -698,6 +708,7 @@ export interface FileRouteTypes {
     | '/evidence'
     | '/get-involved-preview'
     | '/join'
+    | '/lived-experiences-preview'
     | '/partner'
     | '/partner-preview'
     | '/privacy'
@@ -764,6 +775,7 @@ export interface FileRouteTypes {
     | '/evidence'
     | '/get-involved-preview'
     | '/join'
+    | '/lived-experiences-preview'
     | '/partner'
     | '/partner-preview'
     | '/privacy'
@@ -831,6 +843,7 @@ export interface RootRouteChildren {
   EvidenceRoute: typeof EvidenceRoute
   GetInvolvedPreviewRoute: typeof GetInvolvedPreviewRoute
   JoinRoute: typeof JoinRoute
+  LivedExperiencesPreviewRoute: typeof LivedExperiencesPreviewRoute
   PartnerRoute: typeof PartnerRoute
   PartnerPreviewRoute: typeof PartnerPreviewRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -963,6 +976,13 @@ declare module '@tanstack/react-router' {
       path: '/join'
       fullPath: '/join'
       preLoaderRoute: typeof JoinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lived-experiences-preview': {
+      id: '/lived-experiences-preview'
+      path: '/lived-experiences-preview'
+      fullPath: '/lived-experiences-preview'
+      preLoaderRoute: typeof LivedExperiencesPreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/partner': {
@@ -1351,6 +1371,7 @@ const rootRouteChildren: RootRouteChildren = {
   EvidenceRoute: EvidenceRoute,
   GetInvolvedPreviewRoute: GetInvolvedPreviewRoute,
   JoinRoute: JoinRoute,
+  LivedExperiencesPreviewRoute: LivedExperiencesPreviewRoute,
   PartnerRoute: PartnerRoute,
   PartnerPreviewRoute: PartnerPreviewRoute,
   PrivacyRoute: PrivacyRoute,
