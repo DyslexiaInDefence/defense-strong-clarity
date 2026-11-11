@@ -23,7 +23,8 @@ describe("Staged support page boundaries", () => {
   it("excludes Start here from all existing discovery content", () => {
     // Layout's exact-path opt-out is not an inbound link or discovery entry.
     // AboutHubPage, GetInvolvedHubPage, PartnerHubPage and LivedExperiencesHubPage only import the shared start-here.css styles; its links are pinned by the About us preview tests.
-    const allowed = new Set(["src/pages/AboutHubPage.tsx", "src/pages/GetInvolvedHubPage.tsx", "src/pages/PartnerHubPage.tsx", "src/pages/LivedExperiencesHubPage.tsx", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    // Navbar and Footer only hold this address in the switched-off NEW_* lists, pinned off by navFooter.test.ts.
+    const allowed = new Set(["src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/AboutHubPage.tsx", "src/pages/GetInvolvedHubPage.tsx", "src/pages/PartnerHubPage.tsx", "src/pages/LivedExperiencesHubPage.tsx", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/start-here"), path).toBe(false);
@@ -80,7 +81,8 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes Guidance from all existing discovery content", () => {
-    const allowed = new Set(["src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    // Navbar and Footer only hold this address in the switched-off NEW_* lists, pinned off by navFooter.test.ts.
+    const allowed = new Set(["src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/guidance"), path).toBe(false);
@@ -122,7 +124,8 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes Downloads and tools from all existing discovery content", () => {
-    const allowed = new Set(["src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/downloads-and-tools.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    // Navbar and Footer only hold this address in the switched-off NEW_* lists, pinned off by navFooter.test.ts.
+    const allowed = new Set(["src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/downloads-and-tools.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/downloads-and-tools"), path).toBe(false);
@@ -220,7 +223,8 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes the staged FAQ from all existing discovery content", () => {
-    const allowed = new Set(["src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/faq.tsx", "src/pages/support/FaqPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    // Navbar and Footer only hold this address in the switched-off NEW_* lists, pinned off by navFooter.test.ts.
+    const allowed = new Set(["src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/faq.tsx", "src/pages/support/FaqPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/faq"), path).toBe(false);
@@ -586,8 +590,9 @@ describe("Staged support page boundaries", () => {
   });
 
   it("leaves the live Get involved destinations unchanged", () => {
-    expect(readFileSync("src/components/Navbar.tsx", "utf8")).toMatch(/label: "Get Involved",\s*to: "\/join"/);
-    expect(readFileSync("src/components/Footer.tsx", "utf8")).toContain('<Link to="/join" className="text-muted-foreground hover:text-primary transition-colors">Get Involved</Link>');
+    // The live lists are the CURRENT_* ones while the switch-over flags are off (pinned by navFooter.test.ts).
+    expect(readFileSync("src/components/Navbar.tsx", "utf8")).toMatch(/CURRENT_NAV_LINKS[\s\S]*?label: "Get Involved",\s*to: "\/join"/);
+    expect(readFileSync("src/components/Footer.tsx", "utf8")).toMatch(/CURRENT_FOOTER_COLUMNS[\s\S]*?\{ label: "Get Involved", to: "\/join" \}/);
     expect(files("src/routes").some(path => /get-involved\.tsx$|get-involved[\\/]/.test(path))).toBe(false);
   });
 

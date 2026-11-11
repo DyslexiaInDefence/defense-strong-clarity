@@ -6,10 +6,13 @@ import { useAccessibility } from "@/contexts/AccessibilityContext";
 import didLogoFull from "@/assets/did-logo-full.webp";
 
 
-type NavChild = { label: string; to: string };
-type NavItem = { label: string; to: string; children?: NavChild[] };
+export type NavChild = { label: string; to: string };
+export type NavItem = { label: string; to: string; children?: NavChild[] };
 
-const navLinks: NavItem[] = [
+// Flip to true at switch-over, together with the route swaps
+export const USE_NEW_NAV = false;
+
+export const CURRENT_NAV_LINKS: NavItem[] = [
   {
     label: "About Us",
     to: "/about",
@@ -45,6 +48,43 @@ const navLinks: NavItem[] = [
     ],
   },
 ];
+
+export const NEW_NAV_LINKS: NavItem[] = [
+  {
+    label: "About Us",
+    to: "/about",
+    children: [
+      { label: "Our Story", to: "/about/our-story" },
+      { label: "What We Want to Achieve", to: "/about/what-we-want-to-achieve" },
+      { label: "Partner With Us", to: "/partner" },
+      { label: "Governance", to: "/governance" },
+      { label: "Accessibility", to: "/accessibility" },
+      { label: "Contact Us", to: "/contact" },
+    ],
+  },
+  {
+    label: "Get Support",
+    to: "/support",
+    children: [
+      { label: "Start here", to: "/support/start-here" },
+      { label: "Serving now (including civil service)", to: "/support/currently-serving" },
+      { label: "Guidance", to: "/support/guidance" },
+      { label: "Insights", to: "/insights" },
+      { label: "Downloads and Tools", to: "/support/downloads-and-tools" },
+      { label: "FAQ", to: "/support/faq" },
+    ],
+  },
+  {
+    label: "Get Involved",
+    to: "/get-involved",
+    children: [
+      { label: "Peer Community", to: "/community" },
+      { label: "Lived Experiences", to: "/lived-experiences" },
+    ],
+  },
+];
+
+export const navLinks: NavItem[] = USE_NEW_NAV ? NEW_NAV_LINKS : CURRENT_NAV_LINKS;
 
 
 const Navbar = () => {
