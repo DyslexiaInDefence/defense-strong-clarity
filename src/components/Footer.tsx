@@ -3,6 +3,81 @@ import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import didLogoFull from "@/assets/did-logo-full.webp";
 import CovenantPledgeBand from "@/components/CovenantPledgeBand";
 import { OPEN_EVENT } from "@/components/CookieBanner";
+import { SHARE_MAILTO } from "@/components/ShareLivedExperienceBanner";
+
+export type FooterLink = { label: string; to: string } | { label: string; href: string };
+export type FooterColumn = { heading: { label: string; to: string }; links: FooterLink[] };
+
+// Flip to true at switch-over, together with the route swaps
+export const USE_NEW_FOOTER = false;
+
+export const CURRENT_FOOTER_COLUMNS: FooterColumn[] = [
+  {
+    heading: { label: "About Us", to: "/about" },
+    links: [
+      { label: "Our Story", to: "/about/our-story" },
+      { label: "What We Do", to: "/about/what-we-do" },
+      { label: "What We Want to Achieve", to: "/about/what-we-want-to-achieve" },
+      { label: "FAQ", to: "/about/faq" },
+      { label: "Contact Us", to: "/contact" },
+      { label: "Governance", to: "/governance" },
+      { label: "Armed Forces Covenant", to: "/armed-forces-covenant" },
+      { label: "Accessibility", to: "/accessibility" },
+    ],
+  },
+  {
+    heading: { label: "Get Support", to: "/support" },
+    links: [
+      { label: "Get Involved", to: "/join" },
+      { label: "Join the Network", to: "/join" },
+      { label: "Currently Serving", to: "/support/currently-serving" },
+      { label: "Guidance", to: "/insights" },
+      { label: "Lived Experiences", to: "/lived-experiences" },
+      { label: "Peer Community", to: "/community" },
+      { label: "Get Support", to: "/support" },
+      { label: "Partner With Us", to: "/partner" },
+    ],
+  },
+];
+
+export const NEW_FOOTER_COLUMNS: FooterColumn[] = [
+  {
+    heading: { label: "About Us", to: "/about" },
+    links: [
+      { label: "Our Story", to: "/about/our-story" },
+      { label: "What We Want to Achieve", to: "/about/what-we-want-to-achieve" },
+      { label: "Partner With Us", to: "/partner" },
+      { label: "FAQ", to: "/support/faq" },
+      { label: "Contact Us", to: "/contact" },
+      { label: "Governance", to: "/governance" },
+      { label: "Armed Forces Covenant", to: "/armed-forces-covenant" },
+      { label: "Accessibility", to: "/accessibility" },
+    ],
+  },
+  {
+    heading: { label: "Get Support", to: "/support" },
+    links: [
+      { label: "Start here", to: "/support/start-here" },
+      { label: "Serving now (including civil service)", to: "/support/currently-serving" },
+      { label: "Guidance", to: "/support/guidance" },
+      { label: "Insights", to: "/insights" },
+      { label: "Downloads and Tools", to: "/support/downloads-and-tools" },
+    ],
+  },
+  {
+    heading: { label: "Get Involved", to: "/get-involved" },
+    links: [
+      { label: "Join the Network", to: "/join" },
+      { label: "Peer Community", to: "/community" },
+      { label: "Lived Experiences", to: "/lived-experiences" },
+      { label: "Share your story", href: SHARE_MAILTO },
+    ],
+  },
+];
+
+export const footerColumns: FooterColumn[] = USE_NEW_FOOTER ? NEW_FOOTER_COLUMNS : CURRENT_FOOTER_COLUMNS;
+
+const linkClass = "text-muted-foreground hover:text-primary transition-colors";
 
 const Footer = () => {
   return (
@@ -17,7 +92,7 @@ const Footer = () => {
           aria-hidden="true"
         />
 
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
+        <div className={`grid gap-10 md:grid-cols-2 ${USE_NEW_FOOTER ? "lg:grid-cols-6" : "lg:grid-cols-5"}`}>
           {/* Brand */}
           <div>
             <div className="mb-3 flex items-center gap-2">
@@ -28,39 +103,24 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* About Us group */}
-          <div>
-            <h3 className="mb-3 text-lg font-bold text-foreground">
-              <Link to="/about" className="hover:text-primary transition-colors">About Us</Link>
-            </h3>
-          <ul className="space-y-2 text-sm">
-              <li><Link to="/about/our-story" className="text-muted-foreground hover:text-primary transition-colors">Our Story</Link></li>
-              <li><Link to="/about/what-we-do" className="text-muted-foreground hover:text-primary transition-colors">What We Do</Link></li>
-              <li><Link to="/about/what-we-want-to-achieve" className="text-muted-foreground hover:text-primary transition-colors">What We Want to Achieve</Link></li>
-              <li><Link to="/about/faq" className="text-muted-foreground hover:text-primary transition-colors">FAQ</Link></li>
-              <li><Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact Us</Link></li>
-              <li><Link to="/governance" className="text-muted-foreground hover:text-primary transition-colors">Governance</Link></li>
-              <li><Link to="/armed-forces-covenant" className="text-muted-foreground hover:text-primary transition-colors">Armed Forces Covenant</Link></li>
-              <li><Link to="/accessibility" className="text-muted-foreground hover:text-primary transition-colors">Accessibility</Link></li>
-            </ul>
-          </div>
-
-          {/* Get Support / Community / Resources group */}
-          <div>
-            <h3 className="mb-3 text-lg font-bold text-foreground">
-              <Link to="/support" className="hover:text-primary transition-colors">Get Support</Link>
-            </h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link to="/join" className="text-muted-foreground hover:text-primary transition-colors">Get Involved</Link></li>
-              <li><Link to="/join" className="text-muted-foreground hover:text-primary transition-colors">Join the Network</Link></li>
-              <li><Link to="/support/currently-serving" className="text-muted-foreground hover:text-primary transition-colors">Currently Serving</Link></li>
-              <li><Link to="/insights" className="text-muted-foreground hover:text-primary transition-colors">Guidance</Link></li>
-              <li><Link to="/lived-experiences" className="text-muted-foreground hover:text-primary transition-colors">Lived Experiences</Link></li>
-              <li><Link to="/community" className="text-muted-foreground hover:text-primary transition-colors">Peer Community</Link></li>
-              <li><Link to="/support" className="text-muted-foreground hover:text-primary transition-colors">Get Support</Link></li>
-              <li><Link to="/partner" className="text-muted-foreground hover:text-primary transition-colors">Partner With Us</Link></li>
-            </ul>
-          </div>
+          {footerColumns.map((column) => (
+            <div key={column.heading.to}>
+              <h3 className="mb-3 text-lg font-bold text-foreground">
+                <Link to={column.heading.to} className="hover:text-primary transition-colors">{column.heading.label}</Link>
+              </h3>
+              <ul className="space-y-2 text-sm">
+                {column.links.map((link) => (
+                  <li key={link.label}>
+                    {"href" in link ? (
+                      <a href={link.href} className={linkClass}>{link.label}</a>
+                    ) : (
+                      <Link to={link.to} className={linkClass}>{link.label}</Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
 
           {/* Independence disclaimer */}
           <div>
