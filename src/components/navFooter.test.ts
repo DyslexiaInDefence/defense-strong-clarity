@@ -86,7 +86,7 @@ const EXISTING_ROUTES = new Set(
     }),
 );
 
-const anchors = (html: string) => [...html.matchAll(/<a [^>]*href="([^"]*)"[^>]*>([^<]*)<\/a>/g)].map(m => ({ href: m[1].replace(/&amp;/g, "&"), label: m[2] }));
+const anchors = (html: string) => [...html.matchAll(/<a [^>]*href="([^"]*)"[^>]*>([^<]*)<\/a>/g)].map(m => ({ href: (m[1] ?? "").replace(/&amp;/g, "&"), label: m[2] ?? "" }));
 
 const newDestinations = [
   ...NEW_NAV_LINKS.flatMap(item => [item.to, ...(item.children ?? []).map(child => child.to)]),
@@ -103,7 +103,7 @@ describe("Main menu and footer switch-over flags", () => {
     expect(CURRENT_NAV_LINKS).toEqual(LIVE_NAV_SNAPSHOT);
     expect(navLinks).toEqual(LIVE_NAV_SNAPSHOT);
     const html = renderToStaticMarkup(createElement(Navbar));
-    const desktop = html.split('class="hidden items-center gap-5 xl:flex"')[1].split('class="hidden items-center gap-2 xl:flex"')[0];
+    const desktop = (html.split('class="hidden items-center gap-5 xl:flex"')[1] ?? "").split('class="hidden items-center gap-2 xl:flex"')[0] ?? "";
     expect(anchors(desktop)).toEqual(LIVE_NAV_SNAPSHOT.map(item => ({ href: item.to, label: item.label })));
   });
 
@@ -113,7 +113,7 @@ describe("Main menu and footer switch-over flags", () => {
     const html = renderToStaticMarkup(createElement(Footer));
     const headings = [...html.matchAll(/<h3[^>]*><a [^>]*href="([^"]*)"[^>]*>([^<]*)<\/a><\/h3>/g)].map(m => ({ href: m[1], label: m[2] }));
     expect(headings).toEqual(LIVE_FOOTER_SNAPSHOT.map(column => ({ href: column.heading.to, label: column.heading.label })));
-    const lists = [...html.matchAll(/<ul class="space-y-2 text-sm">(.*?)<\/ul>/g)].map(m => anchors(m[1]));
+    const lists = [...html.matchAll(/<ul class="space-y-2 text-sm">(.*?)<\/ul>/g)].map(m => anchors(m[1] ?? ""));
     expect(lists).toEqual(LIVE_FOOTER_SNAPSHOT.map(column => column.links.map(link => ({ href: link.to, label: link.label }))));
     expect(html).toContain("lg:grid-cols-5");
     expect(html).not.toContain("lg:grid-cols-6");
@@ -198,7 +198,7 @@ describe("New footer columns", () => {
       expect(menu.find(child => child.label === link.label)?.to, link.label).toBe("to" in link ? link.to : undefined);
     }
     expect(footer.some(link => link.label === "Get Support" || ("to" in link && link.to === "/support"))).toBe(false);
-    expect(NEW_FOOTER_COLUMNS[0].links.some(link => link.label === "What We Do")).toBe(false);
+    expect(NEW_FOOTER_COLUMNS[0]!.links.some(link => link.label === "What We Do")).toBe(false);
   });
 });
 
