@@ -31,16 +31,19 @@ export function useReviewMode(): boolean {
 export const NAV_OLD_PARAM = "nav";
 export const NAV_OLD_VALUE = "old";
 
+// The router's search string can arrive with one or two leading "?" characters.
+const params = (search: string | undefined) => new URLSearchParams((search ?? "").replace(/^\?+/, ""));
+
 export function wantsOldNav(search: string | undefined): boolean {
-  return new URLSearchParams(search ?? "").get(NAV_OLD_PARAM) === NAV_OLD_VALUE;
+  return params(search).get(NAV_OLD_PARAM) === NAV_OLD_VALUE;
 }
 
 // Current address with ?nav=old added (showOld true) or removed (showOld false), keeping other parameters.
 export function navToggleHref(pathname: string, search: string | undefined, showOld: boolean): string {
-  const params = new URLSearchParams(search ?? "");
-  if (showOld) params.set(NAV_OLD_PARAM, NAV_OLD_VALUE);
-  else params.delete(NAV_OLD_PARAM);
-  const query = params.toString();
+  const next = params(search);
+  if (showOld) next.set(NAV_OLD_PARAM, NAV_OLD_VALUE);
+  else next.delete(NAV_OLD_PARAM);
+  const query = next.toString();
   return query ? `${pathname}?${query}` : pathname;
 }
 

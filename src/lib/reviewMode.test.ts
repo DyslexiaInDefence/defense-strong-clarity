@@ -82,7 +82,9 @@ describe("Old menu toggle", () => {
     expect(navToggleHref("/support/guidance", "?for=joining", true)).toBe("/support/guidance?for=joining&nav=old");
     expect(navToggleHref("/about", "?nav=old", false)).toBe("/about");
     expect(navToggleHref("/support/guidance", "?for=joining&nav=old", false)).toBe("/support/guidance?for=joining");
+    expect(navToggleHref("/about", "??nav=old", false)).toBe("/about");
     expect(wantsOldNav("?nav=old")).toBe(true);
+    expect(wantsOldNav("??nav=old")).toBe(true);
     expect(wantsOldNav("")).toBe(false);
     expect(wantsOldNav(undefined)).toBe(false);
   });
