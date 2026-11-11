@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "@/lib/router-compat";
 import { Moon, Sun, Type, Zap, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAccessibility } from "@/contexts/AccessibilityContext";
 import didLogoFull from "@/assets/did-logo-full.webp";
+import { reviewTarget, useShowNewChrome } from "@/lib/reviewMode";
 
 
 export type NavChild = { label: string; to: string };
@@ -86,13 +87,23 @@ export const NEW_NAV_LINKS: NavItem[] = [
 
 export const navLinks: NavItem[] = USE_NEW_NAV ? NEW_NAV_LINKS : CURRENT_NAV_LINKS;
 
+// Review mode only: point final addresses at their hidden previews.
+export const mapNavForReview = (items: NavItem[]): NavItem[] =>
+  items.map((item) => ({
+    ...item,
+    to: reviewTarget(item.to),
+    ...(item.children ? { children: item.children.map((c) => ({ ...c, to: reviewTarget(c.to) })) } : {}),
+  }));
+
 
 const Navbar = () => {
   const { darkMode, largeText, reduceMotion, dyslexicFont, toggleDarkMode, toggleLargeText, toggleReduceMotion, toggleDyslexicFont } = useAccessibility();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDesktop, setOpenDesktop] = useState<string | null>(null);
   const [openMobile, setOpenMobile] = useState<Record<string, boolean>>({});
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
+  const showReviewNav = useShowNewChrome(search);
+  const links = useMemo(() => (showReviewNav ? mapNavForReview(NEW_NAV_LINKS) : navLinks), [showReviewNav]);
   const desktopRef = useRef<HTMLDivElement>(null);
   const mobileToggleRef = useRef<HTMLButtonElement>(null);
   const closeTimer = useRef<number | null>(null);
@@ -126,13 +137,13 @@ const Navbar = () => {
   useEffect(() => {
     setOpenMobile((prev) => {
       const next = { ...prev };
-      navLinks.forEach((item) => {
+      links.forEach((item) => {
         if (item.children && isChildActive(item)) next[item.label] = true;
       });
       return next;
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]);
+  }, [pathname, links]);
 
   // Close desktop dropdown on outside click or Escape
   useEffect(() => {
@@ -186,7 +197,7 @@ const Navbar = () => {
 
         {/* Desktop nav */}
         <div ref={desktopRef} className="hidden items-center gap-5 xl:flex">
-          {navLinks.map((link) => {
+          {links.map((link) => {
             const active = isItemActive(link);
             if (!link.children) {
               return (
@@ -342,7 +353,7 @@ const Navbar = () => {
       {mobileOpen &&
       <div className="border-t border-border bg-background px-4 py-4 xl:hidden" role="menu">
           <div className="flex flex-col gap-2">
-            {navLinks.map((link) => {
+            {links.map((link) => {
               if (!link.children) {
                 return (
                   <NavLink

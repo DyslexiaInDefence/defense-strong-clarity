@@ -1,9 +1,10 @@
-import { Link } from "@/lib/router-compat";
+import { Link, useLocation } from "@/lib/router-compat";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import didLogoFull from "@/assets/did-logo-full.webp";
 import CovenantPledgeBand from "@/components/CovenantPledgeBand";
 import { OPEN_EVENT } from "@/components/CookieBanner";
 import { SHARE_MAILTO } from "@/components/ShareLivedExperienceBanner";
+import { reviewTarget, useShowNewChrome } from "@/lib/reviewMode";
 
 export type FooterLink = { label: string; to: string } | { label: string; href: string };
 export type FooterColumn = { heading: { label: string; to: string }; links: FooterLink[] };
@@ -77,9 +78,20 @@ export const NEW_FOOTER_COLUMNS: FooterColumn[] = [
 
 export const footerColumns: FooterColumn[] = USE_NEW_FOOTER ? NEW_FOOTER_COLUMNS : CURRENT_FOOTER_COLUMNS;
 
+// Review mode only: point final addresses at their hidden previews.
+export const mapFooterForReview = (columns: FooterColumn[]): FooterColumn[] =>
+  columns.map((column) => ({
+    heading: { ...column.heading, to: reviewTarget(column.heading.to) },
+    links: column.links.map((link) => ("to" in link ? { ...link, to: reviewTarget(link.to) } : link)),
+  }));
+
 const linkClass = "text-muted-foreground hover:text-primary transition-colors";
 
 const Footer = () => {
+  const { search } = useLocation();
+  const showReviewFooter = useShowNewChrome(search);
+  const columns = showReviewFooter ? mapFooterForReview(NEW_FOOTER_COLUMNS) : footerColumns;
+  const newLayout = USE_NEW_FOOTER || showReviewFooter;
   return (
     <footer className="border-t border-border bg-card py-14" role="contentinfo" aria-label="Footer">
       <div className="container mx-auto px-4">
@@ -92,7 +104,7 @@ const Footer = () => {
           aria-hidden="true"
         />
 
-        <div className={`grid gap-10 md:grid-cols-2 ${USE_NEW_FOOTER ? "lg:grid-cols-6" : "lg:grid-cols-5"}`}>
+        <div className={`grid gap-10 md:grid-cols-2 ${newLayout ? "lg:grid-cols-6" : "lg:grid-cols-5"}`}>
           {/* Brand */}
           <div>
             <div className="mb-3 flex items-center gap-2">
@@ -103,7 +115,7 @@ const Footer = () => {
             </p>
           </div>
 
-          {footerColumns.map((column) => (
+          {columns.map((column) => (
             <div key={column.heading.to}>
               <h3 className="mb-3 text-lg font-bold text-foreground">
                 <Link to={column.heading.to} className="hover:text-primary transition-colors">{column.heading.label}</Link>

@@ -9,8 +9,12 @@ import { ABOUT_CARDS, GOVERNANCE_CARDS, MORE_LINKS } from "../AboutHubPage";
 import { WAYS_TO_TAKE_PART, MORE_LINKS as INVOLVED_MORE_LINKS } from "../GetInvolvedHubPage";
 import { MORE_LINKS as PARTNER_MORE_LINKS, PACKAGES } from "../PartnerHubPage";
 import { MORE_LINKS as LIVED_MORE_LINKS } from "../LivedExperiencesHubPage";
+import { REVIEW_GROUPS } from "../ReviewPreviewPage";
 import { SHARE_MAILTO } from "../../components/ShareLivedExperienceBanner";
 import { BDA_PSYCHOLOGIST_FEE, BDA_PSYCHOLOGIST_YOU_PAY, BDA_RATE_DATE, BDA_TEACHER_FEE, BDA_TEACHER_YOU_PAY, JSP822_VOL7_URL, JSP822_VOL9_URL, SARAH_BODY, SARAH_EMAIL, SARAH_MAILTO, SARAH_SUBJECT, SLC_COST_DATE, SLC_COST_OPTIONS, SLC_FULL_USUAL_PRICE, SLC_TEMPLATE_FORM } from "./slcContent";
+
+// The review-only menu switch and the hidden Redesign review page list every staged address by design. Delete at switch-over.
+const REVIEW_AIDS = ["src/lib/reviewMode.ts", "src/lib/reviewMode.test.ts", "src/pages/ReviewPreviewPage.tsx", "src/routes/review-preview.tsx"];
 
 function files(directory: string): string[] {
   return readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
@@ -24,7 +28,7 @@ describe("Staged support page boundaries", () => {
     // Layout's exact-path opt-out is not an inbound link or discovery entry.
     // AboutHubPage, GetInvolvedHubPage, PartnerHubPage and LivedExperiencesHubPage only import the shared start-here.css styles; its links are pinned by the About us preview tests.
     // Navbar and Footer only hold this address in the switched-off NEW_* lists, pinned off by navFooter.test.ts.
-    const allowed = new Set(["src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/AboutHubPage.tsx", "src/pages/GetInvolvedHubPage.tsx", "src/pages/PartnerHubPage.tsx", "src/pages/LivedExperiencesHubPage.tsx", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/AboutHubPage.tsx", "src/pages/GetInvolvedHubPage.tsx", "src/pages/PartnerHubPage.tsx", "src/pages/LivedExperiencesHubPage.tsx", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/start-here"), path).toBe(false);
@@ -32,7 +36,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes Thinking of joining from all existing discovery content", () => {
-    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/StartHerePage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/StartHerePage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/thinking-of-joining"), path).toBe(false);
@@ -40,7 +44,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes Leaving or left service from all existing discovery content", () => {
-    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/StartHerePage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/StartHerePage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/leaving-or-left-service"), path).toBe(false);
@@ -62,7 +66,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes Supporting someone from all existing discovery content", () => {
-    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/StartHerePage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/StartHerePage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/supporting-someone"), path).toBe(false);
@@ -82,7 +86,7 @@ describe("Staged support page boundaries", () => {
 
   it("excludes Guidance from all existing discovery content", () => {
     // Navbar and Footer only hold this address in the switched-off NEW_* lists, pinned off by navFooter.test.ts.
-    const allowed = new Set(["src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/guidance"), path).toBe(false);
@@ -125,7 +129,7 @@ describe("Staged support page boundaries", () => {
 
   it("excludes Downloads and tools from all existing discovery content", () => {
     // Navbar and Footer only hold this address in the switched-off NEW_* lists, pinned off by navFooter.test.ts.
-    const allowed = new Set(["src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/downloads-and-tools.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/downloads-and-tools.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/downloads-and-tools"), path).toBe(false);
@@ -224,7 +228,7 @@ describe("Staged support page boundaries", () => {
 
   it("excludes the staged FAQ from all existing discovery content", () => {
     // Navbar and Footer only hold this address in the switched-off NEW_* lists, pinned off by navFooter.test.ts.
-    const allowed = new Set(["src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/faq.tsx", "src/pages/support/FaqPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/faq.tsx", "src/pages/support/FaqPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/faq"), path).toBe(false);
@@ -274,7 +278,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes Understanding how you think and learn from all existing discovery content", () => {
-    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/how-you-think-and-learn.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/guidanceLibrary.ts", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/support/how-you-think-and-learn.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/guidanceLibrary.ts", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/how-you-think-and-learn"), path).toBe(false);
@@ -315,7 +319,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes the Insights preview from all existing discovery content", () => {
-    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/insights-preview.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/support/insights-preview.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/insights-preview"), path).toBe(false);
@@ -338,7 +342,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes the Serving now preview from all existing discovery content", () => {
-    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/serving-now-preview.tsx", "src/pages/support/ServingNowPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/support/serving-now-preview.tsx", "src/pages/support/ServingNowPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/serving-now-preview"), path).toBe(false);
@@ -395,7 +399,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes the SLC preview from all existing discovery content", () => {
-    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/slc-preview.tsx", "src/pages/support/SlcPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/support/slc-preview.tsx", "src/pages/support/SlcPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/slc-preview"), path).toBe(false);
@@ -470,7 +474,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes the About us preview from all existing discovery content", () => {
-    const allowed = new Set(["src/components/Layout.tsx", "src/routes/about-preview.tsx", "src/pages/AboutHubPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/about-preview.tsx", "src/pages/AboutHubPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/about-preview"), path).toBe(false);
@@ -533,7 +537,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes the Get involved preview from all existing discovery content", () => {
-    const allowed = new Set(["src/components/Layout.tsx", "src/routes/get-involved-preview.tsx", "src/pages/GetInvolvedHubPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/get-involved-preview.tsx", "src/pages/GetInvolvedHubPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/get-involved-preview"), path).toBe(false);
@@ -598,7 +602,7 @@ describe("Staged support page boundaries", () => {
 
   it("excludes the Partner preview from all existing discovery content", () => {
     // CovenantPledgeBand lists the path only to hide the licensed Covenant mark beside sponsorship packages; it is not a link.
-    const allowed = new Set(["src/components/Layout.tsx", "src/components/CovenantPledgeBand.tsx", "src/routes/partner-preview.tsx", "src/pages/PartnerHubPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/components/CovenantPledgeBand.tsx", "src/routes/partner-preview.tsx", "src/pages/PartnerHubPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/partner-preview"), path).toBe(false);
@@ -718,7 +722,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes the Lived experiences preview from all existing discovery content", () => {
-    const allowed = new Set(["src/components/Layout.tsx", "src/routes/lived-experiences-preview.tsx", "src/pages/LivedExperiencesHubPage.tsx", "src/pages/LivedExperiencesHubPage.test.ts", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/lived-experiences-preview.tsx", "src/pages/LivedExperiencesHubPage.tsx", "src/pages/LivedExperiencesHubPage.test.ts", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/lived-experiences-preview"), path).toBe(false);
@@ -771,5 +775,56 @@ describe("Staged support page boundaries", () => {
 
   it("does not assign a public content date to the hidden page", () => {
     expect(getPageDate("/support/start-here")).toBeUndefined();
+  });
+});
+
+describe("Redesign review page", () => {
+  it("excludes the Redesign review page from all existing discovery content", () => {
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/review-preview.tsx", "src/pages/ReviewPreviewPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    for (const path of [...files("src"), ...files("public")]) {
+      if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
+      expect(readFileSync(path, "utf8").includes("/review-preview"), path).toBe(false);
+    }
+    expect(readFileSync("public/sitemap.xml", "utf8").includes("review-preview")).toBe(false);
+    expect(readFileSync("public/llms.txt", "utf8").includes("review-preview")).toBe(false);
+    expect(readFileSync("src/lib/seo.ts", "utf8").includes("review-preview")).toBe(false);
+    expect(getPageDate("/review-preview")).toBeUndefined();
+  });
+
+  it("keeps the Redesign review page hidden, bannered and without structured data", () => {
+    const route = readFileSync("src/routes/review-preview.tsx", "utf8");
+    const page = readFileSync("src/pages/ReviewPreviewPage.tsx", "utf8");
+    expect(route).toContain('createFileRoute("/review-preview")');
+    expect(route).toContain('content: "noindex, nofollow"');
+    expect(page).toContain("const SHOW_WIP_BANNER = true;");
+    expect(page).toContain("Work in progress – this page is not live yet.");
+    expect(page).toContain("Every redesigned page that is built but not live yet. Open them from here. This page will be deleted at switch-over.");
+    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/review-preview"');
+    for (const text of [route, page]) expect(text).not.toContain("ld+json");
+    expect(page).not.toContain("\u2014");
+  });
+
+  it("lists every staged page with what it replaces, linking only to existing routes", () => {
+    const routeText = files("src/routes").filter(path => path.endsWith(".tsx")).map(path => readFileSync(path, "utf8")).join("\n");
+    const rows = REVIEW_GROUPS.flatMap(group => group.entries.map(entry => [group.heading, entry.name, entry.to, entry.replaces ?? "New page"]));
+    expect(rows).toEqual([
+      ["Get support", "Start here", "/support/start-here", "New page"],
+      ["Get support", "Thinking of joining", "/support/thinking-of-joining", "New page"],
+      ["Get support", "Serving now", "/support/serving-now-preview", "/support/currently-serving"],
+      ["Get support", "Leaving or left service", "/support/leaving-or-left-service", "New page"],
+      ["Get support", "Supporting someone", "/support/supporting-someone", "New page"],
+      ["Get support", "Guidance", "/support/guidance", "New page"],
+      ["Get support", "Downloads and tools", "/support/downloads-and-tools", "New page"],
+      ["Get support", "FAQ", "/support/faq", "New page"],
+      ["Get support", "Understanding how you think and learn", "/support/how-you-think-and-learn", "New page"],
+      ["Get support", "Insights", "/support/insights-preview", "/insights"],
+      ["Get support", "Standard Learning Credits", "/support/slc-preview", "/currently-serving/standard-learning-credits"],
+      ["About and involvement", "About Us", "/about-preview", "/about"],
+      ["About and involvement", "Get Involved", "/get-involved-preview", "New page"],
+      ["About and involvement", "Partner with us", "/partner-preview", "/partner"],
+      ["About and involvement", "Lived experiences", "/lived-experiences-preview", "/lived-experiences"],
+    ]);
+    expect(REVIEW_GROUPS[1]!.entries.find(entry => entry.name === "Get Involved")!.finalAddress).toBe("/get-involved");
+    for (const [, , to] of rows) expect(routeText.includes(`createFileRoute("${to}")`), to).toBe(true);
   });
 });
