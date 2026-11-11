@@ -9,7 +9,7 @@ export type FooterLink = { label: string; to: string } | { label: string; href: 
 export type FooterColumn = { heading: { label: string; to: string }; links: FooterLink[] };
 
 // Flip to true at switch-over, together with the route swaps
-export const USE_NEW_FOOTER = true;
+export const USE_NEW_FOOTER = false;
 
 export const CURRENT_FOOTER_COLUMNS: FooterColumn[] = [
   {

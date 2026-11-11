@@ -10,7 +10,7 @@ export type NavChild = { label: string; to: string };
 export type NavItem = { label: string; to: string; children?: NavChild[] };
 
 // Flip to true at switch-over, together with the route swaps
-export const USE_NEW_NAV = true;
+export const USE_NEW_NAV = false;
 
 export const CURRENT_NAV_LINKS: NavItem[] = [
   {
