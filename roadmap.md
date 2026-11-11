@@ -49,3 +49,4 @@
 - [x] Build hidden Get involved hub preview with tests; live Join, Community and Lived experiences pages unchanged.
 - [x] Build hidden Partner with us preview with tests; live Partner page, Covenant page and homepage carousel unchanged.
 - [x] Build hidden Lived experiences index preview with tests; live Lived experiences page, story cards and story pages unchanged.
+- [x] Add the preview-address-only review switch for the new menu and footer, plus the hidden `/review-preview` page, with tests; published site unchanged.
