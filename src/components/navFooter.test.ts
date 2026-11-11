@@ -205,7 +205,7 @@ describe("New footer columns", () => {
 describe("New menu and footer destinations", () => {
   it("only point at existing routes, the agreed post switch-over routes or the share email", () => {
     const missing = newDestinations.filter(to => to !== SHARE_MAILTO && !EXISTING_ROUTES.has(to));
-    expect(missing).toEqual([...POST_SWITCHOVER_ROUTES]);
+    expect([...new Set(missing)]).toEqual([...POST_SWITCHOVER_ROUTES]);
     expect([...POST_SWITCHOVER_ROUTES]).toEqual(["/get-involved"]);
   });
 
