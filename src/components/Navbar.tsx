@@ -180,7 +180,7 @@ const Navbar = () => {
   useEffect(() => {
     setOpenDesktop(null);
     setMobileOpen(false);
-  }, [pathname, links]);
+  }, [pathname]);
 
   useEffect(() => () => clearCloseTimer(), []);
 
