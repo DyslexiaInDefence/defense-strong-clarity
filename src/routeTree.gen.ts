@@ -25,6 +25,7 @@ import { Route as PartnerRouteImport } from './routes/partner'
 import { Route as PartnerPreviewRouteImport } from './routes/partner-preview'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as ReviewPreviewRouteImport } from './routes/review-preview'
 import { Route as StructureRouteImport } from './routes/structure'
 import { Route as WhyItMattersRouteImport } from './routes/why-it-matters'
 import { Route as AboutIndexRouteImport } from './routes/about/index'
@@ -153,6 +154,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const ResourcesRoute = ResourcesRouteImport.update({
   id: '/resources',
   path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewPreviewRoute = ReviewPreviewRouteImport.update({
+  id: '/review-preview',
+  path: '/review-preview',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StructureRoute = StructureRouteImport.update({
@@ -442,6 +448,7 @@ export interface FileRoutesByFullPath {
   '/partner-preview': typeof PartnerPreviewRoute
   '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
+  '/review-preview': typeof ReviewPreviewRoute
   '/structure': typeof StructureRoute
   '/why-it-matters': typeof WhyItMattersRoute
   '/about/faq': typeof AboutFaqRoute
@@ -509,6 +516,7 @@ export interface FileRoutesByTo {
   '/partner-preview': typeof PartnerPreviewRoute
   '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
+  '/review-preview': typeof ReviewPreviewRoute
   '/structure': typeof StructureRoute
   '/why-it-matters': typeof WhyItMattersRoute
   '/about/faq': typeof AboutFaqRoute
@@ -577,6 +585,7 @@ export interface FileRoutesById {
   '/partner-preview': typeof PartnerPreviewRoute
   '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
+  '/review-preview': typeof ReviewPreviewRoute
   '/structure': typeof StructureRoute
   '/why-it-matters': typeof WhyItMattersRoute
   '/about/faq': typeof AboutFaqRoute
@@ -646,6 +655,7 @@ export interface FileRouteTypes {
     | '/partner-preview'
     | '/privacy'
     | '/resources'
+    | '/review-preview'
     | '/structure'
     | '/why-it-matters'
     | '/about/faq'
@@ -713,6 +723,7 @@ export interface FileRouteTypes {
     | '/partner-preview'
     | '/privacy'
     | '/resources'
+    | '/review-preview'
     | '/structure'
     | '/why-it-matters'
     | '/about/faq'
@@ -780,6 +791,7 @@ export interface FileRouteTypes {
     | '/partner-preview'
     | '/privacy'
     | '/resources'
+    | '/review-preview'
     | '/structure'
     | '/why-it-matters'
     | '/about/faq'
@@ -848,6 +860,7 @@ export interface RootRouteChildren {
   PartnerPreviewRoute: typeof PartnerPreviewRoute
   PrivacyRoute: typeof PrivacyRoute
   ResourcesRoute: typeof ResourcesRoute
+  ReviewPreviewRoute: typeof ReviewPreviewRoute
   StructureRoute: typeof StructureRoute
   WhyItMattersRoute: typeof WhyItMattersRoute
   AboutFaqRoute: typeof AboutFaqRoute
@@ -1011,6 +1024,13 @@ declare module '@tanstack/react-router' {
       path: '/resources'
       fullPath: '/resources'
       preLoaderRoute: typeof ResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/review-preview': {
+      id: '/review-preview'
+      path: '/review-preview'
+      fullPath: '/review-preview'
+      preLoaderRoute: typeof ReviewPreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/structure': {
@@ -1376,6 +1396,7 @@ const rootRouteChildren: RootRouteChildren = {
   PartnerPreviewRoute: PartnerPreviewRoute,
   PrivacyRoute: PrivacyRoute,
   ResourcesRoute: ResourcesRoute,
+  ReviewPreviewRoute: ReviewPreviewRoute,
   StructureRoute: StructureRoute,
   WhyItMattersRoute: WhyItMattersRoute,
   AboutFaqRoute: AboutFaqRoute,
