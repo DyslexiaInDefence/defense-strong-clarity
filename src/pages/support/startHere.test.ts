@@ -8,6 +8,7 @@ import { FAQ_ITEMS, filterFaqs } from "./faqLibrary";
 import { ABOUT_CARDS, GOVERNANCE_CARDS, MORE_LINKS } from "../AboutHubPage";
 import { WAYS_TO_TAKE_PART, MORE_LINKS as INVOLVED_MORE_LINKS } from "../GetInvolvedHubPage";
 import { MORE_LINKS as PARTNER_MORE_LINKS, PACKAGES } from "../PartnerHubPage";
+import { MORE_LINKS as LIVED_MORE_LINKS } from "../LivedExperiencesHubPage";
 import { SHARE_MAILTO } from "../../components/ShareLivedExperienceBanner";
 import { BDA_PSYCHOLOGIST_FEE, BDA_PSYCHOLOGIST_YOU_PAY, BDA_RATE_DATE, BDA_TEACHER_FEE, BDA_TEACHER_YOU_PAY, JSP822_VOL7_URL, JSP822_VOL9_URL, SARAH_BODY, SARAH_EMAIL, SARAH_MAILTO, SARAH_SUBJECT, SLC_COST_DATE, SLC_COST_OPTIONS, SLC_FULL_USUAL_PRICE, SLC_TEMPLATE_FORM } from "./slcContent";
 
@@ -21,8 +22,8 @@ function files(directory: string): string[] {
 describe("Staged support page boundaries", () => {
   it("excludes Start here from all existing discovery content", () => {
     // Layout's exact-path opt-out is not an inbound link or discovery entry.
-    // AboutHubPage, GetInvolvedHubPage and PartnerHubPage only import the shared start-here.css styles; its links are pinned by the About us preview tests.
-    const allowed = new Set(["src/pages/AboutHubPage.tsx", "src/pages/GetInvolvedHubPage.tsx", "src/pages/PartnerHubPage.tsx", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    // AboutHubPage, GetInvolvedHubPage, PartnerHubPage and LivedExperiencesHubPage only import the shared start-here.css styles; its links are pinned by the About us preview tests.
+    const allowed = new Set(["src/pages/AboutHubPage.tsx", "src/pages/GetInvolvedHubPage.tsx", "src/pages/PartnerHubPage.tsx", "src/pages/LivedExperiencesHubPage.tsx", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/start-here"), path).toBe(false);
@@ -709,6 +710,58 @@ describe("Staged support page boundaries", () => {
     expect(live).toContain('import PartnerPage from "@/pages/PartnerPage"');
     expect(live).toContain("component: PartnerPage");
     expect(live).not.toContain("PartnerHubPage");
+  });
+
+  it("excludes the Lived experiences preview from all existing discovery content", () => {
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/lived-experiences-preview.tsx", "src/pages/LivedExperiencesHubPage.tsx", "src/pages/LivedExperiencesHubPage.test.ts", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    for (const path of [...files("src"), ...files("public")]) {
+      if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
+      expect(readFileSync(path, "utf8").includes("/lived-experiences-preview"), path).toBe(false);
+    }
+    expect(readFileSync("public/sitemap.xml", "utf8").includes("lived-experiences-preview")).toBe(false);
+    expect(readFileSync("public/llms.txt", "utf8").includes("lived-experiences-preview")).toBe(false);
+    expect(readFileSync("src/lib/seo.ts", "utf8").includes("lived-experiences-preview")).toBe(false);
+    expect(getPageDate("/lived-experiences-preview")).toBeUndefined();
+  });
+
+  it("keeps the Lived experiences preview hidden, bannered and without the navy share banner", () => {
+    const route = readFileSync("src/routes/lived-experiences-preview.tsx", "utf8");
+    const page = readFileSync("src/pages/LivedExperiencesHubPage.tsx", "utf8");
+    expect(route).toContain('createFileRoute("/lived-experiences-preview")');
+    expect(route).toContain('content: "noindex, nofollow"');
+    expect(page).toContain("const SHOW_WIP_BANNER = true;");
+    expect(page).toContain("Work in progress – this page is not live yet.");
+    expect(page).toContain("support-staged-page");
+    expect(page).not.toMatch(/support-route-(joining|serving|leaving|supporting)/);
+    expect(page).not.toContain("SupportTabs");
+    expect(page).not.toContain("support-identity-strip");
+    expect(page).not.toContain("<ShareLivedExperienceBanner");
+    expect(page).toContain("href={SHARE_MAILTO}");
+    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/lived-experiences-preview"');
+    for (const text of [route, page]) expect(text).not.toContain("ld+json");
+  });
+
+  it("uses the live intro, the supplied wording and only existing pages on the Lived experiences preview", () => {
+    const intro = "Everyone's journey is different. These stories share personal experiences from across the defence community. They are not official guidance. They are individual perspectives intended to help others feel understood, informed and less alone.";
+    const page = readFileSync("src/pages/LivedExperiencesHubPage.tsx", "utf8");
+    expect(readFileSync("src/pages/LivedExperiencesPage.tsx", "utf8")).toContain(intro);
+    for (const text of [intro, "Browse stories", "Read their story", "Your story helps others feel less alone and helps us show what real support looks like.", "When you email us, you choose whether we share your story with your name, anonymously, or not at all.", "Stories are personal views. They are not the view of the MOD or of the internal Defence Dyslexia Network.", "More from Dyslexia in Defence"]) expect(page, text).toContain(text);
+    expect(page).not.toContain("\u2014");
+    expect(page).toContain('<Link to="/join">Get involved</Link>');
+    expect(LIVED_MORE_LINKS.map(item => [item.title, item.to])).toEqual([["Join the Network", "/join"], ["Community", "/community"], ["Get support", "/support"], ["Insights", "/insights"]]);
+    const routeText = files("src/routes").filter(path => path.endsWith(".tsx")).map(path => readFileSync(path, "utf8")).join("\n");
+    for (const to of ["/", "/join", "/community", "/support", "/insights"]) {
+      expect(routeText.includes(`createFileRoute("${to}")`) || routeText.includes(`createFileRoute("${to}/")`), to).toBe(true);
+    }
+    expect(page.replace('import "./support/start-here.css";', "")).not.toMatch(/\/support\/[a-z]/);
+  });
+
+  it("leaves the live /lived-experiences route on the old page", () => {
+    const live = readFileSync("src/routes/lived-experiences/index.tsx", "utf8");
+    expect(live).toContain('createFileRoute("/lived-experiences/")');
+    expect(live).toContain('import LivedExperiencesPage from "@/pages/LivedExperiencesPage"');
+    expect(live).toContain("component: LivedExperiencesPage");
+    expect(live).not.toContain("LivedExperiencesHubPage");
   });
 
   it("does not assign a public content date to the hidden page", () => {
