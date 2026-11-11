@@ -47,3 +47,4 @@
 - [x] Build hidden About us hub preview with tests; live About page unchanged.
 - [x] Build hidden Get involved hub preview with tests; live Join, Community and Lived experiences pages unchanged.
 - [x] Build hidden Partner with us preview with tests; live Partner page, Covenant page and homepage carousel unchanged.
+- [x] Build hidden Lived experiences index preview with tests; live Lived experiences page, story cards and story pages unchanged.
