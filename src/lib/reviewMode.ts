@@ -1,6 +1,6 @@
 import { useHydrated } from "@tanstack/react-router";
 
-// Review aid for the staged redesign. Delete at switch-over, together with /review-preview.
+// Review aid for the staged redesign. Delete at switch-over, together with the Redesign review page.
 // Only the main Lovable preview address shows the new menu and footer; the published site never does.
 export function isReviewHost(hostname: string): boolean {
   const host = hostname.toLowerCase();
