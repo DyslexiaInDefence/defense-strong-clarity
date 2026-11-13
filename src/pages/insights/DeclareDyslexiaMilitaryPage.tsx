@@ -12,20 +12,20 @@ const DeclareDyslexiaMilitaryPage = () => (
     preCtaLine="You don’t need to decide whether to declare today — start by speaking to people who already have."
   >
     <p className="text-lg text-foreground leading-relaxed mb-4">
-      You are not screened for dyslexia or other specific learning difficulties during recruitment. Ask your recruiter what the application asks, so you know what to expect. Specific learning difficulties are not in themselves a bar to recruitment or Service in the Armed Forces if the required standards are met.
+      Dyslexia screening is not a requirement of recruitment. Ask your recruiter what the application asks, so you know what to expect. Specific learning difficulties are not in themselves a bar to recruitment or Service in the Armed Forces if the required standards are met.
     </p>
     <p className="text-base text-foreground leading-relaxed mb-4">
       Choosing not to declare does not put you at a disadvantage in recruitment.
     </p>
     <p className="text-lg text-foreground leading-relaxed mb-8">
-      You will, however, need to meet the same selection, training and performance standards as everyone else. If your dyslexia could affect how you carry out your duties, you’re advised to tell your chain of command.
+      You will, however, need to meet the same selection, training and performance standards as everyone else. Once you are serving, there is no requirement to tell your chain of command if your dyslexia does not affect your training or work. If it does, or you need Defence involvement, you are advised to tell them at the first opportunity.
     </p>
 
     <DecisionConfidenceBlock
       heading="Do I have to tell them I’m dyslexic?"
       intent="joining"
       bullets={[
-        "You are not screened for dyslexia or other specific learning difficulties during recruitment. Ask your recruiter what the application asks, so you know what to expect.",
+        "Dyslexia screening is not a requirement of recruitment. Ask your recruiter what the application asks, so you know what to expect.",
         "It depends on whether your dyslexia affects your training or work — at that point, you’re advised to tell your chain of command.",
         "If you do declare with a diagnosis, it can help your line manager and instructors understand how you work best. What support follows varies by service. Services can choose to screen during initial training, so practice differs between them.",
       ]}
@@ -41,8 +41,7 @@ const DeclareDyslexiaMilitaryPage = () => (
         Defence’s policy on Specific Learning Differences in training (JSP 822, Vol 7) says:
       </p>
       <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
-        <li>You are <strong>not screened</strong> for dyslexia or other specific learning difficulties during recruitment. Ask your recruiter what the application asks, so you know what to expect.</li>
-        <li>You are <strong>not screened</strong> for dyslexia as part of recruitment.</li>
+        <li>Dyslexia screening is not a requirement of recruitment. Ask your recruiter what the application asks, so you know what to expect.</li>
         <li>Specific learning difficulties are <strong>not in themselves a bar</strong> to recruitment or Service in the Armed Forces if the required standards are met. See{" "}
           <Link to="/insights/is-dyslexia-a-barrier-in-the-military-uk" className="font-medium text-primary underline-offset-4 hover:underline">
             is dyslexia a barrier in the military
@@ -100,7 +99,7 @@ const DeclareDyslexiaMilitaryPage = () => (
     <section className="mb-2">
       <h2 className="text-2xl font-bold text-foreground mb-4">Reassurance</h2>
       <p className="text-foreground leading-relaxed">
-        You are not screened for dyslexia or other specific learning difficulties during recruitment. Ask your recruiter what the application asks, so you know what to expect. And if you do choose to share it — at any point — there’s a structured network ready to help.
+        Dyslexia screening is not a requirement of recruitment. Ask your recruiter what the application asks, so you know what to expect. And if you do choose to share it — at any point — there’s a structured network ready to help.
       </p>
     </section>
   </InsightLayout>

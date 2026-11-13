@@ -33,7 +33,7 @@ export const intentCategories: FaqCategory[] = [
       },
       {
         question: "Do I need to declare dyslexia when joining the military (UK)?",
-        answer: "You are not screened for dyslexia or other specific learning difficulties during recruitment. Ask your recruiter what the application asks, so you know what to expect. Declaring can help others understand how you work best, but what support follows varies by service.",
+        answer: "Dyslexia screening is not a requirement of recruitment. Ask your recruiter what the application asks, so you know what to expect. Declaring can help others understand how you work best, but what support follows varies by service.",
         link: "/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk",
       },
       {

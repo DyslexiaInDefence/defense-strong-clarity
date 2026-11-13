@@ -34,9 +34,9 @@ const ArmyDyslexiaPage = () => (
       heading="Can I actually join the Army with dyslexia?"
       intent="joining"
       bullets={[
-        "Specific learning difficulties are not in themselves a bar to recruitment or Service in the Armed Forces if the required standards are met. You are not screened for dyslexia at recruitment.",
+        "Specific learning difficulties are not in themselves a bar to recruitment or Service in the Armed Forces if the required standards are met. Dyslexia screening is not a requirement of recruitment.",
         "It depends on meeting the same aptitude, fitness and medical standards as every other applicant — not on your diagnosis.",
-        "You are not screened for dyslexia or other specific learning difficulties during recruitment. Ask your recruiter what the application asks, so you know what to expect. See the section below.",
+        "Dyslexia screening is not a requirement of recruitment. Ask your recruiter what the application asks, so you know what to expect. See the section below.",
       ]}
       links={[
         { label: "Ask the Community", to: "/community" },
@@ -49,7 +49,7 @@ const ArmyDyslexiaPage = () => (
       <ul className="list-disc pl-6 space-y-2 text-foreground leading-relaxed">
         <li>Aptitude tests are standard for every applicant.</li>
         <li>You'll need to meet the same selection, training and performance standards as everyone else.</li>
-        <li>You are not screened for dyslexia or other specific learning difficulties during recruitment. Ask your recruiter what the application asks, so you know what to expect. See{" "}
+        <li>Dyslexia screening is not a requirement of recruitment. Ask your recruiter what the application asks, so you know what to expect. See{" "}
           <Link to="/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk" className="font-medium text-primary underline-offset-4 hover:underline">
             do I need to declare dyslexia
           </Link>

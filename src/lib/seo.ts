@@ -165,7 +165,7 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
   },
   "/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk": {
     title: "Do I Need to Declare Dyslexia Joining the Military? UK",
-    description: "You are not screened for dyslexia or other specific learning difficulties during recruitment. Ask your recruiter what the application asks, so you know what to expect. Here’s what JSP 822 says — and what it means in practice.",
+    description: "Dyslexia screening is not a requirement of recruitment. Ask your recruiter what the application asks, so you know what to expect. Here’s what JSP 822 says — and what it means in practice.",
     priority: 0.8,
     indexable: true,
   },

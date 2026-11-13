@@ -13,16 +13,20 @@ function routeFiles(directory: string): string[] {
 
 const OCT_26_PAGES = [
   "/currently-serving/army-education-centres",
-  "/about/faq",
-  "/insights",
   "/insights/can-you-join-navy-with-dyslexia-uk",
   "/insights/can-you-join-raf-with-dyslexia-uk",
-  "/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk",
-  "/insights/is-dyslexia-a-barrier-in-the-military-uk",
   "/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk",
   "/insights/neurodiversity-in-the-mod-uk",
   "/insights/what-happens-if-dyslexia-is-identified-during-service-uk",
   "/insights/what-support-is-available-for-dyslexia-in-the-military-uk",
+];
+
+const NOV_13_PAGES = [
+  "/about/faq",
+  "/insights",
+  "/insights/can-you-join-army-with-dyslexia-uk",
+  "/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk",
+  "/insights/is-dyslexia-a-barrier-in-the-military-uk",
 ];
 
 describe("Page date rules", () => {
@@ -35,9 +39,11 @@ describe("Page date rules", () => {
       if (path === "/lived-experiences/liz-oliver-british-army-veteran") continue;
       if (path === "/currently-serving/standard-learning-credits") continue;
       if (OCT_26_PAGES.includes(path)) continue;
+      if (NOV_13_PAGES.includes(path)) continue;
       expect(date, path).toBe("2026-10-24");
     }
     for (const path of OCT_26_PAGES) expect(PAGE_DATES[path], path).toBe("2026-10-26");
+    for (const path of NOV_13_PAGES) expect(PAGE_DATES[path], path).toBe("2026-11-13");
     expect(PAGE_DATES["/governance"]).toBe("2026-08-08");
     expect(PAGE_DATES["/governance/founder"]).toBe("2026-08-08");
     expect(PAGE_DATES["/governance/sponsorship"]).toBe("2026-03-01");
