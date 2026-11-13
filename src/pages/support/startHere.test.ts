@@ -10,6 +10,7 @@ import { WAYS_TO_TAKE_PART, MORE_LINKS as INVOLVED_MORE_LINKS } from "../GetInvo
 import { MORE_LINKS as PARTNER_MORE_LINKS, PACKAGES } from "../PartnerHubPage";
 import { MORE_LINKS as LIVED_MORE_LINKS } from "../LivedExperiencesHubPage";
 import { REVIEW_GROUPS } from "../ReviewPreviewPage";
+import { ARMY_GUIDE_HEADINGS } from "../insights/ArmyGuidePreviewPage";
 import { SHARE_MAILTO } from "../../components/ShareLivedExperienceBanner";
 import { BDA_PSYCHOLOGIST_FEE, BDA_PSYCHOLOGIST_YOU_PAY, BDA_RATE_DATE, BDA_TEACHER_FEE, BDA_TEACHER_YOU_PAY, JSP822_VOL7_URL, JSP822_VOL9_URL, SARAH_BODY, SARAH_EMAIL, SARAH_MAILTO, SARAH_SUBJECT, SLC_COST_DATE, SLC_COST_OPTIONS, SLC_FULL_USUAL_PRICE, SLC_TEMPLATE_FORM } from "./slcContent";
 
@@ -27,8 +28,9 @@ describe("Staged support page boundaries", () => {
   it("excludes Start here from all existing discovery content", () => {
     // Layout's exact-path opt-out is not an inbound link or discovery entry.
     // AboutHubPage, GetInvolvedHubPage, PartnerHubPage and LivedExperiencesHubPage only import the shared start-here.css styles; its links are pinned by the About us preview tests.
+    // ArmyGuidePreviewPage likewise only imports ../support/start-here.css; its links are pinned by the Army guide skeleton tests.
     // Navbar and Footer only hold this address in the switched-off NEW_* lists, pinned off by navFooter.test.ts.
-    const allowed = new Set([...REVIEW_AIDS, "src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/AboutHubPage.tsx", "src/pages/GetInvolvedHubPage.tsx", "src/pages/PartnerHubPage.tsx", "src/pages/LivedExperiencesHubPage.tsx", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/AboutHubPage.tsx", "src/pages/GetInvolvedHubPage.tsx", "src/pages/PartnerHubPage.tsx", "src/pages/LivedExperiencesHubPage.tsx", "src/pages/insights/ArmyGuidePreviewPage.tsx", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/start-here"), path).toBe(false);
@@ -383,7 +385,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes the Insights preview from all existing discovery content", () => {
-    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/support/insights-preview.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/UnderstandingDyslexiaPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/support/insights-preview.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/UnderstandingDyslexiaPage.tsx", "src/pages/insights/ArmyGuidePreviewPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/insights-preview"), path).toBe(false);
@@ -884,6 +886,7 @@ describe("Redesign review page", () => {
       ["Get support", "Understanding Dyslexia", "/support/understanding-dyslexia-preview", "the What We Do text"],
       ["Get support", "Insights", "/support/insights-preview", "/insights"],
       ["Get support", "Standard Learning Credits", "/support/slc-preview", "/currently-serving/standard-learning-credits"],
+      ["Get support", "Serving with dyslexia in the Army (skeleton)", "/insights/army-guide-preview", "New page"],
       ["About and involvement", "About Us", "/about-preview", "/about"],
       ["About and involvement", "Get Involved", "/get-involved-preview", "New page"],
       ["About and involvement", "Partner with us", "/partner-preview", "/partner"],
@@ -901,6 +904,7 @@ const DECLARE_ANSWER = "Dyslexia screening is not a requirement of recruitment. 
 const HIDDEN_NEW_PAGES = [
   ...["StartHerePage.tsx", "ThinkingOfJoiningPage.tsx", "LeavingOrLeftServicePage.tsx", "SupportingSomeonePage.tsx", "GuidancePage.tsx", "DownloadsAndToolsPage.tsx", "FaqPage.tsx", "HowYouThinkAndLearnPage.tsx", "UnderstandingDyslexiaPage.tsx", "InsightsLandingPage.tsx", "ServingNowPage.tsx", "SlcPage.tsx", "guidanceLibrary.ts", "downloadsLibrary.ts", "faqLibrary.ts", "slcContent.ts"].map(name => `src/pages/support/${name}`),
   "src/pages/AboutHubPage.tsx", "src/pages/GetInvolvedHubPage.tsx", "src/pages/PartnerHubPage.tsx", "src/pages/LivedExperiencesHubPage.tsx", "src/pages/ReviewPreviewPage.tsx",
+  "src/pages/insights/ArmyGuidePreviewPage.tsx",
 ];
 
 describe("Recruitment screening wording on hidden pages", () => {
@@ -919,5 +923,84 @@ describe("Recruitment screening wording on hidden pages", () => {
     for (const path of HIDDEN_NEW_PAGES) {
       expect(readFileSync(path, "utf8").toLowerCase().includes("you are not screened for dyslexia"), path).toBe(false);
     }
+  });
+});
+
+describe("Army guide skeleton (hidden)", () => {
+  const ROUTE = "src/routes/insights/army-guide-preview.tsx";
+  const PAGE = "src/pages/insights/ArmyGuidePreviewPage.tsx";
+
+  it("keeps the Army guide skeleton hidden, bannered, skipped and without structured data", () => {
+    const route = readFileSync(ROUTE, "utf8");
+    const page = readFileSync(PAGE, "utf8");
+    expect(route).toContain('createFileRoute("/insights/army-guide-preview")');
+    expect(route).toContain('content: "noindex, nofollow"');
+    expect(page).toContain("const SHOW_WIP_BANNER = true;");
+    expect(page).toContain("Work in progress – this page is not live yet.");
+    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/insights/army-guide-preview"');
+    for (const text of [route, page]) expect(text).not.toContain("ld+json");
+  });
+
+  it("excludes the Army guide skeleton from all existing discovery content", () => {
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", ROUTE, PAGE, "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    for (const path of [...files("src"), ...files("public")]) {
+      if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
+      expect(readFileSync(path, "utf8").includes("army-guide-preview"), path).toBe(false);
+    }
+    expect(readFileSync("public/sitemap.xml", "utf8").includes("army-guide-preview")).toBe(false);
+    expect(readFileSync("public/llms.txt", "utf8").includes("army-guide-preview")).toBe(false);
+    expect(readFileSync("src/lib/seo.ts", "utf8").includes("army-guide-preview")).toBe(false);
+    expect(getPageDate("/insights/army-guide-preview")).toBeUndefined();
+  });
+
+  it("has only the h1 and the eight agreed headings, each followed by 'Content to follow.'", () => {
+    const page = readFileSync(PAGE, "utf8");
+    expect(page).toContain(">Serving with dyslexia in the Army</h1>");
+    expect(ARMY_GUIDE_HEADINGS).toEqual([
+      "Joining the Army",
+      "Basic training and trade training",
+      "Declaring dyslexia and getting an assessment",
+      "Standard Learning Credits and Army Education Centres",
+      "Support once you are serving",
+      "Working with your chain of command",
+      "Stories from serving soldiers",
+      "Where to go next",
+    ]);
+    expect(page.match(/<p className="text-base leading-relaxed">Content to follow\.<\/p>/g)).toHaveLength(1);
+    expect(page.match(/<p[\s>]/g)).toHaveLength(2); // the banner line and the repeated "Content to follow." line
+  });
+
+  it("gives the Army guide a Home > Insights breadcrumb pointing at the Insights preview", () => {
+    const page = readFileSync(PAGE, "utf8");
+    expect(page).toContain('<Link to="/support/insights-preview">Insights</Link>');
+    expect(page).toContain('<span aria-current="page">Serving with dyslexia in the Army</span>');
+  });
+
+  it("lists the skeleton on the review page with its final address and note", () => {
+    const entry = REVIEW_GROUPS.flatMap(group => group.entries).find(item => item.to === "/insights/army-guide-preview");
+    expect(entry?.name).toBe("Serving with dyslexia in the Army (skeleton)");
+    expect(entry?.finalAddress).toBe("/insights/serving-with-dyslexia-in-the-army-uk");
+    expect(entry?.note).toBe("Headings only. Not for Publish 2 until content is written.");
+  });
+
+  it("leaves the final address redirecting to Kirk Davis's story", () => {
+    const redirectRoute = readFileSync("src/routes/insights/serving-with-dyslexia-in-the-army-uk.tsx", "utf8");
+    expect(redirectRoute).toContain('createFileRoute("/insights/serving-with-dyslexia-in-the-army-uk")');
+    expect(redirectRoute).toContain('throw redirect({ to: "/lived-experiences/staff-sergeant-kirk-davis-british-army", statusCode: 301 });');
+  });
+});
+
+describe("Sue Thain quote on the hidden SLC page", () => {
+  it("shows the quote in a blockquote with the approved credit, below the Army Education Centre line and above its button", () => {
+    const page = readFileSync("src/pages/support/SlcPage.tsx", "utf8");
+    const line = page.indexOf("Your local Army Education Centre can advise on learning credits.");
+    const quote = page.indexOf("<blockquote");
+    const button = page.indexOf("Find your Army Education Centre");
+    expect(line).toBeGreaterThan(-1);
+    expect(quote).toBeGreaterThan(line);
+    expect(button).toBeGreaterThan(quote);
+    expect(page).toContain("<p>Dyslexia is not a bar to joining the Army.</p>");
+    expect(page).toContain("<figcaption className=\"mt-3 pl-5 text-base leading-relaxed\">Sue Thain, Army lead for management of Specific Learning Differences</figcaption>");
+    expect(readFileSync("src/pages/insights/ArmyDyslexiaPage.tsx", "utf8")).toContain('attribution: "Sue Thain, Army lead for management of Specific Learning Differences"');
   });
 });

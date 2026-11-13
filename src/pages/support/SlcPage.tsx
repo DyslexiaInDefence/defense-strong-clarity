@@ -244,6 +244,12 @@ export default function SlcPage() {
         <section aria-labelledby="army-heading" className={`support-route-card ${panelClass} mb-12`}>
           <h2 id="army-heading" className="mb-3 text-2xl font-bold">If you serve in the Army</h2>
           <p className="mb-5 text-base leading-relaxed">Your local Army Education Centre can advise on learning credits.</p>
+          <figure className="mb-6 max-w-3xl rounded-lg border border-border bg-card p-5 sm:p-6">
+            <blockquote className="border-l-4 border-primary pl-4 text-lg font-semibold leading-relaxed">
+              <p>Dyslexia is not a bar to joining the Army.</p>
+            </blockquote>
+            <figcaption className="mt-3 pl-5 text-base leading-relaxed">Sue Thain, Army lead for management of Specific Learning Differences</figcaption>
+          </figure>
           <Button asChild className="min-h-11 h-auto max-w-full whitespace-normal py-3 text-base">
             <Link to="/currently-serving/army-education-centres">Find your Army Education Centre<ArrowRight aria-hidden="true" className="size-4" /></Link>
           </Button>

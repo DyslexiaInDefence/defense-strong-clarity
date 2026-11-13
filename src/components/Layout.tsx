@@ -10,7 +10,7 @@ import LastUpdated from "@/components/LastUpdated";
 import ReviewModeBar from "@/components/ReviewModeBar";
 
 // Pages where the global "What to do next" block would be redundant
-const NEXT_STEPS_SKIP = new Set<string>(["/", "/join", "/community", "/support/start-here", "/support/thinking-of-joining", "/support/leaving-or-left-service", "/support/supporting-someone", "/support/guidance", "/support/downloads-and-tools", "/support/faq", "/support/how-you-think-and-learn", "/support/insights-preview", "/support/serving-now-preview", "/support/slc-preview", "/support/understanding-dyslexia-preview", "/about-preview", "/get-involved-preview", "/partner-preview", "/lived-experiences-preview", "/review-preview"]);
+const NEXT_STEPS_SKIP = new Set<string>(["/", "/join", "/community", "/support/start-here", "/support/thinking-of-joining", "/support/leaving-or-left-service", "/support/supporting-someone", "/support/guidance", "/support/downloads-and-tools", "/support/faq", "/support/how-you-think-and-learn", "/support/insights-preview", "/support/serving-now-preview", "/support/slc-preview", "/support/understanding-dyslexia-preview", "/insights/army-guide-preview", "/about-preview", "/get-involved-preview", "/partner-preview", "/lived-experiences-preview", "/review-preview"]);
 
 const Layout = () => {
   const { pathname, search } = useLocation();

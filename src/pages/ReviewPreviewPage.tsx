@@ -6,7 +6,7 @@ import "./support/start-here.css";
 const SHOW_WIP_BANNER = true;
 
 // Review aid listing every staged redesign page. Delete at switch-over.
-export type ReviewEntry = { name: string; to: string; finalAddress: string; replaces?: string };
+export type ReviewEntry = { name: string; to: string; finalAddress: string; replaces?: string; note?: string };
 
 export const REVIEW_GROUPS: { heading: string; entries: ReviewEntry[] }[] = [
   {
@@ -24,6 +24,7 @@ export const REVIEW_GROUPS: { heading: string; entries: ReviewEntry[] }[] = [
       { name: "Understanding Dyslexia", to: "/support/understanding-dyslexia-preview", finalAddress: "/insights/understanding-dyslexia", replaces: "the What We Do text" },
       { name: "Insights", to: "/support/insights-preview", finalAddress: "/insights", replaces: "/insights" },
       { name: "Standard Learning Credits", to: "/support/slc-preview", finalAddress: "/currently-serving/standard-learning-credits", replaces: "/currently-serving/standard-learning-credits" },
+      { name: "Serving with dyslexia in the Army (skeleton)", to: "/insights/army-guide-preview", finalAddress: "/insights/serving-with-dyslexia-in-the-army-uk", note: "Headings only. Not for Publish 2 until content is written." },
     ],
   },
   {
@@ -78,6 +79,7 @@ export default function ReviewPreviewPage() {
                     </Link>
                     <p className="break-words text-base leading-relaxed">Final address: {entry.finalAddress}</p>
                     <p className="break-words text-base leading-relaxed">{entry.replaces ? `Replaces: ${entry.replaces}` : "New page"}</p>
+                    {entry.note && <p className="break-words text-base font-semibold leading-relaxed">{entry.note}</p>}
                   </li>
                 ))}
               </ul>

@@ -51,3 +51,5 @@
 - [x] Build hidden Lived experiences index preview with tests; live Lived experiences page, story cards and story pages unchanged.
 - [x] Add the preview-address-only review switch for the new menu and footer, plus the hidden `/review-preview` page, with tests; published site unchanged.
 - [x] Build hidden `/support/understanding-dyslexia-preview` (copy of the live Why It Matters body) with tests; repoint Supporting someone card 1; update recruitment screening wording on hidden pages only.
+- [x] Add Sue Thain's quote to the hidden SLC preview's Army section, with a test.
+- [x] Build hidden `/insights/army-guide-preview` skeleton (headings only) with tests; live redirect to Kirk Davis's story unchanged. Content still to be written before Publish 2.
