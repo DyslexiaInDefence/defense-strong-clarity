@@ -13,7 +13,7 @@ const begin: { title: string; description: string; links: CardLink[] }[] = [
   {
     title: "Understanding how dyslexia works",
     description: "What dyslexia is, how it shows up day to day, and what helps. An explanation, not a label.",
-    links: [{ label: "Read the guidance", to: "/support/understanding-dyslexia-preview", srLabel: "Read the guidance on understanding how dyslexia works" }],
+    links: [{ label: "Read the guidance", to: "/insights/understanding-dyslexia", srLabel: "Read the guidance on understanding how dyslexia works" }],
   },
   {
     title: "Supporting someone in Service",

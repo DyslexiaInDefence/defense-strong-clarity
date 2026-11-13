@@ -7,16 +7,8 @@ export function isReviewHost(hostname: string): boolean {
   return host.startsWith("id-preview--") && host.endsWith(".lovable.app");
 }
 
-// Final addresses in the new menu and footer, pointed at their hidden previews while reviewing.
-export const REVIEW_ROUTE_MAP: Readonly<Record<string, string>> = {
-  "/about": "/about-preview",
-  "/partner": "/partner-preview",
-  "/get-involved": "/get-involved-preview",
-  "/insights": "/support/insights-preview",
-  "/support/currently-serving": "/support/serving-now-preview",
-  "/lived-experiences": "/lived-experiences-preview",
-  "/currently-serving/standard-learning-credits": "/support/slc-preview",
-};
+// Empty since the redesigned pages moved to their final addresses (Phase 2, step 1). Removed in step 3.
+export const REVIEW_ROUTE_MAP: Readonly<Record<string, string>> = {};
 
 export function reviewTarget(to: string): string {
   return REVIEW_ROUTE_MAP[to] ?? to;
