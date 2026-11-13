@@ -318,8 +318,72 @@ describe("Staged support page boundaries", () => {
     expect(guide?.audience).toBe("everyone");
   });
 
+  it("excludes the Understanding Dyslexia preview from all existing discovery content", () => {
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/support/understanding-dyslexia-preview.tsx", "src/pages/support/UnderstandingDyslexiaPage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    for (const path of [...files("src"), ...files("public")]) {
+      if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
+      expect(readFileSync(path, "utf8").includes("understanding-dyslexia-preview"), path).toBe(false);
+    }
+    expect(readFileSync("public/sitemap.xml", "utf8").includes("understanding-dyslexia")).toBe(false);
+    expect(readFileSync("public/llms.txt", "utf8").includes("understanding-dyslexia")).toBe(false);
+    expect(readFileSync("src/lib/seo.ts", "utf8").includes("understanding-dyslexia")).toBe(false);
+    expect(getPageDate("/support/understanding-dyslexia-preview")).toBeUndefined();
+  });
+
+  it("keeps the Understanding Dyslexia preview hidden, bannered, skipped and without structured data", () => {
+    const route = readFileSync("src/routes/support/understanding-dyslexia-preview.tsx", "utf8");
+    const page = readFileSync("src/pages/support/UnderstandingDyslexiaPage.tsx", "utf8");
+    expect(route).toContain('createFileRoute("/support/understanding-dyslexia-preview")');
+    expect(route).toContain('content: "noindex, nofollow"');
+    expect(page).toContain("const SHOW_WIP_BANNER = true;");
+    expect(page).toContain("Work in progress – this page is not live yet.");
+    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/support/understanding-dyslexia-preview"');
+    for (const text of [route, page]) expect(text).not.toContain("ld+json");
+  });
+
+  it("copies the live Why It Matters body word for word, changing only the h1", () => {
+    const live = readFileSync("src/pages/WhyItMattersPage.tsx", "utf8");
+    const page = readFileSync("src/pages/support/UnderstandingDyslexiaPage.tsx", "utf8");
+    const words = (source: string) => {
+      const start = source.indexOf("{/* Spiky Profile */}");
+      const end = source.indexOf("</section>", source.indexOf("{/* Who we support */}")) + "</section>".length;
+      expect(start, "body start").toBeGreaterThan(-1);
+      return source.slice(start, end).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+    };
+    const data = (source: string) => source.slice(source.indexOf("const strengths"), source.indexOf("];", source.indexOf("const ecosystem")));
+    expect(words(page)).toBe(words(live));
+    expect(data(page)).toBe(data(live));
+    expect(page).toContain(">Understanding Dyslexia</h1>");
+    expect(page).not.toContain("Why Dyslexia Awareness Matters in Defence");
+    for (const text of ["spikyProfileImg", "Genius Within – What is Neurodiversity", "<AllenCitation />", "This Isn't Theory. It's Real Experience.", "— Albert Einstein", "Dyslexic Strengths", "Who We Support"]) {
+      expect(page, text).toContain(text);
+    }
+  });
+
+  it("gives Understanding Dyslexia a Home > Insights breadcrumb pointing at the Insights preview", () => {
+    const page = readFileSync("src/pages/support/UnderstandingDyslexiaPage.tsx", "utf8");
+    expect(page).toContain('<Link to="/support/insights-preview">Insights</Link>');
+    expect(page).toContain('<span aria-current="page">Understanding Dyslexia</span>');
+    expect(page).toContain("support-staged-page");
+  });
+
+  it("leaves the live What We Do and Why It Matters addresses unchanged", () => {
+    expect(readFileSync("src/pages/about/WhatWeDoPage.tsx", "utf8")).toContain('import WhyItMattersPage from "@/pages/WhyItMattersPage";');
+    expect(readFileSync("src/routes/why-it-matters.tsx", "utf8")).toContain('throw redirect({ to: "/about/what-we-do", statusCode: 301 });');
+    expect(readFileSync("src/pages/WhyItMattersPage.tsx", "utf8")).toContain("Why Dyslexia Awareness Matters in Defence</h1>");
+  });
+
+  it("points Supporting someone card 1 at Understanding Dyslexia, leaving profile cards on how you think and learn", () => {
+    const supporting = readFileSync("src/pages/support/SupportingSomeonePage.tsx", "utf8");
+    expect(supporting).toContain('title: "Understanding how dyslexia works",\n    description: "What dyslexia is, how it shows up day to day, and what helps. An explanation, not a label.",\n    links: [{ label: "Read the guidance", to: "/support/understanding-dyslexia-preview"');
+    expect(supporting).not.toContain("/support/how-you-think-and-learn");
+    for (const name of ["ThinkingOfJoiningPage.tsx", "LeavingOrLeftServicePage.tsx", "StartHerePage.tsx"]) {
+      expect(readFileSync(`src/pages/support/${name}`, "utf8"), name).toContain("/support/how-you-think-and-learn");
+    }
+  });
+
   it("excludes the Insights preview from all existing discovery content", () => {
-    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/support/insights-preview.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/support/insights-preview.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/UnderstandingDyslexiaPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/insights-preview"), path).toBe(false);
@@ -817,6 +881,7 @@ describe("Redesign review page", () => {
       ["Get support", "Downloads and tools", "/support/downloads-and-tools", "New page"],
       ["Get support", "FAQ", "/support/faq", "New page"],
       ["Get support", "Understanding how you think and learn", "/support/how-you-think-and-learn", "New page"],
+      ["Get support", "Understanding Dyslexia", "/support/understanding-dyslexia-preview", "the What We Do text"],
       ["Get support", "Insights", "/support/insights-preview", "/insights"],
       ["Get support", "Standard Learning Credits", "/support/slc-preview", "/currently-serving/standard-learning-credits"],
       ["About and involvement", "About Us", "/about-preview", "/about"],
@@ -825,6 +890,34 @@ describe("Redesign review page", () => {
       ["About and involvement", "Lived experiences", "/lived-experiences-preview", "/lived-experiences"],
     ]);
     expect(REVIEW_GROUPS[1]!.entries.find(entry => entry.name === "Get Involved")!.finalAddress).toBe("/get-involved");
+    expect(REVIEW_GROUPS[0]!.entries.find(entry => entry.name === "Understanding Dyslexia")!.finalAddress).toBe("/insights/understanding-dyslexia");
     for (const [, , to] of rows) expect(routeText.includes(`createFileRoute("${to}")`), to).toBe(true);
+  });
+});
+
+const RECRUITMENT_SCREENING = "Dyslexia screening is not a requirement of recruitment.";
+const DECLARE_ANSWER = "Dyslexia screening is not a requirement of recruitment. Practice differs by Service once training starts. Ask your recruiter what the application asks, so you know what to expect. Declaring can help others understand how you work best, but what support follows varies by service. Once you are serving, there is no requirement to tell your chain of command if it does not affect your training or work. If it does, or you need Defence involvement, you are advised to tell them at the first opportunity.";
+// Live pages stay out: CurrentlyServingPage, StandardLearningCreditsPage and ArmyEducationCentresPage.
+const HIDDEN_NEW_PAGES = [
+  ...["StartHerePage.tsx", "ThinkingOfJoiningPage.tsx", "LeavingOrLeftServicePage.tsx", "SupportingSomeonePage.tsx", "GuidancePage.tsx", "DownloadsAndToolsPage.tsx", "FaqPage.tsx", "HowYouThinkAndLearnPage.tsx", "UnderstandingDyslexiaPage.tsx", "InsightsLandingPage.tsx", "ServingNowPage.tsx", "SlcPage.tsx", "guidanceLibrary.ts", "downloadsLibrary.ts", "faqLibrary.ts", "slcContent.ts"].map(name => `src/pages/support/${name}`),
+  "src/pages/AboutHubPage.tsx", "src/pages/GetInvolvedHubPage.tsx", "src/pages/PartnerHubPage.tsx", "src/pages/LivedExperiencesHubPage.tsx", "src/pages/ReviewPreviewPage.tsx",
+];
+
+describe("Recruitment screening wording on hidden pages", () => {
+  it("uses the approved declare wording on Thinking of joining", () => {
+    const page = readFileSync("src/pages/support/ThinkingOfJoiningPage.tsx", "utf8");
+    expect(page).toContain(`description: "${RECRUITMENT_SCREENING} Here is what to ask your recruiter and what declaring can do for you."`);
+    expect(page).toContain(`q: "Do I need to declare dyslexia when joining?",\n    a: "${DECLARE_ANSWER}"`);
+  });
+
+  it("uses the same declare answer in the FAQ library and the new opening in the guidance library", () => {
+    expect(FAQ_ITEMS.find(item => item.question === "Do I need to declare dyslexia when joining?")?.answer).toBe(DECLARE_ANSWER);
+    expect(GUIDES.find(guide => guide.title === "Do I need to declare dyslexia when joining?")?.description.startsWith("Dyslexia screening is not a requirement of recruitment, so ")).toBe(true);
+  });
+
+  it("keeps 'You are not screened for dyslexia' off every hidden new page", () => {
+    for (const path of HIDDEN_NEW_PAGES) {
+      expect(readFileSync(path, "utf8").toLowerCase().includes("you are not screened for dyslexia"), path).toBe(false);
+    }
   });
 });
