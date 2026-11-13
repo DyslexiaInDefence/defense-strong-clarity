@@ -17,6 +17,7 @@ import { Route as AskRouteImport } from './routes/ask'
 import { Route as CommunityRouteImport } from './routes/community'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as EvidenceRouteImport } from './routes/evidence'
+import { Route as GetInvolvedRouteImport } from './routes/get-involved'
 import { Route as JoinRouteImport } from './routes/join'
 import { Route as PartnerRouteImport } from './routes/partner'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -50,6 +51,7 @@ import { Route as InsightsIsDyslexiaABarrierInTheMilitaryUkRouteImport } from '.
 import { Route as InsightsJsp822VsEqualityActDyslexiaMilitaryVsCivilianUkRouteImport } from './routes/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk'
 import { Route as InsightsNeurodiversityInTheModUkRouteImport } from './routes/insights/neurodiversity-in-the-mod-uk'
 import { Route as InsightsServingWithDyslexiaInTheArmyUkRouteImport } from './routes/insights/serving-with-dyslexia-in-the-army-uk'
+import { Route as InsightsUnderstandingDyslexiaRouteImport } from './routes/insights/understanding-dyslexia'
 import { Route as InsightsWhatHappensIfDyslexiaIsIdentifiedDuringServiceUkRouteImport } from './routes/insights/what-happens-if-dyslexia-is-identified-during-service-uk'
 import { Route as InsightsWhatSupportIsAvailableForDyslexiaInTheMilitaryUkRouteImport } from './routes/insights/what-support-is-available-for-dyslexia-in-the-military-uk'
 import { Route as LivedExperiencesIndexRouteImport } from './routes/lived-experiences/index'
@@ -108,6 +110,11 @@ const ContactRoute = ContactRouteImport.update({
 const EvidenceRoute = EvidenceRouteImport.update({
   id: '/evidence',
   path: '/evidence',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GetInvolvedRoute = GetInvolvedRouteImport.update({
+  id: '/get-involved',
+  path: '/get-involved',
   getParentRoute: () => rootRouteImport,
 } as any)
 const JoinRoute = JoinRouteImport.update({
@@ -287,6 +294,12 @@ const InsightsServingWithDyslexiaInTheArmyUkRoute =
     path: '/insights/serving-with-dyslexia-in-the-army-uk',
     getParentRoute: () => rootRouteImport,
   } as any)
+const InsightsUnderstandingDyslexiaRoute =
+  InsightsUnderstandingDyslexiaRouteImport.update({
+    id: '/insights/understanding-dyslexia',
+    path: '/insights/understanding-dyslexia',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const InsightsWhatHappensIfDyslexiaIsIdentifiedDuringServiceUkRoute =
   InsightsWhatHappensIfDyslexiaIsIdentifiedDuringServiceUkRouteImport.update({
     id: '/insights/what-happens-if-dyslexia-is-identified-during-service-uk',
@@ -404,6 +417,7 @@ export interface FileRoutesByFullPath {
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
   '/evidence': typeof EvidenceRoute
+  '/get-involved': typeof GetInvolvedRoute
   '/join': typeof JoinRoute
   '/partner': typeof PartnerRoute
   '/privacy': typeof PrivacyRoute
@@ -433,6 +447,7 @@ export interface FileRoutesByFullPath {
   '/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk': typeof InsightsJsp822VsEqualityActDyslexiaMilitaryVsCivilianUkRoute
   '/insights/neurodiversity-in-the-mod-uk': typeof InsightsNeurodiversityInTheModUkRoute
   '/insights/serving-with-dyslexia-in-the-army-uk': typeof InsightsServingWithDyslexiaInTheArmyUkRoute
+  '/insights/understanding-dyslexia': typeof InsightsUnderstandingDyslexiaRoute
   '/insights/what-happens-if-dyslexia-is-identified-during-service-uk': typeof InsightsWhatHappensIfDyslexiaIsIdentifiedDuringServiceUkRoute
   '/insights/what-support-is-available-for-dyslexia-in-the-military-uk': typeof InsightsWhatSupportIsAvailableForDyslexiaInTheMilitaryUkRoute
   '/lived-experiences/lisa-hodge-civil-servant': typeof LivedExperiencesLisaHodgeCivilServantRoute
@@ -466,6 +481,7 @@ export interface FileRoutesByTo {
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
   '/evidence': typeof EvidenceRoute
+  '/get-involved': typeof GetInvolvedRoute
   '/join': typeof JoinRoute
   '/partner': typeof PartnerRoute
   '/privacy': typeof PrivacyRoute
@@ -495,6 +511,7 @@ export interface FileRoutesByTo {
   '/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk': typeof InsightsJsp822VsEqualityActDyslexiaMilitaryVsCivilianUkRoute
   '/insights/neurodiversity-in-the-mod-uk': typeof InsightsNeurodiversityInTheModUkRoute
   '/insights/serving-with-dyslexia-in-the-army-uk': typeof InsightsServingWithDyslexiaInTheArmyUkRoute
+  '/insights/understanding-dyslexia': typeof InsightsUnderstandingDyslexiaRoute
   '/insights/what-happens-if-dyslexia-is-identified-during-service-uk': typeof InsightsWhatHappensIfDyslexiaIsIdentifiedDuringServiceUkRoute
   '/insights/what-support-is-available-for-dyslexia-in-the-military-uk': typeof InsightsWhatSupportIsAvailableForDyslexiaInTheMilitaryUkRoute
   '/lived-experiences/lisa-hodge-civil-servant': typeof LivedExperiencesLisaHodgeCivilServantRoute
@@ -529,6 +546,7 @@ export interface FileRoutesById {
   '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
   '/evidence': typeof EvidenceRoute
+  '/get-involved': typeof GetInvolvedRoute
   '/join': typeof JoinRoute
   '/partner': typeof PartnerRoute
   '/privacy': typeof PrivacyRoute
@@ -558,6 +576,7 @@ export interface FileRoutesById {
   '/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk': typeof InsightsJsp822VsEqualityActDyslexiaMilitaryVsCivilianUkRoute
   '/insights/neurodiversity-in-the-mod-uk': typeof InsightsNeurodiversityInTheModUkRoute
   '/insights/serving-with-dyslexia-in-the-army-uk': typeof InsightsServingWithDyslexiaInTheArmyUkRoute
+  '/insights/understanding-dyslexia': typeof InsightsUnderstandingDyslexiaRoute
   '/insights/what-happens-if-dyslexia-is-identified-during-service-uk': typeof InsightsWhatHappensIfDyslexiaIsIdentifiedDuringServiceUkRoute
   '/insights/what-support-is-available-for-dyslexia-in-the-military-uk': typeof InsightsWhatSupportIsAvailableForDyslexiaInTheMilitaryUkRoute
   '/lived-experiences/lisa-hodge-civil-servant': typeof LivedExperiencesLisaHodgeCivilServantRoute
@@ -593,6 +612,7 @@ export interface FileRouteTypes {
     | '/community'
     | '/contact'
     | '/evidence'
+    | '/get-involved'
     | '/join'
     | '/partner'
     | '/privacy'
@@ -622,6 +642,7 @@ export interface FileRouteTypes {
     | '/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk'
     | '/insights/neurodiversity-in-the-mod-uk'
     | '/insights/serving-with-dyslexia-in-the-army-uk'
+    | '/insights/understanding-dyslexia'
     | '/insights/what-happens-if-dyslexia-is-identified-during-service-uk'
     | '/insights/what-support-is-available-for-dyslexia-in-the-military-uk'
     | '/lived-experiences/lisa-hodge-civil-servant'
@@ -655,6 +676,7 @@ export interface FileRouteTypes {
     | '/community'
     | '/contact'
     | '/evidence'
+    | '/get-involved'
     | '/join'
     | '/partner'
     | '/privacy'
@@ -684,6 +706,7 @@ export interface FileRouteTypes {
     | '/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk'
     | '/insights/neurodiversity-in-the-mod-uk'
     | '/insights/serving-with-dyslexia-in-the-army-uk'
+    | '/insights/understanding-dyslexia'
     | '/insights/what-happens-if-dyslexia-is-identified-during-service-uk'
     | '/insights/what-support-is-available-for-dyslexia-in-the-military-uk'
     | '/lived-experiences/lisa-hodge-civil-servant'
@@ -717,6 +740,7 @@ export interface FileRouteTypes {
     | '/community'
     | '/contact'
     | '/evidence'
+    | '/get-involved'
     | '/join'
     | '/partner'
     | '/privacy'
@@ -746,6 +770,7 @@ export interface FileRouteTypes {
     | '/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk'
     | '/insights/neurodiversity-in-the-mod-uk'
     | '/insights/serving-with-dyslexia-in-the-army-uk'
+    | '/insights/understanding-dyslexia'
     | '/insights/what-happens-if-dyslexia-is-identified-during-service-uk'
     | '/insights/what-support-is-available-for-dyslexia-in-the-military-uk'
     | '/lived-experiences/lisa-hodge-civil-servant'
@@ -780,6 +805,7 @@ export interface RootRouteChildren {
   CommunityRoute: typeof CommunityRoute
   ContactRoute: typeof ContactRoute
   EvidenceRoute: typeof EvidenceRoute
+  GetInvolvedRoute: typeof GetInvolvedRoute
   JoinRoute: typeof JoinRoute
   PartnerRoute: typeof PartnerRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -809,6 +835,7 @@ export interface RootRouteChildren {
   InsightsJsp822VsEqualityActDyslexiaMilitaryVsCivilianUkRoute: typeof InsightsJsp822VsEqualityActDyslexiaMilitaryVsCivilianUkRoute
   InsightsNeurodiversityInTheModUkRoute: typeof InsightsNeurodiversityInTheModUkRoute
   InsightsServingWithDyslexiaInTheArmyUkRoute: typeof InsightsServingWithDyslexiaInTheArmyUkRoute
+  InsightsUnderstandingDyslexiaRoute: typeof InsightsUnderstandingDyslexiaRoute
   InsightsWhatHappensIfDyslexiaIsIdentifiedDuringServiceUkRoute: typeof InsightsWhatHappensIfDyslexiaIsIdentifiedDuringServiceUkRoute
   InsightsWhatSupportIsAvailableForDyslexiaInTheMilitaryUkRoute: typeof InsightsWhatSupportIsAvailableForDyslexiaInTheMilitaryUkRoute
   LivedExperiencesLisaHodgeCivilServantRoute: typeof LivedExperiencesLisaHodgeCivilServantRoute
@@ -890,6 +917,13 @@ declare module '@tanstack/react-router' {
       path: '/evidence'
       fullPath: '/evidence'
       preLoaderRoute: typeof EvidenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/get-involved': {
+      id: '/get-involved'
+      path: '/get-involved'
+      fullPath: '/get-involved'
+      preLoaderRoute: typeof GetInvolvedRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/join': {
@@ -1123,6 +1157,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InsightsServingWithDyslexiaInTheArmyUkRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/insights/understanding-dyslexia': {
+      id: '/insights/understanding-dyslexia'
+      path: '/insights/understanding-dyslexia'
+      fullPath: '/insights/understanding-dyslexia'
+      preLoaderRoute: typeof InsightsUnderstandingDyslexiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/insights/what-happens-if-dyslexia-is-identified-during-service-uk': {
       id: '/insights/what-happens-if-dyslexia-is-identified-during-service-uk'
       path: '/insights/what-happens-if-dyslexia-is-identified-during-service-uk'
@@ -1268,6 +1309,7 @@ const rootRouteChildren: RootRouteChildren = {
   CommunityRoute: CommunityRoute,
   ContactRoute: ContactRoute,
   EvidenceRoute: EvidenceRoute,
+  GetInvolvedRoute: GetInvolvedRoute,
   JoinRoute: JoinRoute,
   PartnerRoute: PartnerRoute,
   PrivacyRoute: PrivacyRoute,
@@ -1306,6 +1348,7 @@ const rootRouteChildren: RootRouteChildren = {
   InsightsNeurodiversityInTheModUkRoute: InsightsNeurodiversityInTheModUkRoute,
   InsightsServingWithDyslexiaInTheArmyUkRoute:
     InsightsServingWithDyslexiaInTheArmyUkRoute,
+  InsightsUnderstandingDyslexiaRoute: InsightsUnderstandingDyslexiaRoute,
   InsightsWhatHappensIfDyslexiaIsIdentifiedDuringServiceUkRoute:
     InsightsWhatHappensIfDyslexiaIsIdentifiedDuringServiceUkRoute,
   InsightsWhatSupportIsAvailableForDyslexiaInTheMilitaryUkRoute:
