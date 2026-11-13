@@ -1,3 +1,4 @@
+// OLD: remove one week after Publish 2. No longer routed; kept only for an easy rollback.
 import { livedStories } from "@/data/livedStories";
 import StoryCard from "@/components/StoryCard";
 import ShareLivedExperienceBanner from "@/components/ShareLivedExperienceBanner";

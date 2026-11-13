@@ -1,3 +1,4 @@
+// OLD: remove one week after Publish 2. No longer routed; kept only for an easy rollback.
 import { Link } from "@/lib/router-compat";
 import { Handshake, Shield, Users, BookOpen, Award, CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";

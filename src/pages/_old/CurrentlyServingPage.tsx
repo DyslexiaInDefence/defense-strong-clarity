@@ -1,3 +1,4 @@
+// OLD: remove one week after Publish 2. No longer routed; kept only for an easy rollback.
 import { Link } from "@/lib/router-compat";
 import { ChevronRight, ExternalLink, FileText, HelpCircle, Laptop, PoundSterling, Smartphone, Video } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
