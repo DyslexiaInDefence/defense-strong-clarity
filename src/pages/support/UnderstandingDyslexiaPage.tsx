@@ -1,0 +1,179 @@
+import { Brain, Eye, Lightbulb, Puzzle, Compass, Users, ChevronRight } from "lucide-react";
+import { Link } from "@/lib/router-compat";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import spikyProfileImg from "@/assets/spiky-profile.webp";
+import AllenCitation from "@/components/AllenCitation";
+import "./start-here.css";
+
+const SHOW_WIP_BANNER = true;
+
+// Staged copy of the live Why It Matters body, word for word except the h1.
+// Moves to /insights/understanding-dyslexia at switch-over.
+
+const strengths = [
+{ icon: Puzzle, label: "Systems thinking" },
+{ icon: Eye, label: "Pattern recognition" },
+{ icon: Brain, label: "Strategic problem solving" },
+{ icon: Compass, label: "Spatial reasoning" },
+{ icon: Lightbulb, label: "Innovative thinking under pressure" }];
+
+
+const ecosystem = [
+{ label: "Pre service", description: "Candidates exploring defence and security careers." },
+{ label: "Serving", description: "Active personnel across military and civilian roles." },
+{ label: "Veterans", description: "Those transitioning to civilian life." },
+{ label: "Industry", description: "Defence and security contractors and partners." },
+{ label: "Families", description: "Dependants navigating support." }];
+
+export default function UnderstandingDyslexiaPage() {
+  return (
+    <div className="support-staged-page text-foreground">
+      {SHOW_WIP_BANNER && (
+        <div className="border-b border-border bg-secondary py-3" role="note">
+          <p className="container px-4 text-base leading-relaxed">Work in progress – this page is not live yet.</p>
+        </div>
+      )}
+      <div className="container max-w-6xl px-4 pb-14 pt-4 sm:px-6">
+        <nav aria-label="Understanding Dyslexia breadcrumb" className="mb-5">
+          <ol className="flex flex-wrap items-center gap-2 text-base">
+            <li><Button asChild variant="link" className="min-h-11 h-auto px-0 text-base"><Link to="/">Home</Link></Button></li>
+            <li className="flex items-center gap-2"><ChevronRight aria-hidden="true" className="size-4" /><Button asChild variant="link" className="min-h-11 h-auto px-0 text-base"><Link to="/support/insights-preview">Insights</Link></Button></li>
+            <li className="flex min-h-11 items-center gap-2"><ChevronRight aria-hidden="true" className="size-4" /><span aria-current="page">Understanding Dyslexia</span></li>
+          </ol>
+        </nav>
+
+        <header className="mb-12 max-w-3xl pt-8">
+          <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">Understanding Dyslexia</h1>
+        </header>
+
+        {/* Spiky Profile */}
+        <section className="mb-16 rounded-lg border border-border bg-card p-5 sm:p-8" aria-label="The Dyslexic Spiky Profile">
+          <h2 className="mb-6 text-2xl font-bold text-foreground">The Dyslexic "Spiky Profile"</h2>
+
+          <div className="max-w-3xl space-y-5 text-foreground leading-relaxed">
+            <p>
+              It is estimated that <a href="https://www.nhs.uk/conditions/dyslexia/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">10% of the population</a> has dyslexia with up to <a href="https://dyslexiaida.org/dyslexia-basics/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">20% showing indicators of dyslexia</a>. This is a <a href="https://www.nam.ac.uk/explore/army-organisation" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">Company in a Battalion</a>, <a href="https://www.royalnavy.mod.uk/equipment/ships/queen-elizabeth-class" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">135 people on the Queen Elizabeth class ship</a>, just under <a href="https://www.gov.uk/government/statistics/quarterly-service-personnel-statistics-2025/quarterly-service-personnel-statistics-1-july-2025" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">7000 aviators in the RAF</a> and <a href="https://des.mod.uk/who-we-are/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">2500 people in Defence Equipment &amp; Support</a>.
+            </p>
+            <p>
+              All these people will have 'spikey profiles'. This means performance in different areas is significantly weaker or stronger than the average.
+            </p>
+          </div>
+
+          {/* Image */}
+          <div className="my-10 rounded-lg border border-border bg-card p-4 max-w-2xl mx-auto">
+            <img
+              src={spikyProfileImg}
+              alt="Graph illustrating the spiky cognitive profile of neurodiverse individuals compared to a neurotypical baseline, showing dramatic peaks and troughs across different cognitive abilities."
+              className="w-full h-auto rounded-sm" />
+            
+            <p className="mt-3 text-center text-xs text-muted-foreground">
+              Source:{" "}
+              <a
+                href="https://geniuswithin.org/what-is-neurodiversity/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-primary transition-colors">
+                
+                Genius Within – What is Neurodiversity
+              </a>
+            </p>
+          </div>
+
+          {/* Lived Experiences CTA */}
+          <section className="my-10 rounded-xl border border-primary/20 bg-primary/5 p-8 md:p-10 text-center">
+            <h2 className="mb-3 text-2xl font-bold text-foreground md:text-3xl">
+              This Isn't Theory. It's Real Experience.
+            </h2>
+            <p className="mx-auto mb-6 max-w-xl text-lg text-muted-foreground">
+              These experiences are not theoretical. Read real stories from people across the Defence community who have lived with dyslexia throughout their careers.
+            </p>
+            <Link to="/lived-experiences">
+              <Button size="lg" className="rounded-full px-8 text-base font-semibold">
+                View Lived Experiences
+                <ChevronRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </section>
+
+          <div className="max-w-3xl space-y-5 text-foreground leading-relaxed">
+            <p>
+              For many years, people with dyslexia have been assessed, judged, and filtered based primarily on the <strong>lowest points</strong> of that profile. Recruitment processes, exams, training systems, and workplace assessments frequently focus on areas where dyslexic individuals may struggle — such as processing speed, written accuracy, or certain forms of working memory.
+            </p>
+
+            <p>
+              What is often overlooked is the <strong>top half</strong> of the spiky profile. Dyslexic individuals frequently demonstrate strong capabilities in analytical thinking, problem solving, spatial reasoning, pattern recognition, creativity, and strategic thinking.
+            </p>
+
+            <p>
+              The result is that organisations can unintentionally screen out or undervalue people who may possess exceptional strengths. This is shown with the quote below:
+            </p>
+
+            <p>
+              Research on neurodiverse UK military veterans points to the same pattern — recruitment and workplace systems are often designed around neurotypical expectations, which can quietly disadvantage people who think differently <AllenCitation />.
+            </p>
+
+            <blockquote className="my-6 border-l-4 border-primary bg-muted/50 py-6 px-8 rounded-r-lg max-w-2xl">
+              <p className="text-lg italic text-foreground leading-relaxed">
+                "Everybody is a genius. But if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid."
+              </p>
+              <footer className="mt-3 text-sm font-semibold text-muted-foreground">
+                — Albert Einstein
+              </footer>
+            </blockquote>
+
+            <p>
+              The goal is not to ignore the lower points. Those areas simply require practical support — and in many cases that support is straightforward: clear written instructions, assistive technology, flexible communication formats, or adjusted workflows.
+            </p>
+
+            <p>
+              These small adjustments allow the strengths at the top of the profile to be fully realised.
+            </p>
+
+            <p>
+              When organisations recognise both sides of the spiky profile — supporting the weaker areas while enabling the stronger ones — they unlock individuals who can contribute enormous value.
+            </p>
+
+            <p className="font-semibold text-primary">
+              This is the core idea behind Dyslexia in Defence.
+            </p>
+
+            <p>
+              The network exists to help defence and security organisations stop focusing solely on the bottom of the spiky profile and instead create environments where dyslexic individuals can succeed, contribute, and thrive.
+            </p>
+          </div>
+        </section>
+
+        {/* Strengths */}
+        <section className="mb-16" aria-label="Dyslexic strengths">
+          <h2 className="mb-6 text-2xl font-bold text-foreground">Dyslexic Strengths</h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {strengths.map((s) => <Card key={s.label}>
+                <CardContent className="flex items-center gap-3 p-5">
+                  <s.icon className="h-6 w-6 shrink-0 text-primary" aria-hidden="true" />
+                  <span className="font-medium text-foreground">{s.label}</span>
+                </CardContent>
+              </Card>)}
+          </div>
+        </section>
+
+        {/* Who we support */}
+        <section aria-label="Who we support">
+          <h2 className="mb-6 text-2xl font-bold text-foreground">Who We Support</h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {ecosystem.map((e) => <Card key={e.label}>
+                <CardContent className="p-5">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Users className="h-5 w-5 text-primary" aria-hidden="true" />
+                    <h3 className="font-semibold text-foreground">{e.label}</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">{e.description}</p>
+                </CardContent>
+              </Card>
+            )}
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+}
