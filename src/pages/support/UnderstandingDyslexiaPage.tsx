@@ -9,7 +9,7 @@ import "./start-here.css";
 const SHOW_WIP_BANNER = true;
 
 // Staged copy of the live Why It Matters body, word for word except the h1.
-// Moves to /insights/understanding-dyslexia at switch-over.
+// Served at its final address since switch-over step 1.
 
 const strengths = [
 { icon: Puzzle, label: "Systems thinking" },
