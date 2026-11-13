@@ -81,7 +81,7 @@ export default function UnderstandingDyslexiaPage() {
           </div>
 
           {/* Lived Experiences CTA */}
-          <section className="my-10 rounded-xl border border-primary/20 bg-primary/5 p-8 md:p-10 text-center">
+          <section className="my-10 rounded-xl border border-primary/20 bg-primary/5 p-5 sm:p-8 md:p-10 text-center">
             <h2 className="mb-3 text-2xl font-bold text-foreground md:text-3xl">
               This Isn't Theory. It's Real Experience.
             </h2>
@@ -89,7 +89,7 @@ export default function UnderstandingDyslexiaPage() {
               These experiences are not theoretical. Read real stories from people across the Defence community who have lived with dyslexia throughout their careers.
             </p>
             <Link to="/lived-experiences">
-              <Button size="lg" className="rounded-full px-8 text-base font-semibold">
+              <Button size="lg" className="h-auto min-h-11 max-w-full whitespace-normal rounded-full px-6 py-3 text-base font-semibold sm:px-8">
                 View Lived Experiences
                 <ChevronRight className="ml-2 h-5 w-5" />
               </Button>
