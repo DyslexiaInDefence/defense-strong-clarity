@@ -50,3 +50,4 @@
 - [x] Build hidden Partner with us preview with tests; live Partner page, Covenant page and homepage carousel unchanged.
 - [x] Build hidden Lived experiences index preview with tests; live Lived experiences page, story cards and story pages unchanged.
 - [x] Add the preview-address-only review switch for the new menu and footer, plus the hidden `/review-preview` page, with tests; published site unchanged.
+- [x] Build hidden `/support/understanding-dyslexia-preview` (copy of the live Why It Matters body) with tests; repoint Supporting someone card 1; update recruitment screening wording on hidden pages only.
