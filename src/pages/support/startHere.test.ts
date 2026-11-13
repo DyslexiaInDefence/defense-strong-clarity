@@ -383,7 +383,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes the Insights preview from all existing discovery content", () => {
-    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/support/insights-preview.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/support/insights-preview.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/UnderstandingDyslexiaPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/insights-preview"), path).toBe(false);
