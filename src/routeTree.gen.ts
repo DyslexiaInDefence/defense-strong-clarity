@@ -75,6 +75,7 @@ import { Route as SupportSlcPreviewRouteImport } from './routes/support/slc-prev
 import { Route as SupportStartHereRouteImport } from './routes/support/start-here'
 import { Route as SupportSupportingSomeoneRouteImport } from './routes/support/supporting-someone'
 import { Route as SupportThinkingOfJoiningRouteImport } from './routes/support/thinking-of-joining'
+import { Route as SupportUnderstandingDyslexiaPreviewRouteImport } from './routes/support/understanding-dyslexia-preview'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -430,6 +431,12 @@ const SupportThinkingOfJoiningRoute =
     path: '/support/thinking-of-joining',
     getParentRoute: () => rootRouteImport,
   } as any)
+const SupportUnderstandingDyslexiaPreviewRoute =
+  SupportUnderstandingDyslexiaPreviewRouteImport.update({
+    id: '/support/understanding-dyslexia-preview',
+    path: '/support/understanding-dyslexia-preview',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -492,6 +499,7 @@ export interface FileRoutesByFullPath {
   '/support/start-here': typeof SupportStartHereRoute
   '/support/supporting-someone': typeof SupportSupportingSomeoneRoute
   '/support/thinking-of-joining': typeof SupportThinkingOfJoiningRoute
+  '/support/understanding-dyslexia-preview': typeof SupportUnderstandingDyslexiaPreviewRoute
   '/about/': typeof AboutIndexRoute
   '/currently-serving/': typeof CurrentlyServingIndexRoute
   '/governance/': typeof GovernanceIndexRoute
@@ -560,6 +568,7 @@ export interface FileRoutesByTo {
   '/support/start-here': typeof SupportStartHereRoute
   '/support/supporting-someone': typeof SupportSupportingSomeoneRoute
   '/support/thinking-of-joining': typeof SupportThinkingOfJoiningRoute
+  '/support/understanding-dyslexia-preview': typeof SupportUnderstandingDyslexiaPreviewRoute
   '/about': typeof AboutIndexRoute
   '/currently-serving': typeof CurrentlyServingIndexRoute
   '/governance': typeof GovernanceIndexRoute
@@ -629,6 +638,7 @@ export interface FileRoutesById {
   '/support/start-here': typeof SupportStartHereRoute
   '/support/supporting-someone': typeof SupportSupportingSomeoneRoute
   '/support/thinking-of-joining': typeof SupportThinkingOfJoiningRoute
+  '/support/understanding-dyslexia-preview': typeof SupportUnderstandingDyslexiaPreviewRoute
   '/about/': typeof AboutIndexRoute
   '/currently-serving/': typeof CurrentlyServingIndexRoute
   '/governance/': typeof GovernanceIndexRoute
@@ -699,6 +709,7 @@ export interface FileRouteTypes {
     | '/support/start-here'
     | '/support/supporting-someone'
     | '/support/thinking-of-joining'
+    | '/support/understanding-dyslexia-preview'
     | '/about/'
     | '/currently-serving/'
     | '/governance/'
@@ -767,6 +778,7 @@ export interface FileRouteTypes {
     | '/support/start-here'
     | '/support/supporting-someone'
     | '/support/thinking-of-joining'
+    | '/support/understanding-dyslexia-preview'
     | '/about'
     | '/currently-serving'
     | '/governance'
@@ -835,6 +847,7 @@ export interface FileRouteTypes {
     | '/support/start-here'
     | '/support/supporting-someone'
     | '/support/thinking-of-joining'
+    | '/support/understanding-dyslexia-preview'
     | '/about/'
     | '/currently-serving/'
     | '/governance/'
@@ -904,6 +917,7 @@ export interface RootRouteChildren {
   SupportStartHereRoute: typeof SupportStartHereRoute
   SupportSupportingSomeoneRoute: typeof SupportSupportingSomeoneRoute
   SupportThinkingOfJoiningRoute: typeof SupportThinkingOfJoiningRoute
+  SupportUnderstandingDyslexiaPreviewRoute: typeof SupportUnderstandingDyslexiaPreviewRoute
   AboutIndexRoute: typeof AboutIndexRoute
   CurrentlyServingIndexRoute: typeof CurrentlyServingIndexRoute
   GovernanceIndexRoute: typeof GovernanceIndexRoute
@@ -1376,6 +1390,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SupportThinkingOfJoiningRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/support/understanding-dyslexia-preview': {
+      id: '/support/understanding-dyslexia-preview'
+      path: '/support/understanding-dyslexia-preview'
+      fullPath: '/support/understanding-dyslexia-preview'
+      preLoaderRoute: typeof SupportUnderstandingDyslexiaPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -1456,6 +1477,8 @@ const rootRouteChildren: RootRouteChildren = {
   SupportStartHereRoute: SupportStartHereRoute,
   SupportSupportingSomeoneRoute: SupportSupportingSomeoneRoute,
   SupportThinkingOfJoiningRoute: SupportThinkingOfJoiningRoute,
+  SupportUnderstandingDyslexiaPreviewRoute:
+    SupportUnderstandingDyslexiaPreviewRoute,
   AboutIndexRoute: AboutIndexRoute,
   CurrentlyServingIndexRoute: CurrentlyServingIndexRoute,
   GovernanceIndexRoute: GovernanceIndexRoute,

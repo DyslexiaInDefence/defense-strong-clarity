@@ -21,6 +21,7 @@ export const REVIEW_GROUPS: { heading: string; entries: ReviewEntry[] }[] = [
       { name: "Downloads and tools", to: "/support/downloads-and-tools", finalAddress: "/support/downloads-and-tools" },
       { name: "FAQ", to: "/support/faq", finalAddress: "/support/faq" },
       { name: "Understanding how you think and learn", to: "/support/how-you-think-and-learn", finalAddress: "/support/how-you-think-and-learn" },
+      { name: "Understanding Dyslexia", to: "/support/understanding-dyslexia-preview", finalAddress: "/insights/understanding-dyslexia", replaces: "the What We Do text" },
       { name: "Insights", to: "/support/insights-preview", finalAddress: "/insights", replaces: "/insights" },
       { name: "Standard Learning Credits", to: "/support/slc-preview", finalAddress: "/currently-serving/standard-learning-credits", replaces: "/currently-serving/standard-learning-credits" },
     ],

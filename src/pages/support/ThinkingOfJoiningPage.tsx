@@ -21,7 +21,7 @@ const begin: { title: string; description: string; links: CardLink[] }[] = [
   },
   {
     title: "Do I need to declare dyslexia?",
-    description: "You are not screened for dyslexia during recruitment. Here is what to ask your recruiter and what declaring can do for you.",
+    description: "Dyslexia screening is not a requirement of recruitment. Here is what to ask your recruiter and what declaring can do for you.",
     links: [{ label: "Read the guidance", to: "/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk", srLabel: "Read the guidance on declaring dyslexia" }],
   },
   {
@@ -43,7 +43,7 @@ const answers = [
   },
   {
     q: "Do I need to declare dyslexia when joining?",
-    a: "You are not screened for dyslexia or other specific learning difficulties during recruitment. Ask your recruiter what the application asks, so you know what to expect. Declaring can help others understand how you work best, but what support follows varies by service.",
+    a: "Dyslexia screening is not a requirement of recruitment. Practice differs by Service once training starts. Ask your recruiter what the application asks, so you know what to expect. Declaring can help others understand how you work best, but what support follows varies by service. Once you are serving, there is no requirement to tell your chain of command if it does not affect your training or work. If it does, or you need Defence involvement, you are advised to tell them at the first opportunity.",
   },
 ];
 
