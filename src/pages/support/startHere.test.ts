@@ -10,6 +10,7 @@ import { WAYS_TO_TAKE_PART, MORE_LINKS as INVOLVED_MORE_LINKS } from "../GetInvo
 import { MORE_LINKS as PARTNER_MORE_LINKS, PACKAGES } from "../PartnerHubPage";
 import { MORE_LINKS as LIVED_MORE_LINKS } from "../LivedExperiencesHubPage";
 import { REVIEW_GROUPS } from "../ReviewPreviewPage";
+import { ARMY_GUIDE_HEADINGS } from "../insights/ArmyGuidePreviewPage";
 import { SHARE_MAILTO } from "../../components/ShareLivedExperienceBanner";
 import { BDA_PSYCHOLOGIST_FEE, BDA_PSYCHOLOGIST_YOU_PAY, BDA_RATE_DATE, BDA_TEACHER_FEE, BDA_TEACHER_YOU_PAY, JSP822_VOL7_URL, JSP822_VOL9_URL, SARAH_BODY, SARAH_EMAIL, SARAH_MAILTO, SARAH_SUBJECT, SLC_COST_DATE, SLC_COST_OPTIONS, SLC_FULL_USUAL_PRICE, SLC_TEMPLATE_FORM } from "./slcContent";
 
@@ -383,7 +384,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes the Insights preview from all existing discovery content", () => {
-    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/support/insights-preview.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/UnderstandingDyslexiaPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/support/insights-preview.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/UnderstandingDyslexiaPage.tsx", "src/pages/insights/ArmyGuidePreviewPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/insights-preview"), path).toBe(false);

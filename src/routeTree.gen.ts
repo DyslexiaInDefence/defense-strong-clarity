@@ -45,6 +45,7 @@ import { Route as GovernanceSafeguardingRouteImport } from './routes/governance/
 import { Route as GovernanceSponsorshipRouteImport } from './routes/governance/sponsorship'
 import { Route as GovernanceTransparencyRouteImport } from './routes/governance/transparency'
 import { Route as InsightsIndexRouteImport } from './routes/insights/index'
+import { Route as InsightsArmyGuidePreviewRouteImport } from './routes/insights/army-guide-preview'
 import { Route as InsightsCanYouJoinArmyWithDyslexiaUkRouteImport } from './routes/insights/can-you-join-army-with-dyslexia-uk'
 import { Route as InsightsCanYouJoinNavyWithDyslexiaUkRouteImport } from './routes/insights/can-you-join-navy-with-dyslexia-uk'
 import { Route as InsightsCanYouJoinRafWithDyslexiaUkRouteImport } from './routes/insights/can-you-join-raf-with-dyslexia-uk'
@@ -260,6 +261,12 @@ const InsightsIndexRoute = InsightsIndexRouteImport.update({
   path: '/insights/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InsightsArmyGuidePreviewRoute =
+  InsightsArmyGuidePreviewRouteImport.update({
+    id: '/insights/army-guide-preview',
+    path: '/insights/army-guide-preview',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const InsightsCanYouJoinArmyWithDyslexiaUkRoute =
   InsightsCanYouJoinArmyWithDyslexiaUkRouteImport.update({
     id: '/insights/can-you-join-army-with-dyslexia-uk',
@@ -471,6 +478,7 @@ export interface FileRoutesByFullPath {
   '/governance/safeguarding': typeof GovernanceSafeguardingRoute
   '/governance/sponsorship': typeof GovernanceSponsorshipRoute
   '/governance/transparency': typeof GovernanceTransparencyRoute
+  '/insights/army-guide-preview': typeof InsightsArmyGuidePreviewRoute
   '/insights/can-you-join-army-with-dyslexia-uk': typeof InsightsCanYouJoinArmyWithDyslexiaUkRoute
   '/insights/can-you-join-navy-with-dyslexia-uk': typeof InsightsCanYouJoinNavyWithDyslexiaUkRoute
   '/insights/can-you-join-raf-with-dyslexia-uk': typeof InsightsCanYouJoinRafWithDyslexiaUkRoute
@@ -540,6 +548,7 @@ export interface FileRoutesByTo {
   '/governance/safeguarding': typeof GovernanceSafeguardingRoute
   '/governance/sponsorship': typeof GovernanceSponsorshipRoute
   '/governance/transparency': typeof GovernanceTransparencyRoute
+  '/insights/army-guide-preview': typeof InsightsArmyGuidePreviewRoute
   '/insights/can-you-join-army-with-dyslexia-uk': typeof InsightsCanYouJoinArmyWithDyslexiaUkRoute
   '/insights/can-you-join-navy-with-dyslexia-uk': typeof InsightsCanYouJoinNavyWithDyslexiaUkRoute
   '/insights/can-you-join-raf-with-dyslexia-uk': typeof InsightsCanYouJoinRafWithDyslexiaUkRoute
@@ -610,6 +619,7 @@ export interface FileRoutesById {
   '/governance/safeguarding': typeof GovernanceSafeguardingRoute
   '/governance/sponsorship': typeof GovernanceSponsorshipRoute
   '/governance/transparency': typeof GovernanceTransparencyRoute
+  '/insights/army-guide-preview': typeof InsightsArmyGuidePreviewRoute
   '/insights/can-you-join-army-with-dyslexia-uk': typeof InsightsCanYouJoinArmyWithDyslexiaUkRoute
   '/insights/can-you-join-navy-with-dyslexia-uk': typeof InsightsCanYouJoinNavyWithDyslexiaUkRoute
   '/insights/can-you-join-raf-with-dyslexia-uk': typeof InsightsCanYouJoinRafWithDyslexiaUkRoute
@@ -681,6 +691,7 @@ export interface FileRouteTypes {
     | '/governance/safeguarding'
     | '/governance/sponsorship'
     | '/governance/transparency'
+    | '/insights/army-guide-preview'
     | '/insights/can-you-join-army-with-dyslexia-uk'
     | '/insights/can-you-join-navy-with-dyslexia-uk'
     | '/insights/can-you-join-raf-with-dyslexia-uk'
@@ -750,6 +761,7 @@ export interface FileRouteTypes {
     | '/governance/safeguarding'
     | '/governance/sponsorship'
     | '/governance/transparency'
+    | '/insights/army-guide-preview'
     | '/insights/can-you-join-army-with-dyslexia-uk'
     | '/insights/can-you-join-navy-with-dyslexia-uk'
     | '/insights/can-you-join-raf-with-dyslexia-uk'
@@ -819,6 +831,7 @@ export interface FileRouteTypes {
     | '/governance/safeguarding'
     | '/governance/sponsorship'
     | '/governance/transparency'
+    | '/insights/army-guide-preview'
     | '/insights/can-you-join-army-with-dyslexia-uk'
     | '/insights/can-you-join-navy-with-dyslexia-uk'
     | '/insights/can-you-join-raf-with-dyslexia-uk'
@@ -889,6 +902,7 @@ export interface RootRouteChildren {
   GovernanceSafeguardingRoute: typeof GovernanceSafeguardingRoute
   GovernanceSponsorshipRoute: typeof GovernanceSponsorshipRoute
   GovernanceTransparencyRoute: typeof GovernanceTransparencyRoute
+  InsightsArmyGuidePreviewRoute: typeof InsightsArmyGuidePreviewRoute
   InsightsCanYouJoinArmyWithDyslexiaUkRoute: typeof InsightsCanYouJoinArmyWithDyslexiaUkRoute
   InsightsCanYouJoinNavyWithDyslexiaUkRoute: typeof InsightsCanYouJoinNavyWithDyslexiaUkRoute
   InsightsCanYouJoinRafWithDyslexiaUkRoute: typeof InsightsCanYouJoinRafWithDyslexiaUkRoute
@@ -1180,6 +1194,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InsightsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/insights/army-guide-preview': {
+      id: '/insights/army-guide-preview'
+      path: '/insights/army-guide-preview'
+      fullPath: '/insights/army-guide-preview'
+      preLoaderRoute: typeof InsightsArmyGuidePreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/insights/can-you-join-army-with-dyslexia-uk': {
       id: '/insights/can-you-join-army-with-dyslexia-uk'
       path: '/insights/can-you-join-army-with-dyslexia-uk'
@@ -1435,6 +1456,7 @@ const rootRouteChildren: RootRouteChildren = {
   GovernanceSafeguardingRoute: GovernanceSafeguardingRoute,
   GovernanceSponsorshipRoute: GovernanceSponsorshipRoute,
   GovernanceTransparencyRoute: GovernanceTransparencyRoute,
+  InsightsArmyGuidePreviewRoute: InsightsArmyGuidePreviewRoute,
   InsightsCanYouJoinArmyWithDyslexiaUkRoute:
     InsightsCanYouJoinArmyWithDyslexiaUkRoute,
   InsightsCanYouJoinNavyWithDyslexiaUkRoute:
