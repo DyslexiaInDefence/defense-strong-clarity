@@ -46,16 +46,9 @@ describe("Review mode host check", () => {
 });
 
 describe("Review mode address map", () => {
-  it("only contains the agreed addresses", () => {
-    expect(REVIEW_ROUTE_MAP).toEqual({
-      "/about": "/about-preview",
-      "/partner": "/partner-preview",
-      "/get-involved": "/get-involved-preview",
-      "/insights": "/support/insights-preview",
-      "/support/currently-serving": "/support/serving-now-preview",
-      "/lived-experiences": "/lived-experiences-preview",
-      "/currently-serving/standard-learning-credits": "/support/slc-preview",
-    });
+  it("is empty now the redesigned pages are at their final addresses", () => {
+    expect(REVIEW_ROUTE_MAP).toEqual({});
+    for (const to of ["/about", "/partner", "/get-involved", "/insights", "/support/currently-serving", "/lived-experiences", "/currently-serving/standard-learning-credits"]) expect(reviewTarget(to)).toBe(to);
   });
 
   it("never points at a missing route", () => {

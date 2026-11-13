@@ -76,7 +76,7 @@ describe("Page date rules", () => {
       const text = readFileSync(path, "utf8");
       if (!text.includes("component:") || path.endsWith("__root.tsx")) continue;
       const route = text.match(/createFileRoute\("([^"]+)"\)/)?.[1]?.replace(/\/$/, "");
-      if (!route || route === "/evidence" || route === "/support/start-here" || route === "/support/thinking-of-joining" || route === "/support/leaving-or-left-service" || route === "/support/supporting-someone" || route === "/support/guidance" || route === "/support/downloads-and-tools" || route === "/support/faq" || route === "/support/how-you-think-and-learn" || route === "/support/insights-preview" || route === "/support/serving-now-preview" || route === "/support/slc-preview" || route === "/support/understanding-dyslexia-preview" || route === "/insights/army-guide-preview" || route === "/about-preview" || route === "/get-involved-preview" || route === "/partner-preview" || route === "/lived-experiences-preview" || route === "/review-preview" || route.startsWith("/newsletters/")) continue;
+      if (!route || route === "/evidence" || route === "/support/start-here" || route === "/support/thinking-of-joining" || route === "/support/leaving-or-left-service" || route === "/support/supporting-someone" || route === "/support/guidance" || route === "/support/downloads-and-tools" || route === "/support/faq" || route === "/support/how-you-think-and-learn" || route === "/insights/understanding-dyslexia" || route === "/get-involved" || route === "/insights/army-guide-preview" || route === "/review-preview" || route.startsWith("/newsletters/")) continue;
       expect(getPageDate(route), route).toBeDefined();
     }
   });
@@ -100,8 +100,6 @@ describe("Page date rules", () => {
   it("excludes the staged FAQ from public dates and structured data", () => {
     expect(getPageDate("/support/faq")).toBeUndefined();
     expect(pageHead("/support/faq")).not.toHaveProperty("scripts");
-    expect(getPageDate("/support/insights-preview")).toBeUndefined();
-    expect(pageHead("/support/insights-preview")).not.toHaveProperty("scripts");
   });
 
   it("excludes Understanding how you think and learn from public dates and structured data", () => {
@@ -109,24 +107,9 @@ describe("Page date rules", () => {
     expect(pageHead("/support/how-you-think-and-learn")).not.toHaveProperty("scripts");
   });
 
-  it("excludes the Understanding Dyslexia preview from public dates and structured data", () => {
-    expect(getPageDate("/support/understanding-dyslexia-preview")).toBeUndefined();
-    expect(pageHead("/support/understanding-dyslexia-preview")).not.toHaveProperty("scripts");
-  });
-
   it("excludes the Army guide skeleton from public dates and structured data", () => {
     expect(getPageDate("/insights/army-guide-preview")).toBeUndefined();
     expect(pageHead("/insights/army-guide-preview")).not.toHaveProperty("scripts");
-  });
-
-  it("excludes the Serving now preview from public dates and structured data", () => {
-    expect(getPageDate("/support/serving-now-preview")).toBeUndefined();
-    expect(pageHead("/support/serving-now-preview")).not.toHaveProperty("scripts");
-  });
-
-  it("excludes the SLC preview from public dates and structured data", () => {
-    expect(getPageDate("/support/slc-preview")).toBeUndefined();
-    expect(pageHead("/support/slc-preview")).not.toHaveProperty("scripts");
   });
 
   it("excludes the Redesign review page from public dates and structured data", () => {
@@ -134,24 +117,18 @@ describe("Page date rules", () => {
     expect(pageHead("/review-preview")).not.toHaveProperty("scripts");
   });
 
-  it("excludes the About us preview from public dates and structured data", () => {
-    expect(getPageDate("/about-preview")).toBeUndefined();
-    expect(pageHead("/about-preview")).not.toHaveProperty("scripts");
+  it("retires the old preview addresses with no dates or structured data", () => {
+    for (const path of ["/support/insights-preview", "/support/understanding-dyslexia-preview", "/support/serving-now-preview", "/support/slc-preview", "/about-preview", "/get-involved-preview", "/partner-preview", "/lived-experiences-preview"]) {
+      expect(getPageDate(path), path).toBeUndefined();
+      expect(pageHead(path), path).not.toHaveProperty("scripts");
+    }
   });
 
-  it("excludes the Get involved preview from public dates and structured data", () => {
-    expect(getPageDate("/get-involved-preview")).toBeUndefined();
-    expect(pageHead("/get-involved-preview")).not.toHaveProperty("scripts");
-  });
-
-  it("excludes the Partner preview from public dates and structured data", () => {
-    expect(getPageDate("/partner-preview")).toBeUndefined();
-    expect(pageHead("/partner-preview")).not.toHaveProperty("scripts");
-  });
-
-  it("excludes the Lived experiences preview from public dates and structured data", () => {
-    expect(getPageDate("/lived-experiences-preview")).toBeUndefined();
-    expect(pageHead("/lived-experiences-preview")).not.toHaveProperty("scripts");
+  it("keeps the two new final addresses out of public dates and structured data for now", () => {
+    for (const path of ["/insights/understanding-dyslexia", "/get-involved"]) {
+      expect(getPageDate(path), path).toBeUndefined();
+      expect(pageHead(path), path).not.toHaveProperty("scripts");
+    }
   });
 
   it("uses October 2026 for the evidence reporting period", () => {
