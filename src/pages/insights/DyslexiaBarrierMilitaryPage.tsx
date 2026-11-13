@@ -37,7 +37,7 @@ const DyslexiaBarrierMilitaryPage = () => (
     <section className="mb-10">
       <h2 className="text-2xl font-bold text-foreground mb-4">Policy vs reality</h2>
       <p className="text-foreground leading-relaxed mb-4">
-        Specific learning difficulties are not in themselves a bar to recruitment or Service in the Armed Forces if the required standards are met. You are not screened for dyslexia or other specific learning difficulties during recruitment. Ask your recruiter what the application asks, so you know what to expect.
+        Specific learning difficulties are not in themselves a bar to recruitment or Service in the Armed Forces if the required standards are met. Dyslexia screening is not a requirement of recruitment. Ask your recruiter what the application asks, so you know what to expect.
       </p>
       <p className="text-foreground leading-relaxed">
         In reality, around 1 in 10 personnel are dyslexic — roughly 18,000 people serving today. Senior leaders, long-serving soldiers, instructors and specialists across the Armed Forces are dyslexic. It’s common, not exceptional.
