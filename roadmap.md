@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Switch-over step 1: move the redesigned pages to their final addresses, redirect /support to Start here, retire preview addresses, keep old pages in src/pages/_old; tests and preview checks, no publishing.
+
 - [x] Stage new main menu and footer links behind switched-off flags; keep live menu and footer identical; tests and desktop/375px checks without publishing.
 - [x] Add hidden "Understanding how you think and learn" placeholder page, repoint hidden support links from /why-it-matters, add tests; verify desktop/375px without publishing.
 - [x] Add hidden FAQ library with ?for= filters, visible answers, no FAQ structured data, discovery/date exclusions and tests; verify desktop/375px without publishing.

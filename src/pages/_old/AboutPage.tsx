@@ -1,3 +1,4 @@
+// OLD: remove one week after Publish 2. No longer routed; kept only for an easy rollback.
 import { Link } from "@/lib/router-compat";
 import { ArrowRight, Compass, BookOpen, HelpCircle, Mail, Scale } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";

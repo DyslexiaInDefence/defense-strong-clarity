@@ -5,11 +5,11 @@ import { pageHead } from "@/lib/seo";
 const title = "Get involved | Dyslexia in Defence";
 const description = "Meet others, share what it has been like, and help shape what we do.";
 
-export const Route = createFileRoute("/get-involved-preview")({
-  // Temporary hidden address; moves to /get-involved at switch-over. No structured data while hidden.
+export const Route = createFileRoute("/get-involved")({
+  // Redesigned page at its final address. Stays noindex with no structured data until the switch-over clean-up (step 4). New address. No page date yet.
   component: GetInvolvedHubPage,
   head: () => ({
-    ...pageHead("/get-involved-preview"),
+    links: pageHead("/get-involved").links,
     meta: [
       { title },
       { name: "description", content: description },
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/get-involved-preview")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://dyslexiaindefence.com/get-involved-preview" },
+      { property: "og:url", content: "https://dyslexiaindefence.com/get-involved" },
       { name: "twitter:card", content: "summary" },
     ],
   }),

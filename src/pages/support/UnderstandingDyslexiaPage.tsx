@@ -9,7 +9,7 @@ import "./start-here.css";
 const SHOW_WIP_BANNER = true;
 
 // Staged copy of the live Why It Matters body, word for word except the h1.
-// Moves to /insights/understanding-dyslexia at switch-over.
+// Served at its final address since switch-over step 1.
 
 const strengths = [
 { icon: Puzzle, label: "Systems thinking" },
@@ -38,7 +38,7 @@ export default function UnderstandingDyslexiaPage() {
         <nav aria-label="Understanding Dyslexia breadcrumb" className="mb-5">
           <ol className="flex flex-wrap items-center gap-2 text-base">
             <li><Button asChild variant="link" className="min-h-11 h-auto px-0 text-base"><Link to="/">Home</Link></Button></li>
-            <li className="flex items-center gap-2"><ChevronRight aria-hidden="true" className="size-4" /><Button asChild variant="link" className="min-h-11 h-auto px-0 text-base"><Link to="/support/insights-preview">Insights</Link></Button></li>
+            <li className="flex items-center gap-2"><ChevronRight aria-hidden="true" className="size-4" /><Button asChild variant="link" className="min-h-11 h-auto px-0 text-base"><Link to="/insights">Insights</Link></Button></li>
             <li className="flex min-h-11 items-center gap-2"><ChevronRight aria-hidden="true" className="size-4" /><span aria-current="page">Understanding Dyslexia</span></li>
           </ol>
         </nav>

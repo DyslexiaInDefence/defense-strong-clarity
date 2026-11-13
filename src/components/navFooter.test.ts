@@ -19,7 +19,8 @@ const { default: Footer, USE_NEW_FOOTER, CURRENT_FOOTER_COLUMNS, NEW_FOOTER_COLU
 const { SHARE_MAILTO } = await import("./ShareLivedExperienceBanner");
 
 // Destinations in the new menu and footer that only exist once the switch-over route swaps land.
-const POST_SWITCHOVER_ROUTES = new Set(["/get-involved"]);
+// Empty since /get-involved was added in switch-over step 1.
+const POST_SWITCHOVER_ROUTES = new Set<string>();
 
 // Snapshot of the live menu and footer links before the new ones were staged. Any change here must be deliberate.
 const LIVE_NAV_SNAPSHOT = [
@@ -206,7 +207,7 @@ describe("New menu and footer destinations", () => {
   it("only point at existing routes, the agreed post switch-over routes or the share email", () => {
     const missing = newDestinations.filter(to => to !== SHARE_MAILTO && !EXISTING_ROUTES.has(to));
     expect([...new Set(missing)]).toEqual([...POST_SWITCHOVER_ROUTES]);
-    expect([...POST_SWITCHOVER_ROUTES]).toEqual(["/get-involved"]);
+    expect([...POST_SWITCHOVER_ROUTES]).toEqual([]);
   });
 
   it("never link to a preview address", () => {

@@ -1,3 +1,4 @@
+// OLD: remove one week after Publish 2. No longer routed; kept only for an easy rollback.
 import { Fragment } from "react";
 import { Link } from "@/lib/router-compat";
 import { AlertTriangle, ArrowDown, ArrowRight, CircleHelp, Download, ExternalLink, Info, Mail } from "lucide-react";
