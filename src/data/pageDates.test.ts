@@ -23,27 +23,47 @@ const OCT_26_PAGES = [
 
 const NOV_13_PAGES = [
   "/about/faq",
-  "/insights",
   "/insights/can-you-join-army-with-dyslexia-uk",
   "/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk",
   "/insights/is-dyslexia-a-barrier-in-the-military-uk",
 ];
 
+// Switch-over step 4: every redesigned page went public on 14 November 2026.
+const NOV_14_PAGES = [
+  "/about",
+  "/partner",
+  "/lived-experiences",
+  "/get-involved",
+  "/insights",
+  "/insights/understanding-dyslexia",
+  "/support/currently-serving",
+  "/currently-serving/standard-learning-credits",
+  "/support/start-here",
+  "/support/thinking-of-joining",
+  "/support/leaving-or-left-service",
+  "/support/supporting-someone",
+  "/support/guidance",
+  "/support/downloads-and-tools",
+  "/support/faq",
+  "/support/how-you-think-and-learn",
+];
+
 describe("Page date rules", () => {
   it("maps every page to its honest content date", () => {
-    expect(Object.keys(PAGE_DATES)).toHaveLength(40);
+    expect(Object.keys(PAGE_DATES)).toHaveLength(50);
     for (const [path, date] of Object.entries(PAGE_DATES)) {
       if (path.startsWith("/governance")) continue;
       if (path === "/about/why-we-are-here") continue;
       if (path === "/contact") continue;
       if (path === "/lived-experiences/liz-oliver-british-army-veteran") continue;
-      if (path === "/currently-serving/standard-learning-credits") continue;
       if (OCT_26_PAGES.includes(path)) continue;
       if (NOV_13_PAGES.includes(path)) continue;
+      if (NOV_14_PAGES.includes(path)) continue;
       expect(date, path).toBe("2026-10-24");
     }
     for (const path of OCT_26_PAGES) expect(PAGE_DATES[path], path).toBe("2026-10-26");
     for (const path of NOV_13_PAGES) expect(PAGE_DATES[path], path).toBe("2026-11-13");
+    for (const path of NOV_14_PAGES) expect(PAGE_DATES[path], path).toBe("2026-11-14");
     expect(PAGE_DATES["/governance"]).toBe("2026-08-08");
     expect(PAGE_DATES["/governance/founder"]).toBe("2026-08-08");
     expect(PAGE_DATES["/governance/sponsorship"]).toBe("2026-03-01");
@@ -55,9 +75,9 @@ describe("Page date rules", () => {
     expect(formatPageDate("2026-10-24")).toBe("24 October 2026");
   });
 
-  it("dates the SLC content update to 30 October 2026", () => {
-    expect(getPageDate("/currently-serving/standard-learning-credits")).toBe("2026-10-30");
-    expect(formatPageDate(getPageDate("/currently-serving/standard-learning-credits") ?? "")).toBe("30 October 2026");
+  it("dates the redesigned SLC page to its public launch on 14 November 2026", () => {
+    expect(getPageDate("/currently-serving/standard-learning-credits")).toBe("2026-11-14");
+    expect(formatPageDate(getPageDate("/currently-serving/standard-learning-credits") ?? "")).toBe("14 November 2026");
   });
 
   it("dates Liz Oliver's story to 6 November 2026", () => {
@@ -76,7 +96,7 @@ describe("Page date rules", () => {
       const text = readFileSync(path, "utf8");
       if (!text.includes("component:") || path.endsWith("__root.tsx")) continue;
       const route = text.match(/createFileRoute\("([^"]+)"\)/)?.[1]?.replace(/\/$/, "");
-      if (!route || route === "/evidence" || route === "/support/start-here" || route === "/support/thinking-of-joining" || route === "/support/leaving-or-left-service" || route === "/support/supporting-someone" || route === "/support/guidance" || route === "/support/downloads-and-tools" || route === "/support/faq" || route === "/support/how-you-think-and-learn" || route === "/insights/understanding-dyslexia" || route === "/get-involved" || route === "/insights/army-guide-preview" || route.startsWith("/newsletters/")) continue;
+      if (!route || route === "/evidence" || route === "/insights/army-guide-preview" || route.startsWith("/newsletters/")) continue;
       expect(getPageDate(route), route).toBeDefined();
     }
   });
@@ -87,24 +107,13 @@ describe("Page date rules", () => {
     }
   });
 
-  it("excludes Supporting someone from public dates and structured data", () => {
-    expect(getPageDate("/support/supporting-someone")).toBeUndefined();
-    expect(pageHead("/support/supporting-someone")).not.toHaveProperty("scripts");
-  });
-
-  it("excludes Guidance from public dates and structured data", () => {
-    expect(getPageDate("/support/guidance")).toBeUndefined();
-    expect(pageHead("/support/guidance")).not.toHaveProperty("scripts");
-  });
-
-  it("excludes the staged FAQ from public dates and structured data", () => {
-    expect(getPageDate("/support/faq")).toBeUndefined();
-    expect(pageHead("/support/faq")).not.toHaveProperty("scripts");
-  });
-
-  it("excludes Understanding how you think and learn from public dates and structured data", () => {
-    expect(getPageDate("/support/how-you-think-and-learn")).toBeUndefined();
-    expect(pageHead("/support/how-you-think-and-learn")).not.toHaveProperty("scripts");
+  it("dates every page made public in step 4 and gives it WebPage and BreadcrumbList data only", () => {
+    for (const path of NOV_14_PAGES) {
+      expect(getPageDate(path), path).toBe("2026-11-14");
+      const head = pageHead(path);
+      const types = ("scripts" in head ? head.scripts ?? [] : []).map(script => JSON.parse(script.children)["@type"]);
+      expect(types, path).toEqual(["WebPage", "BreadcrumbList"]);
+    }
   });
 
   it("excludes the Army guide skeleton from public dates and structured data", () => {
@@ -124,13 +133,6 @@ describe("Page date rules", () => {
     }
   });
 
-  it("keeps the two new final addresses out of public dates and structured data for now", () => {
-    for (const path of ["/insights/understanding-dyslexia", "/get-involved"]) {
-      expect(getPageDate(path), path).toBeUndefined();
-      expect(pageHead(path), path).not.toHaveProperty("scripts");
-    }
-  });
-
   it("uses October 2026 for the evidence reporting period", () => {
     expect(EVIDENCE_DATA_AS_AT).toEqual({ iso: "2026-10", label: "October 2026" });
   });
@@ -140,10 +142,12 @@ describe("Page date rules", () => {
       const head = pageHead(path);
       for (const script of "scripts" in head ? head.scripts ?? [] : []) {
         const schema = JSON.parse(script.children);
+        // A page trail carries no date of its own.
+        if (schema["@type"] === "BreadcrumbList") continue;
         expect(schema.dateModified, path).toBe(getPageDate(path));
       }
     }
-    for (const [path, type] of [["/about", "WebPage"], ["/about/faq", "FAQPage"], ["/insights", "FAQPage"], ["/insights/can-you-join-army-with-dyslexia-uk", "Article"], ["/lived-experiences/major-lena-beardsell", "Article"]] as const) {
+    for (const [path, type] of [["/about", "WebPage"], ["/about/faq", "FAQPage"], ["/insights", "WebPage"], ["/insights/can-you-join-army-with-dyslexia-uk", "Article"], ["/lived-experiences/major-lena-beardsell", "Article"]] as const) {
       const head = pageHead(path);
       const script = "scripts" in head ? head.scripts?.[0] : undefined;
       expect(script).toBeDefined();
