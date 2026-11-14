@@ -38,7 +38,7 @@ function files(directory: string): string[] {
 
 const read = (path: string) => readFileSync(path, "utf8");
 const meta = (path: string) => pageHead(path).meta as Array<Record<string, string>>;
-const metaValue = (path: string, key: string) => meta(path).find(tag => tag.name === key || tag.property === key)?.content;
+const metaValue = (path: string, key: string) => meta(path).find(tag => tag["name"] === key || tag["property"] === key)?.["content"];
 const pageSource = (routeFile: string) => {
   const target = read(routeFile).match(/import \w+ from "@\/pages\/([^"]+)"/)?.[1];
   if (!target) throw new Error(`No page import in ${routeFile}`);
@@ -63,7 +63,7 @@ describe("Switch-over step 4: redesigned pages are public", () => {
     for (const [path, routeFile] of Object.entries(PUBLIC_REDESIGN)) {
       expect(read(routeFile), path).not.toContain("noindex");
       expect(read(routeFile), path).toContain(`head: () => pageHead("${path}"),`);
-      expect(meta(path).some(tag => tag.name === "robots"), path).toBe(false);
+      expect(meta(path).some(tag => tag["name"] === "robots"), path).toBe(false);
       expect(PUBLIC_PAGES[path]?.indexable, path).toBe(true);
     }
   });
@@ -84,7 +84,7 @@ describe("Switch-over step 4: redesigned pages are public", () => {
   it("gives each page a unique title under 60 characters ending | Dyslexia in Defence", () => {
     const allTitles = Object.values(PUBLIC_PAGES).map(page => page.title);
     for (const path of PATHS) {
-      const title = metaValue(path, "title") ?? meta(path).find(tag => "title" in tag)?.title;
+      const title = metaValue(path, "title") ?? meta(path).find(tag => "title" in tag)?.["title"];
       expect(title, path).toBe(PUBLIC_PAGES[path]?.title);
       expect(title!.length, path).toBeLessThan(60);
       expect(title, path).toMatch(/ \| Dyslexia in Defence$/);
