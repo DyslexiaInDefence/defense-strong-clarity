@@ -16,6 +16,7 @@ const strengths = [
 { icon: Compass, label: "Spatial reasoning" },
 { icon: Lightbulb, label: "Innovative thinking under pressure" }];
 
+
 const ecosystem = [
 { label: "Pre service", description: "Candidates exploring defence and security careers." },
 { label: "Serving", description: "Active personnel across military and civilian roles." },
