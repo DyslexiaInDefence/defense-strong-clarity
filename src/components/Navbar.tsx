@@ -130,7 +130,9 @@ const Navbar = () => {
 
   const isItemActive = (item: NavItem) => {
     if (item.to === "/") return pathname === "/";
-    return pathname === item.to || pathname.startsWith(item.to + "/") || isChildActive(item);
+    // Section is the first address segment, so Get Support (now /support/start-here) still highlights on every /support/ page.
+    const section = "/" + item.to.split("/")[1];
+    return pathname === item.to || pathname.startsWith(section + "/") || isChildActive(item);
   };
 
   // Auto-expand mobile section if a child is active
