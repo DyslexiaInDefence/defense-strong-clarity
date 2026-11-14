@@ -52,7 +52,7 @@ export default function LeavingOrLeftServicePage() {
         <nav aria-label="Leaving or left service breadcrumb" className="mb-5">
           <ol className="flex flex-wrap items-center gap-2 text-base">
             <li><Button asChild variant="link" className="min-h-11 h-auto px-0 text-base"><Link to="/">Home</Link></Button></li>
-            <li className="flex items-center gap-2"><ChevronRight aria-hidden="true" className="size-4" /><Button asChild variant="link" className="min-h-11 h-auto px-0 text-base"><Link to="/support">Get support</Link></Button></li>
+            <li className="flex items-center gap-2"><ChevronRight aria-hidden="true" className="size-4" /><Button asChild variant="link" className="min-h-11 h-auto px-0 text-base"><Link to="/support/start-here">Get support</Link></Button></li>
             <li className="flex items-center gap-2"><ChevronRight aria-hidden="true" className="size-4" /><Button asChild variant="link" className="min-h-11 h-auto px-0 text-base"><Link to="/support/start-here">Start here</Link></Button></li>
             <li className="flex min-h-11 items-center gap-2"><ChevronRight aria-hidden="true" className="size-4" /><span aria-current="page">Leaving or left service</span></li>
           </ol>
@@ -101,11 +101,11 @@ export default function LeavingOrLeftServicePage() {
               <div key={item.q} className={`${panelClass} sm:p-6`}>
                 <h3 className="mb-2 text-lg font-semibold leading-relaxed">{item.q}</h3>
                 <p className="mb-2 text-base leading-relaxed">{item.a}</p>
-                <Link to="/about/faq" className={textLink} aria-label={`Read the full answer: ${item.q}`}>Read the full answer<ArrowRight aria-hidden="true" className="size-4" /></Link>
+                <Link to="/support/faq" className={textLink} aria-label={`Read the full answer: ${item.q}`}>Read the full answer<ArrowRight aria-hidden="true" className="size-4" /></Link>
               </div>
             ))}
           </div>
-          <p className="mt-5"><Link to="/about/faq" className={textLink}>See all FAQs<ArrowRight aria-hidden="true" className="size-4" /></Link></p>
+          <p className="mt-5"><Link to="/support/faq" className={textLink}>See all FAQs<ArrowRight aria-hidden="true" className="size-4" /></Link></p>
         </section>
 
         <section aria-labelledby="real-stories" className={`${panelClass} mb-12`}>

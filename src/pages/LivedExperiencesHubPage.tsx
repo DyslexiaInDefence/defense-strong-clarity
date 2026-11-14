@@ -11,7 +11,7 @@ const SHOW_WIP_BANNER = true;
 export const MORE_LINKS = [
   { title: "Join the Network", to: "/join" },
   { title: "Community", to: "/community" },
-  { title: "Get support", to: "/support" },
+  { title: "Get support", to: "/support/start-here" },
   { title: "Insights", to: "/insights" },
 ];
 

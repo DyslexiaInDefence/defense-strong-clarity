@@ -108,7 +108,7 @@ const OurStoryPage = () => (
               <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
             </Button>
           </Link>
-          <Link to="/about/what-we-do">
+          <Link to="/insights/understanding-dyslexia">
             <Button variant="outline" size="lg" className="rounded-full border-2 border-primary font-semibold text-primary hover:bg-primary hover:text-primary-foreground">
               What we do
             </Button>

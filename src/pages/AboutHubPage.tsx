@@ -18,7 +18,7 @@ export const GOVERNANCE_CARDS = [
 ];
 
 export const MORE_LINKS = [
-  { title: "Get support", to: "/support" },
+  { title: "Get support", to: "/support/start-here" },
   { title: "Insights", to: "/insights" },
   { title: "Lived experiences", to: "/lived-experiences" },
   { title: "Join the Network", to: "/join" },
