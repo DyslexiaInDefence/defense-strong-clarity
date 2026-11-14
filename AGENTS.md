@@ -12,3 +12,4 @@
 - Stage the switch-over menu and footer as exported `NEW_*` link lists behind off-by-default flags in Navbar and Footer, keeping `CURRENT_*` lists pinned by test, so the live chrome cannot change until the flags flip.
 - Keep the redesign review aid in `src/lib/reviewMode.ts`: only the main preview host, after hydration, swaps Navbar and Footer to the `NEW_*` lists, with an address map left empty now pages sit at final addresses, so the published chrome never changes before the flags flip; delete it with `/review-preview` at switch-over.
 - Keep pages replaced at switch-over unrouted and unimported in `src/pages/_old`, each marked for removal, so a rollback is a one-line route change; delete them after Publish 2.
+- Map automatic page-trail steps whose own address is a redirect through `CRUMB_TARGETS` in Breadcrumbs, so no internal link depends on a redirect.
