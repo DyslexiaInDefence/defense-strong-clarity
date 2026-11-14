@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { getPageDate } from "../../data/pageDates";
@@ -9,14 +9,11 @@ import { ABOUT_CARDS, GOVERNANCE_CARDS, MORE_LINKS } from "../AboutHubPage";
 import { WAYS_TO_TAKE_PART, MORE_LINKS as INVOLVED_MORE_LINKS } from "../GetInvolvedHubPage";
 import { MORE_LINKS as PARTNER_MORE_LINKS, PACKAGES } from "../PartnerHubPage";
 import { MORE_LINKS as LIVED_MORE_LINKS } from "../LivedExperiencesHubPage";
-import { REVIEW_GROUPS } from "../ReviewPreviewPage";
 import { ARMY_GUIDE_HEADINGS } from "../insights/ArmyGuidePreviewPage";
 import { CRUMB_TARGETS } from "../../components/Breadcrumbs";
 import { SHARE_MAILTO } from "../../components/ShareLivedExperienceBanner";
 import { BDA_PSYCHOLOGIST_FEE, BDA_PSYCHOLOGIST_YOU_PAY, BDA_RATE_DATE, BDA_TEACHER_FEE, BDA_TEACHER_YOU_PAY, JSP822_VOL7_URL, JSP822_VOL9_URL, SARAH_BODY, SARAH_EMAIL, SARAH_MAILTO, SARAH_SUBJECT, SLC_COST_DATE, SLC_COST_OPTIONS, SLC_FULL_USUAL_PRICE, SLC_TEMPLATE_FORM } from "./slcContent";
 
-// The review-only menu switch and the hidden Redesign review page list every staged address by design. Delete at switch-over.
-const REVIEW_AIDS = ["src/lib/reviewMode.ts", "src/lib/reviewMode.test.ts", "src/pages/ReviewPreviewPage.tsx", "src/routes/review-preview.tsx"];
 
 function files(directory: string): string[] {
   return readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
@@ -30,10 +27,10 @@ describe("Staged support page boundaries", () => {
     // Layout's exact-path opt-out is not an inbound link or discovery entry.
     // AboutHubPage, GetInvolvedHubPage, PartnerHubPage and LivedExperiencesHubPage only import the shared start-here.css styles; its links are pinned by the About us preview tests.
     // ArmyGuidePreviewPage likewise only imports ../support/start-here.css; its links are pinned by the Army guide skeleton tests.
-    // Navbar and Footer only hold this address in the switched-off NEW_* lists, pinned off by navFooter.test.ts.
+    // Navbar and Footer link here from the always-on menu and footer, pinned by navFooter.test.ts.
     // src/routes/support/index.tsx is the permanent /support redirect to this page.
     // Switch-over step 2: the homepage Get support links, the automatic page trail and the /resources redirect now point straight here.
-    const allowed = new Set([...REVIEW_AIDS, "src/routes/support/index.tsx", "src/routes/resources.tsx", "src/pages/HomePage.tsx", "src/components/Breadcrumbs.tsx", "src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/AboutHubPage.tsx", "src/pages/GetInvolvedHubPage.tsx", "src/pages/PartnerHubPage.tsx", "src/pages/LivedExperiencesHubPage.tsx", "src/pages/insights/ArmyGuidePreviewPage.tsx", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/routes/support/index.tsx", "src/routes/resources.tsx", "src/pages/HomePage.tsx", "src/components/Breadcrumbs.tsx", "src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/AboutHubPage.tsx", "src/pages/GetInvolvedHubPage.tsx", "src/pages/PartnerHubPage.tsx", "src/pages/LivedExperiencesHubPage.tsx", "src/pages/insights/ArmyGuidePreviewPage.tsx", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/start-here"), path).toBe(false);
@@ -41,7 +38,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes Thinking of joining from all existing discovery content", () => {
-    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/StartHerePage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/StartHerePage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/thinking-of-joining"), path).toBe(false);
@@ -49,7 +46,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes Leaving or left service from all existing discovery content", () => {
-    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/StartHerePage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/StartHerePage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/leaving-or-left-service"), path).toBe(false);
@@ -71,7 +68,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes Supporting someone from all existing discovery content", () => {
-    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/StartHerePage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/StartHerePage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/supporting-someone"), path).toBe(false);
@@ -90,8 +87,8 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes Guidance from all existing discovery content", () => {
-    // Navbar and Footer only hold this address in the switched-off NEW_* lists, pinned off by navFooter.test.ts.
-    const allowed = new Set([...REVIEW_AIDS, "src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    // Navbar and Footer link here from the always-on menu and footer, pinned by navFooter.test.ts.
+    const allowed = new Set(["src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/guidance"), path).toBe(false);
@@ -133,8 +130,8 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes Downloads and tools from all existing discovery content", () => {
-    // Navbar and Footer only hold this address in the switched-off NEW_* lists, pinned off by navFooter.test.ts.
-    const allowed = new Set([...REVIEW_AIDS, "src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/downloads-and-tools.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    // Navbar and Footer link here from the always-on menu and footer, pinned by navFooter.test.ts.
+    const allowed = new Set(["src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/downloads-and-tools.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/downloads-and-tools"), path).toBe(false);
@@ -235,7 +232,7 @@ describe("Staged support page boundaries", () => {
   it("excludes the staged FAQ from all existing discovery content", () => {
     // Navbar and Footer hold this address in the NEW_* lists and, since switch-over step 2, in place of /about/faq in the current lists.
     // Switch-over step 2: the /about/faq redirect and the route pages' "Read the full answer" links point straight here.
-    const allowed = new Set([...REVIEW_AIDS, "src/routes/about/faq.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/faq.tsx", "src/pages/support/FaqPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/routes/about/faq.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/faq.tsx", "src/pages/support/FaqPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/faq"), path).toBe(false);
@@ -285,7 +282,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes Understanding how you think and learn from all existing discovery content", () => {
-    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/support/how-you-think-and-learn.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/guidanceLibrary.ts", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/how-you-think-and-learn.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/guidanceLibrary.ts", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/how-you-think-and-learn"), path).toBe(false);
@@ -333,7 +330,7 @@ describe("Staged support page boundaries", () => {
       expect(readFileSync(path, "utf8").includes("understanding-dyslexia-preview"), path).toBe(false);
     }
     // Switch-over step 2: links to What We Do and the /about/what-we-do and /why-it-matters redirects now point straight here.
-    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", "src/routes/insights/understanding-dyslexia.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/about/OurStoryPage.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/routes/about/what-we-do.tsx", "src/routes/why-it-matters.tsx", "src/routeTree.gen.ts", ...tests]);
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/insights/understanding-dyslexia.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/about/OurStoryPage.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/routes/about/what-we-do.tsx", "src/routes/why-it-matters.tsx", "src/routeTree.gen.ts", ...tests]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/insights/understanding-dyslexia"), path).toBe(false);
@@ -685,10 +682,15 @@ describe("Staged support page boundaries", () => {
     expect(readFileSync("src/components/ShareLivedExperienceBanner.tsx", "utf8").toLowerCase()).not.toContain("consent");
   });
 
-  it("keeps the live menu and footer Get Involved on /join while /get-involved serves the new hub", () => {
-    // The live lists are the CURRENT_* ones while the switch-over flags are off (pinned by navFooter.test.ts).
-    expect(readFileSync("src/components/Navbar.tsx", "utf8")).toMatch(/CURRENT_NAV_LINKS[\s\S]*?label: "Get Involved",\s*to: "\/join"/);
-    expect(readFileSync("src/components/Footer.tsx", "utf8")).toMatch(/CURRENT_FOOTER_COLUMNS[\s\S]*?\{ label: "Get Involved", to: "\/join" \}/);
+  it("points the menu and footer Get Involved at /get-involved, which serves the new hub, with Join the Network on /join", () => {
+    // Switch-over step 3: the new menu and footer are always on (pinned by navFooter.test.ts).
+    const navbar = readFileSync("src/components/Navbar.tsx", "utf8");
+    const footer = readFileSync("src/components/Footer.tsx", "utf8");
+    expect(navbar).toMatch(/label: "Get Involved",\s*to: "\/get-involved"/);
+    expect(navbar).toContain('<NavLink to="/join">Join the Network</NavLink>');
+    expect(footer).toContain('heading: { label: "Get Involved", to: "/get-involved" }');
+    expect(footer).toContain('{ label: "Join the Network", to: "/join" }');
+    expect(navbar.includes('to: "/join"') || footer.includes('label: "Get Involved", to: "/join"')).toBe(false);
     expect(files("src/routes").filter(path => /get-involved/.test(path))).toEqual(["src/routes/get-involved.tsx"]);
   });
 
@@ -874,62 +876,19 @@ describe("Staged support page boundaries", () => {
   });
 });
 
-describe("Redesign review page", () => {
-  it("excludes the Redesign review page from all existing discovery content", () => {
-    const allowed = new Set(["src/components/Layout.tsx", "src/routes/review-preview.tsx", "src/pages/ReviewPreviewPage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+describe("Redesign review page (removed at switch-over step 3)", () => {
+  it("has no route, page or discovery entry left for /review-preview", () => {
+    expect(existsSync("src/routes/review-preview.tsx")).toBe(false);
+    expect(existsSync("src/pages/ReviewPreviewPage.tsx")).toBe(false);
+    const allowed = new Set(["src/routeTree.gen.ts", "src/components/navFooter.test.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
-      expect(readFileSync(path, "utf8").includes("/review-preview"), path).toBe(false);
+      expect(readFileSync(path, "utf8").includes("review-preview"), path).toBe(false);
     }
-    expect(readFileSync("public/sitemap.xml", "utf8").includes("review-preview")).toBe(false);
-    expect(readFileSync("public/llms.txt", "utf8").includes("review-preview")).toBe(false);
-    expect(readFileSync("src/lib/seo.ts", "utf8").includes("review-preview")).toBe(false);
+    for (const path of ["public/sitemap.xml", "public/llms.txt", "public/robots.txt", "src/lib/seo.ts", "src/components/Layout.tsx"]) {
+      expect(readFileSync(path, "utf8").includes("review-preview"), path).toBe(false);
+    }
     expect(getPageDate("/review-preview")).toBeUndefined();
-  });
-
-  it("keeps the Redesign review page hidden, bannered and without structured data", () => {
-    const route = readFileSync("src/routes/review-preview.tsx", "utf8");
-    const page = readFileSync("src/pages/ReviewPreviewPage.tsx", "utf8");
-    expect(route).toContain('createFileRoute("/review-preview")');
-    expect(route).toContain('content: "noindex, nofollow"');
-    expect(page).toContain("const SHOW_WIP_BANNER = true;");
-    expect(page).toContain("Work in progress – this page is not live yet.");
-    expect(page).toContain("Every redesigned page that is built but not live yet. Open them from here. This page will be deleted at switch-over.");
-    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/review-preview"');
-    for (const text of [route, page]) expect(text).not.toContain("ld+json");
-    expect(page).not.toContain("\u2014");
-  });
-
-  it("lists every staged page with what it replaces, linking only to existing routes", () => {
-    const routeText = files("src/routes").filter(path => path.endsWith(".tsx")).map(path => readFileSync(path, "utf8")).join("\n");
-    const rows = REVIEW_GROUPS.flatMap(group => group.entries.map(entry => [group.heading, entry.name, entry.to, entry.replaces ?? "New page"]));
-    expect(rows).toEqual([
-      ["Get support", "Start here", "/support/start-here", "New page"],
-      ["Get support", "Thinking of joining", "/support/thinking-of-joining", "New page"],
-      ["Get support", "Serving now", "/support/currently-serving", "/support/currently-serving"],
-      ["Get support", "Leaving or left service", "/support/leaving-or-left-service", "New page"],
-      ["Get support", "Supporting someone", "/support/supporting-someone", "New page"],
-      ["Get support", "Guidance", "/support/guidance", "New page"],
-      ["Get support", "Downloads and tools", "/support/downloads-and-tools", "New page"],
-      ["Get support", "FAQ", "/support/faq", "New page"],
-      ["Get support", "Understanding how you think and learn", "/support/how-you-think-and-learn", "New page"],
-      ["Get support", "Understanding Dyslexia", "/insights/understanding-dyslexia", "the What We Do text"],
-      ["Get support", "Insights", "/insights", "/insights"],
-      ["Get support", "Standard Learning Credits", "/currently-serving/standard-learning-credits", "/currently-serving/standard-learning-credits"],
-      ["Get support", "Serving with dyslexia in the Army (skeleton)", "/insights/army-guide-preview", "New page"],
-      ["About and involvement", "About Us", "/about", "/about"],
-      ["About and involvement", "Get Involved", "/get-involved", "New page"],
-      ["About and involvement", "Partner with us", "/partner", "/partner"],
-      ["About and involvement", "Lived experiences", "/lived-experiences", "/lived-experiences"],
-    ]);
-    expect(REVIEW_GROUPS[1]!.entries.find(entry => entry.name === "Get Involved")!.finalAddress).toBe("/get-involved");
-    expect(REVIEW_GROUPS[0]!.entries.find(entry => entry.name === "Understanding Dyslexia")!.finalAddress).toBe("/insights/understanding-dyslexia");
-    for (const [, , to] of rows) expect(routeText.includes(`createFileRoute("${to}")`) || routeText.includes(`createFileRoute("${to}/")`), to).toBe(true);
-    // Every entry now opens its final address, apart from the Army guide skeleton.
-    for (const entry of REVIEW_GROUPS.flatMap(group => group.entries)) {
-      if (entry.to === "/insights/army-guide-preview") continue;
-      expect(entry.to, entry.name).toBe(entry.finalAddress);
-    }
   });
 });
 
@@ -938,7 +897,7 @@ const DECLARE_ANSWER = "Dyslexia screening is not a requirement of recruitment. 
 // Old pages kept for rollback in src/pages/_old and ArmyEducationCentresPage stay out.
 const HIDDEN_NEW_PAGES = [
   ...["StartHerePage.tsx", "ThinkingOfJoiningPage.tsx", "LeavingOrLeftServicePage.tsx", "SupportingSomeonePage.tsx", "GuidancePage.tsx", "DownloadsAndToolsPage.tsx", "FaqPage.tsx", "HowYouThinkAndLearnPage.tsx", "UnderstandingDyslexiaPage.tsx", "InsightsLandingPage.tsx", "ServingNowPage.tsx", "SlcPage.tsx", "guidanceLibrary.ts", "downloadsLibrary.ts", "faqLibrary.ts", "slcContent.ts"].map(name => `src/pages/support/${name}`),
-  "src/pages/AboutHubPage.tsx", "src/pages/GetInvolvedHubPage.tsx", "src/pages/PartnerHubPage.tsx", "src/pages/LivedExperiencesHubPage.tsx", "src/pages/ReviewPreviewPage.tsx",
+  "src/pages/AboutHubPage.tsx", "src/pages/GetInvolvedHubPage.tsx", "src/pages/PartnerHubPage.tsx", "src/pages/LivedExperiencesHubPage.tsx",
   "src/pages/insights/ArmyGuidePreviewPage.tsx",
 ];
 
@@ -977,7 +936,7 @@ describe("Army guide skeleton (hidden)", () => {
   });
 
   it("excludes the Army guide skeleton from all existing discovery content", () => {
-    const allowed = new Set([...REVIEW_AIDS, "src/components/Layout.tsx", ROUTE, PAGE, "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/components/Layout.tsx", ROUTE, PAGE, "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("army-guide-preview"), path).toBe(false);
@@ -1011,11 +970,14 @@ describe("Army guide skeleton (hidden)", () => {
     expect(page).toContain('<span aria-current="page">Serving with dyslexia in the Army</span>');
   });
 
-  it("lists the skeleton on the review page with its final address and note", () => {
-    const entry = REVIEW_GROUPS.flatMap(group => group.entries).find(item => item.to === "/insights/army-guide-preview");
-    expect(entry?.name).toBe("Serving with dyslexia in the Army (skeleton)");
-    expect(entry?.finalAddress).toBe("/insights/serving-with-dyslexia-in-the-army-uk");
-    expect(entry?.note).toBe("Headings only. Not for Publish 2 until content is written.");
+  it("opens directly at its own address without the removed review page", () => {
+    // The review page that listed the skeleton is gone; the skeleton route stands alone and nothing links to it.
+    expect(existsSync(ROUTE)).toBe(true);
+    expect(existsSync("src/pages/ReviewPreviewPage.tsx")).toBe(false);
+    const page = readFileSync(PAGE, "utf8");
+    const route = readFileSync(ROUTE, "utf8");
+    expect(route).toContain("component:");
+    for (const text of [route, page]) expect(/review-preview|reviewmode|redesign review|review_groups/.test(text.toLowerCase())).toBe(false);
   });
 
   it("leaves the final address redirecting to Kirk Davis's story", () => {
@@ -1054,9 +1016,9 @@ describe("Switch-over step 1: final addresses", () => {
     }
   });
 
-  it("keeps the review page and the Army guide skeleton at their hidden addresses", () => {
+  it("keeps the Army guide skeleton at its hidden address after the review page was removed in step 3", () => {
     const text = routeText();
-    expect(text).toContain('createFileRoute("/review-preview")');
+    expect(text).not.toContain('createFileRoute("/review-preview")');
     expect(text).toContain('createFileRoute("/insights/army-guide-preview")');
   });
 
