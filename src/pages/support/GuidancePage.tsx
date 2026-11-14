@@ -43,7 +43,7 @@ export default function GuidancePage() {
         <nav aria-label="Guidance breadcrumb" className="mb-5">
           <ol className="flex flex-wrap items-center gap-2 text-base">
             <li><Button asChild variant="link" className="min-h-11 h-auto px-0 text-base"><Link to="/">Home</Link></Button></li>
-            <li className="flex items-center gap-2"><ChevronRight aria-hidden="true" className="size-4" /><Button asChild variant="link" className="min-h-11 h-auto px-0 text-base"><Link to="/support">Get support</Link></Button></li>
+            <li className="flex items-center gap-2"><ChevronRight aria-hidden="true" className="size-4" /><Button asChild variant="link" className="min-h-11 h-auto px-0 text-base"><Link to="/support/start-here">Get support</Link></Button></li>
             <li className="flex min-h-11 items-center gap-2"><ChevronRight aria-hidden="true" className="size-4" /><span aria-current="page">Guidance</span></li>
           </ol>
         </nav>

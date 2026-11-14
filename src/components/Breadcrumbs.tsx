@@ -43,6 +43,12 @@ const LABELS: Record<string, string> = {
     "Identified in Service",
 };
 
+// Trail steps whose own address is a redirect link straight to the final page instead.
+export const CRUMB_TARGETS: Record<string, string> = {
+  "/support": "/support/start-here",
+  "/currently-serving": "/support/currently-serving",
+};
+
 const formatSegment = (seg: string) =>
   LABELS[seg] ?? seg.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 
@@ -54,7 +60,7 @@ const Breadcrumbs = () => {
 
   const crumbs = segments.map((seg, i) => ({
     label: formatSegment(seg),
-    to: "/" + segments.slice(0, i + 1).join("/"),
+    to: CRUMB_TARGETS["/" + segments.slice(0, i + 1).join("/")] ?? "/" + segments.slice(0, i + 1).join("/"),
     isLast: i === segments.length - 1,
   }));
 

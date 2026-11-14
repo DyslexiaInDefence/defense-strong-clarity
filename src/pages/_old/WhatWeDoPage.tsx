@@ -1,5 +1,6 @@
+// OLD: remove one week after Publish 2. No longer routed; kept only for an easy rollback.
 import { Link } from "@/lib/router-compat";
-import WhyItMattersPage from "@/pages/WhyItMattersPage";
+import WhyItMattersPage from "./WhyItMattersPage";
 
 /**
  * "What We Do" — the existing Why It Matters content, unchanged, framed as a

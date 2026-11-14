@@ -1,3 +1,4 @@
+// OLD: remove one week after Publish 2. No longer routed; kept only for an easy rollback.
 import { useState } from "react";
 import { Briefcase, Users, Monitor, ArrowRightLeft, BookOpen, Hammer } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";

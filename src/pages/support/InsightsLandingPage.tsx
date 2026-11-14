@@ -8,7 +8,7 @@ const SHOW_WIP_BANNER = true;
 
 const cards = [
   { title: "The evidence", description: "The data behind the story: what we know about dyslexia across Defence, and where the numbers come from.", label: "Read the evidence", to: "/evidence" },
-  { title: "What we do and why we're here", description: "What Dyslexia in Defence does, who it is for, and why it exists.", label: "Read what we do", to: "/about/what-we-do" },
+  { title: "What we do and why we're here", description: "What Dyslexia in Defence does, who it is for, and why it exists.", label: "Read what we do", to: "/insights/understanding-dyslexia" },
 ];
 
 const more = [
@@ -34,7 +34,7 @@ export default function InsightsLandingPage() {
         <nav aria-label="Insights breadcrumb" className="mb-5">
           <ol className="flex flex-wrap items-center gap-2 text-base">
             <li><Button asChild variant="link" className="min-h-11 h-auto px-0 text-base"><Link to="/">Home</Link></Button></li>
-            <li className="flex items-center gap-2"><ChevronRight aria-hidden="true" className="size-4" /><Button asChild variant="link" className="min-h-11 h-auto px-0 text-base"><Link to="/support">Get support</Link></Button></li>
+            <li className="flex items-center gap-2"><ChevronRight aria-hidden="true" className="size-4" /><Button asChild variant="link" className="min-h-11 h-auto px-0 text-base"><Link to="/support/start-here">Get support</Link></Button></li>
             <li className="flex min-h-11 items-center gap-2"><ChevronRight aria-hidden="true" className="size-4" /><span aria-current="page">Insights</span></li>
           </ol>
         </nav>

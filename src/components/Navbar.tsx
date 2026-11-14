@@ -19,10 +19,10 @@ export const CURRENT_NAV_LINKS: NavItem[] = [
     to: "/about",
     children: [
       { label: "Our Story", to: "/about/our-story" },
-      { label: "Why We Are Here", to: "/about/why-we-are-here" },
-      { label: "What We Do", to: "/about/what-we-do" },
+      { label: "Why We Are Here", to: "/about" },
+      { label: "What We Do", to: "/insights/understanding-dyslexia" },
       { label: "What We Want to Achieve", to: "/about/what-we-want-to-achieve" },
-      { label: "FAQ", to: "/about/faq" },
+      { label: "FAQ", to: "/support/faq" },
       { label: "Contact Us", to: "/contact" },
       { label: "Governance", to: "/governance" },
       { label: "Accessibility", to: "/accessibility" },
@@ -30,7 +30,7 @@ export const CURRENT_NAV_LINKS: NavItem[] = [
   },
   {
     label: "Get Support",
-    to: "/support",
+    to: "/support/start-here",
     children: [
       { label: "Currently Serving", to: "/support/currently-serving" },
       { label: "› Standard Learning Credits", to: "/currently-serving/standard-learning-credits" },
@@ -65,7 +65,7 @@ export const NEW_NAV_LINKS: NavItem[] = [
   },
   {
     label: "Get Support",
-    to: "/support",
+    to: "/support/start-here",
     children: [
       { label: "Start here", to: "/support/start-here" },
       { label: "Serving now (including civil service)", to: "/support/currently-serving" },
@@ -130,7 +130,9 @@ const Navbar = () => {
 
   const isItemActive = (item: NavItem) => {
     if (item.to === "/") return pathname === "/";
-    return pathname === item.to || pathname.startsWith(item.to + "/") || isChildActive(item);
+    // Section is the first address segment, so Get Support (now /support/start-here) still highlights on every /support/ page.
+    const section = "/" + item.to.split("/")[1];
+    return pathname === item.to || pathname.startsWith(section + "/") || isChildActive(item);
   };
 
   // Auto-expand mobile section if a child is active

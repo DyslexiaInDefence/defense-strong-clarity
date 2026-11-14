@@ -17,9 +17,9 @@ export const CURRENT_FOOTER_COLUMNS: FooterColumn[] = [
     heading: { label: "About Us", to: "/about" },
     links: [
       { label: "Our Story", to: "/about/our-story" },
-      { label: "What We Do", to: "/about/what-we-do" },
+      { label: "What We Do", to: "/insights/understanding-dyslexia" },
       { label: "What We Want to Achieve", to: "/about/what-we-want-to-achieve" },
-      { label: "FAQ", to: "/about/faq" },
+      { label: "FAQ", to: "/support/faq" },
       { label: "Contact Us", to: "/contact" },
       { label: "Governance", to: "/governance" },
       { label: "Armed Forces Covenant", to: "/armed-forces-covenant" },
@@ -27,7 +27,7 @@ export const CURRENT_FOOTER_COLUMNS: FooterColumn[] = [
     ],
   },
   {
-    heading: { label: "Get Support", to: "/support" },
+    heading: { label: "Get Support", to: "/support/start-here" },
     links: [
       { label: "Get Involved", to: "/join" },
       { label: "Join the Network", to: "/join" },
@@ -35,7 +35,7 @@ export const CURRENT_FOOTER_COLUMNS: FooterColumn[] = [
       { label: "Guidance", to: "/insights" },
       { label: "Lived Experiences", to: "/lived-experiences" },
       { label: "Peer Community", to: "/community" },
-      { label: "Get Support", to: "/support" },
+      { label: "Get Support", to: "/support/start-here" },
       { label: "Partner With Us", to: "/partner" },
     ],
   },
@@ -56,7 +56,7 @@ export const NEW_FOOTER_COLUMNS: FooterColumn[] = [
     ],
   },
   {
-    heading: { label: "Get Support", to: "/support" },
+    heading: { label: "Get Support", to: "/support/start-here" },
     links: [
       { label: "Start here", to: "/support/start-here" },
       { label: "Serving now (including civil service)", to: "/support/currently-serving" },

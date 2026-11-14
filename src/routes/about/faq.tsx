@@ -1,8 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-import FaqPage from "@/pages/about/FaqPage";
-import { pageHead } from "@/lib/seo";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
+// Permanent server-level redirect (301): the About us FAQ is now the Get support FAQ.
 export const Route = createFileRoute("/about/faq")({
-  component: FaqPage,
-  head: () => pageHead("/about/faq"),
+  beforeLoad: () => {
+    throw redirect({ to: "/support/faq", statusCode: 301 });
+  },
 });

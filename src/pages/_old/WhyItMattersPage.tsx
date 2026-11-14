@@ -1,3 +1,4 @@
+// OLD: remove one week after Publish 2. No longer routed; kept only for an easy rollback.
 import { Brain, Eye, Lightbulb, Puzzle, Compass, Users, ChevronRight } from "lucide-react";
 import { Link } from "@/lib/router-compat";
 import { Card, CardContent } from "@/components/ui/card";

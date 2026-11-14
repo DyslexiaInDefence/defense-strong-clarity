@@ -16,7 +16,7 @@ export const WAYS_TO_TAKE_PART: WayCard[] = [
 
 export const MORE_LINKS = [
   { title: "About us", to: "/about" },
-  { title: "Get support", to: "/support" },
+  { title: "Get support", to: "/support/start-here" },
   { title: "Partner with us", to: "/partner" },
   { title: "Insights", to: "/insights" },
 ];

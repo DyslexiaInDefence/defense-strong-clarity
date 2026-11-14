@@ -1,3 +1,4 @@
+// OLD: remove one week after Publish 2. No longer routed; kept only for an easy rollback.
 import { useEffect } from "react";
 import { Link, useLocation } from "@/lib/router-compat";
 import { ChevronRight, HelpCircle } from "lucide-react";

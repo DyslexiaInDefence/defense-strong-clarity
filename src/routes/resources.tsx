@@ -1,8 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-import ResourcesPage from "@/pages/ResourcesPage";
-import { pageHead } from "@/lib/seo";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
+// Permanent server-level redirect (301): Resources is now Start here.
 export const Route = createFileRoute("/resources")({
-  component: ResourcesPage,
-  head: () => pageHead("/resources"),
+  beforeLoad: () => {
+    throw redirect({ to: "/support/start-here", statusCode: 301 });
+  },
 });

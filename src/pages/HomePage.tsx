@@ -112,7 +112,7 @@ const HomePage = () => {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <Link to="/support">
+            <Link to="/support/start-here">
               <Button variant="outline" size="lg" className="rounded-full border-2 border-primary px-10 text-base font-bold text-primary shadow-md hover:bg-primary hover:text-primary-foreground">
                 Get Support
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -139,7 +139,7 @@ const HomePage = () => {
           </h2>
           <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
             {[
-              { heading: "Get support", text: "Dyslexia support for serving personnel, veterans, those thinking of joining, and the people who support them.", to: "/support", id: "homepage-start-support" },
+              { heading: "Get support", text: "Dyslexia support for serving personnel, veterans, those thinking of joining, and the people who support them.", to: "/support/start-here", id: "homepage-start-support" },
               { heading: "Get involved", text: "Share your experience, join the community, and help change how Defence supports dyslexic people.", to: "/join", id: "homepage-start-involved" },
               { heading: "Partner with us", text: "Work with us to improve dyslexia support across Defence.", to: "/partner", id: "homepage-start-partner" },
             ].map((item) => (
@@ -315,7 +315,7 @@ const HomePage = () => {
                 </CardContent>
               </Card>
             </Link>
-            <Link to="/support" className="group">
+            <Link to="/support/start-here" className="group">
               <Card className="h-full transition-colors hover:border-primary">
                 <CardContent className="p-6">
                   <LifeBuoy className="mb-3 h-7 w-7 text-primary" aria-hidden="true" />
