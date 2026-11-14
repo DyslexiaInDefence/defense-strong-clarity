@@ -93,7 +93,7 @@ const Footer = () => {
 
           {/* Independence disclaimer */}
           <div>
-            <h3 className="mb-3 text-lg font-bold text-foreground">Independence</h3>
+            <h3 className="mb-1 flex min-h-11 items-center text-lg font-bold text-foreground">Independence</h3>
             <p className="text-sm leading-relaxed text-muted-foreground">
               Dyslexia in Defence is an independent, volunteer led initiative. It is not affiliated with or endorsed by the Ministry of Defence or any employer.
             </p>
@@ -114,7 +114,7 @@ const Footer = () => {
 
           {/* Follow Us */}
           <div>
-            <h3 className="mb-3 text-lg font-bold text-foreground">Follow Us</h3>
+            <h3 className="mb-1 flex min-h-11 items-center text-lg font-bold text-foreground">Follow Us</h3>
             <div className="-ml-2.5 flex flex-wrap items-center">
               <a
                 href="https://www.linkedin.com/company/dyslexia-in-defence-cic/"
