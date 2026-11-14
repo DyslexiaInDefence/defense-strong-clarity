@@ -7,6 +7,7 @@
  */
 import { faqSchema } from "@/data/faqCategories";
 import { getPageDate } from "@/data/pageDates";
+import { PAGE_BREADCRUMBS, type Crumb } from "@/data/pageBreadcrumbs";
 
 const BASE_URL = "https://dyslexiaindefence.com";
 const OG_IMAGE = "https://dyslexiaindefence.com/og-image.webp";
@@ -352,6 +353,18 @@ const articleSchema = (url: string, page: PageSEO, dateModified: string | undefi
     },
   });
 
+const breadcrumbSchema = (crumbs: readonly Crumb[]) =>
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: crumbs.map((crumb, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: crumb.name,
+      ...(crumb.path ? { item: `${BASE_URL}${crumb.path === "/" ? "" : crumb.path}` } : {}),
+    })),
+  });
+
 export function pageHead(pathname: string) {
   const page = PUBLIC_PAGES[pathname];
   const url = `${BASE_URL}${pathname === "/" ? "" : pathname}`;
@@ -382,22 +395,29 @@ export function pageHead(pathname: string) {
   const isLivedExperienceArticle =
     pathname.startsWith("/lived-experiences/") && pathname !== "/lived-experiences";
   const dateModified = getPageDate(pathname);
+  const crumbs = PAGE_BREADCRUMBS[pathname];
+  const webPage = dateModified
+    ? { type: "application/ld+json", children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: page.title,
+        url,
+        inLanguage: "en-GB",
+        dateModified,
+      }) }
+    : undefined;
+  // Pages with their own page trail get WebPage and BreadcrumbList only, matching what they show.
   const scripts = !page.indexable
     ? undefined
-    : pathname === "/about/faq" || pathname === "/insights"
-      ? [{ type: "application/ld+json", children: JSON.stringify({ ...faqSchema, ...(dateModified ? { dateModified } : {}) }) }]
-      : isInsightArticle || isLivedExperienceArticle
-        ? [{ type: "application/ld+json", children: articleSchema(url, page, dateModified) }]
-        : dateModified
-          ? [{ type: "application/ld+json", children: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebPage",
-              name: page.title,
-              url,
-              inLanguage: "en-GB",
-              dateModified,
-            }) }]
-          : undefined;
+    : crumbs
+      ? [...(webPage ? [webPage] : []), { type: "application/ld+json", children: breadcrumbSchema(crumbs) }]
+      : pathname === "/about/faq"
+        ? [{ type: "application/ld+json", children: JSON.stringify({ ...faqSchema, ...(dateModified ? { dateModified } : {}) }) }]
+        : isInsightArticle || isLivedExperienceArticle
+          ? [{ type: "application/ld+json", children: articleSchema(url, page, dateModified) }]
+          : webPage
+            ? [webPage]
+            : undefined;
 
   return {
     meta,
