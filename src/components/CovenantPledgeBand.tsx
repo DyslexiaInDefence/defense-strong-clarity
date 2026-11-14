@@ -34,7 +34,7 @@ const CovenantPledgeBand = () => {
         )}
         <p className="text-sm text-foreground">
           We have signed the Armed Forces Covenant.{" "}
-          <Link to="/armed-forces-covenant" className="font-semibold text-primary underline underline-offset-4 hover:text-primary/80">
+          <Link to="/armed-forces-covenant" className="inline-flex min-h-11 items-center font-semibold text-primary underline underline-offset-4 hover:text-primary/80">
             Read our pledge
           </Link>
         </p>

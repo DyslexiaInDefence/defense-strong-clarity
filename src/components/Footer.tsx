@@ -1,47 +1,15 @@
-import { Link, useLocation } from "@/lib/router-compat";
+import { Link } from "@/lib/router-compat";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import didLogoFull from "@/assets/did-logo-full.webp";
 import CovenantPledgeBand from "@/components/CovenantPledgeBand";
 import { OPEN_EVENT } from "@/components/CookieBanner";
 import { SHARE_MAILTO } from "@/components/ShareLivedExperienceBanner";
-import { reviewTarget, useShowNewChrome } from "@/lib/reviewMode";
 
 export type FooterLink = { label: string; to: string } | { label: string; href: string };
 export type FooterColumn = { heading: { label: string; to: string }; links: FooterLink[] };
 
-// Flip to true at switch-over, together with the route swaps
-export const USE_NEW_FOOTER = false;
-
-export const CURRENT_FOOTER_COLUMNS: FooterColumn[] = [
-  {
-    heading: { label: "About Us", to: "/about" },
-    links: [
-      { label: "Our Story", to: "/about/our-story" },
-      { label: "What We Do", to: "/insights/understanding-dyslexia" },
-      { label: "What We Want to Achieve", to: "/about/what-we-want-to-achieve" },
-      { label: "FAQ", to: "/support/faq" },
-      { label: "Contact Us", to: "/contact" },
-      { label: "Governance", to: "/governance" },
-      { label: "Armed Forces Covenant", to: "/armed-forces-covenant" },
-      { label: "Accessibility", to: "/accessibility" },
-    ],
-  },
-  {
-    heading: { label: "Get Support", to: "/support/start-here" },
-    links: [
-      { label: "Get Involved", to: "/join" },
-      { label: "Join the Network", to: "/join" },
-      { label: "Currently Serving", to: "/support/currently-serving" },
-      { label: "Guidance", to: "/insights" },
-      { label: "Lived Experiences", to: "/lived-experiences" },
-      { label: "Peer Community", to: "/community" },
-      { label: "Get Support", to: "/support/start-here" },
-      { label: "Partner With Us", to: "/partner" },
-    ],
-  },
-];
-
-export const NEW_FOOTER_COLUMNS: FooterColumn[] = [
+// The three footer link columns. Every address must be a real page at its final address (pinned by navFooter.test.ts).
+export const FOOTER_COLUMNS: FooterColumn[] = [
   {
     heading: { label: "About Us", to: "/about" },
     links: [
@@ -76,22 +44,11 @@ export const NEW_FOOTER_COLUMNS: FooterColumn[] = [
   },
 ];
 
-export const footerColumns: FooterColumn[] = USE_NEW_FOOTER ? NEW_FOOTER_COLUMNS : CURRENT_FOOTER_COLUMNS;
-
-// Review mode only: point final addresses at their hidden previews.
-export const mapFooterForReview = (columns: FooterColumn[]): FooterColumn[] =>
-  columns.map((column) => ({
-    heading: { ...column.heading, to: reviewTarget(column.heading.to) },
-    links: column.links.map((link) => ("to" in link ? { ...link, to: reviewTarget(link.to) } : link)),
-  }));
-
-const linkClass = "text-muted-foreground hover:text-primary transition-colors";
+// Every footer link and button is at least 44px tall (min-h-11).
+const linkClass = "inline-flex min-h-11 items-center text-muted-foreground hover:text-primary transition-colors";
+const socialClass = "inline-flex min-h-11 min-w-11 items-center justify-center text-muted-foreground hover:text-primary transition-colors";
 
 const Footer = () => {
-  const { search } = useLocation();
-  const showReviewFooter = useShowNewChrome(search);
-  const columns = showReviewFooter ? mapFooterForReview(NEW_FOOTER_COLUMNS) : footerColumns;
-  const newLayout = USE_NEW_FOOTER || showReviewFooter;
   return (
     <footer className="border-t border-border bg-card py-14" role="contentinfo" aria-label="Footer">
       <div className="container mx-auto px-4">
@@ -104,7 +61,7 @@ const Footer = () => {
           aria-hidden="true"
         />
 
-        <div className={`grid gap-10 md:grid-cols-2 ${newLayout ? "lg:grid-cols-6" : "lg:grid-cols-5"}`}>
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-6">
           {/* Brand */}
           <div>
             <div className="mb-3 flex items-center gap-2">
@@ -115,12 +72,12 @@ const Footer = () => {
             </p>
           </div>
 
-          {columns.map((column) => (
+          {FOOTER_COLUMNS.map((column) => (
             <div key={column.heading.to}>
-              <h3 className="mb-3 text-lg font-bold text-foreground">
-                <Link to={column.heading.to} className="hover:text-primary transition-colors">{column.heading.label}</Link>
+              <h3 className="mb-1 text-lg font-bold text-foreground">
+                <Link to={column.heading.to} className="inline-flex min-h-11 items-center hover:text-primary transition-colors">{column.heading.label}</Link>
               </h3>
-              <ul className="space-y-2 text-sm">
+              <ul className="text-sm">
                 {column.links.map((link) => (
                   <li key={link.label}>
                     {"href" in link ? (
@@ -136,7 +93,7 @@ const Footer = () => {
 
           {/* Independence disclaimer */}
           <div>
-            <h3 className="mb-3 text-lg font-bold text-foreground">Independence</h3>
+            <h3 className="mb-1 flex min-h-11 items-center text-lg font-bold text-foreground">Independence</h3>
             <p className="text-sm leading-relaxed text-muted-foreground">
               Dyslexia in Defence is an independent, volunteer led initiative. It is not affiliated with or endorsed by the Ministry of Defence or any employer.
             </p>
@@ -157,14 +114,14 @@ const Footer = () => {
 
           {/* Follow Us */}
           <div>
-            <h3 className="mb-3 text-lg font-bold text-foreground">Follow Us</h3>
-            <div className="flex items-center gap-4">
+            <h3 className="mb-1 flex min-h-11 items-center text-lg font-bold text-foreground">Follow Us</h3>
+            <div className="-ml-2.5 flex flex-wrap items-center">
               <a
                 href="https://www.linkedin.com/company/dyslexia-in-defence-cic/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className={socialClass}
               >
                 <Linkedin className="h-6 w-6" />
               </a>
@@ -173,7 +130,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className={socialClass}
               >
                 <Facebook className="h-6 w-6" />
               </a>
@@ -182,7 +139,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className={socialClass}
               >
                 <Youtube className="h-6 w-6" />
               </a>
@@ -191,7 +148,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className={socialClass}
               >
                 <Instagram className="h-6 w-6" />
               </a>
@@ -200,7 +157,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Discord"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className={socialClass}
               >
                 <svg
                   viewBox="0 0 24 24"
@@ -228,12 +185,12 @@ const Footer = () => {
         {/* Legal registration */}
         <div className="mt-6 border-t border-border pt-4 text-center text-xs leading-relaxed text-muted-foreground">
           <p>Dyslexia in Defence CIC. Registered in England and Wales, company number 17285330.</p>
-          <p className="mt-2 flex justify-center gap-4">
-            <Link to="/governance/privacy" className="underline underline-offset-2 hover:text-primary">Privacy Notice</Link>
+          <p className="mt-1 flex justify-center gap-4">
+            <Link to="/governance/privacy" className="inline-flex min-h-11 items-center underline underline-offset-2 hover:text-primary">Privacy Notice</Link>
             <button
               type="button"
               onClick={() => window.dispatchEvent(new Event(OPEN_EVENT))}
-              className="underline underline-offset-2 hover:text-primary"
+              className="inline-flex min-h-11 items-center underline underline-offset-2 hover:text-primary"
             >
               Cookie settings
             </button>

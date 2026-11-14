@@ -7,10 +7,9 @@ import NextSteps from "@/components/NextSteps";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CookieBanner from "@/components/CookieBanner";
 import LastUpdated from "@/components/LastUpdated";
-import ReviewModeBar from "@/components/ReviewModeBar";
 
 // Pages where the global "What to do next" block would be redundant
-const NEXT_STEPS_SKIP = new Set<string>(["/", "/join", "/community", "/support/start-here", "/support/thinking-of-joining", "/support/leaving-or-left-service", "/support/supporting-someone", "/support/guidance", "/support/downloads-and-tools", "/support/faq", "/support/how-you-think-and-learn", "/insights", "/support/currently-serving", "/currently-serving/standard-learning-credits", "/insights/understanding-dyslexia", "/insights/army-guide-preview", "/about", "/get-involved", "/partner", "/lived-experiences", "/review-preview"]);
+const NEXT_STEPS_SKIP = new Set<string>(["/", "/join", "/community", "/support/start-here", "/support/thinking-of-joining", "/support/leaving-or-left-service", "/support/supporting-someone", "/support/guidance", "/support/downloads-and-tools", "/support/faq", "/support/how-you-think-and-learn", "/insights", "/support/currently-serving", "/currently-serving/standard-learning-credits", "/insights/understanding-dyslexia", "/insights/army-guide-preview", "/about", "/get-involved", "/partner", "/lived-experiences"]);
 
 const Layout = () => {
   const { pathname, search } = useLocation();
@@ -42,7 +41,6 @@ const Layout = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <ReviewModeBar />
       {showBreadcrumbs && <Breadcrumbs />}
       <main data-inner-page={pathname !== "/" ? "" : undefined}>
         <Outlet />

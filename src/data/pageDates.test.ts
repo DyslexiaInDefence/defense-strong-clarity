@@ -76,7 +76,7 @@ describe("Page date rules", () => {
       const text = readFileSync(path, "utf8");
       if (!text.includes("component:") || path.endsWith("__root.tsx")) continue;
       const route = text.match(/createFileRoute\("([^"]+)"\)/)?.[1]?.replace(/\/$/, "");
-      if (!route || route === "/evidence" || route === "/support/start-here" || route === "/support/thinking-of-joining" || route === "/support/leaving-or-left-service" || route === "/support/supporting-someone" || route === "/support/guidance" || route === "/support/downloads-and-tools" || route === "/support/faq" || route === "/support/how-you-think-and-learn" || route === "/insights/understanding-dyslexia" || route === "/get-involved" || route === "/insights/army-guide-preview" || route === "/review-preview" || route.startsWith("/newsletters/")) continue;
+      if (!route || route === "/evidence" || route === "/support/start-here" || route === "/support/thinking-of-joining" || route === "/support/leaving-or-left-service" || route === "/support/supporting-someone" || route === "/support/guidance" || route === "/support/downloads-and-tools" || route === "/support/faq" || route === "/support/how-you-think-and-learn" || route === "/insights/understanding-dyslexia" || route === "/get-involved" || route === "/insights/army-guide-preview" || route.startsWith("/newsletters/")) continue;
       expect(getPageDate(route), route).toBeDefined();
     }
   });
@@ -112,7 +112,7 @@ describe("Page date rules", () => {
     expect(pageHead("/insights/army-guide-preview")).not.toHaveProperty("scripts");
   });
 
-  it("excludes the Redesign review page from public dates and structured data", () => {
+  it("gives the removed Redesign review address no date or structured data", () => {
     expect(getPageDate("/review-preview")).toBeUndefined();
     expect(pageHead("/review-preview")).not.toHaveProperty("scripts");
   });

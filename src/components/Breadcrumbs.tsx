@@ -78,8 +78,9 @@ const Breadcrumbs = () => {
             Home
           </Link>
         </li>
-        {crumbs.map((c) => (
-          <li key={c.to} className="flex items-center gap-1.5">
+        {crumbs.map((c, i) => (
+          // Keyed by position: a redirected step can share its target with the next one (Get Support and Start here).
+          <li key={`${i}-${c.to}`} className="flex items-center gap-1.5">
             <ChevronRight className="h-4 w-4 text-muted-foreground/60" aria-hidden="true" />
             {c.isLast ? (
               <span className="font-medium text-foreground" aria-current="page">
