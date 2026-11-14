@@ -4,8 +4,6 @@ import { Button } from "@/components/ui/button";
 import SupportTabs from "@/components/SupportTabs";
 import "./start-here.css";
 
-const SHOW_WIP_BANNER = true;
-
 const next = [
   { label: "Guidance", to: "/support/guidance" },
   { label: "Downloads and tools", to: "/support/downloads-and-tools" },
@@ -27,11 +25,6 @@ const textLink = `inline-flex min-h-11 items-center gap-1 rounded-sm text-base f
 export default function HowYouThinkAndLearnPage() {
   return (
     <div className="support-staged-page text-foreground">
-      {SHOW_WIP_BANNER && (
-        <div className="border-b border-border bg-secondary py-3" role="note">
-          <p className="container px-4 text-base leading-relaxed">Work in progress – this page is not live yet.</p>
-        </div>
-      )}
       <div className="container max-w-6xl px-4 pb-14 pt-4 sm:px-6">
         <nav aria-label="Understanding how you think and learn breadcrumb" className="mb-5">
           <ol className="flex flex-wrap items-center gap-2 text-base">

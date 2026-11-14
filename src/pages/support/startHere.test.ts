@@ -22,6 +22,10 @@ function files(directory: string): string[] {
   });
 }
 
+// Since switch-over step 4 the public pages are named in these records; llms.txt and robots.txt wait for step 5.
+const PUBLIC_RECORDS = new Set(["public/sitemap.xml", "src/lib/seo.ts", "src/data/pageDates.ts", "src/data/pageBreadcrumbs.ts"]);
+const nextStepsSkip = () => readFileSync("src/components/Layout.tsx", "utf8").match(/const NEXT_STEPS_SKIP = new Set<string>\((\[[^\]]*\])\)/)?.[1] ?? "";
+
 describe("Staged support page boundaries", () => {
   it("excludes Start here from all existing discovery content", () => {
     // Layout's exact-path opt-out is not an inbound link or discovery entry.
@@ -30,80 +34,84 @@ describe("Staged support page boundaries", () => {
     // Navbar and Footer link here from the always-on menu and footer, pinned by navFooter.test.ts.
     // src/routes/support/index.tsx is the permanent /support redirect to this page.
     // Switch-over step 2: the homepage Get support links, the automatic page trail and the /resources redirect now point straight here.
-    const allowed = new Set(["src/routes/support/index.tsx", "src/routes/resources.tsx", "src/pages/HomePage.tsx", "src/components/Breadcrumbs.tsx", "src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/AboutHubPage.tsx", "src/pages/GetInvolvedHubPage.tsx", "src/pages/PartnerHubPage.tsx", "src/pages/LivedExperiencesHubPage.tsx", "src/pages/insights/ArmyGuidePreviewPage.tsx", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/routes/support/index.tsx", "src/routes/resources.tsx", "src/pages/HomePage.tsx", "src/components/Breadcrumbs.tsx", "src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/AboutHubPage.tsx", "src/pages/GetInvolvedHubPage.tsx", "src/pages/PartnerHubPage.tsx", "src/pages/LivedExperiencesHubPage.tsx", "src/pages/insights/ArmyGuidePreviewPage.tsx", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/start-here.tsx", "src/pages/support/StartHerePage.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
-      if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
+      if (allowed.has(path) || PUBLIC_RECORDS.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/start-here"), path).toBe(false);
     }
   });
 
   it("excludes Thinking of joining from all existing discovery content", () => {
-    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/StartHerePage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/thinking-of-joining.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/StartHerePage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
-      if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
+      if (allowed.has(path) || PUBLIC_RECORDS.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/thinking-of-joining"), path).toBe(false);
     }
   });
 
   it("excludes Leaving or left service from all existing discovery content", () => {
-    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/StartHerePage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/leaving-or-left-service.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/StartHerePage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
-      if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
+      if (allowed.has(path) || PUBLIC_RECORDS.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/leaving-or-left-service"), path).toBe(false);
     }
   });
 
-  it("builds Leaving or left service as a noindex page", () => {
+  it("builds Leaving or left service as a public page", () => {
     const route = readFileSync("src/routes/support/leaving-or-left-service.tsx", "utf8");
     expect(route).toContain('createFileRoute("/support/leaving-or-left-service")');
-    expect(route).toContain('content: "noindex, nofollow"');
-    expect(getPageDate("/support/leaving-or-left-service")).toBeUndefined();
+    expect(route).not.toContain("noindex");
+    expect(route).toMatch(/head: \(\) => pageHead\("/);
+    expect(getPageDate("/support/leaving-or-left-service")).toBe("2026-11-14");
   });
 
-  it("builds Thinking of joining as a noindex page", () => {
+  it("builds Thinking of joining as a public page", () => {
     const route = readFileSync("src/routes/support/thinking-of-joining.tsx", "utf8");
     expect(route).toContain('createFileRoute("/support/thinking-of-joining")');
-    expect(route).toContain('content: "noindex, nofollow"');
-    expect(getPageDate("/support/thinking-of-joining")).toBeUndefined();
+    expect(route).not.toContain("noindex");
+    expect(route).toMatch(/head: \(\) => pageHead\("/);
+    expect(getPageDate("/support/thinking-of-joining")).toBe("2026-11-14");
   });
 
   it("excludes Supporting someone from all existing discovery content", () => {
-    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/StartHerePage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/supporting-someone.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/StartHerePage.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
-      if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
+      if (allowed.has(path) || PUBLIC_RECORDS.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/supporting-someone"), path).toBe(false);
     }
   });
 
-  it("keeps Supporting someone hidden with its staging banner and green accent", () => {
+  it("makes Supporting someone public without the staging banner, in the green accent", () => {
     const route = readFileSync("src/routes/support/supporting-someone.tsx", "utf8");
     const page = readFileSync("src/pages/support/SupportingSomeonePage.tsx", "utf8");
     expect(route).toContain('createFileRoute("/support/supporting-someone")');
-    expect(route).toContain('content: "noindex, nofollow"');
-    expect(page).toContain("const SHOW_WIP_BANNER = true;");
-    expect(page).toContain("Work in progress – this page is not live yet.");
+    expect(route).not.toContain("noindex");
+    expect(route).toMatch(/head: \(\) => pageHead\("/);
+    expect(page).not.toContain("SHOW_WIP_BANNER");
+    expect(page).not.toContain("Work in progress");
     expect(page).toContain("support-route-supporting");
-    expect(getPageDate("/support/supporting-someone")).toBeUndefined();
+    expect(getPageDate("/support/supporting-someone")).toBe("2026-11-14");
   });
 
   it("excludes Guidance from all existing discovery content", () => {
     // Navbar and Footer link here from the always-on menu and footer, pinned by navFooter.test.ts.
-    const allowed = new Set(["src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/guidance.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
-      if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
+      if (allowed.has(path) || PUBLIC_RECORDS.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/guidance"), path).toBe(false);
     }
   });
 
-  it("keeps Guidance hidden with its staging banner", () => {
+  it("makes Guidance public without the staging banner", () => {
     const route = readFileSync("src/routes/support/guidance.tsx", "utf8");
     const page = readFileSync("src/pages/support/GuidancePage.tsx", "utf8");
     expect(route).toContain('createFileRoute("/support/guidance")');
-    expect(route).toContain('content: "noindex, nofollow"');
-    expect(page).toContain("const SHOW_WIP_BANNER = true;");
-    expect(page).toContain("Work in progress – this page is not live yet.");
-    expect(readFileSync("public/sitemap.xml", "utf8").includes("/support/guidance")).toBe(false);
-    expect(getPageDate("/support/guidance")).toBeUndefined();
+    expect(route).not.toContain("noindex");
+    expect(route).toMatch(/head: \(\) => pageHead\("/);
+    expect(page).not.toContain("SHOW_WIP_BANNER");
+    expect(page).not.toContain("Work in progress");
+    expect(readFileSync("public/sitemap.xml", "utf8").includes("/support/guidance")).toBe(true);
+    expect(getPageDate("/support/guidance")).toBe("2026-11-14");
   });
 
   it("links every guidance card to an existing route", () => {
@@ -131,22 +139,23 @@ describe("Staged support page boundaries", () => {
 
   it("excludes Downloads and tools from all existing discovery content", () => {
     // Navbar and Footer link here from the always-on menu and footer, pinned by navFooter.test.ts.
-    const allowed = new Set(["src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/downloads-and-tools.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/downloads-and-tools.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/FaqPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
-      if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
+      if (allowed.has(path) || PUBLIC_RECORDS.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/downloads-and-tools"), path).toBe(false);
     }
   });
 
-  it("keeps Downloads and tools hidden with its staging banner", () => {
+  it("makes Downloads and tools public without the staging banner", () => {
     const route = readFileSync("src/routes/support/downloads-and-tools.tsx", "utf8");
     const page = readFileSync("src/pages/support/DownloadsAndToolsPage.tsx", "utf8");
     expect(route).toContain('createFileRoute("/support/downloads-and-tools")');
-    expect(route).toContain('content: "noindex, nofollow"');
-    expect(page).toContain("const SHOW_WIP_BANNER = true;");
-    expect(page).toContain("Work in progress – this page is not live yet.");
-    expect(readFileSync("public/sitemap.xml", "utf8").includes("/support/downloads-and-tools")).toBe(false);
-    expect(getPageDate("/support/downloads-and-tools")).toBeUndefined();
+    expect(route).not.toContain("noindex");
+    expect(route).toMatch(/head: \(\) => pageHead\("/);
+    expect(page).not.toContain("SHOW_WIP_BANNER");
+    expect(page).not.toContain("Work in progress");
+    expect(readFileSync("public/sitemap.xml", "utf8").includes("/support/downloads-and-tools")).toBe(true);
+    expect(getPageDate("/support/downloads-and-tools")).toBe("2026-11-14");
   });
 
   it("links every download item to an existing route or stored file of the stated type", () => {
@@ -232,28 +241,29 @@ describe("Staged support page boundaries", () => {
   it("excludes the staged FAQ from all existing discovery content", () => {
     // Navbar and Footer hold this address in the NEW_* lists and, since switch-over step 2, in place of /about/faq in the current lists.
     // Switch-over step 2: the /about/faq redirect and the route pages' "Read the full answer" links point straight here.
-    const allowed = new Set(["src/routes/about/faq.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/faq.tsx", "src/pages/support/FaqPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/routes/about/faq.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/support/SlcPage.tsx", "src/pages/support/ServingNowPage.tsx", "src/components/Layout.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/routes/support/faq.tsx", "src/pages/support/FaqPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/GuidancePage.tsx", "src/pages/support/DownloadsAndToolsPage.tsx", "src/components/SupportTabs.tsx", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
-      if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
+      if (allowed.has(path) || PUBLIC_RECORDS.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/faq"), path).toBe(false);
     }
   });
 
-  it("keeps the staged FAQ hidden, bannered and free of FAQPage structured data", () => {
+  it("makes the FAQ public without the banner and free of FAQPage structured data", () => {
     const route = readFileSync("src/routes/support/faq.tsx", "utf8");
     const page = readFileSync("src/pages/support/FaqPage.tsx", "utf8");
     expect(route).toContain('createFileRoute("/support/faq")');
-    expect(route).toContain('content: "noindex, nofollow"');
-    expect(page).toContain("const SHOW_WIP_BANNER = true;");
-    expect(page).toContain("Work in progress – this page is not live yet.");
+    expect(route).not.toContain("noindex");
+    expect(route).toMatch(/head: \(\) => pageHead\("/);
+    expect(page).not.toContain("SHOW_WIP_BANNER");
+    expect(page).not.toContain("Work in progress");
     for (const text of [route, page]) {
       expect(text).not.toContain("ld+json");
       expect(text).not.toContain("FAQPage");
       expect(text).not.toContain("faqCategories");
     }
     expect(readFileSync("src/pages/support/faqLibrary.ts", "utf8")).not.toMatch(/from\s+["'][^"']*faqCategories/);
-    expect(readFileSync("public/sitemap.xml", "utf8").includes("/support/faq")).toBe(false);
-    expect(getPageDate("/support/faq")).toBeUndefined();
+    expect(readFileSync("public/sitemap.xml", "utf8").includes("/support/faq")).toBe(true);
+    expect(getPageDate("/support/faq")).toBe("2026-11-14");
   });
 
   it("links every FAQ answer to an existing route", () => {
@@ -282,24 +292,25 @@ describe("Staged support page boundaries", () => {
   });
 
   it("excludes Understanding how you think and learn from all existing discovery content", () => {
-    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/how-you-think-and-learn.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/guidanceLibrary.ts", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/support/how-you-think-and-learn.tsx", "src/pages/support/HowYouThinkAndLearnPage.tsx", "src/pages/support/StartHerePage.tsx", "src/pages/support/ThinkingOfJoiningPage.tsx", "src/pages/support/LeavingOrLeftServicePage.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/pages/support/guidanceLibrary.ts", "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
-      if (allowed.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
+      if (allowed.has(path) || PUBLIC_RECORDS.has(path) || !/\.(tsx?|txt|xml|html)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/how-you-think-and-learn"), path).toBe(false);
     }
   });
 
-  it("keeps Understanding how you think and learn hidden, bannered and without structured data", () => {
+  it("makes Understanding how you think and learn public without the banner", () => {
     const route = readFileSync("src/routes/support/how-you-think-and-learn.tsx", "utf8");
     const page = readFileSync("src/pages/support/HowYouThinkAndLearnPage.tsx", "utf8");
     expect(route).toContain('createFileRoute("/support/how-you-think-and-learn")');
-    expect(route).toContain('content: "noindex, nofollow"');
-    expect(page).toContain("const SHOW_WIP_BANNER = true;");
-    expect(page).toContain("Work in progress – this page is not live yet.");
+    expect(route).not.toContain("noindex");
+    expect(route).toMatch(/head: \(\) => pageHead\("/);
+    expect(page).not.toContain("SHOW_WIP_BANNER");
+    expect(page).not.toContain("Work in progress");
     expect(page).not.toMatch(/support-route-(joining|serving|leaving|supporting)/);
     for (const text of [route, page]) expect(text).not.toContain("ld+json");
-    expect(readFileSync("public/sitemap.xml", "utf8").includes("/support/how-you-think-and-learn")).toBe(false);
-    expect(getPageDate("/support/how-you-think-and-learn")).toBeUndefined();
+    expect(readFileSync("public/sitemap.xml", "utf8").includes("/support/how-you-think-and-learn")).toBe(true);
+    expect(getPageDate("/support/how-you-think-and-learn")).toBe("2026-11-14");
   });
 
   it("keeps banned phrases off Understanding how you think and learn", () => {
@@ -322,9 +333,9 @@ describe("Staged support page boundaries", () => {
     expect(guide?.audience).toBe("everyone");
   });
 
-  it("retires the Understanding Dyslexia preview address and keeps the final address out of discovery content", () => {
+  it("retires the Understanding Dyslexia preview address and keeps the final address out of llms.txt and unagreed links", () => {
     // Only the tests may still name the old preview address.
-    const tests = new Set(["src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const tests = new Set(["src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (tests.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("understanding-dyslexia-preview"), path).toBe(false);
@@ -332,24 +343,25 @@ describe("Staged support page boundaries", () => {
     // Switch-over step 2: links to What We Do and the /about/what-we-do and /why-it-matters redirects now point straight here.
     const allowed = new Set(["src/components/Layout.tsx", "src/routes/insights/understanding-dyslexia.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/about/OurStoryPage.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/routes/about/what-we-do.tsx", "src/routes/why-it-matters.tsx", "src/routeTree.gen.ts", ...tests]);
     for (const path of [...files("src"), ...files("public")]) {
-      if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
+      if (allowed.has(path) || PUBLIC_RECORDS.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/insights/understanding-dyslexia"), path).toBe(false);
     }
-    expect(readFileSync("public/sitemap.xml", "utf8").includes("understanding-dyslexia")).toBe(false);
+    expect(readFileSync("public/sitemap.xml", "utf8").includes("understanding-dyslexia")).toBe(true);
     expect(readFileSync("public/llms.txt", "utf8").includes("understanding-dyslexia")).toBe(false);
-    expect(readFileSync("src/lib/seo.ts", "utf8").includes("understanding-dyslexia")).toBe(false);
-    expect(getPageDate("/insights/understanding-dyslexia")).toBeUndefined();
+    expect(readFileSync("src/lib/seo.ts", "utf8").includes("understanding-dyslexia")).toBe(true);
+    expect(getPageDate("/insights/understanding-dyslexia")).toBe("2026-11-14");
   });
 
-  it("serves Understanding Dyslexia at /insights/understanding-dyslexia, still hidden, bannered, skipped and without structured data", () => {
+  it("serves Understanding Dyslexia at /insights/understanding-dyslexia, public, without the banner and with What to do next", () => {
     const route = readFileSync("src/routes/insights/understanding-dyslexia.tsx", "utf8");
     const page = readFileSync("src/pages/support/UnderstandingDyslexiaPage.tsx", "utf8");
     expect(route).toContain('createFileRoute("/insights/understanding-dyslexia")');
     expect(route).toContain("component: UnderstandingDyslexiaPage");
-    expect(route).toContain('content: "noindex, nofollow"');
-    expect(page).toContain("const SHOW_WIP_BANNER = true;");
-    expect(page).toContain("Work in progress – this page is not live yet.");
-    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/insights/understanding-dyslexia"');
+    expect(route).not.toContain("noindex");
+    expect(route).toMatch(/head: \(\) => pageHead\("/);
+    expect(page).not.toContain("SHOW_WIP_BANNER");
+    expect(page).not.toContain("Work in progress");
+    expect(nextStepsSkip()).not.toContain("/insights/understanding-dyslexia");
     for (const text of [route, page]) expect(text).not.toContain("ld+json");
   });
 
@@ -397,21 +409,22 @@ describe("Staged support page boundaries", () => {
   });
 
   it("retires the Insights preview address everywhere except the tests", () => {
-    const allowed = new Set(["src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/insights-preview"), path).toBe(false);
     }
   });
 
-  it("serves the new Insights page at /insights, still hidden, bannered and without structured data", () => {
+  it("serves the new Insights page at /insights, public and without the banner", () => {
     const route = readFileSync("src/routes/insights/index.tsx", "utf8");
     const page = readFileSync("src/pages/support/InsightsLandingPage.tsx", "utf8");
     expect(route).toContain('createFileRoute("/insights/")');
-    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/insights"');
-    expect(route).toContain('content: "noindex, nofollow"');
-    expect(page).toContain("const SHOW_WIP_BANNER = true;");
-    expect(page).toContain("Work in progress – this page is not live yet.");
+    expect(nextStepsSkip()).toContain('"/insights"');
+    expect(route).not.toContain("noindex");
+    expect(route).toMatch(/head: \(\) => pageHead\("/);
+    expect(page).not.toContain("SHOW_WIP_BANNER");
+    expect(page).not.toContain("Work in progress");
     expect(page).toContain('activePath="/insights"');
     for (const text of [route, page]) expect(text).not.toContain("ld+json");
     expect(readFileSync("public/sitemap.xml", "utf8").includes("/support/insights-preview")).toBe(false);
@@ -421,7 +434,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("retires the Serving now preview address everywhere except the tests", () => {
-    const allowed = new Set(["src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/serving-now-preview"), path).toBe(false);
@@ -431,16 +444,17 @@ describe("Staged support page boundaries", () => {
     expect(getPageDate("/support/serving-now-preview")).toBeUndefined();
   });
 
-  it("serves Serving now at /support/currently-serving, still hidden, bannered and in the serving accent", () => {
+  it("serves Serving now at /support/currently-serving, public, without the banner and in the serving accent", () => {
     const route = readFileSync("src/routes/support/currently-serving.tsx", "utf8");
     const page = readFileSync("src/pages/support/ServingNowPage.tsx", "utf8");
     expect(route).toContain('createFileRoute("/support/currently-serving")');
-    expect(route).toContain('content: "noindex, nofollow"');
-    expect(page).toContain("const SHOW_WIP_BANNER = true;");
-    expect(page).toContain("Work in progress – this page is not live yet.");
+    expect(route).not.toContain("noindex");
+    expect(route).toMatch(/head: \(\) => pageHead\("/);
+    expect(page).not.toContain("SHOW_WIP_BANNER");
+    expect(page).not.toContain("Work in progress");
     expect(page).toContain("support-route-serving");
     expect(readFileSync("src/styles.css", "utf8")).toMatch(/--route-serving:\s*#B93030;/);
-    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/support/currently-serving"');
+    expect(nextStepsSkip()).toContain('"/support/currently-serving"');
     for (const text of [route, page]) expect(text).not.toContain("ld+json");
   });
 
@@ -481,7 +495,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("retires the SLC preview address everywhere except the tests", () => {
-    const allowed = new Set(["src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/support/slc-preview"), path).toBe(false);
@@ -492,16 +506,17 @@ describe("Staged support page boundaries", () => {
     expect(getPageDate("/support/slc-preview")).toBeUndefined();
   });
 
-  it("serves the new SLC page at /currently-serving/standard-learning-credits, still hidden, bannered and in the serving accent", () => {
+  it("serves the new SLC page at /currently-serving/standard-learning-credits, public, without the banner and in the serving accent", () => {
     const route = readFileSync("src/routes/currently-serving/standard-learning-credits.tsx", "utf8");
     const page = readFileSync("src/pages/support/SlcPage.tsx", "utf8");
     expect(route).toContain('createFileRoute("/currently-serving/standard-learning-credits")');
-    expect(route).toContain('content: "noindex, nofollow"');
-    expect(page).toContain("const SHOW_WIP_BANNER = true;");
-    expect(page).toContain("Work in progress – this page is not live yet.");
+    expect(route).not.toContain("noindex");
+    expect(route).toMatch(/head: \(\) => pageHead\("/);
+    expect(page).not.toContain("SHOW_WIP_BANNER");
+    expect(page).not.toContain("Work in progress");
     expect(page).toContain("support-route-serving");
     expect(page).toContain('activePath="/support/start-here"');
-    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/currently-serving/standard-learning-credits"');
+    expect(nextStepsSkip()).toContain('"/currently-serving/standard-learning-credits"');
     for (const text of [route, page]) {
       expect(text).not.toContain("ld+json");
       expect(text).not.toContain("FAQPage");
@@ -559,7 +574,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("retires the About us preview address everywhere except the tests", () => {
-    const allowed = new Set(["src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/about-preview"), path).toBe(false);
@@ -570,18 +585,19 @@ describe("Staged support page boundaries", () => {
     expect(getPageDate("/about-preview")).toBeUndefined();
   });
 
-  it("serves About us at /about, still hidden, bannered and outside Get support", () => {
+  it("serves About us at /about, public, without the banner and outside Get support", () => {
     const route = readFileSync("src/routes/about/index.tsx", "utf8");
     const page = readFileSync("src/pages/AboutHubPage.tsx", "utf8");
     expect(route).toContain('createFileRoute("/about/")');
-    expect(route).toContain('content: "noindex, nofollow"');
-    expect(page).toContain("const SHOW_WIP_BANNER = true;");
-    expect(page).toContain("Work in progress – this page is not live yet.");
+    expect(route).not.toContain("noindex");
+    expect(route).toMatch(/head: \(\) => pageHead\("/);
+    expect(page).not.toContain("SHOW_WIP_BANNER");
+    expect(page).not.toContain("Work in progress");
     expect(page).toContain("support-staged-page");
     expect(page).not.toMatch(/support-route-(joining|serving|leaving|supporting)/);
     expect(page).not.toContain("SupportTabs");
     expect(page).not.toContain("support-identity-strip");
-    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/about"');
+    expect(nextStepsSkip()).not.toContain('"/about"');
     for (const text of [route, page]) expect(text).not.toContain("ld+json");
   });
 
@@ -623,31 +639,32 @@ describe("Staged support page boundaries", () => {
     expect(live).not.toContain('"@/pages/AboutPage"');
   });
 
-  it("retires the Get involved preview address and keeps /get-involved out of discovery content", () => {
-    const allowed = new Set(["src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+  it("retires the Get involved preview address and keeps /get-involved out of llms.txt", () => {
+    const allowed = new Set(["src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/get-involved-preview"), path).toBe(false);
     }
-    expect(readFileSync("public/sitemap.xml", "utf8").includes("get-involved")).toBe(false);
+    expect(readFileSync("public/sitemap.xml", "utf8").includes("get-involved")).toBe(true);
     expect(readFileSync("public/llms.txt", "utf8").includes("get-involved")).toBe(false);
-    expect(readFileSync("src/lib/seo.ts", "utf8").includes("get-involved")).toBe(false);
-    expect(getPageDate("/get-involved")).toBeUndefined();
+    expect(readFileSync("src/lib/seo.ts", "utf8").includes("get-involved")).toBe(true);
+    expect(getPageDate("/get-involved")).toBe("2026-11-14");
   });
 
-  it("serves Get involved at /get-involved, still hidden, bannered and outside Get support", () => {
+  it("serves Get involved at /get-involved, public, without the banner and outside Get support", () => {
     const route = readFileSync("src/routes/get-involved.tsx", "utf8");
     const page = readFileSync("src/pages/GetInvolvedHubPage.tsx", "utf8");
     expect(route).toContain('createFileRoute("/get-involved")');
     expect(route).toContain("component: GetInvolvedHubPage");
-    expect(route).toContain('content: "noindex, nofollow"');
-    expect(page).toContain("const SHOW_WIP_BANNER = true;");
-    expect(page).toContain("Work in progress – this page is not live yet.");
+    expect(route).not.toContain("noindex");
+    expect(route).toMatch(/head: \(\) => pageHead\("/);
+    expect(page).not.toContain("SHOW_WIP_BANNER");
+    expect(page).not.toContain("Work in progress");
     expect(page).toContain("support-staged-page");
     expect(page).not.toMatch(/support-route-(joining|serving|leaving|supporting)/);
     expect(page).not.toContain("SupportTabs");
     expect(page).not.toContain("support-identity-strip");
-    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/get-involved"');
+    expect(nextStepsSkip()).toContain('"/get-involved"');
     for (const text of [route, page]) expect(text).not.toContain("ld+json");
   });
 
@@ -695,7 +712,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("retires the Partner preview address everywhere except the tests", () => {
-    const allowed = new Set(["src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/partner-preview"), path).toBe(false);
@@ -708,18 +725,19 @@ describe("Staged support page boundaries", () => {
     expect(readFileSync("src/components/CovenantPledgeBand.tsx", "utf8")).toMatch(/LOGO_EXCLUDED_ROUTES = new Set\(\[\s*"\/partner",/);
   });
 
-  it("serves Partner with us at /partner, still hidden, bannered and outside Get support", () => {
+  it("serves Partner with us at /partner, public, without the banner and outside Get support", () => {
     const route = readFileSync("src/routes/partner.tsx", "utf8");
     const page = readFileSync("src/pages/PartnerHubPage.tsx", "utf8");
     expect(route).toContain('createFileRoute("/partner")');
-    expect(route).toContain('content: "noindex, nofollow"');
-    expect(page).toContain("const SHOW_WIP_BANNER = true;");
-    expect(page).toContain("Work in progress – this page is not live yet.");
+    expect(route).not.toContain("noindex");
+    expect(route).toMatch(/head: \(\) => pageHead\("/);
+    expect(page).not.toContain("SHOW_WIP_BANNER");
+    expect(page).not.toContain("Work in progress");
     expect(page).toContain("support-staged-page");
     expect(page).not.toMatch(/support-route-(joining|serving|leaving|supporting)/);
     expect(page).not.toContain("SupportTabs");
     expect(page).not.toContain("support-identity-strip");
-    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/partner"');
+    expect(nextStepsSkip()).toContain('"/partner"');
     for (const text of [route, page]) expect(text).not.toContain("ld+json");
   });
 
@@ -817,7 +835,7 @@ describe("Staged support page boundaries", () => {
   });
 
   it("retires the Lived experiences preview address everywhere except the tests", () => {
-    const allowed = new Set(["src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/lived-experiences-preview"), path).toBe(false);
@@ -828,20 +846,21 @@ describe("Staged support page boundaries", () => {
     expect(getPageDate("/lived-experiences-preview")).toBeUndefined();
   });
 
-  it("serves Lived experiences at /lived-experiences, still hidden, bannered and without the navy share banner", () => {
+  it("serves Lived experiences at /lived-experiences, public, without the banner and without the navy share banner", () => {
     const route = readFileSync("src/routes/lived-experiences/index.tsx", "utf8");
     const page = readFileSync("src/pages/LivedExperiencesHubPage.tsx", "utf8");
     expect(route).toContain('createFileRoute("/lived-experiences/")');
-    expect(route).toContain('content: "noindex, nofollow"');
-    expect(page).toContain("const SHOW_WIP_BANNER = true;");
-    expect(page).toContain("Work in progress – this page is not live yet.");
+    expect(route).not.toContain("noindex");
+    expect(route).toMatch(/head: \(\) => pageHead\("/);
+    expect(page).not.toContain("SHOW_WIP_BANNER");
+    expect(page).not.toContain("Work in progress");
     expect(page).toContain("support-staged-page");
     expect(page).not.toMatch(/support-route-(joining|serving|leaving|supporting)/);
     expect(page).not.toContain("SupportTabs");
     expect(page).not.toContain("support-identity-strip");
     expect(page).not.toContain("<ShareLivedExperienceBanner");
     expect(page).toContain("href={SHARE_MAILTO}");
-    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/lived-experiences"');
+    expect(nextStepsSkip()).not.toContain('"/lived-experiences"');
     for (const text of [route, page]) expect(text).not.toContain("ld+json");
   });
 
@@ -871,8 +890,8 @@ describe("Staged support page boundaries", () => {
     expect(stories).toEqual(["index.tsx", "lisa-hodge-civil-servant.tsx", "liz-oliver-british-army-veteran.tsx", "major-lena-beardsell.tsx", "staff-sergeant-kirk-davis-british-army.tsx", "symon-smith-british-army-veteran.tsx"]);
   });
 
-  it("does not assign a public content date to the hidden page", () => {
-    expect(getPageDate("/support/start-here")).toBeUndefined();
+  it("dates Start here to its public launch on 14 November 2026", () => {
+    expect(getPageDate("/support/start-here")).toBe("2026-11-14");
   });
 });
 
@@ -880,7 +899,7 @@ describe("Redesign review page (removed at switch-over step 3)", () => {
   it("has no route, page or discovery entry left for /review-preview", () => {
     expect(existsSync("src/routes/review-preview.tsx")).toBe(false);
     expect(existsSync("src/pages/ReviewPreviewPage.tsx")).toBe(false);
-    const allowed = new Set(["src/routeTree.gen.ts", "src/components/navFooter.test.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/routeTree.gen.ts", "src/components/navFooter.test.ts", "src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("review-preview"), path).toBe(false);
@@ -931,12 +950,12 @@ describe("Army guide skeleton (hidden)", () => {
     expect(route).toContain('content: "noindex, nofollow"');
     expect(page).toContain("const SHOW_WIP_BANNER = true;");
     expect(page).toContain("Work in progress – this page is not live yet.");
-    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/insights/army-guide-preview"');
+    expect(nextStepsSkip()).toContain('"/insights/army-guide-preview"');
     for (const text of [route, page]) expect(text).not.toContain("ld+json");
   });
 
   it("excludes the Army guide skeleton from all existing discovery content", () => {
-    const allowed = new Set(["src/components/Layout.tsx", ROUTE, PAGE, "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/pages/support/startHere.test.ts"]);
+    const allowed = new Set(["src/components/Layout.tsx", ROUTE, PAGE, "src/routeTree.gen.ts", "src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("army-guide-preview"), path).toBe(false);
@@ -1044,20 +1063,19 @@ describe("Switch-over step 1: final addresses", () => {
     }
   });
 
-  it("keeps the existing sitemap and page dates for moved pages that already had them", () => {
+  it("moves the moved pages' sitemap and page dates to their public launch on 14 November 2026 (step 4)", () => {
     const sitemap = readFileSync("public/sitemap.xml", "utf8");
-    const dates = { "/about": "2026-10-24", "/partner": "2026-10-24", "/lived-experiences": "2026-10-24", "/insights": "2026-11-13", "/support/currently-serving": "2026-10-24", "/currently-serving/standard-learning-credits": "2026-10-30" } as const;
-    for (const [path, date] of Object.entries(dates)) {
-      expect(getPageDate(path), path).toBe(date);
-      expect(sitemap, path).toContain(`<loc>https://dyslexiaindefence.com${path}</loc>`);
+    for (const path of ["/about", "/partner", "/lived-experiences", "/insights", "/insights/understanding-dyslexia", "/support/currently-serving", "/currently-serving/standard-learning-credits", "/get-involved"]) {
+      expect(getPageDate(path), path).toBe("2026-11-14");
+      expect(sitemap, path).toContain(`<loc>https://dyslexiaindefence.com${path}</loc>\n    <lastmod>2026-11-14</lastmod>`);
     }
   });
 
-  it("keeps every moved page noindex, with no structured data", () => {
+  it("makes every moved page public through the shared pageHead, with no hand-written structured data", () => {
     for (const path of ["src/routes/insights/index.tsx", "src/routes/insights/understanding-dyslexia.tsx", "src/routes/support/currently-serving.tsx", "src/routes/currently-serving/standard-learning-credits.tsx", "src/routes/about/index.tsx", "src/routes/partner.tsx", "src/routes/lived-experiences/index.tsx", "src/routes/get-involved.tsx"]) {
       const route = readFileSync(path, "utf8");
-      expect(route, path).toContain('{ name: "robots", content: "noindex, nofollow" }');
-      expect(route, path).not.toContain("...pageHead");
+      expect(route, path).not.toContain("noindex");
+      expect(route, path).toMatch(/head: \(\) => pageHead\("[^"]+"\),/);
       expect(route, path).not.toContain("scripts");
       expect(route, path).not.toContain("ld+json");
     }

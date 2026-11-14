@@ -6,8 +6,6 @@ import { LIVED_EXPERIENCES_BASE, livedStories } from "@/data/livedStories";
 import { formatPageDate, getPageDate } from "@/data/pageDates";
 import "./support/start-here.css";
 
-const SHOW_WIP_BANNER = true;
-
 export const MORE_LINKS = [
   { title: "Join the Network", to: "/join" },
   { title: "Community", to: "/community" },
@@ -21,11 +19,6 @@ const linkFocus = "focus-visible:outline-hidden focus-visible:ring-2 focus-visib
 export default function LivedExperiencesHubPage() {
   return (
     <div className="support-staged-page text-foreground">
-      {SHOW_WIP_BANNER && (
-        <div className="border-b border-border bg-secondary py-3" role="note">
-          <p className="container px-4 text-base leading-relaxed">Work in progress – this page is not live yet.</p>
-        </div>
-      )}
       <div className="container max-w-6xl px-4 pb-14 pt-4 sm:px-6">
         <nav aria-label="Lived experiences breadcrumb" className="mb-5">
           <ol className="flex flex-wrap items-center gap-x-2 gap-y-0 text-base">

@@ -5,8 +5,6 @@ import SupportTabs from "@/components/SupportTabs";
 import { SHARE_MAILTO } from "@/components/ShareLivedExperienceBanner";
 import "./start-here.css";
 
-const SHOW_WIP_BANNER = true;
-
 type CardLink = { label: string; to: string; srLabel?: string };
 
 const begin: { title: string; description: string; links: CardLink[] }[] = [
@@ -43,11 +41,6 @@ const textLink = `inline-flex min-h-11 items-center gap-1 rounded-sm text-base f
 export default function SupportingSomeonePage() {
   return (
     <div className="support-staged-page support-route-supporting text-foreground">
-      {SHOW_WIP_BANNER && (
-        <div className="border-b border-border bg-secondary py-3" role="note">
-          <p className="container px-4 text-base leading-relaxed">Work in progress – this page is not live yet.</p>
-        </div>
-      )}
       <div className="container max-w-6xl px-4 pb-14 pt-4 sm:px-6">
         <nav aria-label="Supporting someone breadcrumb" className="mb-5">
           <ol className="flex flex-wrap items-center gap-2 text-base">

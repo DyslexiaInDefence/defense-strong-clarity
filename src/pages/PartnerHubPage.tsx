@@ -3,8 +3,6 @@ import { Link } from "@/lib/router-compat";
 import { Button } from "@/components/ui/button";
 import "./support/start-here.css";
 
-const SHOW_WIP_BANNER = true;
-
 // Live PartnerPage wording, copied exactly. Change it here and on the live page together until switch-over.
 export const CAPABILITIES = [
   "Problem solving in high-stakes environments",
@@ -76,11 +74,6 @@ function IconList({ items, icon: Icon }: { items: string[]; icon: typeof Shield 
 export default function PartnerHubPage() {
   return (
     <div className="support-staged-page text-foreground">
-      {SHOW_WIP_BANNER && (
-        <div className="border-b border-border bg-secondary py-3" role="note">
-          <p className="container px-4 text-base leading-relaxed">Work in progress – this page is not live yet.</p>
-        </div>
-      )}
       <div className="container max-w-6xl px-4 pb-14 pt-4 sm:px-6">
         <nav aria-label="Partner with us breadcrumb" className="mb-5">
           <ol className="flex flex-wrap items-center gap-2 text-base">

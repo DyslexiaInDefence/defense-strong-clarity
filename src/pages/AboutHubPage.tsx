@@ -3,8 +3,6 @@ import { Link } from "@/lib/router-compat";
 import { Button } from "@/components/ui/button";
 import "./support/start-here.css";
 
-const SHOW_WIP_BANNER = true;
-
 export const ABOUT_CARDS = [
   { title: "Our story", description: "How Dyslexia in Defence began.", to: "/about/our-story" },
   { title: "What we want to achieve", description: "Our aims for people affected by dyslexia across Defence.", to: "/about/what-we-want-to-achieve" },
@@ -53,11 +51,6 @@ function CardGrid({ cards, headingLevel }: { cards: typeof ABOUT_CARDS; headingL
 export default function AboutHubPage() {
   return (
     <div className="support-staged-page text-foreground">
-      {SHOW_WIP_BANNER && (
-        <div className="border-b border-border bg-secondary py-3" role="note">
-          <p className="container px-4 text-base leading-relaxed">Work in progress – this page is not live yet.</p>
-        </div>
-      )}
       <div className="container max-w-6xl px-4 pb-14 pt-4 sm:px-6">
         <nav aria-label="About us breadcrumb" className="mb-5">
           <ol className="flex flex-wrap items-center gap-2 text-base">
