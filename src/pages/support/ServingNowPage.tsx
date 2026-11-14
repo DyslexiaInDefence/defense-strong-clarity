@@ -10,8 +10,6 @@ import neurodiversityPdf from "@/assets/introduction-to-neurodiversity-army.pdf.
 import { FAQ_ITEMS, filterFaqs } from "./faqLibrary";
 import "./start-here.css";
 
-const SHOW_WIP_BANNER = true;
-
 const begin = [
   "Getting assessed",
   "Talking to your chain of command",
@@ -60,11 +58,6 @@ const textLink = `inline-flex min-h-11 items-center gap-1 rounded-sm text-base f
 export default function ServingNowPage() {
   return (
     <div className="support-staged-page support-route-serving text-foreground">
-      {SHOW_WIP_BANNER && (
-        <div className="border-b border-border bg-secondary py-3" role="note">
-          <p className="container px-4 text-base leading-relaxed">Work in progress – this page is not live yet.</p>
-        </div>
-      )}
       <div className="container max-w-6xl px-4 pb-14 pt-4 sm:px-6">
         <nav aria-label="Serving now breadcrumb" className="mb-5">
           <ol className="flex flex-wrap items-center gap-2 text-base">

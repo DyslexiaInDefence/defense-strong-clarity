@@ -5,8 +5,6 @@ import SupportTabs from "@/components/SupportTabs";
 import { SHARE_MAILTO } from "@/components/ShareLivedExperienceBanner";
 import "./start-here.css";
 
-const SHOW_WIP_BANNER = true;
-
 const routes = [
   { title: "Thinking of joining", description: "You're considering a career in Defence and want to know where dyslexia fits.", to: "/support/thinking-of-joining", accent: "support-route-joining", icon: Compass },
   { title: "Serving now (including civil service)", description: "You're a regular, reservist or civil servant and want to know what support is out there.", to: "/support/currently-serving", accent: "support-route-serving", icon: Shield },
@@ -27,11 +25,6 @@ const linkFocus = "focus-visible:outline-hidden focus-visible:ring-2 focus-visib
 export default function StartHerePage() {
   return (
     <div className="support-start-here text-foreground">
-      {SHOW_WIP_BANNER && (
-        <div className="border-b border-border bg-secondary py-3" role="note">
-          <p className="container px-4 text-base leading-relaxed">Work in progress – this page is not live yet.</p>
-        </div>
-      )}
       <div className="container max-w-6xl px-4 pb-14 pt-4 sm:px-6">
         <nav aria-label="Start here breadcrumb" className="mb-5">
           <ol className="flex flex-wrap items-center gap-2 text-base">

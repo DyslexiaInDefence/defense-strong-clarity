@@ -4,8 +4,6 @@ import { Button } from "@/components/ui/button";
 import SupportTabs from "@/components/SupportTabs";
 import "./start-here.css";
 
-const SHOW_WIP_BANNER = true;
-
 const cards = [
   { title: "The evidence", description: "The data behind the story: what we know about dyslexia across Defence, and where the numbers come from.", label: "Read the evidence", to: "/evidence" },
   { title: "What we do and why we're here", description: "What Dyslexia in Defence does, who it is for, and why it exists.", label: "Read what we do", to: "/insights/understanding-dyslexia" },
@@ -25,11 +23,6 @@ const textLink = `inline-flex min-h-11 items-center gap-1 rounded-sm text-base f
 export default function InsightsLandingPage() {
   return (
     <div className="support-staged-page text-foreground">
-      {SHOW_WIP_BANNER && (
-        <div className="border-b border-border bg-secondary py-3" role="note">
-          <p className="container px-4 text-base leading-relaxed">Work in progress – this page is not live yet.</p>
-        </div>
-      )}
       <div className="container max-w-6xl px-4 pb-14 pt-4 sm:px-6">
         <nav aria-label="Insights breadcrumb" className="mb-5">
           <ol className="flex flex-wrap items-center gap-2 text-base">

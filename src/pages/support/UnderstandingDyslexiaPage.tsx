@@ -6,8 +6,6 @@ import spikyProfileImg from "@/assets/spiky-profile.webp";
 import AllenCitation from "@/components/AllenCitation";
 import "./start-here.css";
 
-const SHOW_WIP_BANNER = true;
-
 // Staged copy of the live Why It Matters body, word for word except the h1.
 // Served at its final address since switch-over step 1.
 
@@ -17,7 +15,6 @@ const strengths = [
 { icon: Brain, label: "Strategic problem solving" },
 { icon: Compass, label: "Spatial reasoning" },
 { icon: Lightbulb, label: "Innovative thinking under pressure" }];
-
 
 const ecosystem = [
 { label: "Pre service", description: "Candidates exploring defence and security careers." },
@@ -29,11 +26,6 @@ const ecosystem = [
 export default function UnderstandingDyslexiaPage() {
   return (
     <div className="support-staged-page text-foreground">
-      {SHOW_WIP_BANNER && (
-        <div className="border-b border-border bg-secondary py-3" role="note">
-          <p className="container px-4 text-base leading-relaxed">Work in progress – this page is not live yet.</p>
-        </div>
-      )}
       <div className="container max-w-6xl px-4 pb-14 pt-4 sm:px-6">
         <nav aria-label="Understanding Dyslexia breadcrumb" className="mb-5">
           <ol className="flex flex-wrap items-center gap-2 text-base">

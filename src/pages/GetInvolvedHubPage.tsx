@@ -4,8 +4,6 @@ import { Button } from "@/components/ui/button";
 import { SHARE_MAILTO } from "@/components/ShareLivedExperienceBanner";
 import "./support/start-here.css";
 
-const SHOW_WIP_BANNER = true;
-
 type WayCard = { title: string; description: string; label: string } & ({ to: string } | { href: string });
 
 export const WAYS_TO_TAKE_PART: WayCard[] = [
@@ -40,11 +38,6 @@ function CardBody({ card }: { card: WayCard }) {
 export default function GetInvolvedHubPage() {
   return (
     <div className="support-staged-page text-foreground">
-      {SHOW_WIP_BANNER && (
-        <div className="border-b border-border bg-secondary py-3" role="note">
-          <p className="container px-4 text-base leading-relaxed">Work in progress – this page is not live yet.</p>
-        </div>
-      )}
       <div className="container max-w-6xl px-4 pb-14 pt-4 sm:px-6">
         <nav aria-label="Get involved breadcrumb" className="mb-5">
           <ol className="flex flex-wrap items-center gap-2 text-base">
