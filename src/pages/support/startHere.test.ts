@@ -11,6 +11,7 @@ import { MORE_LINKS as PARTNER_MORE_LINKS, PACKAGES } from "../PartnerHubPage";
 import { MORE_LINKS as LIVED_MORE_LINKS } from "../LivedExperiencesHubPage";
 import { REVIEW_GROUPS } from "../ReviewPreviewPage";
 import { ARMY_GUIDE_HEADINGS } from "../insights/ArmyGuidePreviewPage";
+import { CRUMB_TARGETS } from "../../components/Breadcrumbs";
 import { SHARE_MAILTO } from "../../components/ShareLivedExperienceBanner";
 import { BDA_PSYCHOLOGIST_FEE, BDA_PSYCHOLOGIST_YOU_PAY, BDA_RATE_DATE, BDA_TEACHER_FEE, BDA_TEACHER_YOU_PAY, JSP822_VOL7_URL, JSP822_VOL9_URL, SARAH_BODY, SARAH_EMAIL, SARAH_MAILTO, SARAH_SUBJECT, SLC_COST_DATE, SLC_COST_OPTIONS, SLC_FULL_USUAL_PRICE, SLC_TEMPLATE_FORM } from "./slcContent";
 
@@ -1177,5 +1178,11 @@ describe("Switch-over step 2: redirects and link repoints", () => {
     const page = readFileSync("src/pages/AboutHubPage.tsx", "utf8");
     for (const banned of ["/about/what-we-do", "/about/why-we-are-here", "/why-it-matters"]) expect(page, banned).not.toContain(banned);
     expect(readFileSync("src/routes/about/index.tsx", "utf8")).toContain("AboutHubPage");
+  });
+  it("sends automatic page-trail steps for redirected addresses straight to the final page", () => {
+    expect(CRUMB_TARGETS).toEqual({ "/support": "/support/start-here", "/currently-serving": "/support/currently-serving" });
+    for (const [from, to] of Object.entries(CRUMB_TARGETS)) {
+      expect(readFileSync(routeFor(from)!, "utf8"), from).toContain(`throw redirect({ to: "${to}", statusCode: 301 });`);
+    }
   });
 });
