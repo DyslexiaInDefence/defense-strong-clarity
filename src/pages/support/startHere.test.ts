@@ -420,7 +420,7 @@ describe("Staged support page boundaries", () => {
     const route = readFileSync("src/routes/insights/index.tsx", "utf8");
     const page = readFileSync("src/pages/support/InsightsLandingPage.tsx", "utf8");
     expect(route).toContain('createFileRoute("/insights/")');
-    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/insights"');
+    expect(nextStepsSkip()).toContain('"/insights"');
     expect(route).not.toContain("noindex");
     expect(route).toMatch(/head: \(\) => pageHead\("/);
     expect(page).not.toContain("SHOW_WIP_BANNER");
@@ -454,7 +454,7 @@ describe("Staged support page boundaries", () => {
     expect(page).not.toContain("Work in progress");
     expect(page).toContain("support-route-serving");
     expect(readFileSync("src/styles.css", "utf8")).toMatch(/--route-serving:\s*#B93030;/);
-    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/support/currently-serving"');
+    expect(nextStepsSkip()).toContain('"/support/currently-serving"');
     for (const text of [route, page]) expect(text).not.toContain("ld+json");
   });
 
@@ -516,7 +516,7 @@ describe("Staged support page boundaries", () => {
     expect(page).not.toContain("Work in progress");
     expect(page).toContain("support-route-serving");
     expect(page).toContain('activePath="/support/start-here"');
-    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/currently-serving/standard-learning-credits"');
+    expect(nextStepsSkip()).toContain('"/currently-serving/standard-learning-credits"');
     for (const text of [route, page]) {
       expect(text).not.toContain("ld+json");
       expect(text).not.toContain("FAQPage");
@@ -597,7 +597,7 @@ describe("Staged support page boundaries", () => {
     expect(page).not.toMatch(/support-route-(joining|serving|leaving|supporting)/);
     expect(page).not.toContain("SupportTabs");
     expect(page).not.toContain("support-identity-strip");
-    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/about"');
+    expect(nextStepsSkip()).not.toContain('"/about"');
     for (const text of [route, page]) expect(text).not.toContain("ld+json");
   });
 
@@ -664,7 +664,7 @@ describe("Staged support page boundaries", () => {
     expect(page).not.toMatch(/support-route-(joining|serving|leaving|supporting)/);
     expect(page).not.toContain("SupportTabs");
     expect(page).not.toContain("support-identity-strip");
-    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/get-involved"');
+    expect(nextStepsSkip()).toContain('"/get-involved"');
     for (const text of [route, page]) expect(text).not.toContain("ld+json");
   });
 
@@ -737,7 +737,7 @@ describe("Staged support page boundaries", () => {
     expect(page).not.toMatch(/support-route-(joining|serving|leaving|supporting)/);
     expect(page).not.toContain("SupportTabs");
     expect(page).not.toContain("support-identity-strip");
-    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/partner"');
+    expect(nextStepsSkip()).toContain('"/partner"');
     for (const text of [route, page]) expect(text).not.toContain("ld+json");
   });
 
@@ -860,7 +860,7 @@ describe("Staged support page boundaries", () => {
     expect(page).not.toContain("support-identity-strip");
     expect(page).not.toContain("<ShareLivedExperienceBanner");
     expect(page).toContain("href={SHARE_MAILTO}");
-    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/lived-experiences"');
+    expect(nextStepsSkip()).not.toContain('"/lived-experiences"');
     for (const text of [route, page]) expect(text).not.toContain("ld+json");
   });
 
@@ -950,7 +950,7 @@ describe("Army guide skeleton (hidden)", () => {
     expect(route).toContain('content: "noindex, nofollow"');
     expect(page).toContain("const SHOW_WIP_BANNER = true;");
     expect(page).toContain("Work in progress – this page is not live yet.");
-    expect(readFileSync("src/components/Layout.tsx", "utf8")).toContain('"/insights/army-guide-preview"');
+    expect(nextStepsSkip()).toContain('"/insights/army-guide-preview"');
     for (const text of [route, page]) expect(text).not.toContain("ld+json");
   });
 
