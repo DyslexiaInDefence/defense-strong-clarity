@@ -22,19 +22,20 @@ const { SHARE_MAILTO } = await import("./ShareLivedExperienceBanner");
 // Empty since /get-involved was added in switch-over step 1.
 const POST_SWITCHOVER_ROUTES = new Set<string>();
 
-// Snapshot of the live menu and footer links before the new ones were staged. Any change here must be deliberate.
+// Snapshot of the live menu and footer links. Any change here must be deliberate.
+// Switch-over step 2 repointed links to redirected addresses straight at their final pages; labels are unchanged.
 const LIVE_NAV_SNAPSHOT = [
   { label: "About Us", to: "/about", children: [
     { label: "Our Story", to: "/about/our-story" },
-    { label: "Why We Are Here", to: "/about/why-we-are-here" },
-    { label: "What We Do", to: "/about/what-we-do" },
+    { label: "Why We Are Here", to: "/about" },
+    { label: "What We Do", to: "/insights/understanding-dyslexia" },
     { label: "What We Want to Achieve", to: "/about/what-we-want-to-achieve" },
-    { label: "FAQ", to: "/about/faq" },
+    { label: "FAQ", to: "/support/faq" },
     { label: "Contact Us", to: "/contact" },
     { label: "Governance", to: "/governance" },
     { label: "Accessibility", to: "/accessibility" },
   ] },
-  { label: "Get Support", to: "/support", children: [
+  { label: "Get Support", to: "/support/start-here", children: [
     { label: "Currently Serving", to: "/support/currently-serving" },
     { label: "› Standard Learning Credits", to: "/currently-serving/standard-learning-credits" },
     { label: "› Army Education Centres", to: "/currently-serving/army-education-centres" },
@@ -51,22 +52,22 @@ const LIVE_NAV_SNAPSHOT = [
 const LIVE_FOOTER_SNAPSHOT = [
   { heading: { label: "About Us", to: "/about" }, links: [
     { label: "Our Story", to: "/about/our-story" },
-    { label: "What We Do", to: "/about/what-we-do" },
+    { label: "What We Do", to: "/insights/understanding-dyslexia" },
     { label: "What We Want to Achieve", to: "/about/what-we-want-to-achieve" },
-    { label: "FAQ", to: "/about/faq" },
+    { label: "FAQ", to: "/support/faq" },
     { label: "Contact Us", to: "/contact" },
     { label: "Governance", to: "/governance" },
     { label: "Armed Forces Covenant", to: "/armed-forces-covenant" },
     { label: "Accessibility", to: "/accessibility" },
   ] },
-  { heading: { label: "Get Support", to: "/support" }, links: [
+  { heading: { label: "Get Support", to: "/support/start-here" }, links: [
     { label: "Get Involved", to: "/join" },
     { label: "Join the Network", to: "/join" },
     { label: "Currently Serving", to: "/support/currently-serving" },
     { label: "Guidance", to: "/insights" },
     { label: "Lived Experiences", to: "/lived-experiences" },
     { label: "Peer Community", to: "/community" },
-    { label: "Get Support", to: "/support" },
+    { label: "Get Support", to: "/support/start-here" },
     { label: "Partner With Us", to: "/partner" },
   ] },
 ];
@@ -132,7 +133,7 @@ describe("New main menu", () => {
         { label: "Accessibility", to: "/accessibility" },
         { label: "Contact Us", to: "/contact" },
       ] },
-      { label: "Get Support", to: "/support", children: [
+      { label: "Get Support", to: "/support/start-here", children: [
         { label: "Start here", to: "/support/start-here" },
         { label: "Serving now (including civil service)", to: "/support/currently-serving" },
         { label: "Guidance", to: "/support/guidance" },
@@ -176,7 +177,7 @@ describe("New footer columns", () => {
         { label: "Armed Forces Covenant", to: "/armed-forces-covenant" },
         { label: "Accessibility", to: "/accessibility" },
       ] },
-      { heading: { label: "Get Support", to: "/support" }, links: [
+      { heading: { label: "Get Support", to: "/support/start-here" }, links: [
         { label: "Start here", to: "/support/start-here" },
         { label: "Serving now (including civil service)", to: "/support/currently-serving" },
         { label: "Guidance", to: "/support/guidance" },
