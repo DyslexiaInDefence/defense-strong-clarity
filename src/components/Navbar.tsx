@@ -1,56 +1,15 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "@/lib/router-compat";
 import { Moon, Sun, Type, Zap, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAccessibility } from "@/contexts/AccessibilityContext";
-import didLogoFull from "@/assets/did-logo-full.webp";
-import { reviewTarget, useShowNewChrome } from "@/lib/reviewMode";
 
 
 export type NavChild = { label: string; to: string };
 export type NavItem = { label: string; to: string; children?: NavChild[] };
 
-// Flip to true at switch-over, together with the route swaps
-export const USE_NEW_NAV = false;
-
-export const CURRENT_NAV_LINKS: NavItem[] = [
-  {
-    label: "About Us",
-    to: "/about",
-    children: [
-      { label: "Our Story", to: "/about/our-story" },
-      { label: "Why We Are Here", to: "/about" },
-      { label: "What We Do", to: "/insights/understanding-dyslexia" },
-      { label: "What We Want to Achieve", to: "/about/what-we-want-to-achieve" },
-      { label: "FAQ", to: "/support/faq" },
-      { label: "Contact Us", to: "/contact" },
-      { label: "Governance", to: "/governance" },
-      { label: "Accessibility", to: "/accessibility" },
-    ],
-  },
-  {
-    label: "Get Support",
-    to: "/support/start-here",
-    children: [
-      { label: "Currently Serving", to: "/support/currently-serving" },
-      { label: "› Standard Learning Credits", to: "/currently-serving/standard-learning-credits" },
-      { label: "› Army Education Centres", to: "/currently-serving/army-education-centres" },
-      { label: "Join the Network", to: "/join" },
-      { label: "Guidance", to: "/insights" },
-    ],
-  },
-  {
-    label: "Get Involved",
-    to: "/join",
-    children: [
-      { label: "Partner With Us", to: "/partner" },
-      { label: "Lived Experiences", to: "/lived-experiences" },
-      { label: "Peer Community", to: "/community" },
-    ],
-  },
-];
-
-export const NEW_NAV_LINKS: NavItem[] = [
+// The main menu. Every address must be a real page at its final address (pinned by navFooter.test.ts).
+export const NAV_LINKS: NavItem[] = [
   {
     label: "About Us",
     to: "/about",
@@ -85,25 +44,13 @@ export const NEW_NAV_LINKS: NavItem[] = [
   },
 ];
 
-export const navLinks: NavItem[] = USE_NEW_NAV ? NEW_NAV_LINKS : CURRENT_NAV_LINKS;
-
-// Review mode only: point final addresses at their hidden previews.
-export const mapNavForReview = (items: NavItem[]): NavItem[] =>
-  items.map((item) => ({
-    ...item,
-    to: reviewTarget(item.to),
-    ...(item.children ? { children: item.children.map((c) => ({ ...c, to: reviewTarget(c.to) })) } : {}),
-  }));
-
-
 const Navbar = () => {
   const { darkMode, largeText, reduceMotion, dyslexicFont, toggleDarkMode, toggleLargeText, toggleReduceMotion, toggleDyslexicFont } = useAccessibility();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDesktop, setOpenDesktop] = useState<string | null>(null);
   const [openMobile, setOpenMobile] = useState<Record<string, boolean>>({});
-  const { pathname, search } = useLocation();
-  const showReviewNav = useShowNewChrome(search);
-  const links = useMemo(() => (showReviewNav ? mapNavForReview(NEW_NAV_LINKS) : navLinks), [showReviewNav]);
+  const { pathname } = useLocation();
+  const links = NAV_LINKS;
   const desktopRef = useRef<HTMLDivElement>(null);
   const mobileToggleRef = useRef<HTMLButtonElement>(null);
   const closeTimer = useRef<number | null>(null);
@@ -145,7 +92,7 @@ const Navbar = () => {
       return next;
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname, links]);
+  }, [pathname]);
 
   // Close desktop dropdown on outside click or Escape
   useEffect(() => {
@@ -193,7 +140,7 @@ const Navbar = () => {
       aria-label="Main navigation">
       
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
-        <Link to="/" className="flex items-center gap-2" aria-label="Dyslexia in Defence - Home">
+        <Link to="/" className="flex min-h-11 items-center gap-2" aria-label="Dyslexia in Defence - Home">
           <img alt="Dyslexia in Defence" className="h-8 w-auto" src="/lovable-uploads/7587c4e2-f331-4595-97c3-f3455bc6fc98.webp" />
         </Link>
 
@@ -208,7 +155,7 @@ const Navbar = () => {
                   to={link.to}
                   end={link.to === "/"}
                   className={({ isActive }) =>
-                    `text-sm font-medium transition-colors hover:text-primary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-xs px-1 ${isActive ? "text-primary" : "text-foreground/80"}`
+                    `inline-flex min-h-11 items-center text-sm font-medium transition-colors hover:text-primary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-xs px-1 ${isActive ? "text-primary" : "text-foreground/80"}`
                   }
                 >
                   {link.label}
@@ -242,7 +189,7 @@ const Navbar = () => {
                       }
                     }}
                     className={({ isActive }) =>
-                      `text-sm font-medium transition-colors hover:text-primary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-xs px-1 ${isActive || active ? "text-primary" : "text-foreground/80"}`
+                      `inline-flex min-h-11 items-center text-sm font-medium transition-colors hover:text-primary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-xs px-1 ${isActive || active ? "text-primary" : "text-foreground/80"}`
                     }
                   >
                     {link.label}
@@ -253,7 +200,7 @@ const Navbar = () => {
                     aria-expanded={isOpen}
                     aria-haspopup="menu"
                     aria-label={`${isOpen ? "Close" : "Open"} ${link.label} menu`}
-                    className="rounded-xs p-1 text-foreground/70 hover:text-primary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    className="inline-flex min-h-11 items-center rounded-xs px-1 text-foreground/70 hover:text-primary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                     onKeyDown={(e) => {
                       if (e.key === "Escape") setOpenDesktop(null);
                     }}
@@ -272,7 +219,7 @@ const Navbar = () => {
                     <NavLink
                       to={link.to}
                       className={({ isActive }) =>
-                        `block rounded-md px-3 py-2 text-sm font-semibold transition-colors hover:bg-secondary ${isActive ? "text-primary" : "text-foreground"}`
+                        `flex min-h-11 items-center rounded-md px-3 py-2 text-sm font-semibold transition-colors hover:bg-secondary ${isActive ? "text-primary" : "text-foreground"}`
                       }
                       role="menuitem"
                     >
@@ -284,7 +231,7 @@ const Navbar = () => {
                         key={c.to}
                         to={c.to}
                         className={({ isActive }) =>
-                          `block rounded-md px-3 py-2 text-sm transition-colors hover:bg-secondary ${isActive ? "text-primary" : "text-foreground/80"}`
+                          `flex min-h-11 items-center rounded-md px-3 py-2 text-sm transition-colors hover:bg-secondary ${isActive ? "text-primary" : "text-foreground/80"}`
                         }
                         role="menuitem"
                       >
@@ -302,7 +249,7 @@ const Navbar = () => {
         <div className="hidden items-center gap-2 xl:flex">
           <button
             onClick={toggleDarkMode}
-            className="rounded-lg p-2 text-foreground/70 transition-colors hover:bg-secondary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2 text-foreground/70 transition-colors hover:bg-secondary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
             aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
             title={darkMode ? "Light mode" : "Dark mode"}>
             
@@ -310,7 +257,7 @@ const Navbar = () => {
           </button>
           <button
             onClick={toggleLargeText}
-            className={`rounded-lg p-2 transition-colors hover:bg-secondary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring ${largeText ? "bg-secondary text-primary" : "text-foreground/70"}`}
+            className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2 transition-colors hover:bg-secondary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring ${largeText ? "bg-secondary text-primary" : "text-foreground/70"}`}
             aria-label={largeText ? "Reset text size" : "Increase text size"}
             title="Text size">
             
@@ -318,7 +265,7 @@ const Navbar = () => {
           </button>
           <button
             onClick={toggleReduceMotion}
-            className={`rounded-lg p-2 transition-colors hover:bg-secondary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring ${reduceMotion ? "bg-secondary text-primary" : "text-foreground/70"}`}
+            className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2 transition-colors hover:bg-secondary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring ${reduceMotion ? "bg-secondary text-primary" : "text-foreground/70"}`}
             aria-label={reduceMotion ? "Enable animations" : "Reduce motion"}
             title="Reduce motion">
             
@@ -326,7 +273,7 @@ const Navbar = () => {
           </button>
           <button
             onClick={toggleDyslexicFont}
-            className={`rounded-lg px-2 py-1 transition-colors hover:bg-secondary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring font-bold text-sm ${dyslexicFont ? "bg-secondary text-primary" : "text-foreground/70"}`}
+            className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg px-2 py-1 transition-colors hover:bg-secondary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring font-bold text-sm ${dyslexicFont ? "bg-secondary text-primary" : "text-foreground/70"}`}
             aria-label={dyslexicFont ? "Use default font" : "Use OpenDyslexic font"}
             title="Dyslexic friendly font"
             style={dyslexicFont ? { fontFamily: "'Open Dyslexic', sans-serif" } : undefined}>
@@ -342,7 +289,7 @@ const Navbar = () => {
         {/* Mobile hamburger */}
         <button
           ref={mobileToggleRef}
-          className="rounded-lg p-2 text-foreground xl:hidden focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+          className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2 text-foreground xl:hidden focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}>
@@ -363,7 +310,7 @@ const Navbar = () => {
                     to={link.to}
                     end={link.to === "/"}
                     className={({ isActive }) =>
-                      `rounded-lg px-3 py-2 text-base font-medium transition-colors hover:bg-secondary hover:text-primary ${isActive ? "bg-secondary text-primary" : "text-foreground/80"}`
+                      `flex min-h-11 items-center rounded-lg px-3 py-2 text-base font-medium transition-colors hover:bg-secondary hover:text-primary ${isActive ? "bg-secondary text-primary" : "text-foreground/80"}`
                     }
                     onClick={() => setMobileOpen(false)}
                     role="menuitem"
@@ -380,7 +327,7 @@ const Navbar = () => {
                     <NavLink
                       to={link.to}
                       className={({ isActive }) =>
-                        `flex-1 rounded-lg px-3 py-2 text-base font-medium transition-colors hover:bg-secondary hover:text-primary ${isActive || active ? "bg-secondary text-primary" : "text-foreground/80"}`
+                        `flex min-h-11 flex-1 items-center rounded-lg px-3 py-2 text-base font-medium transition-colors hover:bg-secondary hover:text-primary ${isActive || active ? "bg-secondary text-primary" : "text-foreground/80"}`
                       }
                       onClick={() => setMobileOpen(false)}
                       role="menuitem"
@@ -394,7 +341,7 @@ const Navbar = () => {
                       }
                       aria-expanded={expanded}
                       aria-label={`${expanded ? "Collapse" : "Expand"} ${link.label} section`}
-                      className="rounded-lg px-3 text-foreground/70 hover:bg-secondary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+                      className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg px-3 text-foreground/70 hover:bg-secondary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
                     >
                       <ChevronDown className={`h-5 w-5 transition-transform ${expanded ? "rotate-180" : ""}`} aria-hidden="true" />
                     </button>
@@ -406,7 +353,7 @@ const Navbar = () => {
                           key={c.to}
                           to={c.to}
                           className={({ isActive }) =>
-                            `rounded-lg px-3 py-2 text-sm transition-colors hover:bg-secondary hover:text-primary ${isActive ? "bg-secondary text-primary" : "text-foreground/70"}`
+                            `flex min-h-11 items-center rounded-lg px-3 py-2 text-sm transition-colors hover:bg-secondary hover:text-primary ${isActive ? "bg-secondary text-primary" : "text-foreground/70"}`
                           }
                           onClick={() => setMobileOpen(false)}
                           role="menuitem"
@@ -421,16 +368,16 @@ const Navbar = () => {
             })}
           </div>
           <div className="mt-4 flex items-center gap-2 border-t border-border pt-4">
-            <button onClick={toggleDarkMode} className="rounded-lg p-2 text-foreground/70 hover:bg-secondary" aria-label={darkMode ? "Light mode" : "Dark mode"}>
+            <button onClick={toggleDarkMode} className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2 text-foreground/70 hover:bg-secondary" aria-label={darkMode ? "Light mode" : "Dark mode"}>
               {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </button>
-            <button onClick={toggleLargeText} className={`rounded-lg p-2 hover:bg-secondary ${largeText ? "bg-secondary text-primary" : "text-foreground/70"}`} aria-label="Text size">
+            <button onClick={toggleLargeText} className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2 hover:bg-secondary ${largeText ? "bg-secondary text-primary" : "text-foreground/70"}`} aria-label="Text size">
               <Type className="h-5 w-5" />
             </button>
-            <button onClick={toggleReduceMotion} className={`rounded-lg p-2 hover:bg-secondary ${reduceMotion ? "bg-secondary text-primary" : "text-foreground/70"}`} aria-label="Reduce motion">
+            <button onClick={toggleReduceMotion} className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2 hover:bg-secondary ${reduceMotion ? "bg-secondary text-primary" : "text-foreground/70"}`} aria-label="Reduce motion">
               <Zap className="h-5 w-5" />
             </button>
-            <button onClick={toggleDyslexicFont} className={`rounded-lg px-2 py-1 hover:bg-secondary font-bold text-sm ${dyslexicFont ? "bg-secondary text-primary" : "text-foreground/70"}`} aria-label="Dyslexic font" style={dyslexicFont ? { fontFamily: "'Open Dyslexic', sans-serif" } : undefined}>
+            <button onClick={toggleDyslexicFont} className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg px-2 py-1 hover:bg-secondary font-bold text-sm ${dyslexicFont ? "bg-secondary text-primary" : "text-foreground/70"}`} aria-label="Dyslexic font" style={dyslexicFont ? { fontFamily: "'Open Dyslexic', sans-serif" } : undefined}>
               Aa
             </button>
           </div>
