@@ -1,5 +1,6 @@
 # Roadmap
 
+- [x] Switch-over step 3: new menu and footer always on, review aids and /review-preview removed, 44px menu and footer tap targets; tests and page checks, no publishing.
 - [x] Switch-over step 2: 301 redirects for /resources, /about/faq, /about/why-we-are-here, /about/what-we-do and /why-it-matters; retire their pages into src/pages/_old; repoint internal links to final pages; tests, no publishing.
 - [x] Switch-over step 1: move the redesigned pages to their final addresses, redirect /support to Start here, retire preview addresses, keep old pages in src/pages/_old; tests and preview checks, no publishing.
 
