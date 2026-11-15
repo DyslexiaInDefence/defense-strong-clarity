@@ -82,11 +82,11 @@ describe("Email links", () => {
     expect(SARAH_MAILTO.startsWith(`mailto:${SARAH_EMAIL}?`)).toBe(true);
   });
 
-  it("builds every other mailto link only from the Army Education Centre mailboxes (documented exception)", () => {
+  it("builds every other mailto link from contact@, the agreed assessor address or the Army Education Centre mailboxes (documented exception)", () => {
     // Exception: the Army Education Centres page and map, live before the switch-over, link to each centre's own MOD mailbox.
     const dynamic = SOURCE.flatMap(path => [...read(path).matchAll(/mailto:\$\{([^}]+)\}/g)].map(m => `${path}: ${m[1]}`));
     expect(dynamic.sort()).toEqual([
-      "src/components/AecMap.tsx: escapeHtml(c.email",
+      "src/components/AecMap.tsx: escapeHtml(c.email)",
       "src/components/ShareLivedExperienceBanner.tsx: RECIPIENT",
       "src/pages/support/ArmyEducationCentresPage.tsx: OVERSEAS_AEC.email",
       "src/pages/support/ArmyEducationCentresPage.tsx: c.email",
