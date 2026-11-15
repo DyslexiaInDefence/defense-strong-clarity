@@ -137,7 +137,7 @@ describe("Page date rules", () => {
     expect(EVIDENCE_DATA_AS_AT).toEqual({ iso: "2026-10", label: "October 2026" });
   });
 
-  it("shares mapped dates with Article, FAQPage and WebPage metadata", () => {
+  it("shares mapped dates with Article and WebPage metadata", () => {
     for (const path of Object.keys(PAGE_DATES)) {
       const head = pageHead(path);
       for (const script of "scripts" in head ? head.scripts ?? [] : []) {
