@@ -140,7 +140,7 @@ const HomePage = () => {
           <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
             {[
               { heading: "Get support", text: "Dyslexia support for serving personnel, veterans, those thinking of joining, and the people who support them.", to: "/support/start-here", id: "homepage-start-support" },
-              { heading: "Get involved", text: "Share your experience, join the community, and help change how Defence supports dyslexic people.", to: "/join", id: "homepage-start-involved" },
+              { heading: "Get involved", text: "Share your experience, join the community, and help change how Defence supports dyslexic people.", to: "/get-involved", id: "homepage-start-involved" },
               { heading: "Partner with us", text: "Work with us to improve dyslexia support across Defence.", to: "/partner", id: "homepage-start-partner" },
             ].map((item) => (
               <Link

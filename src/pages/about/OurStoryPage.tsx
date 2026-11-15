@@ -102,7 +102,7 @@ const OurStoryPage = () => (
         </section>
 
         <div className="flex flex-wrap gap-3">
-          <Link to="/join">
+          <Link to="/get-involved">
             <Button size="lg" className="rounded-full font-semibold">
               Get Involved
               <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />

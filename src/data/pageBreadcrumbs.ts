@@ -13,7 +13,7 @@ const START_HERE: Crumb = { name: "Start here", path: "/support/start-here" };
 export const PAGE_BREADCRUMBS: Readonly<Record<string, readonly Crumb[]>> = {
   "/about": [HOME, { name: "About us" }],
   "/partner": [HOME, { name: "About us", path: "/about" }, { name: "Partner with us" }],
-  "/lived-experiences": [HOME, { name: "Get involved", path: "/join" }, { name: "Lived experiences" }],
+  "/lived-experiences": [HOME, { name: "Get involved", path: "/get-involved" }, { name: "Lived experiences" }],
   "/get-involved": [HOME, { name: "Get involved" }],
   "/insights": [HOME, GET_SUPPORT, { name: "Insights" }],
   "/insights/understanding-dyslexia": [HOME, { name: "Insights", path: "/insights" }, { name: "Understanding Dyslexia" }],
