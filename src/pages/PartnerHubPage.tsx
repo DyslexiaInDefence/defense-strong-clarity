@@ -48,8 +48,7 @@ export const BIGGER_PICTURE = [
 export const MORE_LINKS = [
   { title: "About us", to: "/about" },
   { title: "Get support", to: "/support/start-here" },
-  // /get-involved is not built yet, so Get involved points to /join until switch-over.
-  { title: "Get involved", to: "/join" },
+  { title: "Get involved", to: "/get-involved" },
   { title: "Insights", to: "/insights" },
 ];
 

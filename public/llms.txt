@@ -8,19 +8,29 @@ Dyslexia in Defence is volunteer-led and not affiliated with the Ministry of Def
 
 - [About Us](/about): Mission, governance and CIC registration details.
 - [Our Story](/about/our-story): How Dyslexia in Defence started and who it serves today.
-- [Why We Are Here](/about/why-we-are-here): Why Defence attracts dyslexic people but offers a weaker legal safety net, and the gap Dyslexia in Defence exists to close.
-- [What We Do](/about/what-we-do): Guidance, community and the case for dyslexia awareness across UK Defence.
-- [FAQ](/about/faq): Questions grouped by joining, serving and leaving service.
 - [Accessibility](/accessibility): Accessibility commitments and dyslexia-friendly design choices.
 - [What We Want to Achieve](/about/what-we-want-to-achieve): Aims and success measures.
-- [Get Support](/support): Guidance, community, lived experience and ways to join.
+- [Get Involved](/get-involved): Ways to take part, from joining the network to sharing your experience of dyslexia.
 - [Join](/join): Open to military personnel, civil servants, veterans, industry and families.
 - [Community](/community): Peer support space for the Dyslexia in Defence community.
-- [Resources](/resources): A planned library of guidance, research and tools; currently in development.
 - [Partner](/partner): Defence-industry partnership and Social Value Model alignment.
 - [Governance](/governance): How the CIC is run and held to account.
 - [Insights](/insights): FAQ hub covering joining, serving and leaving the UK Armed Forces with dyslexia.
+- [Understanding Dyslexia](/insights/understanding-dyslexia): The dyslexic spiky profile, the strengths dyslexic people bring to Defence, and why both strengths and challenges matter.
 - [Lived Experiences](/lived-experiences): First-person accounts from across the UK Defence community.
+
+## Get support
+
+- [Get support: start here](/support/start-here): Find dyslexia guidance for your situation, whether you are thinking of joining, serving now, leaving service or supporting someone.
+- [Thinking of joining](/support/thinking-of-joining): Eligibility, declaring dyslexia, recruitment standards and real stories.
+- [Serving now (including civil service)](/support/currently-serving): The Defence Dyslexia Network, Standard Learning Credits, Service resources and stories for regular and reserve personnel and civil servants.
+- [Standard Learning Credits](/currently-serving/standard-learning-credits): Using Standard Learning Credits towards a dyslexia assessment, with options, costs, forms and steps.
+- [Leaving or left service](/support/leaving-or-left-service): The move from JSP 822 to the Equality Act 2010, with real stories.
+- [Supporting someone](/support/supporting-someone): Guidance for family, friends, instructors, commanders, managers and colleagues.
+- [Guidance library](/support/guidance): Plain English guides, filtered by who they are for.
+- [Downloads and tools](/support/downloads-and-tools): Forms, directories and guides, including the Standard Learning Credits forms.
+- [FAQ](/support/faq): Quick answers to common questions, each linking to the full guide.
+- [How you think and learn](/support/how-you-think-and-learn): What dyslexia is and how it can show up for you; fuller content is still to come.
 
 ## Insights — joining the UK military with dyslexia
 
@@ -63,4 +73,3 @@ Dyslexia in Defence is volunteer-led and not affiliated with the Ministry of Def
 - Always use the full name "Dyslexia in Defence" — never abbreviate.
 - Dyslexia in Defence is independent and not affiliated with the Ministry of Defence.
 - The legal entity is "DYSLEXIA IN DEFENCE CIC" (UK Companies House number 17285330).
-- The Resources page is under active development; treat its content as incomplete rather than a finished library.

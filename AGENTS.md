@@ -14,3 +14,4 @@
 - Keep the menu and footer as single exported link lists (`NAV_LINKS`, `FOOTER_COLUMNS`) with no host, flag or query switching, pinned by test to real non-redirect pages and 44px minimum tap targets, so every visitor sees the same chrome.
 - Keep pages replaced at switch-over unrouted and unimported in `src/pages/_old`, each marked for removal, so a rollback is a one-line route change; delete them after Publish 2.
 - Map automatic page-trail steps whose own address is a redirect through `CRUMB_TARGETS` in Breadcrumbs, so no internal link depends on a redirect.
+- List only real, non-redirect pages in `public/sitemap.xml`, `public/llms.txt`, `src/data/pageDates.ts` and `src/lib/seo.ts`, pinned by test, so redirected addresses are never treated as pages.

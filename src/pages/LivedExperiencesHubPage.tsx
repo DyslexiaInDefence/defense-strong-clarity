@@ -23,8 +23,7 @@ export default function LivedExperiencesHubPage() {
         <nav aria-label="Lived experiences breadcrumb" className="mb-5">
           <ol className="flex flex-wrap items-center gap-x-2 gap-y-0 text-base">
             <li><Button asChild variant="link" className="min-h-11 h-auto px-0 text-base"><Link to="/">Home</Link></Button></li>
-            {/* The Get involved hub is not live yet, so this crumb points to /join for now. */}
-            <li className="flex items-center gap-2"><ChevronRight aria-hidden="true" className="size-4" /><Button asChild variant="link" className="min-h-11 h-auto px-0 text-base"><Link to="/join">Get involved</Link></Button></li>
+            <li className="flex items-center gap-2"><ChevronRight aria-hidden="true" className="size-4" /><Button asChild variant="link" className="min-h-11 h-auto px-0 text-base"><Link to="/get-involved">Get involved</Link></Button></li>
             <li className="flex min-h-11 items-center gap-2"><ChevronRight aria-hidden="true" className="size-4" /><span aria-current="page">Lived experiences</span></li>
           </ol>
         </nav>

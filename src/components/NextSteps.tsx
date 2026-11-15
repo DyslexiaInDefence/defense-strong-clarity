@@ -21,7 +21,7 @@ const items = [
     title: "Get involved",
     description: "Become part of the network.",
     cta: "Join the Network",
-    to: "/join",
+    to: "/get-involved",
   },
 ];
 

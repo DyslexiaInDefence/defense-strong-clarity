@@ -16,27 +16,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dyslexiaindefence.com/about/why-we-are-here</loc>
-    <lastmod>2026-10-25</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dyslexiaindefence.com/about/what-we-do</loc>
-    <lastmod>2026-10-24</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dyslexiaindefence.com/about/faq</loc>
-    <lastmod>2026-11-13</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://dyslexiaindefence.com/about/what-we-want-to-achieve</loc>
-    <lastmod>2026-10-24</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dyslexiaindefence.com/support</loc>
     <lastmod>2026-10-24</lastmod>
     <priority>0.8</priority>
   </url>
@@ -67,11 +47,6 @@
   </url>
   <url>
     <loc>https://dyslexiaindefence.com/community</loc>
-    <lastmod>2026-10-24</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dyslexiaindefence.com/resources</loc>
     <lastmod>2026-10-24</lastmod>
     <priority>0.8</priority>
   </url>

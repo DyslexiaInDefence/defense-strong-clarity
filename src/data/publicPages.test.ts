@@ -2,7 +2,7 @@ import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { PUBLIC_PAGES, pageHead } from "../lib/seo";
-import { getPageDate } from "./pageDates";
+import { PAGE_DATES, getPageDate } from "./pageDates";
 import { PAGE_BREADCRUMBS } from "./pageBreadcrumbs";
 
 // Switch-over step 4: the redesigned pages made public, with their route files.
@@ -26,8 +26,8 @@ const PUBLIC_REDESIGN: Record<string, string> = {
 };
 const PATHS = Object.keys(PUBLIC_REDESIGN);
 const BASE = "https://dyslexiaindefence.com";
-// Redirected addresses still listed in the sitemap; switch-over step 5 removes them.
-const SITEMAP_REDIRECTS_FOR_STEP_5 = ["/about/why-we-are-here", "/about/what-we-do", "/about/faq", "/support", "/resources"];
+// The five redirecting addresses switch-over step 5 removed from the sitemap, page dates and seo.ts.
+const RETIRED_REDIRECTS = ["/support", "/about/faq", "/about/what-we-do", "/about/why-we-are-here", "/resources"];
 
 function files(directory: string): string[] {
   return readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
@@ -127,15 +127,11 @@ describe("Switch-over step 4: redesigned pages are public", () => {
     }
   });
 
-  it("lists only real, non-redirect pages in the sitemap, apart from the redirects step 5 removes", () => {
+  it("lists only real, non-redirect pages in the sitemap, with no redirect allowed by name", () => {
     const known = routes();
     for (const { path } of sitemapEntries()) {
       const source = known.get(path);
       expect(source, path).toBeDefined();
-      if (SITEMAP_REDIRECTS_FOR_STEP_5.includes(path)) {
-        expect(isRedirect(source ?? ""), path).toBe(true);
-        continue;
-      }
       expect(isRedirect(source ?? ""), path).toBe(false);
       expect(source, path).toContain("component:");
     }
@@ -187,5 +183,123 @@ describe("Army guide skeleton stays hidden after step 4", () => {
     expect(read("public/sitemap.xml")).not.toContain("army-guide-preview");
     expect(getPageDate("/insights/army-guide-preview")).toBeUndefined();
     expect(PAGE_BREADCRUMBS["/insights/army-guide-preview"]).toBeUndefined();
+  });
+});
+
+describe("Switch-over step 5: sitemap, robots and discovery files", () => {
+  const llms = () => read("public/llms.txt");
+  const robots = () => read("public/robots.txt");
+  const llmsLinks = () => [...llms().matchAll(/\]\((\/[^)]*)\)/g)].map(m => (m[1] === "/" ? "/" : (m[1] ?? "").replace(/\/$/, "")));
+
+  it("lists no redirecting address in the sitemap", () => {
+    const known = routes();
+    const listed = sitemapEntries().map(entry => entry.path);
+    for (const path of [...RETIRED_REDIRECTS, "/why-it-matters", "/insights/serving-with-dyslexia-in-the-army-uk", "/insights/army-guide-preview"]) {
+      expect(listed, path).not.toContain(path);
+    }
+    for (const path of listed) expect(isRedirect(known.get(path) ?? ""), path).toBe(false);
+    // Every redirect route in the project is absent from the sitemap.
+    for (const [path, source] of known) if (isRedirect(source)) expect(listed, path).not.toContain(path);
+  });
+
+  it("has no sitemap URL missing from the routes", () => {
+    const known = routes();
+    for (const { path } of sitemapEntries()) {
+      expect(known.has(path), path).toBe(true);
+      expect(known.get(path), path).toContain("component:");
+    }
+  });
+
+  it("lists every page made public in step 4 in the sitemap with its page date", () => {
+    const entries = sitemapEntries();
+    for (const path of PATHS) {
+      expect(entries.find(entry => entry.path === path)?.lastmod, path).toBe(PAGE_DATES[path]);
+    }
+  });
+
+  it("puts every public dated page in the sitemap with the same date, and dates every sitemap page except the homepage", () => {
+    const entries = sitemapEntries();
+    for (const [path, date] of Object.entries(PAGE_DATES)) {
+      if (!PUBLIC_PAGES[path]?.indexable) continue;
+      const matches = entries.filter(entry => entry.path === path);
+      expect(matches, path).toHaveLength(1);
+      expect(matches[0]?.lastmod, path).toBe(date);
+    }
+    for (const { path, lastmod } of entries) {
+      if (path === "/") continue;
+      expect(PAGE_DATES[path], path).toBe(lastmod);
+    }
+  });
+
+  it("removes the five retired redirects from page dates and seo.ts, and leaves no redirect in either", () => {
+    const known = routes();
+    for (const path of RETIRED_REDIRECTS) {
+      expect(PAGE_DATES, path).not.toHaveProperty(path);
+      expect(PUBLIC_PAGES, path).not.toHaveProperty(path);
+      // The redirect route files themselves stay.
+      expect(isRedirect(known.get(path) ?? ""), path).toBe(true);
+    }
+    for (const path of [...Object.keys(PAGE_DATES), ...Object.keys(PUBLIC_PAGES)]) {
+      expect(known.has(path), path).toBe(true);
+      expect(isRedirect(known.get(path) ?? ""), path).toBe(false);
+    }
+  });
+
+  it("gives llms.txt no What We Do, Why we are here, Resources, old FAQ or Get support hub entry, and no -preview address", () => {
+    const text = llms();
+    expect(text).not.toMatch(/\[What We Do\]/i);
+    expect(text).not.toMatch(/\[Why We Are Here\]/i);
+    for (const path of [...RETIRED_REDIRECTS, "/why-it-matters"]) expect(llmsLinks(), path).not.toContain(path);
+    expect(text).not.toContain("-preview");
+    expect(text).not.toContain("army-guide-preview");
+  });
+
+  it("lists every page made public in step 4 in llms.txt, and links only to real non-redirect pages", () => {
+    const known = routes();
+    for (const path of PATHS) expect(llmsLinks(), path).toContain(path);
+    for (const path of llmsLinks()) {
+      expect(known.has(path), path).toBe(true);
+      expect(isRedirect(known.get(path) ?? ""), path).toBe(false);
+    }
+  });
+
+  it("names no -preview address in robots.txt, blocks no newly public page and keeps its existing rules", () => {
+    const text = robots();
+    expect(text).not.toContain("-preview");
+    const disallowed = [...text.matchAll(/^Disallow:\s*(\S+)/gm)].map(m => m[1] ?? "");
+    for (const path of PATHS) {
+      for (const rule of disallowed) expect(path.startsWith(rule), `${path} blocked by ${rule}`).toBe(false);
+    }
+    for (const rule of ["Disallow: /community", "Disallow: /accessibility", "Disallow: /governance/code-of-conduct", "Disallow: /governance/safeguarding", "Disallow: /governance/privacy", "Disallow: /your-voice.html", "Sitemap: https://dyslexiaindefence.com/sitemap.xml"]) {
+      expect(text, rule).toContain(rule);
+    }
+  });
+
+  it("keeps every -preview address and old preview wording out of the sitemap, llms.txt, robots.txt and seo.ts", () => {
+    for (const path of ["public/sitemap.xml", "public/llms.txt", "public/robots.txt", "src/lib/seo.ts"]) {
+      expect(read(path), path).not.toMatch(/preview/i);
+    }
+  });
+});
+
+describe("Switch-over step 5: Get involved links go to the Get involved hub", () => {
+  it("points the homepage, What to do next, Our story, Partner and Lived experiences Get involved links at /get-involved", () => {
+    expect(read("src/pages/HomePage.tsx")).toContain('{ heading: "Get involved", text: "Share your experience, join the community, and help change how Defence supports dyslexic people.", to: "/get-involved", id: "homepage-start-involved" }');
+    expect(read("src/components/NextSteps.tsx")).toMatch(/title: "Get involved",[\s\S]*?to: "\/get-involved",/);
+    expect(read("src/components/NextSteps.tsx")).not.toContain('"/join"');
+    expect(read("src/pages/about/OurStoryPage.tsx")).toMatch(/<Link to="\/get-involved">\s*<Button[^>]*>\s*Get Involved/);
+    expect(read("src/pages/PartnerHubPage.tsx")).toContain('{ title: "Get involved", to: "/get-involved" }');
+    expect(read("src/pages/LivedExperiencesHubPage.tsx")).toContain('<Link to="/get-involved">Get involved</Link>');
+    expect(PAGE_BREADCRUMBS["/lived-experiences"]?.[1]).toEqual({ name: "Get involved", path: "/get-involved" });
+  });
+
+  it("leaves no Get involved label linking to /join, and keeps the Join the Network menu button on /join", () => {
+    for (const path of files("src").filter(p => /\.tsx?$/.test(p) && !p.includes("_old") && !p.includes(".test."))) {
+      const text = read(path);
+      expect(text, path).not.toMatch(/to="\/join">\s*(<Button[^>]*>\s*)?Get involved/i);
+      expect(text, path).not.toMatch(/(title|heading|name): "Get involved",[^}]*?(to|path): "\/join"/i);
+    }
+    const navbar = read("src/components/Navbar.tsx");
+    expect(navbar).toContain('<NavLink to="/join">Join the Network</NavLink>');
   });
 });

@@ -3,9 +3,9 @@
  * Ported from the old client-side use-seo.ts hook: instead of mutating
  * document.head after hydration, each route file calls pageHead(path) from
  * its head() option so titles, descriptions, canonical, OG/Twitter tags and
- * Article/FAQPage JSON-LD render in the server HTML.
+ * Article, WebPage and BreadcrumbList JSON-LD render in the server HTML.
+ * Only real pages are listed: redirecting addresses have no entry.
  */
-import { faqSchema } from "@/data/faqCategories";
 import { getPageDate } from "@/data/pageDates";
 import { PAGE_BREADCRUMBS, type Crumb } from "@/data/pageBreadcrumbs";
 
@@ -38,30 +38,6 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.8,
     indexable: true,
   },
-  "/about/what-we-do": {
-    title: "What We Do | Dyslexia in Defence",
-    description: "Guidance, peer community, lived experience and signposting for dyslexia and neurodiversity across the UK military, civil service and defence industry.",
-    priority: 0.8,
-    indexable: true,
-  },
-  "/about/why-we-are-here": {
-    title: "Why we are here | Dyslexia in Defence",
-    description: "Defence has more dyslexic people than most workplaces but a weaker legal safety net around them. This is the gap Dyslexia in Defence exists to close.",
-    priority: 0.8,
-    indexable: true,
-  },
-  "/about/faq": {
-    title: "Dyslexia & Armed Forces FAQ UK | Dyslexia in Defence",
-    description: "Common questions about dyslexia and the UK Armed Forces — joining, serving, and leaving service. Clear answers for each pathway.",
-    priority: 0.8,
-    indexable: true,
-  },
-  "/support": {
-    title: "Get Support for Dyslexia in Defence | Guidance and Community",
-    description: "Find dyslexia guidance, community support, lived experience, and ways to join the Dyslexia in Defence network.",
-    priority: 0.8,
-    indexable: true,
-  },
   "/support/currently-serving": {
     title: "Serving now (including civil service) | Dyslexia in Defence",
     description: "Dyslexia guidance for regular and reserve personnel and civil servants: the Defence Dyslexia Network, Standard Learning Credits, Service resources and stories.",
@@ -89,12 +65,6 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
   "/armed-forces-covenant": {
     title: "Our Armed Forces Covenant Pledge | Dyslexia in Defence",
     description: "Dyslexia in Defence CIC has signed the Armed Forces Covenant, pledging support to serving personnel, reservists, veterans and military families.",
-    priority: 0.8,
-    indexable: true,
-  },
-  "/why-it-matters": {
-    title: "Why Dyslexia Matters in Defence | Dyslexia in Defence",
-    description: "Understand why dyslexia awareness matters across the UK defence sector, military, civil service and defence industry. Cognitive diversity is a strategic advantage.",
     priority: 0.8,
     indexable: true,
   },
@@ -320,12 +290,6 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.5,
     indexable: false,
   },
-  "/resources": {
-    title: "Resources | Dyslexia in Defence",
-    description: "Curated dyslexia and neurodiversity resources for the UK Defence community.",
-    priority: 0.5,
-    indexable: false,
-  },
   "/accessibility": {
     title: "Accessibility | Dyslexia in Defence",
     description: "Accessibility commitments and dyslexia-friendly design choices for the Dyslexia in Defence website.",
@@ -411,13 +375,11 @@ export function pageHead(pathname: string) {
     ? undefined
     : crumbs
       ? [...(webPage ? [webPage] : []), { type: "application/ld+json", children: breadcrumbSchema(crumbs) }]
-      : pathname === "/about/faq"
-        ? [{ type: "application/ld+json", children: JSON.stringify({ ...faqSchema, ...(dateModified ? { dateModified } : {}) }) }]
-        : isInsightArticle || isLivedExperienceArticle
-          ? [{ type: "application/ld+json", children: articleSchema(url, page, dateModified) }]
-          : webPage
-            ? [webPage]
-            : undefined;
+      : isInsightArticle || isLivedExperienceArticle
+        ? [{ type: "application/ld+json", children: articleSchema(url, page, dateModified) }]
+        : webPage
+          ? [webPage]
+          : undefined;
 
   return {
     meta,

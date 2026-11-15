@@ -2,7 +2,7 @@ import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { EVIDENCE_DATA_AS_AT, PAGE_DATES, formatPageDate, getPageDate } from "./pageDates";
-import { pageHead } from "../lib/seo";
+import { PUBLIC_PAGES, pageHead } from "../lib/seo";
 
 function routeFiles(directory: string): string[] {
   return readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
@@ -22,7 +22,6 @@ const OCT_26_PAGES = [
 ];
 
 const NOV_13_PAGES = [
-  "/about/faq",
   "/insights/can-you-join-army-with-dyslexia-uk",
   "/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk",
   "/insights/is-dyslexia-a-barrier-in-the-military-uk",
@@ -50,10 +49,9 @@ const NOV_14_PAGES = [
 
 describe("Page date rules", () => {
   it("maps every page to its honest content date", () => {
-    expect(Object.keys(PAGE_DATES)).toHaveLength(50);
+    expect(Object.keys(PAGE_DATES)).toHaveLength(45);
     for (const [path, date] of Object.entries(PAGE_DATES)) {
       if (path.startsWith("/governance")) continue;
-      if (path === "/about/why-we-are-here") continue;
       if (path === "/contact") continue;
       if (path === "/lived-experiences/liz-oliver-british-army-veteran") continue;
       if (OCT_26_PAGES.includes(path)) continue;
@@ -84,11 +82,13 @@ describe("Page date rules", () => {
     expect(getPageDate("/lived-experiences/liz-oliver-british-army-veteran")).toBe("2026-11-06");
   });
 
-  it("dates Why We Are Here to its first content publication on 25 October 2026", () => {
-    expect(getPageDate("/about/why-we-are-here")).toBe("2026-10-25");
-    expect(formatPageDate(getPageDate("/about/why-we-are-here") ?? "")).toBe("25 October 2026");
-    const head = pageHead("/about/why-we-are-here");
-    expect(JSON.parse(head.scripts?.[0]?.children ?? "{}").dateModified).toBe("2026-10-25");
+  it("gives the five redirecting addresses retired in step 5 no date, search entry or structured data", () => {
+    for (const path of ["/support", "/about/faq", "/about/what-we-do", "/about/why-we-are-here", "/resources"]) {
+      expect(getPageDate(path), path).toBeUndefined();
+      expect(PAGE_DATES, path).not.toHaveProperty(path);
+      expect(PUBLIC_PAGES, path).not.toHaveProperty(path);
+      expect(pageHead(path), path).not.toHaveProperty("scripts");
+    }
   });
 
   it("covers every content route except the homepage, newsletters and evidence", () => {
@@ -137,7 +137,7 @@ describe("Page date rules", () => {
     expect(EVIDENCE_DATA_AS_AT).toEqual({ iso: "2026-10", label: "October 2026" });
   });
 
-  it("shares mapped dates with Article, FAQPage and WebPage metadata", () => {
+  it("shares mapped dates with Article and WebPage metadata", () => {
     for (const path of Object.keys(PAGE_DATES)) {
       const head = pageHead(path);
       for (const script of "scripts" in head ? head.scripts ?? [] : []) {
@@ -147,7 +147,7 @@ describe("Page date rules", () => {
         expect(schema.dateModified, path).toBe(getPageDate(path));
       }
     }
-    for (const [path, type] of [["/about", "WebPage"], ["/about/faq", "FAQPage"], ["/insights", "WebPage"], ["/insights/can-you-join-army-with-dyslexia-uk", "Article"], ["/lived-experiences/major-lena-beardsell", "Article"]] as const) {
+    for (const [path, type] of [["/about", "WebPage"], ["/insights", "WebPage"], ["/insights/can-you-join-army-with-dyslexia-uk", "Article"], ["/lived-experiences/major-lena-beardsell", "Article"]] as const) {
       const head = pageHead(path);
       const script = "scripts" in head ? head.scripts?.[0] : undefined;
       expect(script).toBeDefined();

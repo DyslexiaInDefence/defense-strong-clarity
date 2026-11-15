@@ -22,8 +22,8 @@ function files(directory: string): string[] {
   });
 }
 
-// Since switch-over step 4 the public pages are named in these records; llms.txt and robots.txt wait for step 5.
-const PUBLIC_RECORDS = new Set(["public/sitemap.xml", "src/lib/seo.ts", "src/data/pageDates.ts", "src/data/pageBreadcrumbs.ts"]);
+// Since switch-over step 4 the public pages are named in these records, and since step 5 in llms.txt too. robots.txt names none of them.
+const PUBLIC_RECORDS = new Set(["public/sitemap.xml", "public/llms.txt", "src/lib/seo.ts", "src/data/pageDates.ts", "src/data/pageBreadcrumbs.ts"]);
 const nextStepsSkip = () => readFileSync("src/components/Layout.tsx", "utf8").match(/const NEXT_STEPS_SKIP = new Set<string>\((\[[^\]]*\])\)/)?.[1] ?? "";
 
 describe("Staged support page boundaries", () => {
@@ -333,7 +333,7 @@ describe("Staged support page boundaries", () => {
     expect(guide?.audience).toBe("everyone");
   });
 
-  it("retires the Understanding Dyslexia preview address and keeps the final address out of llms.txt and unagreed links", () => {
+  it("retires the Understanding Dyslexia preview address, lists the final address in llms.txt and keeps it out of unagreed links", () => {
     // Only the tests may still name the old preview address.
     const tests = new Set(["src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
@@ -347,7 +347,8 @@ describe("Staged support page boundaries", () => {
       expect(readFileSync(path, "utf8").includes("/insights/understanding-dyslexia"), path).toBe(false);
     }
     expect(readFileSync("public/sitemap.xml", "utf8").includes("understanding-dyslexia")).toBe(true);
-    expect(readFileSync("public/llms.txt", "utf8").includes("understanding-dyslexia")).toBe(false);
+    expect(readFileSync("public/llms.txt", "utf8").includes("(/insights/understanding-dyslexia)")).toBe(true);
+    expect(readFileSync("public/llms.txt", "utf8").includes("understanding-dyslexia-preview")).toBe(false);
     expect(readFileSync("src/lib/seo.ts", "utf8").includes("understanding-dyslexia")).toBe(true);
     expect(getPageDate("/insights/understanding-dyslexia")).toBe("2026-11-14");
   });
@@ -639,14 +640,15 @@ describe("Staged support page boundaries", () => {
     expect(live).not.toContain('"@/pages/AboutPage"');
   });
 
-  it("retires the Get involved preview address and keeps /get-involved out of llms.txt", () => {
+  it("retires the Get involved preview address and lists /get-involved in llms.txt", () => {
     const allowed = new Set(["src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/get-involved-preview"), path).toBe(false);
     }
     expect(readFileSync("public/sitemap.xml", "utf8").includes("get-involved")).toBe(true);
-    expect(readFileSync("public/llms.txt", "utf8").includes("get-involved")).toBe(false);
+    expect(readFileSync("public/llms.txt", "utf8").includes("(/get-involved)")).toBe(true);
+    expect(readFileSync("public/llms.txt", "utf8").includes("get-involved-preview")).toBe(false);
     expect(readFileSync("src/lib/seo.ts", "utf8").includes("get-involved")).toBe(true);
     expect(getPageDate("/get-involved")).toBe("2026-11-14");
   });
@@ -744,7 +746,7 @@ describe("Staged support page boundaries", () => {
   it("links the Partner preview only to existing pages", () => {
     const routeText = files("src/routes").filter(path => path.endsWith(".tsx")).map(path => readFileSync(path, "utf8")).join("\n");
     const page = readFileSync("src/pages/PartnerHubPage.tsx", "utf8");
-    expect(PARTNER_MORE_LINKS.map(item => [item.title, item.to])).toEqual([["About us", "/about"], ["Get support", "/support/start-here"], ["Get involved", "/join"], ["Insights", "/insights"]]);
+    expect(PARTNER_MORE_LINKS.map(item => [item.title, item.to])).toEqual([["About us", "/about"], ["Get support", "/support/start-here"], ["Get involved", "/get-involved"], ["Insights", "/insights"]]);
     const internal = [...page.matchAll(/to="([^"]+)"/g)].map(match => match[1]);
     expect(internal).toEqual(["/", "/about", "/join", "/armed-forces-covenant", "/join", "/contact"]);
     for (const to of [...internal, ...PARTNER_MORE_LINKS.map(item => item.to)]) {
@@ -870,10 +872,12 @@ describe("Staged support page boundaries", () => {
     expect(readFileSync("src/pages/_old/LivedExperiencesPage.tsx", "utf8")).toContain(intro);
     for (const text of [intro, "Browse stories", "Read their story", "Your story helps others feel less alone and helps us show what real support looks like.", "When you email us, you choose whether we share your story with your name, anonymously, or not at all.", "Stories are personal views. They are not the view of the MOD or of the internal Defence Dyslexia Network.", "More from Dyslexia in Defence"]) expect(page, text).toContain(text);
     expect(page).not.toContain("\u2014");
-    expect(page).toContain('<Link to="/join">Get involved</Link>');
+    // Switch-over step 5: the Get involved step goes to the Get involved hub.
+    expect(page).toContain('<Link to="/get-involved">Get involved</Link>');
+    expect(page).not.toContain('<Link to="/join">Get involved</Link>');
     expect(LIVED_MORE_LINKS.map(item => [item.title, item.to])).toEqual([["Join the Network", "/join"], ["Community", "/community"], ["Get support", "/support/start-here"], ["Insights", "/insights"]]);
     const routeText = files("src/routes").filter(path => path.endsWith(".tsx")).map(path => readFileSync(path, "utf8")).join("\n");
-    for (const to of ["/", "/join", "/community", "/support/start-here", "/insights"]) {
+    for (const to of ["/", "/get-involved", "/join", "/community", "/support/start-here", "/insights"]) {
       expect(routeText.includes(`createFileRoute("${to}")`) || routeText.includes(`createFileRoute("${to}/")`), to).toBe(true);
     }
     // Since switch-over step 2 the Get support link goes straight to Start here.
