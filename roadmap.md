@@ -1,5 +1,6 @@
 # Roadmap
 
+- [x] Switch-over step 6: site-wide wording, link, email, download and image tests; llms.txt About Us and Insights descriptions; report findings, no publishing.
 - [x] Switch-over step 5: remove the five redirecting addresses from the sitemap, page dates and seo.ts; add the newly public pages to llms.txt and remove retired entries; confirm robots.txt; repoint Get involved links (not the Join the Network button) to /get-involved; tests, no publishing.
 - [x] Switch-over step 4: make the 16 redesigned pages public (no noindex or banner), shared titles, descriptions and canonicals, 14 November 2026 dates and sitemap entries, BreadcrumbList data, What to do next on About us, Lived experiences and Understanding Dyslexia; Army guide skeleton stays hidden; tests and page checks, no publishing.
 - [x] Switch-over step 3: new menu and footer always on, review aids and /review-preview removed, 44px menu and footer tap targets; tests and page checks, no publishing.
