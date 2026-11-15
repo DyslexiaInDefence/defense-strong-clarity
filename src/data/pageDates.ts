@@ -1,13 +1,10 @@
 // Only change a page's date when its content genuinely changes. Do not bump on deploys or cosmetic changes.
 // The redesigned pages went public on 14 November 2026 (switch-over step 4).
+// Redirecting addresses are not pages and have no date (switch-over step 5).
 export const PAGE_DATES: Readonly<Record<string, string>> = {
   "/about": "2026-11-14",
   "/about/our-story": "2026-10-24",
-  "/about/why-we-are-here": "2026-10-25",
-  "/about/what-we-do": "2026-10-24",
-  "/about/faq": "2026-11-13",
   "/about/what-we-want-to-achieve": "2026-10-24",
-  "/support": "2026-10-24",
   "/support/currently-serving": "2026-11-14",
   "/currently-serving/standard-learning-credits": "2026-11-14",
   "/currently-serving/army-education-centres": "2026-10-26",
@@ -39,7 +36,6 @@ export const PAGE_DATES: Readonly<Record<string, string>> = {
   "/join": "2026-10-24",
   "/contact": "2026-10-25",
   "/community": "2026-10-24",
-  "/resources": "2026-10-24",
   "/accessibility": "2026-10-24",
   "/armed-forces-covenant": "2026-10-24",
   "/support/how-you-think-and-learn": "2026-11-14",
