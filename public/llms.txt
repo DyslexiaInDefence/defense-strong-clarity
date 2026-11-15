@@ -6,7 +6,7 @@ Dyslexia in Defence is volunteer-led and not affiliated with the Ministry of Def
 
 ## Pages
 
-- [About Us](/about): Mission, governance and CIC registration details.
+- [About Us](/about): Dyslexia in Defence is an independent Community Interest Company supporting people with dyslexia and neurodiversity across the UK Defence community.
 - [Our Story](/about/our-story): How Dyslexia in Defence started and who it serves today.
 - [Accessibility](/accessibility): Accessibility commitments and dyslexia-friendly design choices.
 - [What We Want to Achieve](/about/what-we-want-to-achieve): Aims and success measures.
@@ -15,7 +15,7 @@ Dyslexia in Defence is volunteer-led and not affiliated with the Ministry of Def
 - [Community](/community): Peer support space for the Dyslexia in Defence community.
 - [Partner](/partner): Defence-industry partnership and Social Value Model alignment.
 - [Governance](/governance): How the CIC is run and held to account.
-- [Insights](/insights): FAQ hub covering joining, serving and leaving the UK Armed Forces with dyslexia.
+- [Insights](/insights): The evidence behind Dyslexia in Defence and what we do and why, written mainly for leaders, employers and researchers across the UK Defence community.
 - [Understanding Dyslexia](/insights/understanding-dyslexia): The dyslexic spiky profile, the strengths dyslexic people bring to Defence, and why both strengths and challenges matter.
 - [Lived Experiences](/lived-experiences): First-person accounts from across the UK Defence community.
 
