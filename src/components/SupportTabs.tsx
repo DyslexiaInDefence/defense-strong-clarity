@@ -18,7 +18,7 @@ export default function SupportTabs({ activePath, onTabPage = true }: { activePa
         {SUPPORT_TABS.map(tab => (
           <li key={tab.to} className="min-w-0">
             <Button asChild variant={activePath === tab.to ? "secondary" : "ghost"} className="min-h-11 h-auto whitespace-normal px-4 py-3 text-base text-foreground">
-              <Link to={tab.to} aria-current={activePath === tab.to ? (onTabPage ? "page" : "true") : undefined}>{tab.label}</Link>
+              <Link to={tab.to} activeOptions={{ exact: true, includeSearch: false }} aria-current={activePath === tab.to ? (onTabPage ? "page" : "true") : undefined}>{tab.label}</Link>
             </Button>
           </li>
         ))}

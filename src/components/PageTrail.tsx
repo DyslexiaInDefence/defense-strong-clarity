@@ -6,6 +6,7 @@ import type { Crumb } from "@/data/pageBreadcrumbs";
 /**
  * The page trail drawn by Get support and Get involved pages, in the same style as the Insights page.
  * Pass the page's entry from PAGE_BREADCRUMBS so the visible trail and its BreadcrumbList data match.
+ * Links match exactly, so a parent step (Insights on an article) is never announced as the current page.
  */
 export default function PageTrail({ crumbs, label }: { crumbs: readonly Crumb[]; label: string }) {
   return (
@@ -20,7 +21,7 @@ export default function PageTrail({ crumbs, label }: { crumbs: readonly Crumb[];
                 <span aria-current="page">{crumb.name}</span>
               ) : (
                 <Button asChild variant="link" className="min-h-11 h-auto px-0 text-base">
-                  <Link to={crumb.path}>{crumb.name}</Link>
+                  <Link to={crumb.path} activeOptions={{ exact: true, includeSearch: false }}>{crumb.name}</Link>
                 </Button>
               )}
             </li>
