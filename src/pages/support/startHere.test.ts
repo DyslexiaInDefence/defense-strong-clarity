@@ -24,7 +24,7 @@ function files(directory: string): string[] {
 
 // Since switch-over step 4 the public pages are named in these records, and since step 5 in llms.txt too. robots.txt names none of them.
 // The site-wide step 6 tests also name them; tests are not discovery content.
-const PUBLIC_RECORDS = new Set(["public/sitemap.xml", "public/llms.txt", "src/lib/seo.ts", "src/data/pageDates.ts", "src/data/pageBreadcrumbs.ts", "src/data/siteWording.test.ts", "src/data/siteIntegrity.test.ts", "src/pages/homePromptA.test.ts"]);
+const PUBLIC_RECORDS = new Set(["public/sitemap.xml", "public/llms.txt", "src/lib/seo.ts", "src/data/pageDates.ts", "src/data/pageBreadcrumbs.ts", "src/data/siteWording.test.ts", "src/data/siteIntegrity.test.ts", "src/pages/homePromptA.test.ts", "src/pages/promptBHeaders.test.ts"]);
 const nextStepsSkip = () => readFileSync("src/components/Layout.tsx", "utf8").match(/const NEXT_STEPS_SKIP = new Set<string>\((\[[^\]]*\])\)/)?.[1] ?? "";
 
 describe("Staged support page boundaries", () => {
