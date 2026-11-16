@@ -10,7 +10,7 @@ import LastUpdated from "@/components/LastUpdated";
 import { PAGE_BREADCRUMBS } from "@/data/pageBreadcrumbs";
 
 // Pages where the global "What to do next" block would be redundant
-const NEXT_STEPS_SKIP = new Set<string>(["/", "/join", "/community", "/support/start-here", "/support/thinking-of-joining", "/support/leaving-or-left-service", "/support/supporting-someone", "/support/guidance", "/support/downloads-and-tools", "/support/faq", "/support/how-you-think-and-learn", "/insights", "/support/currently-serving", "/currently-serving/standard-learning-credits", "/insights/army-guide-preview", "/get-involved", "/partner"]);
+const NEXT_STEPS_SKIP = new Set<string>(["/", "/join", "/community", "/support/start-here", "/support/thinking-of-joining", "/support/leaving-or-left-service", "/support/supporting-someone", "/support/guidance", "/support/downloads-and-tools", "/support/faq", "/support/support-beyond-us", "/support/how-you-think-and-learn", "/insights", "/support/currently-serving", "/currently-serving/standard-learning-credits", "/insights/army-guide-preview", "/get-involved", "/partner"]);
 
 const Layout = () => {
   const { pathname, search } = useLocation();

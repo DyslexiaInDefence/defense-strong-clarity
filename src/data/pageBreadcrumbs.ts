@@ -43,6 +43,7 @@ export const PAGE_BREADCRUMBS: Readonly<Record<string, readonly Crumb[]>> = {
   "/support/guidance": [HOME, GET_SUPPORT, { name: "Guidance" }],
   "/support/downloads-and-tools": [HOME, GET_SUPPORT, { name: "Downloads and tools" }],
   "/support/faq": [HOME, GET_SUPPORT, { name: "FAQ" }],
+  "/support/support-beyond-us": [HOME, GET_SUPPORT, { name: "Support beyond us" }],
   "/support/how-you-think-and-learn": [HOME, GET_SUPPORT, { name: "Guidance", path: "/support/guidance" }, { name: "Understanding how you think and learn" }],
   ...Object.fromEntries(Object.entries(INSIGHT_ARTICLE_TITLES).map(([path, title]) => [path, insightArticleTrail(title)])),
   "/currently-serving/army-education-centres": [HOME, GET_SUPPORT, { name: "Army Education Centres" }],
