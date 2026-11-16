@@ -1,102 +1,23 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import fandfLogo from "@/assets/fandf-logo.png.asset.json";
-import neurodiverseLogo from "../../public/images/partners/neurodiverse-community.png.asset.json";
-import vobLockup from "@/assets/vob-lockup.jpg.asset.json";
-import vobMark from "@/assets/vob-mark.png.asset.json";
-
-type PartnerLogo = {
-  name: string;
-  alt: string;
-  src: string;
-  href?: string;
-  nameLabel?: string;
-  tagline?: string;
-  mobileSrc?: string;
-};
-
-const FTG_LOGO_PATH = "/images/partners/FTG-colour-Logo.png";
-
-const LOGOS: PartnerLogo[] = [
-  {
-    name: "Forces Transition Group",
-    alt: "Forces Transition Group logo, opens in new tab",
-    src: FTG_LOGO_PATH,
-    href: "https://ftgjobfairs.com",
-    tagline:
-      "Free support helping military and blue-light personnel and their families move from service to civilian life: online and live job fairs, free CV writing, a live jobs board, the FTG Academy for training, and interview and LinkedIn workshops.",
-  },
-  {
-    name: "FANDF",
-    alt: "FANDF, Forces Additional Needs and Disability Forum logo, opens in new tab",
-    src: fandfLogo.url,
-    href: "https://www.ssafa.org.uk/get-help/disability-support/additional-needs-and-disability-support",
-    tagline:
-      "A tri-Service forum, facilitated by SSAFA, giving Forces families who have a child or adult dependant with an additional need or disability a voice, with support, advice, an annual conference and a guide for Service families. Free to join.",
-  },
-  {
-    name: "The Education People",
-    alt: "The Education People logo, opens in new tab",
-    src: "/images/partners/the-education-people.png",
-    href: "https://www.theeducationpeople.org/connecttowork",
-    tagline:
-      "Delivers Connect to Work across Kent and Medway: up to 12 months of tailored employment support for disabled people, people with health conditions and those facing complex barriers to work. Free recruitment and retention support for employers too.",
-  },
-  {
-    name: "VOB",
-    alt: "Veterans Operating Base (VOB) logo",
-    src: vobLockup.url,
-    mobileSrc: vobMark.url,
-    href: "https://vob.org.uk/",
-    nameLabel: "Veterans Operating Base",
-    tagline:
-      "Veteran-led drop-in hub offering immediate, trauma-informed support to veterans and their families: on-site mental health specialists, a PTSD therapist for private sessions, community projects and days out. Open six days a week.",
-  },
-  {
-    name: "Embers Woodcraft",
-    alt: "Embers Woodcraft logo, opens in new tab",
-    src: "/images/partners/embers-woodcraft.png",
-    href: "https://emberswoodcraft.co.uk",
-    tagline:
-      "Woodland bushcraft days in Kent for military and blue-light communities: build new skills, connect with nature and look after your mental health, with a campfire check-in and signposting to further support.",
-  },
-  {
-    name: "ReferKent",
-    alt: "ReferKent logo, opens in new tab",
-    src: "/images/partners/refer-kent.png",
-    href: "https://www.kent.gov.uk/referkent",
-    tagline:
-      "Kent County Council's secure online referral system. Professionals refer adults to support across Kent and Medway, from debt to mental health and wellbeing, with a response within 3 working days. Free for voluntary sector organisations.",
-  },
-  {
-    name: "Head Up",
-    alt: "Head Up logo, opens in new tab",
-    src: "/images/partners/head-up.png",
-    href: "https://www.head-up.org.uk/",
-    tagline:
-      "Veteran-founded charity supporting the mental health of serving personnel, reservists and veterans from any UK service: one-to-one support, wellness days and mini retreats, and wellness presentations, with a free 7-day residential retreat in development.",
-  },
-  {
-    name: "NeuroDiverse Community",
-    alt: "NeuroDiverse Community CIC logo, opens in new tab",
-    src: neurodiverseLogo.url,
-    href: "https://neurodiverse-community.co.uk",
-    tagline:
-      "Community led support for neurodivergent children, young people, adults and families, including Armed Forces and veteran families, with hubs in Catterick and Windsor, parent and carer support, training and employability programmes.",
-  },
-  {
-    name: "Team Talk",
-    alt: "Team Talk logo, opens in new tab",
-    src: "/images/partners/team-talk.png",
-    href: "https://linktr.ee/t3amtalk",
-    tagline:
-      "An evidence-informed, people-first initiative breaking down stigma, building meaningful connections and strengthening resilience through the power of everyday conversations. Giving people permission to talk, the confidence to listen and the freedom to connect — without judgement, expectation or pressure. No agenda. No pressure. Just connections",
-  },
-];
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import SupportOrganisationLogo from "@/components/SupportOrganisationLogo";
+import type { SupportOrganisation } from "@/data/supportOrganisations";
 
 const MD_BREAKPOINT = 768;
 
-const PartnerLogoCarousel = () => {
+interface PartnerLogoCarouselProps {
+  /** Organisations shown, one block each: logo, name, short paragraph and a link to their site. */
+  organisations: readonly SupportOrganisation[];
+  /** Accessible name for the carousel, e.g. "Mental health and wellbeing organisations". */
+  label: string;
+}
+
+/**
+ * Two organisations per view from 768px, one below. No autoplay. Arrows and dots appear only
+ * when there are more organisations than fit in view. Blocks out of view are inert so keyboard
+ * focus never lands on hidden links. Sliding is instant under reduced motion.
+ */
+const PartnerLogoCarousel = ({ organisations, label }: PartnerLogoCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(1);
   const [isClient, setIsClient] = useState(false);
@@ -112,7 +33,8 @@ const PartnerLogoCarousel = () => {
     return () => window.removeEventListener("resize", updateVisibleCount);
   }, []);
 
-  const maxIndex = Math.max(0, LOGOS.length - visibleCount);
+  const total = organisations.length;
+  const maxIndex = Math.max(0, total - visibleCount);
 
   useEffect(() => {
     setCurrentIndex((prev) => Math.min(prev, maxIndex));
@@ -128,8 +50,7 @@ const PartnerLogoCarousel = () => {
   const goPrev = useCallback(() => goTo(currentIndex - 1), [currentIndex, goTo]);
   const goNext = useCallback(() => goTo(currentIndex + 1), [currentIndex, goTo]);
 
-  const isLogoVisible = (logoIndex: number) =>
-    logoIndex >= currentIndex && logoIndex < currentIndex + visibleCount;
+  const isVisible = (index: number) => index >= currentIndex && index < currentIndex + visibleCount;
 
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     const touch = e.changedTouches[0];
@@ -144,8 +65,7 @@ const PartnerLogoCarousel = () => {
       touchStartX.current = null;
       return;
     }
-    const endX = touch.screenX;
-    const diff = endX - touchStartX.current;
+    const diff = touch.screenX - touchStartX.current;
     if (Math.abs(diff) > 50) {
       if (diff < 0) goNext();
       else goPrev();
@@ -154,165 +74,95 @@ const PartnerLogoCarousel = () => {
   };
 
   const showControls = maxIndex > 0;
+  const first = currentIndex + 1;
+  const last = Math.min(total, currentIndex + visibleCount);
+  const arrowClass =
+    "flex size-11 shrink-0 items-center justify-center rounded-full border border-border bg-card text-primary shadow-sm transition-colors hover:bg-secondary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-40";
 
   return (
-    <section
-      className="border-t border-border bg-white py-16"
-      aria-label="Support beyond us"
-    >
-      <div className="container mx-auto px-4">
-        <h2
-          className="mb-3 text-center text-2xl font-bold"
-          style={{ color: "#09245B" }}
-        >
-          Support Beyond Us
-        </h2>
-        <p className="mx-auto mb-8 max-w-xl text-center text-sm leading-relaxed text-muted-foreground">
-          Independent organisations we work alongside and are happy to
-          recommend.
+    <div role="region" aria-roledescription="carousel" aria-label={label} className="mx-auto max-w-3xl">
+      {showControls && (
+        <p className="sr-only" aria-live="polite">
+          Showing {first === last ? `${first}` : `${first} to ${last}`} of {total}
         </p>
+      )}
+      <div className="flex items-center justify-center gap-2 md:gap-4">
+        {showControls && (
+          <button type="button" onClick={goPrev} disabled={currentIndex === 0} aria-label="Show previous organisation" className={arrowClass}>
+            <ChevronLeft className="h-5 w-5" aria-hidden="true" />
+          </button>
+        )}
 
-        <div className="mx-auto max-w-3xl">
-          <div className="flex items-center justify-center gap-2 md:gap-4">
-            {showControls && (
-              <button
-                type="button"
-                onClick={goPrev}
-                disabled={currentIndex === 0}
-                aria-label="Show previous organisation"
-                className="shrink-0 rounded-full border border-border bg-white p-1.5 text-primary shadow-sm transition-colors hover:bg-secondary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-40 md:p-2"
+        <div className="w-full min-w-0 overflow-hidden" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+          <ul
+            className="flex transition-transform duration-300 ease-out motion-reduce:transition-none"
+            style={{ transform: isClient ? `translateX(-${currentIndex * (100 / visibleCount)}%)` : undefined }}
+          >
+            {organisations.map((organisation, index) => (
+              <li
+                key={organisation.name}
+                role="group"
+                aria-roledescription="slide"
+                aria-label={`${index + 1} of ${total}: ${organisation.name}`}
+                inert={showControls && !isVisible(index)}
+                className="flex shrink-0 flex-col items-center px-3 md:px-6"
+                style={{ width: `${100 / visibleCount}%` }}
               >
-                <ChevronLeft className="h-5 w-5" aria-hidden="true" />
-              </button>
-            )}
-
-            <div
-              className="w-full overflow-hidden"
-              onTouchStart={handleTouchStart}
-              onTouchEnd={handleTouchEnd}
-            >
-              <div
-                className="flex transition-transform duration-300 ease-out"
-                style={{
-                  transform: isClient
-                    ? `translateX(-${currentIndex * (100 / visibleCount)}%)`
-                    : undefined,
-                }}
-              >
-                {LOGOS.map((logo) => {
-                  const img = logo.mobileSrc ? (
-                    <>
-                      <img
-                        src={logo.mobileSrc}
-                        alt={logo.alt}
-                        loading="lazy"
-                        decoding="async"
-                        className="h-10 w-auto max-w-[240px] bg-white object-contain md:hidden"
-                      />
-                      <img
-                        src={logo.src}
-                        alt=""
-                        aria-hidden="true"
-                        loading="lazy"
-                        decoding="async"
-                        className="hidden h-10 w-auto max-w-[280px] bg-white object-contain md:block md:h-[60px]"
-                      />
-                    </>
-                  ) : (
-                    <img
-                      src={logo.src}
-                      alt={logo.alt}
-                      loading="lazy"
-                      decoding="async"
-                      className={
-                        logo.name === "NeuroDiverse Community"
-                          ? "h-auto max-h-24 w-full max-w-[240px] object-contain md:max-h-28"
-                          : "h-10 w-auto max-w-[240px] object-contain md:h-[60px]"
-                      }
-                    />
-                  );
-
-                  return (
-                    <div
-                      key={logo.name}
-                      className="flex shrink-0 flex-col items-center px-4 md:px-8"
-                      style={{ width: `${100 / visibleCount}%` }}
-                    >
-                      <div className="flex h-24 w-full items-center justify-center md:h-28">
-                        {logo.href ? (
-                          <a
-                            href={logo.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`flex items-center justify-center rounded-md transition-transform duration-300 hover:scale-105 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring ${
-                              logo.name === "Embers Woodcraft"
-                                ? "bg-primary px-3 py-2"
-                                : ""
-                            }`}
-                          >
-                            {img}
-                          </a>
-                        ) : (
-                          img
-                        )}
-                      </div>
-
-                      {logo.nameLabel && (
-                        <p className="mx-auto mt-2 max-w-sm text-center text-sm font-bold text-foreground">
-                          {logo.nameLabel}
-                        </p>
-                      )}
-
-                      {logo.tagline && (
-                        <p className="mx-auto mt-3 max-w-sm text-center text-sm leading-relaxed text-muted-foreground">
-                          {logo.tagline}
-                        </p>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {showControls && (
-              <button
-                type="button"
-                onClick={goNext}
-                disabled={currentIndex === maxIndex}
-                aria-label="Show next organisation"
-                className="shrink-0 rounded-full border border-border bg-white p-1.5 text-primary shadow-sm transition-colors hover:bg-secondary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-40 md:p-2"
-              >
-                <ChevronRight className="h-5 w-5" aria-hidden="true" />
-              </button>
-            )}
-          </div>
-
-          {showControls && (
-            <div
-              className="mt-6 flex justify-center gap-2"
-              role="tablist"
-              aria-label="Organisation navigation"
-            >
-              {LOGOS.map((logo, index) => (
-                <button
-                  key={logo.name}
-                  type="button"
-                  role="tab"
-                  aria-selected={isLogoVisible(index)}
-                  aria-label={`Show ${logo.name}`}
-                  onClick={() => goTo(index)}
-                  className={`h-2.5 w-2.5 rounded-full transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring ${
-                    isLogoVisible(index)
-                      ? "bg-[#09245B]"
-                      : "border border-[#09245B]/40 bg-transparent hover:bg-[#09245B]/20"
-                  }`}
-                />
-              ))}
-            </div>
-          )}
+                <div className="flex h-24 w-full items-center justify-center md:h-28">
+                  <a
+                    href={organisation.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex min-h-11 max-w-full items-center justify-center rounded-md transition-transform duration-300 hover:scale-105 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none motion-reduce:hover:scale-100"
+                  >
+                    <SupportOrganisationLogo organisation={organisation} />
+                  </a>
+                </div>
+                <h3 className="mt-3 text-center text-lg font-bold leading-relaxed text-foreground">{organisation.name}</h3>
+                <p className="mx-auto mt-2 max-w-sm text-center text-base leading-relaxed text-foreground">{organisation.tagline}</p>
+                <a
+                  href={organisation.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex min-h-11 items-center gap-1 rounded-sm text-base font-semibold text-foreground underline underline-offset-4 hover:text-primary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  Visit website<span className="sr-only">: {organisation.name}, opens in new tab</span>
+                  <ArrowRight aria-hidden="true" className="size-4 shrink-0" />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
+
+        {showControls && (
+          <button type="button" onClick={goNext} disabled={currentIndex === maxIndex} aria-label="Show next organisation" className={arrowClass}>
+            <ChevronRight className="h-5 w-5" aria-hidden="true" />
+          </button>
+        )}
       </div>
-    </section>
+
+      {showControls && (
+        <div className="mt-4 flex flex-wrap justify-center" role="group" aria-label={`Choose an organisation: ${label}`}>
+          {organisations.map((organisation, index) => (
+            <button
+              key={organisation.name}
+              type="button"
+              aria-label={`Show ${organisation.name}`}
+              aria-current={isVisible(index) ? "true" : undefined}
+              onClick={() => goTo(index)}
+              className="group flex size-11 items-center justify-center rounded-full focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <span
+                aria-hidden="true"
+                className={`size-2.5 rounded-full transition-colors motion-reduce:transition-none ${
+                  isVisible(index) ? "bg-brand-navy" : "border border-brand-navy/40 bg-transparent group-hover:bg-brand-navy/20"
+                }`}
+              />
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
 
