@@ -116,7 +116,7 @@ describe("Support beyond us page", () => {
 
   it("uses a carousel with no autoplay, hidden controls when everything fits, inert hidden slides and reduced motion", () => {
     const carousel = read("src/components/PartnerLogoCarousel.tsx");
-    for (const gone of ["setInterval", "setTimeout", "autoplay", 'loading="lazy"']) expect(carousel, gone).not.toContain(gone);
+    for (const gone of ["setInterval", "setTimeout", "requestAnimationFrame", 'loading="lazy"']) expect(carousel, gone).not.toContain(gone);
     expect(carousel).toContain("const showControls = maxIndex > 0;");
     expect(carousel).toContain("const maxIndex = Math.max(0, total - visibleCount);");
     expect(carousel).toContain("inert={showControls && !isVisible(index)}");
