@@ -355,7 +355,9 @@ export function pageHead(pathname: string) {
   ];
   if (!page.indexable) meta.splice(2, 0, { name: "robots", content: "noindex, nofollow" });
 
-  const isInsightArticle = pathname.startsWith("/insights/") && pathname !== "/insights";
+  // Understanding Dyslexia is a page, not a guide article, so it carries WebPage data.
+  const isInsightArticle =
+    pathname.startsWith("/insights/") && pathname !== "/insights" && pathname !== "/insights/understanding-dyslexia";
   const isLivedExperienceArticle =
     pathname.startsWith("/lived-experiences/") && pathname !== "/lived-experiences";
   const dateModified = getPageDate(pathname);
@@ -370,16 +372,15 @@ export function pageHead(pathname: string) {
         dateModified,
       }) }
     : undefined;
-  // Pages with their own page trail get WebPage and BreadcrumbList only, matching what they show.
-  const scripts = !page.indexable
-    ? undefined
-    : crumbs
-      ? [...(webPage ? [webPage] : []), { type: "application/ld+json", children: breadcrumbSchema(crumbs) }]
-      : isInsightArticle || isLivedExperienceArticle
-        ? [{ type: "application/ld+json", children: articleSchema(url, page, dateModified) }]
-        : webPage
-          ? [webPage]
-          : undefined;
+  // Articles carry Article data and other pages WebPage data. A page that draws its own page trail
+  // adds BreadcrumbList data matching what it shows.
+  const base = isInsightArticle || isLivedExperienceArticle
+    ? [{ type: "application/ld+json", children: articleSchema(url, page, dateModified) }]
+    : webPage
+      ? [webPage]
+      : [];
+  const all = crumbs ? [...base, { type: "application/ld+json", children: breadcrumbSchema(crumbs) }] : base;
+  const scripts = page.indexable && all.length > 0 ? all : undefined;
 
   return {
     meta,
