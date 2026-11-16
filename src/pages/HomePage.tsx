@@ -95,6 +95,7 @@ const HomePage = () => {
           <p className="mx-auto max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
             Empowering dyslexic talent across Defence, before and after service.
           </p>
+
           {/* Ribbon wave */}
           <div className="mt-16 flex justify-center" aria-hidden="true">
             <svg width="320" height="40" viewBox="0 0 320 40" fill="none" className="w-full max-w-md opacity-60">
@@ -162,7 +163,6 @@ const HomePage = () => {
           <p className="mx-auto mt-6 max-w-xl text-center text-xs leading-relaxed text-muted-foreground/70">
             Based on UK dyslexia prevalence estimates of 1 in 10 people, applied to MOD Quarterly Service Personnel Statistics, 1 January 2026.
           </p>
-
         </div>
       </section>
 
@@ -263,8 +263,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
-
     </>);
 
 

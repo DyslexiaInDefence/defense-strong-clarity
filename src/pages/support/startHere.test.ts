@@ -1070,9 +1070,14 @@ describe("Switch-over step 1: final addresses", () => {
 
   it("moves the moved pages' sitemap and page dates to their public launch on 14 November 2026 (step 4)", () => {
     const sitemap = readFileSync("public/sitemap.xml", "utf8");
-    for (const path of ["/about", "/partner", "/lived-experiences", "/insights", "/insights/understanding-dyslexia", "/support/currently-serving", "/currently-serving/standard-learning-credits", "/get-involved"]) {
+    for (const path of ["/about", "/partner", "/lived-experiences", "/insights/understanding-dyslexia", "/currently-serving/standard-learning-credits", "/get-involved"]) {
       expect(getPageDate(path), path).toBe("2026-11-14");
       expect(sitemap, path).toContain(`<loc>https://dyslexiaindefence.com${path}</loc>\n    <lastmod>2026-11-14</lastmod>`);
+    }
+    // Insights and Serving now changed again in Homepage Prompt A.
+    for (const path of ["/insights", "/support/currently-serving"]) {
+      expect(getPageDate(path), path).toBe("2026-11-16");
+      expect(sitemap, path).toContain(`<loc>https://dyslexiaindefence.com${path}</loc>\n    <lastmod>2026-11-16</lastmod>`);
     }
   });
 

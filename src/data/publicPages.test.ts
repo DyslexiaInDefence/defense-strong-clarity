@@ -117,10 +117,10 @@ describe("Switch-over step 4: redesigned pages are public", () => {
     }
   });
 
-  it("dates each page 14 November 2026, matching its sitemap entry", () => {
+  it("dates each page 14 November 2026 (Insights and Serving now 16 November 2026), matching its sitemap entry", () => {
     const entries = sitemapEntries();
     for (const path of PATHS) {
-      expect(getPageDate(path), path).toBe("2026-11-14");
+      expect(getPageDate(path), path).toBe(["/insights", "/support/currently-serving"].includes(path) ? "2026-11-16" : "2026-11-14");
       const matches = entries.filter(entry => entry.path === path);
       expect(matches, path).toHaveLength(1);
       expect(matches[0]?.lastmod, path).toBe(getPageDate(path));
@@ -284,7 +284,7 @@ describe("Switch-over step 5: sitemap, robots and discovery files", () => {
 
 describe("Switch-over step 5: Get involved links go to the Get involved hub", () => {
   it("points the homepage, What to do next, Our story, Partner and Lived experiences Get involved links at /get-involved", () => {
-    expect(read("src/pages/HomePage.tsx")).toContain('{ heading: "Get involved", text: "Share your experience, join the community, and help change how Defence supports dyslexic people.", to: "/get-involved", id: "homepage-start-involved" }');
+    expect(read("src/pages/HomePage.tsx")).toContain('{ heading: "Get involved", text: "Help change how Defence supports dyslexic talent.", to: "/get-involved", id: "homepage-start-involved" }');
     expect(read("src/components/NextSteps.tsx")).toMatch(/title: "Get involved",[\s\S]*?to: "\/get-involved",/);
     expect(read("src/components/NextSteps.tsx")).not.toContain('"/join"');
     expect(read("src/pages/about/OurStoryPage.tsx")).toMatch(/<Link to="\/get-involved">\s*<Button[^>]*>\s*Get Involved/);

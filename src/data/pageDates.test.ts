@@ -33,9 +33,7 @@ const NOV_14_PAGES = [
   "/partner",
   "/lived-experiences",
   "/get-involved",
-  "/insights",
   "/insights/understanding-dyslexia",
-  "/support/currently-serving",
   "/currently-serving/standard-learning-credits",
   "/support/start-here",
   "/support/thinking-of-joining",
@@ -47,6 +45,9 @@ const NOV_14_PAGES = [
   "/support/how-you-think-and-learn",
 ];
 
+// Homepage Prompt A: Insights and Serving now content changed again on 16 November 2026.
+const NOV_16_PAGES = ["/insights", "/support/currently-serving"];
+
 describe("Page date rules", () => {
   it("maps every page to its honest content date", () => {
     expect(Object.keys(PAGE_DATES)).toHaveLength(45);
@@ -57,11 +58,13 @@ describe("Page date rules", () => {
       if (OCT_26_PAGES.includes(path)) continue;
       if (NOV_13_PAGES.includes(path)) continue;
       if (NOV_14_PAGES.includes(path)) continue;
+      if (NOV_16_PAGES.includes(path)) continue;
       expect(date, path).toBe("2026-10-24");
     }
     for (const path of OCT_26_PAGES) expect(PAGE_DATES[path], path).toBe("2026-10-26");
     for (const path of NOV_13_PAGES) expect(PAGE_DATES[path], path).toBe("2026-11-13");
     for (const path of NOV_14_PAGES) expect(PAGE_DATES[path], path).toBe("2026-11-14");
+    for (const path of NOV_16_PAGES) expect(PAGE_DATES[path], path).toBe("2026-11-16");
     expect(PAGE_DATES["/governance"]).toBe("2026-08-08");
     expect(PAGE_DATES["/governance/founder"]).toBe("2026-08-08");
     expect(PAGE_DATES["/governance/sponsorship"]).toBe("2026-03-01");
@@ -108,8 +111,8 @@ describe("Page date rules", () => {
   });
 
   it("dates every page made public in step 4 and gives it WebPage and BreadcrumbList data only", () => {
-    for (const path of NOV_14_PAGES) {
-      expect(getPageDate(path), path).toBe("2026-11-14");
+    for (const path of [...NOV_14_PAGES, ...NOV_16_PAGES]) {
+      expect(getPageDate(path), path).toBe(NOV_16_PAGES.includes(path) ? "2026-11-16" : "2026-11-14");
       const head = pageHead(path);
       const types = ("scripts" in head ? head.scripts ?? [] : []).map(script => JSON.parse(script.children)["@type"]);
       expect(types, path).toEqual(["WebPage", "BreadcrumbList"]);
