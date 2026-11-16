@@ -155,7 +155,7 @@ const PartnerLogoCarousel = ({ organisations, label }: PartnerLogoCarouselProps)
               <span
                 aria-hidden="true"
                 className={`size-2.5 rounded-full transition-colors motion-reduce:transition-none ${
-                  isVisible(index) ? "bg-brand-navy" : "border border-brand-navy/40 bg-transparent group-hover:bg-brand-navy/20"
+                  isVisible(index) ? "bg-foreground" : "border border-foreground/50 bg-transparent group-hover:bg-foreground/20"
                 }`}
               />
             </button>

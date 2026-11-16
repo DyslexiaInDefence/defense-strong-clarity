@@ -4,7 +4,8 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { livedStories, LIVED_EXPERIENCES_BASE } from "@/data/livedStories";
 import HeroPersonnelBand from "@/components/HeroPersonnelBand";
-import PartnerLogoCarousel from "@/components/PartnerLogoCarousel";
+import SupportOrganisationLogo from "@/components/SupportOrganisationLogo";
+import { SUPPORT_ORGANISATIONS } from "@/data/supportOrganisations";
 import { useEffect, useRef, useState } from "react";
 import { useAccessibility } from "@/contexts/AccessibilityContext";
 
@@ -247,7 +248,36 @@ const HomePage = () => {
         </div>
       </section>
 
-      <PartnerLogoCarousel />
+      {/* Support Beyond Us: every organisation's logo once, linking to its site. */}
+      <section className="border-t border-border bg-white py-16" aria-labelledby="support-beyond-us-heading">
+        <div className="container mx-auto px-4">
+          <h2 id="support-beyond-us-heading" className="mb-3 text-center text-2xl font-bold" style={{ color: "#09245B" }}>
+            Support Beyond Us
+          </h2>
+          <p className="mx-auto mb-8 max-w-xl text-center text-sm leading-relaxed text-muted-foreground">
+            Independent organisations we work alongside and are happy to recommend.
+          </p>
+          <ul className="mx-auto flex max-w-5xl flex-wrap justify-center gap-4" aria-label="Support organisations">
+            {SUPPORT_ORGANISATIONS.map(organisation => (
+              <li key={organisation.name} className="w-[calc((100%-1rem)/2)] sm:w-[calc((100%-2rem)/3)] lg:w-[calc((100%-4rem)/5)]">
+                <a
+                  href={organisation.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-28 items-center justify-center rounded-md border border-border bg-white p-3 transition-transform duration-300 hover:scale-105 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none motion-reduce:hover:scale-100"
+                >
+                  <SupportOrganisationLogo organisation={organisation} />
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8 flex justify-center">
+            <Button asChild className="min-h-11 h-auto max-w-full whitespace-normal rounded-full px-8 py-3 text-base font-bold">
+              <Link to="/support/support-beyond-us">Find out more<ArrowRight aria-hidden="true" className="size-4 shrink-0" /></Link>
+            </Button>
+          </div>
+        </div>
+      </section>
 
       {/* Mission */}
       <section className="border-t border-border py-16" aria-label="Mission">
