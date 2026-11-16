@@ -1,5 +1,5 @@
 import { Link } from "@/lib/router-compat";
-import { ArrowRight, Info, LifeBuoy } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { livedStories, LIVED_EXPERIENCES_BASE } from "@/data/livedStories";
@@ -92,34 +92,9 @@ const HomePage = () => {
           <p className="mx-auto mb-3 max-w-2xl text-sm font-semibold uppercase tracking-wider text-primary">
             For serving personnel, veterans, civil service, and industry
           </p>
-          <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+          <p className="mx-auto max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
             Empowering dyslexic talent across Defence, before and after service.
           </p>
-          {/* Primary CTAs */}
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
-            <Link to="/join">
-              <Button size="lg" className="rounded-full px-10 text-base font-bold shadow-lg">
-                Join the Network
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-          </div>
-          {/* Secondary pathways */}
-          <div className="flex flex-wrap items-center justify-center gap-3 mt-6">
-            <Link to="/about">
-              <Button variant="outline" size="lg" className="rounded-full border-2 border-primary px-10 text-base font-bold text-primary shadow-md hover:bg-primary hover:text-primary-foreground">
-                About Us
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-            <Link to="/support/start-here">
-              <Button variant="outline" size="lg" className="rounded-full border-2 border-primary px-10 text-base font-bold text-primary shadow-md hover:bg-primary hover:text-primary-foreground">
-                Get Support
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-          </div>
-
           {/* Ribbon wave */}
           <div className="mt-16 flex justify-center" aria-hidden="true">
             <svg width="320" height="40" viewBox="0 0 320 40" fill="none" className="w-full max-w-md opacity-60">
@@ -139,8 +114,8 @@ const HomePage = () => {
           </h2>
           <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
             {[
-              { heading: "Get support", text: "Dyslexia support for serving personnel, veterans, those thinking of joining, and the people who support them.", to: "/support/start-here", id: "homepage-start-support" },
-              { heading: "Get involved", text: "Share your experience, join the community, and help change how Defence supports dyslexic people.", to: "/get-involved", id: "homepage-start-involved" },
+              { heading: "Get support", text: "Real support for dyslexic people.", to: "/support/start-here", id: "homepage-start-support" },
+              { heading: "Get involved", text: "Help change how Defence supports dyslexic talent.", to: "/get-involved", id: "homepage-start-involved" },
               { heading: "Partner with us", text: "Work with us to improve dyslexia support across Defence.", to: "/partner", id: "homepage-start-partner" },
             ].map((item) => (
               <Link
@@ -188,17 +163,6 @@ const HomePage = () => {
             Based on UK dyslexia prevalence estimates of 1 in 10 people, applied to MOD Quarterly Service Personnel Statistics, 1 January 2026.
           </p>
 
-          <div className="mt-8 text-center">
-            <p className="mb-4 text-base font-semibold text-foreground">
-              Still serving? There is support waiting for you right now.
-            </p>
-            <Link to="/support/currently-serving">
-              <Button variant="outline" size="lg" className="rounded-full border-2 border-primary px-8 text-sm font-bold text-primary hover:bg-primary hover:text-primary-foreground">
-                See support for currently serving
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -208,7 +172,7 @@ const HomePage = () => {
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-3 text-2xl font-bold text-foreground">Real stories from across Defence</h2>
             <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-              Dyslexia affects people differently. Read lived experiences from people across the defence community and see how support, understanding and belonging can make a difference.
+              Dyslexia affects people differently. Read lived experiences from people across the defence community.
             </p>
           </div>
 
@@ -300,43 +264,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Pathways */}
-      <section className="border-t border-border bg-card py-16" aria-label="Pathways">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
-            <Link to="/about" className="group">
-              <Card className="h-full transition-colors hover:border-primary">
-                <CardContent className="p-6">
-                  <Info className="mb-3 h-7 w-7 text-primary" aria-hidden="true" />
-                  <h3 className="mb-2 text-xl font-bold text-foreground">About Us</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Learn who we are, why this matters, and how the network is governed.
-                  </p>
-                </CardContent>
-              </Card>
-            </Link>
-            <Link to="/support/start-here" className="group">
-              <Card className="h-full transition-colors hover:border-primary">
-                <CardContent className="p-6">
-                  <LifeBuoy className="mb-3 h-7 w-7 text-primary" aria-hidden="true" />
-                  <h3 className="mb-2 text-xl font-bold text-foreground">Get Support</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Find guidance, ask the community, and connect with the network.
-                  </p>
-                </CardContent>
-              </Card>
-            </Link>
-          </div>
-
-          <div className="mx-auto mt-10 max-w-2xl text-center text-sm text-muted-foreground">
-            <p>
-              <span className="font-semibold text-foreground">Learn</span> with <Link to="/insights" className="text-primary hover:underline">Insights</Link> ·{" "}
-              <span className="font-semibold text-foreground">Ask</span> in the <Link to="/community" className="text-primary hover:underline">Community</Link> ·{" "}
-              <span className="font-semibold text-foreground">Commit</span> by choosing to <Link to="/join" className="text-primary hover:underline">Join</Link>.
-            </p>
-          </div>
-        </div>
-      </section>
 
     </>);
 

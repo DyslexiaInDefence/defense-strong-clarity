@@ -1,14 +1,15 @@
 // Only change a page's date when its content genuinely changes. Do not bump on deploys or cosmetic changes.
 // The redesigned pages went public on 14 November 2026 (switch-over step 4).
+// Insights and Serving now changed again on 16 November 2026.
 // Redirecting addresses are not pages and have no date (switch-over step 5).
 export const PAGE_DATES: Readonly<Record<string, string>> = {
   "/about": "2026-11-14",
   "/about/our-story": "2026-10-24",
   "/about/what-we-want-to-achieve": "2026-10-24",
-  "/support/currently-serving": "2026-11-14",
+  "/support/currently-serving": "2026-11-16",
   "/currently-serving/standard-learning-credits": "2026-11-14",
   "/currently-serving/army-education-centres": "2026-10-26",
-  "/insights": "2026-11-14",
+  "/insights": "2026-11-16",
   "/insights/can-you-join-army-with-dyslexia-uk": "2026-11-13",
   "/insights/can-you-join-navy-with-dyslexia-uk": "2026-10-26",
   "/insights/can-you-join-raf-with-dyslexia-uk": "2026-10-26",
