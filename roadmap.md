@@ -1,4 +1,5 @@
 # Roadmap
+- [x] Homepage Prompt A: remove hero buttons, Still serving block and Pathways cards; new Get support and Get involved card texts; Insights Understanding dyslexia card; Serving now military support link; dates and tests, no publishing.
 
 - [x] Switch-over step 6: site-wide wording, link, email, download and image tests; llms.txt About Us and Insights descriptions; report findings, no publishing.
 - [x] Switch-over step 5: remove the five redirecting addresses from the sitemap, page dates and seo.ts; add the newly public pages to llms.txt and remove retired entries; confirm robots.txt; repoint Get involved links (not the Join the Network button) to /get-involved; tests, no publishing.
