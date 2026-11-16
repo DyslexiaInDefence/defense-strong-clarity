@@ -5,7 +5,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
-import type { AudienceIntent } from "@/components/AudienceRouter";
+import type { AudienceIntent } from "@/lib/audienceIntent";
 import { Button } from "@/components/ui/button";
 import { livedStories, LIVED_EXPERIENCES_BASE } from "@/data/livedStories";
 import { intentCategories } from "@/data/faqCategories";

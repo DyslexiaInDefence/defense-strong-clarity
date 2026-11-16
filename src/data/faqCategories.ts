@@ -1,5 +1,5 @@
 import { UserPlus, Shield, LogOut } from "lucide-react";
-import type { AudienceIntent } from "@/components/AudienceRouter";
+import type { AudienceIntent } from "@/lib/audienceIntent";
 
 export type FaqCategory = {
   id: AudienceIntent;

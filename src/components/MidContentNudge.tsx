@@ -1,6 +1,6 @@
 import { Link } from "@/lib/router-compat";
 import { ArrowRight, MessageCircle } from "lucide-react";
-import type { AudienceIntent } from "@/components/AudienceRouter";
+import type { AudienceIntent } from "@/lib/audienceIntent";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 

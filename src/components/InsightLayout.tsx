@@ -28,7 +28,7 @@ const InsightLayout = ({ title, eyebrow, progressReassurance, children }: Insigh
       <PageTrail crumbs={insightArticleTrail(title)} label="Get support breadcrumb" />
       <SupportTabs activePath="/insights" onTabPage={false} />
 
-      <article className="max-w-3xl pt-8">
+      <div className="max-w-3xl pt-8">
         {eyebrow && (
           <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-primary">
             {eyebrow}
@@ -46,7 +46,7 @@ const InsightLayout = ({ title, eyebrow, progressReassurance, children }: Insigh
         )}
 
         {children}
-      </article>
+      </div>
     </div>
   </div>
 );
