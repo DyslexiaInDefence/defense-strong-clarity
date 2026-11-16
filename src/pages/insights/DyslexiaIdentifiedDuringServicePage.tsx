@@ -7,9 +7,7 @@ import AllenCitation from "@/components/AllenCitation";
 const DyslexiaIdentifiedDuringServicePage = () => (
   <InsightLayout
     title="What happens if dyslexia is identified during service?"
-    intent="serving"
     progressReassurance="You’re in the right place if you’re currently serving and dyslexia has just come into the picture."
-    preCtaLine="You don’t need to disclose anything today — start by talking to someone who’s already been through it."
   >
     <p className="text-lg text-foreground leading-relaxed mb-4">
       If dyslexia is identified while you’re serving, nothing automatically changes about your career. You don’t have to declare it unless it affects your training or work. Being dyslexic is not in itself a reason to be discharged, but you still need to meet the required standards.

@@ -7,6 +7,7 @@ import NextSteps from "@/components/NextSteps";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CookieBanner from "@/components/CookieBanner";
 import LastUpdated from "@/components/LastUpdated";
+import { PAGE_BREADCRUMBS } from "@/data/pageBreadcrumbs";
 
 // Pages where the global "What to do next" block would be redundant
 const NEXT_STEPS_SKIP = new Set<string>(["/", "/join", "/community", "/support/start-here", "/support/thinking-of-joining", "/support/leaving-or-left-service", "/support/supporting-someone", "/support/guidance", "/support/downloads-and-tools", "/support/faq", "/support/how-you-think-and-learn", "/insights", "/support/currently-serving", "/currently-serving/standard-learning-credits", "/insights/army-guide-preview", "/get-involved", "/partner"]);
@@ -29,12 +30,13 @@ const Layout = () => {
     trackPageView(pathname + search);
   }, [pathname, search]);
 
-  // Insights articles render their own (PRIMARY) NextSteps block via InsightLayout.
+  // Insights guide articles (InsightLayout) carry no next-steps block.
   // Understanding Dyslexia does not use InsightLayout, so it takes the shared block.
   const isInsightArticle =
     pathname.startsWith("/insights/") && pathname !== "/insights" && pathname !== "/insights/understanding-dyslexia";
   const showNextSteps = !NEXT_STEPS_SKIP.has(pathname) && !isInsightArticle;
-  const showBreadcrumbs = pathname !== "/";
+  // Pages that draw their own page trail (PageTrail or an inline trail) skip the automatic one.
+  const showBreadcrumbs = pathname !== "/" && !PAGE_BREADCRUMBS[pathname.replace(/\/$/, "")];
 
   // Unlisted newsletter web copies render without site chrome.
   if (pathname.startsWith("/newsletters/")) return <Outlet />;

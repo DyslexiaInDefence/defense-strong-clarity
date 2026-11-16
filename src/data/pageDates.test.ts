@@ -11,22 +11,6 @@ function routeFiles(directory: string): string[] {
   });
 }
 
-const OCT_26_PAGES = [
-  "/currently-serving/army-education-centres",
-  "/insights/can-you-join-navy-with-dyslexia-uk",
-  "/insights/can-you-join-raf-with-dyslexia-uk",
-  "/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk",
-  "/insights/neurodiversity-in-the-mod-uk",
-  "/insights/what-happens-if-dyslexia-is-identified-during-service-uk",
-  "/insights/what-support-is-available-for-dyslexia-in-the-military-uk",
-];
-
-const NOV_13_PAGES = [
-  "/insights/can-you-join-army-with-dyslexia-uk",
-  "/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk",
-  "/insights/is-dyslexia-a-barrier-in-the-military-uk",
-];
-
 // Switch-over step 4: every redesigned page went public on 14 November 2026.
 const NOV_14_PAGES = [
   "/about",
@@ -46,7 +30,26 @@ const NOV_14_PAGES = [
 ];
 
 // Homepage Prompt A: Insights and Serving now content changed again on 16 November 2026.
-const NOV_16_PAGES = ["/insights", "/support/currently-serving"];
+const PROMPT_A_PAGES = ["/insights", "/support/currently-serving"];
+
+// Prompt B (16 November 2026): the guide articles, Army Education Centres, Community and Join gained the
+// shared page headers and the articles lost the "Still unsure" box.
+const PROMPT_B_PAGES = [
+  "/insights/can-you-join-army-with-dyslexia-uk",
+  "/insights/can-you-join-navy-with-dyslexia-uk",
+  "/insights/can-you-join-raf-with-dyslexia-uk",
+  "/insights/do-i-need-to-declare-dyslexia-when-joining-the-military-uk",
+  "/insights/is-dyslexia-a-barrier-in-the-military-uk",
+  "/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk",
+  "/insights/neurodiversity-in-the-mod-uk",
+  "/insights/what-happens-if-dyslexia-is-identified-during-service-uk",
+  "/insights/what-support-is-available-for-dyslexia-in-the-military-uk",
+  "/currently-serving/army-education-centres",
+  "/community",
+  "/join",
+];
+
+const NOV_16_PAGES = [...PROMPT_A_PAGES, ...PROMPT_B_PAGES];
 
 describe("Page date rules", () => {
   it("maps every page to its honest content date", () => {
@@ -55,14 +58,10 @@ describe("Page date rules", () => {
       if (path.startsWith("/governance")) continue;
       if (path === "/contact") continue;
       if (path === "/lived-experiences/liz-oliver-british-army-veteran") continue;
-      if (OCT_26_PAGES.includes(path)) continue;
-      if (NOV_13_PAGES.includes(path)) continue;
       if (NOV_14_PAGES.includes(path)) continue;
       if (NOV_16_PAGES.includes(path)) continue;
       expect(date, path).toBe("2026-10-24");
     }
-    for (const path of OCT_26_PAGES) expect(PAGE_DATES[path], path).toBe("2026-10-26");
-    for (const path of NOV_13_PAGES) expect(PAGE_DATES[path], path).toBe("2026-11-13");
     for (const path of NOV_14_PAGES) expect(PAGE_DATES[path], path).toBe("2026-11-14");
     for (const path of NOV_16_PAGES) expect(PAGE_DATES[path], path).toBe("2026-11-16");
     expect(PAGE_DATES["/governance"]).toBe("2026-08-08");
@@ -111,8 +110,8 @@ describe("Page date rules", () => {
   });
 
   it("dates every page made public in step 4 and gives it WebPage and BreadcrumbList data only", () => {
-    for (const path of [...NOV_14_PAGES, ...NOV_16_PAGES]) {
-      expect(getPageDate(path), path).toBe(NOV_16_PAGES.includes(path) ? "2026-11-16" : "2026-11-14");
+    for (const path of [...NOV_14_PAGES, ...PROMPT_A_PAGES]) {
+      expect(getPageDate(path), path).toBe(PROMPT_A_PAGES.includes(path) ? "2026-11-16" : "2026-11-14");
       const head = pageHead(path);
       const types = ("scripts" in head ? head.scripts ?? [] : []).map(script => JSON.parse(script.children)["@type"]);
       expect(types, path).toEqual(["WebPage", "BreadcrumbList"]);

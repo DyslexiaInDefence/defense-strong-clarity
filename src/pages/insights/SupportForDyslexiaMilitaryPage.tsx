@@ -6,9 +6,7 @@ import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
 const SupportForDyslexiaMilitaryPage = () => (
   <InsightLayout
     title="What support is available for dyslexia in the military?"
-    intent="serving"
     progressReassurance="You’re in the right place if you’re currently serving and trying to work out what support you can actually access."
-    preCtaLine="You don’t need every answer first — start by talking to one person who’s already used the support."
   >
     <p className="text-lg text-foreground leading-relaxed mb-4">
       Dyslexia support in the UK military is structured and growing. You can access peer networks, volunteer ambassadors and dedicated forums across every service and rank, plus access to screening, and advice on routes to a formal assessment, through your service’s education or learning support provision. Support on courses varies by service.

@@ -5,7 +5,7 @@ import { ChevronRight, HelpCircle } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
-import type { AudienceIntent } from "@/components/AudienceRouter";
+import type { AudienceIntent } from "@/lib/audienceIntent";
 import { intentCategories } from "@/data/faqCategories";
 
 const FaqPage = () => {

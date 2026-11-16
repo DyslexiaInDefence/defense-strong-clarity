@@ -7,9 +7,7 @@ import AllenCitation from "@/components/AllenCitation";
 const NeurodiversityMODPage = () => (
   <InsightLayout
     title="Neurodiversity in the MOD: what you need to know"
-    intent="serving"
     progressReassurance="You’re in the right place if you’re neurodiverse and working in or alongside Defence."
-    preCtaLine="You don’t need to have it all figured out — start with the path that feels easiest."
   >
     <p className="text-lg text-foreground leading-relaxed mb-4">
       The Ministry of Defence recognises neurodiversity as a workforce strength. Dyslexia, ADHD, autism and other neurodiverse conditions are present across the Armed Forces and Civil Service.
