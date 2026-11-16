@@ -90,6 +90,7 @@ export default function ServingNowPage() {
             ))}
           </div>
           <p className="mt-5"><Link to="/support/guidance?for=serving" className={textLink}>See all guidance for serving personnel<ArrowRight aria-hidden="true" className="size-4" /></Link></p>
+          <p><Link to="/insights/what-support-is-available-for-dyslexia-in-the-military-uk" className={textLink}>What support is available for dyslexia in the military?<ArrowRight aria-hidden="true" className="size-4" /></Link></p>
         </section>
 
         <section aria-labelledby="ddn-heading" className={`${panelClass} mb-12`}>

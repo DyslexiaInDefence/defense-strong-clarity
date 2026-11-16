@@ -24,7 +24,7 @@ function files(directory: string): string[] {
 
 // Since switch-over step 4 the public pages are named in these records, and since step 5 in llms.txt too. robots.txt names none of them.
 // The site-wide step 6 tests also name them; tests are not discovery content.
-const PUBLIC_RECORDS = new Set(["public/sitemap.xml", "public/llms.txt", "src/lib/seo.ts", "src/data/pageDates.ts", "src/data/pageBreadcrumbs.ts", "src/data/siteWording.test.ts", "src/data/siteIntegrity.test.ts"]);
+const PUBLIC_RECORDS = new Set(["public/sitemap.xml", "public/llms.txt", "src/lib/seo.ts", "src/data/pageDates.ts", "src/data/pageBreadcrumbs.ts", "src/data/siteWording.test.ts", "src/data/siteIntegrity.test.ts", "src/pages/homePromptA.test.ts"]);
 const nextStepsSkip = () => readFileSync("src/components/Layout.tsx", "utf8").match(/const NEXT_STEPS_SKIP = new Set<string>\((\[[^\]]*\])\)/)?.[1] ?? "";
 
 describe("Staged support page boundaries", () => {
@@ -1070,9 +1070,14 @@ describe("Switch-over step 1: final addresses", () => {
 
   it("moves the moved pages' sitemap and page dates to their public launch on 14 November 2026 (step 4)", () => {
     const sitemap = readFileSync("public/sitemap.xml", "utf8");
-    for (const path of ["/about", "/partner", "/lived-experiences", "/insights", "/insights/understanding-dyslexia", "/support/currently-serving", "/currently-serving/standard-learning-credits", "/get-involved"]) {
+    for (const path of ["/about", "/partner", "/lived-experiences", "/insights/understanding-dyslexia", "/currently-serving/standard-learning-credits", "/get-involved"]) {
       expect(getPageDate(path), path).toBe("2026-11-14");
       expect(sitemap, path).toContain(`<loc>https://dyslexiaindefence.com${path}</loc>\n    <lastmod>2026-11-14</lastmod>`);
+    }
+    // Insights and Serving now changed again in Homepage Prompt A.
+    for (const path of ["/insights", "/support/currently-serving"]) {
+      expect(getPageDate(path), path).toBe("2026-11-16");
+      expect(sitemap, path).toContain(`<loc>https://dyslexiaindefence.com${path}</loc>\n    <lastmod>2026-11-16</lastmod>`);
     }
   });
 

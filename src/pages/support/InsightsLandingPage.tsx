@@ -6,7 +6,7 @@ import "./start-here.css";
 
 const cards = [
   { title: "The evidence", description: "The data behind the story: what we know about dyslexia across Defence, and where the numbers come from.", label: "Read the evidence", to: "/evidence" },
-  { title: "What we do and why we're here", description: "What Dyslexia in Defence does, who it is for, and why it exists.", label: "Read what we do", to: "/insights/understanding-dyslexia" },
+  { title: "Understanding dyslexia", description: "What a 'spiky' profile tells you about dyslexia", label: "Read about dyslexia", to: "/insights/understanding-dyslexia" },
 ];
 
 const more = [
