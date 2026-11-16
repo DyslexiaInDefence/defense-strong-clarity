@@ -53,7 +53,7 @@ const NOV_16_PAGES = [...PROMPT_A_PAGES, ...PROMPT_B_PAGES];
 
 describe("Page date rules", () => {
   it("maps every page to its honest content date", () => {
-    expect(Object.keys(PAGE_DATES)).toHaveLength(45);
+    expect(Object.keys(PAGE_DATES)).toHaveLength(46);
     for (const [path, date] of Object.entries(PAGE_DATES)) {
       if (path.startsWith("/governance")) continue;
       if (path === "/contact") continue;

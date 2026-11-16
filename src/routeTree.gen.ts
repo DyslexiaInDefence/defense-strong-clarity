@@ -68,6 +68,7 @@ import { Route as SupportGuidanceRouteImport } from './routes/support/guidance'
 import { Route as SupportHowYouThinkAndLearnRouteImport } from './routes/support/how-you-think-and-learn'
 import { Route as SupportLeavingOrLeftServiceRouteImport } from './routes/support/leaving-or-left-service'
 import { Route as SupportStartHereRouteImport } from './routes/support/start-here'
+import { Route as SupportSupportBeyondUsRouteImport } from './routes/support/support-beyond-us'
 import { Route as SupportSupportingSomeoneRouteImport } from './routes/support/supporting-someone'
 import { Route as SupportThinkingOfJoiningRouteImport } from './routes/support/thinking-of-joining'
 
@@ -389,6 +390,11 @@ const SupportStartHereRoute = SupportStartHereRouteImport.update({
   path: '/support/start-here',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SupportSupportBeyondUsRoute = SupportSupportBeyondUsRouteImport.update({
+  id: '/support/support-beyond-us',
+  path: '/support/support-beyond-us',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SupportSupportingSomeoneRoute =
   SupportSupportingSomeoneRouteImport.update({
     id: '/support/supporting-someone',
@@ -456,6 +462,7 @@ export interface FileRoutesByFullPath {
   '/support/how-you-think-and-learn': typeof SupportHowYouThinkAndLearnRoute
   '/support/leaving-or-left-service': typeof SupportLeavingOrLeftServiceRoute
   '/support/start-here': typeof SupportStartHereRoute
+  '/support/support-beyond-us': typeof SupportSupportBeyondUsRoute
   '/support/supporting-someone': typeof SupportSupportingSomeoneRoute
   '/support/thinking-of-joining': typeof SupportThinkingOfJoiningRoute
   '/about/': typeof AboutIndexRoute
@@ -519,6 +526,7 @@ export interface FileRoutesByTo {
   '/support/how-you-think-and-learn': typeof SupportHowYouThinkAndLearnRoute
   '/support/leaving-or-left-service': typeof SupportLeavingOrLeftServiceRoute
   '/support/start-here': typeof SupportStartHereRoute
+  '/support/support-beyond-us': typeof SupportSupportBeyondUsRoute
   '/support/supporting-someone': typeof SupportSupportingSomeoneRoute
   '/support/thinking-of-joining': typeof SupportThinkingOfJoiningRoute
   '/about': typeof AboutIndexRoute
@@ -583,6 +591,7 @@ export interface FileRoutesById {
   '/support/how-you-think-and-learn': typeof SupportHowYouThinkAndLearnRoute
   '/support/leaving-or-left-service': typeof SupportLeavingOrLeftServiceRoute
   '/support/start-here': typeof SupportStartHereRoute
+  '/support/support-beyond-us': typeof SupportSupportBeyondUsRoute
   '/support/supporting-someone': typeof SupportSupportingSomeoneRoute
   '/support/thinking-of-joining': typeof SupportThinkingOfJoiningRoute
   '/about/': typeof AboutIndexRoute
@@ -648,6 +657,7 @@ export interface FileRouteTypes {
     | '/support/how-you-think-and-learn'
     | '/support/leaving-or-left-service'
     | '/support/start-here'
+    | '/support/support-beyond-us'
     | '/support/supporting-someone'
     | '/support/thinking-of-joining'
     | '/about/'
@@ -711,6 +721,7 @@ export interface FileRouteTypes {
     | '/support/how-you-think-and-learn'
     | '/support/leaving-or-left-service'
     | '/support/start-here'
+    | '/support/support-beyond-us'
     | '/support/supporting-someone'
     | '/support/thinking-of-joining'
     | '/about'
@@ -774,6 +785,7 @@ export interface FileRouteTypes {
     | '/support/how-you-think-and-learn'
     | '/support/leaving-or-left-service'
     | '/support/start-here'
+    | '/support/support-beyond-us'
     | '/support/supporting-someone'
     | '/support/thinking-of-joining'
     | '/about/'
@@ -838,6 +850,7 @@ export interface RootRouteChildren {
   SupportHowYouThinkAndLearnRoute: typeof SupportHowYouThinkAndLearnRoute
   SupportLeavingOrLeftServiceRoute: typeof SupportLeavingOrLeftServiceRoute
   SupportStartHereRoute: typeof SupportStartHereRoute
+  SupportSupportBeyondUsRoute: typeof SupportSupportBeyondUsRoute
   SupportSupportingSomeoneRoute: typeof SupportSupportingSomeoneRoute
   SupportThinkingOfJoiningRoute: typeof SupportThinkingOfJoiningRoute
   AboutIndexRoute: typeof AboutIndexRoute
@@ -1263,6 +1276,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SupportStartHereRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/support/support-beyond-us': {
+      id: '/support/support-beyond-us'
+      path: '/support/support-beyond-us'
+      fullPath: '/support/support-beyond-us'
+      preLoaderRoute: typeof SupportSupportBeyondUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/support/supporting-someone': {
       id: '/support/supporting-someone'
       path: '/support/supporting-someone'
@@ -1350,6 +1370,7 @@ const rootRouteChildren: RootRouteChildren = {
   SupportHowYouThinkAndLearnRoute: SupportHowYouThinkAndLearnRoute,
   SupportLeavingOrLeftServiceRoute: SupportLeavingOrLeftServiceRoute,
   SupportStartHereRoute: SupportStartHereRoute,
+  SupportSupportBeyondUsRoute: SupportSupportBeyondUsRoute,
   SupportSupportingSomeoneRoute: SupportSupportingSomeoneRoute,
   SupportThinkingOfJoiningRoute: SupportThinkingOfJoiningRoute,
   AboutIndexRoute: AboutIndexRoute,

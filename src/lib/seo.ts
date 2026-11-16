@@ -273,9 +273,9 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
     indexable: true,
   },
   "/support/support-beyond-us": {
-    title: "Support Beyond Us | Dyslexia in Defence",
+    title: "Support beyond us: other organisations | Dyslexia in Defence",
     description: "Other organisations offering mental health and wellbeing, local, neurodiversity, and transition and employment support across Defence and beyond.",
-    priority: 0.6,
+    priority: 0.7,
     indexable: true,
   },
   "/support/faq": {
