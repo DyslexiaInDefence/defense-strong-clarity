@@ -55,6 +55,9 @@ const SWITCH_OVER_FILES = [
   "src/pages/support/downloadsLibrary.ts",
   "src/data/pageBreadcrumbs.ts",
   "src/components/SupportTabs.tsx",
+  "src/pages/support/SupportBeyondUsPage.tsx",
+  "src/data/supportOrganisations.ts",
+  "src/components/PartnerLogoCarousel.tsx",
 ];
 
 const SWITCH_OVER_PATHS = [
@@ -62,6 +65,7 @@ const SWITCH_OVER_PATHS = [
   "/support/currently-serving", "/currently-serving/standard-learning-credits", "/support/start-here",
   "/support/thinking-of-joining", "/support/leaving-or-left-service", "/support/supporting-someone",
   "/support/guidance", "/support/downloads-and-tools", "/support/faq", "/support/how-you-think-and-learn",
+  "/support/support-beyond-us",
 ];
 
 // Documented exception: these lines carry em dashes because they were copied word for word from pages that
