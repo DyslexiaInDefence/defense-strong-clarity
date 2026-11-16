@@ -3,6 +3,8 @@ import { MessageCircle, Shield, Users, Heart, Briefcase, ExternalLink } from "lu
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
+import PageTrail from "@/components/PageTrail";
+import { trailFor } from "@/data/pageBreadcrumbs";
 
 const CommunityPage = () => {
   useEffect(() => {
@@ -29,10 +31,12 @@ const CommunityPage = () => {
   }, []);
 
   return (
-    <div className="py-16">
+    <div className="pb-16 pt-4">
       <div className="container mx-auto px-4">
+        <PageTrail crumbs={trailFor("/community")} label="Get involved breadcrumb" />
+
         {/* Introduction */}
-        <div className="mb-12 max-w-3xl">
+        <div className="mb-12 max-w-3xl pt-4">
           <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
             Community & Support
           </h1>

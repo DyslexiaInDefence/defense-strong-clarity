@@ -9,6 +9,10 @@ import Reveal from "@/components/evidence/Reveal";
 import JumpNavigation, { evidenceSections } from "@/components/evidence/JumpNavigation";
 import { useEvidenceMotion } from "@/components/evidence/useEvidenceMotion";
 import "@/components/evidence/evidence.css";
+import PageTrail from "@/components/PageTrail";
+import SupportTabs from "@/components/SupportTabs";
+import { trailFor } from "@/data/pageBreadcrumbs";
+import "./support/start-here.css";
 
 
 const EvidencePage = () => {
@@ -27,6 +31,12 @@ const EvidencePage = () => {
       section.scrollIntoView({ behavior: motion ? "smooth" : "instant", block: "start" });
       section.focus({ preventScroll: true });
     }}>
+      <div className="support-staged-page text-foreground">
+        <div className="container max-w-6xl px-4 pb-6 pt-4 sm:px-6">
+          <PageTrail crumbs={trailFor("/evidence")} label="Get support breadcrumb" />
+          <SupportTabs activePath="/insights" onTabPage={false} />
+        </div>
+      </div>
       <header className="evidence-hero relative overflow-hidden bg-brand-navy py-16 text-brand-navy-foreground md:py-24">
         <DotField />
         <div className="evidence-main relative">

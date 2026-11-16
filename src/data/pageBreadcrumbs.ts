@@ -50,3 +50,6 @@ export const PAGE_BREADCRUMBS: Readonly<Record<string, readonly Crumb[]>> = {
   "/community": [HOME, GET_INVOLVED, { name: "Community" }],
   "/join": [HOME, GET_INVOLVED, { name: "Join" }],
 };
+
+// The trail a page draws with PageTrail; the same entry feeds its BreadcrumbList data.
+export const trailFor = (path: string): readonly Crumb[] => PAGE_BREADCRUMBS[path] ?? [];

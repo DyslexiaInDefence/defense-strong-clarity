@@ -3,6 +3,10 @@ import { ClientOnly } from "@tanstack/react-router";
 import { Mail, MapPin, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import PageTrail from "@/components/PageTrail";
+import SupportTabs from "@/components/SupportTabs";
+import { trailFor } from "@/data/pageBreadcrumbs";
+import "./start-here.css";
 import { armyEducationCentres, AEC_LAST_CONFIRMED, OVERSEAS_AEC } from "@/data/armyEducationCentres";
 
 const AecMap = lazy(() => import("@/components/AecMap"));
@@ -24,8 +28,11 @@ const ArmyEducationCentresPage = () => {
   }, [query]);
 
   return (
-    <div className="py-16">
-      <div className="container mx-auto max-w-4xl px-4">
+    <div className="support-staged-page text-foreground">
+      <div className="container max-w-6xl px-4 pb-16 pt-4 sm:px-6">
+        <PageTrail crumbs={trailFor("/currently-serving/army-education-centres")} label="Get support breadcrumb" />
+        <SupportTabs activePath="/support/guidance" onTabPage={false} />
+      <div className="max-w-4xl pt-8">
         <span className="mb-4 inline-block rounded-full bg-primary px-4 py-1 text-sm font-bold text-primary-foreground">
           Army only
         </span>
@@ -103,6 +110,7 @@ const ArmyEducationCentresPage = () => {
             Report out of date information
           </Button>
         </a>
+      </div>
       </div>
     </div>
   );
