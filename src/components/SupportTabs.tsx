@@ -11,7 +11,8 @@ const SUPPORT_TABS = [
 
 // activePath marks the tab for the section. On a page below a tab (an Insights article), pass
 // onTabPage={false} so the tab is marked as the current section rather than the current page.
-export default function SupportTabs({ activePath, onTabPage = true }: { activePath: string; onTabPage?: boolean }) {
+// Leave activePath out on a Get support page that is not one of the tabs, so no tab is marked.
+export default function SupportTabs({ activePath, onTabPage = true }: { activePath?: string; onTabPage?: boolean }) {
   return (
     <nav aria-label="Get support pages" className="border-b border-border pb-3">
       <ul className="flex flex-wrap gap-2">

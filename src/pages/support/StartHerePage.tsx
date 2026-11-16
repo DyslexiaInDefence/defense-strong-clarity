@@ -21,6 +21,8 @@ const types = [
 
 const panelClass = "rounded-lg border border-border bg-card p-5 sm:p-8";
 const linkFocus = "focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+// Same link line style as Insights and Serving now.
+const textLink = `inline-flex min-h-11 items-center gap-1 rounded-sm text-base font-semibold text-foreground underline underline-offset-4 hover:text-primary ${linkFocus}`;
 
 export default function StartHerePage() {
   return (
@@ -64,6 +66,9 @@ export default function StartHerePage() {
               </Link>
             ))}
           </div>
+          <p className="mt-5">
+            <Link to="/support/support-beyond-us" className={textLink}>Support beyond us<ArrowRight aria-hidden="true" className="size-4 shrink-0" /></Link>
+          </p>
         </section>
         <section aria-labelledby="not-ready" className={`${panelClass} mb-6`}>
           <h2 id="not-ready" className="mb-3 text-2xl font-bold">Not ready to choose?</h2>

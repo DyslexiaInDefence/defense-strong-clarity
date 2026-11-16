@@ -42,6 +42,7 @@ export const PAGE_DATES: Readonly<Record<string, string>> = {
   "/armed-forces-covenant": "2026-10-24",
   "/support/how-you-think-and-learn": "2026-11-14",
   "/support/faq": "2026-11-14",
+  "/support/support-beyond-us": "2026-11-16",
   "/support/downloads-and-tools": "2026-11-14",
   "/support/guidance": "2026-11-14",
   "/support/supporting-someone": "2026-11-14",

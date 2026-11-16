@@ -15,3 +15,4 @@
 - Keep pages replaced at switch-over unrouted and unimported in `src/pages/_old`, each marked for removal, so a rollback is a one-line route change; delete them after Publish 2.
 - Map automatic page-trail steps whose own address is a redirect through `CRUMB_TARGETS` in Breadcrumbs, so no internal link depends on a redirect.
 - List only real, non-redirect pages in `public/sitemap.xml`, `public/llms.txt`, `src/data/pageDates.ts` and `src/lib/seo.ts`, pinned by test, so redirected addresses are never treated as pages.
+- Keep support organisations (logos, links, alt text, short text) and the Support beyond us section lists in `src/data/supportOrganisations.ts`, the single source for the homepage logo grid and the Support beyond us page carousels, so an organisation is updated in one place.

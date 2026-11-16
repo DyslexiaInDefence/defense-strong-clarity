@@ -49,11 +49,14 @@ const PROMPT_B_PAGES = [
   "/join",
 ];
 
-const NOV_16_PAGES = [...PROMPT_A_PAGES, ...PROMPT_B_PAGES];
+// Prompt C (16 November 2026): the new Support beyond us page.
+const PROMPT_C_PAGES = ["/support/support-beyond-us"];
+
+const NOV_16_PAGES = [...PROMPT_A_PAGES, ...PROMPT_B_PAGES, ...PROMPT_C_PAGES];
 
 describe("Page date rules", () => {
   it("maps every page to its honest content date", () => {
-    expect(Object.keys(PAGE_DATES)).toHaveLength(45);
+    expect(Object.keys(PAGE_DATES)).toHaveLength(46);
     for (const [path, date] of Object.entries(PAGE_DATES)) {
       if (path.startsWith("/governance")) continue;
       if (path === "/contact") continue;

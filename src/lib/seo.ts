@@ -272,6 +272,12 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.7,
     indexable: true,
   },
+  "/support/support-beyond-us": {
+    title: "Support beyond us: other organisations | Dyslexia in Defence",
+    description: "Other organisations offering mental health and wellbeing, local, neurodiversity, and transition and employment support across Defence and beyond.",
+    priority: 0.7,
+    indexable: true,
+  },
   "/support/faq": {
     title: "Dyslexia and Defence FAQ | Dyslexia in Defence",
     description: "Quick answers to common questions about dyslexia in UK Defence, from joining and declaring to support while serving. Each answer links to the full guide.",

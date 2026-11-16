@@ -35,8 +35,9 @@ describe("Homepage Prompt A", () => {
     for (const gone of ['aria-label="Pathways"', "Learn who we are, why this matters", "Find guidance, ask the community", "by choosing to", "LifeBuoy", "Info,"]) expect(home(), gone).not.toContain(gone);
   });
 
-  it("keeps the Support Beyond Us carousel", () => {
-    expect(home()).toContain("<PartnerLogoCarousel />");
+  it("keeps the Support Beyond Us section (a logo grid since Prompt C)", () => {
+    expect(home()).toContain("Support Beyond Us");
+    expect(home()).toContain("SUPPORT_ORGANISATIONS.map(");
   });
 
   it("gives the Insights Understanding dyslexia card its new header, text and button, same link", () => {
