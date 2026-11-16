@@ -6,9 +6,7 @@ import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
 const DyslexiaBarrierMilitaryPage = () => (
   <InsightLayout
     title="Is dyslexia a barrier to a military career?"
-    intent="joining"
     progressReassurance="You’re in the right place if you’re thinking about a military career and worried dyslexia will hold you back."
-    preCtaLine="You don’t need to decide everything now — start with the step that feels easiest."
   >
     <p className="text-lg text-foreground leading-relaxed mb-4">
       Specific learning difficulties are not in themselves a bar to recruitment or Service in the Armed Forces if the required standards are met. All three services accept dyslexic candidates and dyslexic personnel serve at every rank.

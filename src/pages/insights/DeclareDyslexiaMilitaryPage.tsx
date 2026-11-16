@@ -7,9 +7,7 @@ import IfThisSoundsLikeYou from "@/components/IfThisSoundsLikeYou";
 const DeclareDyslexiaMilitaryPage = () => (
   <InsightLayout
     title="Do I need to declare dyslexia when joining the military?"
-    intent="joining"
     progressReassurance="You’re in the right place if you’re thinking about joining and unsure whether to mention dyslexia."
-    preCtaLine="You don’t need to decide whether to declare today — start by speaking to people who already have."
   >
     <p className="text-lg text-foreground leading-relaxed mb-4">
       Dyslexia screening is not a requirement of recruitment. Ask your recruiter what the application asks, so you know what to expect. Specific learning difficulties are not in themselves a bar to recruitment or Service in the Armed Forces if the required standards are met.

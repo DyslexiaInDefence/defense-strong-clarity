@@ -8,9 +8,7 @@ const JSP822_VOL7_URL = "https://assets.publishing.service.gov.uk/media/65ce3f75
 const RAFDyslexiaPage = () => (
   <InsightLayout
     title="Can you join the RAF with dyslexia in the UK?"
-    intent="joining"
     progressReassurance="You’re in the right place if you’re thinking about joining the RAF with dyslexia."
-    preCtaLine="You don’t need to decide everything now — start with the step that feels easiest."
   >
     <p className="text-lg text-foreground leading-relaxed mb-4">
       Specific learning difficulties are not in themselves a bar to recruitment or Service in the Armed Forces if the required standards are met.

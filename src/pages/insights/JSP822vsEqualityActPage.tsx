@@ -15,9 +15,7 @@ import {
 const JSP822vsEqualityActPage = () => (
   <InsightLayout
     title="JSP 822 vs Equality Act 2010: what changes for dyslexia when you leave the military"
-    intent="veteran"
     progressReassurance="You’re in the right place if you’re leaving the military and need clarity on how your dyslexia rights change."
-    preCtaLine="You don’t need to map every step today — start by talking to people who’ve already made the move."
   >
     <p className="text-lg text-foreground leading-relaxed mb-4">
       When you leave the Armed Forces for civilian work, your dyslexia support shifts from <strong>policy-based</strong> (JSP 822) to <strong>legally enforceable rights</strong> under the Equality Act 2010.
