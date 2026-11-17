@@ -15,6 +15,7 @@ const sitemapLastmod = (path: string) => sitemap().match(new RegExp(`<loc>${BASE
 const scripts = (path: string) => ((pageHead(path) as { scripts?: Array<{ children: string }> }).scripts ?? []).map(s => JSON.parse(s.children));
 const metaValue = (path: string, key: string) => (pageHead(path).meta as Array<Record<string, string>>).find(tag => tag["name"] === key || tag["property"] === key)?.["content"];
 const section = () => read("src/components/whyhere/WhyWeAreHereSection.tsx");
+const home = () => read("src/pages/HomePage.tsx");
 const oldPage = () => read("src/pages/_old/WhyWeAreHerePage.tsx");
 
 describe("Evidence is public", () => {
@@ -48,10 +49,40 @@ describe("Evidence is public", () => {
   });
 });
 
-describe("Evidence closes with the Why we are here argument", () => {
-  it("renders the section after the existing evidence content", () => {
+describe("The homepage carries the Why we are here argument (Prompt E)", () => {
+  it("renders the shared section once, after the one in ten band and before Real stories", () => {
+    const page = home();
+    expect(page).toContain('import WhyWeAreHereSection from "@/components/whyhere/WhyWeAreHereSection";');
+    expect(page.match(/<WhyWeAreHereSection \/>/g)).toHaveLength(1);
+    const oneInTen = page.indexOf(">Supporting the 10% to enable their 100%</h2>");
+    const why = page.indexOf("<WhyWeAreHereSection />");
+    const stories = page.indexOf(">Real stories from across Defence</h2>");
+    expect(oneInTen).toBeGreaterThan(-1);
+    expect(why).toBeGreaterThan(oneInTen);
+    expect(stories).toBeGreaterThan(why);
+    // The section markup lives only in the shared component.
+    expect(page).not.toContain("Defence has long attracted dyslexic people");
+  });
+
+  it("keeps What We Do, the Support Beyond Us grid and Learn more about us after Real stories", () => {
+    const page = home();
+    const why = page.indexOf("<WhyWeAreHereSection />");
+    for (const piece of ['id="support-beyond-us-heading"', ">What We Do</h2>", ">Learn more about us</Link>"]) expect(page.indexOf(piece), piece).toBeGreaterThan(why);
+  });
+
+  it("is no longer on Evidence, which stays public, dated and in the sitemap", () => {
     const page = read("src/pages/EvidencePage.tsx");
-    expect(page.indexOf("<WhyWeAreHereSection />")).toBeGreaterThan(page.indexOf("evidenceSections.map("));
+    expect(page).not.toContain("WhyWeAreHereSection");
+    expect(page).not.toContain("LevelCard");
+    expect(PUBLIC_PAGES["/evidence"]?.indexable).toBe(true);
+    expect(getPageDate("/evidence")).toBe("2026-11-17");
+    expect(sitemapLastmod("/evidence")).toBe("2026-11-17");
+  });
+
+  it("sets the homepage sitemap date to 17 November 2026 and keeps the homepage out of pageDates", () => {
+    expect(sitemapLastmod("/")).toBe("2026-11-17");
+    expect(getPageDate("/")).toBeUndefined();
+    expect(PAGE_DATES).not.toHaveProperty("/");
   });
 
   it("uses h2 for the section and h3 for the levels, closing line and sources", () => {
@@ -83,12 +114,22 @@ describe("Evidence closes with the Why we are here argument", () => {
     }
   });
 
-  it("drops only the See the full evidence link and links the closing buttons to Understanding dyslexia and Get involved", () => {
+  it("links Level 3 to the full evidence as the old page did, and ends with the closing line and sources, no buttons", () => {
     const text = section();
-    expect(text).not.toContain("See the full evidence");
-    expect(text).toContain('<Link to="/insights/understanding-dyslexia">Understanding dyslexia</Link>');
-    expect(text).toContain('<Link to="/get-involved">Get involved</Link>');
-    for (const gone of ['"/about/what-we-do"', '"/join"', '"/why-it-matters"', '"/evidence"']) expect(text, gone).not.toContain(gone);
+    const level3 = 'below={<Link className="inline-flex min-h-11 items-center text-primary underline underline-offset-4" to="/evidence">See the full evidence</Link>}';
+    expect(text).toContain(level3);
+    expect(oldPage()).toContain(level3);
+    expect(text).not.toContain("Button");
+    for (const gone of ["Understanding dyslexia", "Get involved", '"/insights/understanding-dyslexia"', '"/get-involved"', '"/about/what-we-do"', '"/join"', '"/why-it-matters"']) expect(text, gone).not.toContain(gone);
+    const internal = [...text.matchAll(/ to="([^"]+)"/g)].map(m => m[1]);
+    expect(internal).toEqual(["/insights/jsp822-vs-equality-act-dyslexia-military-vs-civilian-uk", "/evidence"]);
+    expect(text.indexOf(">Sources</h3>")).toBeGreaterThan(text.indexOf(">That gap is why Dyslexia in Defence exists.</h3>"));
+  });
+
+  it("matches the homepage band style rather than the Evidence banner", () => {
+    const text = section();
+    expect(text).toContain('className="whyhere-page border-t border-border bg-muted py-14 md:py-16"');
+    for (const gone of ["DotField", "JumpNavigation", "bg-brand-navy", "evidence-hero"]) expect(text, gone).not.toContain(gone);
   });
 
   it("lists the old page's four sources with the same links, opening in a new tab", () => {

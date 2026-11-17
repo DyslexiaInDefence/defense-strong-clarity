@@ -6,6 +6,7 @@ import { livedStories, LIVED_EXPERIENCES_BASE } from "@/data/livedStories";
 import HeroPersonnelBand from "@/components/HeroPersonnelBand";
 import SupportOrganisationLogo from "@/components/SupportOrganisationLogo";
 import { SUPPORT_ORGANISATIONS } from "@/data/supportOrganisations";
+import WhyWeAreHereSection from "@/components/whyhere/WhyWeAreHereSection";
 import { useEffect, useRef, useState } from "react";
 import { useAccessibility } from "@/contexts/AccessibilityContext";
 
@@ -166,6 +167,9 @@ const HomePage = () => {
           </p>
         </div>
       </section>
+
+      {/* Why we are here */}
+      <WhyWeAreHereSection />
 
       {/* Lived Experiences feature */}
       <section className="border-t border-border py-14" aria-label="Real stories from across Defence">

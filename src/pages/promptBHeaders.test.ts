@@ -167,11 +167,12 @@ describe("Trail and link integrity", () => {
   });
 
   it("dates every changed page 16 November 2026 and sets the homepage sitemap date without a page date", () => {
+    // Prompt E moved the homepage sitemap date on to 17 November 2026 when the Why we are here section arrived.
     for (const path of [...Object.keys(ARTICLES), "/currently-serving/army-education-centres", "/community", "/join"]) {
       expect(getPageDate(path), path).toBe("2026-11-16");
     }
     const sitemap = read("public/sitemap.xml");
-    expect(sitemap).toMatch(/<loc>https:\/\/dyslexiaindefence\.com\/<\/loc>\s*<lastmod>2026-11-16<\/lastmod>/);
+    expect(sitemap).toMatch(/<loc>https:\/\/dyslexiaindefence\.com\/<\/loc>\s*<lastmod>2026-11-17<\/lastmod>/);
     expect(getPageDate("/")).toBeUndefined();
     expect(getPageDate("/evidence")).toBe("2026-11-17");
   });
