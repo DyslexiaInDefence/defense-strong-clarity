@@ -102,9 +102,10 @@ describe("Army Education Centres and Evidence use the Get support header", () =>
     expect(page).toContain('<SupportTabs activePath="/insights" onTabPage={false} />');
     expect(page).toContain(">The data behind the story</h1>");
     expect(PAGE_BREADCRUMBS["/evidence"]).toEqual([HOME, GET_SUPPORT, { name: "The data behind the story" }]);
-    // Evidence stays noindex with its own head and no structured data, as before.
-    expect(read("src/routes/evidence.tsx")).toContain('{ name: "robots", content: "noindex, nofollow" }');
-    expect(read("src/routes/evidence.tsx")).not.toContain("ld+json");
+    // Prompt D: Evidence is public through the shared pageHead, with BreadcrumbList data matching this trail.
+    expect(read("src/routes/evidence.tsx")).toContain('head: () => pageHead("/evidence"),');
+    expect(read("src/routes/evidence.tsx")).not.toContain("noindex");
+    expect(breadcrumbData("/evidence")?.itemListElement).toEqual(asListItems("/evidence"));
   });
 });
 
@@ -172,7 +173,7 @@ describe("Trail and link integrity", () => {
     const sitemap = read("public/sitemap.xml");
     expect(sitemap).toMatch(/<loc>https:\/\/dyslexiaindefence\.com\/<\/loc>\s*<lastmod>2026-11-16<\/lastmod>/);
     expect(getPageDate("/")).toBeUndefined();
-    expect(getPageDate("/evidence")).toBeUndefined();
+    expect(getPageDate("/evidence")).toBe("2026-11-17");
   });
 
   it("adds no em dash in the new header code", () => {

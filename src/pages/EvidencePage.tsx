@@ -12,6 +12,7 @@ import "@/components/evidence/evidence.css";
 import PageTrail from "@/components/PageTrail";
 import SupportTabs from "@/components/SupportTabs";
 import { trailFor } from "@/data/pageBreadcrumbs";
+import WhyWeAreHereSection from "@/components/whyhere/WhyWeAreHereSection";
 import "./support/start-here.css";
 
 
@@ -65,6 +66,7 @@ const EvidencePage = () => {
       ))}
       </div>
       </div>
+      <WhyWeAreHereSection />
     </div>
   );
 };

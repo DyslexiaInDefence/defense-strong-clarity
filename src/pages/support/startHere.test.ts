@@ -338,13 +338,13 @@ describe("Staged support page boundaries", () => {
 
   it("retires the Understanding Dyslexia preview address, lists the final address in llms.txt and keeps it out of unagreed links", () => {
     // Only the tests may still name the old preview address.
-    const tests = new Set(["src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts"]);
+    const tests = new Set(["src/data/pageDates.test.ts", "src/data/publicPages.test.ts", "src/pages/support/startHere.test.ts", "src/pages/promptDEvidence.test.ts"]);
     for (const path of [...files("src"), ...files("public")]) {
       if (tests.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("understanding-dyslexia-preview"), path).toBe(false);
     }
     // Switch-over step 2: links to What We Do and the /about/what-we-do and /why-it-matters redirects now point straight here.
-    const allowed = new Set(["src/components/Layout.tsx", "src/routes/insights/understanding-dyslexia.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/about/OurStoryPage.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/routes/about/what-we-do.tsx", "src/routes/why-it-matters.tsx", "src/routeTree.gen.ts", ...tests]);
+    const allowed = new Set(["src/components/Layout.tsx", "src/routes/insights/understanding-dyslexia.tsx", "src/pages/support/SupportingSomeonePage.tsx", "src/components/Navbar.tsx", "src/components/Footer.tsx", "src/components/navFooter.test.ts", "src/pages/about/OurStoryPage.tsx", "src/pages/support/InsightsLandingPage.tsx", "src/components/whyhere/WhyWeAreHereSection.tsx", "src/routes/about/what-we-do.tsx", "src/routes/why-it-matters.tsx", "src/routeTree.gen.ts", ...tests]);
     for (const path of [...files("src"), ...files("public")]) {
       if (allowed.has(path) || PUBLIC_RECORDS.has(path) || !/\.(tsx?|txt|xml|html|md|json)$/.test(path)) continue;
       expect(readFileSync(path, "utf8").includes("/insights/understanding-dyslexia"), path).toBe(false);
@@ -1076,10 +1076,10 @@ describe("Switch-over step 1: final addresses", () => {
       expect(getPageDate(path), path).toBe("2026-11-14");
       expect(sitemap, path).toContain(`<loc>https://dyslexiaindefence.com${path}</loc>\n    <lastmod>2026-11-14</lastmod>`);
     }
-    // Insights and Serving now changed again in Homepage Prompt A.
-    for (const path of ["/insights", "/support/currently-serving"]) {
-      expect(getPageDate(path), path).toBe("2026-11-16");
-      expect(sitemap, path).toContain(`<loc>https://dyslexiaindefence.com${path}</loc>\n    <lastmod>2026-11-16</lastmod>`);
+    // Serving now changed again in Homepage Prompt A, and Insights again in Prompt D.
+    for (const [path, date] of [["/support/currently-serving", "2026-11-16"], ["/insights", "2026-11-17"]] as const) {
+      expect(getPageDate(path), path).toBe(date);
+      expect(sitemap, path).toContain(`<loc>https://dyslexiaindefence.com${path}</loc>\n    <lastmod>${date}</lastmod>`);
     }
   });
 

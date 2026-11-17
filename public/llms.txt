@@ -30,6 +30,7 @@ Dyslexia in Defence is volunteer-led and not affiliated with the Ministry of Def
 - [Guidance library](/support/guidance): Plain English guides, filtered by who they are for.
 - [Downloads and tools](/support/downloads-and-tools): Forms, directories and guides, including the Standard Learning Credits forms.
 - [FAQ](/support/faq): Quick answers to common questions, each linking to the full guide.
+- [The data behind the story](/evidence): What people across Defence tell us about dyslexia, what the research says, and why more dyslexic people in Defence have less guaranteed support.
 - [Support beyond us](/support/support-beyond-us): Other organisations offering mental health and wellbeing, local, neurodiversity, and transition and employment support.
 - [How you think and learn](/support/how-you-think-and-learn): What dyslexia is and how it can show up for you; fuller content is still to come.
 

@@ -92,6 +92,12 @@ export const PUBLIC_PAGES: Record<string, PageSEO> = {
     priority: 0.8,
     indexable: true,
   },
+  "/evidence": {
+    title: "The data behind the story: dyslexia evidence | Dyslexia in Defence",
+    description: "What people across Defence tell us about dyslexia, what the research says, and why more dyslexic people in Defence have less guaranteed support.",
+    priority: 0.7,
+    indexable: true,
+  },
   "/partner": {
     title: "Partner with us | Dyslexia in Defence",
     description: "Work with Dyslexia in Defence CIC to support neurodiverse talent, add social value and make UK Defence a better place for people who think differently.",

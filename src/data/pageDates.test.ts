@@ -30,7 +30,7 @@ const NOV_14_PAGES = [
 ];
 
 // Homepage Prompt A: Insights and Serving now content changed again on 16 November 2026.
-const PROMPT_A_PAGES = ["/insights", "/support/currently-serving"];
+const PROMPT_A_PAGES = ["/support/currently-serving"];
 
 // Prompt B (16 November 2026): the guide articles, Army Education Centres, Community and Join gained the
 // shared page headers and the articles lost the "Still unsure" box.
@@ -54,19 +54,25 @@ const PROMPT_C_PAGES = ["/support/support-beyond-us"];
 
 const NOV_16_PAGES = [...PROMPT_A_PAGES, ...PROMPT_B_PAGES, ...PROMPT_C_PAGES];
 
+// Prompt D (17 November 2026): Evidence went public with the "Why we are here" section, and Insights regained
+// its Key takeaways.
+const NOV_17_PAGES = ["/evidence", "/insights"];
+
 describe("Page date rules", () => {
   it("maps every page to its honest content date", () => {
-    expect(Object.keys(PAGE_DATES)).toHaveLength(46);
+    expect(Object.keys(PAGE_DATES)).toHaveLength(47);
     for (const [path, date] of Object.entries(PAGE_DATES)) {
       if (path.startsWith("/governance")) continue;
       if (path === "/contact") continue;
       if (path === "/lived-experiences/liz-oliver-british-army-veteran") continue;
       if (NOV_14_PAGES.includes(path)) continue;
       if (NOV_16_PAGES.includes(path)) continue;
+      if (NOV_17_PAGES.includes(path)) continue;
       expect(date, path).toBe("2026-10-24");
     }
     for (const path of NOV_14_PAGES) expect(PAGE_DATES[path], path).toBe("2026-11-14");
     for (const path of NOV_16_PAGES) expect(PAGE_DATES[path], path).toBe("2026-11-16");
+    for (const path of NOV_17_PAGES) expect(PAGE_DATES[path], path).toBe("2026-11-17");
     expect(PAGE_DATES["/governance"]).toBe("2026-08-08");
     expect(PAGE_DATES["/governance/founder"]).toBe("2026-08-08");
     expect(PAGE_DATES["/governance/sponsorship"]).toBe("2026-03-01");
@@ -96,25 +102,25 @@ describe("Page date rules", () => {
     }
   });
 
-  it("covers every content route except the homepage, newsletters and evidence", () => {
+  it("covers every content route except the homepage and newsletters", () => {
     for (const path of routeFiles("src/routes")) {
       const text = readFileSync(path, "utf8");
       if (!text.includes("component:") || path.endsWith("__root.tsx")) continue;
       const route = text.match(/createFileRoute\("([^"]+)"\)/)?.[1]?.replace(/\/$/, "");
-      if (!route || route === "/evidence" || route === "/insights/army-guide-preview" || route.startsWith("/newsletters/")) continue;
+      if (!route || route === "/insights/army-guide-preview" || route.startsWith("/newsletters/")) continue;
       expect(getPageDate(route), route).toBeDefined();
     }
   });
 
   it("excludes homepage, newsletters, redirects and unknown paths", () => {
-    for (const path of ["/", "/newsletters/october-2026", "/why-it-matters", "/privacy", "/achieve", "/ask", "/structure", "/currently-serving", "/insights/serving-with-dyslexia-in-the-army-uk", "/not-a-page", "/evidence"]) {
+    for (const path of ["/", "/newsletters/october-2026", "/why-it-matters", "/privacy", "/achieve", "/ask", "/structure", "/currently-serving", "/insights/serving-with-dyslexia-in-the-army-uk", "/not-a-page"]) {
       expect(getPageDate(path), path).toBeUndefined();
     }
   });
 
   it("dates every page made public in step 4 and gives it WebPage and BreadcrumbList data only", () => {
-    for (const path of [...NOV_14_PAGES, ...PROMPT_A_PAGES]) {
-      expect(getPageDate(path), path).toBe(PROMPT_A_PAGES.includes(path) ? "2026-11-16" : "2026-11-14");
+    for (const path of [...NOV_14_PAGES, ...PROMPT_A_PAGES, ...NOV_17_PAGES]) {
+      expect(getPageDate(path), path).toBe(NOV_17_PAGES.includes(path) ? "2026-11-17" : PROMPT_A_PAGES.includes(path) ? "2026-11-16" : "2026-11-14");
       const head = pageHead(path);
       const types = ("scripts" in head ? head.scripts ?? [] : []).map(script => JSON.parse(script.children)["@type"]);
       expect(types, path).toEqual(["WebPage", "BreadcrumbList"]);

@@ -25,10 +25,13 @@ const hits = (phrase: RegExp) =>
   SITE_FILES.flatMap(path => read(path).split("\n").flatMap((line, i) => (phrase.test(line) ? [`${path}:${i + 1}`] : [])));
 
 // "Reasonable adjustments" is the Equality Act 2010 duty on civilian employers. It is allowed only where a page
-// explains that civilian duty, never for Service support. Both files were on the live site before the switch-over.
+// explains that civilian duty, never for Service support. The first two files were on the live site before the
+// switch-over. Prompt D: the Evidence page's "Why we are here" section carries the old page's level 2 sentence
+// word for word, once, explaining the civilian Equality Act duty.
 const REASONABLE_ADJUSTMENTS_CIVILIAN_CONTEXT: Record<string, number> = {
   "src/pages/insights/JSP822vsEqualityActPage.tsx": 5,
   "src/components/whyhere/SupportGraphics.tsx": 1,
+  "src/components/whyhere/WhyWeAreHereSection.tsx": 1,
 };
 
 // The redesigned pages and the data files they render.

@@ -9,6 +9,14 @@ const cards = [
   { title: "Understanding dyslexia", description: "What a 'spiky' profile tells you about dyslexia", label: "Read about dyslexia", to: "/insights/understanding-dyslexia" },
 ];
 
+// Restored from the retired Insights page, with its em dashes replaced by colons.
+export const KEY_TAKEAWAYS = [
+  { lead: "Dyslexia is present", rest: " across the entire defence community: military, civil service and industry." },
+  { lead: "Support is improving", rest: ", but awareness remains inconsistent across organisations and ranks." },
+  { lead: "Lived experience matters", rest: " as much as policy: peer support drives real change." },
+  { lead: "Neurodiversity can be a leadership strength", rest: ": different thinking is an operational advantage." },
+];
+
 const more = [
   { title: "Start here", description: "Choose the route that sounds most like you.", to: "/support/start-here" },
   { title: "Guidance", description: "Every guide, filtered to you.", to: "/support/guidance" },
@@ -49,6 +57,18 @@ export default function InsightsLandingPage() {
             </li>
           ))}
         </ul>
+
+        <section aria-labelledby="key-takeaways" className={`${panelClass} mb-6`}>
+          <h2 id="key-takeaways" className="mb-4 text-2xl font-bold">Key takeaways</h2>
+          <ul className="space-y-4 text-base leading-relaxed">
+            {KEY_TAKEAWAYS.map(item => (
+              <li key={item.lead} className="flex items-start gap-3">
+                <span aria-hidden="true" className="mt-2 block size-2.5 shrink-0 rounded-full bg-primary" />
+                <span><strong>{item.lead}</strong>{item.rest}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
 
         <section aria-labelledby="looking-for-guides" className={`${panelClass} mb-12`}>
           <h2 id="looking-for-guides" className="mb-4 text-2xl font-bold">Looking for guides?</h2>

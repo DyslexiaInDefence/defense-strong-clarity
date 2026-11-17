@@ -12,13 +12,17 @@ export default function LastUpdated() {
 
   return (
     <div className="container px-4 pt-10 pb-8">
-      <p className="text-left text-base leading-relaxed text-muted-foreground">
-        {isEvidence ? (
-          <>Figures as at <time dateTime={EVIDENCE_DATA_AS_AT.iso}>{EVIDENCE_DATA_AS_AT.label}</time></>
-        ) : date ? (
-          <>Last updated: <time dateTime={date}>{formatPageDate(date)}</time></>
-        ) : null}
-      </p>
+      {date && (
+        <p className="text-left text-base leading-relaxed text-muted-foreground">
+          Last updated: <time dateTime={date}>{formatPageDate(date)}</time>
+        </p>
+      )}
+      {/* Evidence also states its reporting month, which changes only when the figures are refreshed. */}
+      {isEvidence && (
+        <p className="text-left text-base leading-relaxed text-muted-foreground">
+          Figures as at <time dateTime={EVIDENCE_DATA_AS_AT.iso}>{EVIDENCE_DATA_AS_AT.label}</time>
+        </p>
+      )}
     </div>
   );
 }

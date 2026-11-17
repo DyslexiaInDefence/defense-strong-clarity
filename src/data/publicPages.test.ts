@@ -117,10 +117,10 @@ describe("Switch-over step 4: redesigned pages are public", () => {
     }
   });
 
-  it("dates each page 14 November 2026 (Insights and Serving now 16 November 2026), matching its sitemap entry", () => {
+  it("dates each page 14 November 2026 (Serving now 16 November 2026, Insights 17 November 2026), matching its sitemap entry", () => {
     const entries = sitemapEntries();
     for (const path of PATHS) {
-      expect(getPageDate(path), path).toBe(["/insights", "/support/currently-serving"].includes(path) ? "2026-11-16" : "2026-11-14");
+      expect(getPageDate(path), path).toBe(path === "/insights" ? "2026-11-17" : path === "/support/currently-serving" ? "2026-11-16" : "2026-11-14");
       const matches = entries.filter(entry => entry.path === path);
       expect(matches, path).toHaveLength(1);
       expect(matches[0]?.lastmod, path).toBe(getPageDate(path));
